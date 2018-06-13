@@ -1,0 +1,130 @@
+body {
+    margin-top: 75px;
+    margin-bottom: 60px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14.5px;
+}
+
+p {
+	/*font-size: 1.20em;*/
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  background-color: #17abe6;
+  color: #FFFFFF;
+  padding: 10px;
+  text-align: right;
+}
+
+#footer a {
+	color: #FFFFFF;
+}
+
+.navbar-fixed-top .nav {
+	padding: 15px 0;
+}
+
+footer {
+	padding: 30px 0;
+}
+
+.navbar-default {
+    /*background-color: #17abe6;*/
+}
+
+.navbar-default .navbar-brand {
+	color: #000;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #000;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #000;
+}
+
+.navbar-nav > li > a {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.centered {
+	text-align: center;
+}
+
+h3 {
+	line-height: 1.6;
+}
+
+.well {
+	margin-bottom: 0;
+}
+
+.front-features h3 {
+	margin-top: 10px;
+}
+
+.front-little-things img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav > li > a {
+    display: block;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /*padding: 10px 15px;*/
+    position: relative;
+}
+
+.lead-title {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 0px;
+    margin-top: 0;
+}
+
+.lead-desc {
+	font-size: 1.20em;
+}
+
+.anchor{
+	display: block;
+	height: 60px;
+	margin-top: -60px;
+	visibility: hidden;
+}
+
+.documentation h2 {
+    /*font-size: 24px;*/
+    /*font-size: 2em;*/
+}
+.documentation h3 {
+    /*font-size: 18px;*/
+    /*font-weight: bold;*/
+}
+.documentation h4 {
+    margin-top: 25px;
+    /*font-size: 100%;*/
+    font-weight: bold;
+}
+
+.documentation img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}

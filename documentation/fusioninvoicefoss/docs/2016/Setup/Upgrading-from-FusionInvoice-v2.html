@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from fusioninvoicefoss/docs/2016/Setup/Upgrading-from-FusionInvoice-v2 by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Tue, 12 Jun 2018 20:30:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="0LjycIvOwOgPnMQcbJ9MgGppfU7GeskQnSeW7RsK">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self hosted invoicing for freelancers and small businesses">
+    <meta name="author" content="Jesse Terry">
+
+    <title>FusionInvoice - Self hosted invoicing for freelancers and small businesses</title>
+
+    <link rel="stylesheet" href="../../../../maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="../../../assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href='../../../../fonts.googleapis.com/css1082.css?family=Nunito+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    
+    <script src="../../../assets/js/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+    </script>
+
+    <script src="../../../../maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/errors.js"></script>
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-37669835-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+                <img src="../../../assets/img/logo.png" style="float: left; margin-top: -10px;">
+                <span style="padding-left: 10px;">FusionInvoice</span>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+
+
+                            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    
+<div class="row">
+
+	<div class="col-lg-3">
+
+		<div class="bs-sidebar">
+
+            <h4>Versions</h4>
+
+                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2018.html">FusionInvoice 2018</a></p>
+                                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2017.html">FusionInvoice 2017</a></p>
+                                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2016.html"><span class="label label-primary" style="font-size: 1em;">FusionInvoice 2016</span></a></p>
+                            
+                            <h4>About FusionInvoice</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../About-FusionInvoice/Requirements.html">Requirements</a></li>
+                                                                            <li><a href="../About-FusionInvoice/License.html">License</a></li>
+                                                                            <li><a href="../About-FusionInvoice/Support.html">Support</a></li>
+                                                                            <li><a href="../About-FusionInvoice/Release-Notes.html">Release Notes</a></li>
+                                                    </ul>
+
+                            <h4>Setup</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="Installation.html">Installation</a></li>
+                                                                            <li><a href="Upgrade.html">Upgrade</a></li>
+                                                                                <li style="background-color: #eee;"><a href="Upgrading-from-FusionInvoice-v2.html">Upgrading from FusionInvoice v2</a></li>
+                                                                            <li><a href="Task-Scheduler.html">Task Scheduler</a></li>
+                                                    </ul>
+
+                            <h4>User Guides</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../User-Guides/Invoices.html">Invoices</a></li>
+                                                                            <li><a href="../User-Guides/Quotes.html">Quotes</a></li>
+                                                                            <li><a href="../User-Guides/Clients.html">Clients</a></li>
+                                                                            <li><a href="../User-Guides/Payments.html">Payments</a></li>
+                                                                            <li><a href="../User-Guides/Expenses.html">Expenses</a></li>
+                                                                            <li><a href="../User-Guides/Importing-Data.html">Importing Data</a></li>
+                                                                            <li><a href="../User-Guides/REST-API.html">REST API</a></li>
+                                                    </ul>
+
+                            <h4>Customization</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../Customization/Invoice-Templates.html">Invoice Templates</a></li>
+                                                                            <li><a href="../Customization/Email-Templates.html">Email Templates</a></li>
+                                                                            <li><a href="../Customization/Translations.html">Translations</a></li>
+                                                    </ul>
+
+                            <h4>FAQ</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../FAQ/Frequently-Asked-Questions.html">Frequently Asked Questions</a></li>
+                                                    </ul>
+
+            
+		</div>
+
+	</div>
+
+	<div class="col-lg-9 documentation">
+
+		<h2>Upgrading from FusionInvoice v2</h2>
+
+<hr>
+
+<p>Before continuing, please note that SQLite is no longer supported. Compatibility with MySQL is 100% guaranteed.
+    Other database types may or may not work as expected and will no longer be supported.</p>
+
+<p><a href="#step1">Step 1: Things to back up</a></p>
+<p><a href="#step2">Step 2: Delete all existing FusionInvoice files from your server</a></p>
+<p><a href="#step3">Step 3: Download the install package</a></p>
+<p><a href="#step4">Step 4: Unzip the install package</a></p>
+<p><a href="#step5">Step 5: Database configuration</a></p>
+<p><a href="#step6">Step 6: License key configuration</a></p>
+<p><a href="#step7">Step 7: Upload the files to your server</a></p>
+<p><a href="#step8">Step 8: Set folder permissions</a></p>
+<p><a href="#step9">Step 9: Complete the install</a></p>
+<p><a href="#step10">Step 10: Configuration</a></p>
+<p><a href="#custom-templates">Optional: Update your custom templates</a></p>
+
+<hr>
+
+<span class="anchor" id="step1"></span>
+<h3>Step 1: Things to back up</h3>
+
+<p>Save copies of the following configuration files from your server to your local computer:</p>
+
+<ul>
+    <li>app/config/database.php</li>
+    <li>app/config/payments.php</li>
+</ul>
+
+<p>If you created or purchased custom templates, save copies of those files to your local computer from the following
+    locations on your server:</p>
+
+<ul>
+    <li>app/FI/Modules/Templates/Views/templates/invoices</li>
+    <li>app/FI/Modules/Templates/Views/templates/quotes</li>
+</ul>
+
+<p>Create a backup of your MySQL database from phpMyAdmin (or whatever tool you use to manage your databases).</p>
+
+<hr>
+
+<span class="anchor" id="step2"></span>
+<h3>Step 2: Delete all existing FusionInvoice files and folders from your server</h3>
+
+<p>Delete the entire folder from your server which contains the FusionInvoice folders and files. Recreate the empty
+    folder
+    once it has been deleted.</p>
+
+<hr>
+
+<span class="anchor" id="step3"></span>
+<h3>Step 3: Download the install package</h3>
+
+<a href="../../../assets/img/docs/install.png" target="_blank">
+    <img src="../../../assets/img/docs/install_small.png" class="img-responsive img-thumbnail">
+</a>
+
+<ol>
+    <li>
+        Download the latest package. Save it locally to your computer.
+    </li>
+</ol>
+
+<hr>
+
+<span class="anchor" id="step4"></span>
+<h3>Step 4: Unzip the install package</h3>
+
+<a href="../../../assets/img/docs/install2.png" target="_blank">
+    <img src="../../../assets/img/docs/install2_small.png" class="img-responsive img-thumbnail">
+</a>
+
+<p>Navigate to the downloaded install package and unzip the contents.</p>
+
+<hr>
+
+<span class="anchor" id="step5"></span>
+<h3>Step 5: Database configuration</h3>
+
+<p>
+    Open config/database.php from the unzipped installer package. Edit the file and point it to your existing
+    FusionInvoice database and save the modified file. Use your backed up database.php file for reference purposes.
+</p>
+
+<p>
+    Typically you should only have to configure the host, database, username and password values to connect to your
+    database. Compatibility with MySQL is 100% guaranteed. Other database types may or may not work as expected and are
+    no longer supported.
+</p>
+
+<pre>
+'mysql' => [
+    'host'      => 'localhost',
+    'database'  => 'fusioninvoice',
+    'username'  => 'root',
+    'password'  => 'password',
+    'prefix'    => '',
+
+    'driver'    => 'mysql',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'strict'    => false,
+],
+</pre>
+
+<hr>
+
+<span class="anchor" id="step6"></span>
+<h3>Step 6: License key configuration</h3>
+
+<p>
+    Open config/app.php from the unzipped installer package and replace the ReplaceThisWithYourOwnLicenseKey value with
+    your license key  and save the modified file. Be sure there are no
+    leading or trailing spaces.
+</p>
+
+<pre>
+'key' => 'ReplaceThisWithYourOwnLicenseKey',
+</pre>
+
+<hr>
+
+<span class="anchor" id="step7"></span>
+<h3>Step 7: Upload the files to your server</h3>
+
+<a href="../../../assets/img/docs/install3.png" target="_blank">
+    <img src="../../../assets/img/docs/install3_small.png" class="img-responsive img-thumbnail">
+</a>
+
+<p>
+    Upload the unzipped files from your computer to the empty folder on your server you recreated earlier. It is
+    recommended that you use a standard FTP program such as
+    <a href="../../../../external.html?link=https://filezilla-project.org/download.php?type=client" target="_blank">FileZilla</a> to upload the files
+    to your server. This initial upload may take a few minutes to complete.
+</p>
+
+<hr>
+
+<span class="anchor" id="step8"></span>
+<h3>Step 8: Set folder permissions</h3>
+
+<p>Apply recursive write permissions to the following folders (including all the folders and files contained
+    within):</p>
+
+<ul>
+    <li>storage</li>
+    <li>bootstrap/cache</li>
+</ul>
+
+<p>The exact steps to set the appropriate permissions will depend on your web host and server configuration.
+    FusionInvoice cannot advise on the exact steps or permissions to apply to make these folders writable. If you have
+    questions about this step, please contact your web host or system administrator.</p>
+
+<hr>
+
+<span class="anchor" id="step9"></span>
+<h3>Step 9: Complete the upgrade</h3>
+
+<p>
+    Visit your FusionInvoiceURL/setup in your web browser. If your FusionInvoiceURL/setup produces an error, try using
+    FusionInvoiceURL/index.php/setup instead. This step will upgrade your v2 database. Once this step is completed, you
+    should be able to log into your upgraded FusionInvoice system.
+</p>
+
+<hr>
+
+<span class="anchor" id="step10"></span>
+<h3>Step 10: Configuration</h3>
+
+<p>
+    Once logged into FusionInvoice, go to System -> System Settings and update the following settings:
+</p>
+
+<ol>
+    <li>If you had a logo uploaded in v2, re-upload your logo on the General tab.</li>
+    <li>If you had SMTP email configured in v2 using a password, re-enter your email password on the Email tab.</li>
+    <li>If you had online payments configured in v2, review the Online Payments tab and adjust accordingly. Use your
+        backed up payments.php file for reference purposes.
+    </li>
+</ol>
+
+<hr>
+
+<p>
+    This should result in a fully upgraded system! From here on, your upgrades will be much simpler :)</p>
+
+<hr>
+
+<span class="anchor" id="custom-templates"></span>
+<h3>Optional: Update your custom templates</h3>
+
+<p>
+    This portion of the documentation only applies if you have created or purchased customized templates for
+    FusionInvoice v2 and would like to use those same templates in FusionInvoice 2016. Below are the steps to follow,
+    which should be easily achieved by using find and replace in your text / code editor.
+</p>
+
+<p>The following steps are in a monospaced font to make the brackets easier to identify.</p>
+
+<ol style="font-family: monospace;">
+    <li>Open your v2 custom template file in a text or code editor.</li>
+    <li>Change all &#123;&#123;&#123; to &#123;&#123;</li>
+    <li>Change all &#125;&#125;&#125; to &#125;&#125;</li>
+    <li>Change &#123;&#123; $logo &#125;&#125; to &#123;!! $logo !!&#125;</li>
+    <li>Change &#123;&#123; $invoice->user->formatted_address &#125;&#125; to &#123;!! $invoice->user->formatted_address
+        !!&#125;</li>
+
+    <li>Change &#123;&#123; $invoice->client->formatted_address &#125;&#125; to &#123;!!
+        $invoice->client->formatted_address !!&#125;</li>
+
+    <li>Change &#123;&#123; $item->name &#125;&#125; to &#123;!! $item->name !!&#125;</li>
+
+    <li>Change &#123;&#123; $item->formatted_description &#125;&#125; to &#123;!! $item->formatted_description
+        !!&#125;</li>
+
+    <li>Change $invoice->amount->formatted_item_subtotal to $invoice->amount->formatted_subtotal</li>
+
+    <li>Change &#123;&#123; $invoice->formatted_terms &#125;&#125; to &#123;!! $invoice->formatted_terms !!&#125;</li>
+
+    <li>Change &#123;&#123; $invoice->formatted_footer &#125;&#125; to &#123;!! $invoice->formatted_footer !!&#125;</li>
+    <li>Save your changes and save the file to custom/templates/invoice_templates if it's an invoice template or
+        custom/templates/quote_templates if it's a quote template.
+        The template should now be selectable and should generate your invoice/quote PDF.
+    </li>
+</ol>
+
+	</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<div id="footer">
+    <div class="container">
+
+    </div>
+</div>
+
+</body>
+
+
+<!-- Mirrored from fusioninvoicefoss/docs/2016/Setup/Upgrading-from-FusionInvoice-v2 by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Tue, 12 Jun 2018 20:30:29 GMT -->
+</html>

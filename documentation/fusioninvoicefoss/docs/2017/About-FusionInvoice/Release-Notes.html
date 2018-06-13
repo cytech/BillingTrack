@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from fusioninvoicefoss/docs/2017/About-FusionInvoice/Release-Notes by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Tue, 12 Jun 2018 20:28:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="0LjycIvOwOgPnMQcbJ9MgGppfU7GeskQnSeW7RsK">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self hosted invoicing for freelancers and small businesses">
+    <meta name="author" content="Jesse Terry">
+
+    <title>FusionInvoice - Self hosted invoicing for freelancers and small businesses</title>
+
+    <link rel="stylesheet" href="../../../../maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="../../../assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href='../../../../fonts.googleapis.com/css1082.css?family=Nunito+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    
+    <script src="../../../assets/js/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+    </script>
+
+    <script src="../../../../maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/errors.js"></script>
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-37669835-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+                <img src="../../../assets/img/logo.png" style="float: left; margin-top: -10px;">
+                <span style="padding-left: 10px;">FusionInvoice</span>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+
+
+                            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    
+<div class="row">
+
+	<div class="col-lg-3">
+
+		<div class="bs-sidebar">
+
+            <h4>Versions</h4>
+
+                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2018.html">FusionInvoice 2018</a></p>
+                                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2017.html"><span class="label label-primary" style="font-size: 1em;">FusionInvoice 2017</span></a></p>
+                                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2016.html">FusionInvoice 2016</a></p>
+                            
+                            <h4>About FusionInvoice</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="Requirements.html">Requirements</a></li>
+                                                                            <li><a href="License.html">License</a></li>
+                                                                            <li><a href="Support.html">Support</a></li>
+                                                                                <li style="background-color: #eee;"><a href="Release-Notes.html">Release Notes</a></li>
+                                                    </ul>
+
+                            <h4>Setup</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../Setup/Installation.html">Installation</a></li>
+                                                                            <li><a href="../Setup/Upgrade.html">Upgrade</a></li>
+                                                                            <li><a href="../Setup/Task-Scheduler.html">Task Scheduler</a></li>
+                                                    </ul>
+
+                            <h4>User Guides</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../User-Guides/Clients.html">Clients</a></li>
+                                                                            <li><a href="../User-Guides/Quotes.html">Quotes</a></li>
+                                                                            <li><a href="../User-Guides/Invoices.html">Invoices</a></li>
+                                                                            <li><a href="../User-Guides/Recurring-Invoices.html">Recurring Invoices</a></li>
+                                                                            <li><a href="../User-Guides/Payments.html">Payments</a></li>
+                                                                            <li><a href="../User-Guides/Expenses.html">Expenses</a></li>
+                                                                            <li><a href="../User-Guides/Importing-Data.html">Importing Data</a></li>
+                                                                            <li><a href="../User-Guides/REST-API.html">REST API</a></li>
+                                                    </ul>
+
+                            <h4>Add ons</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../Add-ons/Time-Tracking.html">Time Tracking</a></li>
+                                                    </ul>
+
+                            <h4>Customization</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../Customization/Custom-Fields.html">Custom Fields</a></li>
+                                                                            <li><a href="../Customization/Invoice-Templates.html">Invoice Templates</a></li>
+                                                                            <li><a href="../Customization/Email-Templates.html">Email Templates</a></li>
+                                                                            <li><a href="../Customization/Translations.html">Translations</a></li>
+                                                    </ul>
+
+                            <h4>FAQ</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../FAQ/Frequently-Asked-Questions.html">Frequently Asked Questions</a></li>
+                                                    </ul>
+
+            
+		</div>
+
+	</div>
+
+	<div class="col-lg-9 documentation">
+
+		<h2>Release Notes</h2>
+
+<hr>
+
+<h3>FusionInvoice 2017-13 (Jan 16, 2018)</h3>
+
+<ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug which caused the invoice amount to not appear on the PayPal checkout page.</li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-12 (Jan 13, 2018)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>The Profit and Loss report has a new option to include profit based on either invoice date or payment date.</li>
+        <li>The payment receipt checkbox no longer appears if client has no email address.</li>
+        <li>The client unique name is now included when searching for invoices, payments, quotes and recurring invoices.</li>
+    </ul>
+
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug when saving quotes and applying exchange rates to item amounts.</li>
+        <li>Fixed an issue when using PHP 7.2.</li>
+    </ul>
+
+    <li>Translations</li>
+    <ul>
+        <li>Updated Dutch translations (thanks, Edwin).</li>
+        <li>Update Spanish translation (thanks, Amit).</li>
+    </ul>
+
+    <li>Upgrading</li>
+    <ul>
+        <li>Be sure and review the <a href="../Setup/Upgrade.html#how-to-upgrade-fusioninvoice-2017">upgrade documentation</a> for
+            instructions on upgrading.
+        </li>
+    </ul>
+
+    <li>Time Tracking Add-on</li>
+    <ul>
+        <li>Bugfixes</li>
+        <ul>
+            <li>Added Italian Time Tracking translation (thanks, Daniel).</li>
+        </ul>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-11 (Nov 8, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Deductible tax can be added to expenses.</li>
+        <li>Tax Summary Report now takes taxes entered on expenses into consideration.</li>
+        <li>The Stripe payment driver now uses the company profile logo if it exists for the image displayed on the checkout form.</li>
+        <li>Clients, quotes, invoices, payments and expenses can be deleted in bulk.</li>
+        <li>Invoice and quote statuses can be changed in bulk.</li>
+        <li>Expenses can now be imported.</li>
+        <li>Expense description is now a textarea field allowing multiple line descriptions.</li>
+        <li>Added search functionality to the Item Lookups screen.</li>
+        <li>Added system settings to choose the default selected status when viewing invoice and quote lists.</li>
+        <li>Added support for VAT/GST tax calculation.</li>
+        <li>The invoice number now displays on the Enter Payment screen.</li>
+        <li>Custom fields can now be created for Expenses.</li>
+    </ul>
+
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug where the user list provided an invalid link when clicking the name of the user to edit the account instead of using Options -> Edit.</li>
+        <li>Fixed an issue which would cause certain characters to be output incorrectly on the Stripe checkout form.</li>
+        <li>Fixed an issue with the update checker in System Settings.</li>
+        <li>Fixed an issue where the default invoice group was not selected by default on the Quote to Invoice screen.</li>
+        <li>Fixed a bug in the Time Tracking add-on which is present when the client name and unique name differ.</li>
+        <li>Fixed a bug in the Stripe payment driver.</li>
+        <li>Replaced the discontinued Yahoo currency converter with Fixer.io currency converter.</li>
+    </ul>
+
+    <li>Time Tracking Add-on</li>
+    <ul>
+        <li>Bugfixes</li>
+        <ul>
+            <li>Fixed a bug in the Time Tracking add-on which is present when the client name and unique name differ.</li>
+        </ul>
+    </ul>
+
+    <li>Translations</li>
+    <ul>
+        <li>Updated Dutch translations (thanks, Edwin).</li>
+    </ul>
+
+    <li>Upgrading</li>
+    <ul>
+        <li>Be sure and review the <a href="../Setup/Upgrade.html#how-to-upgrade-fusioninvoice-2017">upgrade documentation</a> for
+            instructions on upgrading.
+        </li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-10 (Aug 27, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Added support for 24 hour time format.</li>
+        <li>Added ability to change the group on recurring invoices.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Emailing quotes or invoices on a filtered list will now properly redirect back to the filtered list when the email has been sent.</li>
+        <li>Fixed a bug when resetting passwords on client user accounts.</li>
+        <li>Fixed an issue with the exchange rate API.</li>
+    </ul>
+
+    <li>Time Tracking Add-on</li>
+    <ul>
+        <li>Enhancements and General Changes</li>
+        <ul>
+            <li>Billing tasks now applies the default item tax rates.</li>
+            <li>Added Select All and Deselect All links for Time Tracking task list.</li>
+        </ul>
+        <li>Bugfixes</li>
+        <ul>
+            <li>Fixed a bug which produced inaccurate values when billing asks using non-USD currencies.</li>
+            <li>Fixed some localization issues.</li>
+            <li>Added Dutch translation (thanks, Brian).</li>
+        </ul>
+    </ul>
+    <li>Upgrading</li>
+    <ul>
+        <li>Be sure and review the <a href="../Setup/Upgrade.html#how-to-upgrade-fusioninvoice-2017">upgrade documentation</a> for
+            instructions on upgrading.
+        </li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-9 (Aug 6, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Added InvoiceHTMLCreating and QuoteHTMLCreating events.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug which occurred in some situations when editing recurring invoices.</li>
+        <li>Fixed a bug when editing admin user accounts.</li>
+        <li>Fixed a number of bugs affecting the API (includes updated examples, so please download the API library and review the examples if using the API).</li>
+        <li>Fixed a bug affecting the Mollie payment driver.</li>
+        <li>Fixed date references in various reports.</li>
+    </ul>
+    <li>Upgrading</li>
+    <ul>
+        <li>Be sure and review the <a href="../Setup/Upgrade.html#how-to-upgrade-fusioninvoice-2017">upgrade documentation</a> for
+            instructions on upgrading.
+        </li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-8 (Jul 30, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Client center user accounts have been moved to System -> User Accounts.</li>
+        <li>Added an option to System Settings to enable Bitcoin payments through Stripe checkout (disabled by default).</li>
+        <li>The Stripe checkout form now collects name and billing address.</li>
+        <li>Settings for online payments have been translated.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug which prevented recurring invoices from generating.</li>
+        <li>The item lookup importer now imports tax rates.</li>
+    </ul>
+    <li>Upgrading</li>
+    <ul>
+        <li>Be sure and review the <a href="../Setup/Upgrade.html#how-to-upgrade-fusioninvoice-2017">upgrade documentation</a> for
+            instructions on upgrading.
+        </li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-7 (Jul 22, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>The client email address is no longer required to be a unique value when creating or updating a client record.</li>
+        <li>The client list now defaults to active clients.</li>
+        <li>The Summary field on quotes, invoices and recurring invoices has been increased to 255 characters.</li>
+        <li>Added a setting to System Settings on the Email tab to define an optional Reply To address on outgoing emails.</li>
+        <li>Removed dependence of the Omnipay library for online payments and re-implemented online payments using native client API's.</li>
+        <li>Removed support for PayPal's classic API and replaced it with PayPal's REST API.</li>
+        <li>General performance improvements were made throughout the system.</li>
+        <li>All repositories were removed from the codebase. This will affect any customizations and/or add-ons
+            which use repositories inside the app/Modules folder.
+        </li>
+    </ul>
+    <li>Translations</li>
+    <ul>
+        <li>Updated French translation (thanks, JP).</li>
+        <li>Added Italian translation (thank you, Daniel).</li>
+        <li>Added Swedish translation (thanks, Simon).</li>
+    </ul>
+    <li>Upgrading</li>
+    <ul>
+        <li>Be sure and review the <a href="../Setup/Upgrade.html#how-to-upgrade-fusioninvoice-2017">upgrade documentation</a> for
+            instructions on upgrading.
+        </li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-6 (May 24, 2017)</h3>
+
+<ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug when changing the default invoice or quote template in System Settings.</li>
+        <li>Fixed a bug affecting users upgrading from FusionInvoice v2.</li>
+        <li>Fixed a redirect issue when entering a payment from a filtered list of invoices.</li>
+        <li>Fixed a bug which produced an error when importing clients.</li>
+    </ul>
+    <li>Translations</li>
+    <ul>
+        <li>Updated French translation (thanks, Jean-Philippe).</li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-5 (May 15, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Added option to Tax Summary report to exclude unpaid invoices.</li>
+        <li>Deleting a invoice or quote will decrement the next group number if it was the last quote or invoice generated. For example, if INV2001 was the last invoice number generated and then INV2001 is deleted, the next invoice number
+            generated will be INV2001 and not INV2002.
+        </li>
+        <li>Added profile image and name to client center sidebar.</li>
+        <li>Changing an invoice status to canceled will set the balance amount to zero.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug in the payments area affecting installations using database table prefixes.</li>
+        <li>Fixed a bug which caused the custom date range chooser not to work when using the French translation.</li>
+        <li>Item Sales Report no longer includes results from canceled invoices.</li>
+        <li>Tax Summary Report no longer includes results from canceled invoices.</li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-4 (May 6, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Added default invoice and quote template settings to Company Profiles.</li>
+        <li>Logos are now uploaded to Company Profiles instead of System Settings.</li>
+        <li>Custom fields can be created for Company Profiles.</li>
+        <li>Quote and invoice groups can now use {MONTHSHORTNAME} in the group format to produce the short month name such as Jan, Feb, Mar, etc in quote and invoice numbers.</li>
+        <li>The InvoiceCreatedRecurring event now receives a 2nd parameter for the $recurringinvoice which created the new invoice.</li>
+        <li>Quote and invoices sort naturally.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed a bug preventing taxes from displaying on the Item Sales report.</li>
+        <li>Fixed a bug affecting a small number of environments which causes System Settings to become inaccessible after an update.</li>
+        <li>Client view screen will now display line breaks in custom field values.</li>
+        <li>Saving a client no longer creates a user record when it shouldn't.</li>
+        <li>Deleting a client now deletes the user custom record if it exists.</li>
+        <li>Fixed a bug in the Expense module.</li>
+    </ul>
+    <li>Translations</li>
+    <ul>
+        <li>Updated Dutch translation (thanks Edwin).</li>
+        <li>Updated French translation (thanks, Jean-Pierre).</li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-3 (Feb 26, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Added a Recent Client Activity Dashboard widget. To enable, go to the Dashboard tab of System Settings.</li>
+        <li>Added a Mail Log under the System icon that displays all email which has been sent from FusionInvoice.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed an issue in the Custom Fields module affecting a very minimal number of server environments.</li>
+        <li>Fixed a relationship issue between RecurringInvoices and Groups.</li>
+    </ul>
+    <li>Translations</li>
+    <ul>
+        <li>Added French Canadian translation (thanks, Christian).</li>
+        <li>Updated French translations (thanks, Michel)</li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-2 (Feb 12, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Added ability to create a custom.css file inside the custom folder which will be automatically loaded if it exists to apply custom styles to the application without concern of being overwritten during updates.</li>
+        <li>Updated default .htaccess file to block outside access to /custom/addons and /custom/overrides folders.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Fixed an issue with domPDF which affected certain environments.</li>
+        <li>Updated the API URL for the currency converter.</li>
+        <li>Fixed a bug where emailing a payment receipt when applying a payment would send the invoice without the payment applied.</li>
+        <li>Fixed bugs in the Export Data module which prevented invoices and quotes from exporting.</li>
+        <li>Fixed the documentation links in System Settings on the email tab.</li>
+    </ul>
+    <li>Translations</li>
+    <ul>
+        <li>Added nl translation (thanks Christiaan and Boudy)</li>
+    </ul>
+</ul>
+
+<hr>
+
+<h3>FusionInvoice 2017-1 (Jan 23, 2017)</h3>
+
+<ul>
+    <li>Enhancements and General Changes</li>
+    <ul>
+        <li>Added the new Company Profiles feature which allows users with multiple company identities to easily manage
+            those identities (profiles) and associate them with quotes, invoices, etc.
+        </li>
+        <li>Overhauled the existing Recurring Invoices feature to make it much more logical and streamlined. Please see
+            the <a href="../User-Guides/Recurring-Invoices.html">Recurring Invoices documentation</a> for details.
+        </li>
+        <li>Custom field values now copy from quote to quote, quote to invoice, recurring invoice to recurring invoice, recurring invoice to invoice and invoice to invoice provided
+            the source and target document type both have custom fields with the same field label.
+        </li>
+        <li>Added a new date range selector to all reports.</li>
+        <li>Validation messages received when submitting forms now include translated field names.</li>
+        <li>Event listeners have been moved from the app/Listeners folder to the app/Events/Listeners folder.</li>
+        <li>Default invoice and quote templates now use DejaVu Sans to increase UTF-8 compatibility with domPDF.</li>
+        <li>An option has been added to System Settings to enable entering payments on invoices with no balance.</li>
+        <li>Any core application view can be overridden by adding the fiew file(s) to override in /custom/overrides/{viewfoldertooverride}/{viewfiletooverride}.</li>
+        <li>If you're actively using the FusionInvoice API, be sure to download a new copy from your account and review the updated examples.</li>
+    </ul>
+    <li>Bugfixes</li>
+    <ul>
+        <li>Client Statement report no longer includes canceled invoices.</li>
+        <li>The received payments total on the Invoice Summary dashboard widget now considers the payment date instead of the invoice date.</li>
+        <li>Fixed a bug in the Expense module which would create additional client records in a certain situation.</li>
+    </ul>
+    <li>Translations</li>
+    <ul>
+        <li>Removed a number of unused translation strings and compacted all files.</li>
+        <li>Removed unmaintained translations: is, nl, no, sk</li>
+    </ul>
+</ul>
+
+	</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<div id="footer">
+    <div class="container">
+
+    </div>
+</div>
+
+</body>
+
+
+<!-- Mirrored from fusioninvoicefoss/docs/2017/About-FusionInvoice/Release-Notes by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Tue, 12 Jun 2018 20:28:20 GMT -->
+</html>

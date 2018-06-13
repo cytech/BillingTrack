@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from fusioninvoicefoss/docs/2017/User-Guides/Recurring-Invoices by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Tue, 12 Jun 2018 20:29:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="0LjycIvOwOgPnMQcbJ9MgGppfU7GeskQnSeW7RsK">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self hosted invoicing for freelancers and small businesses">
+    <meta name="author" content="Jesse Terry">
+
+    <title>FusionInvoice - Self hosted invoicing for freelancers and small businesses</title>
+
+    <link rel="stylesheet" href="../../../../maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="../../../assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href='../../../../fonts.googleapis.com/css1082.css?family=Nunito+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    
+    <script src="../../../assets/js/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+    </script>
+
+    <script src="../../../../maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/errors.js"></script>
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-37669835-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+                <img src="../../../assets/img/logo.png" style="float: left; margin-top: -10px;">
+                <span style="padding-left: 10px;">FusionInvoice</span>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+
+
+                            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    
+<div class="row">
+
+	<div class="col-lg-3">
+
+		<div class="bs-sidebar">
+
+            <h4>Versions</h4>
+
+                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2018.html">FusionInvoice 2018</a></p>
+                                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2017.html"><span class="label label-primary" style="font-size: 1em;">FusionInvoice 2017</span></a></p>
+                                                                <p style="padding-left: 15px; font-size: 1em;"><a href="../../2016.html">FusionInvoice 2016</a></p>
+                            
+                            <h4>About FusionInvoice</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../About-FusionInvoice/Requirements.html">Requirements</a></li>
+                                                                            <li><a href="../About-FusionInvoice/License.html">License</a></li>
+                                                                            <li><a href="../About-FusionInvoice/Support.html">Support</a></li>
+                                                                            <li><a href="../About-FusionInvoice/Release-Notes.html">Release Notes</a></li>
+                                                    </ul>
+
+                            <h4>Setup</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../Setup/Installation.html">Installation</a></li>
+                                                                            <li><a href="../Setup/Upgrade.html">Upgrade</a></li>
+                                                                            <li><a href="../Setup/Task-Scheduler.html">Task Scheduler</a></li>
+                                                    </ul>
+
+                            <h4>User Guides</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="Clients.html">Clients</a></li>
+                                                                            <li><a href="Quotes.html">Quotes</a></li>
+                                                                            <li><a href="Invoices.html">Invoices</a></li>
+                                                                                <li style="background-color: #eee;"><a href="Recurring-Invoices.html">Recurring Invoices</a></li>
+                                                                            <li><a href="Payments.html">Payments</a></li>
+                                                                            <li><a href="Expenses.html">Expenses</a></li>
+                                                                            <li><a href="Importing-Data.html">Importing Data</a></li>
+                                                                            <li><a href="REST-API.html">REST API</a></li>
+                                                    </ul>
+
+                            <h4>Add ons</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../Add-ons/Time-Tracking.html">Time Tracking</a></li>
+                                                    </ul>
+
+                            <h4>Customization</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../Customization/Custom-Fields.html">Custom Fields</a></li>
+                                                                            <li><a href="../Customization/Invoice-Templates.html">Invoice Templates</a></li>
+                                                                            <li><a href="../Customization/Email-Templates.html">Email Templates</a></li>
+                                                                            <li><a href="../Customization/Translations.html">Translations</a></li>
+                                                    </ul>
+
+                            <h4>FAQ</h4>
+
+                <ul class="nav bs-sidenav">
+                                                        <li><a href="../FAQ/Frequently-Asked-Questions.html">Frequently Asked Questions</a></li>
+                                                    </ul>
+
+            
+		</div>
+
+	</div>
+
+	<div class="col-lg-9 documentation">
+
+		<h2>Recurring Invoices</h2>
+
+<hr>
+
+<p><a href="#recurring-invoices">How do recurring invoices work?</a></p>
+<p><a href="#create-recurring-invoice">How do I create a recurring invoice?</a></p>
+<p><a href="#copy-recurring-invoice">How do I copy a recurring invoice?</a></p>
+
+<hr>
+
+<span class="anchor" id="recurring-invoices"></span>
+<h3>How do recurring invoices work?</h3>
+
+<p>Recurring invoices act as a template for invoices which need to be generated on a specific
+    frequency (once a month, twice a year, etc). Other than the fact that recurring invoices aren't sent
+    directly to a client (the generated invoice is) and payments aren't made against a recurring invoice (payments are
+    made against the generated invoice), recurring invoices are almost identical to invoices.</p>
+
+<p>Once a recurring invoice has been created, the <a href="../Setup/Task-Scheduler.html">Task Scheduler</a>
+    will cycle through each day and check for any recurring invoices which are due to generate invoices from. Any recurring invoices which are
+    due to be generated will be. Depending on the "Automatically email recurring invoices" setting in System Settings on the Invoices tab, the generated
+    invoice will email itself to the client.</p>
+
+<p style="font-style: italic;">* Note the <a href="../Setup/Task-Scheduler.html">Task Scheduler</a> needs
+    to be set up before any recurring invoices will actually generate.</p>
+
+<hr>
+
+<span class="anchor" id="create-recurring-invoice"></span>
+<h3>How do I create a recurring invoice?</h3>
+
+<p>Click the Recurring Invoices menu item and press the New button.</p>
+<a href="../../../assets/img/docs/2017/recurring_invoice_create.png" target="_blank">
+    <img src="../../../assets/img/docs/2017/recurring_invoice_create_small.png" class="img-responsive">
+</a>
+
+<p>The Create Recurring Invoice screen will prompt you for the client name, company profile, group, start date and frequency.</p>
+<p>If the recurring invoice is for a new client, type the client's name in full. You will be able to edit the other details
+    for this client record from the next screen. If the recurring invoice is for an existing client, start typing the client's
+    name and you will be able to select your existing client from the list that appears.</p>
+<p>The company profile is where the recurring invoice will pull your company name, address, phone number, and other company
+    specific details from.</p>
+<p>The group controls the format of the number assigned to each generated invoice.</p>
+<p>Set the start date to the date the invoice should first be generated.</p>
+<p>Set the frequency for the invoice.</p>
+<p>Press Submit when done and you'll be taken to the Recurring Invoice Edit screen.</p>
+
+<a href="../../../assets/img/docs/2017/recurring_invoice_create2.png" target="_blank">
+    <img src="../../../assets/img/docs/2017/recurring_invoice_create2_small.png" class="img-responsive">
+</a>
+
+<p>The Recurring Invoice Edit screen is where you'll add line items as well as define further properties and options
+    for your recurring invoice.</p>
+<p><strong>1. Summary</strong></p>
+<p>Entering a brief summary or description of the recurring invoice will make it to find and search for.</p>
+
+<p><strong>2. From/To</strong></p>
+<p>The from and to areas display who the invoice is issued from and who the invoice is being sent to. If you
+    created the invoice with the wrong company profile selected by mistake, you can easily change that by pressing
+    the Change button on the From area and choose the correct company profile. Similarly, if you created the invoice
+    with the wrong client selected, you can easily correct that by pressing the Change button on the To area and choose
+    the correct client.</p>
+
+<p><strong>3. Items</strong></p>
+<p>This is where you'll enter each of your line items. Press the Add Item button to add additional lines for your items.</p>
+
+<p><strong>4. Additional Tab</strong></p>
+<p>Terms and conditions as well as text to appear in the footer of your invoice may be entered on the Additional tab. Defaults
+    for these fields may be set in System Settings on the Invoices tab (default values for these fields will not appear on recurring invoices
+    already created).</p>
+<p><strong>5. Options</strong></p>
+<p>A number of other options and values are defined in the options area.</p>
+<ul>
+    <li>Next Date - The date the next invoice will be generated.</li>
+    <li>Every - The frequency in which the invoice will generate.</li>
+    <li>Stop Date - If invoices should generate up to a specific date and stop afterward, the stop date can be entered.</li>
+    <li>Discount - A percentage based discount can be applied to the invoice.</li>
+    <li>Currency - The currency the invoice will be issued and paid in. The default currency can be changed on both the client
+        record and in System Settings. If the client record has a different currency than System Settings, the currency on the client
+        record will override System Settings.
+    </li>
+    <li>Exchange Rate - If a currency other than your base currency is selected, the exchange rate will automatically update
+        itself based on the current rate.
+    </li>
+    <li>Template - This is the template the invoice will use when viewed using the public link or when generating the invoice PDF. The
+        default template can be changed on both the client record and in System Settings. If the client record has a different default template
+        than System Settings, the client record will override System Settings. This behavior allows you use a specific template as default
+        for most of your invoices while specifying a different template for a particular client or clients.
+    </li>
+</ul>
+
+<a href="../../../assets/img/docs/2017/recurring_invoice_edit.png" target="_blank">
+    <img src="../../../assets/img/docs/2017/recurring_invoice_edit_small.png" class="img-responsive">
+</a>
+
+<hr>
+
+<span class="anchor" id="copy-recurring-invoice"></span>
+<h3>How do I copy a recurring invoice?</h3>
+
+<p>Press the Other button and choose Copy from the Invoice Edit screen.</p>
+
+<a href="../../../assets/img/docs/2017/recurring_invoice_copy.png" target="_blank">
+    <img src="../../../assets/img/docs/2017/recurring_invoice_copy_small.png" class="img-responsive">
+</a>
+
+<p>Change the client's name if the copy will be for a different client.</p>
+<p>Review the date, company profile, group, start date and frequency. Change if necessary.</p>
+<p>Press the Submit button to complete the copy.</p>
+
+<a href="../../../assets/img/docs/2017/recurring_invoice_copy2.png" target="_blank">
+    <img src="../../../assets/img/docs/2017/recurring_invoice_copy2_small.png" class="img-responsive">
+</a>
+
+	</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<div id="footer">
+    <div class="container">
+
+    </div>
+</div>
+
+</body>
+
+
+<!-- Mirrored from fusioninvoicefoss/docs/2017/User-Guides/Recurring-Invoices by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Tue, 12 Jun 2018 20:29:26 GMT -->
+</html>
