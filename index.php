@@ -1,8 +1,8 @@
 <?php
 
-if (version_compare(PHP_VERSION, '7.0.0', '<'))
+if (version_compare(PHP_VERSION, '7.1.3', '<'))
 {
-    die('FusionInvoice requires PHP 7.0.0 or higher. Please upgrade your PHP version to use FusionInvoice.');
+    die('FusionInvoice requires PHP 7.1.3 or higher. Please upgrade your PHP version to use FusionInvoice.');
 }
 
 /**
