@@ -35,7 +35,10 @@
         "psr-4": {
             "FI\\": "app/",
             "Addons\\": "custom/addons/"
-        }
+        },
+        "files": [
+            "app/Constants.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

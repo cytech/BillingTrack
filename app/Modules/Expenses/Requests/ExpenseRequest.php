@@ -30,6 +30,8 @@ class ExpenseRequest extends FormRequest
             'category_name'      => trans('fi.category'),
             'description'        => trans('fi.description'),
             'amount'             => trans('fi.amount'),
+            'vendor_name'        => trans('fi.vendor'),
+            'client_name'        => trans('fi.client'),
         ];
     }
 
@@ -52,6 +54,8 @@ class ExpenseRequest extends FormRequest
             'company_profile_id' => 'required',
             'expense_date'       => 'required',
             'category_name'      => 'required',
+            'vendor_name'      => 'required',
+            'client_name'      => 'required',
             'description'        => 'max:255',
             'amount'             => 'required|numeric',
         ];

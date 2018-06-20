@@ -91,14 +91,14 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{ trans('fi.vendor') }}: </label>
+                                    <label>* {{ trans('fi.vendor') }}: </label>
                                     {!! Form::text('vendor_name', null, ['id' => 'vendor_name', 'class' => 'form-control vendor-lookup']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{ trans('fi.client') }}: </label>
+                                    <label>* {{ trans('fi.client') }}: </label>
                                     {!! Form::text('client_name', null, ['id' => 'client_name', 'class' => 'form-control client-lookup']) !!}
                                 </div>
                             </div>

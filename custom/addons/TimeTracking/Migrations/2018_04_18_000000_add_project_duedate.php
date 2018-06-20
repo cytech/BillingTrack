@@ -12,6 +12,7 @@ class AddProjectDuedate extends Migration
      */
     public function up()
     {
+        if (Schema::hasColumn('time_tracking_projects','due_at')) return;
         Schema::table('time_tracking_projects' , function (Blueprint $table){
             $table->timestamp('due_at')->default('0000-00-00 00:00:00')->after('name');
         });

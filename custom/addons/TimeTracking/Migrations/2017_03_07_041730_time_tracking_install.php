@@ -12,6 +12,7 @@ class TimeTrackingInstall extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('time_tracking_projects')) return;
         Schema::create('time_tracking_projects', function (Blueprint $table)
         {
             $table->increments('id');
@@ -28,6 +29,7 @@ class TimeTrackingInstall extends Migration
             $table->index('user_id');
         });
 
+        if (Schema::hasTable('time_tracking_tasks')) return;
         Schema::create('time_tracking_tasks', function (Blueprint $table)
         {
             $table->increments('id');
@@ -42,6 +44,7 @@ class TimeTrackingInstall extends Migration
             $table->index('invoice_id');
         });
 
+        if (Schema::hasTable('time_tracking_timers')) return;
         Schema::create('time_tracking_timers', function (Blueprint $table)
         {
             $table->increments('id');
