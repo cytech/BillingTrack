@@ -1,12 +1,25 @@
+<style>
+.swal2-popup {
+font-size: 1.6rem !important;
+}
+</style>
+
 <script type="text/javascript">
 
     function notify(message, type) {
+        if (type === 'error') {
+            sbutton = true;
+            stimer = 0;
+        } else {
+            sbutton = false;
+            stimer = 3000;
+        }
 
         Swal({
             title: message,
             type: type,
-            showConfirmButton: false,
-            timer: 3000
+            showConfirmButton: sbutton,
+            timer: stimer
         });
     }
 

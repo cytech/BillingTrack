@@ -89,9 +89,11 @@
                     notify('{{ trans('fi.record_successfully_updated') }}', 'success');
                 });
             }).fail(function (response) {
+                var msg ='';
                 $.each($.parseJSON(response.responseText).errors, function (id, message) {
-                    notify(message, 'error');
+                    msg += message + '\n';
                 });
+                notify(msg, 'error');
             });
         });
 
