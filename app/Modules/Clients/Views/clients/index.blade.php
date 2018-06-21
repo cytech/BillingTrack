@@ -12,12 +12,7 @@
                 });
 
                 if (ids.length > 0) {
-                    if (!confirm('{!! trans('fi.delete_client_warning') !!}')) return false;
-                    $.post("{{ route('clients.bulk.delete') }}", {
-                        ids: ids
-                    }).done(function() {
-                        window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
-                    });
+                    bulkConfirm('{!! trans('fi.delete_clients_warning') !!}', "{{ route('clients.bulk.delete') }}", ids)
                 }
             });
         });
@@ -89,7 +84,8 @@
                                                 <li><a href="{{ route('clients.edit', [$client->id]) }}" id="edit-client-{{ $client->id }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
                                                 <li><a href="javascript:void(0)" class="create-quote" data-unique-name="{{ $client->unique_name }}"><i class="fa fa-file-text-o"></i> {{ trans('fi.create_quote') }}</a></li>
                                                 <li><a href="javascript:void(0)" class="create-invoice" data-unique-name="{{ $client->unique_name }}"><i class="fa fa-file-text"></i> {{ trans('fi.create_invoice') }}</a></li>
-                                                <li><a href="{{ route('clients.delete', [$client->id]) }}" id="delete-client-{{ $client->id }}" onclick="return confirm('{{ trans('fi.delete_client_warning') }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                                                <li><a href="#" id="delete-client-{{ $client->id }}"
+                                                       onclick="swalConfirm('{{ trans('fi.delete_client_warning') }}', '{{ route('clients.delete', [$client->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
                                             </ul>
                                         </div>
                                     </td>

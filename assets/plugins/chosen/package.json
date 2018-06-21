@@ -1,0 +1,77 @@
+{
+  "_from": "chosen-js@^1.8.5",
+  "_id": "chosen-js@1.8.5",
+  "_inBundle": false,
+  "_integrity": "sha512-XkFqu0N5O5SbUWh/J4gcB7wOPBLMZbLibWryYmrCRfILUNQEIZwdoN8BZUkUoANmVa9aRs4mTSiDeRy4/eUWqg==",
+  "_location": "/chosen-js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "chosen-js@^1.8.5",
+    "name": "chosen-js",
+    "escapedName": "chosen-js",
+    "rawSpec": "^1.8.5",
+    "saveSpec": null,
+    "fetchSpec": "^1.8.5"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/chosen-js/-/chosen-js-1.8.5.tgz",
+  "_shasum": "5863f8ba590afa317e77e1745e0348a7290c32f3",
+  "_spec": "chosen-js@^1.8.5",
+  "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
+  "bugs": {
+    "url": "https://github.com/harvesthq/chosen/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Patrick Filler",
+      "url": "https://github.com/pfiller"
+    },
+    {
+      "name": "Christophe Coevoet",
+      "url": "https://github.com/stof"
+    },
+    {
+      "name": "Ken Earley",
+      "url": "https://github.com/kenearley"
+    },
+    {
+      "name": "Koen Punt",
+      "url": "https://github.com/koenpunt"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Chosen is a JavaScript plugin that makes select boxes user-friendly. It is currently available in both jQuery and Prototype flavors.",
+  "files": [
+    "chosen.jquery.js",
+    "chosen.jquery.min.js",
+    "chosen.proto.js",
+    "chosen.proto.min.js",
+    "chosen.css",
+    "chosen.min.css",
+    "chosen-sprite@2x.png",
+    "chosen-sprite.png"
+  ],
+  "homepage": "https://harvesthq.github.io/chosen/",
+  "keywords": [
+    "select",
+    "multiselect",
+    "dropdown",
+    "form",
+    "input",
+    "ui"
+  ],
+  "license": "MIT",
+  "main": "chosen.jquery.js",
+  "name": "chosen-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harvesthq/chosen.git"
+  },
+  "version": "1.8.5"
+}

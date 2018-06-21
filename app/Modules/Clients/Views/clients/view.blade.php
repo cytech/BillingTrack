@@ -10,7 +10,8 @@
             <a href="javascript:void(0)" class="btn btn-default create-quote" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_quote') }}</a>
             <a href="javascript:void(0)" class="btn btn-default create-invoice" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_invoice') }}</a>
             <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-default">{{ trans('fi.edit') }}</a>
-            <a class="btn btn-default" href="{{ route('clients.delete', [$client->id]) }}" onclick="return confirm('{{ trans('fi.delete_client_warning') }}');"><i class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
+            <a class="btn btn-default" href="#"
+               onclick="swalConfirm('{{ trans('fi.delete_client_warning') }}', '{{ route('clients.delete', [$client->id]) }}');"><i class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
         </div>
         <div class="clearfix"></div>
     </section>

@@ -1,18 +1,29 @@
 <script type="text/javascript">
     $(function () {
         $('.btn-delete-attachment').click(function () {
-            if (confirm('{{ trans('fi.delete_record_warning') }}')) {
-                $.post("{{ route('attachments.ajax.delete') }}", {
-                    model: '{{ addslashes($model) }}',
-                    model_id: '{{ $object->id }}',
-                    attachment_id: $(this).data('attachment-id')
-                }, function () {
-                    $('#attachments-list').load("{{ route('attachments.ajax.list') }}", {
+
+            Swal({
+                title: '{{ trans('fi.delete_record_warning') }}',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d68500',
+                confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+            }).then((result) => {
+                if (result.value) {
+                    $.post("{{ route('attachments.ajax.delete') }}", {
                         model: '{{ addslashes($model) }}',
-                        model_id: '{{ $object->id }}'
-                    });
-                });
-            }
+                        model_id: '{{ $object->id }}',
+                        attachment_id: $(this).data('attachment-id')
+                    }).done(function () {
+                        $('#attachments-list').load("{{ route('attachments.ajax.list') }}", {
+                            model: '{{ addslashes($model) }}',
+                            model_id: '{{ $object->id }}'
+                        });
+                    })
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                }
+            });
         });
 
         $('.client-visibility').change(function () {

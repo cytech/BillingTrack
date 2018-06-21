@@ -57,8 +57,8 @@
                                     class="fa fa-envelope"></i> {{ trans('fi.email') }}</a></li>
                         <li><a href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"
                                id="btn-public-quote"><i class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
-                        <li><a href="{{ route('quotes.delete', [$quote->id]) }}"
-                               onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i
+                        <li><a href="#"
+                               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}','{{ route('quotes.delete', [$quote->id]) }}');"><i
                                     class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
                     </ul>
                 </div>

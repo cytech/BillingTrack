@@ -21,12 +21,7 @@
                 });
 
                 if (ids.length > 0) {
-                    if (!confirm('{!! trans('fi.bulk_delete_record_warning') !!}')) return false;
-                    $.post("{{ route('payments.bulk.delete') }}", {
-                        ids: ids
-                    }).done(function() {
-                        window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
-                    });
+                    bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('payments.bulk.delete') }}", ids)
                 }
             });
 

@@ -23,12 +23,7 @@
                 });
 
                 if (ids.length > 0) {
-                    if (!confirm('{!! trans('fi.bulk_delete_record_warning') !!}')) return false;
-                    $.post("{{ route('expenses.bulk.delete') }}", {
-                        ids: ids
-                    }).done(function() {
-                        window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
-                    });
+                    bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('expenses.bulk.delete') }}", ids)
                 }
             });
         });
@@ -124,7 +119,8 @@
                                                     <li><a href="javascript:void(0)" class="btn-bill-expense" data-expense-id="{{ $expense->id }}"><i class="fa fa-money"></i> {{ trans('fi.bill_this_expense') }}</a></li>
                                                 @endif
                                                 <li><a href="{{ route('expenses.edit', [$expense->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                                                <li><a href="{{ route('expenses.delete', [$expense->id]) }}" onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                                                <li><a href="#"
+                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('expenses.delete', [$expense->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
                                             </ul>
                                         </div>
                                     </td>

@@ -1,10 +1,74 @@
 <script type="text/javascript">
 
     function notify(message, type) {
-        $.notify({
-            message: message
-        }, {
-            type: type
+
+        Swal({
+            title: message,
+            type: type,
+            showConfirmButton: false,
+            timer: 3000
+        });
+    }
+
+    function swalConfirm(message, link) {
+        swal({
+            title: message,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#d68500',
+            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+        }).then((result) => {
+                if (result.value) {
+                    window.location.href = link;
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                }
+            });
+    }
+
+    function deleteConfirm(message, route, id, totalsRoute, entityID) {
+
+        Swal({
+            title: message,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d68500',
+            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+        }).then((result) => {
+            if (result.value) {
+                $.post(route, {
+                    id: id
+                }).done(function () {
+                    $('#tr-item-' + id).remove();
+                    $('#div-totals').load(totalsRoute, {
+                        id:  entityID
+                    });
+                })
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+            }
+        });
+    }
+
+    function bulkConfirm(message, route, ids, status) {
+
+        Swal({
+            title: message,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d68500',
+            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+        }).then((result) => {
+            if (result.value) {
+                $.post(route, {
+                    ids: ids,
+                    status: status
+                }).done(function () {
+                    window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+            }
         });
     }
 
@@ -28,12 +92,6 @@
     }
 
     $(function () {
-
-        $.notifyDefaults({
-            placement: {
-                from: "bottom"
-            }
-        });
 
         $.ajaxSetup({
             headers: {

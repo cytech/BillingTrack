@@ -13,8 +13,8 @@
                 <li><a href="javascript:void(0)" id="btn-copy-recurring-invoice"><i
                             class="fa fa-copy"></i> {{ trans('fi.copy') }}</a></li>
                 <li class="divider"></li>
-                <li><a href="{{ route('recurringInvoices.delete', [$recurringInvoice->id]) }}"
-                       onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i
+                <li><a href="#"
+                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('recurringInvoices.delete', [$recurringInvoice->id]) }}');"><i
                             class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
             </ul>
         </div>

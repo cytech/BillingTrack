@@ -9,13 +9,24 @@
         });
 
         $('.btn-delete-contact').click(function() {
-            if (confirm('{{ trans('fi.delete_record_warning') }}')) {
-                $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {
-                    id: $(this).data('contact-id')
-                }).done(function(response) {
-                    $('#tab-contacts').html(response);
-                });
-            }
+
+            Swal({
+                title: '{{ trans('fi.delete_record_warning') }}',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d68500',
+                confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+            }).then((result) => {
+                if (result.value) {
+                    $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {
+                        id: $(this).data('contact-id')
+                    }).done(function(response) {
+                        $('#tab-contacts').html(response);
+                    })
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                }
+            });
         });
 
         $('.update-default').click(function() {

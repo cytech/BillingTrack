@@ -11,11 +11,12 @@
 @endif
 
 <script src="{{ asset('assets/plugins/jQuery/jQuery.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/jQueryUI/jquery-ui-1.10.3.min.js') }}"></script>
+{{--<script src="{{ asset('assets/plugins/jQueryUI/jquery-ui-1.10.3.min.js') }}"></script>--}}
+<script src="{{ asset('assets/plugins/jQueryUI/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src='{{ asset('assets/plugins/fastclick/fastclick.min.js') }}'></script>
-<script src='{{ asset('assets/plugins/notify/bootstrap-notify.min.js') }}'></script>
+<script src='{{ asset('assets/plugins/sweetalert2/sweetalert2.all.js') }}'></script>
 
 <script src="{{ asset('assets/dist/js/app.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/plugins/autosize/jquery-autosize.min.js') }}" type="text/javascript"></script>

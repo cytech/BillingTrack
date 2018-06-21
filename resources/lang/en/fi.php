@@ -617,4 +617,8 @@ return [
     // 2018-4
     'force_https'                             => 'Force HTTPS',
     'force_https_help'                        => 'Prior to enabling this option, be sure your FusionInvoice installation is functional via https. Failure to do so may result in a non-functional (but fixable) installation.',
+
+    //FusionInvoiceFOSS
+    'yes_sure'                                => ' Yes I am Sure',
+    'delete_clients_warning'                   => 'If you delete these clients you will also delete any invoices, quotes and payments related to these clients. THE DELETIONS ARE PERMANENT AND IRREVERSIBLE. ARE YOU SURE you want to permanently delete these clients?',
 ];

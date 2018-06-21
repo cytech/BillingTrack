@@ -36,16 +36,9 @@
         }
 
         $('.btn-delete-quote-item').click(function () {
-            if (!confirm('{!! trans('fi.delete_record_warning') !!}')) return false;
-            id = $(this).data('item-id');
-            $.post('{{ route('quoteItem.delete') }}', {
-                id: id
-            }).done(function () {
-                $('#tr-item-' + id).remove();
-                $('#div-totals').load('{{ route('quoteEdit.refreshTotals') }}', {
-                    id: {{ $quote->id }}
-                });
-            });
+            var id = $(this).data('item-id');
+            deleteConfirm('{!! trans('fi.delete_record_warning') !!}', '{{ route('quoteItem.delete') }}', id,
+                '{{ route('quoteEdit.refreshTotals') }}', '{{ $quote->id }}' );
         });
 
         $('.btn-save-quote').click(function () {
@@ -104,7 +97,7 @@
                 });
             }).fail(function (response) {
                 $.each($.parseJSON(response.responseText).errors, function (id, message) {
-                    notify(message, 'danger');
+                    notify(message, 'error');
                 });
             });
         });

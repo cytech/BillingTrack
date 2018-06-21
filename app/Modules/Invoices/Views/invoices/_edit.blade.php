@@ -40,8 +40,8 @@
                 <li><a href="{{ route('clientCenter.public.invoice.show', [$invoice->url_key]) }}" target="_blank"><i
                             class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
                 <li class="divider"></li>
-                <li><a href="{{ route('invoices.delete', [$invoice->id]) }}"
-                       onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i
+                <li><a href="#"
+                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('invoices.delete', [$invoice->id]) }}');"><i
                             class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
             </ul>
         </div>

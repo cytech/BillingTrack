@@ -38,7 +38,8 @@
                         @if (config('fi.mailConfigured'))
                             <li><a href="javascript:void(0)" class="email-payment-receipt" data-payment-id="{{ $payment->id }}" data-redirect-to="{{ request()->fullUrl() }}"><i class="fa fa-envelope"></i> {{ trans('fi.email_payment_receipt') }}</a></li>
                         @endif
-                        <li><a href="{{ route('payments.delete', [$payment->id]) }}" onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                        <li><a href="#"
+                               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('payments.delete', [$payment->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
                     </ul>
                 </div>
             </td>

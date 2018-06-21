@@ -1,0 +1,15 @@
+{
+    "/assets/plugins/autosize/jquery.autosize.min.js": "/assets/plugins/autosize/jquery.autosize.min.js",
+    "/assets/plugins/datepicker/bootstrap-datepicker.js": "/assets/plugins/datepicker/bootstrap-datepicker.js",
+    "/assets/plugins/datepicker/datepicker3.css": "/assets/plugins/datepicker/datepicker3.css",
+    "/assets/plugins/daterangepicker/daterangepicker.css": "/assets/plugins/daterangepicker/daterangepicker.css",
+    "/assets/plugins/daterangepicker/daterangepicker.js": "/assets/plugins/daterangepicker/daterangepicker.js",
+    "/assets/plugins/daterangepicker/moment.min.js": "/assets/plugins/daterangepicker/moment.min.js",
+    "/assets/plugins/fastclick/fastclick.js": "/assets/plugins/fastclick/fastclick.js",
+    "/assets/plugins/jQuery/jquery.min.js": "/assets/plugins/jQuery/jquery.min.js",
+    "/assets/plugins/jQueryUI/jquery-ui.min.js": "/assets/plugins/jQueryUI/jquery-ui.min.js",
+    "/assets/plugins/slimScroll/jquery.slimscroll.min.js": "/assets/plugins/slimScroll/jquery.slimscroll.min.js",
+    "/assets/plugins/timepicker/bootstrap-timepicker.min.css": "/assets/plugins/timepicker/bootstrap-timepicker.min.css",
+    "/assets/plugins/timepicker/bootstrap-timepicker.min.js": "/assets/plugins/timepicker/bootstrap-timepicker.min.js",
+    "/assets/plugins/typeahead/typeahead.bundle.js": "/assets/plugins/typeahead/typeahead.bundle.js"
+}

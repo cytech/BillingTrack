@@ -59,8 +59,8 @@
                                    data-redirect-to="{{ request()->fullUrl() }}"><i
                                         class="fa fa-credit-card"></i> {{ trans('fi.enter_payment') }}</a></li>
                         @endif
-                        <li><a href="{{ route('invoices.delete', [$invoice->id]) }}"
-                               onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i
+                        <li><a href="#"
+                               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('invoices.delete', [$invoice->id]) }}');"><i
                                     class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
                     </ul>
                 </div>
