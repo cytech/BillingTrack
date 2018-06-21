@@ -133,7 +133,7 @@ font-size: 1.6rem !important;
                 redirectTo: $(this).data('redirect-to')
             }, function (response, status, xhr) {
                 if (status == 'error') {
-                    alert('{{ trans('fi.problem_with_email_template') }}');
+                    notify('{{ trans('fi.problem_with_email_template') }}','error');
                 }
             });
         });
@@ -144,7 +144,7 @@ font-size: 1.6rem !important;
                 redirectTo: $(this).data('redirect-to')
             }, function (response, status, xhr) {
                 if (status == 'error') {
-                    alert('{{ trans('fi.problem_with_email_template') }}');
+                    notify('{{ trans('fi.problem_with_email_template') }}','error');
                 }
             });
         });

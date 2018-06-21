@@ -1,19 +1,34 @@
-@foreach ($errors->all('<div class="alert alert-danger">:message</div>') as $error)
-    {!! $error !!}
+@php($msg = '')
+@foreach ($errors->all() as $error)
+    @php($msg .= $error . '\n')
 @endforeach
+@if($msg)
+<script>
+    notify('{!! $msg !!}','error')
+</script>
+@endif
+
 
 @if (session()->has('error'))
-    <div class="alert alert-danger">{!! session('error') !!}</div>
+    <script>
+        notify('{!! session('error') !!}','error')
+    </script>
 @endif
 
 @if (session()->has('alert'))
-    <div class="alert alert-warning">{!! session('alert') !!}</div>
+    <script>
+        notify('{!! session('alert') !!}','warning')
+    </script>
 @endif
 
 @if (session()->has('alertSuccess'))
-    <div class="alert alert-success">{!! session('alertSuccess') !!}</div>
+    <script>
+        notify('{!! session('alertSuccess') !!}','success')
+    </script>
 @endif
 
 @if (session()->has('alertInfo'))
-    <div class="alert alert-info">{!! session('alertInfo') !!}</div>
+    <script>
+        notify('{!! session('alertInfo') !!}','info')
+    </script>
 @endif

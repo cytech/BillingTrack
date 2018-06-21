@@ -11,9 +11,9 @@
             $('#btn-recalculate-invoices').click(function () {
                 var $btn = $(this).button('loading');
                 $.post("{{ route('invoices.recalculate') }}").done(function (response) {
-                    alert(response.message);
+                    notify(response.message,'info');
                 }).fail(function (response) {
-                    alert('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message);
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -22,9 +22,9 @@
             $('#btn-recalculate-quotes').click(function () {
                 var $btn = $(this).button('loading');
                 $.post("{{ route('quotes.recalculate') }}").done(function (response) {
-                    alert(response.message);
+                    notify(response.message,'info');
                 }).fail(function (response) {
-                    alert('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message);
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
                 }).always(function () {
                     $btn.button('reset');
                 });

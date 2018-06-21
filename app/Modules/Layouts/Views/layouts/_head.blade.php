@@ -10,7 +10,7 @@
     <link href="{{ asset('custom/custom.css') }}" rel="stylesheet" type="text/css"/>
 @endif
 
-<script src="{{ asset('assets/plugins/jQuery/jQuery.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jQuery/jquery.min.js') }}"></script>
 {{--<script src="{{ asset('assets/plugins/jQueryUI/jquery-ui-1.10.3.min.js') }}"></script>--}}
 <script src="{{ asset('assets/plugins/jQueryUI/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
