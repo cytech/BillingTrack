@@ -18,20 +18,20 @@ use FI\Modules\Users\Models\User;
 use FI\Modules\Users\Requests\UserStoreRequest;
 use FI\Modules\Users\Requests\UserUpdateRequest;
 use FI\Traits\ReturnUrl;
+use FI\DataTables\UsersDataTable;
 
 class UserController extends Controller
 {
     use ReturnUrl;
 
-    public function index()
+
+    public function index(UsersDataTable $dataTable)
     {
         $this->setReturnUrl();
 
-        $users = User::sortable(['name' => 'asc'])->userType(request('userType'))->paginate(config('fi.resultsPerPage'));
+        return $dataTable->render('users.index',
+            ['userTypes'=> ['' => trans('fi.all_accounts'), 'admin' => trans('fi.admin_accounts'), 'client' => trans('fi.client_accounts')]]);
 
-        return view('users.index')
-            ->with('users', $users)
-            ->with('userTypes', ['' => trans('fi.all_accounts'), 'admin' => trans('fi.admin_accounts'), 'client' => trans('fi.client_accounts')]);
     }
 
     public function create($userType)

@@ -2,7 +2,7 @@
 
 @section('javascript')
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             $('.user_filter_options').change(function () {
                 $('form#filter').submit();
             });
@@ -25,7 +25,8 @@
             </div>
 
             <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">
                     {{ trans('fi.new') }} <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -47,54 +48,20 @@
 
                 <div class="box box-primary">
 
-                    <div class="box-body no-padding">
-                        <table class="table table-hover">
+                    <div class="box-body">
 
-                            <thead>
-                            <tr>
-                                <th>{!! Sortable::link('name', trans('fi.name')) !!}</th>
-                                <th>{!! Sortable::link('email', trans('fi.email')) !!}</th>
-                                <th>{{ trans('fi.type') }}</th>
-                                <th>{{ trans('fi.options') }}</th>
-                            </tr>
-                            </thead>
+                        {!! $dataTable->table() !!}
 
-                            <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td><a href="{{ route('users.edit', [$user->id, $user->user_type]) }}">{{ $user->name }}</a></td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ trans('fi.' . $user->user_type) }}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                {{ trans('fi.options') }} <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="{{ route('users.edit', [$user->id, $user->user_type]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                                                <li><a href="{{ route('users.password.edit', [$user->id]) }}"><i class="fa fa-lock"></i> {{ trans('fi.reset_password') }}</a></li>
-                                                <li><a href="#"
-                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('users.delete', [$user->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-
-                        </table>
                     </div>
-
                 </div>
-
-                <div class="pull-right">
-                    {!! $users->appends(request()->except('page'))->render() !!}
-                </div>
-
             </div>
-
         </div>
-
     </section>
+@endsection
 
-@stop
+@push('scripts')
+    <link rel="stylesheet" href="/assets/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+    <script src="/assets/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/vendor/datatables/buttons.server-side.js"></script>
+    {!! $dataTable->scripts() !!}
+@endpush

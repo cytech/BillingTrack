@@ -1,0 +1,61 @@
+{
+  "_from": "datatables.net-bs@^1.10.18",
+  "_id": "datatables.net-bs@1.10.18",
+  "_inBundle": false,
+  "_integrity": "sha512-y87VV25LBOAJA+z1CYl1Udhk6p7WipnMPQVBZ+n4h5s4BuFz89gExq0H/GTZx9blXGjlLERLkoVwHJVaP/mB5Q==",
+  "_location": "/datatables.net-bs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "datatables.net-bs@^1.10.18",
+    "name": "datatables.net-bs",
+    "escapedName": "datatables.net-bs",
+    "rawSpec": "^1.10.18",
+    "saveSpec": null,
+    "fetchSpec": "^1.10.18"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/datatables.net-bs/-/datatables.net-bs-1.10.18.tgz",
+  "_shasum": "72c9ebe926f9189f891d4c474a629defc99753e6",
+  "_spec": "datatables.net-bs@^1.10.18",
+  "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net": "1.10.18",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "DataTables for jQuery with styling for [Bootstrap 3](http://getbootstrap.com/)",
+  "files": [
+    "css/**/*.css",
+    "js/**/*.js"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "filter",
+    "sort",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "main": "js/dataTables.bootstrap.js",
+  "name": "datatables.net-bs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-Bootstrap.git"
+  },
+  "style": "css/dataTables.bootstrap.css",
+  "version": "1.10.18"
+}

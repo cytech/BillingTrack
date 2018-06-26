@@ -127,6 +127,6 @@
 </div>
 
 <div id="modal-placeholder"></div>
-
+@stack('scripts')
 </body>
 </html>

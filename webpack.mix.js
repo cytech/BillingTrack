@@ -37,3 +37,11 @@ mix.copy('node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css', '
 mix.copy('node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js', 'assets/plugins/timepicker/bootstrap-timepicker.min.js');
 mix.copy('node_modules/typeahead.js/dist/typeahead.bundle.js', 'assets/plugins/typeahead/typeahead.bundle.js');
 mix.copyDirectory('node_modules/sweetalert2/dist', 'assets/plugins/sweetalert2');
+mix.copyDirectory('node_modules/datatables.net', 'assets/plugins/datatables.net');
+mix.copyDirectory('node_modules/datatables.net-bs', 'assets/plugins/datatables.net-bs');
+mix.copyDirectory('node_modules/datatables.net-buttons', 'assets/plugins/datatables.net-buttons');
+mix.copyDirectory('node_modules/datatables.net-buttons-bs', 'assets/plugins/datatables.net-buttons-bs');
+//mix.copyDirectory('node_modules/admin-lte/dist/css', 'assets/dist/css');
+mix.copyDirectory('node_modules/admin-lte/dist/img', 'assets/dist/img');
+mix.copy('node_modules/admin-lte/dist/js/adminlte.js', 'assets/dist/js/adminlte.js');
+mix.copy('node_modules/admin-lte/dist/js/adminlte.min.js', 'assets/dist/js/adminlte.min.js');

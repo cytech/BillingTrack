@@ -11,5 +11,11 @@
     "/assets/plugins/slimScroll/jquery.slimscroll.min.js": "/assets/plugins/slimScroll/jquery.slimscroll.min.js",
     "/assets/plugins/timepicker/bootstrap-timepicker.min.css": "/assets/plugins/timepicker/bootstrap-timepicker.min.css",
     "/assets/plugins/timepicker/bootstrap-timepicker.min.js": "/assets/plugins/timepicker/bootstrap-timepicker.min.js",
-    "/assets/plugins/typeahead/typeahead.bundle.js": "/assets/plugins/typeahead/typeahead.bundle.js"
+    "/assets/plugins/typeahead/typeahead.bundle.js": "/assets/plugins/typeahead/typeahead.bundle.js",
+    "/assets/plugins/datatables.net": "/assets/plugins/datatables.net",
+    "/assets/plugins/datatables.net-bs": "/assets/plugins/datatables.net-bs",
+    "/assets/plugins/datatables.net-buttons": "/assets/plugins/datatables.net-buttons",
+    "/assets/plugins/datatables.net-buttons-bs": "/assets/plugins/datatables.net-buttons-bs",
+    "/assets/dist/js/adminlte.js": "/assets/dist/js/adminlte.js",
+    "/assets/dist/js/adminlte.min.js": "/assets/dist/js/adminlte.min.js"
 }
