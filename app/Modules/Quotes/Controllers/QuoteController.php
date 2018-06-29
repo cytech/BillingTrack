@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Quotes\Controllers;
 
+use FI\DataTables\QuotesDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\Quotes\Models\Quote;
@@ -23,30 +24,16 @@ class QuoteController extends Controller
 {
     use ReturnUrl;
 
-    public function index()
+    public function index(QuotesDataTable $dataTable)
     {
         $this->setReturnUrl();
 
         $status = request('status', 'all_statuses');
+        $statuses = QuoteStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')];
+        $keyedStatuses = collect(QuoteStatuses::lists())->except(3);
+        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
 
-        $quotes = Quote::select('quotes.*')
-            ->join('clients', 'clients.id', '=', 'quotes.client_id')
-            ->join('quote_amounts', 'quote_amounts.quote_id', '=', 'quotes.id')
-            ->with(['client', 'activities', 'amount.quote.currency'])
-            ->status($status)
-            ->keywords(request('search'))
-            ->clientId(request('client'))
-            ->companyProfileId(request('company_profile'))
-            ->sortable(['quote_date' => 'desc', 'LENGTH(number)' => 'desc', 'number' => 'desc'])
-            ->paginate(config('fi.resultsPerPage'));
-
-        return view('quotes.index')
-            ->with('quotes', $quotes)
-            ->with('status', $status)
-            ->with('statuses', QuoteStatuses::listsAllFlat())
-            ->with('keyedStatuses', QuoteStatuses::lists())
-            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList())
-            ->with('displaySearch', true);
+        return $dataTable->render('quotes.index', compact('status','statuses', 'keyedStatuses','companyProfiles'));
     }
 
     public function delete($id)

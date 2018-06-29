@@ -13,7 +13,7 @@
         </div>
     @endif
     
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu" data-widget="tree">
         <li>
             <a href="{{ route('clientCenter.dashboard') }}">
                 <i class="fa fa-dashboard"></i> <span>{{ trans('fi.dashboard') }}</span>

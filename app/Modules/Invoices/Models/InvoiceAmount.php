@@ -23,6 +23,8 @@ class InvoiceAmount extends Model
      */
     protected $guarded = ['id'];
 
+    protected $appends = ['formatted_numeric_balance', 'formatted_total', 'formatted_balance'];
+
     /*
     |--------------------------------------------------------------------------
     | Relationships

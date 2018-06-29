@@ -19,8 +19,8 @@
 
         <div class="pull-right">
             <div class="btn-group">
-                {!! Form::open(['method' => 'GET', 'id' => 'filter']) !!}
-                {!! Form::select('userType', $userTypes, request('userType'), ['class' => 'user_filter_options form-control inline']) !!}
+                {!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}
+                {!! Form::select('userType', $userTypes, request('userType'), ['class' => 'user_filter_options form-control ']) !!}
                 {!! Form::close() !!}
             </div>
 

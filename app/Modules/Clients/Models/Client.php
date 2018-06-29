@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
 
 class Client extends Model
 {
+
     use Sortable;
 
     protected $guarded = ['id', 'password'];
@@ -30,6 +31,8 @@ class Client extends Model
     protected $hidden = ['password', 'remember_token'];
 
     protected $sortable = ['unique_name', 'email', 'phone', 'balance', 'active', 'custom'];
+
+    protected $appends = ['formatted_balance'];
 
     public static function boot()
     {

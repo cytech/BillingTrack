@@ -31,6 +31,8 @@ class Expense extends Model
 
     protected $sortable = ['expense_date', 'expense_categories.name', 'description', 'amount'];
 
+    protected $appends = ['formatted_description', 'formatted_expense_date', 'formatted_amount', 'is_billable', 'has_been_billed'];
+
     public static function boot()
     {
         parent::boot();

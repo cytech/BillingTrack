@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Clients\Controllers;
 
+use FI\DataTables\ClientsDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Clients\Models\Client;
 use FI\Modules\Clients\Requests\ClientStoreRequest;
@@ -24,24 +25,14 @@ class ClientController extends Controller
 {
     use ReturnUrl;
 
-    public function index()
+    public function index(ClientsDataTable $dataTable)
     {
         $this->setReturnUrl();
 
         $status = (request('status')) ?: 'all';
 
-        $clients = Client::getSelect()
-            ->leftJoin('clients_custom', 'clients_custom.client_id', '=', 'clients.id')
-            ->with(['currency'])
-            ->sortable(['name' => 'asc'])
-            ->status($status)
-            ->keywords(request('search'))
-            ->paginate(config('fi.resultsPerPage'));
+        return $dataTable->render('clients.index',['status' => $status]);
 
-        return view('clients.index')
-            ->with('clients', $clients)
-            ->with('status', $status)
-            ->with('displaySearch', true);
     }
 
     public function create()

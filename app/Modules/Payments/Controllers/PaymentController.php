@@ -11,7 +11,9 @@
 
 namespace FI\Modules\Payments\Controllers;
 
+use FI\DataTables\PaymentsDataTable;
 use FI\Http\Controllers\Controller;
+use FI\Http\Resources\PaymentResource;
 use FI\Modules\CustomFields\Models\CustomField;
 use FI\Modules\Invoices\Models\Invoice;
 use FI\Modules\PaymentMethods\Models\PaymentMethod;
@@ -21,21 +23,14 @@ use FI\Support\DateFormatter;
 
 class PaymentController extends Controller
 {
-    public function index()
+    public function index(PaymentsDataTable $dataTable)
     {
-        $payments = Payment::select('payments.*')
-            ->with(['invoice.client', 'invoice.currency', 'paymentMethod'])
-            ->join('invoices', 'invoices.id', '=', 'payments.invoice_id')
-            ->join('clients', 'clients.id', '=', 'invoices.client_id')
-            ->leftJoin('payment_methods', 'payment_methods.id', '=', 'payments.payment_method_id')
-            ->keywords(request('search'))
-            ->clientId(request('client'))
-            ->sortable(['paid_at' => 'desc', 'length(number)' => 'desc', 'number' => 'desc'])
-            ->paginate(config('fi.resultsPerPage'));
+        return $dataTable->render('payments.index');
+    }
 
-        return view('payments.index')
-            ->with('payments', $payments)
-            ->with('displaySearch', true);
+    public function test() {
+
+        return PaymentResource::collection(Payment::get());
     }
 
     public function create()

@@ -45,6 +45,8 @@ class Invoice extends Model
 
     protected $dates = ['due_at', 'invoice_date'];
 
+    protected $appends = ['formatted_invoice_date', 'formatted_due_at','status_text'];
+
     public static function boot()
     {
         parent::boot();

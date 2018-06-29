@@ -44,6 +44,8 @@ class Quote extends Model
 
     protected $dates = ['expires_at', 'quote_date'];
 
+    protected $appends = ['formatted_quote_date', 'formatted_expires_at','status_text'];
+
     public static function boot()
     {
         parent::boot();

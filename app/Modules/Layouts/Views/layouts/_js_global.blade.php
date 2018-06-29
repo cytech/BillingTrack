@@ -157,7 +157,20 @@ font-size: 1.6rem !important;
             });
         });
 
-        $('#bulk-select-all').click(function() {
+        /*$('#bulk-select-all').click(function() {
+            if ($(this).prop('checked')) {
+                $('.bulk-record').prop('checked', true);
+                if ($('.bulk-record:checked').length > 0) {
+                    $('.bulk-actions').show();
+                }
+            }
+            else {
+                $('.bulk-record').prop('checked', false);
+                $('.bulk-actions').hide();
+            }
+        });*/
+
+        $(document).on('click','#bulk-select-all', function() {
             if ($(this).prop('checked')) {
                 $('.bulk-record').prop('checked', true);
                 if ($('.bulk-record:checked').length > 0) {
@@ -170,7 +183,16 @@ font-size: 1.6rem !important;
             }
         });
 
-        $('.bulk-record').click(function() {
+        /*$('.bulk-record').click(function() {
+            if ($('.bulk-record:checked').length > 0) {
+                $('.bulk-actions').show();
+            }
+            else {
+                $('.bulk-actions').hide();
+            }
+        });*/
+
+        $(document).on('click','.bulk-record', function() {
             if ($('.bulk-record:checked').length > 0) {
                 $('.bulk-actions').show();
             }

@@ -25,9 +25,9 @@
             <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
 
             <div class="btn-group">
-                {!! Form::open(['method' => 'GET', 'id' => 'filter']) !!}
-                {!! Form::select('company_profile', $companyProfiles, request('company_profile'), ['class' => 'quote_filter_options form-control inline']) !!}
-                {!! Form::select('status', $statuses, request('status'), ['class' => 'quote_filter_options form-control inline']) !!}
+                {!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}
+                {!! Form::select('company_profile', $companyProfiles, request('company_profile'), ['class' => 'quote_filter_options form-control ']) !!}
+                {!! Form::select('status', $statuses, request('status'), ['class' => 'quote_filter_options form-control ']) !!}
                 {!! Form::close() !!}
             </div>
             <a href="javascript:void(0)" class="btn btn-primary create-quote"><i class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
@@ -50,10 +50,6 @@
                         @include('quotes._table')
                     </div>
 
-                </div>
-
-                <div class="pull-right">
-                    {!! $quotes->appends(request()->except('page'))->render() !!}
                 </div>
 
             </div>

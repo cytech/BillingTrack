@@ -38,6 +38,8 @@ class Payment extends Model
 
     protected $dates = ['paid_at'];
 
+    protected $appends = ['formatted_paid_at','formatted_amount'];
+
     public static function boot()
     {
         static::created(function ($payment)

@@ -49,7 +49,7 @@
                 </form>
             @endif
 
-            <ul class="sidebar-menu">
+            <ul class="sidebar-menu" data-widget="tree">
                 <li>
                     <a href="{{ route('dashboard.index') }}">
                         <i class="fa fa-dashboard"></i> <span>{{ trans('fi.dashboard') }}</span>

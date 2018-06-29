@@ -19,9 +19,9 @@ class UsersDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
 
         return $dataTable->addColumn('action','users._actions')
-                         ->editColumn('type', '{{$type ? "Client" : "Admin"}}')
+                         ->editColumn('user_type', '{{trans(\'fi.\' . $user_type)}}')
                          ->editColumn('name', function(User $user){
-                             return '<a href="/users/'. $user->id .'/edit/'. (($user->type) ? 'client' : 'admin') .'">'.$user->name . '</a>';
+                             return '<a href="/users/'. $user->id .'/edit/'. $user->user_type .'">'.$user->name . '</a>';
                          })
                          ->rawColumns(['name', 'action']);
     }
@@ -34,7 +34,7 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model)
     {
-        $models = $model->newQuery()->select('id', 'name', 'email', 'client_id as type')
+        $models = $model->newQuery()->select('id', 'name', 'email', 'client_id')
                         ->userType(request('userType'));
 
         return $models;
@@ -63,9 +63,18 @@ class UsersDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'name',
-            'email',
-            'type',
+            trans('fi.name')=> [
+                'data' => 'name',
+            ],
+            trans('fi.email')=> [
+                'data' => 'email',
+            ],
+            trans('fi.type')=> [
+                'data' => 'user_type',
+                'orderable' => false,
+                'searchable' => false,
+            ],
+
         ];
     }
 

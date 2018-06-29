@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Expenses\Controllers;
 
+use FI\DataTables\ExpensesDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\Expenses\Models\Expense;
@@ -22,26 +23,17 @@ class ExpenseController extends Controller
 {
     use ReturnUrl;
 
-    public function index()
+    public function index(ExpensesDataTable $dataTable)
     {
         $this->setReturnUrl();
+        $status = request('status');
+        $categories = ['' => trans('fi.all_categories')] + ExpenseCategory::getList();
+        $vendors = ['' => trans('fi.all_vendors')] + ExpenseVendor::getList();
+        $statuses = ['' => trans('fi.all_statuses'), 'billed' => trans('fi.billed'), 'not_billed' => trans('fi.not_billed'), 'not_billable' => trans('fi.not_billable')];
+        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
 
-        $expenses = Expense::defaultQuery()
-            ->keywords(request('search'))
-            ->categoryId(request('category'))
-            ->vendorId(request('vendor'))
-            ->status(request('status'))
-            ->companyProfileId(request('company_profile'))
-            ->sortable(['expense_date' => 'desc'])
-            ->paginate(config('fi.defaultNumPerPage'));
+        return $dataTable->render('expenses.index', compact('status', 'categories', 'vendors', 'statuses', 'companyProfiles'));
 
-        return view('expenses.index')
-            ->with('expenses', $expenses)
-            ->with('displaySearch', true)
-            ->with('categories', ['' => trans('fi.all_categories')] + ExpenseCategory::getList())
-            ->with('vendors', ['' => trans('fi.all_vendors')] + ExpenseVendor::getList())
-            ->with('statuses', ['' => trans('fi.all_statuses'), 'billed' => trans('fi.billed'), 'not_billed' => trans('fi.not_billed'), 'not_billable' => trans('fi.not_billable')])
-            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
     }
 
     public function delete($id)

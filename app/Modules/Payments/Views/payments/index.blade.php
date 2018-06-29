@@ -5,7 +5,7 @@
 
         $(function () {
 
-            $('.email-payment-receipt').click(function () {
+            $(document).on('click','.email-payment-receipt', function () {
                 $('#modal-placeholder').load("{{ route('paymentMail.create') }}", {
                     payment_id: $(this).data('payment-id'),
                     redirectTo: $(this).data('redirect-to')
@@ -58,10 +58,6 @@
                         @include('payments._table')
                     </div>
 
-                </div>
-
-                <div class="pull-right">
-                    {!! $payments->appends(request()->except('page'))->render() !!}
                 </div>
 
             </div>

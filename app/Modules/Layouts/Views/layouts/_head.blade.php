@@ -15,9 +15,9 @@
 <script src="{{ asset('assets/plugins/jQuery/jquery.min.js') }}"></script>
 {{--<script src="{{ asset('assets/plugins/jQueryUI/jquery-ui-1.10.3.min.js') }}"></script>--}}
 <script src="{{ asset('assets/plugins/jQueryUI/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/plugins/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src='{{ asset('assets/plugins/fastclick/fastclick.min.js') }}'></script>
 <script src='{{ asset('assets/plugins/sweetalert2/sweetalert2.all.js') }}'></script>

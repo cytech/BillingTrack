@@ -17,6 +17,8 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
     Route::get('payments/{payment}', ['uses' => 'PaymentController@edit', 'as' => 'payments.edit']);
     Route::post('payments/{payment}', ['uses' => 'PaymentController@update', 'as' => 'payments.update']);
 
+    Route::get('test', ['uses' => 'PaymentController@test', 'as' => 'payments.test']);
+
     Route::get('payments/{payment}/delete', ['uses' => 'PaymentController@delete', 'as' => 'payments.delete']);
 
     Route::post('bulk/delete', ['uses' => 'PaymentController@bulkDelete', 'as' => 'payments.bulk.delete']);

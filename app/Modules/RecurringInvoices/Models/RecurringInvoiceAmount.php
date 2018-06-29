@@ -23,6 +23,8 @@ class RecurringInvoiceAmount extends Model
      */
     protected $guarded = ['id'];
 
+    protected $appends = ['formatted_total'];
+
     /*
     |--------------------------------------------------------------------------
     | Relationships

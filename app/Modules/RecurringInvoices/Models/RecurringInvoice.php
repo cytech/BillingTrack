@@ -28,6 +28,8 @@ class RecurringInvoice extends Model
 
     protected $sortable = ['id', 'clients.name', 'summary', 'next_date', 'stop_date', 'recurring_invoice_amounts.total'];
 
+    protected $appends = ['formatted_next_date', 'formatted_stop_date'];
+
     public static function boot()
     {
         parent::boot();

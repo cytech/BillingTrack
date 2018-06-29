@@ -33,6 +33,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     protected $sortable = ['name', 'email'];
 
+    protected $appends = ['user_type'];
+
     public static function boot()
     {
         parent::boot();

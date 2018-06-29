@@ -26,7 +26,4 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
 
     Route::post('users/client', ['uses' => 'UserController@getClientInfo', 'as' => 'users.clientInfo']);
 
-    //Route::get('/datatable/{userType?}','DatatablesController@index');
-    //Route::get('/anyData',['uses' => 'DatatablesController@anyData', 'as' => 'datatables.data']);
-
 });
