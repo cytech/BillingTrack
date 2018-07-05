@@ -12,7 +12,7 @@
         <li><a href="javascript:void(0)" class="create-invoice" data-unique-name="{{ $unique_name }}"><i
                         class="fa fa-file-text"></i> {{ trans('fi.create_invoice') }}</a></li>
         <li><a href="#" id="delete-client-{{ $id }}"
-               onclick="swalConfirm('{{ trans('fi.delete_client_warning') }}', '{{ route('clients.delete', [$id]) }}');"><i
-                        class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+               onclick="swalConfirm('{{ trans('fi.trash_client_warning') }}', '{{ route('clients.delete', [$id]) }}');"><i
+                        class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
     </ul>
 </div>

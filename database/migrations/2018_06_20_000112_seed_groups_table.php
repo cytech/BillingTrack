@@ -13,8 +13,8 @@ class SeedGroupsTable extends Migration
     public function up()
     {
 
-        DB::statement('INSERT INTO `groups` VALUES (1,\'Invoice Default\',1,0,\'INV{NUMBER}\',0,0,0,0,0,\'\',null,null)
-            ,(2,\'Quote Default\',1,0,\'QUO{NUMBER}\',0,0,0,0,0,\'\',null,null)');
+        DB::statement('INSERT INTO `groups` VALUES (1,\'Invoice Default\',1,0,\'INV{NUMBER}\',0,0,0,0,0,\'\',NULL,NULL,NULL)
+            ,(2,\'Quote Default\',1,0,\'QUO{NUMBER}\',0,0,0,0,0,\'\',NULL,NULL,NULL)');
 
     }
 

@@ -30,7 +30,7 @@
 
         $('.btn-delete-invoice-item').click(function () {
             var id = $(this).data('item-id');
-            deleteConfirm('{!! trans('fi.delete_record_warning') !!}', '{{ route('invoiceItem.delete') }}', id,
+            deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('invoiceItem.delete') }}', id,
                 '{{ route('invoiceEdit.refreshTotals') }}', '{{ $invoice->id }}' );
         });
 

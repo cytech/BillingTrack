@@ -34,6 +34,7 @@ class CreatePaymentsTable extends Migration
 
             $table->index(["payment_method_id"], 'payments_payment_method_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('invoice_id', 'payments_invoice_id_index')

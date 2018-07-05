@@ -41,7 +41,7 @@ class InvoiceController extends Controller
         Invoice::destroy($id);
 
         return redirect()->route('invoices.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('fi.record_successfully_trashed'));
     }
 
     public function bulkDelete()

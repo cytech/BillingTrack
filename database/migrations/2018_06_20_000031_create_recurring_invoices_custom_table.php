@@ -25,6 +25,7 @@ class CreateRecurringInvoicesCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('recurring_invoice_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('recurring_invoice_id', 'recurring_invoices_custom_recurring_invoice_id')

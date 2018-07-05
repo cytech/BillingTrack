@@ -37,6 +37,7 @@ class CreateQuoteItemsTable extends Migration
 
             $table->index(["display_order"], 'quote_items_display_order_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('quote_id', 'quote_items_quote_id_index')

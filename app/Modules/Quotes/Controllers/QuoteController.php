@@ -41,7 +41,7 @@ class QuoteController extends Controller
         Quote::destroy($id);
 
         return redirect()->route('quotes.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('fi.record_successfully_trashed'));
     }
 
     public function bulkDelete()

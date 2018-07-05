@@ -36,6 +36,7 @@ class CreateMailQueueTable extends Migration
             $table->tinyInteger('sent');
             $table->text('error')->nullable()->default(null);
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

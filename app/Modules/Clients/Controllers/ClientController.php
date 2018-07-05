@@ -114,7 +114,7 @@ class ClientController extends Controller
         Client::destroy($clientId);
 
         return redirect()->route('clients.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('fi.record_successfully_trashed'));
     }
 
     public function bulkDelete()

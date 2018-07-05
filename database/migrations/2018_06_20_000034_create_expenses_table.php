@@ -27,8 +27,8 @@ class CreateExpensesTable extends Migration
             $table->date('expense_date');
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('category_id');
-            $table->unsignedInteger('client_id')->nullable()->default(null);
-            $table->unsignedInteger('vendor_id')->nullable()->default(null);
+            $table->unsignedInteger('client_id')->default(0);
+            $table->unsignedInteger('vendor_id')->default(0);
             $table->unsignedInteger('invoice_id')->nullable()->default(null);
             $table->string('description')->nullable()->default(null);
             $table->decimal('amount', 15, 2);
@@ -43,10 +43,8 @@ class CreateExpensesTable extends Migration
 
             $table->index(["invoice_id"], 'fk_expenses_invoices1_idx');
 
-            $table->index(["client_id"], 'fk_expenses_clients1_idx');
-
-            $table->index(["vendor_id"], 'fk_expenses_expense_vendors1_idx');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('company_profile_id', 'expenses_company_profile_id_index')
@@ -69,15 +67,6 @@ class CreateExpensesTable extends Migration
                 ->onDelete('set null')
                 ->onUpdate('restrict');
 
-            $table->foreign('vendor_id', 'fk_expenses_expense_vendors1_idx')
-                ->references('id')->on('expense_vendors')
-                ->onDelete('set null')
-                ->onUpdate('restrict');
-
-            $table->foreign('client_id', 'fk_expenses_clients1_idx')
-                ->references('id')->on('clients')
-                ->onDelete('set null')
-                ->onUpdate('restrict');
         });
     }
 

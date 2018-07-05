@@ -25,7 +25,7 @@
             </div>
 
             <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i
-                        class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
+                        class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
             <div class="btn-group">
                 {!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}
@@ -51,7 +51,7 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        @include('invoices._table')
+                        @include('invoices._dataTable')
                     </div>
 
                 </div>

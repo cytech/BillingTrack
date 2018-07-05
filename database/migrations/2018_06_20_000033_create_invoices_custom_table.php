@@ -25,6 +25,7 @@ class CreateInvoicesCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('invoice_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('invoice_id', 'invoices_custom_invoice_id')

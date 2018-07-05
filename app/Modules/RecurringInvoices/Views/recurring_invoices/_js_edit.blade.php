@@ -30,7 +30,7 @@
 
         $('.btn-delete-recurring-invoice-item').click(function () {
             var id = $(this).data('item-id');
-            deleteConfirm('{!! trans('fi.delete_record_warning') !!}', '{{ route('recurringInvoiceItem.delete') }}', id,
+            deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('recurringInvoiceItem.delete') }}', id,
                     '{{ route('recurringInvoiceEdit.refreshTotals') }}', '{{ $recurringInvoice->id }}' );
         });
 

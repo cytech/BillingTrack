@@ -25,6 +25,7 @@ class CreateCompanyProfilesCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('company_profile_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('company_profile_id', 'company_profiles_custom_company_profile_id')

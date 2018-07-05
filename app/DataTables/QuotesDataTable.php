@@ -159,6 +159,6 @@ class QuotesDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Users_' . date('YmdHis');
+        return 'Quotes_' . date('YmdHis');
     }
 }

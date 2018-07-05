@@ -9,7 +9,7 @@
             <li><a href="javascript:void(0)" class="email-payment-receipt" data-payment-id="{{ $id }}" data-redirect-to="{{ request()->fullUrl() }}"><i class="fa fa-envelope"></i> {{ trans('fi.email_payment_receipt') }}</a></li>
         @endif
         <li><a href="#"
-               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('payments.delete', [$id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+               onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('payments.delete', [$id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
     </ul>
 </div>
 

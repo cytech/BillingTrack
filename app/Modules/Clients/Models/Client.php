@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Clients\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\ClientCreated;
 use FI\Events\ClientCreating;
 use FI\Events\ClientDeleted;
@@ -19,18 +20,25 @@ use FI\Support\CurrencyFormatter;
 use FI\Support\Statuses\InvoiceStatuses;
 use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Client extends Model
 {
 
-    use Sortable;
+    //use Sortable;
+    use SoftDeletes;
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['contacts', 'custom', 'invoices', 'quotes',  'projects','recurringInvoices'];
+
+    protected $dates = ['deleted_at'];
 
     protected $guarded = ['id', 'password'];
 
     protected $hidden = ['password', 'remember_token'];
 
-    protected $sortable = ['unique_name', 'email', 'phone', 'balance', 'active', 'custom'];
+    //protected $sortable = ['unique_name', 'email', 'phone', 'balance', 'active', 'custom'];
 
     protected $appends = ['formatted_balance'];
 
@@ -53,10 +61,10 @@ class Client extends Model
             event(new ClientSaving($client));
         });
 
-        static::deleted(function ($client)
+       /* static::deleted(function ($client)
         {
             event(new ClientDeleted($client));
-        });
+        });*/
     }
 
     /*
@@ -125,6 +133,16 @@ class Client extends Model
     public function notes()
     {
         return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+    }
+
+    /*public function payments()
+    {
+        return $this->hasManyThrough('FI\Modules\Payments\Models\Payment', 'FI\Modules\Invoices\Models\Invoice');
+    }*/
+
+    public function projects()
+    {
+        return $this->hasMany('FI\Modules\TimeTracking\Models\TimeTrackingProject');
     }
 
     public function quotes()

@@ -35,6 +35,7 @@ class CreateGroupsTable extends Migration
             $table->integer('last_week');
             $table->string('last_number');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

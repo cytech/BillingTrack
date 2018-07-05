@@ -14,9 +14,14 @@ namespace FI\Modules\Invoices\Models;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class InvoiceAmount extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     /**
      * Guarded properties
      * @var array

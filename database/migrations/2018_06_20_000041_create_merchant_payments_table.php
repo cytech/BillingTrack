@@ -35,6 +35,7 @@ class CreateMerchantPaymentsTable extends Migration
 
             $table->index(["driver"], 'merchant_payments_driver_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('payment_id', 'merchant_payments_payment_id_index')

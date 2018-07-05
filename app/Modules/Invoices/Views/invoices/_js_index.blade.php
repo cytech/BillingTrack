@@ -13,7 +13,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('invoices.bulk.delete') }}", ids)
+                bulkConfirm('{!! trans('fi.bulk_trash_record_warning') !!}', "{{ route('invoices.bulk.delete') }}", ids)
             }
         });
 

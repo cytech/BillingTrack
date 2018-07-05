@@ -33,6 +33,7 @@ class CreateAddonsTable extends Migration
             $table->tinyInteger('enabled')->default('0');
             $table->longText('navigation_reports')->nullable()->default(null);
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

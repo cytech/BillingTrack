@@ -34,6 +34,7 @@ class CreateItemLookupsTable extends Migration
 
             $table->index(["tax_rate_2_id"], 'item_lookups_tax_rate_2_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

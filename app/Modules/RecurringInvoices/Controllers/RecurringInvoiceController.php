@@ -44,6 +44,6 @@ class RecurringInvoiceController extends Controller
         RecurringInvoice::destroy($id);
 
         return redirect()->route('recurringInvoices.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('fi.record_successfully_trashed'));
     }
 }

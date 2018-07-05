@@ -21,7 +21,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('payments.bulk.delete') }}", ids)
+                    bulkConfirm('{!! trans('fi.bulk_trash_record_warning') !!}', "{{ route('payments.bulk.delete') }}", ids)
                 }
             });
 
@@ -55,7 +55,7 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        @include('payments._table')
+                        @include('payments._dataTable')
                     </div>
 
                 </div>

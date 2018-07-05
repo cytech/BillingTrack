@@ -12,7 +12,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('{!! trans('fi.delete_clients_warning') !!}', "{{ route('clients.bulk.delete') }}", ids)
+                    bulkConfirm('{!! trans('fi.trash_clients_warning') !!}', "{{ route('clients.bulk.delete') }}", ids)
                 }
             });
         });
@@ -27,7 +27,7 @@
         <div class="pull-right">
 
             <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i
-                        class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
+                        class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
             <div class="btn-group">
                 <a href="{{ route('clients.index', ['status' => 'active']) }}"

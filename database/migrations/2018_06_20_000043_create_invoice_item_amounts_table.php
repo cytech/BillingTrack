@@ -33,6 +33,7 @@ class CreateInvoiceItemAmountsTable extends Migration
 
             $table->index(["item_id"], 'invoice_item_amounts_item_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('item_id', 'invoice_item_amounts_item_id_index')

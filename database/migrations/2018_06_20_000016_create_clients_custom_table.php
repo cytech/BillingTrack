@@ -25,6 +25,7 @@ class CreateClientsCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('client_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('client_id', 'clients_custom_client_id')

@@ -23,15 +23,17 @@ use FI\Support\NumberFormatter;
 use FI\Support\Statuses\QuoteStatuses;
 use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Quote extends Model
 {
-    use Sortable;
+   // use Sortable;
+    use SoftDeletes;
 
     protected $guarded = ['id'];
 
-    protected $sortable = [
+  /*  protected $sortable = [
         'number' => ['LENGTH(number)', 'number'],
         'quote_date',
         'expires_at',
@@ -40,9 +42,9 @@ class Quote extends Model
         'quote_amounts.total',
         'quote_amounts.tax',
         'quote_amounts.subtotal',
-    ];
+    ];*/
 
-    protected $dates = ['expires_at', 'quote_date'];
+    protected $dates = ['expires_at', 'quote_date','deleted_at'];
 
     protected $appends = ['formatted_quote_date', 'formatted_expires_at','status_text'];
 

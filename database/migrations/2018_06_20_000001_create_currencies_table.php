@@ -33,6 +33,7 @@ class CreateCurrenciesTable extends Migration
 
             $table->index(["name"], 'currencies_name_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

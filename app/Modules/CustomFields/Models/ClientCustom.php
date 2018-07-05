@@ -13,9 +13,14 @@ namespace FI\Modules\CustomFields\Models;
 
 use FI\Events\ClientCustomCreating;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ClientCustom extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $table = 'clients_custom';
 
     protected $primaryKey = 'client_id';

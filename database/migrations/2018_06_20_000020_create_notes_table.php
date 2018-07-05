@@ -32,6 +32,7 @@ class CreateNotesTable extends Migration
 
             $table->index(["user_id"], 'fk_notes_users1_idx');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('user_id', 'fk_notes_users1_idx')

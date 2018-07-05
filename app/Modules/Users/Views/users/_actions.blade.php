@@ -6,6 +6,6 @@
         <li><a href="{{ route('users.edit', [$id, $user_type]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
         <li><a href="{{ route('users.password.edit', [$id]) }}"><i class="fa fa-lock"></i> {{ trans('fi.reset_password') }}</a></li>
         <li><a href="#"
-               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('users.delete', [$id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+               onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('users.delete', [$id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
     </ul>
 </div>

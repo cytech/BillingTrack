@@ -18,15 +18,19 @@ use FI\Support\DateFormatter;
 use FI\Support\NumberFormatter;
 use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class RecurringInvoice extends Model
 {
-    use Sortable;
+    //use Sortable;
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 
     protected $guarded = ['id'];
 
-    protected $sortable = ['id', 'clients.name', 'summary', 'next_date', 'stop_date', 'recurring_invoice_amounts.total'];
+    //protected $sortable = ['id', 'clients.name', 'summary', 'next_date', 'stop_date', 'recurring_invoice_amounts.total'];
 
     protected $appends = ['formatted_next_date', 'formatted_stop_date'];
 

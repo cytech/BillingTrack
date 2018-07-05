@@ -53,6 +53,7 @@ class CreateQuotesTable extends Migration
 
             $table->index(["client_id"], 'quotes_client_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('client_id', 'quotes_client_id_index')

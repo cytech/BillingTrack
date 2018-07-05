@@ -14,7 +14,7 @@
                target="_blank" id="btn-public-quote"><i
                         class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
         <li><a href="#"
-               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('quotes.delete', [$id]) }}');"><i
-                        class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+               onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('quotes.delete', [$id]) }}');"><i
+                        class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
     </ul>
 </div>

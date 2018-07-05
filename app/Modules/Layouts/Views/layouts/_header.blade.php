@@ -5,13 +5,15 @@
     </a>
 
     <nav class="navbar navbar-static-top" role="navigation">
-
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </a>
+        {{--<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">--}}
+            {{--<span class="sr-only">Toggle navigation</span>--}}
+            {{--<span class="icon-bar"></span>--}}
+            {{--<span class="icon-bar"></span>--}}
+            {{--<span class="icon-bar"></span>--}}
+        {{--</a>--}}
+        <ul class="nav navbar-nav">
+            <li><a href="#" class="nav-link" data-toggle="push-menu" ><i class="fa fa-bars"></i></a></li>
+        </ul>
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
@@ -20,6 +22,15 @@
                     <a href="{{ route('dashboard.documentation') }}" title="{{ trans('fi.documentation') }}" target="_blank">
                         <i class="fa fa-question-circle"></i>
                     </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{{ trans('fi.utilities') }}">
+                        <i class="fa fa-toolbox"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('utilities.manage_trash') }}">{{ trans('fi.manage_trash') }}</a></li>
+                    </ul>
                 </li>
 
                 <li class="dropdown">

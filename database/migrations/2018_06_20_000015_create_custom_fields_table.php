@@ -32,6 +32,7 @@ class CreateCustomFieldsTable extends Migration
 
             $table->index(["tbl_name"], 'custom_fields_table_name_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

@@ -25,6 +25,7 @@ class CreateUsersCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('user_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('user_id', 'users_custom_user_id')

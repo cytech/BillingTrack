@@ -47,7 +47,7 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        @include('quotes._table')
+                        @include('quotes._dataTable')
                     </div>
 
                 </div>

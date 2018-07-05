@@ -25,6 +25,7 @@ class CreatePaymentsCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('payment_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('payment_id', 'payments_custom_payment_id')

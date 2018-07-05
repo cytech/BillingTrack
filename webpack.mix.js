@@ -17,8 +17,8 @@ let mix = require('laravel-mix');
 //adminlte
 
 mix.copyDirectory('node_modules/bootstrap/dist', 'assets/bootstrap');
-mix.copyDirectory('node_modules/font-awesome/css', 'assets/font-awesome/css');
-mix.copyDirectory('node_modules/font-awesome/fonts', 'assets/font-awesome/fonts');
+mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/css', 'assets/font-awesome/css');
+mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'assets/font-awesome/webfonts');
 mix.copyDirectory('node_modules/ionicons/dist/css', 'assets/ionicons/css');
 mix.copyDirectory('node_modules/ionicons/dist/fonts', 'assets/ionicons/fonts');
 mix.copy('node_modules/jquery-autosize/jquery.autosize.min.js', 'assets/plugins/autosize/jquery.autosize.min.js');

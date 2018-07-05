@@ -42,7 +42,8 @@ class PaymentsDataTable extends DataTable
      */
     public function query(Payment $model)
     {
-        return $model->with(['invoice','invoice.client', 'invoice.currency', 'paymentMethod'])
+        return $model->with(['invoice' => function ($q){$q->withTrashed();},
+                             'invoice.client'=> function ($q){$q->withTrashed();}, 'invoice.currency', 'paymentMethod'])
             ->select('payments.*');
     }
 
@@ -128,6 +129,6 @@ class PaymentsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Users_' . date('YmdHis');
+        return 'Payments_' . date('YmdHis');
     }
 }

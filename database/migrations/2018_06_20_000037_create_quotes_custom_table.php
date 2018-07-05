@@ -25,6 +25,7 @@ class CreateQuotesCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('quote_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('quote_id', 'quotes_custom_quote_id')

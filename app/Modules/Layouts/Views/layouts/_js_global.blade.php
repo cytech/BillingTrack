@@ -12,7 +12,7 @@ font-size: 1.6rem !important;
             stimer = 0;
         } else {
             sbutton = false;
-            stimer = 3000;
+            stimer = 2000;
         }
 
         Swal({

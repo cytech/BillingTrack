@@ -25,6 +25,7 @@ class CreateExpensesCustomTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('expense_id');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('expense_id', 'expenses_custom_expense_id')

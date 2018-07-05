@@ -12,7 +12,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('quotes.bulk.delete') }}", ids)
+                bulkConfirm('{!! trans('fi.bulk_trash_record_warningg') !!}', "{{ route('quotes.bulk.delete') }}", ids)
             }
         });
 

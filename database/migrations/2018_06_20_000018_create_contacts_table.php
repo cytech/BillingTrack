@@ -33,6 +33,7 @@ class CreateContactsTable extends Migration
 
             $table->index(["client_id"], 'contacts_client_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('client_id', 'contacts_client_id_index')

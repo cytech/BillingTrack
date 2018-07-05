@@ -54,6 +54,7 @@ class CreateInvoicesTable extends Migration
 
             $table->index(["invoice_status_id"], 'invoices_invoice_status_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('client_id', 'invoices_client_id_index')

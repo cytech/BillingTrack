@@ -19,10 +19,10 @@
         </h1>
 
         <div class="pull-right">
-            <div class="btn-group">
+            <div class="btn-group form-inline">
                 {!! Form::open(['method' => 'GET', 'id' => 'filter']) !!}
-                {!! Form::select('company_profile', $companyProfiles, request('company_profile'), ['class' => 'filter_options form-control inline']) !!}
-                {!! Form::select('status', $statuses, request('status'), ['class' => 'filter_options form-control inline']) !!}
+                {!! Form::select('company_profile', $companyProfiles, request('company_profile'), ['class' => 'filter_options form-control ']) !!}
+                {!! Form::select('status', $statuses, request('status'), ['class' => 'filter_options form-control ']) !!}
                 {!! Form::close() !!}
             </div>
             <a href="{{ route('timeTracking.projects.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('TimeTracking::lang.create_project') }}</a>

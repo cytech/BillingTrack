@@ -23,7 +23,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('expenses.bulk.delete') }}", ids)
+                    bulkConfirm('{!! trans('fi.bulk_trash_record_warning') !!}', "{{ route('expenses.bulk.delete') }}", ids)
                 }
             });
         });

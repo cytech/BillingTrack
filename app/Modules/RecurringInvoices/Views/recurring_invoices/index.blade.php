@@ -36,7 +36,7 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        @include('recurring_invoices._table')
+                        @include('recurring_invoices._dataTable')
                     </div>
 
                 </div>

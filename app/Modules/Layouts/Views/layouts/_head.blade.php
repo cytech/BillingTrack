@@ -1,6 +1,7 @@
 <link href="{{ asset('favicon.png') }}" rel="icon" type="image/png">
 <link href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-<link href="{{ asset('assets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ asset('assets/font-awesome/css/all.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ asset('assets/font-awesome/css/v4-shims.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('assets/ionicons/css/ionicons.min.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('assets/dist/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('assets/dist/css/skins/' . $skin) }}" rel="stylesheet" type="text/css"/>

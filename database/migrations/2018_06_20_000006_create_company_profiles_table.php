@@ -38,6 +38,7 @@ class CreateCompanyProfilesTable extends Migration
             $table->string('quote_template');
             $table->string('invoice_template');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

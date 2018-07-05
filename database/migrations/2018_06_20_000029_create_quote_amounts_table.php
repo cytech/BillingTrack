@@ -32,6 +32,7 @@ class CreateQuoteAmountsTable extends Migration
 
             $table->index(["quote_id"], 'quote_amounts_quote_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('quote_id', 'quote_amounts_quote_id_index')

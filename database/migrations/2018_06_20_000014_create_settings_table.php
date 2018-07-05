@@ -29,6 +29,7 @@ class CreateSettingsTable extends Migration
 
             $table->index(["setting_key"], 'settings_setting_key_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

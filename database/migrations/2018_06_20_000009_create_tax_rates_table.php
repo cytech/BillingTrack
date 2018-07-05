@@ -29,6 +29,7 @@ class CreateTaxRatesTable extends Migration
             $table->tinyInteger('is_compound')->default('0');
             $table->tinyInteger('calculate_vat');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

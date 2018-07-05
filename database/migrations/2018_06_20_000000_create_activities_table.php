@@ -35,6 +35,7 @@ class CreateActivitiesTable extends Migration
 
             $table->index(["activity"], 'activities_activity_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

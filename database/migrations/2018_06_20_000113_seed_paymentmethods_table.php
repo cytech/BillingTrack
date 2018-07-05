@@ -13,8 +13,8 @@ class SeedPaymentmethodsTable extends Migration
     public function up()
     {
 
-        DB::statement('INSERT INTO `payment_methods` VALUES (1,\'Cash\',null,null)
-            ,(2,\'Credit Card\',null,null),(3,\'Online Payment\',null,null)');
+        DB::statement('INSERT INTO `payment_methods` VALUES (1,\'Cash\',NULL,NULL,NULL)
+            ,(2,\'Credit Card\',NULL,NULL,NULL),(3,\'Online Payment\',NULL,NULL,NULL)');
 
     }
 

@@ -35,6 +35,7 @@ class CreateMerchantClientsTable extends Migration
 
             $table->index(["driver"], 'merchant_clients_driver_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('client_id', 'merchant_clients_client_id_index')

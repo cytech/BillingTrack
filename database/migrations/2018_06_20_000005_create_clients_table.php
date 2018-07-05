@@ -47,6 +47,7 @@ class CreateClientsTable extends Migration
 
             $table->index(["name"], 'clients_name_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

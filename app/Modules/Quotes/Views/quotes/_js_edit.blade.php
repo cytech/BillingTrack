@@ -37,7 +37,7 @@
 
         $('.btn-delete-quote-item').click(function () {
             var id = $(this).data('item-id');
-            deleteConfirm('{!! trans('fi.delete_record_warning') !!}', '{{ route('quoteItem.delete') }}', id,
+            deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('quoteItem.delete') }}', id,
                 '{{ route('quoteEdit.refreshTotals') }}', '{{ $quote->id }}' );
         });
 

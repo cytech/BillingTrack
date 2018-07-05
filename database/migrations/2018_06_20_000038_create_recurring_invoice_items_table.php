@@ -37,6 +37,7 @@ class CreateRecurringInvoiceItemsTable extends Migration
 
             $table->index(["recurring_invoice_id"], 'recurring_invoice_items_recurring_invoice_id_index');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('recurring_invoice_id', 'recurring_invoice_items_recurring_invoice_id_index')

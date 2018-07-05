@@ -16,9 +16,14 @@ use FI\Events\InvoiceModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class InvoiceItem extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $guarded = ['id', 'item_id'];
 
     public static function boot()

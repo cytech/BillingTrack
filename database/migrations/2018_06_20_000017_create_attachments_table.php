@@ -35,6 +35,7 @@ class CreateAttachmentsTable extends Migration
 
             $table->index(["user_id"], 'fk_attachments_users1_idx');
             $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('user_id', 'fk_attachments_users1_idx')

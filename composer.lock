@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68d5c9b02f97e7f4fa11fea6821275f4",
+    "content-hash": "f5243a396b863270a9d3ee01b3f2b2a7",
     "packages": [
+        {
+            "name": "askedio/laravel-soft-cascade",
+            "version": "5.6.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Askedio/laravel-soft-cascade.git",
+                "reference": "fc129408594434a9847b73181dde90ce2e0d02c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Askedio/laravel-soft-cascade/zipball/fc129408594434a9847b73181dde90ce2e0d02c3",
+                "reference": "fc129408594434a9847b73181dde90ce2e0d02c3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "5.6.*",
+                "illuminate/database": "5.6.*",
+                "illuminate/events": "5.6.*",
+                "illuminate/support": "5.6.*",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "codacy/coverage": "dev-master",
+                "orchestra/testbench": "3.6.x",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Askedio\\SoftCascade\\Providers\\GenericServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Askedio\\SoftCascade\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Laravel Cascade Soft Delete & Restore",
+            "time": "2018-04-28T10:31:56+00:00"
+        },
         {
             "name": "barryvdh/laravel-ide-helper",
             "version": "v2.4.3",

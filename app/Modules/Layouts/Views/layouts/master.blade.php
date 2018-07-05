@@ -85,6 +85,11 @@
                         <i class="fa fa-bank"></i> <span>{{ trans('fi.expenses') }}</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('timeTracking.projects.index', ['status' => 1]) }}">
+                        <i class="fa fa-clock-o"></i> <span>{{ trans('fi.time_tracking') }}</span>
+                    </a>
+                </li>
 
                 <li class="treeview">
                     <a href="#">
@@ -100,6 +105,7 @@
                         <li><a href="{{ route('reports.profitLoss') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.profit_and_loss') }}</a></li>
                         <li><a href="{{ route('reports.revenueByClient') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.revenue_by_client') }}</a></li>
                         <li><a href="{{ route('reports.taxSummary') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.tax_summary') }}</a></li>
+                        <li><a href="{{ route('timeTracking.reports.timesheet') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.time_tracking') }}</a></li>
 
                         @foreach (config('fi.menus.reports') as $report)
                             @if (view()->exists($report))
