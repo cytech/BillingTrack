@@ -23,6 +23,7 @@
                         <li class="active"><a data-toggle="tab" href="#tab-clients">{{ trans('fi.clients') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-recurring_invoices">{{ trans('fi.recurring_invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
                     </ul>
 
@@ -48,6 +49,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     @include('utilities._invoicestrash')
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-recurring_invoices" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @include('utilities._recurring_invoicestrash')
                                 </div>
                             </div>
                         </div>

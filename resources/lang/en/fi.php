@@ -675,5 +675,9 @@ return [
     //
     'trash'                       => 'Trash',
     'manage_trash'                => 'Manage Trash',
-    'utilities'                   => 'Utilities'
+    'utilities'                   => 'Utilities',
+    'new_account'                 => 'New Account',
+    'transfer_existing'           => 'Transfer Existing FusionInvoice 2018-8 database',
+    'newaccount_or_transfer'      => 'Create New Account or Transfer Existing ?',
+
 ];

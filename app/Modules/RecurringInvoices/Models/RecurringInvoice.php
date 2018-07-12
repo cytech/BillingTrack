@@ -11,6 +11,7 @@
 
 namespace FI\Modules\RecurringInvoices\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\RecurringInvoiceCreated;
 use FI\Events\RecurringInvoiceCreating;
 use FI\Events\RecurringInvoiceDeleted;
@@ -25,6 +26,10 @@ class RecurringInvoice extends Model
 {
     //use Sortable;
     use SoftDeletes;
+
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['recurringInvoiceItems', 'custom', 'amount'];
 
     protected $dates = ['deleted_at'];
 

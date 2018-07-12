@@ -16,9 +16,13 @@ use FI\Events\RecurringInvoiceModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RecurringInvoiceItem extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     /**
      * Guarded properties
      * @var array

@@ -33,6 +33,9 @@ class CreatePaymentsCustomTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('restrict');
         });
+
+        //run seeder for default setup
+        Artisan::call('db:seed');
     }
 
     /**

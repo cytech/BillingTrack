@@ -8,7 +8,7 @@
     <title>{{ config('fi.headerTitleText') }}</title>
 
     @include('layouts._head')
-
+    <script src="{{ asset('assets/plugins/jQuery/jquery.min.js') }}"></script>
     @include('layouts._js_global')
 
     @yield('head')
@@ -23,7 +23,7 @@
     <header class="main-header">
 
         <a href="#" class="logo">
-            <span class="logo-lg">FusionInvoice</span>
+            <span class="logo-lg">FusionInvoiceFOSS</span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
@@ -40,6 +40,7 @@
 </div>
 
 <div id="modal-placeholder"></div>
+@stack('scripts')
 
 </body>
 </html>

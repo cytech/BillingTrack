@@ -1,19 +1,20 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use FI\Modules\Settings\Models\Setting;
+use Illuminate\Database\Seeder;
 
-class SeedSettingsTable extends Migration
+class SettingsTableSeeder extends Seeder
 {
-
     /**
-     * Run the migrations.
+     * Run the database seeds.
+     *
+     * @return void
      */
-    public function up()
+    public function run()
     {
+        if (count(Setting::all())){ return; }
 
-        DB::statement('INSERT INTO `settings` VALUES (1,\'addressFormat\',\'{{ address }}\r\n{{ city }}, {{ state }} {{ postal_code }}\',NULL,NULL,NULL)
+        DB::statement('INSERT INTO settings VALUES (1,\'addressFormat\',\'{{ address }}\r\n{{ city }}, {{ state }} {{ postal_code }}\',NULL,NULL,NULL)
             ,(2,\'allowPaymentsWithoutBalance\',\'0\',NULL,NULL,NULL)
             ,(3,\'amountDecimals\',\'2\',NULL,NULL,NULL)
             ,(4,\'attachPdf\',\'1\',NULL,NULL,NULL)
@@ -82,16 +83,5 @@ class SeedSettingsTable extends Migration
             ,(67,\'widgetEnabledQuoteSummary\',\'1\',NULL,NULL,NULL)
             ,(68,\'widgetInvoiceSummaryDashboardTotals\',\'year_to_date\',NULL,NULL,NULL)
             ,(69,\'widgetQuoteSummaryDashboardTotals\',\'year_to_date\',NULL,NULL,NULL)');
-
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
     }
 }
