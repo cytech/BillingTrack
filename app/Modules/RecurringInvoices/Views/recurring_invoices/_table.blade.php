@@ -2,13 +2,13 @@
 
     <thead>
     <tr>
-        <th>{!! Sortable::link('id', trans('fi.id'), 'recurring_invoices') !!}</th>
-        <th>{!! Sortable::link('clients.name', trans('fi.client'), 'recurring_invoices') !!}</th>
-        <th class="hidden-sm hidden-xs">{!! Sortable::link('summary', trans('fi.summary'), 'recurring_invoices') !!}</th>
-        <th>{!! Sortable::link('next_date', trans('fi.next_date'), 'recurring_invoices') !!}</th>
-        <th>{!! Sortable::link('stop_date', trans('fi.stop_date'), 'recurring_invoices') !!}</th>
+        <th>{{ trans('fi.id') }}</th>
+        <th>{{ trans('fi.client') }}</th>
+        <th class="hidden-sm hidden-xs">{{ trans('fi.summary') }}</th>
+        <th>{{ trans('fi.next_date') }}</th>
+        <th>{{ trans('fi.stop_date') }}</th>
         <th>{{ trans('fi.every') }}</th>
-        <th style="text-align: right; padding-right: 25px;">{!! Sortable::link('recurring_invoice_amounts.total', trans('fi.total'), 'recurring_invoices') !!}</th>
+        <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
         <th>{{ trans('fi.options') }}</th>
     </tr>
     </thead>

@@ -17,14 +17,12 @@ use FI\Events\RecurringInvoiceCreating;
 use FI\Events\RecurringInvoiceDeleted;
 use FI\Support\DateFormatter;
 use FI\Support\NumberFormatter;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class RecurringInvoice extends Model
 {
-    //use Sortable;
     use SoftDeletes;
 
     use SoftCascadeTrait;
@@ -34,8 +32,6 @@ class RecurringInvoice extends Model
     protected $dates = ['deleted_at'];
 
     protected $guarded = ['id'];
-
-    //protected $sortable = ['id', 'clients.name', 'summary', 'next_date', 'stop_date', 'recurring_invoice_amounts.total'];
 
     protected $appends = ['formatted_next_date', 'formatted_stop_date'];
 
@@ -53,10 +49,10 @@ class RecurringInvoice extends Model
             event(new RecurringInvoiceCreated($recurringInvoice));
         });
 
-        static::deleted(function ($recurringInvoice)
-        {
-            event(new RecurringInvoiceDeleted($recurringInvoice));
-        });
+//        static::deleted(function ($recurringInvoice)
+//        {
+//            event(new RecurringInvoiceDeleted($recurringInvoice));
+//        });
     }
 
     /*

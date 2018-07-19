@@ -17,6 +17,8 @@
 
     {!! Form::hidden('invoice_id') !!}
 
+    {!! Form::hidden('client_id') !!}
+
     <section class="content-header">
         <h1 class="pull-left">
             {{ trans('fi.payment_form') }}

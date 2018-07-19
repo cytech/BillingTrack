@@ -14,9 +14,14 @@ namespace FI\Modules\TimeTracking\Models;
 use FI\Support\DateFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TimeTrackingTimer extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $table = 'time_tracking_timers';
 
     protected $guarded = ['id'];

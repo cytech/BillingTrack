@@ -2,55 +2,55 @@
  * skin styles for dataTables
  */
 
-.skin-black .table.dataTable thead > tr > th {
+.skin-black .btn-primary,.skin-black .pagination>.active>a,.skin-black .table.dataTable thead > tr > th{
     background-color: #ffffff !important;
     color: #333333
 }
-.skin-black-light .table.dataTable thead > tr > th {
+.skin-black-light .btn-primary,.skin-black-light .pagination>.active>a,.skin-black-light .table.dataTable thead > tr > th{
     background-color: #ffffff !important;
     color: #333333
 }
-.skin-blue .table.dataTable thead > tr > th {
+.skin-blue .btn-primary,.skin-blue .pagination>.active>a,.skin-blue .table.dataTable thead > tr > th{
     background-color: #3c8dbc !important;
     color: #ffffff
 }
-.skin-blue-light .table.dataTable thead > tr > th {
+.skin-blue-light .btn-primary,.skin-blue-light .pagination>.active>a,.skin-blue-light .table.dataTable thead > tr > th{
     background-color: #3c8dbc !important;
     color: #ffffff
 }
-.skin-fusioninvoice .table.dataTable thead > tr > th {
+.skin-fusioninvoice .btn-primary,.skin-fusioninvoice .pagination>.active>a,.skin-fusioninvoice .table.dataTable thead > tr > th{
     background-color: #17abe6 !important;
     color: #ffffff
 }
-.skin-green .table.dataTable thead > tr > th {
+.skin-green .btn-primary,.skin-green .pagination>.active>a,.skin-green .table.dataTable thead > tr > th{
     background-color: #00a65a !important;
     color: #ffffff
 }
-.skin-green-light .table.dataTable thead > tr > th {
+.skin-green-light .btn-primary,.skin-green-light .pagination>.active>a,.skin-green-light .table.dataTable thead > tr > th{
     background-color: #00a65a !important;
     color: #ffffff
 }
-.skin-purple .table.dataTable thead > tr > th {
+.skin-purple .btn-primary,.skin-purple .pagination>.active>a,.skin-purple .table.dataTable thead > tr > th {
     background-color: #605ca8 !important;
     color: #ffffff
 }
-.skin-purple-light .table.dataTable thead > tr > th {
+.skin-purple-light .btn-primary,.skin-purple-light .pagination>.active>a,.skin-purple-light .table.dataTable thead > tr > th{
     background-color: #605ca8 !important;
     color: #ffffff
 }
-.skin-red .table.dataTable thead > tr > th {
+.skin-red .btn-primary,.skin-red .pagination>.active>a,.skin-red .table.dataTable thead > tr > th{
     background-color: #dd4b39 !important;
     color: #ffffff
 }
-.skin-red-light .table.dataTable thead > tr > th {
+.skin-red-light .btn-primary,.skin-red-light .pagination>.active>a,.skin-red-light .table.dataTable thead > tr > th{
     background-color: #dd4b39 !important;
     color: #ffffff
 }
-.skin-yellow .table.dataTable thead > tr > th {
+.skin-yellow .btn-primary,.skin-yellow .pagination>.active>a,.skin-yellow .table.dataTable thead > tr > th{
     background-color: #f39c12 !important;
     color: #ffffff
 }
-.skin-yellow-light .table.dataTable thead > tr > th {
+.skin-yellow-light .btn-primary,.skin-yellow-light .pagination>.active>a,.skin-yellow-light .table.dataTable thead > tr > th{
     background-color: #f39c12 !important;
     color: #ffffff
 }

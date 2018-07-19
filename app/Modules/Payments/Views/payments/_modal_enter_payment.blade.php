@@ -16,6 +16,8 @@
 
                     <input type="hidden" name="invoice_id" id="invoice_id" value="{{ $invoice_id }}">
 
+                    <input type="hidden" name="client_id" id="client_id" value="{{ $client->id }}">
+
                     <div class="form-group">
                         <label class="col-sm-4 control-label">{{ trans('fi.amount') }}</label>
 

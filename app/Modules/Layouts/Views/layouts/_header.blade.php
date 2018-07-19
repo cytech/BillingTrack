@@ -29,6 +29,10 @@
                         <i class="fa fa-toolbox"></i>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href="{{ route('employees.index') }}">{{ trans('fi.employees') }}</a></li>
+                        <li><a href="{{ route('products.index') }}">{{ trans('fi.products') }}</a></li>
+                        <li><a href="{{ route('itemLookups.index') }}">{{ trans('fi.item_lookups') }}</a></li>
+                        <li><a href="{{ route('mailLog.index') }}">{{ trans('fi.mail_log') }}</a></li>
                         <li><a href="{{ route('utilities.manage_trash') }}">{{ trans('fi.manage_trash') }}</a></li>
                     </ul>
                 </li>
@@ -45,8 +49,6 @@
                         <li><a href="{{ route('export.index') }}">{{ trans('fi.export_data') }}</a></li>
                         <li><a href="{{ route('groups.index') }}">{{ trans('fi.groups') }}</a></li>
                         <li><a href="{{ route('import.index') }}">{{ trans('fi.import_data') }}</a></li>
-                        <li><a href="{{ route('itemLookups.index') }}">{{ trans('fi.item_lookups') }}</a></li>
-                        <li><a href="{{ route('mailLog.index') }}">{{ trans('fi.mail_log') }}</a></li>
                         <li><a href="{{ route('paymentMethods.index') }}">{{ trans('fi.payment_methods') }}</a></li>
                         <li><a href="{{ route('taxRates.index') }}">{{ trans('fi.tax_rates') }}</a></li>
                         <li><a href="{{ route('users.index') }}">{{ trans('fi.user_accounts') }}</a></li>

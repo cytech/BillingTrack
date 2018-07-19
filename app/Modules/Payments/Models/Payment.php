@@ -20,14 +20,12 @@ use FI\Support\DateFormatter;
 use FI\Support\FileNames;
 use FI\Support\HTML;
 use FI\Support\NumberFormatter;
-//use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Payment extends Model
 {
-    //use Sortable;
     use SoftDeletes;
 
     /**
@@ -35,8 +33,6 @@ class Payment extends Model
      * @var array
      */
     protected $guarded = ['id'];
-
-    //protected $sortable = ['paid_at', 'invoices.invoice_date', 'invoices.number', 'invoices.summary', 'clients.name', 'amount', 'payment_methods.name', 'note'];
 
     protected $dates = ['paid_at','deleted_at'];
 
@@ -86,6 +82,11 @@ class Payment extends Model
     | Relationships
     |--------------------------------------------------------------------------
     */
+
+    public function client()
+    {
+        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+    }
 
     public function custom()
     {

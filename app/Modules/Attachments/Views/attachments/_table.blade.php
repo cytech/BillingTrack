@@ -3,7 +3,7 @@
         $('.btn-delete-attachment').click(function () {
 
             Swal({
-                title: '{{ trans('fi.delete_record_warning') }}',
+                title: '{{ trans('fi.trash_record_warning') }}',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
@@ -70,7 +70,7 @@
                 </td>
                 <td>
                     <a class="btn btn-xs btn-default btn-delete-attachment" href="javascript:void(0);"
-                       title="{{ trans('fi.delete') }}" data-attachment-id="{{ $attachment->id }}">
+                       title="{{ trans('fi.trash') }}" data-attachment-id="{{ $attachment->id }}">
                         <i class="fa fa-times"></i>
                     </a>
                 </td>

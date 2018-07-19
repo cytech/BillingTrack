@@ -29,17 +29,17 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        <table class="table table-hover">
+                        <table id="dt-maillogtable" class="table dataTable no-footer">
 
                             <thead>
                             <tr>
-                                <th>{!! Sortable::link('created_at', trans('fi.date')) !!}</th>
-                                <th>{!! Sortable::link('from', trans('fi.from')) !!}</th>
-                                <th>{!! Sortable::link('to', trans('fi.to')) !!}</th>
-                                <th>{!! Sortable::link('cc', trans('fi.cc')) !!}</th>
-                                <th>{!! Sortable::link('bcc', trans('fi.bcc')) !!}</th>
-                                <th>{!! Sortable::link('subject', trans('fi.subject')) !!}</th>
-                                <th>{!! Sortable::link('sent', trans('fi.sent')) !!}</th>
+                                <th>{{ trans('fi.date') }}</th>
+                                <th>{{ trans('fi.from') }}</th>
+                                <th>{{ trans('fi.to') }}</th>
+                                <th>{{ trans('fi.cc') }}</th>
+                                <th>{{ trans('fi.bcc') }}</th>
+                                <th>{{ trans('fi.subject') }}</th>
+                                <th>{{ trans('fi.sent') }}</th>
                                 <th>{{ trans('fi.options') }}</th>
                             </tr>
                             </thead>
@@ -61,7 +61,7 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <li><a href="#"
-                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('mailLog.delete', [$mail->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                                                       onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('mailLog.delete', [$mail->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -74,13 +74,27 @@
 
                 </div>
 
-                <div class="pull-right">
-                    {!! $mails->appends(request()->except('page'))->render() !!}
-                </div>
+                {{--<div class="pull-right">--}}
+                    {{--{!! $mails->appends(request()->except('page'))->render() !!}--}}
+                {{--</div>--}}
 
             </div>
 
         </div>
 
     </section>
+    <script>
+        $(function () {
+            {{--for employees DT--}}
+            $('#dt-maillogtable').DataTable({
+                paging: false,
+                //searching: true,
+                order: [[0, "asc"]],//order on id
+                "columnDefs": [
+                    {"orderable": false, "targets": 7}
+                ]
+                //dom: 'T<"clear">lfrtip'
+            });
+        });
+    </script>
 @stop

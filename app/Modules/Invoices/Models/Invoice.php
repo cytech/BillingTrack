@@ -22,32 +22,18 @@ use FI\Support\FileNames;
 use FI\Support\HTML;
 use FI\Support\NumberFormatter;
 use FI\Support\Statuses\InvoiceStatuses;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Invoice extends Model
 {
-    //use Sortable;
     use SoftDeletes;
     use SoftCascadeTrait;
 
     protected $softCascade = ['quote', 'payments', 'invoiceItems', 'custom', 'amount'];
 
     protected $guarded = ['id'];
-
-    /*protected $sortable = [
-        'number' => ['LENGTH(number)', 'number'],
-        'invoice_date',
-        'due_at',
-        'clients.name',
-        'summary',
-        'invoice_amounts.total',
-        'invoice_amounts.balance',
-        'invoice_amounts.tax',
-        'invoice_amounts.subtotal'
-    ];*/
 
     protected $dates = ['due_at', 'invoice_date', 'deleted_at'];
 

@@ -35,7 +35,7 @@
 
             $(document).on('click', '.btn-delete-task', function () {
                 Swal({
-                    title: '{!! trans('fi.confirm_delete_task') !!}',
+                    title: '{!! trans('fi.confirm_trash_task') !!}',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d68500',
@@ -56,7 +56,7 @@
                 });
                 if (ids.length > 0) {
                     Swal({
-                        title: '{!! trans('fi.confirm_delete_task') !!}',
+                        title: '{!! trans('fi.confirm_trash_task') !!}',
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#d68500',
@@ -208,8 +208,8 @@
         </h1>
         <div class="pull-right">
             <a href="#" class="btn btn-default"
-                   onclick="swalConfirm('{{ trans('fi.confirm_delete_project') }}', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
-                            class="fa fa-trash-o"></i> {{ trans('fi.delete_project') }}</a>
+                   onclick="swalConfirm('{{ trans('fi.confirm_trash_project') }}', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
+                            class="fa fa-trash-o"></i> {{ trans('fi.trash_project') }}</a>
             <a href="{{ route('timeTracking.projects.index') }}" class="btn btn-default"><i class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
             <button class="btn btn-primary" id="btn-save-settings"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>
@@ -244,7 +244,7 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:void(0)" id="btn-bulk-bill-tasks"><i class="fa fa-dollar"></i> {{ trans('fi.bill_tasks') }}</a></li>
-                                    <li><a href="javascript:void(0)" id="btn-bulk-delete-tasks"><i class="fa fa-trash"></i> {{ trans('fi.delete_tasks') }}</a></li>
+                                    <li><a href="javascript:void(0)" id="btn-bulk-delete-tasks"><i class="fa fa-trash"></i> {{ trans('fi.trash_tasks') }}</a></li>
                                 </ul>
                             </div>
                         </div>

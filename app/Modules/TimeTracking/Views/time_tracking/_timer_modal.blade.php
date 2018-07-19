@@ -22,7 +22,7 @@
 
         $('#task-timer-list').on('click', '.btn-delete-timer', function () {
             Swal({
-                title: '{!! trans('fi.delete_record_warning') !!}',
+                title: '{!! trans('fi.trash_record_warning') !!}',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',

@@ -112,17 +112,17 @@ font-size: 1.6rem !important;
             }
         });
 
-        $('.create-quote').click(function () {
+        $(document).on('click','.create-quote', function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('quotes.create') }}');
         });
 
-        $('.create-invoice').click(function () {
+        $(document).on('click','.create-invoice',function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('invoices.create') }}');
         });
 
-        $('.create-recurring-invoice').click(function () {
+        $(document).on('click','.create-recurring-invoice',function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('recurringInvoices.create') }}');
         });

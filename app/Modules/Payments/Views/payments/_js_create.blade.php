@@ -17,6 +17,7 @@
             });
 
             $.post('{{ route('payments.store') }}', {
+                client_id: $('#client_id').val(),
                 invoice_id: $('#invoice_id').val(),
                 amount: $('#payment_amount').val(),
                 payment_method_id: $('#payment_method_id').val(),

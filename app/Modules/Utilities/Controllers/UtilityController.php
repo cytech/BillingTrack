@@ -12,10 +12,12 @@
 namespace FI\Modules\Utilities\Controllers;
 
 use FI\Modules\Clients\Models\Client;
+use FI\Modules\Expenses\Models\Expense;
 use FI\Modules\Invoices\Models\Invoice;
 use FI\Modules\Payments\Models\Payment;
 use FI\Modules\Quotes\Models\Quote;
 use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
+use FI\Modules\TimeTracking\Models\TimeTrackingProject;
 use Illuminate\Http\Request;
 
 
@@ -24,17 +26,21 @@ class UtilityController
     public function manageTrash()
     {
         $clients = Client::onlyTrashed()->get();
-        $quotes = Quote::onlyTrashed()->with(['client' => function ($q){$q->withTrashed();}])->get();
-        $invoices = Invoice::onlyTrashed()->with(['client' => function ($q){$q->withTrashed();}])->get();
-        $recurring_invoices = RecurringInvoice::onlyTrashed()->with(['client' => function ($q){$q->withTrashed();}])->get();
-        $payments = Payment::onlyTrashed()->with(['invoice' => function ($q){$q->withTrashed();}])->get();
+        $quotes = Quote::has('client')->where('invoice_id', 0)->onlyTrashed()->get();
+        $invoices = Invoice::has('client')->onlyTrashed()->get();
+        $recurring_invoices = RecurringInvoice::has('client')->onlyTrashed()->get();
+        $payments = Payment::has('client')->has('invoice')->onlyTrashed()->get();
+        $expenses = Expense::onlyTrashed()->get();
+        $projects = TimeTrackingProject::has('client')->onlyTrashed()->get();
 
         return view('utilities.trash')
             ->with('clients', $clients)
             ->with('quotes', $quotes)
             ->with('invoices', $invoices)
             ->with('recurring_invoices', $recurring_invoices)
-            ->with('payments', $payments);
+            ->with('payments', $payments)
+            ->with('expenses', $expenses)
+            ->with('projects', $projects);
 
     }
 
@@ -56,6 +62,12 @@ class UtilityController
                 break;
             case 'payment':
                 Payment::onlyTrashed()->find($id)->restore();
+                break;
+            case 'expense':
+                Expense::onlyTrashed()->find($id)->restore();
+                break;
+            case 'project':
+                TimeTrackingProject::onlyTrashed()->find($id)->restore();
                 break;
         }
 

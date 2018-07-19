@@ -18,7 +18,6 @@ use FI\Events\ClientDeleted;
 use FI\Events\ClientSaving;
 use FI\Support\CurrencyFormatter;
 use FI\Support\Statuses\InvoiceStatuses;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +25,6 @@ use Illuminate\Support\Facades\DB;
 class Client extends Model
 {
 
-    //use Sortable;
     use SoftDeletes;
     use SoftCascadeTrait;
 
@@ -37,8 +35,6 @@ class Client extends Model
     protected $guarded = ['id', 'password'];
 
     protected $hidden = ['password', 'remember_token'];
-
-    //protected $sortable = ['unique_name', 'email', 'phone', 'balance', 'active', 'custom'];
 
     protected $appends = ['formatted_balance'];
 
@@ -123,6 +119,11 @@ class Client extends Model
     public function invoices()
     {
         return $this->hasMany('FI\Modules\Invoices\Models\Invoice');
+    }
+
+    public function payments()
+    {
+        return $this->hasMany('FI\Modules\Payments\Models\Payment');
     }
 
     public function merchant()

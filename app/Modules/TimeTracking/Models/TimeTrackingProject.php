@@ -11,6 +11,7 @@
 
 namespace FI\Modules\TimeTracking\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Support\Statuses\TimeTrackingProjectStatuses;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
@@ -22,6 +23,9 @@ use Illuminate\Support\Facades\Event;
 class TimeTrackingProject extends Model
 {
     use SoftDeletes;
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['tasks'];
 
     protected $dates = ['deleted_at'];
 

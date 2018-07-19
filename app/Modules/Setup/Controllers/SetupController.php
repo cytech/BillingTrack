@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Setup\Controllers;
 
+use Artisan;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\Settings\Models\Setting;
@@ -19,6 +20,8 @@ use FI\Modules\Setup\Requests\ProfileRequest;
 use FI\Modules\Users\Models\User;
 use FI\Support\Migrations;
 use DB;
+use Illuminate\Http\Request;
+use Schema;
 
 class SetupController extends Controller
 {
@@ -91,10 +94,12 @@ class SetupController extends Controller
 
     }
 
-    public function postXferAccount()
+    public function postXferAccount(Request $request)
     {
-        $oldschema = request('olddbname');
+        Artisan::call('config:cache');
+        $oldschema = $request->olddbname;
         $newschema = env('DB_DATABASE');
+        //dd($newschema);
 
         DB::statement('set foreign_key_checks = 0');
         DB::statement('truncate table users');
@@ -147,33 +152,48 @@ class SetupController extends Controller
             'recurring_invoices' => 'id, created_at, updated_at, user_id, client_id, group_id, company_profile_id, terms, footer, currency_code, exchange_rate, template, summary, discount, recurring_frequency, recurring_period, next_date, stop_date',
             'recurring_invoices_custom' => 'recurring_invoice_id, created_at, updated_at',
             //'recurring_invoices_old' => '',
-//            'schedule' => '',
-//            'schedule_categories' => '',
-//            'schedule_occurrences' => '',
-//            'schedule_reminders' => '',
-//            'schedule_resources' => '',
-//            'schedule_settings' => '',
+            'schedule' => 'id, title, description, isRecurring, rrule, user_id, category_id, url, will_call, created_at, updated_at, deleted_at',
+            'schedule_categories' => 'id, name, text_color, bg_color',
+            'schedule_occurrences' => 'oid, schedule_id, start_date, end_date, created_at, updated_at',
+            'schedule_reminders' => 'id, schedule_id, reminder_date, reminder_location, reminder_text, created_at, updated_at',
+            'schedule_resources' => 'id, schedule_id, fid, resource_table, resource_id, value, qty',
+            'schedule_settings' => 'id, created_at, updated_at, setting_key, setting_value',
             'settings' => 'id, created_at, updated_at, setting_key, setting_value',
             'tax_rates' => 'id, created_at, updated_at, name, percent, is_compound, calculate_vat',
-            //'time_tracking_projects' => '',
-            //'time_tracking_tasks' => '',
-            //'time_tracking_timers' => '',
+            'time_tracking_projects' => 'id, created_at, updated_at, company_profile_id, user_id, client_id, name, due_at, hourly_rate, status_id',
+            'time_tracking_tasks' => 'id, created_at, updated_at, time_tracking_project_id, name, display_order, billed, invoice_id',
+            'time_tracking_timers' => 'id, created_at, updated_at, time_tracking_task_id, start_at, end_at, hours, description',
             'users' => 'id, created_at, updated_at, email, password, name, remember_token, api_public_key, api_secret_key, client_id',
             'users_custom' => 'user_id, created_at, updated_at',
-//            'workorder_amounts' => '',
-//            'workorder_employees' => '',
-//            'workorder_item_amounts' => '',
-//            'workorder_items' => '',
-//            'workorder_resources' => '',
-//            'workorder_settings' => '',
-//            'workorder_tax_rates' => '',
-//            'workorders' => '',
-//            'workorders_custom' => '',
+            'workorder_amounts' => 'id, created_at, updated_at, workorder_id, subtotal, discount, tax, total',
+            'workorder_employees' => 'id, created_at, updated_at, number, first_name, last_name, full_name, short_name, title, billing_rate, schedule, active, driver',
+            'workorder_item_amounts' => 'id, created_at, updated_at, item_id, subtotal, tax_1, tax_2, tax, total',
+            'workorder_items' => 'id, created_at, updated_at, workorder_id, tax_rate_id, tax_rate_2_id, resource_table, resource_id, name, description, quantity, display_order, price',
+            'workorder_resources' => 'id, created_at, updated_at, name, description, serialnum, active, cost, category, type, numstock',
+            'workorder_settings' => 'id, created_at, updated_at, setting_key, setting_value',
+            //'workorder_tax_rates' => '',
+            'workorders' => 'id, created_at, updated_at, workorder_date, invoice_id, user_id, client_id, group_id, workorder_status_id, expires_at, number, footer, url_key, currency_code, exchange_rate, terms, template, summary, viewed, discount, job_date, start_time, end_time, will_call, company_profile_id, deleted_at',
+            'workorders_custom' => 'workorder_id, created_at, updated_at',
         ];
 
         foreach ($oldtables as $table => $columndef){
-            DB::statement('insert into `'. $newschema .'`.'.$table.' ('.$columndef.')
-                                SELECT '.$columndef.' FROM `'. $oldschema .'`.'.$table.';');
+            if (/*Schema::connection($oldschema)->hasTable($table) &&*/ Schema::/*connection($newschema)->*/hasTable($table)) {
+                DB::statement('insert into `' . $newschema . '`.' . $table . ' (' . $columndef . ')
+                                SELECT ' . $columndef . ' FROM `' . $oldschema . '`.' . $table . ';');
+                if($table == 'payments'){
+                    DB::statement('UPDATE payments o JOIN invoices d 
+                                  ON d.id = o.invoice_id
+                                  SET o.client_id = d.client_id;');
+                }
+            }elseif (/*Schema::connection($oldschema)->hasTable($table) && */!Schema::/*connection($newschema)->*/hasTable($table)){
+                //table name change overrides
+                $newtable = '';
+                ($table ==  'workorder_employees') ? $newtable = 'employees':null ;
+                ($table ==  'workorder_resources') ? $newtable = 'products':null ;
+                if ($newtable)
+                DB::statement('insert into `' . $newschema . '`.' . $newtable . ' (' . $columndef . ')
+                                SELECT ' . $columndef . ' FROM `' . $oldschema . '`.' . $table . ';');
+            }
         }
 
         DB::statement('set foreign_key_checks = 1');

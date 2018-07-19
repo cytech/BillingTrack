@@ -13,13 +13,11 @@ namespace FI\Modules\ItemLookups\Models;
 
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class ItemLookup extends Model
 {
-    use Sortable;
 
     /**
      * Guarded properties
@@ -27,7 +25,6 @@ class ItemLookup extends Model
      */
     protected $guarded = ['id'];
 
-    protected $sortable = ['name', 'description', 'price'];
 
     /*
     |--------------------------------------------------------------------------

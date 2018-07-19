@@ -16,9 +16,14 @@ use FI\Events\QuoteModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class QuoteItem extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $guarded = ['id'];
 
     public static function boot()

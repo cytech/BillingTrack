@@ -25,6 +25,8 @@
                         <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-recurring_invoices">{{ trans('fi.recurring_invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-expenses">{{ trans('fi.expenses') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-projects">{{ trans('fi.projects') }}</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -65,6 +67,20 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     @include('utilities._paymentstrash')
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-expenses" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @include('utilities._expensestrash')
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-projects" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @include('utilities._projectstrash')
                                 </div>
                             </div>
                         </div>

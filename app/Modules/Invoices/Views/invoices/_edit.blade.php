@@ -117,6 +117,8 @@
                             <div class="box-tools pull-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
                                         class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
+                                <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
+                                            class="fa fa-plus"></i> {{ trans('fi.add_lookup') }}</button>
                             </div>
                         </div>
 
@@ -165,7 +167,7 @@
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
                                             <a class="btn btn-xs btn-default btn-delete-invoice-item" href="javascript:void(0);"
-                                               title="{{ trans('fi.delete') }}" data-item-id="{{ $item->id }}">
+                                               title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>

@@ -4,12 +4,12 @@
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
         <th class="hidden-sm hidden-xs">{{ trans('fi.status') }}</th>
-        <th>{!! Sortable::link('number', trans('fi.quote'), 'quotes') !!}</th>
-        <th class="hidden-xs">{!! Sortable::link('quote_date', trans('fi.date'), 'quotes') !!}</th>
-        <th class="hidden-sm hidden-xs">{!! Sortable::link('expires_at', trans('fi.expires'), 'quotes') !!}</th>
-        <th>{!! Sortable::link('clients.name', trans('fi.client'), 'quotes') !!}</th>
-        <th class="hidden-sm hidden-xs">{!! Sortable::link('summary', trans('fi.summary'), 'quotes') !!}</th>
-        <th style="text-align: right; padding-right: 25px;">{!! Sortable::link('quote_amounts.total', trans('fi.total'), 'quotes') !!}</th>
+        <th>{{ trans('fi.quote') }}</th>
+        <th class="hidden-xs">{{ trans('fi.date') }}</th>
+        <th class="hidden-sm hidden-xs">{{ trans('fi.expires') }}</th>
+        <th>{{ trans('fi.client') }}</th>
+        <th class="hidden-sm hidden-xs">{{ trans('fi.summary') }}</th>
+        <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
         <th>{{ trans('fi.invoiced') }}</th>
         <th>{{ trans('fi.options') }}</th>
     </tr>

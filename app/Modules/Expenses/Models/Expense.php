@@ -24,15 +24,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Expense extends Model
 {
-    //use Sortable;
-
     use SoftDeletes;
 
     protected $table = 'expenses';
 
     protected $guarded = ['id'];
 
-    //protected $sortable = ['expense_date', 'expense_categories.name', 'description', 'amount'];
     protected $dates = ['deleted_at'];
 
     protected $appends = ['formatted_description', 'formatted_expense_date', 'formatted_amount', 'is_billable', 'has_been_billed'];

@@ -11,7 +11,7 @@
         $('.btn-delete-contact').click(function() {
 
             Swal({
-                title: '{{ trans('fi.delete_record_warning') }}',
+                title: '{{ trans('fi.trash_record_warning') }}',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
@@ -71,7 +71,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="javascript:void(0)" class="btn-edit-contact" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                            <li><a href="javascript:void(0)" class="btn-delete-contact" data-contact-id={{ $contact->id }}><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                            <li><a href="javascript:void(0)" class="btn-delete-contact" data-contact-id={{ $contact->id }}><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                         </ul>
                     </div>
                 </td>

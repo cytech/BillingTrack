@@ -49,7 +49,7 @@
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <li><a href="{{ route('taxRates.edit', [$taxRate->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
                                                 <li><a href="#"
-                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('taxRates.delete', [$taxRate->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                                                       onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('taxRates.delete', [$taxRate->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                                             </ul>
                                         </div>
                                     </td>

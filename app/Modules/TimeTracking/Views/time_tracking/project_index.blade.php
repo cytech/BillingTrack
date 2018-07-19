@@ -54,7 +54,7 @@
                 </ul>
             </div>
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
+            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
             <div class="btn-group form-inline">
                 {!! Form::open(['method' => 'GET', 'id' => 'filter']) !!}
@@ -115,7 +115,7 @@
                                                 {{--<li><a href="{{ route('timeTracking.projects.edit', [$project->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>--}}
                                                 {{--<li><a href="#"--}}
                                                        {{--onclick="swalConfirm('{{ trans('fi.confirm_delete_project') }}', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i--}}
-                                                                {{--class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>--}}
+                                                                {{--class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>--}}
                                             {{--</ul>--}}
                                     {{--</td>--}}
                                 {{--</tr>--}}

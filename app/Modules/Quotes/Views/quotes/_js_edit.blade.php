@@ -4,6 +4,11 @@
 
         $("#quote_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
         $("#expires_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+
+        $('#btn-add-lookup').click(function() {
+            $('#modal-placeholder').load('{{ route( 'itemLookups.ajax.getItemLookup') }}');
+        });
+
         $('textarea').autosize();
 
         $('#btn-copy-quote').click(function () {
