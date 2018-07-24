@@ -1,14 +1,15 @@
-<table id="dt-workordertable" class="display" cellspacing="0" width="100%">
+<table class="table table-hover" style="height: 100%;">
+
     <thead>
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
         <th class="hidden-sm hidden-xs">{{ trans('fi.status') }}</th>
-        <th>{!! trans('fi.workorder') !!}</th>
-        <th>{!! trans('fi.date') !!}</th>
-        <th>{!! trans('fi.job_date') !!}</th>
-        <th>{!! trans('fi.client_name') !!}</th>
-        <th>{!! trans('fi.summary') !!}</th>
-        <th>{!! trans('fi.total') !!}</th>
+        <th>{{ trans('fi.workorder') }}</th>
+        <th class="hidden-xs">{{ trans('fi.date') }}</th>
+        <th>{{ trans('fi.job_date') }}</th>
+        <th>{{ trans('fi.client_name') }}</th>
+        <th class="hidden-sm hidden-xs">{{ trans('fi.summary') }}</th>
+        <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
         <th>{{ trans('fi.invoiced') }}</th>
         <th>{{ trans('fi.options') }}</th>
     </tr>
@@ -19,7 +20,7 @@
         <tr id="{!! $workorder->id !!}">
             <td><input type="checkbox" class="bulk-record" data-id="{{ $workorder->id }}"></td>
             <td class="hidden-sm hidden-xs">
-                <span class="label label-{{ $statuslist[$workorder->workorder_status_id] }}">{{ trans('fi.' . $statuslist[$workorder->workorder_status_id]) }}</span>
+                <span class="label label-{{ $statuses[$workorder->workorder_status_id] }}">{{ trans('fi.' . $statuses[$workorder->workorder_status_id]) }}</span>
                 @if ($workorder->viewed)
                     <span class="label label-success">{{ trans('fi.viewed') }}</span>
                 @else

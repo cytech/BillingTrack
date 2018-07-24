@@ -29,7 +29,7 @@ class QuoteController extends Controller
         $this->setReturnUrl();
 
         $status = request('status', 'all_statuses');
-        $statuses = QuoteStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')];
+        $statuses = QuoteStatuses::listsAllFlat();
         $keyedStatuses = collect(QuoteStatuses::lists())->except(3);
         $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
 

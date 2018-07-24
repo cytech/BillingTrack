@@ -120,6 +120,11 @@ class Quote extends Model
         return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
     }
 
+    public function workorder()
+    {
+        return $this->belongsTo('FI\Modules\Workorders\Models\Workorder');
+    }
+
     public function mailQueue()
     {
         return $this->morphMany('FI\Modules\MailQueue\Models\MailQueue', 'mailable');

@@ -78,9 +78,9 @@
                     <ul class="nav nav-tabs" id="setting-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-general">{{ trans('fi.general') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-dashboard">{{ trans('fi.dashboard') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-taxes">{{ trans('fi.taxes') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-email">{{ trans('fi.email') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-pdf">{{ trans('fi.pdf') }}</a></li>

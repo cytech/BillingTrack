@@ -70,6 +70,12 @@ class ClientController extends Controller
             ->orderBy('id', 'desc')
             ->take(config('fi.resultsPerPage'))->get();
 
+        $workorders = $client->workorders()
+            ->with(['client', 'activities', 'amount.workorder.currency'])
+            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
+            ->take(config('fi.resultsPerPage'))->get();
+
         $recurringInvoices = $client->recurringInvoices()
             ->with(['client', 'amount.recurringInvoice.currency'])
             ->orderBy('next_date', 'desc')
@@ -80,6 +86,7 @@ class ClientController extends Controller
             ->with('client', $client)
             ->with('invoices', $invoices)
             ->with('quotes', $quotes)
+            ->with('workorders', $workorders)
             ->with('payments', Payment::clientId($clientId)->orderBy('paid_at', 'desc')->get())
             ->with('recurringInvoices', $recurringInvoices)
             ->with('customFields', CustomField::forTable('clients')->get())

@@ -8,6 +8,7 @@
         </h1>
         <div class="pull-right">
             <a href="javascript:void(0)" class="btn btn-default create-quote" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_quote') }}</a>
+            <a href="javascript:void(0)" class="btn btn-default create-workorder" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_workorder') }}</a>
             <a href="javascript:void(0)" class="btn btn-default create-invoice" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_invoice') }}</a>
             <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-default">{{ trans('fi.edit') }}</a>
             <a class="btn btn-default" href="#"
@@ -28,6 +29,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-details">{{ trans('fi.details') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-recurring-invoices">{{ trans('fi.recurring_invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
@@ -109,6 +111,13 @@
                             <div class="panel panel-default">
                                 @include('quotes._table')
                                 <div class="panel-footer"><p class="text-center"><strong><a href="{{ route('quotes.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
+                            </div>
+                        </div>
+
+                        <div id="tab-workorders" class="tab-pane">
+                            <div class="panel panel-default">
+                                @include('workorders.partials._table')
+                                <div class="panel-footer"><p class="text-center"><strong><a href="{{ route('workorders.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
                             </div>
                         </div>
 

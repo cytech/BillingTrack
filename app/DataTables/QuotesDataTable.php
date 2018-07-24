@@ -44,7 +44,9 @@ class QuotesDataTable extends DataTable
             ->editColumn('invoice_id', function (Quote $quote) {
                 $ret = '<td class="hidden-xs">';
                 if ($quote->invoice_id)
-                    $ret .=  '<a href="'. route('invoices.edit', [$quote->invoice_id]) .'">'. trans('fi.yes') .'</a>';
+                    $ret .=  '<a href="'. route('invoices.edit', [$quote->invoice_id]) .'">'. trans('fi.invoice') .'</a>';
+                elseif ($quote->workorder_id)
+                    $ret .=  '<a href="'. route('workorders.edit', [$quote->workorder_id]) .'">'. trans('fi.workorder') .'</a>';
                 else
                     $ret .= trans('fi.no');
                 $ret .= '</td>';
@@ -144,7 +146,7 @@ class QuotesDataTable extends DataTable
                 'searchable' => false,
             ],
             'invoice_id' => [
-                'title' => trans('fi.invoiced'),
+                'title' => trans('fi.converted'),
                 'data'       => 'invoice_id',
                 'orderable'  => false,
                 'searchable' => false,

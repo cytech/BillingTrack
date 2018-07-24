@@ -845,4 +845,5 @@ return [
     'recalculate_workorders'               => 'Recalculate Workorders',
     'change_workorder_date_to_todays_date' => 'Change Workorder Date to Today\'s Date',
     'keep_workorder_date_as_is'            => 'Keep Workorder Date As Is',
+    'converted'                            => 'Converted',
 ];

@@ -25,8 +25,8 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
 
     Route::group(['prefix' => 'workorders'], function () {
     	//workorders
-	    Route::get('/', ['uses' => 'WorkorderController@dashboard', 'as' => 'workorders.dashboard']);
-        Route::get('index', ['uses' => 'WorkorderController@index', 'as' => 'workorders.index']);
+	    //Route::get('/', ['uses' => 'WorkorderController@dashboard', 'as' => 'workorders.dashboard']);
+        Route::get('/', ['uses' => 'WorkorderController@index', 'as' => 'workorders.index']);
         Route::get('create', ['uses' => 'WorkorderCreateController@create', 'as' => 'workorders.create']);
         Route::post('create', ['uses' => 'WorkorderCreateController@store', 'as' => 'workorders.store']);
         Route::get('{id}/edit', ['uses' => 'WorkorderEditController@edit', 'as' => 'workorders.edit']);

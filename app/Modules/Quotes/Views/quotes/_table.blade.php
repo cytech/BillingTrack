@@ -37,7 +37,9 @@
             <td style="text-align: right; padding-right: 25px;">{{ $quote->amount->formatted_total }}</td>
             <td class="hidden-xs">
                 @if ($quote->invoice)
-                    <a href="{{ route('invoices.edit', [$quote->invoice_id]) }}">{{ trans('fi.yes') }}</a>
+                    <a href="{{ route('invoices.edit', [$quote->invoice_id]) }}">{{ trans('fi.invoice') }}</a>
+                @elseif ($quote->workorder)
+                    <a href="{{ route('workorders.edit', [$quote->workorder_id]) }}">{{ trans('fi.workorder') }}</a>
                 @else
                     {{ trans('fi.no') }}
                 @endif
