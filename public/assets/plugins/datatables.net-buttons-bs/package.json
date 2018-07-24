@@ -1,0 +1,66 @@
+{
+  "_from": "datatables.net-buttons-bs@^1.5.3",
+  "_id": "datatables.net-buttons-bs@1.5.3",
+  "_inBundle": false,
+  "_integrity": "sha512-kxhcdy6tUFyQt0MV6p1kFqJ+nhZjYxSkftKIAEMuLWVDhYZ5bQJkDUBOpiWAjqHz5KqXorRqxYP0TzPLuGld5A==",
+  "_location": "/datatables.net-buttons-bs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "datatables.net-buttons-bs@^1.5.3",
+    "name": "datatables.net-buttons-bs",
+    "escapedName": "datatables.net-buttons-bs",
+    "rawSpec": "^1.5.3",
+    "saveSpec": null,
+    "fetchSpec": "^1.5.3"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/datatables.net-buttons-bs/-/datatables.net-buttons-bs-1.5.3.tgz",
+  "_shasum": "bbad478da16ea65f8e0a03ba688b274fc7506176",
+  "_spec": "datatables.net-buttons-bs@^1.5.3",
+  "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net-bs": "^1.10.15",
+    "datatables.net-buttons": "1.5.3",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "Buttons for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
+  "files": [
+    "css/**/*.css",
+    "js/**/*.js"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "buttons",
+    "excel",
+    "pdf",
+    "csv",
+    "column visibility",
+    "print",
+    "DataTables",
+    "jQuery",
+    "table",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "main": "js/buttons.bootstrap.js",
+  "name": "datatables.net-buttons-bs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-Buttons-Bootstrap.git"
+  },
+  "style": "css/buttons.bootstrap.css",
+  "version": "1.5.3"
+}

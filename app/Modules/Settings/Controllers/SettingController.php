@@ -23,6 +23,7 @@ use FI\Modules\Quotes\Support\QuoteTemplates;
 use FI\Modules\Settings\Models\Setting;
 use FI\Modules\Settings\Requests\SettingUpdateRequest;
 use FI\Modules\TaxRates\Models\TaxRate;
+use FI\Modules\Workorders\Support\WorkorderTemplates;
 use FI\Support\DashboardWidgets;
 use FI\Support\DateFormatter;
 use FI\Support\Languages;
@@ -30,6 +31,7 @@ use FI\Support\PDF\PDFFactory;
 use FI\Support\Skins;
 use FI\Support\Statuses\InvoiceStatuses;
 use FI\Support\Statuses\QuoteStatuses;
+use FI\Support\Statuses\WorkorderStatuses;
 use FI\Support\UpdateChecker;
 use Illuminate\Support\Facades\Crypt;
 
@@ -52,6 +54,7 @@ class SettingController extends Controller
                 'languages'               => Languages::listLanguages(),
                 'dateFormats'             => DateFormatter::dropdownArray(),
                 'invoiceTemplates'        => InvoiceTemplates::lists(),
+                'workorderTemplates'      => WorkorderTemplates::lists(),
                 'quoteTemplates'          => QuoteTemplates::lists(),
                 'groups'                  => Group::getList(),
                 'taxRates'                => TaxRate::getList(),
@@ -66,6 +69,7 @@ class SettingController extends Controller
                 'exchangeRateModes'       => ['automatic' => trans('fi.automatic'), 'manual' => trans('fi.manual')],
                 'pdfDrivers'              => PDFFactory::getDrivers(),
                 'convertQuoteOptions'     => ['quote' => trans('fi.convert_quote_option1'), 'invoice' => trans('fi.convert_quote_option2')],
+                'convertWorkorderOptions' => ['workorder' => trans('fi.convert_workorder_option1'), 'invoice' => trans('fi.convert_workorder_option2')],
                 'clientUniqueNameOptions' => ['0' => trans('fi.client_unique_name_option_1'), '1' => trans('fi.client_unique_name_option_2')],
                 'dashboardWidgets'        => DashboardWidgets::listsByOrder(),
                 'colWidthArray'           => array_combine(range(1, 12), range(1, 12)),
@@ -78,8 +82,10 @@ class SettingController extends Controller
                 'companyProfiles'         => CompanyProfile::getList(),
                 'merchantDrivers'         => MerchantFactory::getDrivers(),
                 'invoiceStatuses'         => InvoiceStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')],
+                'workorderStatuses'       => WorkorderStatuses::listsAllFlat(),
                 'quoteStatuses'           => QuoteStatuses::listsAllFlat(),
                 'invoiceWhenDraftOptions' => [0 => trans('fi.keep_invoice_date_as_is'), 1 => trans('fi.change_invoice_date_to_todays_date')],
+                'workorderWhenDraftOptions' => [0 => trans('fi.keep_workorder_date_as_is'), 1 => trans('fi.change_workorder_date_to_todays_date')],
                 'quoteWhenDraftOptions'   => [0 => trans('fi.keep_quote_date_as_is'), 1 => trans('fi.change_quote_date_to_todays_date')],
             ]);
     }

@@ -3,14 +3,14 @@
     <thead>
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
-        <th>{!! Sortable::link('paid_at', trans('fi.payment_date'), 'payments') !!}</th>
-        <th>{!! Sortable::link('invoices.number', trans('fi.invoice'), 'payments') !!}</th>
-        <th>{!! Sortable::link('invoices.invoice_date', trans('fi.date'), 'payments') !!}</th>
-        <th>{!! Sortable::link('clients.name', trans('fi.client'), 'payments') !!}</th>
-        <th>{!! Sortable::link('invoices.summary', trans('fi.summary'), 'payments') !!}</th>
-        <th>{!! Sortable::link('amount', trans('fi.amount'), 'payments') !!}</th>
-        <th>{!! Sortable::link('payment_methods.name', trans('fi.payment_method'), 'payments') !!}</th>
-        <th>{!! Sortable::link('note', trans('fi.note'), 'payments') !!}</th>
+        <th>{{ trans('fi.payment_date') }}</th>
+        <th>{{ trans('fi.invoice') }}</th>
+        <th>{{ trans('fi.date') }}</th>
+        <th>{{ trans('fi.client') }}</th>
+        <th>{{ trans('fi.summary') }}</th>
+        <th>{{ trans('fi.amount') }}</th>
+        <th>{{ trans('fi.payment_method') }}</th>
+        <th>{{ trans('fi.note') }}</th>
         <th>{{ trans('fi.options') }}</th>
     </tr>
     </thead>
@@ -38,7 +38,7 @@
                         @if (config('fi.mailConfigured'))
                             <li><a href="javascript:void(0)" class="email-payment-receipt" data-payment-id="{{ $payment->id }}" data-redirect-to="{{ request()->fullUrl() }}"><i class="fa fa-envelope"></i> {{ trans('fi.email_payment_receipt') }}</a></li>
                         @endif
-                        <li><a href="{{ route('payments.delete', [$payment->id]) }}" onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                        <li><a href="{{ route('payments.delete', [$payment->id]) }}" onclick="return confirm('{{ trans('fi.trash_record_warning') }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                     </ul>
                 </div>
             </td>

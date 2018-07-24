@@ -1,10 +1,87 @@
+<style>
+.swal2-popup {
+font-size: 1.6rem !important;
+}
+</style>
+
 <script type="text/javascript">
 
     function notify(message, type) {
-        $.notify({
-            message: message
-        }, {
-            type: type
+        if (type === 'error') {
+            sbutton = true;
+            stimer = 0;
+        } else {
+            sbutton = false;
+            stimer = 2000;
+        }
+
+        Swal({
+            title: message,
+            type: type,
+            showConfirmButton: sbutton,
+            timer: stimer
+        });
+    }
+
+    function swalConfirm(message, link) {
+        swal({
+            title: message,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#d68500',
+            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+        }).then((result) => {
+                if (result.value) {
+                    window.location.href = link;
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                }
+            });
+    }
+
+    function deleteConfirm(message, route, id, totalsRoute, entityID) {
+
+        Swal({
+            title: message,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d68500',
+            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+        }).then((result) => {
+            if (result.value) {
+                $.post(route, {
+                    id: id
+                }).done(function () {
+                    $('#tr-item-' + id).remove();
+                    $('#div-totals').load(totalsRoute, {
+                        id:  entityID
+                    });
+                })
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+            }
+        });
+    }
+
+    function bulkConfirm(message, route, ids, status) {
+
+        Swal({
+            title: message,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d68500',
+            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+        }).then((result) => {
+            if (result.value) {
+                $.post(route, {
+                    ids: ids,
+                    status: status
+                }).done(function () {
+                    window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+            }
         });
     }
 
@@ -29,29 +106,28 @@
 
     $(function () {
 
-        $.notifyDefaults({
-            placement: {
-                from: "bottom"
-            }
-        });
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
 
-        $('.create-quote').click(function () {
+        $(document).on('click','.create-quote', function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('quotes.create') }}');
         });
 
-        $('.create-invoice').click(function () {
+        $(document).on('click','.create-workorder',function () {
+            clientName = $(this).data('unique-name');
+            $('#modal-placeholder').load('{{ route('workorders.create') }}');
+        });
+
+        $(document).on('click','.create-invoice',function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('invoices.create') }}');
         });
 
-        $('.create-recurring-invoice').click(function () {
+        $(document).on('click','.create-recurring-invoice',function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('recurringInvoices.create') }}');
         });
@@ -62,7 +138,7 @@
                 redirectTo: $(this).data('redirect-to')
             }, function (response, status, xhr) {
                 if (status == 'error') {
-                    alert('{{ trans('fi.problem_with_email_template') }}');
+                    notify('{{ trans('fi.problem_with_email_template') }}','error');
                 }
             });
         });
@@ -73,7 +149,7 @@
                 redirectTo: $(this).data('redirect-to')
             }, function (response, status, xhr) {
                 if (status == 'error') {
-                    alert('{{ trans('fi.problem_with_email_template') }}');
+                    notify('{{ trans('fi.problem_with_email_template') }}','error');
                 }
             });
         });
@@ -86,7 +162,20 @@
             });
         });
 
-        $('#bulk-select-all').click(function() {
+        /*$('#bulk-select-all').click(function() {
+            if ($(this).prop('checked')) {
+                $('.bulk-record').prop('checked', true);
+                if ($('.bulk-record:checked').length > 0) {
+                    $('.bulk-actions').show();
+                }
+            }
+            else {
+                $('.bulk-record').prop('checked', false);
+                $('.bulk-actions').hide();
+            }
+        });*/
+
+        $(document).on('click','#bulk-select-all', function() {
             if ($(this).prop('checked')) {
                 $('.bulk-record').prop('checked', true);
                 if ($('.bulk-record:checked').length > 0) {
@@ -99,7 +188,16 @@
             }
         });
 
-        $('.bulk-record').click(function() {
+        /*$('.bulk-record').click(function() {
+            if ($('.bulk-record:checked').length > 0) {
+                $('.bulk-actions').show();
+            }
+            else {
+                $('.bulk-actions').hide();
+            }
+        });*/
+
+        $(document).on('click','.bulk-record', function() {
             if ($('.bulk-record:checked').length > 0) {
                 $('.bulk-actions').show();
             }

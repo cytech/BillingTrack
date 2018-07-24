@@ -4,13 +4,13 @@
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
         <th class="hidden-sm hidden-xs">{{ trans('fi.status') }}</th>
-        <th>{!! Sortable::link('number', trans('fi.invoice'), 'invoices') !!}</th>
-        <th class="hidden-xs">{!! Sortable::link('invoice_date', trans('fi.date'), 'invoices') !!}</th>
-        <th class="hidden-md hidden-sm hidden-xs">{!! Sortable::link('due_at', trans('fi.due'), 'invoices') !!}</th>
-        <th>{!! Sortable::link('clients.name', trans('fi.client'), 'invoices') !!}</th>
-        <th class="hidden-sm hidden-xs">{!! Sortable::link('summary', trans('fi.summary'), 'invoices') !!}</th>
-        <th style="text-align: right; padding-right: 25px;">{!! Sortable::link('invoice_amounts.total', trans('fi.total'), 'invoices') !!}</th>
-        <th class="hidden-sm hidden-xs" style="text-align: right; padding-right: 25px;">{!! Sortable::link('invoice_amounts.balance', trans('fi.balance'), 'invoices') !!}</th>
+        <th>{{ trans('fi.invoice')}}</th>
+        <th class="hidden-xs">{{ trans('fi.date')}}</th>
+        <th class="hidden-md hidden-sm hidden-xs">{{ trans('fi.due')}}</th>
+        <th>{{ trans('fi.client')}}</th>
+        <th class="hidden-sm hidden-xs">{{ trans('fi.summary')}}</th>
+        <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total')}}</th>
+        <th class="hidden-sm hidden-xs" style="text-align: right; padding-right: 25px;">{{ trans('fi.balance')}}</th>
         <th>{{ trans('fi.options') }}</th>
     </tr>
     </thead>
@@ -60,8 +60,8 @@
                                         class="fa fa-credit-card"></i> {{ trans('fi.enter_payment') }}</a></li>
                         @endif
                         <li><a href="{{ route('invoices.delete', [$invoice->id]) }}"
-                               onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i
-                                    class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                               onclick="return confirm('{{ trans('fi.trash_record_warning') }}');"><i
+                                    class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                     </ul>
                 </div>
             </td>

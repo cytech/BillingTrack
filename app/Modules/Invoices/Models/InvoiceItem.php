@@ -16,9 +16,14 @@ use FI\Events\InvoiceModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class InvoiceItem extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $guarded = ['id', 'item_id'];
 
     public static function boot()
@@ -73,6 +78,18 @@ class InvoiceItem extends Model
     public function taxRate2()
     {
         return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
+            ->where('resource_table','=','products');
+    }
+
+    public function employees()
+    {
+        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
+            ->where('resource_table','=','employees');
     }
 
     /*

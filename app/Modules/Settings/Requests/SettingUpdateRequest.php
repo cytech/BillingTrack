@@ -26,6 +26,7 @@ class SettingUpdateRequest extends FormRequest
         return [
             'setting.invoicesDueAfter'  => trans('fi.invoices_due_after'),
             'setting.quotesExpireAfter' => trans('fi.quotes_expire_after'),
+            'setting.workordersExpireAfter' => trans('fi.workorders_expire_after'),
             'setting.pdfBinaryPath'     => trans('fi.binary_path'),
         ];
     }
@@ -35,6 +36,7 @@ class SettingUpdateRequest extends FormRequest
         $rules = [
             'setting.invoicesDueAfter'  => 'required|numeric',
             'setting.quotesExpireAfter' => 'required|numeric',
+            'setting.workordersExpireAfter' => 'required|numeric',
             'setting.pdfBinaryPath'     => ['required_if:setting.pdfDriver,wkhtmltopdf', new ValidFile],
         ];
 

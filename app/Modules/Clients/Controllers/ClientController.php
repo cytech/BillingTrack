@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Clients\Controllers;
 
+use FI\DataTables\ClientsDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Clients\Models\Client;
 use FI\Modules\Clients\Requests\ClientStoreRequest;
@@ -24,24 +25,14 @@ class ClientController extends Controller
 {
     use ReturnUrl;
 
-    public function index()
+    public function index(ClientsDataTable $dataTable)
     {
         $this->setReturnUrl();
 
         $status = (request('status')) ?: 'all';
 
-        $clients = Client::getSelect()
-            ->leftJoin('clients_custom', 'clients_custom.client_id', '=', 'clients.id')
-            ->with(['currency'])
-            ->sortable(['name' => 'asc'])
-            ->status($status)
-            ->keywords(request('search'))
-            ->paginate(config('fi.resultsPerPage'));
+        return $dataTable->render('clients.index',['status' => $status]);
 
-        return view('clients.index')
-            ->with('clients', $clients)
-            ->with('status', $status)
-            ->with('displaySearch', true);
     }
 
     public function create()
@@ -79,6 +70,12 @@ class ClientController extends Controller
             ->orderBy('id', 'desc')
             ->take(config('fi.resultsPerPage'))->get();
 
+        $workorders = $client->workorders()
+            ->with(['client', 'activities', 'amount.workorder.currency'])
+            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
+            ->take(config('fi.resultsPerPage'))->get();
+
         $recurringInvoices = $client->recurringInvoices()
             ->with(['client', 'amount.recurringInvoice.currency'])
             ->orderBy('next_date', 'desc')
@@ -89,6 +86,7 @@ class ClientController extends Controller
             ->with('client', $client)
             ->with('invoices', $invoices)
             ->with('quotes', $quotes)
+            ->with('workorders', $workorders)
             ->with('payments', Payment::clientId($clientId)->orderBy('paid_at', 'desc')->get())
             ->with('recurringInvoices', $recurringInvoices)
             ->with('customFields', CustomField::forTable('clients')->get())
@@ -123,7 +121,7 @@ class ClientController extends Controller
         Client::destroy($clientId);
 
         return redirect()->route('clients.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('fi.record_successfully_trashed'));
     }
 
     public function bulkDelete()

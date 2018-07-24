@@ -16,9 +16,13 @@ use FI\Events\RecurringInvoiceModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RecurringInvoiceItem extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     /**
      * Guarded properties
      * @var array
@@ -77,6 +81,18 @@ class RecurringInvoiceItem extends Model
     public function taxRate2()
     {
         return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
+            ->where('resource_table','=','products');
+    }
+
+    public function employees()
+    {
+        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
+            ->where('resource_table','=','employees');
     }
 
     /*

@@ -27,6 +27,7 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::post('edit/update_client', ['uses' => 'RecurringInvoiceEditController@updateClient', 'as' => 'recurringInvoiceEdit.updateClient']);
         Route::post('edit/update_company_profile', ['uses' => 'RecurringInvoiceEditController@updateCompanyProfile', 'as' => 'recurringInvoiceEdit.updateCompanyProfile']);
         Route::post('recalculate', ['uses' => 'RecurringInvoiceRecalculateController@recalculate', 'as' => 'recurringInvoices.recalculate']);
+        Route::post('bulk/delete', ['uses' => 'RecurringInvoiceController@bulkDelete', 'as' => 'recurring_invoices.bulk.delete']);
     });
 
     Route::group(['prefix' => 'recurring_invoice_copy'], function ()

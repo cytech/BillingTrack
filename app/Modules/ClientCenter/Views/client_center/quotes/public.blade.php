@@ -47,12 +47,12 @@
                     </div>
                 @endif
                 @if (in_array($quote->status_text, ['draft', 'sent']))
-                    <a href="{{ route('clientCenter.public.quote.approve', [$quote->url_key]) }}" class="btn btn-primary"
-                       onclick="return confirm('{{ trans('fi.confirm_approve_quote') }}');">
+                    <a href="#" class="btn btn-primary"
+                       onclick="swalConfirm('{{ trans('fi.confirm_approve_quote') }}', '{{ route('clientCenter.public.quote.approve', [$quote->url_key]) }}');">
                         <i class="fa fa-thumbs-up"></i> {{ trans('fi.approve') }}
                     </a>
-                    <a href="{{ route('clientCenter.public.quote.reject', [$quote->url_key]) }}" class="btn btn-primary"
-                       onclick="return confirm('{{ trans('fi.confirm_reject_quote') }}');">
+                    <a href="#" class="btn btn-primary"
+                       onclick="swalConfirm('{{ trans('fi.confirm_reject_quote') }}', '{{ route('clientCenter.public.quote.reject', [$quote->url_key]) }}');">
                         <i class="fa fa-thumbs-down"></i> {{ trans('fi.reject') }}
                     </a>
                 @endif

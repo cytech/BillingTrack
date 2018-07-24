@@ -23,13 +23,13 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        <table class="table table-hover">
+                        <table id="dt-itemlookupstable" class="table dataTable no-footer">
 
                             <thead>
                             <tr>
-                                <th>{!! Sortable::link('name', trans('fi.name')) !!}</th>
-                                <th>{!! Sortable::link('description', trans('fi.description')) !!}</th>
-                                <th>{!! Sortable::link('price', trans('fi.price')) !!}</th>
+                                <th>{{ trans('fi.name') }}</th>
+                                <th>{{ trans('fi.description') }}</th>
+                                <th>{{ trans('fi.price') }}</th>
                                 <th>{{ trans('fi.tax_1') }}</th>
                                 <th>{{ trans('fi.tax_2') }}</th>
                                 <th>{{ trans('fi.options') }}</th>
@@ -51,7 +51,8 @@
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <li><a href="{{ route('itemLookups.edit', [$itemLookup->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                                                <li><a href="{{ route('itemLookups.delete', [$itemLookup->id]) }}" onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                                                <li><a href="#"
+                                                       onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('itemLookups.delete', [$itemLookup->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -64,14 +65,28 @@
 
                 </div>
 
-                <div class="pull-right">
-                    {!! $itemLookups->appends(request()->except('page'))->render() !!}
-                </div>
+                {{--<div class="pull-right">--}}
+                    {{--{!! $itemLookups->appends(request()->except('page'))->render() !!}--}}
+                {{--</div>--}}
 
             </div>
 
         </div>
 
     </section>
+    <script>
+        $(function () {
+            {{--for itemlookups DT--}}
+            $('#dt-itemlookupstable').DataTable({
+                paging: false,
+                //searching: true,
+                order: [[0, "asc"]],//order on id
+                "columnDefs": [
+                    {"orderable": false, "targets": 5}
+                ]
+                //dom: 'T<"clear">lfrtip'
+            });
+        });
+    </script>
 
 @stop

@@ -49,7 +49,7 @@
                 </form>
             @endif
 
-            <ul class="sidebar-menu">
+            <ul class="sidebar-menu" data-widget="tree">
                 <li>
                     <a href="{{ route('dashboard.index') }}">
                         <i class="fa fa-dashboard"></i> <span>{{ trans('fi.dashboard') }}</span>
@@ -63,6 +63,11 @@
                 <li>
                     <a href="{{ route('quotes.index', ['status' => config('fi.quoteStatusFilter')]) }}">
                         <i class="fa fa-file-text-o"></i> <span>{{ trans('fi.quotes') }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('workorders.index', ['status' => config('fi.workorderStatusFilter')]) }}">
+                        <i class="fa fa-file-text-o"></i> <span>{{ trans('fi.workorders') }}</span>
                     </a>
                 </li>
                 <li>
@@ -85,6 +90,11 @@
                         <i class="fa fa-bank"></i> <span>{{ trans('fi.expenses') }}</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('timeTracking.projects.index', ['status' => 1]) }}">
+                        <i class="fa fa-clock-o"></i> <span>{{ trans('fi.time_tracking') }}</span>
+                    </a>
+                </li>
 
                 <li class="treeview">
                     <a href="#">
@@ -100,6 +110,7 @@
                         <li><a href="{{ route('reports.profitLoss') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.profit_and_loss') }}</a></li>
                         <li><a href="{{ route('reports.revenueByClient') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.revenue_by_client') }}</a></li>
                         <li><a href="{{ route('reports.taxSummary') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.tax_summary') }}</a></li>
+                        <li><a href="{{ route('timeTracking.reports.timesheet') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.time_tracking') }}</a></li>
 
                         @foreach (config('fi.menus.reports') as $report)
                             @if (view()->exists($report))
@@ -127,6 +138,6 @@
 </div>
 
 <div id="modal-placeholder"></div>
-
+@stack('scripts')
 </body>
 </html>

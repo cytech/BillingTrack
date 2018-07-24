@@ -12,25 +12,29 @@
         <div class="pull-right">
 
             <div class="btn-group bulk-actions">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">
                     {{ trans('fi.change_status') }} <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
                     @foreach ($keyedStatuses as $key => $status)
-                        <li><a href="javascript:void(0)" class="bulk-change-status" data-status="{{ $key }}">{{ $status }}</a></li>
+                        <li><a href="javascript:void(0)" class="bulk-change-status"
+                               data-status="{{ $key }}">{{ $status }}</a></li>
                     @endforeach
                 </ul>
             </div>
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
+            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i
+                        class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
             <div class="btn-group">
-                {!! Form::open(['method' => 'GET', 'id' => 'filter']) !!}
-                {!! Form::select('company_profile', $companyProfiles, request('company_profile'), ['class' => 'invoice_filter_options form-control inline']) !!}
-                {!! Form::select('status', $statuses, request('status'), ['class' => 'invoice_filter_options form-control inline']) !!}
+                {!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}
+                {!! Form::select('company_profile', $companyProfiles, request('company_profile'), ['class' => 'invoice_filter_options form-control ']) !!}
+                {!! Form::select('status', $statuses, request('status'), ['class' => 'invoice_filter_options form-control ']) !!}
                 {!! Form::close() !!}
             </div>
-            <a href="javascript:void(0)" class="btn btn-primary create-invoice"><i class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
+            <a href="javascript:void(0)" class="btn btn-primary create-invoice"><i
+                        class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
         </div>
 
         <div class="clearfix"></div>
@@ -47,13 +51,9 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        @include('invoices._table')
+                        @include('invoices._dataTable')
                     </div>
 
-                </div>
-
-                <div class="pull-right">
-                    {!! $invoices->appends(request()->except('page'))->render() !!}
                 </div>
 
             </div>

@@ -1,0 +1,64 @@
+{
+  "_from": "datatables.net-buttons@^1.5.3",
+  "_id": "datatables.net-buttons@1.5.3",
+  "_inBundle": false,
+  "_integrity": "sha512-qGdYiquuIvoZSH0jkRTcVnS1LlCuJFOSlIX5wNmK+3267Ryq6r9llKFtgrIORkSlyy+M1TJMViFJxRSX5W62GA==",
+  "_location": "/datatables.net-buttons",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "datatables.net-buttons@^1.5.3",
+    "name": "datatables.net-buttons",
+    "escapedName": "datatables.net-buttons",
+    "rawSpec": "^1.5.3",
+    "saveSpec": null,
+    "fetchSpec": "^1.5.3"
+  },
+  "_requiredBy": [
+    "/",
+    "/datatables.net-buttons-bs"
+  ],
+  "_resolved": "https://registry.npmjs.org/datatables.net-buttons/-/datatables.net-buttons-1.5.3.tgz",
+  "_shasum": "3b6481fb0f2747156a3633ae80c66a1ff40ecabe",
+  "_spec": "datatables.net-buttons@^1.5.3",
+  "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
+  "author": {
+    "name": "SpryMedia Ltd",
+    "url": "http://datatables.net"
+  },
+  "bugs": {
+    "url": "https://datatables.net/forums"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "datatables.net": "^1.10.15",
+    "jquery": ">=1.7"
+  },
+  "deprecated": false,
+  "description": "Buttons for DataTables ",
+  "files": [
+    "js/**/*.js"
+  ],
+  "homepage": "https://datatables.net",
+  "keywords": [
+    "buttons",
+    "excel",
+    "pdf",
+    "csv",
+    "column visibility",
+    "print",
+    "DataTables",
+    "jQuery",
+    "table",
+    "DataTables"
+  ],
+  "license": "MIT",
+  "main": "js/dataTables.buttons.js",
+  "name": "datatables.net-buttons",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataTables/Dist-DataTables-Buttons.git"
+  },
+  "version": "1.5.3"
+}

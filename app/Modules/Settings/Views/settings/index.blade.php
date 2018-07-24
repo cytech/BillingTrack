@@ -11,9 +11,20 @@
             $('#btn-recalculate-invoices').click(function () {
                 var $btn = $(this).button('loading');
                 $.post("{{ route('invoices.recalculate') }}").done(function (response) {
-                    alert(response.message);
+                    notify(response.message,'info');
                 }).fail(function (response) {
-                    alert('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message);
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
+                }).always(function () {
+                    $btn.button('reset');
+                });
+            });
+
+            $('#btn-recalculate-workorders').click(function () {
+                var $btn = $(this).button('loading');
+                $.post("{{ route('workorders.recalculate') }}").done(function (response) {
+                    notify(response.message,'info');
+                }).fail(function (response) {
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -22,9 +33,9 @@
             $('#btn-recalculate-quotes').click(function () {
                 var $btn = $(this).button('loading');
                 $.post("{{ route('quotes.recalculate') }}").done(function (response) {
-                    alert(response.message);
+                    notify(response.message,'info');
                 }).fail(function (response) {
-                    alert('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message);
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -67,8 +78,9 @@
                     <ul class="nav nav-tabs" id="setting-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-general">{{ trans('fi.general') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-dashboard">{{ trans('fi.dashboard') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-taxes">{{ trans('fi.taxes') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-email">{{ trans('fi.email') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-pdf">{{ trans('fi.pdf') }}</a></li>
@@ -84,6 +96,9 @@
                         </div>
                         <div id="tab-invoices" class="tab-pane">
                             @include('settings._invoices')
+                        </div>
+                        <div id="tab-workorders" class="tab-pane">
+                            @include('settings._workorders')
                         </div>
                         <div id="tab-quotes" class="tab-pane">
                             @include('settings._quotes')

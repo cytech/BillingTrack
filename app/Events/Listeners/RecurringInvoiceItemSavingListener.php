@@ -27,5 +27,9 @@ class RecurringInvoiceItemSavingListener
 
             $item->display_order = $displayOrder;
         }
+
+        if (!$item->resource_id){
+            $item->resource_id = 0;
+        }
     }
 }

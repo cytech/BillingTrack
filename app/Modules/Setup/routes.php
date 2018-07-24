@@ -19,8 +19,14 @@ Route::group(['middleware' => 'web', 'namespace' => 'FI\Modules\Setup\Controller
     Route::get('setup/migration', ['uses' => 'SetupController@migration', 'as' => 'setup.migration']);
     Route::post('setup/migration', ['uses' => 'SetupController@postMigration', 'as' => 'setup.postMigration']);
 
-    Route::get('setup/account', ['uses' => 'SetupController@account', 'as' => 'setup.account']);
-    Route::post('setup/account', ['uses' => 'SetupController@postAccount', 'as' => 'setup.postAccount']);
+    Route::get('setup/neworxfer', ['uses' => 'SetupController@neworxfer', 'as' => 'setup.neworxfer']);
+
+    Route::get('setup/xferaccount', ['uses' => 'SetupController@xferaccount', 'as' => 'setup.xferaccount']);
+    Route::post('setup/xferaccount', ['uses' => 'SetupController@postXferAccount', 'as' => 'setup.postXferAccount']);
+
+
+    Route::get('setup/newaccount', ['uses' => 'SetupController@account', 'as' => 'setup.newaccount']);
+    Route::post('setup/newaccount', ['uses' => 'SetupController@postAccount', 'as' => 'setup.postNewAccount']);
 
     Route::get('setup/complete', ['uses' => 'SetupController@complete', 'as' => 'setup.complete']);
 });

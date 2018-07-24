@@ -13,12 +13,7 @@
             });
 
             if (ids.length > 0) {
-                if (!confirm('{!! trans('fi.bulk_delete_record_warning') !!}')) return false;
-                $.post("{{ route('invoices.bulk.delete') }}", {
-                    ids: ids
-                }).done(function() {
-                    window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
-                });
+                bulkConfirm('{!! trans('fi.bulk_trash_record_warning') !!}', "{{ route('invoices.bulk.delete') }}", ids)
             }
         });
 
@@ -30,13 +25,8 @@
             });
 
             if (ids.length > 0) {
-                if (!confirm('{!! trans('fi.bulk_invoice_change_status_warning') !!}')) return false;
-                $.post("{{ route('invoices.bulk.status') }}", {
-                    ids: ids,
-                    status: $(this).data('status')
-                }).done(function() {
-                    window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
-                });
+                bulkConfirm('{!! trans('fi.bulk_invoice_change_status_warning') !!}', "{{ route('invoices.bulk.status') }}",
+                            ids, $(this).data('status'))
             }
         });
     });

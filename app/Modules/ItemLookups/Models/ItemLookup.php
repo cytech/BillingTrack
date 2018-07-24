@@ -13,13 +13,11 @@ namespace FI\Modules\ItemLookups\Models;
 
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class ItemLookup extends Model
 {
-    use Sortable;
 
     /**
      * Guarded properties
@@ -27,7 +25,6 @@ class ItemLookup extends Model
      */
     protected $guarded = ['id'];
 
-    protected $sortable = ['name', 'description', 'price'];
 
     /*
     |--------------------------------------------------------------------------
@@ -43,6 +40,18 @@ class ItemLookup extends Model
     public function taxRate2()
     {
         return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
+            ->where('resource_table','=','products');
+    }
+
+    public function employees()
+    {
+        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
+            ->where('resource_table','=','employees');
     }
 
     /*

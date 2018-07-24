@@ -4,12 +4,12 @@
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
         <th class="hidden-sm hidden-xs">{{ trans('fi.status') }}</th>
-        <th>{!! Sortable::link('number', trans('fi.quote'), 'quotes') !!}</th>
-        <th class="hidden-xs">{!! Sortable::link('quote_date', trans('fi.date'), 'quotes') !!}</th>
-        <th class="hidden-sm hidden-xs">{!! Sortable::link('expires_at', trans('fi.expires'), 'quotes') !!}</th>
-        <th>{!! Sortable::link('clients.name', trans('fi.client'), 'quotes') !!}</th>
-        <th class="hidden-sm hidden-xs">{!! Sortable::link('summary', trans('fi.summary'), 'quotes') !!}</th>
-        <th style="text-align: right; padding-right: 25px;">{!! Sortable::link('quote_amounts.total', trans('fi.total'), 'quotes') !!}</th>
+        <th>{{ trans('fi.quote') }}</th>
+        <th class="hidden-xs">{{ trans('fi.date') }}</th>
+        <th class="hidden-sm hidden-xs">{{ trans('fi.expires') }}</th>
+        <th>{{ trans('fi.client') }}</th>
+        <th class="hidden-sm hidden-xs">{{ trans('fi.summary') }}</th>
+        <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
         <th>{{ trans('fi.invoiced') }}</th>
         <th>{{ trans('fi.options') }}</th>
     </tr>
@@ -37,7 +37,9 @@
             <td style="text-align: right; padding-right: 25px;">{{ $quote->amount->formatted_total }}</td>
             <td class="hidden-xs">
                 @if ($quote->invoice)
-                    <a href="{{ route('invoices.edit', [$quote->invoice_id]) }}">{{ trans('fi.yes') }}</a>
+                    <a href="{{ route('invoices.edit', [$quote->invoice_id]) }}">{{ trans('fi.invoice') }}</a>
+                @elseif ($quote->workorder)
+                    <a href="{{ route('workorders.edit', [$quote->workorder_id]) }}">{{ trans('fi.workorder') }}</a>
                 @else
                     {{ trans('fi.no') }}
                 @endif
@@ -57,9 +59,9 @@
                                     class="fa fa-envelope"></i> {{ trans('fi.email') }}</a></li>
                         <li><a href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"
                                id="btn-public-quote"><i class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
-                        <li><a href="{{ route('quotes.delete', [$quote->id]) }}"
-                               onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i
-                                    class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                        <li><a href="#"
+                               onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}','{{ route('quotes.delete', [$quote->id]) }}');"><i
+                                    class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                     </ul>
                 </div>
             </td>

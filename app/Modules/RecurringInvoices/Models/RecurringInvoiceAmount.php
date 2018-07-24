@@ -14,14 +14,20 @@ namespace FI\Modules\RecurringInvoices\Models;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RecurringInvoiceAmount extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     /**
      * Guarded properties
      * @var array
      */
     protected $guarded = ['id'];
+
+    protected $appends = ['formatted_total'];
 
     /*
     |--------------------------------------------------------------------------

@@ -18,6 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('clients._form', 'FI\Composers\ClientFormComposer');
         view()->composer('invoices._table', 'FI\Composers\InvoiceTableComposer');
         view()->composer('quotes._table', 'FI\Composers\QuoteTableComposer');
+        view()->composer('workorders.partials._table', 'FI\Composers\WorkorderTableComposer');
         view()->composer('reports.options.*', 'FI\Composers\ReportComposer');
     }
 

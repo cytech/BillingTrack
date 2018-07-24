@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Invoices\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
 use FI\Events\InvoiceCreated;
 use FI\Events\InvoiceCreating;
@@ -21,29 +22,22 @@ use FI\Support\FileNames;
 use FI\Support\HTML;
 use FI\Support\NumberFormatter;
 use FI\Support\Statuses\InvoiceStatuses;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Invoice extends Model
 {
-    use Sortable;
+    use SoftDeletes;
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['quote', 'payments', 'invoiceItems', 'custom', 'amount'];
 
     protected $guarded = ['id'];
 
-    protected $sortable = [
-        'number' => ['LENGTH(number)', 'number'],
-        'invoice_date',
-        'due_at',
-        'clients.name',
-        'summary',
-        'invoice_amounts.total',
-        'invoice_amounts.balance',
-        'invoice_amounts.tax',
-        'invoice_amounts.subtotal'
-    ];
+    protected $dates = ['due_at', 'invoice_date', 'deleted_at'];
 
-    protected $dates = ['due_at', 'invoice_date'];
+    protected $appends = ['formatted_invoice_date', 'formatted_due_at','status_text'];
 
     public static function boot()
     {
@@ -59,10 +53,10 @@ class Invoice extends Model
             event(new InvoiceCreated($invoice));
         });
 
-        static::deleted(function ($invoice)
+       /* static::deleted(function ($invoice)
         {
             event(new InvoiceDeleted($invoice));
-        });
+        });*/
     }
 
     /*

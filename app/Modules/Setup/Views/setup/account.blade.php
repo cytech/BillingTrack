@@ -8,7 +8,7 @@
 
     <section class="content">
 
-        {!! Form::open(['route' => 'setup.postAccount', 'class' => 'form-install']) !!}
+        {!! Form::open(['route' => 'setup.postNewAccount', 'class' => 'form-install']) !!}
 
         <div class="row">
 

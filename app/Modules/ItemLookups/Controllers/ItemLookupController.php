@@ -21,11 +21,11 @@ class ItemLookupController extends Controller
 {
     public function index()
     {
-        $itemLookups = ItemLookup::sortable(['name' => 'asc'])->with(['taxRate', 'taxRate2'])->keywords(request('search'))->paginate(config('fi.resultsPerPage'));
+        $itemLookups = ItemLookup::with(['taxRate', 'taxRate2'])->get();
 
         return view('item_lookups.index')
-            ->with('itemLookups', $itemLookups)
-            ->with('displaySearch', true);
+            ->with('itemLookups', $itemLookups);
+
     }
 
     public function create()
@@ -71,6 +71,22 @@ class ItemLookupController extends Controller
 
         return redirect()->route('itemLookups.index')
             ->with('alert', trans('fi.record_successfully_deleted'));
+    }
+
+    public function getItemLookup()
+    {
+        $item_lookups = ItemLookup::orderby('resource_table','ASC')->orderby('name','ASC')->get();
+
+        return view('item_lookups.modal_item_lookups')
+            ->with('item_lookups',$item_lookups);
+
+    }
+
+    public function processItemLookup(){
+
+        $items = ItemLookup::whereIn('id', request('item_lookup_ids'))->get();
+
+        echo json_encode($items);
     }
 
     public function ajaxItemLookup()

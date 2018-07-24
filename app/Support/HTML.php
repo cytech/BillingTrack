@@ -13,6 +13,7 @@ namespace FI\Support;
 
 use FI\Events\InvoiceHTMLCreating;
 use FI\Events\QuoteHTMLCreating;
+use FI\Events\WorkorderHTMLCreating;
 
 class HTML
 {
@@ -62,5 +63,29 @@ class HTML
         return view($template)
             ->with('quote', $quote)
             ->with('logo', $quote->companyProfile->logo())->render();
+    }
+
+    public static function workorder($workorder)
+    {
+        app()->setLocale($workorder->client->language);
+
+        config(['fi.baseCurrency' => $workorder->currency_code]);
+
+        event(new WorkorderHTMLCreating($workorder));
+
+        $template = str_replace('.blade.php', '', $workorder->template);
+
+        if (view()->exists('workorder_templates.' . $template))
+        {
+            $template = 'workorder_templates.' . $template;
+        }
+        else //default fi templates
+        {
+            $template = 'templates.workorders.default';
+        }
+
+        return view($template)
+            ->with('workorder', $workorder)
+            ->with('logo', $workorder->companyProfile->logo())->render();
     }
 }

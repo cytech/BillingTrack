@@ -4,6 +4,11 @@
 
         $("#invoice_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
         $("#due_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+
+        $('#btn-add-lookup').click(function() {
+            $('#modal-placeholder').load('{{ route( 'itemLookups.ajax.getItemLookup') }}');
+        });
+
         $('textarea').autosize();
 
         $('#btn-copy-invoice').click(function () {
@@ -29,16 +34,9 @@
         }
 
         $('.btn-delete-invoice-item').click(function () {
-            if (!confirm('{!! trans('fi.delete_record_warning') !!}')) return false;
             var id = $(this).data('item-id');
-            $.post('{{ route('invoiceItem.delete') }}', {
-                id: id
-            }).done(function () {
-                $('#tr-item-' + id).remove();
-                $('#div-totals').load('{{ route('invoiceEdit.refreshTotals') }}', {
-                    id: {{ $invoice->id }}
-                });
-            });
+            deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('invoiceItem.delete') }}', id,
+                '{{ route('invoiceEdit.refreshTotals') }}', '{{ $invoice->id }}' );
         });
 
         $('.btn-save-invoice').click(function () {
@@ -96,9 +94,11 @@
                     notify('{{ trans('fi.record_successfully_updated') }}', 'success');
                 });
             }).fail(function (response) {
+                var msg ='';
                 $.each($.parseJSON(response.responseText).errors, function (id, message) {
-                    notify(message, 'danger');
+                    msg += message + '\n';
                 });
+                notify(msg, 'error');
             });
         });
 

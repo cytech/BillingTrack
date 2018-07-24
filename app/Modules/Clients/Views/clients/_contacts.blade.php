@@ -9,13 +9,24 @@
         });
 
         $('.btn-delete-contact').click(function() {
-            if (confirm('{{ trans('fi.delete_record_warning') }}')) {
-                $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {
-                    id: $(this).data('contact-id')
-                }).done(function(response) {
-                    $('#tab-contacts').html(response);
-                });
-            }
+
+            Swal({
+                title: '{{ trans('fi.trash_record_warning') }}',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d68500',
+                confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+            }).then((result) => {
+                if (result.value) {
+                    $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {
+                        id: $(this).data('contact-id')
+                    }).done(function(response) {
+                        $('#tab-contacts').html(response);
+                    })
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                }
+            });
         });
 
         $('.update-default').click(function() {
@@ -60,7 +71,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="javascript:void(0)" class="btn-edit-contact" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                            <li><a href="javascript:void(0)" class="btn-delete-contact" data-contact-id={{ $contact->id }}><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                            <li><a href="javascript:void(0)" class="btn-delete-contact" data-contact-id={{ $contact->id }}><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                         </ul>
                     </div>
                 </td>

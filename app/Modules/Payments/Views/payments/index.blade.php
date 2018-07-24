@@ -5,7 +5,7 @@
 
         $(function () {
 
-            $('.email-payment-receipt').click(function () {
+            $(document).on('click','.email-payment-receipt', function () {
                 $('#modal-placeholder').load("{{ route('paymentMail.create') }}", {
                     payment_id: $(this).data('payment-id'),
                     redirectTo: $(this).data('redirect-to')
@@ -21,12 +21,7 @@
                 });
 
                 if (ids.length > 0) {
-                    if (!confirm('{!! trans('fi.bulk_delete_record_warning') !!}')) return false;
-                    $.post("{{ route('payments.bulk.delete') }}", {
-                        ids: ids
-                    }).done(function() {
-                        window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
-                    });
+                    bulkConfirm('{!! trans('fi.bulk_trash_record_warning') !!}', "{{ route('payments.bulk.delete') }}", ids)
                 }
             });
 
@@ -42,7 +37,7 @@
 
         <div class="pull-right">
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.delete') }}</a>
+            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
         </div>
 
@@ -60,13 +55,9 @@
                 <div class="box box-primary">
 
                     <div class="box-body no-padding">
-                        @include('payments._table')
+                        @include('payments._dataTable')
                     </div>
 
-                </div>
-
-                <div class="pull-right">
-                    {!! $payments->appends(request()->except('page'))->render() !!}
                 </div>
 
             </div>

@@ -5,10 +5,10 @@
             $('#btn-check-update').click(function () {
                 $.get("{{ route('settings.updateCheck') }}")
                     .done(function (response) {
-                        alert(response.message);
+                        notify(response.message,'info');
                     })
                     .fail(function (response) {
-                        alert("{{ trans('fi.unknown_error') }}");
+                        notify("{{ trans('fi.unknown_error') }}",'error');
                     });
             });
         });

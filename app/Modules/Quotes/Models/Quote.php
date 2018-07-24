@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Quotes\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
 use FI\Events\QuoteCreated;
 use FI\Events\QuoteCreating;
@@ -21,28 +22,23 @@ use FI\Support\FileNames;
 use FI\Support\HTML;
 use FI\Support\NumberFormatter;
 use FI\Support\Statuses\QuoteStatuses;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Quote extends Model
 {
-    use Sortable;
+    use SoftDeletes;
+
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['quoteItems', 'custom', 'amount'];
 
     protected $guarded = ['id'];
 
-    protected $sortable = [
-        'number' => ['LENGTH(number)', 'number'],
-        'quote_date',
-        'expires_at',
-        'clients.name',
-        'summary',
-        'quote_amounts.total',
-        'quote_amounts.tax',
-        'quote_amounts.subtotal',
-    ];
+    protected $dates = ['expires_at', 'quote_date','deleted_at'];
 
-    protected $dates = ['expires_at', 'quote_date'];
+    protected $appends = ['formatted_quote_date', 'formatted_expires_at','status_text'];
 
     public static function boot()
     {
@@ -58,10 +54,10 @@ class Quote extends Model
             event(new QuoteCreated($quote));
         });
 
-        static::deleted(function ($quote)
+       /* static::deleted(function ($quote)
         {
             event(new QuoteDeleted($quote));
-        });
+        });*/
     }
 
     /*
@@ -122,6 +118,11 @@ class Quote extends Model
     public function invoice()
     {
         return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
+    }
+
+    public function workorder()
+    {
+        return $this->belongsTo('FI\Modules\Workorders\Models\Workorder');
     }
 
     public function mailQueue()

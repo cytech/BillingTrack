@@ -13,9 +13,9 @@
                 <li><a href="javascript:void(0)" id="btn-copy-recurring-invoice"><i
                             class="fa fa-copy"></i> {{ trans('fi.copy') }}</a></li>
                 <li class="divider"></li>
-                <li><a href="{{ route('recurringInvoices.delete', [$recurringInvoice->id]) }}"
-                       onclick="return confirm('{{ trans('fi.delete_record_warning') }}');"><i
-                            class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                <li><a href="#"
+                       onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('recurringInvoices.delete', [$recurringInvoice->id]) }}');"><i
+                            class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
             </ul>
         </div>
 
@@ -90,6 +90,8 @@
                             <div class="box-tools pull-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
                                         class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
+                                <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
+                                            class="fa fa-plus"></i> {{ trans('fi.add_lookup') }}</button>
                             </div>
                         </div>
 
@@ -112,6 +114,8 @@
                                     <td>
                                         {!! Form::hidden('recurring_invoice_id', $recurringInvoice->id) !!}
                                         {!! Form::hidden('id', '') !!}
+                                        {!! Form::hidden('resource_table', '') !!}
+                                        {!! Form::hidden('resource_id', '') !!}
                                         {!! Form::text('name', null, ['class' => 'form-control']) !!}<br>
                                         <label><input type="checkbox" name="save_item_as_lookup" tabindex="999"> {{ trans('fi.save_item_as_lookup') }}</label>
                                     </td>
@@ -128,6 +132,8 @@
                                         <td>
                                             {!! Form::hidden('recurring_invoice_id', $recurringInvoice->id) !!}
                                             {!! Form::hidden('id', $item->id) !!}
+                                            {!! Form::hidden('resource_table', $item->resource_table) !!}
+                                            {!! Form::hidden('resource_id', $item->resource_id) !!}
                                             {!! Form::text('name', $item->name, ['class' => 'form-control item-lookup']) !!}
                                         </td>
                                         <td>{!! Form::textarea('description', $item->description, ['class' => 'form-control', 'rows' => 1]) !!}</td>
@@ -138,7 +144,7 @@
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
                                             <a class="btn btn-xs btn-default btn-delete-recurring-invoice-item" href="javascript:void(0);"
-                                               title="{{ trans('fi.delete') }}" data-item-id="{{ $item->id }}">
+                                               title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>

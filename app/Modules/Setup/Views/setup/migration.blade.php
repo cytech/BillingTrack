@@ -48,7 +48,7 @@
 
                         <a class="btn btn-default" id="btn-running-migration" style="display: none;" disabled="disabled">{{ trans('fi.installing_please_wait') }}</a>
 
-                        <a href="{{ route('setup.account') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">{{ trans('fi.continue') }}</a>
+                        <a href="{{ route('setup.neworxfer') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">{{ trans('fi.continue') }}</a>
 
                     </div>
 

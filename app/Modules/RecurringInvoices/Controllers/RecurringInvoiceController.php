@@ -11,6 +11,7 @@
 
 namespace FI\Modules\RecurringInvoices\Controllers;
 
+use FI\DataTables\RecurringInvoicesDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
@@ -21,30 +22,21 @@ class RecurringInvoiceController extends Controller
 {
     use ReturnUrl;
 
-    public function index()
+    public function index(RecurringInvoicesDataTable $dataTable)
     {
         $this->setReturnUrl();
 
         $status = request('status', 'all_statuses');
+        $statuses = ['all_statuses' => trans('fi.all_statuses'), 'active' => trans('fi.active'), 'inactive' => trans('fi.inactive')];
+        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+        $frequencies = Frequency::lists();
 
-        $recurringInvoices = RecurringInvoice::select('recurring_invoices.*')
-            ->join('clients', 'clients.id', '=', 'recurring_invoices.client_id')
-            ->join('recurring_invoice_amounts', 'recurring_invoice_amounts.recurring_invoice_id', '=', 'recurring_invoices.id')
-            ->with(['client', 'activities', 'amount.recurringInvoice.currency'])
-            ->keywords(request('search'))
-            ->clientId(request('client'))
-            ->status($status)
-            ->companyProfileId(request('company_profile'))
-            ->sortable(['next_date' => 'desc', 'id' => 'desc'])
-            ->paginate(config('fi.resultsPerPage'));
+        return $dataTable->render('recurring_invoices.index', compact('status','statuses', 'frequencies', 'companyProfiles'));
+    }
 
-        return view('recurring_invoices.index')
-            ->with('recurringInvoices', $recurringInvoices)
-            ->with('displaySearch', true)
-            ->with('frequencies', Frequency::lists())
-            ->with('status', $status)
-            ->with('statuses', ['all_statuses' => trans('fi.all_statuses'), 'active' => trans('fi.active'), 'inactive' => trans('fi.inactive')])
-            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
+    public function bulkDelete()
+    {
+        RecurringInvoice::destroy(request('ids'));
     }
 
     public function delete($id)
@@ -52,6 +44,6 @@ class RecurringInvoiceController extends Controller
         RecurringInvoice::destroy($id);
 
         return redirect()->route('recurringInvoices.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('fi.record_successfully_trashed'));
     }
 }
