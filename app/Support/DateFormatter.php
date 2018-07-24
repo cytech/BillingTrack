@@ -120,6 +120,37 @@ class DateFormatter
     }
 
     /**
+     * Converts a stored time to the user formatted date.
+     *
+     * @param time $time The H:i:s standardized time
+     * @return time             The user formatted time
+     */
+    public static function formattime($time = null)
+    {
+        $time = new DateTime($time);
+
+        return $time->format('H:i');
+    }
+
+    /**
+     * Converts a user submitted time back to standard H:i:s format.
+     *
+     * @param  time $userTime The user submitted time
+     * @return time             The H:i:s standardized time
+     */
+    public static function unformattime($userTime = null)
+    {
+        if ($userTime)
+        {
+            $time = DateTime::createFromFormat('H:i', $userTime);
+
+            return $time->format('Y-m-d H:i:s');
+        }
+
+        return null;
+    }
+
+    /**
      * Adds a specified number of days to a yyyy-mm-dd formatted date.
      *
      * @param  string $date The date

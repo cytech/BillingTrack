@@ -8,21 +8,21 @@
  * file that was distributed with this source code.
  */
  
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
 use FI\Modules\Clients\Models\Client;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\Groups\Models\Group;
-use Addons\Workorders\Models\Workorder;
-use Addons\Workorders\Requests\WorkorderStoreRequest;
-use Addons\Workorders\Support\DateFormatter;
+use FI\Modules\Workorders\Models\Workorder;
+use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
+use FI\Support\DateFormatter;
 
 class WorkorderCreateController extends Controller
 {
     public function create()
     {
-        return view('Workorders::workorders.partials._modal_create')
+        return view('workorders.partials._modal_create')
             ->with('companyProfiles', CompanyProfile::getList())
             ->with('groups', Group::getList());
     }
@@ -35,6 +35,7 @@ class WorkorderCreateController extends Controller
         $input['workorder_date'] = DateFormatter::unformat($input['workorder_date']);
 
         $workorder = Workorder::create($input);
+
         return response()->json(['success' => true, 'id' => $workorder->id], 200);
     }
 }

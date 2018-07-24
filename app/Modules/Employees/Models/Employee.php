@@ -22,11 +22,11 @@ class Employee extends Model
 
 	protected $table = 'employees';
 
-//    public function workorderitem()
-//    {
-//        return $this->belongsTo('Addons\Workorders\Models\WorkorderItem','resource_id', 'id')
-//            ->where('resource_table','=','employees');
-//    }
+    public function workorderitem()
+    {
+        return $this->belongsTo('FI\Modules\Workorders\Models\WorkorderItem','resource_id', 'id')
+            ->where('resource_table','=','employees');
+    }
 
 
 }

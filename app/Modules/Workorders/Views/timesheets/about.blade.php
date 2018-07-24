@@ -1,12 +1,12 @@
-@extends('Workorders::partials._master')
+@extends('layouts.master')
 
 @section('content')
-    {!! Form::wobreadcrumbs() !!}
+    {{--{!! Form::wobreadcrumbs() !!}--}}
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><i
-                            class="fa fa-fw fa-question-circle"></i>{{ trans('Workorders::texts.about') }}
+                            class="fa fa-fw fa-question-circle"></i>{{ trans('fi.about') }}
                 </h3>
             </div>
             <div class="panel-body">

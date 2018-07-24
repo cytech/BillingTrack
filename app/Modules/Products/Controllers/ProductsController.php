@@ -142,12 +142,12 @@ class ProductController extends Controller
     public function  forceLUTupdate($ret)
     {
         DB::unprepared('
-             DELETE FROM item_lookups where product_table = \'products\';
-             INSERT INTO item_lookups (created_at,updated_at,name,description,price,category,product_table,product_id)
-              SELECT now(),now(), name,description,cost,category,\'products\',id
-              FROM workorder_products
-              WHERE workorder_products.active = TRUE
-              Order By workorder_products.category ASC;
+             DELETE FROM item_lookups where resource_table = \'products\';
+             INSERT INTO item_lookups (created_at,updated_at,name,description,price,resource_table,resource_id)
+              SELECT now(),now(), name,description,cost,\'products\',id
+              FROM products
+              WHERE products.active = TRUE
+              Order By products.category ASC;
         ');
 
         if ($ret == 0){return redirect()->route('workorders.settings')

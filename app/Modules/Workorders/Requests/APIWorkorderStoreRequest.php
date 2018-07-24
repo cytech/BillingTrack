@@ -11,9 +11,9 @@
  *
  */
 
-namespace Addons\Workorders\Requests;
+namespace FI\Modules\Workorders\Requests;
 
-use Addons\Workorders\Requests\WorkorderStoreRequest;
+use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
 
 class APIWorkorderStoreRequest extends WorkorderStoreRequest
 {

@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
-use Addons\Workorders\Support\TimeSheetReport;
-use Addons\Workorders\Requests\TimeSheetReportRequest;
+use FI\Modules\Workorders\Support\TimeSheetReport;
+use FI\Modules\Workorders\Requests\TimeSheetReportRequest;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Support\PDF\PDFFactory;
 use Carbon\Carbon;
@@ -53,7 +53,7 @@ class TimeSheetController extends Controller
 
 			if ( ! count( $invoices ) ) {
 				return redirect()->back()
-				                 ->with( 'alert', trans('Workorders::texts.timesheet_nodata_alert') );
+				                 ->with( 'alert', trans('fi.timesheet_nodata_alert') );
 			}
 
 			$totalhours = $invoices->sum('ItemQty');
@@ -123,7 +123,7 @@ class TimeSheetController extends Controller
         $html = view('timesheets._pdfhtml')
             ->with('results', $results)->render();
 
-        $pdf->download($html, trans('Workorders::texts.timesheet') .Date('Y-m-d'). '.pdf');
+        $pdf->download($html, trans('fi.timesheet') .Date('Y-m-d'). '.pdf');
     }
 
 	public function iif()
@@ -135,7 +135,7 @@ class TimeSheetController extends Controller
 
 		if ( ! count( $results['records'] ) ) {
 			return redirect()->back()
-			                 ->with( 'alert', trans('Workorders::texts.timesheet_nodata_alert') );
+			                 ->with( 'alert', trans('fi.timesheet_nodata_alert') );
 		}
 
 		// output as an attachment

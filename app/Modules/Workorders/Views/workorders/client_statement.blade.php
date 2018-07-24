@@ -1,4 +1,4 @@
-@extends('Workorders::partials._master')
+@extends('layouts.master')
 
 @section('javascript')
 

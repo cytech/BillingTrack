@@ -8,16 +8,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Models;
+namespace FI\Modules\Workorders\Models;
 
-use Addons\Workorders\Events\WorkorderItemSaving;
-use Addons\Workorders\Events\WorkorderModified;
+use FI\Events\WorkorderItemSaving;
+use FI\Events\WorkorderModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WorkorderItem extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $guarded = ['id'];
 
     public static function boot()
@@ -56,12 +61,12 @@ class WorkorderItem extends Model
 
     public function amount()
     {
-        return $this->hasOne('Addons\Workorders\Models\WorkorderItemAmount', 'item_id');
+        return $this->hasOne('FI\Modules\Workorders\Models\WorkorderItemAmount', 'item_id');
     }
 
     public function workorder()
     {
-        return $this->belongsTo('Addons\Workorders\Models\Workorder');
+        return $this->belongsTo('FI\Modules\Workorders\Models\Workorder');
     }
 
     public function taxRate()
@@ -74,16 +79,15 @@ class WorkorderItem extends Model
         return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
     }
 
-    //TODO check
-    public function resources()
+    public function products()
     {
-        return $this->hasMany('Addons\Workorders\Models\Resource', 'resource_id')
-            ->where('resource_table','=','resources');
+        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
+            ->where('resource_table','=','products');
     }
-    //TODO check
+
     public function employees()
     {
-        return $this->hasMany('Addons\Workorders\Models\Employee', 'resource_id')
+        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
             ->where('resource_table','=','employees');
     }
 

@@ -80,6 +80,18 @@ class QuoteItem extends Model
         return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
     }
 
+    public function products()
+    {
+        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
+            ->where('resource_table','=','products');
+    }
+
+    public function employees()
+    {
+        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
+            ->where('resource_table','=','employees');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Accessors

@@ -12,7 +12,32 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        if (count(Setting::all())){ return; }
+        if (count(Setting::all())){
+            Setting::deleteByKey('addonWorkorderVersion');
+            Setting::deleteByKey('workorderStatusFilter');
+            //insert workorder settings
+            //DB::table('settings')->insert([ 'setting_key' => 'scheduler', 'setting_value' => $scheduler ]);
+            //DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => $restolup ]);
+            //DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => $emptolup ]);
+            DB::table('settings')->insert([ 'setting_key' => 'workorderTemplate', 'setting_value' => 'default.blade.php' ]);
+            DB::table('settings')->insert([ 'setting_key' => 'workorderGroup', 'setting_value' => '3' ]);
+            DB::table('settings')->insert([ 'setting_key' => 'workordersExpireAfter', 'setting_value' => '15' ]);
+            DB::table('settings')->insert([ 'setting_key' => 'workorderTerms', 'setting_value' => 'Default Terms:' ]);
+            DB::table('settings')->insert([ 'setting_key' => 'workorderFooter', 'setting_value' => 'Default Footer:' ]);
+            DB::table('settings')->insert([ 'setting_key' => 'convertWorkorderTerms', 'setting_value' => 'workorder' ]);
+            //DB::table('settings')->insert([ 'setting_key' => 'enableLegacyCalendar', 'setting_value' => $enableLegacyCalendar ]);
+            //DB::table('settings')->insert([ 'setting_key' => 'legacyCalendarScript', 'setting_value' => $legacyCalendarScript ]);
+            //DB::table('settings')->insert([ 'setting_key' => 'version', 'setting_value' => '2.0.0' ]);
+            //insert workorder settings for timesheet
+            DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
+            DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
+            //statusFilter
+            DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
+
+
+            return;
+        }
+
 
         DB::statement('INSERT INTO settings VALUES (1,\'addressFormat\',\'{{ address }}\r\n{{ city }}, {{ state }} {{ postal_code }}\',NULL,NULL,NULL)
             ,(2,\'allowPaymentsWithoutBalance\',\'0\',NULL,NULL,NULL)
@@ -83,5 +108,27 @@ class SettingsTableSeeder extends Seeder
             ,(67,\'widgetEnabledQuoteSummary\',\'1\',NULL,NULL,NULL)
             ,(68,\'widgetInvoiceSummaryDashboardTotals\',\'year_to_date\',NULL,NULL,NULL)
             ,(69,\'widgetQuoteSummaryDashboardTotals\',\'year_to_date\',NULL,NULL,NULL)');
+
+        //insert workorder settings
+        //DB::table('settings')->insert([ 'setting_key' => 'scheduler', 'setting_value' => $scheduler ]);
+        //DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => $restolup ]);
+        //DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => $emptolup ]);
+        DB::table('settings')->insert([ 'setting_key' => 'workorderTemplate', 'setting_value' => 'default.blade.php' ]);
+        DB::table('settings')->insert([ 'setting_key' => 'workorderGroup', 'setting_value' => '3' ]);
+        DB::table('settings')->insert([ 'setting_key' => 'workordersExpireAfter', 'setting_value' => '15' ]);
+        DB::table('settings')->insert([ 'setting_key' => 'workorderTerms', 'setting_value' => 'Default Terms:' ]);
+        DB::table('settings')->insert([ 'setting_key' => 'workorderFooter', 'setting_value' => 'Default Footer:' ]);
+        DB::table('settings')->insert([ 'setting_key' => 'convertWorkorderTerms', 'setting_value' => 'workorder' ]);
+        //DB::table('settings')->insert([ 'setting_key' => 'enableLegacyCalendar', 'setting_value' => $enableLegacyCalendar ]);
+        //DB::table('settings')->insert([ 'setting_key' => 'legacyCalendarScript', 'setting_value' => $legacyCalendarScript ]);
+        //DB::table('settings')->insert([ 'setting_key' => 'version', 'setting_value' => '2.0.0' ]);
+        //insert workorder settings for timesheet
+        DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
+        DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
+        //statusFilter
+        DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
+
+        Setting::deleteByKey('addonWorkorderVersion');
+
     }
 }

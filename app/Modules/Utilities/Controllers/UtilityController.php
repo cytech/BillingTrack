@@ -18,8 +18,7 @@ use FI\Modules\Payments\Models\Payment;
 use FI\Modules\Quotes\Models\Quote;
 use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
 use FI\Modules\TimeTracking\Models\TimeTrackingProject;
-use Illuminate\Http\Request;
-
+use FI\Modules\Workorders\Models\Workorder;
 
 class UtilityController
 {
@@ -27,6 +26,7 @@ class UtilityController
     {
         $clients = Client::onlyTrashed()->get();
         $quotes = Quote::has('client')->where('invoice_id', 0)->onlyTrashed()->get();
+        $workorders = Workorder::has('client')->where('invoice_id', 0)->onlyTrashed()->get();
         $invoices = Invoice::has('client')->onlyTrashed()->get();
         $recurring_invoices = RecurringInvoice::has('client')->onlyTrashed()->get();
         $payments = Payment::has('client')->has('invoice')->onlyTrashed()->get();
@@ -36,6 +36,7 @@ class UtilityController
         return view('utilities.trash')
             ->with('clients', $clients)
             ->with('quotes', $quotes)
+            ->with('workorders', $workorders)
             ->with('invoices', $invoices)
             ->with('recurring_invoices', $recurring_invoices)
             ->with('payments', $payments)
@@ -53,6 +54,9 @@ class UtilityController
                 break;
             case 'quote':
                 Quote::onlyTrashed()->find($id)->restore();
+                break;
+            case 'workorder':
+                Workorder::onlyTrashed()->find($id)->restore();
                 break;
             case 'invoice':
                 Invoice::onlyTrashed()->find($id)->restore();

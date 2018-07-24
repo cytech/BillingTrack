@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>Transfer Existing FusionInvoice 2018-8 database/schema</h1>
     </section>
-
+@include('layouts._alerts')
     <section class="content">
         {!! Form::open() !!}
         <div class="row">

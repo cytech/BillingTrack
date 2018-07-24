@@ -66,6 +66,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('workorders.index', ['status' => config('fi.workorderStatusFilter')]) }}">
+                        <i class="fa fa-file-text-o"></i> <span>{{ trans('fi.workorders') }}</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('invoices.index', ['status' => config('fi.invoiceStatusFilter')]) }}">
                         <i class="fa fa-file-text"></i> <span>{{ trans('fi.invoices') }}</span>
                     </a>

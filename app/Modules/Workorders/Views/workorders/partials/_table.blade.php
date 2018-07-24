@@ -3,9 +3,9 @@
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
         <th class="hidden-sm hidden-xs">{{ trans('fi.status') }}</th>
-        <th>{!! trans('Workorders::texts.workorder') !!}</th>
+        <th>{!! trans('fi.workorder') !!}</th>
         <th>{!! trans('fi.date') !!}</th>
-        <th>{!! trans('Workorders::texts.job_date') !!}</th>
+        <th>{!! trans('fi.job_date') !!}</th>
         <th>{!! trans('fi.client_name') !!}</th>
         <th>{!! trans('fi.summary') !!}</th>
         <th>{!! trans('fi.total') !!}</th>
@@ -51,8 +51,9 @@
                                         class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
                         <li><a href="{{ route('workorders.pdf', [$workorder->id]) }}" target="_blank" id="btn-pdf-workorder"><i
                                         class="fa fa-print"></i> {{ trans('fi.pdf') }}</a></li>
-                        <li><a onclick="return pconfirm( '{{ trans('Workorders::texts.workorder_trash_warning') }}','{{ route('workorders.trashworkorder', [$workorder->id]) }}');"><i
-                                        class="fa fa-trash-o"></i> {{ trans('Workorders::texts.trash')}}</a></li>
+                        <li><a href="#"
+                               onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}','{{ route('workorders.delete', [$workorder->id]) }}');"><i
+                                        class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
                     </ul>
                 </div>
             </td>
@@ -61,4 +62,4 @@
     </tbody>
 
 </table>
-{{--@include('Workorders::partials._js_datatables')--}}
+{{--@include('partials._js_datatables')--}}

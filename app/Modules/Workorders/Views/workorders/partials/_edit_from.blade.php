@@ -1,4 +1,4 @@
-@include('Workorders::workorders.partials._js_edit_from')
+@include('workorders.partials._js_edit_from')
 
 <div class="box box-primary">
     <div class="box-header">

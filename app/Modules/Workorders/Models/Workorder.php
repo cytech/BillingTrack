@@ -8,37 +8,33 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Models;
+namespace FI\Modules\Workorders\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use Addons\Workorders\Events\WorkorderCreated;
-use Addons\Workorders\Events\WorkorderCreating;
-use Addons\Workorders\Events\WorkorderDeleted;
+use FI\Events\WorkorderCreated;
+use FI\Events\WorkorderCreating;
+use FI\Events\WorkorderDeleted;
 use FI\Support\CurrencyFormatter;
-use Addons\Workorders\Support\DateFormatter;
-use Addons\Workorders\Support\FileNames;
-use Addons\Workorders\Support\HTML;
+use FI\Support\DateFormatter;
+use FI\Support\FileNames;
+use FI\Support\HTML;
 use FI\Support\NumberFormatter;
-use FI\Support\Statuses\QuoteStatuses;
+use FI\Support\Statuses\WorkorderStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Workorder extends Model
 {
-	use SoftDeletes;
+    use SoftDeletes;
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['workorderItems', 'custom', 'amount'];
 
     protected $guarded = ['id'];
 
-    /*protected $sortable = [
-        'number' => ['LENGTH(number)', 'number'],
-        'workorder_date',
-        'expires_at',
-        'job_date',
-        'clients.name',
-        'summary',
-        'workorder_amounts.total',
-    ];*/
+    protected $appends = ['formatted_workorder_date', 'formatted_expires_at','status_text'];
 
     protected $dates = ['expires_at', 'workorder_date','job_date','deleted_at'];
 
@@ -56,12 +52,12 @@ class Workorder extends Model
             event(new WorkorderCreated($workorder));
         });
 
-        static::deleted(function($workorder)
-        {
-	        if ($workorder->forceDeleting) {
-		        event( new WorkorderDeleted( $workorder ) );
-	        }
-        });
+//        static::deleted(function($workorder)
+//        {
+//	        if ($workorder->forceDeleting) {
+//		        event( new WorkorderDeleted( $workorder ) );
+//	        }
+//        });
     }
 
     /*
@@ -77,7 +73,7 @@ class Workorder extends Model
 
     public function amount()
     {
-        return $this->hasOne('Addons\Workorders\Models\WorkorderAmount');
+        return $this->hasOne('FI\Modules\Workorders\Models\WorkorderAmount');
     }
 
     public function attachments()
@@ -111,7 +107,7 @@ class Workorder extends Model
 
     public function custom()
     {
-        return $this->hasOne('Addons\Workorders\Models\WorkorderCustom');
+        return $this->hasOne('FI\Modules\CustomFields\Models\WorkorderCustom');
     }
 
     public function group()
@@ -131,7 +127,7 @@ class Workorder extends Model
 
     public function items()
     {
-        return $this->hasMany('Addons\Workorders\Models\WorkorderItem')
+        return $this->hasMany('FI\Modules\Workorders\Models\WorkorderItem')
             ->orderBy('display_order');
     }
 
@@ -144,7 +140,7 @@ class Workorder extends Model
     // and the fact that Laravel has a protected items property.
     public function workorderItems()
     {
-        return $this->hasMany('Addons\Workorders\Models\WorkorderItem')
+        return $this->hasMany('FI\Modules\Workorders\Models\WorkorderItem')
             ->orderBy('display_order');
     }
 
@@ -228,7 +224,7 @@ class Workorder extends Model
 
     public function getStatusTextAttribute()
     {
-        $statuses = QuoteStatuses::statuses();
+        $statuses = WorkorderStatuses::statuses();
 
         return $statuses[$this->attributes['workorder_status_id']];
     }
@@ -342,27 +338,27 @@ class Workorder extends Model
 
     public function scopeDraft($query)
     {
-        return $query->where('workorder_status_id', '=', QuoteStatuses::getStatusId('draft'));
+        return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('draft'));
     }
 
     public function scopeSent($query)
     {
-        return $query->where('workorder_status_id', '=', QuoteStatuses::getStatusId('sent'));
+        return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('sent'));
     }
 
     public function scopeApproved($query)
     {
-        return $query->where('workorder_status_id', '=', QuoteStatuses::getStatusId('approved'));
+        return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('approved'));
     }
 
     public function scopeRejected($query)
     {
-        return $query->where('workorder_status_id', '=', QuoteStatuses::getStatusId('rejected'));
+        return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('rejected'));
     }
 
     public function scopeCanceled($query)
     {
-        return $query->where('workorder_status_id', '=', QuoteStatuses::getStatusId('canceled'));
+        return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('canceled'));
     }
 
     public function scopeStatus($query, $status = null)

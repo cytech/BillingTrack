@@ -146,13 +146,13 @@ class EmployeeController extends Controller
     {
         DB::unprepared('
             DELETE FROM item_lookups where resource_table = \'employees\';
-             INSERT INTO item_lookups (created_at,updated_at,name,description,price,category,resource_table,resource_id)
+             INSERT INTO item_lookups (created_at,updated_at,name,description,price,resource_table,resource_id)
               SELECT now(),now(), short_name,
                 CONCAT(title,"-",number),
-                billing_rate,IF(driver=TRUE,"Driver","Worker"),\'employees\',id
-              FROM workorder_employees
-              WHERE workorder_employees.active = TRUE
-              Order By workorder_employees.number DESC;
+                billing_rate,\'employees\',id
+              FROM employees
+              WHERE employees.active = TRUE
+              Order By employees.number DESC;
         ');
 
         if ($ret == 0){return redirect()->route('workorders.settings')

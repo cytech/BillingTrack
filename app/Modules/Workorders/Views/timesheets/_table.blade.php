@@ -2,13 +2,13 @@
 
     <thead>
     <tr>
-        <th>{!! trans('Workorders::texts.invoicenumber') !!}</th>
-        <th>{!! trans('Workorders::texts.customername') !!}</th>
-        <th>{!! trans('Workorders::texts.datefinished') !!}</th>
-        <th>{!! trans('Workorders::texts.itemname') !!}</th>
-        <th>{!! trans('Workorders::texts.itemqty') !!}</th>
-        <th>{!! trans('Workorders::texts.fullname') !!}</th>
-        <th>{!! trans('Workorders::texts.empnumber') !!}</th>
+        <th>{!! trans('fi.invoicenumber') !!}</th>
+        <th>{!! trans('fi.customername') !!}</th>
+        <th>{!! trans('fi.datefinished') !!}</th>
+        <th>{!! trans('fi.itemname') !!}</th>
+        <th>{!! trans('fi.itemqty') !!}</th>
+        <th>{!! trans('fi.fullname') !!}</th>
+        <th>{!! trans('fi.empnumber') !!}</th>
     </tr>
     </thead>
 
@@ -26,6 +26,6 @@
     @endforeach
     </tbody>
 </table>
-<h3>{!! trans('Workorders::texts.totalhours') !!} = {{ $totalhours }}</h3>
+<h3>{!! trans('fi.totalhours') !!} = {{ $totalhours }}</h3>
 
-{{--@include('Workorders::partials._js_datatables')--}}
+{{--@include('partials._js_datatables')--}}

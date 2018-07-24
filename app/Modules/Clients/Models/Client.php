@@ -28,7 +28,7 @@ class Client extends Model
     use SoftDeletes;
     use SoftCascadeTrait;
 
-    protected $softCascade = ['contacts', 'custom', 'invoices', 'quotes',  'projects','recurringInvoices'];
+    protected $softCascade = ['contacts', 'custom', 'invoices', 'workorders', 'quotes',  'projects','recurringInvoices'];
 
     protected $dates = ['deleted_at'];
 
@@ -149,6 +149,11 @@ class Client extends Model
     public function quotes()
     {
         return $this->hasMany('FI\Modules\Quotes\Models\Quote');
+    }
+
+    public function workorders()
+    {
+        return $this->hasMany('FI\Modules\Workorders\Models\Workorder');
     }
 
     public function recurringInvoices()

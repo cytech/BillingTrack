@@ -33,6 +33,8 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::post('{id}/edit', ['uses' => 'WorkorderEditController@update', 'as' => 'workorders.update']);
         Route::get('{id}/delete', ['uses' => 'WorkorderController@delete', 'as' => 'workorders.delete']);
         Route::get('{id}/pdf', ['uses' => 'WorkorderController@pdf', 'as' => 'workorders.pdf']);
+        Route::post('bulk/delete', ['uses' => 'WorkorderController@bulkDelete', 'as' => 'workorders.bulk.delete']);
+        Route::post('bulk/status', ['uses' => 'WorkorderController@bulkStatus', 'as' => 'workorders.bulk.status']);
 		//employees
 //	    Route::group(['prefix' => 'employees'], function () {
 //		    Route::get('/', ['uses' => 'EmployeeController@index', 'as' => 'employees.index']);
@@ -70,7 +72,7 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
 		//batchprint workorders pdf
         Route::any('batchprint', ['uses' => 'WorkorderController@batchPrint', 'as' => 'workorders.batchprint']);
 		//workorders about page
-        Route::get('about', [function () {return view('Workorders::workorders.about');}, 'as' => 'workorders.about']);
+        Route::get('about', [function () {return view('workorders.about');}, 'as' => 'workorders.about']);
 		//workorder settings
         Route::get('settings', ['uses' => 'SettingController@index', 'as' => 'workorders.settings']);
         Route::post('settings/update', ['uses' => 'SettingController@update', 'as' => 'workorders.settings.update']);
@@ -82,21 +84,20 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::post('edit/update_client', ['uses' => 'WorkorderEditController@updateClient', 'as' => 'workorderEdit.updateClient']);
         Route::post('edit/update_company_profile', ['uses' => 'WorkorderEditController@updateCompanyProfile', 'as' => 'workorderEdit.updateCompanyProfile']);
         Route::post('recalculate', ['uses' => 'WorkorderRecalculateController@recalculate', 'as' => 'workorders.recalculate']);
-	    Route::post('bulk/status', ['uses' => 'WorkorderController@bulkStatus', 'as' => 'workorders.bulk.status']);
+	    //Route::post('bulk/status', ['uses' => 'WorkorderController@bulkStatus', 'as' => 'workorders.bulk.status']);
 		//resource and employee force update
-        Route::get('/forceResUpdate/{ret}', 'ResourceController@forceLUTupdate');
-        Route::get('/forceEmpUpdate/{ret}', 'EmployeeController@forceLUTupdate');
-		//trash
-        Route::get('trash',['uses' => 'TrashController@trash', 'as' => 'workorders.trash']);
-	    Route::get( '{id}/trash_workorder', [ 'uses' => 'TrashController@trashWorkorder', 'as' => 'workorders.trashworkorder' ] );
-	    Route::get( 'restore_all_trash', [ 'uses' => 'TrashController@restoreAllTrash', 'as'   => 'workorders.restorealltrash' ] );
-	    Route::get( 'delete_all_trash', [ 'uses' => 'TrashController@deleteAllTrash', 'as'   => 'workorders.deletealltrash' ] );
-	    Route::get( 'restore_single_trash', [ 'uses' => 'TrashController@restoreSingleTrash', 'as'   =>'workorders.restoresingletrash' ] );
-	    Route::get( 'delete_single_trash', [ 'uses' => 'TrashController@deleteSingleTrash', 'as'   =>'workorders.deletesingletrash' ] );
 
-	    Route::post('bulk/trash', ['uses' => 'TrashController@bulkTrash', 'as' => 'workorders.bulk.trash']);
-	    Route::post('bulk/delete_trash', ['uses' => 'TrashController@bulkDeleteTrash', 'as' => 'workorders.bulk.deletetrash']);
-	    Route::post('bulk/restore_trash', ['uses' => 'TrashController@bulkRestoreTrash', 'as' => 'workorders.bulk.restoretrash']);
+		//trash
+//        Route::get('trash',['uses' => 'TrashController@trash', 'as' => 'workorders.trash']);
+//	    Route::get( '{id}/trash_workorder', [ 'uses' => 'TrashController@trashWorkorder', 'as' => 'workorders.trashworkorder' ] );
+//	    Route::get( 'restore_all_trash', [ 'uses' => 'TrashController@restoreAllTrash', 'as'   => 'workorders.restorealltrash' ] );
+//	    Route::get( 'delete_all_trash', [ 'uses' => 'TrashController@deleteAllTrash', 'as'   => 'workorders.deletealltrash' ] );
+//	    Route::get( 'restore_single_trash', [ 'uses' => 'TrashController@restoreSingleTrash', 'as'   =>'workorders.restoresingletrash' ] );
+//	    Route::get( 'delete_single_trash', [ 'uses' => 'TrashController@deleteSingleTrash', 'as'   =>'workorders.deletesingletrash' ] );
+//
+//	    Route::post('bulk/trash', ['uses' => 'TrashController@bulkTrash', 'as' => 'workorders.bulk.trash']);
+//	    Route::post('bulk/delete_trash', ['uses' => 'TrashController@bulkDeleteTrash', 'as' => 'workorders.bulk.deletetrash']);
+//	    Route::post('bulk/restore_trash', ['uses' => 'TrashController@bulkRestoreTrash', 'as' => 'workorders.bulk.restoretrash']);
 
 	    Route::get('/viewclear', [function () {
 		    Artisan::call('view:clear');
@@ -105,6 +106,7 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
 
     });
     //end of group workorders
+
 
     Route::group(['prefix' => 'workorder_copy'], function () {
         Route::post('create', ['uses' => 'WorkorderCopyController@create', 'as' => 'workorderCopy.create']);
@@ -125,4 +127,8 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::post('delete', ['uses' => 'WorkorderItemController@delete', 'as' => 'workorderItem.delete']);
     });
 
+});
+Route::group(['middleware' => ['web', 'auth.admin']], function () {
+Route::get('/forceProductUpdate/{ret}', 'FI\Modules\Products\Controllers\ProductController@forceLUTupdate');
+Route::get('/forceEmployeeUpdate/{ret}', 'FI\Modules\Employees\Controllers\EmployeeController@forceLUTupdate');
 });

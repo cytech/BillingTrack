@@ -8,13 +8,18 @@
  * file that was distributed with this source code.
  */
  
-namespace Addons\Workorders\Models;
+namespace FI\Modules\Workorders\Models;
 
 use FI\Support\CurrencyFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WorkorderItemAmount extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     /**
      * Guarded properties
      * @var array
@@ -23,7 +28,7 @@ class WorkorderItemAmount extends Model
 
     public function item()
     {
-        return $this->belongsTo('Addons\Workorders\Models\WorkorderItem');
+        return $this->belongsTo('FI\Modules\Workorders\Models\WorkorderItem');
     }
 
     /*

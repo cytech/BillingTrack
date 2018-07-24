@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Requests;
+namespace FI\Modules\Workorders\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -38,9 +38,9 @@ class WorkorderStoreRequest extends FormRequest
             'items.*.quantity'   => trans('fi.quantity'),
             'items.*.price'      => trans('fi.price'),
             'expires_at'         => trans('fi.expires'),
-            'job_date'           => trans('Workorders::texts.job_date'),
-            'start_time'         => trans('Workorders::texts.start_time'),
-            'end_time'           => trans('Workorders::texts.end_time'),
+            'job_date'           => trans('fi.job_date'),
+            'start_time'         => trans('fi.start_time'),
+            'end_time'           => trans('fi.end_time'),
         ];
     }
 

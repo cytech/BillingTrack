@@ -75,7 +75,7 @@ class ItemLookupController extends Controller
 
     public function getItemLookup()
     {
-        $item_lookups = ItemLookup::/*orderby('resource_table','ASC')->orderby('category','ASC')->*/orderby('name','ASC')->get();
+        $item_lookups = ItemLookup::orderby('resource_table','ASC')->orderby('name','ASC')->get();
 
         return view('item_lookups.modal_item_lookups')
             ->with('item_lookups',$item_lookups);

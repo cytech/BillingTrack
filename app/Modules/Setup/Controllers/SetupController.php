@@ -14,6 +14,7 @@ namespace FI\Modules\Setup\Controllers;
 use Artisan;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
+use FI\Modules\ItemLookups\Models\ItemLookup;
 use FI\Modules\Settings\Models\Setting;
 use FI\Modules\Setup\Requests\LicenseRequest;
 use FI\Modules\Setup\Requests\ProfileRequest;
@@ -96,11 +97,23 @@ class SetupController extends Controller
 
     public function postXferAccount(Request $request)
     {
-        Artisan::call('config:cache');
+        //Artisan::call('config:cache');
+        //olddbname entered in form
         $oldschema = $request->olddbname;
-        $newschema = env('DB_DATABASE');
-        //dd($newschema);
+        //$newschema = env('DB_DATABASE');
+        $newschema = DB::getDatabaseName();
 
+        $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME =  ?";
+        $db = DB::select($query, [$oldschema]);
+        if(empty($db))
+            return redirect()->back()
+                ->with( 'alert', 'Database Schema not found. Enter a valid schema name to transfer' );
+
+        //create connection to oldschema
+        $otfdb = new OTFDB(['database' => $oldschema]);
+
+
+        //truncate seeded tables
         DB::statement('set foreign_key_checks = 0');
         DB::statement('truncate table users');
         DB::statement('truncate table settings');
@@ -108,9 +121,10 @@ class SetupController extends Controller
         DB::statement('truncate table groups');
         DB::statement('truncate table payment_methods');
 
+        //oldschema column defs for migrate
         $oldtables = [
             'activities' => 'id, audit_type, activity, audit_id, info, created_at, updated_at',
-            'addons' => 'id, created_at, updated_at, name, author_name, author_url, navigation_menu, system_menu, path, enabled, navigation_reports',
+            //'addons' => 'id, created_at, updated_at, name, author_name, author_url, navigation_menu, system_menu, path, enabled, navigation_reports',
             'attachments' => 'id, created_at, updated_at, user_id, attachable_id, attachable_type, filename, mimetype, size, url_key, client_visibility',
             'clients' => 'id, created_at,updated_at,name,address,city,state,zip,country,phone,fax,mobile,email,web,url_key,active,currency_code,unique_name,language',
             'clients_custom' => 'client_id, created_at, updated_at',
@@ -176,16 +190,29 @@ class SetupController extends Controller
             'workorders_custom' => 'workorder_id, created_at, updated_at',
         ];
 
+        //check if workorder addon installed by looking for invoice_items->resource_table column
+        if ($otfdb->getConnection()->getSchemaBuilder()->hasColumn('invoice_items','resource_table')){
+            $oldtables['invoice_items'] = 'id, created_at, updated_at, invoice_id, tax_rate_id, tax_rate_2_id, resource_table, resource_id, name, description, quantity, display_order, price';
+            $oldtables['item_lookups'] = 'id, created_at, updated_at, name, description, price, resource_table, resource_id, tax_rate_id, tax_rate_2_id';
+        }
+
         foreach ($oldtables as $table => $columndef){
-            if (/*Schema::connection($oldschema)->hasTable($table) &&*/ Schema::/*connection($newschema)->*/hasTable($table)) {
+            if (Schema::hasTable($table)) {
+                //insert
                 DB::statement('insert into `' . $newschema . '`.' . $table . ' (' . $columndef . ')
                                 SELECT ' . $columndef . ' FROM `' . $oldschema . '`.' . $table . ';');
+                //if payments add value to new client_id column
                 if($table == 'payments'){
                     DB::statement('UPDATE payments o JOIN invoices d 
                                   ON d.id = o.invoice_id
                                   SET o.client_id = d.client_id;');
                 }
-            }elseif (/*Schema::connection($oldschema)->hasTable($table) && */!Schema::/*connection($newschema)->*/hasTable($table)){
+                //if workorder addon was installed, update resource table from resources to products
+                if($table == 'workorder_items' || $table == 'invoice_items'|| $table == 'item_lookups'){
+                    DB::statement('update `'. $table .'` set resource_table = \'products\' where resource_table = \'resources\';');
+                }
+
+            }elseif (!Schema::hasTable($table)){
                 //table name change overrides
                 $newtable = '';
                 ($table ==  'workorder_employees') ? $newtable = 'employees':null ;
@@ -199,6 +226,8 @@ class SetupController extends Controller
         DB::statement('set foreign_key_checks = 1');
 
         Setting::saveByKey('version', '4.0.0');
+
+        config(['database.connections.'.$oldschema => null]);
 
         return redirect()->route('setup.complete');
     }

@@ -8,15 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
-use Addons\Workorders\Events\WorkorderModified;
+use FI\DataTables\WorkordersDataTable;
+use FI\Events\WorkorderModified;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use Addons\Workorders\Models\Workorder;
-use Addons\Workorders\Support\FileNames;
+use FI\Modules\Workorders\Models\Workorder;
+use FI\Support\FileNames;
 use FI\Support\PDF\PDFFactory;
-use FI\Support\Statuses\QuoteStatuses;
+use FI\Support\Statuses\WorkorderStatuses;
 use FI\Traits\ReturnUrl;
 use Illuminate\Http\Request;
 use DB;
@@ -41,34 +42,32 @@ class WorkorderController extends Controller
 	                                      ->groupBy( DB::raw( "DATE_FORMAT(job_date, '%Y%m%d')" ) )
 	                                      ->get();
 
-	    return view('Workorders::workorders.dashboard', $data);
+	    return view('workorders.dashboard', $data);
     }
 
-    public function index()
+    public function index(WorkordersDataTable $dataTable)
     {
         $this->setReturnUrl();
 
         $status = request('status', 'all_statuses');
+        $statuses = WorkorderStatuses::listsAllFlat();
+        $keyedStatuses = collect(WorkorderStatuses::lists())->except(3);
+        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
 
-        $workorders = Workorder::select('workorders.*')
-            ->join('clients', 'clients.id', '=', 'workorders.client_id')
-            ->join('workorder_amounts', 'workorder_amounts.workorder_id', '=', 'workorders.id')
-            ->with(['client', 'activities', 'amount.workorder.currency'])
-            ->status($status)
-            ->keywords(request('search'))
-            ->clientId(request('client'))
-            ->companyProfileId(request('company_profile'))
-            //->sortable(['job_date' => 'desc', 'LENGTH(number)' => 'desc', 'number' => 'desc'])
-            ->get();//->paginate(config('fi.resultsPerPage'));
+        return $dataTable->render('workorders.index', compact('status','statuses', 'keyedStatuses','companyProfiles'));
+    }
 
-        return view('Workorders::workorders.workorderTable')
-            ->with('workorders', $workorders)
-            ->with('status', $status)
-            ->with('statuses', QuoteStatuses::listsAllFlat())
-            ->with('statuslist', QuoteStatuses::statuses())//why??? above works for quotes but passes weird array in WO. Static??
-	        ->with('keyedStatuses', QuoteStatuses::lists())//added 2017-11
-            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList())
-            ->with('displaySearch', false);
+    public function delete($id)
+    {
+        Workorder::destroy($id);
+
+        return redirect()->route('workorders.index')
+            ->with('alert', trans('fi.record_successfully_trashed'));
+    }
+
+    public function bulkDelete()
+    {
+        Workorder::destroy(request('ids'));
     }
 
     public function bulkStatus()
@@ -100,7 +99,7 @@ class WorkorderController extends Controller
 
             if (!count($workorders)) {
                 return redirect()->route('workorders.batchprint')
-                    ->with('alert', trans('Workorders::texts.batch_nodata_alert'));
+                    ->with('alert', trans('fi.batch_nodata_alert'));
             }
 
             $pdf = PDFFactory::create();
@@ -115,10 +114,10 @@ class WorkorderController extends Controller
 
         } else {
             if (config('fi.pdfDriver') == 'wkhtmltopdf') {
-                return view('Workorders::workorders.getdates',['title' => 'BatchPrint']);
+                return view('workorders.getdates',['title' => 'BatchPrint']);
             } else {
                 return redirect()->to('/settings#tab-pdf')
-                    ->with('alert', trans('Workorders::texts.batch_wkhtml_alert'));
+                    ->with('alert', trans('fi.batch_wkhtml_alert'));
             }
 
         }

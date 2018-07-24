@@ -1,4 +1,4 @@
-@extends('Workorders::partials._master')
+@extends('layouts.master')
 
 @section('content')
     <script>
@@ -14,54 +14,54 @@
         <nav class="navbar bg-primary ">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand mb-0" href="#">{{ trans('Workorders::texts.workorders') }}</a>
+                    <a class="navbar-brand mb-0" href="#">{{ trans('fi.workorders') }}</a>
                 </div>
                 <ul class="nav navbar-nav ">
                     <li>
-                        <a href="javascript:void(0)" class="create-workorder"> {{ trans('Workorders::texts.create_workorder') }}</a></li>
+                        <a href="javascript:void(0)" class="create-workorder"> {{ trans('fi.create_workorder') }}</a></li>
                     <li>
                         <a href="{!! route('workorders.index',['status' => config('workorder_settings.statusFilter')]) !!}" >
-                            {{ trans('Workorders::texts.workorder_table') }}</a></li>
-                    <li><a href="{!! route('employees.index') !!}">{{ trans('Workorders::texts.employees') }}</a>
+                            {{ trans('fi.workorder_table') }}</a></li>
+                    <li><a href="{!! route('employees.index') !!}">{{ trans('fi.employees') }}</a>
                     </li>
-                    <li><a href="{!! route('resources.index') !!}">{{ trans('Workorders::texts.resources') }}</a>
+                    <li><a href="{!! route('resources.index') !!}">{{ trans('fi.resources') }}</a>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"
-                           href="#">{{ trans('Workorders::texts.timesheet') }}
+                           href="#">{{ trans('fi.timesheet') }}
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="{!! route('timesheets.index') !!}">{{ trans('Workorders::texts.timesheettable') }}</a>
+                                <a href="{!! route('timesheets.index') !!}">{{ trans('fi.timesheettable') }}</a>
                             </li>
                             <li>
-                                <a href="{!! route('timesheets.report') !!}">{{ trans('Workorders::texts.timesheetreport') }}</a>
+                                <a href="{!! route('timesheets.report') !!}">{{ trans('fi.timesheetreport') }}</a>
                             </li>
                             <li>
-                                <a href="{!! route('timesheets.about') !!}">{{ trans('Workorders::texts.about') }}</a>
+                                <a href="{!! route('timesheets.about') !!}">{{ trans('fi.about') }}</a>
                             </li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{ trans('Workorders::texts.utilities') }}
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{ trans('fi.utilities') }}
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             @if(config('fi.pdfDriver') == 'wkhtmltopdf')
                                 <li><a href="{{ route('workorders.batchprint') }}"><i
-                                                class="fa fa-print"></i> {{ trans('Workorders::texts.batchprint') }}
+                                                class="fa fa-print"></i> {{ trans('fi.batchprint') }}
                                     </a>
                                 </li>
                             @endif
                             <li><a href="{{ route('workorders.settings') }}"><i
-                                            class="fa fa-wrench"></i> {{ trans('Workorders::texts.workorder_settings') }}
+                                            class="fa fa-wrench"></i> {{ trans('fi.workorder_settings') }}
                                 </a>
                             </li>
                                 <li><a href="{{ route('workorders.trash') }}"><i
-                                                class="fa fa-trash"></i> {{ trans('Workorders::texts.trash') }}
+                                                class="fa fa-trash"></i> {{ trans('fi.trash') }}
                                     </a>
                                 </li>
                             <li><a href="{{ route('workorders.about') }}"><i
-                                            class="fa fa-question-circle"></i> {{ trans('Workorders::texts.about') }}
+                                            class="fa fa-question-circle"></i> {{ trans('fi.about') }}
                                 </a>
                             </li>
                         </ul>
@@ -75,17 +75,17 @@
         {{--Reminder table --}}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bell-o"></i> {{ trans('Workorders::texts.todays_workorders') }}</h3>
+                <h3 class="panel-title"><i class="fa fa-bell-o"></i> {{ trans('fi.todays_workorders') }}</h3>
             </div>
             <div class="panel-body">
                 <table id="dt-reminderstable" class="display" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>{{ trans('Workorders::texts.customer') }}</th>
-                        <th>{{ trans('Workorders::texts.start_time') }}</th>
-                        <th>{{ trans('Workorders::texts.end_time') }}</th>
-                        <th>{{ trans('Workorders::texts.will_call') }}</th>
-                        <th>{{ trans('Workorders::texts.workorder_link') }}</th>
+                        <th>{{ trans('fi.customer') }}</th>
+                        <th>{{ trans('fi.start_time') }}</th>
+                        <th>{{ trans('fi.end_time') }}</th>
+                        <th>{{ trans('fi.will_call') }}</th>
+                        <th>{{ trans('fi.workorder_link') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -96,7 +96,7 @@
                             <td>{!! $workorder->end_time !!}</td>
                             <td>{!! ($workorder->will_call == 1 )?'Yes':'No' !!}</td>
                             <td><a href="{!! url('/workorders') . '/' . $workorder->id . '/edit' !!}">
-                                    {{ trans('Workorders::texts.link_to_workorder') }}</a></td>
+                                    {{ trans('fi.link_to_workorder') }}</a></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -105,7 +105,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('Workorders::texts.month_workorders') }}
+                <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('fi.month_workorders') }}
             </div>
             <div class="panel-body">
                 <div id="morris-bar-chart"></div>
@@ -132,7 +132,7 @@
                 ],
                 xkey: 'y',
                 ykeys: ['a'],
-                labels: ['{{ trans('Workorders::texts.total_workorders_day') }}'],
+                labels: ['{{ trans('fi.total_workorders_day') }}'],
                 hideHover: 'auto',
                 resize: true
             });

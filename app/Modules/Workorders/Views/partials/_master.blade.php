@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    @include('Workorders::partials._head')
+    @include('partials._head')
 @endsection
 
 @section('javascript')

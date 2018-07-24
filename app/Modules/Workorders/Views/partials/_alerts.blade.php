@@ -88,7 +88,7 @@
         event.preventDefault();
         PNotify.prototype.options.styling = "bootstrap3";
         new PNotify({
-            title: '{{ trans('Workorders::texts.confirm_required') }}',
+            title: '{{ trans('fi.confirm_required') }}',
             text: message,
             icon: 'glyphicon glyphicon-question-sign',
             hide: false,
@@ -118,7 +118,7 @@
     //defaults for pconfirm dialog when called from ajax
     pconfirm_def = {
         styling: "bootstrap3",
-        title: '{{ trans('Workorders::texts.confirm_required') }}',
+        title: '{{ trans('fi.confirm_required') }}',
         icon: 'glyphicon glyphicon-question-sign',
         hide: false,
         confirm: {

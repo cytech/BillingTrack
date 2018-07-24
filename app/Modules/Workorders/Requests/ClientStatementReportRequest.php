@@ -10,7 +10,7 @@
  *
  */
 
-namespace Addons\Workorders\Requests;
+namespace FI\Modules\Workorders\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -1,14 +1,14 @@
 @include('layouts._datepicker')
 @include('layouts._typeahead')
 @include('clients._js_lookup')
-@include('Workorders::workorders.partials._js_create')
+@include('workorders.partials._js_create')
 
 <div class="modal fade" id="create-workorder">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">{{ trans('Workorders::texts.create_workorder') }}</h4>
+                <h4 class="modal-title">{{ trans('fi.create_workorder') }}</h4>
             </div>
             <div class="modal-body">
 
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('Workorders::texts.workorder_date') }}</label>
+                        <label class="col-sm-3 control-label">{{ trans('fi.workorder_date') }}</label>
 
                         <div class="col-sm-9">
                             {!! Form::text('workorder_date', date(config('fi.dateFormat')), ['id' => 'create_workorder_date', 'class' => 'form-control']) !!}

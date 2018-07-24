@@ -65,22 +65,9 @@
         }
 
         $('.btn-delete-workorder-item').click(function () {
-            pconfirm_def.text = '{{ trans('Workorders::texts.delete_record_warning') }}';
             var id = $(this).data('item-id');
-            new PNotify(pconfirm_def).get().on('pnotify.confirm', function () {
-                $.post('{{ route('workorderItem.delete') }}', {
-                    id: id
-                }).done(function () {
-                    $('#tr-item-' + id).remove();
-                    $('#div-totals').load('{{ route('workorderEdit.refreshTotals') }}', {
-                        id: {{ $workorder->id }}
-                    });
-                }).fail(function () {
-                    pnotify('{{ trans('Workorders::texts.unknown_error') }}', 'error');
-                });
-            }).on('pnotify.cancel', function () {
-                //Do Nothing
-            });
+            deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('workorderItem.delete') }}', id,
+                '{{ route('workorderEdit.refreshTotals') }}', '{{ $workorder->id }}' );
         });
 
         $('.btn-save-workorder').click(function () {
@@ -144,15 +131,15 @@
                 will_call: willcall
             }).done(function () {
                 $('#div-workorder-edit').load('{{ route('workorderEdit.refreshEdit', [$workorder->id]) }}', function() {
-                    pnotify('{{ trans('Workorders::texts.workorder_successfully_updated') }}', 'success');
+                    notify('{{ trans('fi.workorder_successfully_updated') }}', 'success');
                 });
             }).fail(function (response) {
                 if (response.status == 400) {
                     $.each($.parseJSON(response.responseText).errors, function (id, message) {
-                        pnotify(message, 'error');
+                        notify(message, 'error');
                     });
                 } else {
-                    pnotify('{{ trans('Workorders::texts.unknown_error') }}', 'error');
+                    notify('{{ trans('fi.unknown_error') }}', 'error');
                 }
             });
         });

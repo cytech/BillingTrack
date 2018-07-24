@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
  
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
-use Addons\Workorders\Events\WorkorderEmailed;
-use Addons\Workorders\Events\WorkorderEmailing;
+use FI\Events\WorkorderEmailed;
+use FI\Events\WorkorderEmailing;
 use FI\Http\Controllers\Controller;
 use FI\Modules\MailQueue\Support\MailQueue;
-use Addons\Workorders\Models\Workorder;
+use FI\Modules\Workorders\Models\Workorder;
 use FI\Requests\SendEmailRequest;
 use FI\Support\Contacts;
 use FI\Support\Parser;
@@ -36,7 +36,7 @@ class WorkorderMailController extends Controller
 
         $parser = new Parser($workorder);
 
-        return view('Workorders::workorders.partials._modal_mail')
+        return view('workorders.partials._modal_mail')
             ->with('workorderId', $workorder->id)
             ->with('redirectTo', urlencode(request('redirectTo')))
             ->with('subject', $parser->parse('workorderEmailSubject'))

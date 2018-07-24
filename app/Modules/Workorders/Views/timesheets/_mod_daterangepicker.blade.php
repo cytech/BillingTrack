@@ -44,8 +44,8 @@
                 ranges: {
                     '{{ trans('fi.today') }}': [moment(), moment()],
                     '{{ trans('fi.yesterday') }}': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    '{{ trans('Workorders::texts.lastweek') }}': [moment().subtract(1, 'weeks').startOf('isoWeek'), moment().subtract(1, 'weeks').endOf('isoWeek')],
-                    '{{ trans('Workorders::texts.twoweeksago') }}': [moment().subtract(2, 'weeks').startOf('isoWeek'), moment().subtract(2, 'weeks').endOf('isoWeek')],
+                    '{{ trans('fi.lastweek') }}': [moment().subtract(1, 'weeks').startOf('isoWeek'), moment().subtract(1, 'weeks').endOf('isoWeek')],
+                    '{{ trans('fi.twoweeksago') }}': [moment().subtract(2, 'weeks').startOf('isoWeek'), moment().subtract(2, 'weeks').endOf('isoWeek')],
                     '{{ trans('fi.last_7_days') }}': [moment().subtract(6, 'days'), moment()],
                     '{{ trans('fi.last_30_days') }}': [moment().subtract(29, 'days'), moment()],
                     '{{ trans('fi.this_month') }}': [moment().startOf('month'), moment().endOf('month')],

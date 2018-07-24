@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
  
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
 use FI\Modules\Clients\Models\Client;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\Groups\Models\Group;
-use Addons\Workorders\Models\Workorder;
-use Addons\Workorders\Models\WorkorderItem;
-use Addons\Workorders\Requests\WorkorderStoreRequest;
-use Addons\Workorders\Support\DateFormatter;
+use FI\Modules\Workorders\Models\Workorder;
+use FI\Modules\Workorders\Models\WorkorderItem;
+use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
+use FI\Support\DateFormatter;
 
 class WorkorderCopyController extends Controller
 {
@@ -25,7 +25,7 @@ class WorkorderCopyController extends Controller
     {
         $workorder = Workorder::find(request('workorder_id'));
 
-        return view('Workorders::workorders.partials._modal_copy')
+        return view('workorders.partials._modal_copy')
             ->with('workorder', $workorder)
             ->with('groups', Group::getList())
             ->with('companyProfiles', CompanyProfile::getList())

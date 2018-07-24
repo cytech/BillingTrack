@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
-use Addons\Workorders\Support\ClientStatementReport;
-use Addons\Workorders\Requests\ClientStatementReportRequest;
+use FI\Modules\Workorders\Support\ClientStatementReport;
+use FI\Modules\Workorders\Requests\ClientStatementReportRequest;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Support\PDF\PDFFactory;
 
@@ -27,7 +27,7 @@ class ClientStatementReportController extends Controller
 
     public function index()
     {
-        return view('Workorders::workorders.client_statement')
+        return view('workorders.client_statement')
             ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
     }
 
@@ -44,7 +44,7 @@ class ClientStatementReportController extends Controller
             request('to_date'),
             request('company_profile_id'));
 
-        return view('Workorders::workorders.partials._client_statement')
+        return view('workorders.partials._client_statement')
             ->with('results', $results);
     }
 
@@ -59,7 +59,7 @@ class ClientStatementReportController extends Controller
             request('to_date'),
             request('company_profile_id'));
 
-        $html = view('Workorders::workorders.partials._client_statement')
+        $html = view('workorders.partials._client_statement')
             ->with('results', $results)->render();
 
         $pdf->download($html, trans('fi.client_statement') . '.pdf');

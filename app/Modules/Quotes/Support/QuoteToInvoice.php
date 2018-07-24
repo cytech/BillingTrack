@@ -58,6 +58,8 @@ class QuoteToInvoice
                 'price'         => $item->price,
                 'tax_rate_id'   => $item->tax_rate_id,
                 'tax_rate_2_id' => $item->tax_rate_2_id,
+                'resource_table' => $item->resource_table,
+                'resource_id'    => $item->resource_id,
                 'display_order' => $item->display_order,
             ];
 

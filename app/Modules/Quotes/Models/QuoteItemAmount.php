@@ -13,9 +13,14 @@ namespace FI\Modules\Quotes\Models;
 
 use FI\Support\CurrencyFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class QuoteItemAmount extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     /**
      * Guarded properties
      * @var array

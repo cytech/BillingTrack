@@ -8,20 +8,20 @@
  * file that was distributed with this source code.
  */
  
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
 use FI\Modules\Currencies\Models\Currency;
 use FI\Modules\CustomFields\Models\CustomField;
 use FI\Modules\ItemLookups\Models\ItemLookup;
-use Addons\Workorders\Models\Workorder;
-use Addons\Workorders\Models\WorkorderItem;
-use Addons\Workorders\Support\WorkorderTemplates;
-use Addons\Workorders\Requests\WorkorderUpdateRequest;
+use FI\Modules\Workorders\Models\Workorder;
+use FI\Modules\Workorders\Models\WorkorderItem;
+use FI\Modules\Workorders\Support\WorkorderTemplates;
+use FI\Modules\Workorders\Requests\WorkorderUpdateRequest;
 use FI\Modules\TaxRates\Models\TaxRate;
-use Addons\Workorders\Support\DateFormatter;
+use FI\Support\DateFormatter;
 use FI\Support\NumberFormatter;
-use FI\Support\Statuses\QuoteStatuses;
+use FI\Support\Statuses\WorkorderStatuses;
 use FI\Traits\ReturnUrl;
 use mysqli;
 
@@ -31,11 +31,11 @@ class WorkorderEditController extends Controller
 
     public function edit($id)
     {
-        $workorder = Workorder::with(['items.amount.item.workorder.currency'])->find($id);
+        $workorder = Workorder::with(['workorderItems.amount.item.workorder.currency'])->find($id);
 
-        return view('Workorders::workorders.edit')
+        return view('workorders.edit')
             ->with('workorder', $workorder)
-            ->with('statuses', QuoteStatuses::lists())
+            ->with('statuses', WorkorderStatuses::lists())
             ->with('currencies', Currency::getList())
             ->with('taxRates', TaxRate::getList())
             ->with('customFields', CustomField::forTable('workorders')->get())
@@ -118,9 +118,9 @@ class WorkorderEditController extends Controller
     {
         $workorder = Workorder::with(['items.amount.item.workorder.currency'])->find($id);
 
-        return view('Workorders::workorders.partials._edit')
+        return view('workorders.partials._edit')
             ->with('workorder', $workorder)
-            ->with('statuses', QuoteStatuses::lists())
+            ->with('statuses', WorkorderStatuses::lists())
             ->with('currencies', Currency::getList())
             ->with('taxRates', TaxRate::getList())
             ->with('customFields', CustomField::forTable('workorders')->get())
@@ -131,19 +131,19 @@ class WorkorderEditController extends Controller
 
     public function refreshTotals()
     {
-        return view('Workorders::workorders.partials._edit_totals')
+        return view('workorders.partials._edit_totals')
             ->with('workorder', Workorder::with(['items.amount.item.workorder.currency'])->find(request('id')));
     }
 
     public function refreshTo()
     {
-        return view('Workorders::workorders.partials._edit_to')
+        return view('workorders.partials._edit_to')
             ->with('workorder', Workorder::find(request('id')));
     }
 
     public function refreshFrom()
     {
-        return view('Workorders::workorders.partials._edit_from')
+        return view('workorders.partials._edit_from')
             ->with('workorder', Workorder::find(request('id')));
     }
 

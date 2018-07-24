@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
  
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
 use FI\Modules\Groups\Models\Group;
-use Addons\Workorders\Models\Workorder;
-use Addons\Workorders\Support\WorkorderToInvoice;
-use Addons\Workorders\Requests\WorkorderToInvoiceRequest;
-use Addons\Workorders\Support\DateFormatter;
+use FI\Modules\Workorders\Models\Workorder;
+use FI\Modules\Workorders\Support\WorkorderToInvoice;
+use FI\Modules\Workorders\Requests\WorkorderToInvoiceRequest;
+use FI\Support\DateFormatter;
 
 class WorkorderToInvoiceController extends Controller
 {
@@ -28,7 +28,7 @@ class WorkorderToInvoiceController extends Controller
 
     public function create()
     {
-        return view('Workorders::workorders.partials._modal_workorder_to_invoice')
+        return view('workorders.partials._modal_workorder_to_invoice')
             ->with('workorder_id', request('workorder_id'))
             ->with('client_id', request('client_id'))
             ->with('groups', Group::getList())

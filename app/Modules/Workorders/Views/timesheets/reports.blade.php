@@ -1,4 +1,4 @@
-@extends('Workorders::partials._master')
+@extends('layouts.master')
 
 @section('content')
     <script>
@@ -9,14 +9,14 @@
         }
     </script>
     <section class="content">
-        {!! Form::wobreadcrumbs() !!}
+        {{--{!! Form::wobreadcrumbs() !!}--}}
         <div id="form-validation-placeholder"></div>
         <div class="row">
             <div class="col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            {{ trans('Workorders::texts.getdates',['name' => $title]) }}
+                            {{ trans('fi.getdates',['name' => $title]) }}
                         </h3>
                     </div>
                     <div class="panel-body">
@@ -50,7 +50,7 @@
                                         <input type="radio" name="output_type" value="pdf"> {{ trans('fi.pdf') }}
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="output_type" value="iif"> {{ trans('Workorders::texts.export_to_timer') }}
+                                        <input type="radio" name="output_type" value="iif"> {{ trans('fi.export_to_timer') }}
                                     </label>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                     <div class="col-md-12 text-center">
                         <a class="btn btn-warning btn-lg" href={!! route('workorders.dashboard')  !!}>{{ trans('fi.cancel') }} <span
                                     class="glyphicon glyphicon-remove-circle"></span></a>
-                        <button type="submit" class="btn btn-success btn-lg " id="btn-run-report">{{ trans('Workorders::texts.run_report') }} <span
+                        <button type="submit" class="btn btn-success btn-lg " id="btn-run-report">{{ trans('fi.run_report') }} <span
                                     class="glyphicon glyphicon-floppy-disk"></span></button>
                     </div>
                 </div>
@@ -84,8 +84,8 @@
 
 @section('javascript')
 
-    @include('Workorders::timesheets._mod_daterangepicker')
-    {{--@include('Workorders::layouts._typeahead')--}}
+    @include('timesheets._mod_daterangepicker')
+    {{--@include('layouts._typeahead')--}}
 
     <script type="text/javascript">
         $(function () {

@@ -22,6 +22,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#tab-clients">{{ trans('fi.clients') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-recurring_invoices">{{ trans('fi.recurring_invoices') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
@@ -43,6 +44,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     @include('utilities._quotestrash')
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-workorders" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @include('utilities._workorderstrash')
                                 </div>
                             </div>
                         </div>

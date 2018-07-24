@@ -37,5 +37,9 @@ class InvoiceItemSavingListener
         {
             $item->tax_rate_2_id = 0;
         }
+
+        if (!$item->resource_id){
+            $item->resource_id = 0;
+        }
     }
 }

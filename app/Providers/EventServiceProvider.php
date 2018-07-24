@@ -191,6 +191,47 @@ class EventServiceProvider extends ServiceProvider
         'FI\Events\UserDeleted' => [
             'FI\Events\Listeners\UserDeletedListener',
         ],
+
+        'FI\Events\WorkorderCreated' => [
+            'FI\Events\Listeners\WorkorderCreatedListener',
+        ],
+
+        'FI\Events\WorkorderCreating' => [
+            'FI\Events\Listeners\WorkorderCreatingListener',
+        ],
+
+        'FI\Events\WorkorderDeleted' => [
+            'FI\Events\Listeners\WorkorderDeletedListener',
+        ],
+
+        'FI\Events\WorkorderItemSaving' => [
+            'FI\Events\Listeners\WorkorderItemSavingListener',
+        ],
+
+        'FI\Events\WorkorderModified' => [
+            'FI\Events\Listeners\WorkorderModifiedListener',
+        ],
+
+        'FI\Events\WorkorderEmailed' => [
+            'FI\Events\Listeners\WorkorderEmailedListener',
+        ],
+
+        'FI\Events\WorkorderEmailing' => [
+            'FI\Events\Listeners\WorkorderEmailingListener',
+        ],
+
+        'FI\Events\WorkorderApproved' => [
+            'FI\Events\Listeners\WorkorderApprovedListener',
+        ],
+
+        'FI\Events\WorkorderRejected' => [
+            'FI\Events\Listeners\WorkorderRejectedListener',
+        ],
+
+        'FI\Events\WorkorderViewed' => [
+            'FI\Events\Listeners\WorkorderViewedListener',
+        ],
+
     ];
 
     /**

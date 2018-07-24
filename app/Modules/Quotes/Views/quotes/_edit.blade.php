@@ -30,6 +30,8 @@
             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                 <li><a href="javascript:void(0)" id="btn-copy-quote"><i
                             class="fa fa-copy"></i> {{ trans('fi.copy') }}</a></li>
+                <li><a href="javascript:void(0)" id="btn-quote-to-workorder"><i
+                                class="fa fa-check"></i> {{ trans('fi.quote_to_workorder') }}</a></li>
                 <li><a href="javascript:void(0)" id="btn-quote-to-invoice"><i
                             class="fa fa-check"></i> {{ trans('fi.quote_to_invoice') }}</a></li>
                 <li><a href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"><i
@@ -138,6 +140,8 @@
                                     <td>
                                         {!! Form::hidden('quote_id', $quote->id) !!}
                                         {!! Form::hidden('id', '') !!}
+                                        {!! Form::hidden('resource_table', '') !!}
+                                        {!! Form::hidden('resource_id', '') !!}
                                         {!! Form::text('name', null, ['class' => 'form-control']) !!}<br>
                                         <label><input type="checkbox" name="save_item_as_lookup"
                                                       tabindex="999"> {{ trans('fi.save_item_as_lookup') }}</label>
@@ -155,6 +159,8 @@
                                         <td>
                                             {!! Form::hidden('quote_id', $quote->id) !!}
                                             {!! Form::hidden('id', $item->id) !!}
+                                            {!! Form::hidden('resource_table', $item->resource_table) !!}
+                                            {!! Form::hidden('resource_id', $item->resource_id) !!}
                                             {!! Form::text('name', $item->name, ['class' => 'form-control item-lookup']) !!}
                                         </td>
                                         <td>{!! Form::textarea('description', $item->description, ['class' => 'form-control', 'rows' => 1]) !!}</td>

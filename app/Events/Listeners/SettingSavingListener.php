@@ -14,7 +14,7 @@ class SettingSavingListener
 
     public function handle(SettingSaving $event)
     {
-        if ($event->setting->setting_key == 'invoiceTemplate' or $event->setting->setting_key == 'quoteTemplate')
+        if ($event->setting->setting_key == 'invoiceTemplate' or $event->setting->setting_key == 'quoteTemplate' or $event->setting->setting_key == 'workorderTemplate')
         {
             $original = $event->setting->getOriginal();
 
@@ -31,6 +31,10 @@ class SettingSavingListener
                 elseif ($templateType == 'quoteTemplate')
                 {
                     CompanyProfile::whereNull('quote_template')->orWhere('quote_template', $originalTemplate)->orWhere('quote_template', '')->update(['quote_template' => $newTemplate]);
+                }
+                elseif ($templateType == 'quoteTemplate')
+                {
+                    CompanyProfile::whereNull('workorder_template')->orWhere('workorder_template', $originalTemplate)->orWhere('workorder_template', '')->update(['workorder_template' => $newTemplate]);
                 }
             }
         }

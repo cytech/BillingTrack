@@ -9,10 +9,10 @@
  */
 
 
-namespace Addons\Workorders\Repositories;
+namespace FI\Modules\Workorders\Repositories;
 
-use Addons\Workorders\Models\Employee;
-use Addons\Workorders\Models\Workorder;
+use FI\Modules\Workorders\Models\Employee;
+use FI\Modules\Workorders\Models\Workorder;
 use Addons\Scheduler\Models\Schedule;
 use Addons\Scheduler\Models\ScheduleResource;
 use Addons\Scheduler\Models\ScheduleOccurrence;

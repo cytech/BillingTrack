@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Requests;
+namespace FI\Modules\Workorders\Requests;
 
 class WorkorderToInvoiceRequest extends WorkorderStoreRequest
 {

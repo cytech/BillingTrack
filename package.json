@@ -39,6 +39,7 @@
         "moment": "2.20.1",
         "sweetalert2": "^7.19.3",
         "typeahead.js": "0.10.5",
-        "yuicompressor": "^2.4.8"
+        "yuicompressor": "^2.4.8",
+        "bootstrap-switch": "^3.3.4"
     }
 }

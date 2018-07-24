@@ -23,9 +23,27 @@ class Product extends Model
 
 	protected $table = 'products';
 
-//    public function workorderitem()
-//    {
-//        return $this->belongsTo('Addons\Workorders\Models\WorkorderItem','product_id', 'id')
-//            ->where('product_table','=','products');
-//    }
+    public function quoteitem()
+    {
+        return $this->belongsTo('FI\Modules\Workorders\Models\QuoteItem','resource_id', 'id')
+            ->where('resource_table','=','products');
+    }
+
+    public function workorderitem()
+    {
+        return $this->belongsTo('FI\Modules\Workorders\Models\WorkorderItem','resource_id', 'id')
+            ->where('resource_table','=','products');
+    }
+
+    public function invoiceitem()
+    {
+        return $this->belongsTo('FI\Modules\Workorders\Models\InvoiceItem','resource_id', 'id')
+            ->where('resource_table','=','products');
+    }
+
+    public function recurringinvoiceitem()
+    {
+        return $this->belongsTo('FI\Modules\Workorders\Models\RecurringInvoiceItem','resource_id', 'id')
+            ->where('resource_table','=','products');
+    }
 }

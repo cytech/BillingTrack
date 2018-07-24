@@ -44,6 +44,12 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::post('store', ['uses' => 'QuoteToInvoiceController@store', 'as' => 'quoteToInvoice.store']);
     });
 
+    Route::group(['prefix' => 'quote_to_workorder'], function ()
+    {
+        Route::post('create', ['uses' => 'QuoteToWorkorderController@create', 'as' => 'quoteToWorkorder.create']);
+        Route::post('store', ['uses' => 'QuoteToWorkorderController@store', 'as' => 'quoteToWorkorder.store']);
+    });
+
     Route::group(['prefix' => 'quote_mail'], function ()
     {
         Route::post('create', ['uses' => 'QuoteMailController@create', 'as' => 'quoteMail.create']);

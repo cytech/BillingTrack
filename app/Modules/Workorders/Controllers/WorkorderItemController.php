@@ -9,10 +9,10 @@
  */
  
 
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
-use Addons\Workorders\Models\WorkorderItem;
+use FI\Modules\Workorders\Models\WorkorderItem;
 
 class WorkorderItemController extends Controller
 {

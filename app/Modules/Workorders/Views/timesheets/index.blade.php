@@ -1,18 +1,18 @@
-@extends('Workorders::partials._master')
+@extends('layouts.master')
 
 @section('content')
-    {!! Form::wobreadcrumbs() !!}
+    {{--{!! Form::wobreadcrumbs() !!}--}}
     <section class="content">
-        {{--@include('Workorders::partials._alerts')--}}
+        {{--@include('partials._alerts')--}}
         <div class="col-lg-12">
             <div class="panel panel-info" id="hidepanel1">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        {{ trans('Workorders::texts.timesheettable') }}
+                        {{ trans('fi.timesheettable') }}
                     </h3>
                 </div>
                 <div class="panel-body">
-                    @include('Workorders::timesheets._table')
+                    @include('timesheets._table')
                 </div>
 
             </div>

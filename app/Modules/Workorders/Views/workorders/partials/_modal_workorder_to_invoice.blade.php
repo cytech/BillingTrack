@@ -1,13 +1,13 @@
 @include('layouts._datepicker')
 
-@include('Workorders::workorders.partials._js_workorder_to_invoice')
+@include('workorders.partials._js_workorder_to_invoice')
 
 <div class="modal fade" id="modal-workorder-to-invoice">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">{{ trans('Workorders::texts.workorder_to_invoice') }}</h4>
+                <h4 class="modal-title">{{ trans('fi.workorder_to_invoice') }}</h4>
             </div>
             <div class="modal-body">
 

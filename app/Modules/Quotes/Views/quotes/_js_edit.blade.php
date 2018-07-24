@@ -24,6 +24,13 @@
             });
         });
 
+        $('#btn-quote-to-workorder').click(function () {
+            $('#modal-placeholder').load('{{ route('quoteToWorkorder.create') }}', {
+                quote_id: {{ $quote->id }},
+                client_id: {{ $quote->client_id }}
+            });
+        });
+
         $('#btn-update-exchange-rate').click(function () {
             updateExchangeRate();
         });

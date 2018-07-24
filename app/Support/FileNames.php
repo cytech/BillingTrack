@@ -22,4 +22,14 @@ class FileNames
     {
         return trans('fi.quote') . '_' . str_replace('/', '-', $quote->number) . '.pdf';
     }
+
+    public static function workorder($workorder)
+    {
+        return trans('fi.workorder') . '_' . str_replace('/', '-', $workorder->number) . '.pdf';
+    }
+
+    public static function batchprint()
+    {
+        return trans('fi.batchprint') . '_' . 'batchprint' . '.pdf';
+    }
 }

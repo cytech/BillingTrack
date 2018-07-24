@@ -1,25 +1,25 @@
-@extends('Workorders::partials._master')
+@extends('layouts.master')
 
 @section('content')
-    {!! Form::wobreadcrumbs() !!}
+    {{--{!! Form::wobreadcrumbs() !!}--}}
     <section class="content-header">
         <div class="container col-lg-12">
             @if(!($events->isEmpty()))
                 <div class="row">
                     <div class="col-lg-12">
-                        <a onclick="return pconfirm('{{ trans('Workorders::texts.trash_restoreall_warning') }}','{!! route('workorders.restorealltrash') !!}')"
-                           class="btn btn-success std-actions"><i class="fa fa-reply"></i> {{ trans('Workorders::texts.trash_restoreall') }}</a>
-                        <a onclick="return pconfirm('{{ trans('Workorders::texts.trash_deleteall_warning') }}','{!! route('workorders.deletealltrash') !!}')"
-                           class="btn btn-danger std-actions"><i class="fa fa-trash-o"></i> {{ trans('Workorders::texts.trash_deleteall') }}</a>
+                        <a onclick="return pconfirm('{{ trans('fi.trash_restoreall_warning') }}','{!! route('workorders.restorealltrash') !!}')"
+                           class="btn btn-success std-actions"><i class="fa fa-reply"></i> {{ trans('fi.trash_restoreall') }}</a>
+                        <a onclick="return pconfirm('{{ trans('fi.trash_deleteall_warning') }}','{!! route('workorders.deletealltrash') !!}')"
+                           class="btn btn-danger std-actions"><i class="fa fa-trash-o"></i> {{ trans('fi.trash_deleteall') }}</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <a href="javascript:void(0)" class="btn btn-success bulk-actions" id="btn-bulk-restore"><i
-                                    class="fa fa-reply"></i> {{ trans('Workorders::texts.trash_restoreselected') }}</a>
+                                    class="fa fa-reply"></i> {{ trans('fi.trash_restoreselected') }}</a>
 
                         <a href="javascript:void(0)" class="btn btn-danger bulk-actions" id="btn-bulk-delete"><i
-                                    class="fa fa-trash-o"></i> {{ trans('Workorders::texts.trash_deleteselected') }}</a>
+                                    class="fa fa-trash-o"></i> {{ trans('fi.trash_deleteselected') }}</a>
                     </div>
                 </div>
                 <br/>
@@ -33,10 +33,10 @@
             {{--<div class="col-lg-12">--}}
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-fw fa-table fa-fw"></i> {{ trans('Workorders::texts.trash_table') }}</h3>
+                    <h3 class="panel-title"><i class="fa fa-fw fa-table fa-fw"></i> {{ trans('fi.trash_table') }}</h3>
                 </div>
                 <div class="panel-body">
-                    @include('Workorders::trash._table')
+                    @include('trash._table')
                 </div>
             </div>
             {{--</div>--}}
@@ -45,9 +45,9 @@
 
 @stop
 @section('javascript')
-    {{--@include('Workorders::partials._alerts')--}}
-    {{--@include('Workorders::partials._js_datatables')--}}
-    @include('Workorders::trash._js_eventDeleteController',['droute'=>'workorders.deletesingletrash','rroute'=>'workorders.restoresingletrash','pnote'=>'Trash Item'])
+    {{--@include('partials._alerts')--}}
+    {{--@include('partials._js_datatables')--}}
+    @include('trash._js_eventDeleteController',['droute'=>'workorders.deletesingletrash','rroute'=>'workorders.restoresingletrash','pnote'=>'Trash Item'])
     <script>
         $(function () {
             $('#bulk-select-all').click(function () {
@@ -87,7 +87,7 @@
                 });
 
                 if (ids.length > 0) {
-                    pconfirm_def.text = '{{ trans('Workorders::texts.trash_deleteselected_warning') }}';
+                    pconfirm_def.text = '{{ trans('fi.trash_deleteselected_warning') }}';
                     new PNotify(pconfirm_def).get().on('pnotify.confirm', function () {
                         $.post("{{ route('workorders.bulk.deletetrash') }}", {
                             ids: ids
@@ -98,9 +98,9 @@
                             });
                             $('.bulk-actions').hide();
                             $('.std-actions').show();
-                            pnotify('{{ trans('Workorders::texts.trash_delete_success') }}', 'success');
+                            pnotify('{{ trans('fi.trash_delete_success') }}', 'success');
                         }).fail(function () {
-                            pnotify('{{ trans('Workorders::texts.unknown_error') }}', 'error');
+                            pnotify('{{ trans('fi.unknown_error') }}', 'error');
                         });
                     }).on('pnotify.cancel', function () {
                         //Do Nothing
@@ -115,7 +115,7 @@
                 });
 
                 if (ids.length > 0) {
-                    pconfirm_def.text = '{{ trans('Workorders::texts.trash_restoreselected_warning') }}';
+                    pconfirm_def.text = '{{ trans('fi.trash_restoreselected_warning') }}';
                     new PNotify(pconfirm_def).get().on('pnotify.confirm', function () {
                         $.post("{{ route('workorders.bulk.restoretrash') }}", {
                             ids: ids
@@ -126,9 +126,9 @@
                             });
                             $('.bulk-actions').hide();
                             $('.std-actions').show();
-                            pnotify('{{ trans('Workorders::texts.trash_restore_success') }}', 'success');
+                            pnotify('{{ trans('fi.trash_restore_success') }}', 'success');
                         }).fail(function () {
-                            pnotify('{{ trans('Workorders::texts.unknown_error') }}', 'error');
+                            pnotify('{{ trans('fi.unknown_error') }}', 'error');
                         });
                     }).on('pnotify.cancel', function () {
                         //Do Nothing

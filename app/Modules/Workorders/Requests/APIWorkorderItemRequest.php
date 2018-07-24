@@ -11,7 +11,7 @@
  *
  */
 
-namespace Addons\Workorders\Requests;
+namespace FI\Modules\Workorders\Requests;
 
 use FI\Support\NumberFormatter;
 use Illuminate\Foundation\Http\FormRequest;

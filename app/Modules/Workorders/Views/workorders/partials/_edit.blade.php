@@ -1,7 +1,7 @@
-@include('Workorders::workorders.partials._js_edit')
+@include('workorders.partials._js_edit')
 
 <section class="content-header">
-    <h1 class="pull-left">{{ trans('Workorders::texts.workorder') }} #{{ $workorder->number }}</h1>
+    <h1 class="pull-left">{{ trans('fi.workorder') }} #{{ $workorder->number }}</h1>
 
     @if ($workorder->viewed)
         <span style="margin-left: 10px;" class="label label-success">{{ trans('fi.viewed') }}</span>
@@ -30,12 +30,13 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                 <li><a href="javascript:void(0)" id="btn-copy-workorder"><i
-                                class="fa fa-copy"></i> {{ trans('Workorders::texts.copy_workorder') }}</a></li>
+                                class="fa fa-copy"></i> {{ trans('fi.copy_workorder') }}</a></li>
                 <li><a href="javascript:void(0)" id="btn-workorder-to-invoice"><i
-                                class="fa fa-check"></i> {{ trans('Workorders::texts.workorder_to_invoice') }}</a></li>
+                                class="fa fa-check"></i> {{ trans('fi.workorder_to_invoice') }}</a></li>
                 <li class="divider"></li>
-                <li><a onclick = "return pconfirm('{{ trans('Workorders::texts.workorder_trash_warning') }}','{{ route('workorders.trashworkorder', [$workorder->id]) }}');">
-                        <i class="fa fa-trash-o"></i> Trash</a></li>
+                <li><a href="#"
+                       onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('workorders.delete', [$workorder->id]) }}');"><i
+                                class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
             </ul>
         </div>
 
@@ -69,7 +70,7 @@
 
         <div class="col-lg-10">
 
-            {{--@include('Workorders::partials._alerts')--}}
+            {{--@include('partials._alerts')--}}
 
             <div id="form-status-placeholder"></div>
 
@@ -79,13 +80,13 @@
 
                 <div class="col-sm-6" id="col-from">
 
-                    @include('Workorders::workorders.partials._edit_from')
+                    @include('workorders.partials._edit_from')
 
                 </div>
 
                 <div class="col-sm-6" id="col-to">
 
-                    @include('Workorders::workorders.partials._edit_to')
+                    @include('workorders.partials._edit_to')
 
                 </div>
 
@@ -106,25 +107,25 @@
             <div class="row">
                 <div class="col-md-3">
 
-                    <label>{{ trans('Workorders::texts.job_date') }}</label>
+                    <label>{{ trans('fi.job_date') }}</label>
                     {!! Form::text('job_date', $workorder->formatted_job_date, ['id' =>
                     'job_date', 'class' => 'form-control input-sm']) !!}
                 </div>
                 <div class="col-md-3">
 
-                    <label>{{ trans('Workorders::texts.start_time') }}</label>
+                    <label>{{ trans('fi.start_time') }}</label>
                     {!! Form::text('start_time', $workorder->formatted_start_time, ['id' =>
                     'start_time', 'class' => 'form-control input-sm']) !!}
                 </div>
                 <div class="col-md-3">
 
-                    <label>{{ trans('Workorders::texts.end_time') }}</label>
+                    <label>{{ trans('fi.end_time') }}</label>
                     {!! Form::text('end_time', $workorder->formatted_end_time, ['id' =>
                     'end_time', 'class' => 'form-control input-sm']) !!}
                 </div>
                 <div class="col-md-3">
 
-                    <label>{{ trans('Workorders::texts.will_call') }}</label><br>
+                    <label>{{ trans('fi.will_call') }}</label><br>
                     {!! Form::checkbox('will_call', 1, $workorder->will_call, ['id' =>
                     'will_call', 'class' => 'checkbox']) !!}
 
@@ -155,7 +156,7 @@
                                             class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
 
                                 <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
-                                            class="fa fa-plus"></i> {{ trans('Workorders::texts.add_lookup') }}</button>
+                                            class="fa fa-plus"></i> {{ trans('fi.add_lookup') }}</button>
 
                             </div>
                         </div>
@@ -257,14 +258,14 @@
                             <div class="tab-pane" id="tab-notes">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        @include('notes._notes', ['object' => $workorder, 'model' => 'Addons\Workorders\Models\Workorder', 'showPrivateCheckbox' => true, 'hideHeader' => true])
+                                        @include('notes._notes', ['object' => $workorder, 'model' => 'FI\Modules\Workorders\Models\Workorder', 'showPrivateCheckbox' => true, 'hideHeader' => true])
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab-attachments">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        @include('attachments._table', ['object' => $workorder, 'model' => 'Addons\Workorders\Models\Workorder'])
+                                        @include('attachments._table', ['object' => $workorder, 'model' => 'FI\Modules\Workorders\Models\Workorder'])
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +279,7 @@
         <div class="col-lg-2">
 
             <div id="div-totals">
-                @include('Workorders::workorders.partials._edit_totals')
+                @include('workorders.partials._edit_totals')
             </div>
 
             <div class="box box-primary">
@@ -287,7 +288,7 @@
                 </div>
                 <div class="box-body">
                     <div class="form-group">
-                        <label>{{ trans('Workorders::texts.workorder') }} #</label>
+                        <label>{{ trans('fi.workorder') }} #</label>
                         {!! Form::text('number', $workorder->number, ['id' => 'number', 'class' =>
                         'form-control
                         input-sm']) !!}
@@ -350,7 +351,7 @@
     @if ($customFields->count())
         <div class="row">
             <div class="col-md-12">
-                @include('Workorders::workorders.partials._custom_fields_unbound', ['object' => $workorder])
+                @include('workorders.partials._custom_fields_unbound', ['object' => $workorder])
             </div>
         </div>
     @endif

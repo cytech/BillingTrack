@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Modules\API\Requests\APIInvoiceItemRequest;
-use Addons\Workorders\Requests\APIWorkorderItemRequest;
-use Addons\Workorders\Requests\APIWorkorderStoreRequest;
+use FI\Modules\Workorders\Requests\APIWorkorderItemRequest;
+use FI\Modules\Workorders\Requests\APIWorkorderStoreRequest;
 use FI\Modules\Clients\Models\Client;
-use Addons\Workorders\Models\Workorder;
-use Addons\Workorders\Models\WorkorderItem;
+use FI\Modules\Workorders\Models\Workorder;
+use FI\Modules\Workorders\Models\WorkorderItem;
 use FI\Modules\Users\Models\User;
 use FI\Modules\API\Controllers\ApiController as FIAPIController;
 

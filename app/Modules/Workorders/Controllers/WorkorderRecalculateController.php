@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
  
-namespace Addons\Workorders\Controllers;
+namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
-use Addons\Workorders\Support\WorkorderCalculate;
+use FI\Modules\Workorders\Support\WorkorderCalculate;
 
 class WorkorderRecalculateController extends Controller
 {

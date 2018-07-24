@@ -45,3 +45,5 @@ mix.copyDirectory('node_modules/datatables.net-buttons-bs', 'public/assets/plugi
 mix.copyDirectory('node_modules/admin-lte/dist/img', 'public/assets/dist/img');
 mix.copy('node_modules/admin-lte/dist/js/adminlte.js', 'public/assets/dist/js/adminlte.js');
 mix.copy('node_modules/admin-lte/dist/js/adminlte.min.js', 'public/assets/dist/js/adminlte.min.js');
+mix.copyDirectory('node_modules/bootstrap-switch/dist/css/bootstrap3', 'public/assets/plugins/bootstrap-switch/css');
+mix.copyDirectory('node_modules/bootstrap-switch/dist/js', 'public/assets/plugins/bootstrap-switch/js');

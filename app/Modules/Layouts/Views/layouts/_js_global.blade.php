@@ -117,6 +117,11 @@ font-size: 1.6rem !important;
             $('#modal-placeholder').load('{{ route('quotes.create') }}');
         });
 
+        $(document).on('click','.create-workorder',function () {
+            clientName = $(this).data('unique-name');
+            $('#modal-placeholder').load('{{ route('workorders.create') }}');
+        });
+
         $(document).on('click','.create-invoice',function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('invoices.create') }}');

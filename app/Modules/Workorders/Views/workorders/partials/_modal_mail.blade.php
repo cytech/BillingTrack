@@ -1,4 +1,4 @@
-@include('Workorders::workorders.partials._js_mail')
+@include('workorders.partials._js_mail')
 
 <div class="modal fade" id="modal-mail-workorder">
     <div class="modal-dialog">

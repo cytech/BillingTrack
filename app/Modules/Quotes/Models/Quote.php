@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\DB;
 class Quote extends Model
 {
     use SoftDeletes;
+
     use SoftCascadeTrait;
 
     protected $softCascade = ['quoteItems', 'custom', 'amount'];

@@ -141,6 +141,8 @@
                                     <td>
                                         {!! Form::hidden('invoice_id', $invoice->id) !!}
                                         {!! Form::hidden('id', '') !!}
+                                        {!! Form::hidden('resource_table', '') !!}
+                                        {!! Form::hidden('resource_id', '') !!}
                                         {!! Form::text('name', null, ['class' => 'form-control']) !!}<br>
                                         <label><input type="checkbox" name="save_item_as_lookup" tabindex="999"> {{ trans('fi.save_item_as_lookup') }}</label>
                                     </td>
@@ -157,6 +159,8 @@
                                         <td>
                                             {!! Form::hidden('invoice_id', $invoice->id) !!}
                                             {!! Form::hidden('id', $item->id) !!}
+                                            {!! Form::hidden('resource_table', $item->resource_table) !!}
+                                            {!! Form::hidden('resource_id', $item->resource_id) !!}
                                             {!! Form::text('name', $item->name, ['class' => 'form-control item-lookup']) !!}
                                         </td>
                                         <td>{!! Form::textarea('description', $item->description, ['class' => 'form-control', 'rows' => 1]) !!}</td>

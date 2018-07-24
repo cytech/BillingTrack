@@ -5,7 +5,7 @@
     <table>
         <tr>
             <td style="width: 50%;" valign="top">
-                <span style="font-weight: bold">{{ $results['total_records'] }} {{ trans('Workorders::texts.records_found_criteria') }}</span><br>
+                <span style="font-weight: bold">{{ $results['total_records'] }} {{ trans('fi.records_found_criteria') }}</span><br>
             </td>
             <td style="width: 50%; text-align: right;" valign="top">
                 {{--{!! $logo !!}<br>--}}
@@ -14,19 +14,19 @@
             </td>
         </tr>
     </table>
-<h2 style="margin-bottom: 0;">{{ trans('Workorders::texts.timesheet') }}</h2>
+<h2 style="margin-bottom: 0;">{{ trans('fi.timesheet') }}</h2>
 <h3 style="margin-top: 0;">{{ $results['from_date'] }} - {{ $results['to_date'] }}</h3>
 <br>
 <table class="alternate">
     <thead>
     <tr>
-        <th>{{ trans('Workorders::texts.invoicenumber') }}</th>
-        <th>{{ trans('Workorders::texts.customername') }}</th>
-        <th>{{ trans('Workorders::texts.datefinished') }}</th>
-        <th>{{ trans('Workorders::texts.itemname') }}</th>
-        <th>{{ trans('Workorders::texts.itemqty') }}</th>
-        <th>{{ trans('Workorders::texts.fullname') }}</th>
-        <th>{{ trans('Workorders::texts.empnumber') }}</th>
+        <th>{{ trans('fi.invoicenumber') }}</th>
+        <th>{{ trans('fi.customername') }}</th>
+        <th>{{ trans('fi.datefinished') }}</th>
+        <th>{{ trans('fi.itemname') }}</th>
+        <th>{{ trans('fi.itemqty') }}</th>
+        <th>{{ trans('fi.fullname') }}</th>
+        <th>{{ trans('fi.empnumber') }}</th>
     </tr>
     </thead>
     <tbody>
@@ -43,7 +43,7 @@
     @endforeach
     <tr>
         <td colspan="3"></td>
-        <td style="font-weight: bold;">{{ trans('Workorders::texts.totalhours') }}</td>
+        <td style="font-weight: bold;">{{ trans('fi.totalhours') }}</td>
         <td style="font-weight: bold;">{{ $results['total_hours'] }}</td>
     </tr>
     </tbody>
