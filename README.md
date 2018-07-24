@@ -32,3 +32,5 @@ create new account -> creates fresh installation with account
 transfer existing 2018-8 database -> enter EXACT existing 2018-8 database name and data will be transfered to new database and structure.
 
 sign in
+
+If you find this product useful, feel free to buy me a beer: https://paypal.me/cytecheng
