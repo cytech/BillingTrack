@@ -81,14 +81,14 @@ class WorkorderItem extends Model
 
     public function products()
     {
-        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
-            ->where('resource_table','=','products');
+        return $this->hasMany('FI\Modules\Products\Models\Product', 'id', 'resource_id');
+            //->where('resource_table','=','products');
     }
 
     public function employees()
     {
-        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
-            ->where('resource_table','=','employees');
+        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'id', 'resource_id');
+            //->where('resource_table','=','employees');
     }
 
 

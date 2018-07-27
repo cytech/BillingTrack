@@ -8,11 +8,11 @@ use FI\Modules\Workorders\Repositories\WorkorderToSchedulerRepository;
 
 class WorkorderModifiedListener
 {
-    public function __construct(WorkorderCalculate $workorderCalculate,
-                                WorkorderToSchedulerRepository $workorderToSchedulerRepository)
+    public function __construct(WorkorderCalculate $workorderCalculate)
+                                //WorkorderToSchedulerRepository $workorderToSchedulerRepository)
     {
         $this->workorderCalculate = $workorderCalculate;
-        $this->workorderToSchedulerRepository = $workorderToSchedulerRepository;
+        //$this->workorderToSchedulerRepository = $workorderToSchedulerRepository;
     }
 
     public function handle(WorkorderModified $event)
@@ -21,9 +21,9 @@ class WorkorderModifiedListener
         $this->workorderCalculate->calculate($event->workorder);
 
         // Update the event in Scheduler
-        if (config('fi.scheduler')) {
-            $this->workorderToSchedulerRepository->update($event->workorder->id);
-        }
+//        if (config('fi.scheduler')) {
+//            $this->workorderToSchedulerRepository->update($event->workorder->id);
+//        }
 
 
     }

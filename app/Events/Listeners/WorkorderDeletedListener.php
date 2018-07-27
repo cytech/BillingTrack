@@ -8,17 +8,17 @@ use FI\Modules\Workorders\Repositories\WorkorderToSchedulerRepository;
 
 class WorkorderDeletedListener
 {
-    public function __construct(WorkorderToSchedulerRepository $workorderToSchedulerRepository)
-    {
-        $this->workorderToSchedulerRepository = $workorderToSchedulerRepository;
-    }
+//    public function __construct(WorkorderToSchedulerRepository $workorderToSchedulerRepository)
+//    {
+//        $this->workorderToSchedulerRepository = $workorderToSchedulerRepository;
+//    }
 
     public function handle(WorkorderDeleted $event)
     {
         // Delete the event in Scheduler
-        if (config('fi.scheduler')) {
-            $this->workorderToSchedulerRepository->delete($event->workorder->id);
-        }
+//        if (config('fi.scheduler')) {
+//            $this->workorderToSchedulerRepository->delete($event->workorder->id);
+//        }
 
        /* foreach ($event->workorder->items as $item)
         {

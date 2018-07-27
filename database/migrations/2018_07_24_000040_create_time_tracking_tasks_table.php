@@ -27,7 +27,7 @@ class CreateTimeTrackingTasksTable extends Migration
             $table->unsignedInteger('time_tracking_project_id');
             $table->string('name');
             $table->tinyInteger('display_order');
-            $table->tinyInteger('billed');
+            $table->tinyInteger('billed')->default(0);
             $table->unsignedInteger('invoice_id')->nullable()->default(null);
 
             $table->index(["time_tracking_project_id"], 'time_tracking_tasks_time_tracking_project_id_index');

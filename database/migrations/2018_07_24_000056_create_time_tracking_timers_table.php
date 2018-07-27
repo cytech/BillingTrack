@@ -27,8 +27,7 @@ class CreateTimeTrackingTimersTable extends Migration
             $table->unsignedInteger('time_tracking_task_id');
             $table->timestamp('start_at')->nullable()->default(null);
             $table->timestamp('end_at')->nullable()->default(null);
-            $table->decimal('hours', 8, 2);
-            $table->text('description');
+            $table->decimal('hours', 8, 2)->default(0);
 
             $table->index(["time_tracking_task_id"], 'time_tracking_timers_time_tracking_task_id_index');
             $table->softDeletes();

@@ -47,3 +47,15 @@ mix.copy('node_modules/admin-lte/dist/js/adminlte.js', 'public/assets/dist/js/ad
 mix.copy('node_modules/admin-lte/dist/js/adminlte.min.js', 'public/assets/dist/js/adminlte.min.js');
 mix.copyDirectory('node_modules/bootstrap-switch/dist/css/bootstrap3', 'public/assets/plugins/bootstrap-switch/css');
 mix.copyDirectory('node_modules/bootstrap-switch/dist/js', 'public/assets/plugins/bootstrap-switch/js');
+mix.copyDirectory('node_modules/angular', 'public/assets/plugins/angular');
+mix.copyDirectory('node_modules/bootstrap-colorpicker/dist', 'public/assets/plugins/bootstrap-colorpicker');
+mix.copyDirectory('node_modules/fullcalendar/dist', 'public/assets/plugins/fullcalendar');
+mix.copyDirectory('node_modules/jquery-datetimepicker/build', 'public/assets/plugins/jquery-datetimepicker');
+mix.copyDirectory('node_modules/jquery-validation/dist', 'public/assets/plugins/jquery-validation');
+mix.copy('node_modules/morris.js.so/morris.css', 'public/assets/plugins/morris.js.so/morris.css');
+mix.copy('node_modules/morris.js.so/morris.js', 'public/assets/plugins/morris.js.so/morris.js');
+mix.copy('node_modules/morris.js.so/morris.min.js', 'public/assets/plugins/morris.js.so/morris.min.js');
+mix.copy('node_modules/raphael/raphael.js', 'public/assets/plugins/raphael/raphael.js');
+mix.copy('node_modules/raphael/raphael.min.js', 'public/assets/plugins/raphael/raphael.min.js');
+mix.copy('node_modules/moment/moment.js', 'public/assets/plugins/moment/moment.js');
+mix.copy('node_modules/moment/min/moment.min.js', 'public/assets/plugins/moment/moment.min.js');

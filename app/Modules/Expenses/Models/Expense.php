@@ -250,4 +250,10 @@ class Expense extends Model
 
         return $query;
     }
+
+    public function scopeDateRange($query, $fromDate, $toDate)
+    {
+        return $query->where('expense_date', '>=', $fromDate)
+            ->where('expense_date', '<=', $toDate);
+    }
 }

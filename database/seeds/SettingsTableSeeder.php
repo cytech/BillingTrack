@@ -13,28 +13,6 @@ class SettingsTableSeeder extends Seeder
     public function run()
     {
         if (count(Setting::all())){
-            Setting::deleteByKey('addonWorkorderVersion');
-            Setting::deleteByKey('workorderStatusFilter');
-            //insert workorder settings
-            //DB::table('settings')->insert([ 'setting_key' => 'scheduler', 'setting_value' => $scheduler ]);
-            //DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => $restolup ]);
-            //DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => $emptolup ]);
-            DB::table('settings')->insert([ 'setting_key' => 'workorderTemplate', 'setting_value' => 'default.blade.php' ]);
-            DB::table('settings')->insert([ 'setting_key' => 'workorderGroup', 'setting_value' => '3' ]);
-            DB::table('settings')->insert([ 'setting_key' => 'workordersExpireAfter', 'setting_value' => '15' ]);
-            DB::table('settings')->insert([ 'setting_key' => 'workorderTerms', 'setting_value' => 'Default Terms:' ]);
-            DB::table('settings')->insert([ 'setting_key' => 'workorderFooter', 'setting_value' => 'Default Footer:' ]);
-            DB::table('settings')->insert([ 'setting_key' => 'convertWorkorderTerms', 'setting_value' => 'workorder' ]);
-            //DB::table('settings')->insert([ 'setting_key' => 'enableLegacyCalendar', 'setting_value' => $enableLegacyCalendar ]);
-            //DB::table('settings')->insert([ 'setting_key' => 'legacyCalendarScript', 'setting_value' => $legacyCalendarScript ]);
-            //DB::table('settings')->insert([ 'setting_key' => 'version', 'setting_value' => '2.0.0' ]);
-            //insert workorder settings for timesheet
-            DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
-            DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
-            //statusFilter
-            DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
-
-
             return;
         }
 
@@ -122,13 +100,29 @@ class SettingsTableSeeder extends Seeder
         //DB::table('settings')->insert([ 'setting_key' => 'enableLegacyCalendar', 'setting_value' => $enableLegacyCalendar ]);
         //DB::table('settings')->insert([ 'setting_key' => 'legacyCalendarScript', 'setting_value' => $legacyCalendarScript ]);
         //DB::table('settings')->insert([ 'setting_key' => 'version', 'setting_value' => '2.0.0' ]);
-        //insert workorder settings for timesheet
         DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
         DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
-        //statusFilter
         DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
 
-        Setting::deleteByKey('addonWorkorderVersion');
+        //insert scheduler categories settings
+        DB::table('schedule_categories')->insert(['id' => 1,'name' => 'Worker Schedule', 'text_color' => '#000000', 'bg_color' => '#aaffaa']);
+        DB::table('schedule_categories')->insert(['id' => 2,'name' => 'General Appointment', 'text_color' => '#000000', 'bg_color' => '#5656ff']);
+        DB::table('schedule_categories')->insert(['id' => 3,'name' => 'Employee Appointment', 'text_color' => '#000000', 'bg_color' => '#d4aaff']);
+        DB::table('schedule_categories')->insert(['id' => 4, 'name' => 'Quote', 'text_color' => '#ffffff', 'bg_color' => '#716cb1']);
+        DB::table('schedule_categories')->insert(['id' => 5, 'name' => 'Workorder', 'text_color' => '#000000', 'bg_color' => '#aaffaa']);
+        DB::table('schedule_categories')->insert(['id' => 6, 'name' => 'Invoice', 'text_color' => '#ffffff', 'bg_color' => '#377eb8']);
+        DB::table('schedule_categories')->insert(['id' => 7, 'name' => 'Payment', 'text_color' => '#ffffff', 'bg_color' => '#5fa213']);
+        DB::table('schedule_categories')->insert(['id' => 8, 'name' => 'Expense', 'text_color' => '#ffffff', 'bg_color' => '#d95d02']);
+        DB::table('schedule_categories')->insert(['id' => 9, 'name' => 'Project', 'text_color' => '#ffffff', 'bg_color' => '#676767']);
+        DB::table('schedule_categories')->insert(['id' => 10, 'name' => 'Task', 'text_color' => '#ffffff', 'bg_color' => '#a87821']);
+        //insert scheduler settings
+        DB::table('settings')->insert(['setting_key' => 'schedulerPastdays', 'setting_value' => '60']);
+        DB::table('settings')->insert(['setting_key' => 'schedulerEventLimit', 'setting_value' => '5']);
+        DB::table('settings')->insert(['setting_key' => 'schedulerCreateWorkorder', 'setting_value' => '0']);
+        DB::table('settings')->insert(['setting_key' => 'schedulerFcThemeSystem', 'setting_value' => 'standard']);
+        DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
+        DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
+        DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
 
     }
 }

@@ -92,6 +92,13 @@ class SettingController extends Controller
 
     public function update(SettingUpdateRequest $request)
     {
+        //check if no enableCoreEvent checkboxes checked
+        if(! $request->has('enabledCoreEvents')){
+            $request['enabledCoreEvents'] = [0];
+        };
+
+        Setting::saveByKey('schedulerEnabledCoreEvents', array_sum($request->enabledCoreEvents));
+
         foreach (request('setting') as $key => $value)
         {
             $skipSave = false;

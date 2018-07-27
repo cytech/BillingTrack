@@ -151,6 +151,12 @@ class TimeTrackingProject extends Model
         return $query;
     }
 
+    public function scopeDateRange($query, $fromDate, $toDate)
+    {
+        return $query->where('due_at', '>=', $fromDate)
+            ->where('due_at', '<=', $toDate);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Subqueries

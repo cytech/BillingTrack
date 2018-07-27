@@ -109,6 +109,13 @@ class TimeTrackingTask extends Model
         return $query->where('billed', 0);
     }
 
+    public function scopeDateRange($query, $fromDate, $toDate)
+    {
+        return $query->whereHas('timers', function ($q) use ($fromDate, $toDate) {
+            $q->where('start_at', '>=', $fromDate)->where('start_at', '<=', $toDate);
+        });
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SQL

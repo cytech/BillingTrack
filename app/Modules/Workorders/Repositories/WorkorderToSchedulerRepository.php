@@ -11,11 +11,11 @@
 
 namespace FI\Modules\Workorders\Repositories;
 
-use FI\Modules\Workorders\Models\Employee;
+use FI\Modules\Employees\Models\Employee;
 use FI\Modules\Workorders\Models\Workorder;
-use Addons\Scheduler\Models\Schedule;
-use Addons\Scheduler\Models\ScheduleResource;
-use Addons\Scheduler\Models\ScheduleOccurrence;
+use FI\Modules\Scheduler\Models\Schedule;
+use FI\Modules\Scheduler\Models\ScheduleResource;
+use FI\Modules\Scheduler\Models\ScheduleOccurrence;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class WorkorderToSchedulerRepository
@@ -65,7 +65,7 @@ class WorkorderToSchedulerRepository
                         $scheduleItem->qty = $item->quantity;
                         $scheduleItem->save();
                     }
-                } elseif ($item->resource_table == 'resources') {
+                } elseif ($item->resource_table == 'products') {
                     $scheduleItem = ScheduleResource::firstOrNew(['id' => $item['id']]);
                     $scheduleItem->id = $item['id'];
                     $scheduleItem->schedule_id = $item['workorder_id'];

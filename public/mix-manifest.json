@@ -17,5 +17,12 @@
     "/assets/plugins/datatables.net-buttons": "/assets/plugins/datatables.net-buttons",
     "/assets/plugins/datatables.net-buttons-bs": "/assets/plugins/datatables.net-buttons-bs",
     "/assets/dist/js/adminlte.js": "/assets/dist/js/adminlte.js",
-    "/assets/dist/js/adminlte.min.js": "/assets/dist/js/adminlte.min.js"
+    "/assets/dist/js/adminlte.min.js": "/assets/dist/js/adminlte.min.js",
+    "/assets/plugins/morris.js.so/morris.css": "/assets/plugins/morris.js.so/morris.css",
+    "/assets/plugins/morris.js.so/morris.js": "/assets/plugins/morris.js.so/morris.js",
+    "/assets/plugins/morris.js.so/morris.min.js": "/assets/plugins/morris.js.so/morris.min.js",
+    "/assets/plugins/raphael/raphael.js": "/assets/plugins/raphael/raphael.js",
+    "/assets/plugins/raphael/raphael.min.js": "/assets/plugins/raphael/raphael.min.js",
+    "/assets/plugins/moment/moment.js": "/assets/plugins/moment/moment.js",
+    "/assets/plugins/moment/moment.min.js": "/assets/plugins/moment/moment.min.js"
 }

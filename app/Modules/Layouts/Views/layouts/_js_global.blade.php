@@ -49,14 +49,38 @@ font-size: 1.6rem !important;
             confirmButtonText: '{!! trans('fi.yes_sure') !!}'
         }).then((result) => {
             if (result.value) {
+                if (id){
                 $.post(route, {
                     id: id
                 }).done(function () {
                     $('#tr-item-' + id).remove();
                     $('#div-totals').load(totalsRoute, {
-                        id:  entityID
+                        id: entityID
                     });
-                })
+
+                }).fail(function (response) {
+                    var msg ='';
+                    $.each($.parseJSON(response.responseText).errors, function (id, message) {
+                        msg += message + '\n';
+                    });
+                    notify(msg, 'error');
+                });
+            }else{$.post(route
+                ).done(function (data) {
+                    if (data.success) {
+                        setTimeout(function () { //give notify a chance to display before redirect
+                            window.location.href = "{!! URL::current() !!}";
+                        }, 2000);
+                        notify(data.success, 'success');
+                    }else {
+                        notify(data.error, 'error');
+                    }
+                }).fail(function (data) {
+                    //below not displaying in notify with 422 so above...
+                    //notify(data.error, 'error');
+                    notify('{!! trans('fi.unknown_error')!!}', 'error');
+                });}
+
             } else if (result.dismiss === Swal.DismissReason.cancel) {
 
             }

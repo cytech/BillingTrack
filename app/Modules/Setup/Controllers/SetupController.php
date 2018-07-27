@@ -15,6 +15,8 @@ use Artisan;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\ItemLookups\Models\ItemLookup;
+use FI\Modules\Scheduler\Models\Category;
+use FI\Modules\Scheduler\Models\Schedule;
 use FI\Modules\Settings\Models\Setting;
 use FI\Modules\Setup\Requests\LicenseRequest;
 use FI\Modules\Setup\Requests\ProfileRequest;
@@ -171,7 +173,7 @@ class SetupController extends Controller
             'schedule_occurrences' => 'oid, schedule_id, start_date, end_date, created_at, updated_at',
             'schedule_reminders' => 'id, schedule_id, reminder_date, reminder_location, reminder_text, created_at, updated_at',
             'schedule_resources' => 'id, schedule_id, fid, resource_table, resource_id, value, qty',
-            'schedule_settings' => 'id, created_at, updated_at, setting_key, setting_value',
+            //'schedule_settings' => 'id, created_at, updated_at, setting_key, setting_value',
             'settings' => 'id, created_at, updated_at, setting_key, setting_value',
             'tax_rates' => 'id, created_at, updated_at, name, percent, is_compound, calculate_vat',
             'time_tracking_projects' => 'id, created_at, updated_at, company_profile_id, user_id, client_id, name, due_at, hourly_rate, status_id',
@@ -184,7 +186,7 @@ class SetupController extends Controller
             'workorder_item_amounts' => 'id, created_at, updated_at, item_id, subtotal, tax_1, tax_2, tax, total',
             'workorder_items' => 'id, created_at, updated_at, workorder_id, tax_rate_id, tax_rate_2_id, resource_table, resource_id, name, description, quantity, display_order, price',
             'workorder_resources' => 'id, created_at, updated_at, name, description, serialnum, active, cost, category, type, numstock',
-            'workorder_settings' => 'id, created_at, updated_at, setting_key, setting_value',
+            //'workorder_settings' => 'id, created_at, updated_at, setting_key, setting_value',
             //'workorder_tax_rates' => '',
             'workorders' => 'id, created_at, updated_at, workorder_date, invoice_id, user_id, client_id, group_id, workorder_status_id, expires_at, number, footer, url_key, currency_code, exchange_rate, terms, template, summary, viewed, discount, job_date, start_time, end_time, will_call, company_profile_id, deleted_at',
             'workorders_custom' => 'workorder_id, created_at, updated_at',
@@ -194,6 +196,7 @@ class SetupController extends Controller
         if ($otfdb->getConnection()->getSchemaBuilder()->hasColumn('invoice_items','resource_table')){
             $oldtables['invoice_items'] = 'id, created_at, updated_at, invoice_id, tax_rate_id, tax_rate_2_id, resource_table, resource_id, name, description, quantity, display_order, price';
             $oldtables['item_lookups'] = 'id, created_at, updated_at, name, description, price, resource_table, resource_id, tax_rate_id, tax_rate_2_id';
+
         }
 
         foreach ($oldtables as $table => $columndef){
@@ -207,9 +210,56 @@ class SetupController extends Controller
                                   ON d.id = o.invoice_id
                                   SET o.client_id = d.client_id;');
                 }
+                //add default workorder settings to settings - not transferring old database settings
+                if ($table == 'workorders'){
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderTemplate', 'setting_value' => 'default.blade.php' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderGroup', 'setting_value' => '3' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workordersExpireAfter', 'setting_value' => '15' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderTerms', 'setting_value' => 'Default Terms:' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderFooter', 'setting_value' => 'Default Footer:' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'convertWorkorderTerms', 'setting_value' => 'workorder' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
+                }
                 //if workorder addon was installed, update resource table from resources to products
                 if($table == 'workorder_items' || $table == 'invoice_items'|| $table == 'item_lookups'){
                     DB::statement('update `'. $table .'` set resource_table = \'products\' where resource_table = \'resources\';');
+                }
+                //add default scheduler settings to settings - not transferring old database settings
+                if ($table == 'scheduler'){
+                    DB::table('settings')->insert(['setting_key' => 'schedulerPastdays', 'setting_value' => '60']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerEventLimit', 'setting_value' => '5']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerCreateWorkorder', 'setting_value' => '0']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerFcThemeSystem', 'setting_value' => 'standard']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
+                }
+                //move existing and add scheduler categories
+                if ($table == 'schedule_categories'){
+                    //move user defined category ids
+                    $usercats = Category::where('id', '>', 9)->get();
+                    foreach ($usercats as $cats){
+                        $cats->id = $cats->id + 2;
+                        $cats->save();
+                    }
+                    //add workorder category
+                    $usercats = Category::where('id', '>=', 5)->where('id', '<=', 9)->get();
+                    foreach ($usercats as $cats){
+                        $cats->id = $cats->id + 1;
+                        $cats->save();
+                    }
+
+                    DB::table('schedule_categories')->insert(['id' => 5, 'name' => 'Workorder', 'text_color' => '#000000', 'bg_color' => '#aaffaa']);
+                    DB::table('schedule_categories')->where('name', 'Client Appointment')->update(['name' => 'Employee Appointment']);
+
+                    //update schedule category ids
+                    $schedcats = Schedule::where('category_id', '>', 9)->get();
+                    foreach ($schedcats as $scats){
+                        $scats->category_id = $scats->category_id + 2;
+                        $scats->save();
+                    }
                 }
 
             }elseif (!Schema::hasTable($table)){
