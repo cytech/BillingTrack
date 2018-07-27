@@ -11,8 +11,8 @@
 namespace FI\Widgets\Dashboard\SchedulerSummary\Composers;
 
 use Illuminate\Support\Facades\DB;
-use Addons\Scheduler\Models\ScheduleReminder;
-use Addons\Scheduler\Models\ScheduleOccurrence;
+use FI\Modules\Scheduler\Models\ScheduleReminder;
+use FI\Modules\Scheduler\Models\ScheduleOccurrence;
 use Carbon\Carbon;
 
 class SchedulerSummaryWidgetComposer
