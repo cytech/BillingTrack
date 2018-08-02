@@ -178,7 +178,7 @@ class SetupController extends Controller
             'tax_rates' => 'id, created_at, updated_at, name, percent, is_compound, calculate_vat',
             'time_tracking_projects' => 'id, created_at, updated_at, company_profile_id, user_id, client_id, name, due_at, hourly_rate, status_id',
             'time_tracking_tasks' => 'id, created_at, updated_at, time_tracking_project_id, name, display_order, billed, invoice_id',
-            'time_tracking_timers' => 'id, created_at, updated_at, time_tracking_task_id, start_at, end_at, hours, description',
+            'time_tracking_timers' => 'id, created_at, updated_at, time_tracking_task_id, start_at, end_at, hours',
             'users' => 'id, created_at, updated_at, email, password, name, remember_token, api_public_key, api_secret_key, client_id',
             'users_custom' => 'user_id, created_at, updated_at',
             'workorder_amounts' => 'id, created_at, updated_at, workorder_id, subtotal, discount, tax, total',
@@ -213,17 +213,6 @@ class SetupController extends Controller
                 }
                 //add default workorder settings to settings - not transferring old database settings
                 if ($table == 'workorders'){
-                    DB::table('settings')->insert([ 'setting_key' => 'workorderTemplate', 'setting_value' => 'default.blade.php' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'workorderGroup', 'setting_value' => '3' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'workordersExpireAfter', 'setting_value' => '15' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'workorderTerms', 'setting_value' => 'Default Terms:' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'workorderFooter', 'setting_value' => 'Default Footer:' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'convertWorkorderTerms', 'setting_value' => 'workorder' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => '0' ]);
-                    DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => '0' ]);
                     //delete orphaned workorders (with no client)
                     DB::raw('delete FROM workorders WHERE NOT EXISTS (SELECT NULL FROM clients WHERE clients.id = workorders.client_id)');
                 }
@@ -233,13 +222,6 @@ class SetupController extends Controller
                 }
                 //add default scheduler settings to settings - not transferring old database settings
                 if ($table == 'schedule'){
-                    DB::table('settings')->insert(['setting_key' => 'schedulerPastdays', 'setting_value' => '60']);
-                    DB::table('settings')->insert(['setting_key' => 'schedulerEventLimit', 'setting_value' => '5']);
-                    DB::table('settings')->insert(['setting_key' => 'schedulerCreateWorkorder', 'setting_value' => '0']);
-                    DB::table('settings')->insert(['setting_key' => 'schedulerFcThemeSystem', 'setting_value' => 'standard']);
-                    DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
-                    DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
-                    DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
                     //delete old workorder schedule items. replaced with coreevents
                     DB::table('schedule')->where('id', '<', 1000000)->delete();
                     DB::table('schedule_occurrences')->where('schedule_id', '<', 1000000)->delete();
@@ -272,6 +254,24 @@ class SetupController extends Controller
                     }
                 }
                 if ($table == 'settings'){
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderTemplate', 'setting_value' => 'default.blade.php' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderGroup', 'setting_value' => '3' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workordersExpireAfter', 'setting_value' => '15' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderTerms', 'setting_value' => 'Default Terms:' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderFooter', 'setting_value' => 'Default Footer:' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'convertWorkorderTerms', 'setting_value' => 'workorder' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => '0' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => '0' ]);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerPastdays', 'setting_value' => '60']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerEventLimit', 'setting_value' => '5']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerCreateWorkorder', 'setting_value' => '0']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerFcThemeSystem', 'setting_value' => 'standard']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
                     DB::table('settings')->insert(['setting_key' => 'pdfDisposition', 'setting_value' => 'inline']);
                 }
 
