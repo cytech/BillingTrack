@@ -12,6 +12,7 @@
 namespace FI\Modules\Reports\Reports;
 
 use FI\Modules\Clients\Models\Client;
+use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 
@@ -21,6 +22,11 @@ class ClientStatementReport
     {
         $results = [
             'client_name' => '',
+            'client_address' => '',
+            'client_city' => '',
+            'client_state' => '',
+            'client_zip' => '',
+            'client_phone' => '',
             'from_date'   => '',
             'to_date'     => '',
             'subtotal'    => 0,
@@ -43,7 +49,23 @@ class ClientStatementReport
 
         if ($companyProfileId)
         {
+            $companyProfile = CompanyProfile::where('id', $companyProfileId)->first();
+            $results['companyProfile_company'] = $companyProfile->company;
+            $results['companyProfile_address'] = $companyProfile->address;
+            $results['companyProfile_city'] = $companyProfile->city;
+            $results['companyProfile_state'] = $companyProfile->state;
+            $results['companyProfile_zip'] = $companyProfile->zip;
+            $results['companyProfile_phone'] = $companyProfile->phone;
+
             $invoices->where('company_profile_id', $companyProfileId);
+        }
+        else{
+            $results['companyProfile_company'] = trans('fi.all_billing');
+            $results['companyProfile_address'] = '';
+            $results['companyProfile_city'] = '';
+            $results['companyProfile_state'] = '';
+            $results['companyProfile_zip'] = '';
+            $results['companyProfile_phone'] = '';
         }
 
         $invoices = $invoices->get();
@@ -79,6 +101,11 @@ class ClientStatementReport
         $currency = $client->currency;
 
         $results['client_name'] = $client->name;
+        $results['client_address'] = $client->address;
+        $results['client_city'] = $client->city;
+        $results['client_state'] = $client->state;
+        $results['client_zip'] = $client->zip;
+        $results['client_phone'] = $client->phone;
         $results['from_date']   = DateFormatter::format($fromDate);
         $results['to_date']     = DateFormatter::format($toDate);
         $results['subtotal']    = CurrencyFormatter::format($results['subtotal'], $currency);

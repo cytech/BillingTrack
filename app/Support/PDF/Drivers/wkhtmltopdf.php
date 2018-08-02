@@ -33,7 +33,7 @@ class wkhtmltopdf extends PDFAbstract
     public function download($html, $filename)
     {
         header('Content-Type: application/pdf');
-        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Content-Disposition: '.config('fi.pdfDisposition').'; filename="' . $filename . '"');
 
         echo $this->getOutput($html);
     }

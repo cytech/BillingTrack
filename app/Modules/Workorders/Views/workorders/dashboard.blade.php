@@ -11,7 +11,7 @@
     </script>
     <div class="container col-lg-12">
         <br>
-        <nav class="navbar bg-primary ">
+        <nav class="navbar navbar-default ">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand mb-0" href="#">{{ trans('fi.workorders') }}</a>
@@ -24,16 +24,13 @@
                             {{ trans('fi.workorder_table') }}</a></li>
                     <li><a href="{!! route('employees.index') !!}">{{ trans('fi.employees') }}</a>
                     </li>
-                    <li><a href="{!! route('resources.index') !!}">{{ trans('fi.resources') }}</a>
+                    <li><a href="{!! route('products.index') !!}">{{ trans('fi.products') }}</a>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"
                            href="#">{{ trans('fi.timesheet') }}
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="{!! route('timesheets.index') !!}">{{ trans('fi.timesheettable') }}</a>
-                            </li>
                             <li>
                                 <a href="{!! route('timesheets.report') !!}">{{ trans('fi.timesheetreport') }}</a>
                             </li>
@@ -46,18 +43,8 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{ trans('fi.utilities') }}
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            @if(config('fi.pdfDriver') == 'wkhtmltopdf')
-                                <li><a href="{{ route('workorders.batchprint') }}"><i
+                                <li><a href="{{ route('utilities.batchprint') }}"><i
                                                 class="fa fa-print"></i> {{ trans('fi.batchprint') }}
-                                    </a>
-                                </li>
-                            @endif
-                            <li><a href="{{ route('workorders.settings') }}"><i
-                                            class="fa fa-wrench"></i> {{ trans('fi.workorder_settings') }}
-                                </a>
-                            </li>
-                                <li><a href="{{ route('workorders.trash') }}"><i
-                                                class="fa fa-trash"></i> {{ trans('fi.trash') }}
                                     </a>
                                 </li>
                             <li><a href="{{ route('workorders.about') }}"><i
@@ -114,10 +101,10 @@
     </div>
 @stop
 @section('javascript')
-    {!! Html::style('assets/addons/Workorders/Assets/morris.js.so/morris.css') !!}
-    {!! Html::script('assets/addons/Workorders/Assets/raphael/raphael.min.js') !!}
-    {!! Html::script('assets/addons/Workorders/Assets/morris.js.so/morris.min.js') !!}
-    {{--{!! Html::script('assets/addons/Workorders/assets/js/morris-data.js') !!}--}}
+    {!! Html::style('assets/plugins/morris.js.so/morris.css') !!}
+    {!! Html::script('assets/plugins/raphael/raphael.min.js') !!}
+    {!! Html::script('assets/plugins/morris.js.so/morris.min.js') !!}
+    {{--{!! Html::script('assets/plugins/js/morris-data.js') !!}--}}
     <script type="text/javascript" language="javascript" class="init">
         $(function () {
             Morris.Bar({

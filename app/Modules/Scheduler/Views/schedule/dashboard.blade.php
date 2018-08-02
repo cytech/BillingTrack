@@ -19,9 +19,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{!! route('scheduler.tablereport') !!}">{{ trans('fi.table_report') }}</a></li>
                             <li><a href="{!! route('scheduler.calendarreport') !!}">{{ trans('fi.calendar_report') }}</a></li>
-                            <li><a href="{!! route('scheduler.eventtrash') !!}">{{ trans('fi.trash') }}</a></li>
                             <li><a href="{!! route('scheduler.categories.index') !!}">{{ trans('fi.categories') }}</a></li>
-                            <li><a href="{!! route('scheduler.settings') !!}">{{ trans('fi.settings') }}</a></li>
                             <li><a href="{!! route('scheduler.about') !!}">{{ trans('fi.about') }}</a></li>
                         </ul>
                     </li>

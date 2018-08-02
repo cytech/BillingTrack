@@ -22,8 +22,4 @@ class DashboardController extends Controller
             ->with('widgets', DashboardWidgets::listsByOrder());
     }
 
-    public function documentation()
-    {
-        return file_get_contents( base_path().'/public/documentation/fusioninvoicefoss/docs/2018.html');
-    }
 }

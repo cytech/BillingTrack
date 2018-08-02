@@ -12,6 +12,7 @@
 namespace FI\Modules\Reports\Controllers;
 
 use FI\Http\Controllers\Controller;
+use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\Reports\Reports\ClientStatementReport;
 use FI\Modules\Reports\Requests\ClientStatementReportRequest;
 use FI\Support\PDF\PDFFactory;
@@ -27,7 +28,8 @@ class ClientStatementReportController extends Controller
 
     public function index()
     {
-        return view('reports.options.client_statement');
+        return view('reports.options.client_statement')
+            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
     }
 
     public function validateOptions(ClientStatementReportRequest $request)

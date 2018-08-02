@@ -37,26 +37,8 @@
             });
 
             if (ids.length > 0) {
-                pconfirm_def.text = '{!! $pCnote !!}';
-                new PNotify(pconfirm_def).get().on('pnotify.confirm', function () {
-                    $.post('{!! route($droute) !!}', {
-                        ids: ids
-                    }).done(function () {
-                        $('input:checkbox').prop('checked', false);
-                        $(ids).each(function (index, element) {
-                            $("#" + element).hide();
-                        });
-                        $('.bulk-actions').hide();
-                        $('.std-actions').show();
-                        pnotify('{!! $pnote !!}', 'success');
-                    }).fail(function () {
-                        pnotify('{{ trans('fi.unknown_error') }}', 'error');
-                    });
-                }).on('pnotify.cancel', function () {
-                    //Do Nothing
-                });
+                bulkConfirm('{!! trans('fi.bulk_event_trash_warning') !!}', '{{ route('scheduler.bulk.trash') }}', ids);
             }
         });
-
     });
 </script>

@@ -172,7 +172,7 @@ class SetupController extends Controller
             'schedule_categories' => 'id, name, text_color, bg_color',
             'schedule_occurrences' => 'oid, schedule_id, start_date, end_date, created_at, updated_at',
             'schedule_reminders' => 'id, schedule_id, reminder_date, reminder_location, reminder_text, created_at, updated_at',
-            'schedule_resources' => 'id, schedule_id, fid, resource_table, resource_id, value, qty',
+            'schedule_resources' => 'id, schedule_id, resource_table, resource_id, value, qty',
             //'schedule_settings' => 'id, created_at, updated_at, setting_key, setting_value',
             'settings' => 'id, created_at, updated_at, setting_key, setting_value',
             'tax_rates' => 'id, created_at, updated_at, name, percent, is_compound, calculate_vat',
@@ -200,8 +200,9 @@ class SetupController extends Controller
         }
 
         foreach ($oldtables as $table => $columndef){
-            if (Schema::hasTable($table)) {
+            if (Schema::hasTable($table) && $otfdb->getConnection()->getSchemaBuilder()->hasTable($table)) {
                 //insert
+                DB::statement('truncate ' . $table);
                 DB::statement('insert into `' . $newschema . '`.' . $table . ' (' . $columndef . ')
                                 SELECT ' . $columndef . ' FROM `' . $oldschema . '`.' . $table . ';');
                 //if payments add value to new client_id column
@@ -221,13 +222,17 @@ class SetupController extends Controller
                     DB::table('settings')->insert([ 'setting_key' => 'tsCompanyName', 'setting_value' => 'YOURQBCOMPANYNAME' ]);
                     DB::table('settings')->insert([ 'setting_key' => 'tsCompanyCreate', 'setting_value' => 'YOURQBCOMPANYCREATETIME' ]);
                     DB::table('settings')->insert([ 'setting_key' => 'workorderStatusFilter', 'setting_value' => 'all_statuses' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => '0' ]);
+                    DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => '0' ]);
+                    //delete orphaned workorders (with no client)
+                    DB::raw('delete FROM workorders WHERE NOT EXISTS (SELECT NULL FROM clients WHERE clients.id = workorders.client_id)');
                 }
                 //if workorder addon was installed, update resource table from resources to products
                 if($table == 'workorder_items' || $table == 'invoice_items'|| $table == 'item_lookups'){
                     DB::statement('update `'. $table .'` set resource_table = \'products\' where resource_table = \'resources\';');
                 }
                 //add default scheduler settings to settings - not transferring old database settings
-                if ($table == 'scheduler'){
+                if ($table == 'schedule'){
                     DB::table('settings')->insert(['setting_key' => 'schedulerPastdays', 'setting_value' => '60']);
                     DB::table('settings')->insert(['setting_key' => 'schedulerEventLimit', 'setting_value' => '5']);
                     DB::table('settings')->insert(['setting_key' => 'schedulerCreateWorkorder', 'setting_value' => '0']);
@@ -235,18 +240,23 @@ class SetupController extends Controller
                     DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
                     DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
                     DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
+                    //delete old workorder schedule items. replaced with coreevents
+                    DB::table('schedule')->where('id', '<', 1000000)->delete();
+                    DB::table('schedule_occurrences')->where('schedule_id', '<', 1000000)->delete();
+                    DB::table('schedule_reminders')->where('schedule_id', '<', 1000000)->delete();
+                    DB::table('schedule_resources')->where('schedule_id', '<', 1000000)->delete();
                 }
                 //move existing and add scheduler categories
                 if ($table == 'schedule_categories'){
                     //move user defined category ids
                     $usercats = Category::where('id', '>', 9)->get();
-                    foreach ($usercats as $cats){
+                    foreach ($usercats->reverse() as $cats){
                         $cats->id = $cats->id + 2;
                         $cats->save();
                     }
                     //add workorder category
                     $usercats = Category::where('id', '>=', 5)->where('id', '<=', 9)->get();
-                    foreach ($usercats as $cats){
+                    foreach ($usercats->reverse() as $cats){
                         $cats->id = $cats->id + 1;
                         $cats->save();
                     }
@@ -260,6 +270,9 @@ class SetupController extends Controller
                         $scats->category_id = $scats->category_id + 2;
                         $scats->save();
                     }
+                }
+                if ($table == 'settings'){
+                    DB::table('settings')->insert(['setting_key' => 'pdfDisposition', 'setting_value' => 'inline']);
                 }
 
             }elseif (!Schema::hasTable($table)){

@@ -28,7 +28,7 @@ class calendarEventPresenter
                 $data->title = trans("fi.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name;
                 $data->description = $entity->client->phone . '<br>'
                     . str_replace(array("\r\n", "\r", "\n"), "", $entity->client->address)
-                    . '<br>' . $entity->client->city . '<br>' . mb_strimwidth($entity->summary, 0, 50, '...');
+                    . '<br>' . $entity->client->city . '<br>' . mb_strimwidth(addslashes($entity->summary), 0, 50, '...');
                 $data->start =  $entity->job_date;
                 $data->category_id =  (Category::where('name', $type)->value('id'));
                 $data->will_call = $entity->will_call;

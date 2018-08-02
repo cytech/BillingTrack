@@ -67,6 +67,7 @@ class SettingController extends Controller
                 'paperOrientations'       => ['portrait' => trans('fi.portrait'), 'landscape' => trans('fi.landscape')],
                 'currencies'              => Currency::getList(),
                 'exchangeRateModes'       => ['automatic' => trans('fi.automatic'), 'manual' => trans('fi.manual')],
+                'pdfDisposition'          => ['inline' => trans('fi.inline'), 'attachment' => trans('fi.attachment')],
                 'pdfDrivers'              => PDFFactory::getDrivers(),
                 'convertQuoteOptions'     => ['quote' => trans('fi.convert_quote_option1'), 'invoice' => trans('fi.convert_quote_option2')],
                 'convertWorkorderOptions' => ['workorder' => trans('fi.convert_workorder_option1'), 'invoice' => trans('fi.convert_workorder_option2')],

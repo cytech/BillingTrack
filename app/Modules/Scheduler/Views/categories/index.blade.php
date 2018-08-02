@@ -47,7 +47,7 @@
                                         <a class="btn btn-primary iframe"
                                            href="{{ route('scheduler.categories.edit', [$category->id]) }}"><i
                                                     class="fa fa-fw fa-edit"></i>{{ trans('fi.edit') }}</a>
-                                        @if($category->id > 9)
+                                        @if($category->id > 10)
                                             {{--{!! Form::button('<i class="fa fa-fw fa-trash"></i>'.trans('fi.delete'), ['type' => 'button','class' => 'btn btn-danger delete-button',--}}
                                             {{--'onclick' => "swalConfirm(trans('fi.trash_record_warning'), route('scheduler.categories.delete', [$category->id]) )",'data-id'=> $category->id]) !!}--}}
 

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Scheduler Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Scheduler\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 Use Carbon\Carbon;
@@ -18,6 +19,9 @@ Use Carbon\Carbon;
 
 class Schedule extends Model {
     use SoftDeletes;
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['occurrences', 'reminders', 'resources'];
 
     protected $dates = ['deleted_at'];
 

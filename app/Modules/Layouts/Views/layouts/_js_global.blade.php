@@ -100,8 +100,11 @@ font-size: 1.6rem !important;
                 $.post(route, {
                     ids: ids,
                     status: status
-                }).done(function () {
-                    window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+                }).done(function (data) {
+                    setTimeout(function () { //give notify a chance to display before redirect
+                        window.location.href = "{!! URL::current() !!}";
+                    }, 2000);
+                    notify(data.success, 'success');
                 });
             } else if (result.dismiss === Swal.DismissReason.cancel) {
 

@@ -89,8 +89,8 @@ class SettingsTableSeeder extends Seeder
 
         //insert workorder settings
         //DB::table('settings')->insert([ 'setting_key' => 'scheduler', 'setting_value' => $scheduler ]);
-        //DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => $restolup ]);
-        //DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => $emptolup ]);
+        DB::table('settings')->insert([ 'setting_key' => 'restolup', 'setting_value' => '0' ]);
+        DB::table('settings')->insert([ 'setting_key' => 'emptolup', 'setting_value' => '0' ]);
         DB::table('settings')->insert([ 'setting_key' => 'workorderTemplate', 'setting_value' => 'default.blade.php' ]);
         DB::table('settings')->insert([ 'setting_key' => 'workorderGroup', 'setting_value' => '3' ]);
         DB::table('settings')->insert([ 'setting_key' => 'workordersExpireAfter', 'setting_value' => '15' ]);
@@ -123,6 +123,8 @@ class SettingsTableSeeder extends Seeder
         DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
         DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
         DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
+        //new core
+        DB::table('settings')->insert(['setting_key' => 'pdfDisposition', 'setting_value' => 'inline']);
 
     }
 }

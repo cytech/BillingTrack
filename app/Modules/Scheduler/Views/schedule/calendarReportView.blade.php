@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+    @include('layouts._alerts')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     <div class="container col-lg-12">
         <div class="row">
@@ -43,5 +44,5 @@
     </div>
 @stop
 @section('javascript')
-
+    @include('partials._js_datetimepicker')
 @stop

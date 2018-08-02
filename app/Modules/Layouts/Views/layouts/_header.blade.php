@@ -19,7 +19,7 @@
             <ul class="nav navbar-nav">
 
                 <li>
-                    <a href="{{ route('dashboard.documentation') }}" title="{{ trans('fi.documentation') }}" target="_blank">
+                    <a href="/documentation" title="{{ trans('fi.documentation') }}" target="_blank">
                         <i class="fa fa-question-circle"></i>
                     </a>
                 </li>
@@ -29,11 +29,26 @@
                         <i class="fa fa-toolbox"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ route('employees.index') }}">{{ trans('fi.employees') }}</a></li>
-                        <li><a href="{{ route('products.index') }}">{{ trans('fi.products') }}</a></li>
-                        <li><a href="{{ route('itemLookups.index') }}">{{ trans('fi.item_lookups') }}</a></li>
-                        <li><a href="{{ route('mailLog.index') }}">{{ trans('fi.mail_log') }}</a></li>
-                        <li><a href="{{ route('utilities.manage_trash') }}">{{ trans('fi.manage_trash') }}</a></li>
+                        <li><a href="{{ route('employees.index') }}"><i class="fa fa-users"></i>{{ trans('fi.employees') }}</a></li>
+                        <li><a href="{{ route('products.index') }}"><i class="fa fa-shopping-cart"></i>{{ trans('fi.products') }}</a></li>
+                        <li><a href="{{ route('itemLookups.index') }}"><i class="fa fa-eye"></i>{{ trans('fi.item_lookups') }}</a></li>
+                        <li><a href="{{ route('mailLog.index') }}"><i class="fa fa-envelope-square"></i>{{ trans('fi.mail_log') }}</a></li>
+                        <li><a href="{{ route('utilities.batchprint') }}"><i class="fa fa-print"></i>{{ trans('fi.batchprint') }}</a></li>
+                        <li><a href="{{ route('utilities.manage_trash') }}"><i class="fa fa-trash"></i>{{ trans('fi.manage_trash') }}</a></li>
+
+                        <li class="dropdown-submenu pull-left">
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" title="{{ trans('fi.about') }}">
+                                <i class="fa fa-question-circle"></i>{{ trans('fi.about') }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a tabindex="-1" href="#"><i class="fa fa-file"></i>FusionInvoiceFOSS</a></li>
+                                <li><a tabindex="-1" href="{{ route('workorders.about') }}"><i class="fa fa-file"></i>{{ trans('fi.workorders') }}</a></li>
+                                <li><a tabindex="-1" href="{{ route('scheduler.about') }}"><i class="fa fa-file"></i>{{ trans('fi.scheduler') }}</a></li>
+                                <li><a tabindex="-1" href="{{ route('timesheets.about') }}"><i class="fa fa-clock"></i>{{ trans('fi.timesheet') }}</a></li>
+                            </ul>
+                        </li>
+
+
                     </ul>
                 </li>
 

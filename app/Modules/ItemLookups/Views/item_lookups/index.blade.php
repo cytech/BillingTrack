@@ -33,6 +33,7 @@
                                 <th>{{ trans('fi.tax_1') }}</th>
                                 <th>{{ trans('fi.tax_2') }}</th>
                                 <th>{{ trans('fi.options') }}</th>
+                                <th class="hidden">resource_table</th>
                             </tr>
                             </thead>
 
@@ -56,6 +57,7 @@
                                             </ul>
                                         </div>
                                     </td>
+                                    <td class="hidden">{{ $itemLookup->resource_table }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -80,7 +82,7 @@
             $('#dt-itemlookupstable').DataTable({
                 paging: false,
                 //searching: true,
-                order: [[0, "asc"]],//order on id
+                order: [[6, "asc"], [0, "asc"]],//order on hidden resource table then name
                 "columnDefs": [
                     {"orderable": false, "targets": 5}
                 ]

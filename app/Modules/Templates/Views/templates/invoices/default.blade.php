@@ -14,7 +14,7 @@
             background: #FFFFFF;
             font-family : DejaVu Sans, Helvetica, sans-serif;
             font-size: 12px;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
         }
 
         a {
@@ -65,6 +65,7 @@
 
         .terms {
             padding: 10px;
+            text-align: center;
         }
 
         .footer {
@@ -157,9 +158,10 @@
 @if ($invoice->terms)
     <div class="section-header">{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</div>
     <div class="terms">{!! $invoice->formatted_terms !!}</div>
+    <br>
 @endif
 
-<div class="footer">{!! $invoice->formatted_footer !!}</div>
+<div class="footer"> {!! $invoice->formatted_footer !!}</div>
 
 </body>
 </html>

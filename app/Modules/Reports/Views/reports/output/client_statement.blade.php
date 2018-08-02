@@ -1,7 +1,31 @@
 @extends('reports.layouts.master')
 
 @section('content')
-
+    <table>
+        <tr>
+            <td style="width: 50%;" valign="top">
+                @if( isset($results['client_name']))
+                    <span style="font-weight: bold">{{ mb_strtoupper(trans('fi.bill_to')) }}</span><br>{{ $results['client_name'] }}<br>
+                    @if ($results['client_address']) {!! $results['client_address'] !!}<br>@endif
+                    @if ($results['client_city']) {!! $results['client_city'] !!}@endif
+                    @if ($results['client_state']) {!! $results['client_state'] !!}@endif
+                    @if ($results['client_zip']) {!! $results['client_zip'] !!}<br>@endif
+                    @if ($results['client_phone']) {!! $results['client_phone'] !!}<br>@endif
+                @else
+                    <p> No results with current criteria </p>
+                @endif
+            </td>
+            <td style="width: 50%; text-align: right;" valign="top">
+                {{--{!! $logo !!}<br>--}}
+                <span style="font-weight: bold">{{ $results['companyProfile_company'] }}</span><br>
+                {!! $results['companyProfile_address'] !!}<br>
+                {!! $results['companyProfile_city'] !!}
+                {!! $results['companyProfile_state'] !!}
+                {!! $results['companyProfile_zip' ]!!}<br>
+                @if ($results['companyProfile_phone']) {{ $results['companyProfile_phone'] }}<br>@endif
+            </td>
+        </tr>
+    </table>
     <h1 style="margin-bottom: 0;">{{ trans('fi.client_statement') }}</h1>
     <h3 style="margin-top: 0; margin-bottom: 0;">{{ $results['client_name'] }}</h3>
     <h3 style="margin-top: 0;">{{ $results['from_date'] }} - {{ $results['to_date'] }}</h3>

@@ -32,8 +32,17 @@ class domPDF extends PDFAbstract
         $pdf = new PDF($options);
 
         $pdf->setPaper($this->paperSize, $this->paperOrientation);
-        $pdf->loadHtml($html);
 
+        //if batch
+        $batch = '';
+        if (is_array($html)) {
+            foreach ($html as $doc) {
+                $batch .= $doc . "<div style=\"page-break-after: always;\"></div>";
+            }
+            $pdf->loadHtml($batch);
+        } else {
+            $pdf->loadHtml($html);
+        }
         $pdf->render();
 
         return $pdf;
@@ -56,7 +65,7 @@ class domPDF extends PDFAbstract
         $response = response($this->getOutput($html));
 
         $response->header('Content-Type', 'application/pdf');
-        $response->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
+        $response->header('Content-Disposition', ''.config('fi.pdfDisposition').'; filename="' . $filename . '"');
 
         return $response->send();
     }

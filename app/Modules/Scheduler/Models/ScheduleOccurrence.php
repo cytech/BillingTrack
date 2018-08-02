@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Scheduler Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,9 +13,12 @@ namespace FI\Modules\Scheduler\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class ScheduleOccurrence extends Model {
+
+    use SoftDeletes;
 
 	public $timestamps = true;
 
@@ -25,7 +28,7 @@ class ScheduleOccurrence extends Model {
 
 	protected $guarded = ['oid'];
 
-	protected $dates = ['start_date','end_date'];
+	protected $dates = ['start_date','end_date', 'deleted_at'];
 
 	//need after schedule->withOccurrences change..
 	public function getStartDateAttribute() {

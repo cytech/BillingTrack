@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Scheduler Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,11 +12,16 @@
 namespace FI\Modules\Scheduler\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model {
+    use SoftDeletes;
+
 	protected $table = 'schedule_categories';
 
 	public $timestamps = false;
 
 	protected $fillable = [ 'name', 'text_color', 'bg_color' ];
+
+    protected $dates = ['deleted_at'];
 }

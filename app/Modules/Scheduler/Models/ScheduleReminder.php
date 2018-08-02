@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Scheduler Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,12 +18,13 @@ use Carbon\Carbon;
 
 class ScheduleReminder extends Model
 {
+    use SoftDeletes;
 
 	public $timestamps = true;
 
 	protected $guarded = ['id'];
 
-	protected $dates = ['reminder_date'];
+	protected $dates = ['reminder_date', 'deleted_at'];
 
 	protected $table = 'schedule_reminders';
 

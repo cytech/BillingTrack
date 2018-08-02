@@ -4,9 +4,10 @@
 
 <script type="text/javascript">
     $(function () {
-        var startDate = moment().startOf('month');
-        var endDate = moment().endOf('month');
-
+        var sentStart = $('#from_date').val();
+        var sentEnd = $('#to_date').val();
+        var startDate =  (sentStart === '' ? moment().startOf('month') : moment(sentStart));
+        var endDate = (sentEnd === '' ? moment().endOf('month') : moment(sentEnd));
         $('#date_range').daterangepicker({
                 autoApply: true,
                 startDate: startDate,
@@ -42,6 +43,8 @@
                 ranges: {
                     '{{ trans('fi.today') }}': [moment(), moment()],
                     '{{ trans('fi.yesterday') }}': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    '{{ trans('fi.lastweek') }}': [moment().subtract(1, 'weeks').startOf('isoWeek'), moment().subtract(1, 'weeks').endOf('isoWeek')],
+                    '{{ trans('fi.twoweeksago') }}': [moment().subtract(2, 'weeks').startOf('isoWeek'), moment().subtract(2, 'weeks').endOf('isoWeek')],
                     '{{ trans('fi.last_7_days') }}': [moment().subtract(6, 'days'), moment()],
                     '{{ trans('fi.last_30_days') }}': [moment().subtract(29, 'days'), moment()],
                     '{{ trans('fi.this_month') }}': [moment().startOf('month'), moment().endOf('month')],

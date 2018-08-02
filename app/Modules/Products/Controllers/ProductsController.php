@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Workorders Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,6 +10,7 @@
 
 namespace FI\Modules\Products\Controllers;
 
+use FI\Modules\ItemLookups\Models\ItemLookup;
 use FI\Modules\Products\Models\Product;
 use FI\Modules\Products\Requests\ProductRequest;
 use DB;
@@ -59,7 +60,7 @@ class ProductController extends Controller
         $products->numstock = $request->numstock;
         $products->save();
 
-        if (config('workorder_settings.restolup')==1){
+        if (config('fi.restolup')==1){
             $ret=1;
             $this->forceLUTupdate($ret);
         }
@@ -118,7 +119,7 @@ class ProductController extends Controller
         $products->numstock = $request->numstock;
         $products->save();
 
-        if (config('workorder_settings.restolup')==1){
+        if (config('fi.restolup')==1){
             $ret=1;
             $this->forceLUTupdate($ret);
         }
@@ -141,16 +142,20 @@ class ProductController extends Controller
     //force lookuptable update
     public function  forceLUTupdate($ret)
     {
-        DB::unprepared('
-             DELETE FROM item_lookups where resource_table = \'products\';
-             INSERT INTO item_lookups (created_at,updated_at,name,description,price,resource_table,resource_id)
-              SELECT now(),now(), name,description,cost,\'products\',id
-              FROM products
-              WHERE products.active = TRUE
-              Order By products.category ASC;
-        ');
+        ItemLookup::where('resource_table', 'products')->delete();
+        $products = Product::where('active', 1)->get(['name', 'description', 'cost', 'id']);
+        foreach ($products as $product){
+            $itemlookup = new ItemLookup();
+            $itemlookup->name = $product->name;
+            $itemlookup->description = $product->description;
+            $itemlookup->price = $product->cost;
+            $itemlookup->resource_table = 'products';
+            $itemlookup->resource_id = $product->id;
 
-        if ($ret == 0){return redirect()->route('workorders.settings')
+            $itemlookup->save();
+        }
+
+        if ($ret == 0){return redirect()->route('settings.index')
             ->with('alertInfo', trans('fi.lut_updated'));}
     }
 }

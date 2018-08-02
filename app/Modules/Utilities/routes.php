@@ -14,6 +14,9 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
     Route::get('utilities/manage_trash', ['uses' => 'UtilityController@manageTrash', 'as' => 'utilities.manage_trash']);
     Route::get('utilities/{id}/restore_trash/{entity}', ['uses' => 'UtilityController@restoreTrash', 'as' => 'utilities.restore_trash']);
 
+    //batchprint pdf
+    Route::any('batchprint', ['uses' => 'UtilityController@batchPrint', 'as' => 'utilities.batchprint']);
+
 //    Route::get('users/create/{userType}', ['uses' => 'UserController@create', 'as' => 'users.create']);
 //    Route::post('users/create/{userType}', ['uses' => 'UserController@store', 'as' => 'users.store']);
 //

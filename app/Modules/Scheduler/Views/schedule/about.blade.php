@@ -8,7 +8,7 @@
             <div class="panel-body">
                 {{--cut and paste doc start--}}
                 <p style="margin-bottom: 0in; line-height: 100%"><font size="4" style="font-size: 16pt"><u><b>Scheduler
-                                Addon for FusionInvoice v 2.1.1</b></u></font></p>
+                                for FusionInvoiceFOSS</b></u></font></p>
                 <p style="margin-bottom: 0in; line-height: 100%"><br/>
 
                 </p>
@@ -42,9 +42,7 @@
                     be edited individually here, if the recurrence is updated, this local
                     edit will be overwritten. Recurring events should be updated using
                     the RECURRING EVENT menu.</p>
-                <p style="margin-bottom: 0in; line-height: 100%; background: transparent">
-                    <i><b>(Create Workorder only available with the paid Workorders for
-                            FusionInvoice Addon)</b></i></p>
+
                 <p style="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
                     <b>Create Workorder Icon</b></p>
                 <p style="margin-left: 0.49in; margin-bottom: 0in; line-height: 100%">
@@ -132,9 +130,7 @@
                 <p style="margin-left: 0.75in; margin-bottom: 0in; line-height: 100%; background: transparent">
                     <b>Number of events to show per day</b> – How many events to show
                     in a day cell before the “+ number more” button is shown.</p>
-                <p style="margin-bottom: 0in; line-height: 100%; background: transparent">
-                    <i><b>	(Create Workorder only available with the paid Workorders for
-                            FusionInvoice Addon)</b></i></p>
+
                 <p style="margin-left: 0.75in; margin-bottom: 0in; line-height: 100%; background: transparent">
                     <b>Enable “Create Workorder” functionality</b> -  If “on”,
                     displays a “Create Workorder” icon in the day cell header which
@@ -167,9 +163,7 @@
                     Payments: All payments made</p>
                 <p style="margin-left: 0.75in; margin-bottom: 0in; line-height: 100%; background: transparent">
                     Expenses: Not billed</p>
-                <p style="margin-left: 0.75in; margin-bottom: 0in; line-height: 100%; background: transparent">
-                    <i><b>(Projects and tasks only available with the paid FusionInvoice
-                            TimeTracking Addon)</b></i></p>
+
                 <p style="margin-left: 0.75in; margin-bottom: 0in; line-height: 100%; background: transparent">
                     Projects: Active</p>
                 <p style="margin-left: 0.75in; margin-bottom: 0in; line-height: 100%; background: transparent">
@@ -178,326 +172,7 @@
                     <br/>
 
                 </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>	About</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    This Document.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Requirements</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Currently FusionInvoice 2018-4 or higher and its requirements.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Support</b></p>
-                <p style="margin-bottom: 0in; line-height: 100%"><span style="font-variant: normal"><font color="#333333"><font face="Cabin, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Technical
-support is provided via email: </span></span></span></font></font></font></span><span style="font-variant: normal"><font color="#333333"><font face="Cabin, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">support@cytech-eng.com</span></span></span></font></font></font></span></p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Release Notes</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.0</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Initial release</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.1</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Updated for FusionInvoice 2016-16</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%"><a name="__DdeLink__564_519684288"></a>
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.2</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Updated for FusionInvoice 2016-17</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.3</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%"><a name="__DdeLink__574_519684288"></a>
-                    Changed fullcalendar css for larger border between cells</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Changed tooltip in event to position itself midway in cell</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%"><a name="__DdeLink__284_104827714"></a>
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.4</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%"><a name="__DdeLink__576_519684288"></a>
-                    Corrected event view fail when backslash occurred in summary line</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Corrected client lookup to only include active clients</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Added additional translations</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.5</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%"><a name="__DdeLink__286_104827714"></a>
-                    Corrected link to last/next event calendars in Dashboard</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%"><a name="__DdeLink__288_104827714"></a>
-                    Added a Scheduler Summary Widget</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.6</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Updated for FusionInvoice 2017-2</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 1.0.7</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Updated for FusionInvoice 2017-7</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 2.0.0</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    FusionInvoice 2017-13 minimum requirement.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Overhaul all resources and optimized code. Added navbar and
-                    ThemeSystem.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 2.0.1</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Updated for FusionInvoice 2018-4 minimum requirement.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Cytech Scheduler Addon for FusionInvoice version 2.1.1</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Updated for FusionInvoice 2018-7 minimum requirement.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Addition of system core event display on calendar.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><a name="__DdeLink__339_4050228220"></a>
-                    <b>Installation or Update:</b></p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent; page-break-before: auto">
-                    <b>Initial Installation or update from Scheduler v2.0.</b><b>1</b><b>
-                        and later:</b><br/>
-                    <br/>
-                    1.) Unzip &quot;scheduler_v2.1.1.tar.gz&quot;
-                    to temporary directory<br/>
-                    2.) Upload the unzipped files and
-                    directories to your FusionInvoice web folder, keeping the   directory
-                    structure.<br/>
-                    3.) Change permissions as necessary for your website
-                    setup.<br/>
-                    4.) In FusionInvoice:<br/>
-                    <b>Initial Install:</b><br/>
-                    Select
-                    System (gear icon) Addons.<br/>
-                    Select Install button next to
-                    Scheduler Addon.<br/>
-                    <b>To Update:</b><br/>
-                    Select System (gear
-                    icon) Addons.<br/>
-                    Select Update button next to Scheduler
-                    Addon.<br/>
-                    <br/>
-                    <b>Update from Scheduler v</b><b>2.0.0</b><b> or
-                        earlier:</b><br/>
-                    <br/>
-                    1.) Delete the
-                    &lt;FusionInvoice&gt;/custom/addons/Scheduler directory in your
-                    FusionInvoice web server directory.<br/>
-                    2.) Unzip
-                    &quot;scheduler_v2.1.1.tar.gz&quot; to temporary directory<br/>
-                    3.)
-                    Upload the unzipped files and directories to your FusionInvoice web
-                    folder, keeping the directory structure.<br/>
-                    4.) Change permissions
-                    as necessary for your website setup.<br/>
-                    5.) In
-                    FusionInvoice:<br/>
-                    Select System (gear icon) Addons.<br/>
-                    Select
-                    Update button next to Scheduler Addon.</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    <br/>
-
-                </p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    Scheduler menu - Utilities - Settings</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    Set options to your preference.</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    If running the Workorders Addon for FusionInvoice:</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    Set Enable &quot;Create Workorder&quot; functionality to &quot;Yes&quot;</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-
-                </p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; line-height: 100%; background: transparent">
-                    <b>Optional:</b></p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    FusionInvoice System menu - Settings - Dashboard:</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    Enable scheduler summary widget</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    Set display order = 4, column width = 6</p>
-                <p style="margin-left: 0.31in; margin-bottom: 0in; font-weight: normal; line-height: 100%; background: transparent">
-                    Set invoice display order = 2, quote display order = 3</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>FAQ</b></p>
-                <p style="margin-bottom: 0in; line-height: 100%">None at this time.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>License</b></p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Cytech Scheduler
-                        Addon for FusionInvoice License Agreement</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    This license is a legal agreement between you and Cytech for the use
-                    of Cytech Scheduler Addon for FusionInvoice  (the &quot;Software&quot;).
-                    By downloading any version of Cytech Scheduler Addon for
-                    FusionInvoice  you agree to be bound by the terms and conditions of
-                    this license. Cytech reserves the right to alter or terminate this
-                    agreement at any time, for any reason, with or without notice.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Permitted Use</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    This license permits a single installation in a production
-                    environment and a single ancillary &quot;development use only&quot;
-                    installation to support the live installation (such as testing
-                    environments). Additional installations require additional license
-                    purchases.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>License
-                        Restrictions</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Unless you have been granted prior, written consent from Cytech, you
-                    may not:</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    <br/>
-
-                </p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Use the Software as the basis of a hosted service, or to provide
-                    hosted services to others.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Reproduce, distribute, or transfer the Software, or portions thereof,
-                    to any third party.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Sell, rent, lease, assign, or sublet the Software or portions
-                    thereof.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Grant rights to any other person.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Use the Software in violation of any U.S. or international law or
-                    regulation.</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Display of Copyright Notices</p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    All copyright and proprietary notices within the Software files must
-                    remain intact.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Making Copies</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    You may make copies of the Software for back-up purposes, provided
-                    that you reproduce the Software in its original form and with all
-                    proprietary notices on the back-up copy.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Software
-                        Modification</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    You may alter, modify, or extend the Software for your own use, or
-                    commission a third-party to perform modifications for you, but you
-                    may not resell, redistribute or transfer the modified or derivative
-                    version without prior written consent from Cytech. Components from
-                    the Software may not be extracted and used in other programs without
-                    prior written consent from Cytech.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Refund Policy</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    Due to the non-returnable nature of downloadable software, Cytech
-                    does not issue refunds once a transaction has been completed. If you
-                    have questions about whether or not Cytech Scheduler Addon for
-                    FusionInvoice  will work for you, please contact us with any
-                    questions.
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Indemnity</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    You agree to indemnify and hold harmless Cytech for any third-party
-                    claims, actions or suits, as well as any related expenses,
-                    liabilities, damages, settlements or fees arising from your use or
-                    misuse of the Software, or a violation of any terms of this license.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Disclaimer Of
-                        Warranty</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
-                    EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF
-                    QUALITY, PERFORMANCE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS
-                    FOR A PARTICULAR PURPOSE. FURTHER, Cytech DOES NOT WARRANT THAT THE
-                    SOFTWARE OR ANY RELATED SERVICE WILL ALWAYS BE AVAILABLE.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><b>Limitations Of
-                        Liability</b></p>
-                <p style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
-                    YOU ASSUME ALL RISK ASSOCIATED WITH THE INSTALLATION AND USE OF THE
-                    SOFTWARE. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS OF THE
-                    SOFTWARE BE LIABLE FOR CLAIMS, DAMAGES OR OTHER LIABILITY ARISING
-                    FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE. LICENSE HOLDERS ARE
-                    SOLELY RESPONSIBLE FOR DETERMINING THE APPROPRIATENESS OF USE AND
-                    ASSUME ALL RISKS ASSOCIATED WITH ITS USE, INCLUDING BUT NOT LIMITED
-                    TO THE RISKS OF PROGRAM ERRORS, DAMAGE TO EQUIPMENT, LOSS OF DATA OR
-                    SOFTWARE PROGRAMS, OR UNAVAILABILITY OR INTERRUPTION OF OPERATIONS.</p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                <p style="margin-bottom: 0in; line-height: 100%"><br/>
-
-                </p>
-                {{--cut and paste doc end--}}
+                           {{--cut and paste doc end--}}
             </div>
         </div>
     </div>

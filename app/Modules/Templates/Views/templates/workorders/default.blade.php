@@ -14,7 +14,7 @@
             background: #FFFFFF;
             font-family : DejaVu Sans, Helvetica, sans-serif;
             font-size: 12px;
-            margin-bottom: 50px;
+            margin-bottom: 10px;
         }
 
         a {
@@ -35,15 +35,15 @@
             width: 100%;
             border-spacing: 0;
             margin-bottom: 20px;
-            table-layout: fixed;
         }
 
-        th {
+        th, .section-header {
             padding: 5px 10px;
             color: #5D6975;
             border-bottom: 1px solid #C1CED9;
             white-space: nowrap;
             font-weight: normal;
+            text-align: center;
         }
 
         td {
@@ -63,11 +63,16 @@
             font-weight: bold;
         }
 
+        .terms {
+            padding: 10px;
+            text-align: center;
+        }
+
         .footer {
             position: fixed;
             height: 50px;
             width: 100%;
-            bottom: 0px;
+            bottom: 0;
             text-align: center;
         }
 
@@ -87,7 +92,7 @@
                 @if ($workorder->client->phone) {!! $workorder->client->phone !!}<br>@endif
         </td>
         <td style="width: 50%; text-align: right;" valign="top">
-            {!! $logo !!}<br>
+            {!! $workorder->companyProfile->logo() !!}<br>
             {{ $workorder->companyProfile->company }}<br>
             {!! $workorder->companyProfile->formatted_address !!}<br>
             @if ($workorder->companyProfile->phone) {{ $workorder->user->phone }}<br>@endif
@@ -169,18 +174,12 @@
 </table>
 
 @if ($workorder->terms)
-    <table style="margin-top: 50px;text-align: center" >
-        <tr>
-            <th>{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</th>
-        </tr>
-        <tr>
-            <td align="center">{!! $workorder->formatted_terms !!}</td>
-        </tr>
-    </table>
+    <div class="section-header" >{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</div>
+    <div class="terms">{!! $workorder->formatted_terms !!}</div>
+    <br>
 @endif
 
-{{-- footer class is causing issues in pdf generated with wkhtmltopdf --}}
-<div align="center">{!! $workorder->formatted_footer !!}</div>
+<div class="footer"> {!! $workorder->formatted_footer !!}</div>
 
 </body>
 </html>

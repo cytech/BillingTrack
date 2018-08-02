@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Workorders Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,6 +14,8 @@ use FI\DataTables\WorkordersDataTable;
 use FI\Events\WorkorderModified;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
+use FI\Modules\Invoices\Models\Invoice;
+use FI\Modules\Quotes\Models\Quote;
 use FI\Modules\Workorders\Models\Workorder;
 use FI\Support\FileNames;
 use FI\Support\PDF\PDFFactory;
@@ -35,11 +37,11 @@ class WorkorderController extends Controller
 	    $data['workorders'] = Workorder::where( 'job_date', '=', $today->format('Y-m-d'))
 	                                   ->where('workorder_status_id', 3)->get();
 
-	    $data['fullMonthEvent'] = Workorder::select( DB::raw( "count('id') as total,job_date" ) )
+	    $data['fullMonthEvent'] = Workorder::select( DB::raw( "count('id') as total, DATE_FORMAT(job_date, '%Y%m%d') as job_date" ) )
 	                                      ->where( 'job_date', '>=', date( 'Y-m-01' ) )
 	                                      ->where( 'job_date', '<=', date( 'Y-m-t' ) )
 		                                  ->where('workorder_status_id', 3)
-	                                      ->groupBy( DB::raw( "DATE_FORMAT(job_date, '%Y%m%d')" ) )
+	                                      ->groupBy( DB::raw( "job_date" ) )
 	                                      ->get();
 
 	    return view('workorders.dashboard', $data);
@@ -89,39 +91,5 @@ class WorkorderController extends Controller
 
         $pdf->download($workorder->html, FileNames::workorder($workorder));
     }
-
-    public function batchPrint(Request $request)
-    {
-        if ($request->isMethod('post')) {
-            $start = $request->start_date;
-            $end = $request->end_date;
-            $workorders = Workorder::whereBetween('job_date', [$start, $end])->where('workorder_status_id', 3)->where('invoice_id', 0)->get();
-
-            if (!count($workorders)) {
-                return redirect()->route('workorders.batchprint')
-                    ->with('alert', trans('fi.batch_nodata_alert'));
-            }
-
-            $pdf = PDFFactory::create();
-            $wohtml = [];
-            $counter = 1;
-            foreach ($workorders as $workorder) {
-                $wohtml[$counter] = $workorder->html;
-                $counter++;
-            }
-
-            $pdf->download($wohtml, FileNames::batchprint());
-
-        } else {
-            if (config('fi.pdfDriver') == 'wkhtmltopdf') {
-                return view('workorders.getdates',['title' => 'BatchPrint']);
-            } else {
-                return redirect()->to('/settings#tab-pdf')
-                    ->with('alert', trans('fi.batch_wkhtml_alert'));
-            }
-
-        }
-    }
-
 
 }

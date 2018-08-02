@@ -37,7 +37,7 @@ class Invoice extends Model
 
     protected $dates = ['due_at', 'invoice_date', 'deleted_at'];
 
-    protected $appends = ['formatted_invoice_date', 'formatted_due_at','status_text'];
+    protected $appends = ['formatted_invoice_date', 'formatted_due_at'];
 
     public static function boot()
     {

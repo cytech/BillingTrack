@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Scheduler Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -107,13 +107,11 @@ class SchedulerController extends Controller
         $coredata = [
             //quote sent or approved,not invoiced, with client
             'quote' => Quote::where('invoice_id', '0')
-                 ->where(function ($query) {$query->approved();})
-                 ->orWhere(function ($query) {$query->sent();})
+                 ->where(function ($query) {$query->sentorapproved();})
                  ->with('client'),
             //workorder sent or approved,not invoiced, with client
             'workorder' => Workorder::where('invoice_id', '0')
-                 ->where(function ($query) {$query->approved();})
-                 ->orWhere(function ($query) {$query->sent();})
+                 ->where(function ($query) {$query->sentorapproved();})
                  ->with('client', 'workorderItems.employees'),
             'invoice' => Invoice::sent()->with('client'),
             'payment' => Payment::with(['invoice']),
@@ -248,6 +246,8 @@ class SchedulerController extends Controller
         //$data['events'] = Schedule::with('category')->orderBy('start_date', 'desc')->paginate(500);
         $data['events'] = Schedule::withOccurrences()->
                         with('category')->where('isRecurring', '<>', '1')->orderBy('start_date', 'desc')->get();//paginate(500);
+        //$data['companyProfiles'] =  ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+
         return view('schedule.tableEvent', $data);
     }
 
@@ -473,13 +473,49 @@ class SchedulerController extends Controller
 			    Session::flash( 'error', 'No events found with specified dates' );
 			    return back();
 		    }
+
+            $data['status'] = (request('status')) ?: 'now';
 		    $data['categories'] = Category::pluck('name','id');
 		    $data['catbglist'] = Category::pluck('bg_color','id');
 		    $data['cattxlist'] = Category::pluck('text_color','id');
-		 //for FusionInvoice
 		    $data['companyProfiles'] = CompanyProfile::getList();
 
-		    $data['status']       = '';
+            //retrieve configured coreevents
+            $coreevents = [];
+            $filter = request()->filter ?: (new Setting())->coreeventsEnabled();
+
+            $coredata = [
+                //quote sent or approved,not invoiced, with client
+                'quote' => Quote::where('invoice_id', '0')
+                    ->where(function ($query) {$query->sentorapproved();})
+                    ->with('client'),
+                //workorder sent or approved,not invoiced, with client
+                'workorder' => Workorder::where('invoice_id', '0')
+                    ->where(function ($query) {$query->sentorapproved();})
+                    ->with('client', 'workorderItems.employees'),
+                'invoice' => Invoice::sent()->with('client'),
+                'payment' => Payment::with(['invoice']),
+                'expense' => Expense::status('not_billed')->with(['category']),
+                'project' => TimeTrackingProject::statusid('1'),
+                'task'    => TimeTrackingTask::unbilled()->with(['project', 'timers']),
+            ];
+
+            foreach ($coredata as $type => $source) {
+                if (!count($filter) || in_array($type, $filter)) {
+                    $source->where(function ($query) use ($request) {
+                        $start = Carbon::createFromFormat('Y-m-d H:i',$request->start);
+                        $end =  Carbon::createFromFormat('Y-m-d H:i',$request->end) ;
+                        return $query->dateRange($start, $end);
+                    });
+
+                    foreach ($source->get() as $entity) {
+                        $coreevents[] = (new CalendarEventPresenter())->calendarEvent($entity, $type);
+                    }
+                }
+            }
+
+            $data['coreevents'] = $coreevents;
+
 
 		    return view('schedule.calendar', $data );
 

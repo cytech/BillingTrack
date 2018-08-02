@@ -135,9 +135,6 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('scheduler.eventtrash') }}"><i
-                                                class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a>
-                                </li>
                                 <li>
                                     <a href="{{ route('scheduler.categories.index') }}"><i
                                                 class="fa fa-thumb-tack"></i>{{ trans('fi.categories') }}</a>
@@ -165,6 +162,7 @@
                         <li><a href="{{ route('reports.revenueByClient') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.revenue_by_client') }}</a></li>
                         <li><a href="{{ route('reports.taxSummary') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.tax_summary') }}</a></li>
                         <li><a href="{{ route('timeTracking.reports.timesheet') }}"><i class="fa fa-caret-right"></i> {{ trans('fi.time_tracking') }}</a></li>
+                        <li><a href="{{ route('timesheets.report') }}"><i class="fa fa-caret-right"></i>{{ trans('fi.timesheet') }}</a></li>
 
                         @foreach (config('fi.menus.reports') as $report)
                             @if (view()->exists($report))

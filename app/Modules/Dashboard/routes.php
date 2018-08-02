@@ -13,5 +13,4 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
 {
     Route::get('/', 'DashboardController@index');
     Route::get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard.index']);
-    Route::get('/documentation', ['uses' => 'DashboardController@documentation','as' => 'dashboard.documentation']);
 });

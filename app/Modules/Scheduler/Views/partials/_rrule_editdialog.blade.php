@@ -47,7 +47,7 @@
     'until - If given, this must be a "Date" instance, that will specify the limit of the recurrence. If a recurrence instance happens to be the same as the"Date" instance given in the "until" argument, this will be the last occurrence.'
     ]) !!}
     <div class="col-sm-2">
-        {!! Form::input('text','until',null, ['id'=>'until','class'=>'form-control until']) !!}
+        {!! Form::input('text','until',null, ['id'=>'until','class'=>'form-control until','style'=>'cursor: pointer','readonly']) !!}
     </div>
 </div>
 <div class="form-group">

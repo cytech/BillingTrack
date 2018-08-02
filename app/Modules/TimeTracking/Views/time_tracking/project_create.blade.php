@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label>* {{ trans('fi.due_date') }}:</label>
-                                {!! Form::text('due_at', null, ['id' => 'due_at', 'class' => 'date-picker form-control']) !!}
+                                {!! Form::text('due_at', null, ['id' => 'due_at', 'class' => 'date-picker form-control', 'autocomplete' => 'off']) !!}
                             </div>
                         </div>
                         <br>

@@ -21,7 +21,7 @@ class ItemLookupController extends Controller
 {
     public function index()
     {
-        $itemLookups = ItemLookup::with(['taxRate', 'taxRate2'])->get();
+        $itemLookups = ItemLookup::with(['taxRate', 'taxRate2'])->orderBy('resource_table')->get();
 
         return view('item_lookups.index')
             ->with('itemLookups', $itemLookups);

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Workorders Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -351,6 +351,12 @@ class Workorder extends Model
         return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('approved'));
     }
 
+    public function scopeSentOrApproved($query)
+    {
+        return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('sent'))
+                     ->orWhere('workorder_status_id', '=', WorkorderStatuses::getStatusId('approved'));
+    }
+
     public function scopeRejected($query)
     {
         return $query->where('workorder_status_id', '=', WorkorderStatuses::getStatusId('rejected'));
@@ -402,8 +408,8 @@ class Workorder extends Model
 
     public function scopeDateRange($query, $fromDate, $toDate)
     {
-        return $query->where('workorder_date', '>=', $fromDate)
-            ->where('workorder_date', '<=', $toDate);
+        return $query->where('job_date', '>=', $fromDate)
+            ->where('job_date', '<=', $toDate);
     }
 
     public function scopeKeywords($query, $keywords)

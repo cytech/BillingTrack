@@ -26,17 +26,24 @@
 
 <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label>{{ trans('fi.paper_size') }}: </label>
             {!! Form::select('setting[paperSize]', $paperSizes, config('fi.paperSize'), ['class' => 'form-control']) !!}
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label>{{ trans('fi.paper_orientation') }}: </label>
             {!! Form::select('setting[paperOrientation]', $paperOrientations, config('fi.paperOrientation'), ['class' => 'form-control']) !!}
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>{{ trans('fi.pdf_disposition') }}: </label>
+            {!! Form::select('setting[pdfDisposition]', $pdfDisposition, config('fi.pdfDisposition'), ['class' => 'form-control']) !!}
         </div>
     </div>
 

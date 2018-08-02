@@ -334,6 +334,12 @@ class Quote extends Model
         return $query->where('quote_status_id', '=', QuoteStatuses::getStatusId('approved'));
     }
 
+    public function scopeSentOrApproved($query)
+    {
+        return $query->where('quote_status_id', '=', QuoteStatuses::getStatusId('sent'))
+                     ->orWhere('quote_status_id', '=', QuoteStatuses::getStatusId('approved'));
+    }
+
     public function scopeRejected($query)
     {
         return $query->where('quote_status_id', '=', QuoteStatuses::getStatusId('rejected'));

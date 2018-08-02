@@ -45,4 +45,11 @@ Route::group(['prefix' => 'report', 'middleware' => ['web', 'auth.admin'], 'name
     Route::post('expense_list/validate', ['uses' => 'ExpenseListReportController@validateOptions', 'as' => 'reports.expenseList.validate']);
     Route::get('expense_list/html', ['uses' => 'ExpenseListReportController@html', 'as' => 'reports.expenseList.html']);
     Route::get('expense_list/pdf', ['uses' => 'ExpenseListReportController@pdf', 'as' => 'reports.expenseList.pdf']);
+
+    Route::get('timesheet_about', ['uses' => 'TimeSheetController@about', 'as' => 'timesheets.about']);
+    Route::get('timesheet_report', ['uses' => 'TimeSheetController@report', 'as' => 'timesheets.report']);
+    Route::post('timesheet_report/validate', ['uses' => 'TimeSheetController@ajaxValidate', 'as' => 'timesheets.validate']);
+    Route::get('timesheet_report/html', ['uses' => 'TimeSheetController@html', 'as' => 'timesheets.html']);
+    Route::get('timesheet_report/pdf', ['uses' => 'TimeSheetController@pdf', 'as' => 'timesheets.pdf']);
+    Route::get('timesheet_report/iif', ['uses' => 'TimeSheetController@iif', 'as' => 'timesheets.iif']);
 });

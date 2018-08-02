@@ -159,14 +159,45 @@
                     {!! Form::select('setting[resultsPerPage]', $resultsPerPage, config('fi.resultsPerPage'), ['class' => 'form-control']) !!}
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>{{ trans('fi.force_https') }}:</label>
-                    {!! Form::select('setting[forceHttps]', $yesNoArray, config('fi.forceHttps'), ['class' => 'form-control']) !!}
-                    <p class="help-block">{{ trans('fi.force_https_help') }}</p>
-                </div>
-            </div>
+
         </div>
 
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>{{ trans('fi.restolup') }} </label>
+            {!! Form::select('setting[restolup]', [0=>trans('fi.no'),1=>trans('fi.yes')], config('fi.restolup'),
+                            ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>{{ trans('fi.emptolup') }} </label>
+            {!! Form::select('setting[emptolup]', [0=>trans('fi.no'),1=>trans('fi.yes')], config('fi.emptolup'),
+                            ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>{{ trans('fi.force_https') }}:</label>
+            {!! Form::select('setting[forceHttps]', $yesNoArray, config('fi.forceHttps'), ['class' => 'form-control', 'title' => trans('fi.force_https_help') ]) !!}
+            {{--<p class="help-block">{{ trans('fi.force_https_help') }}</p>--}}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <a href="{{action('FI\Modules\Products\Controllers\ProductController@forceLUTupdate',['ret' => 0])}}"
+               class="btn btn-warning">{{ trans('fi.force_product_update') }}</a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <a href="{{action('FI\Modules\Employees\Controllers\EmployeeController@forceLUTupdate',['ret' => 0])}}"
+               class="btn btn-warning">{{ trans('fi.force_employee_update') }}</a>
+        </div>
     </div>
 </div>

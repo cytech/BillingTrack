@@ -223,7 +223,7 @@
 
                         $('#create-workorder').dialog({
                             width: 650,
-                            position: {my: 'center top', at: 'center+100 top', of: window},
+                            position: {my: 'center top', at: 'center top', of: '.fc-view-container'},
                             closeOnEscape: true,
                             buttons: {
                                 "{{trans('fi.create_workorder')}}": function () {

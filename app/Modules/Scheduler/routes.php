@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This file is part of Scheduler Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -54,7 +54,7 @@ Route::group( [ 'prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 
 	] );
 	//trash
 	Route::get( '/event_trash', [ 'uses' => 'TrashController@eventTrash', 'as' => 'scheduler.eventtrash' ] );
-	Route::get( '/trash_event', [ 'uses' => 'TrashController@trashEvent', 'as' => 'scheduler.trashevent' ] );
+	Route::post( '/trash_event/{id}', [ 'uses' => 'TrashController@trashEvent', 'as' => 'scheduler.trashevent' ] );
 	Route::get( '/restore_all_trash', [
 		'uses' => 'TrashController@restoreAllTrash',
 		'as'   => 'scheduler.restorealltrash'

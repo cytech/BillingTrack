@@ -28,6 +28,7 @@
                         <li><a data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-expenses">{{ trans('fi.expenses') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-projects">{{ trans('fi.projects') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-schedule">{{ trans('fi.scheduler') }}</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -90,6 +91,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     @include('utilities._projectstrash')
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-schedule" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @include('utilities._schedulertrash')
                                 </div>
                             </div>
                         </div>

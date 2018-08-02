@@ -2,8 +2,8 @@
 
 
 /**
- * This file is part of Scheduler Addon for FusionInvoice.
- * (c) Cytech <cytech@cytech-eng.com>
+ * This file is part of FusionInvoiceFOSS.
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -30,11 +30,12 @@ class TrashController extends Controller {
 		return view('schedule.eventTrash', $data );
 	}
 
-	public function trashEvent( Request $request ) {
-		$event = Schedule::find( $request->id );
+	public function trashEvent($id ) {
+		$event = Schedule::find( $id );
 		$event->delete();
 
-		return 'true';
+		//return 'true';
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
 	}
 
 	public function trashReminder( Request $request ) {
@@ -52,7 +53,7 @@ class TrashController extends Controller {
 
 	public function deleteAllTrash() {
 		Schedule::onlyTrashed()->forceDelete();
-		Session::flash( 'alertSuccess', 'All Trash Deleted Successfully' );
+		Session::flash( 'alertSuccess', trans('fi.trash_delete_success' ));
 
 		return redirect()->route( 'scheduler.tableevent' );
 	}
@@ -65,7 +66,7 @@ class TrashController extends Controller {
 
 	public function restoreAllTrash() {
 		Schedule::onlyTrashed()->restore();
-		Session::flash( 'alertSuccess', 'All Trash Restored Successfully' );
+		Session::flash( 'alertSuccess', trans('fi.trash_restore_success' ));
 
 		return redirect()->route( 'scheduler.tableevent' );
 	}
@@ -77,6 +78,7 @@ class TrashController extends Controller {
 			$delschedule->delete();
 
 		}
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
 
 	}
 

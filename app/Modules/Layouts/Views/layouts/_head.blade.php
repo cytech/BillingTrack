@@ -14,7 +14,7 @@
 <link href="{{ asset('assets/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
 <!-- Custom CSS -->
 {!! Html::style('css/sb-admin-2.min.css') !!}
-{!! Html::style('css/jquery-ui-cupertino.min.css') !!}
+{!! Html::style('css/jquery-ui-themes/cupertino/jquery-ui-cupertino.min.css') !!}
 
 @if (file_exists(base_path('custom/custom.css')))
     <link href="{{ asset('custom/custom.css') }}" rel="stylesheet" type="text/css"/>

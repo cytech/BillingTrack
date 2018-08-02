@@ -1,21 +1,26 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <div class="container col-lg-12">
-        <div class="row">
-            <div class="col-lg-12">
-                <a href="{!! route('scheduler.tableeventcreate') !!}" class="btn btn-success std-actions" ><i
-                            class="fa fa-fw fa-plus"></i> {{ trans('fi.create_event') }}</a>
-            </div>
-            <div class="col-lg-12">
-                <a href="javascript:void(0)" class="btn btn-danger bulk-actions" id="btn-bulk-trash"><i
-                            class="fa fa-trash-o"></i> {{ trans('fi.bulk_event_trash') }}</a>
-            </div>
+    <section class="content-header">
+        <h1 class="pull-left">{{ trans('fi.events') }}</h1>
+        <div class="pull-right">
+
+            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-trash"><i
+                        class="fa fa-trash"></i> {{ trans('fi.bulk_event_trash') }}</a>
+            {{--<div class="btn-group">--}}
+                {{--{!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}--}}
+                {{--{!! Form::select('company_profile', $companyProfiles, request('company_profile'), ['class' => 'workorder_filter_options form-control ']) !!}--}}
+                {{--{!! Form::close() !!}--}}
+            {{--</div>--}}
+            <a href="{!! route('scheduler.tableeventcreate') !!}" class="btn btn-primary "><i
+                        class="fa fa-fw fa-plus"></i> {{ trans('fi.create_event') }}</a>
         </div>
-        <br>
-        <!-- /.row -->
-        <div class="row" ng-app="event" ng-controller="eventDeleteController">
+
+        <div class="clearfix"></div>
+
+    </section>
+    <section class="content">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -27,7 +32,9 @@
                         <table id="dt-filtertable" class="display" cellspacing="0" width="100%">
                             <thead>
                             <tr>
-                                <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
+                                <th>
+                                    <div class="btn-group"><input type="checkbox" id="bulk-select-all"></div>
+                                </th>
                                 <th>{{ trans('fi.title') }}</th>
                                 <th>{{ trans('fi.description') }}</th>
                                 <th>{{ trans('fi.start_date') }}</th>
@@ -46,7 +53,8 @@
                                     <td>{!! $event->end_date !!}</td>
                                     <td>{!! $event->category->name !!}</td>
                                     <td>
-                                        <a class="btn btn-danger delete" ng-click="delete({!! $event->id !!})"><i
+                                        <a class="btn btn-danger delete"
+                                           onclick="deleteConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('scheduler.trashevent', [$event->id]) }}')"><i
                                                     class="fa fa-fw fa-trash-o"></i>{{ trans('fi.trash') }}</a>
                                         <a class="btn btn-primary iframe"
                                            href='{!! route("scheduler.tableeventedit", [$event->id]) !!}'><i
@@ -60,15 +68,9 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+    </section>
 @stop
 @section('javascript')
-    @include('partials._js_eventDeleteController',
-    ['droute'=>'scheduler.trashevent',
-    'pnote'=>trans('fi.event_trashed_success'),
-    'pCnote'=>trans('fi.event_trash_warning')])
-    @include('partials._js_bulk_ajax',
-    ['droute'=>'scheduler.bulk.trash',
-    'pnote'=>trans('fi.bulk_event_trash_success'),
-    'pCnote'=>trans('fi.bulk_event_trash_warning')])
+    @include('partials._js_bulk_ajax')
 @stop
