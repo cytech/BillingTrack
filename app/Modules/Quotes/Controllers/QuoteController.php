@@ -30,7 +30,7 @@ class QuoteController extends Controller
 
         $status = request('status', 'all_statuses');
         $statuses = QuoteStatuses::listsAllFlat();
-        $keyedStatuses = collect(QuoteStatuses::lists())->except(3);
+        $keyedStatuses = collect(QuoteStatuses::lists());//->except(3);
         $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
 
         return $dataTable->render('quotes.index', compact('status','statuses', 'keyedStatuses','companyProfiles'));
@@ -52,6 +52,8 @@ class QuoteController extends Controller
     public function bulkStatus()
     {
         Quote::whereIn('id', request('ids'))->update(['quote_status_id' => request('status')]);
+
+        return response()->json(['success' => 'Successfully Updated Statuses!'], 200);
     }
 
     public function pdf($id)

@@ -35,14 +35,14 @@
 
 
     </style>
-    {!! HTML::style('assets/plugins/fullcalendar/fullcalendar.min.css') !!}
+    {!! Html::style('assets/plugins/fullcalendar/fullcalendar.min.css') !!}
     {{-- bug introduced in laravel collective 5.5 https://github.com/LaravelCollective/html/issues/504 }}
     {{--{!! Html::style('assets/addons/Scheduler/Assets/fullcalendar/dist/fullcalendar.print.min.css',['media'=>'print']) !!}--}}
     <link href="/assets/plugins/fullcalendar/fullcalendar.print.min.css" rel="stylesheet" type="text/css" media="print" />
-    {!! HTML::script('assets/plugins/moment/moment.min.js') !!}
+    {!! Html::script('assets/plugins/moment/moment.min.js') !!}
     {{-- customized to allow month view sort by category/start--}}
-    {!! HTML::script('js/fullcalendar.mod.min.js') !!}
-    {!! HTML::script('assets/plugins/jquery-validation/jquery.validate.min.js') !!}
+    {!! Html::script('js/fullcalendar.mod.min.js') !!}
+    {!! Html::script('assets/plugins/jquery-validation/jquery.validate.min.js') !!}
 
     <script>
         $(document).ready(function () {
@@ -308,7 +308,7 @@
                     $("#editOID").val(event.oid);
                     $("#editStart").val(event.start._i);
                     $("#editEnd").val(event.end._i);
-                    $("#editCategory").val(event.category);//defined inside laravel form
+                    $("#editCategory").val(event.category);//defined inside calendar.blade
                     $('#editEvent').dialog({
                         width: 500,
                         position: {my: 'center top', at: 'center+100 top+200', of: window}
@@ -379,10 +379,10 @@
                         description: "{!! addslashes($event->description) !!}",
                         isrecurring: "{!! $event->isRecurring !!}",
                         category: "{!! $event->category_id !!}",
-                        @if($event->category_id)
+                        @isset($event->category_id)
                         color: "{!! $catbglist[$event->category_id] !!}",
                         textColor: "{!! $cattxlist[$event->category_id] !!}",
-                        @endif
+                        @endisset
                         url: "{!! $event->url !!}",
                         willcall: "{!! $event->will_call !!}",
                         //occurrences
@@ -434,10 +434,10 @@
                         @isset($coreevent->will_call)
                         willcall: "{!! $coreevent->will_call !!}",
                         @endisset
-                        @if($coreevent->category_id)
+                        @isset($coreevent->category_id)
                         color: "{!! $catbglist[$coreevent->category_id] !!}",
                         textColor: "{!! $cattxlist[$coreevent->category_id] !!}",
-                        @endif
+                        @endisset
                         start: "{!! $coreevent->start !!}",
                         @isset($coreevent->resources)
                         resource: [

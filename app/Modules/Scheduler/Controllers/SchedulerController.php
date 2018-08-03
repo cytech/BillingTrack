@@ -93,7 +93,7 @@ class SchedulerController extends Controller
 
         $data['status'] = (request('status')) ?: 'now';
 
-        $data['events'] = Schedule::withOccurrences()->with('resources')->whereDate('start_date', '>=',
+        $data['events'] = Schedule::withOccurrences()->with('resources','reminders')->whereDate('start_date', '>=',
                             Carbon::now()->subDays(config('fi.schedulerPastdays')))->get();//->last();
         $data['categories'] = Category::pluck('name','id');
         $data['catbglist'] = Category::pluck('bg_color','id');
@@ -114,7 +114,7 @@ class SchedulerController extends Controller
                  ->where(function ($query) {$query->sentorapproved();})
                  ->with('client', 'workorderItems.employees'),
             'invoice' => Invoice::sent()->with('client'),
-            'payment' => Payment::with(['invoice']),
+            'payment' => Payment::with(['invoice', 'paymentMethod']),
             'expense' => Expense::status('not_billed')->with(['category']),
             'project' => TimeTrackingProject::statusid('1'),
             'task'    => TimeTrackingTask::unbilled()->with(['project', 'timers']),

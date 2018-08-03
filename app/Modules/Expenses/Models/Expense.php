@@ -230,7 +230,7 @@ class Expense extends Model
                     $query->where('invoice_id', '<>', 0);
                     break;
                 case 'not_billed':
-                    $query->where('client_id', '<>', 0)->where('invoice_id', '=', 0);
+                    $query->where('client_id', '<>', 0)->where('invoice_id', '=', 0)->orWhere('invoice_id', '=', null);
                     break;
                 case 'not_billable':
                     $query->where('client_id', 0);
