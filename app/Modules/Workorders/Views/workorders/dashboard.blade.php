@@ -20,7 +20,7 @@
                     <li>
                         <a href="javascript:void(0)" class="create-workorder"> {{ trans('fi.create_workorder') }}</a></li>
                     <li>
-                        <a href="{!! route('workorders.index',['status' => config('workorder_settings.statusFilter')]) !!}" >
+                        <a href="{!! route('workorders.index',['status' => config('fi.workorderStatusFilter')]) !!}" >
                             {{ trans('fi.workorder_table') }}</a></li>
                     <li><a href="{!! route('employees.index') !!}">{{ trans('fi.employees') }}</a>
                     </li>

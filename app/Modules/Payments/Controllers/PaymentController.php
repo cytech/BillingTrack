@@ -102,5 +102,6 @@ class PaymentController extends Controller
     public function bulkDelete()
     {
         Payment::destroy(request('ids'));
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
     }
 }

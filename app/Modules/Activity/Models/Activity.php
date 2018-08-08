@@ -50,6 +50,25 @@ class Activity extends Model
 
                     break;
 
+                case 'FI\Modules\Workorders\Models\Workorder':
+
+                    switch ($this->activity)
+                    {
+                        case 'public.viewed':
+                            return trans('fi.activity_workorder_viewed', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
+                            break;
+
+                        case 'public.approved':
+                            return trans('fi.activity_workorder_approved', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
+                            break;
+
+                        case 'public.rejected':
+                            return trans('fi.activity_workorder_rejected', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
+                            break;
+                    }
+
+                    break;
+
                 case 'FI\Modules\Invoices\Models\Invoice':
 
                     switch ($this->activity)

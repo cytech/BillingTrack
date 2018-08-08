@@ -10,9 +10,9 @@
         <li><a href="javascript:void(0)" class="email-workorder" data-workorder-id="{{ $id }}"
                data-redirect-to="{{ request()->fullUrl() }}"><i
                         class="fa fa-envelope"></i> {{ trans('fi.email') }}</a></li>
-        {{--<li><a href="{{ route('clientCenter.public.workorder.show', [$url_key]) }}"--}}
-               {{--target="_blank" id="btn-public-workorder"><i--}}
-                        {{--class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>--}}
+        <li><a href="{{ route('clientCenter.public.workorder.show', [$url_key]) }}"
+               target="_blank" id="btn-public-workorder"><i
+                        class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
         <li><a href="#"
                onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('workorders.delete', [$id]) }}');"><i
                         class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>

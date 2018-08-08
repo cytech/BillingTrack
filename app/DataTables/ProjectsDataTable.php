@@ -60,7 +60,7 @@ class ProjectsDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px'])
             //->parameters($this->getBuilderParameters());
-            ->parameters(['order' => [1, 'desc']]);
+            ->parameters(['order' => [5, 'desc']]);
     }
 
     /**

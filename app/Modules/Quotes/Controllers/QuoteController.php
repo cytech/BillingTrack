@@ -47,13 +47,14 @@ class QuoteController extends Controller
     public function bulkDelete()
     {
         Quote::destroy(request('ids'));
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
     }
 
     public function bulkStatus()
     {
         Quote::whereIn('id', request('ids'))->update(['quote_status_id' => request('status')]);
 
-        return response()->json(['success' => 'Successfully Updated Statuses!'], 200);
+        return response()->json(['success' => trans('status_successfully_updated')], 200);
     }
 
     public function pdf($id)

@@ -30,7 +30,7 @@ class WorkorderToInvoice
             'number'             => Group::generateNumber($groupId),
             'user_id'           => $workorder->user_id,
             'invoice_status_id' => InvoiceStatuses::getStatusId('draft'),
-            'terms'             => ((config('workorder_settings.convertWorkorderTerms') == 'workorder') ? $workorder->terms : config('fi.invoiceTerms')),
+            'terms'             => ((config('fi.convertWorkorderTerms') == 'workorder') ? $workorder->terms : config('fi.invoiceTerms')),
             'footer'            => $workorder->footer,
             'currency_code'     => $workorder->currency_code,
             'exchange_rate'     => $workorder->exchange_rate,

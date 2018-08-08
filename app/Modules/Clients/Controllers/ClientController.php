@@ -127,6 +127,7 @@ class ClientController extends Controller
     public function bulkDelete()
     {
         Client::destroy(request('ids'));
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
     }
 
     public function ajaxLookup()

@@ -27,13 +27,15 @@
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
-
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
+            {{--<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">--}}
+                {{--<span class="sr-only">Toggle navigation</span>--}}
+                {{--<span class="icon-bar"></span>--}}
+                {{--<span class="icon-bar"></span>--}}
+                {{--<span class="icon-bar"></span>--}}
+            {{--</a>--}}
+            <ul class="nav navbar-nav">
+                <li><a href="#" class="nav-link" data-toggle="push-menu" ><i class="fa fa-bars"></i></a></li>
+            </ul>
 
             @yield('header')
 

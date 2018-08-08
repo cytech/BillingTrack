@@ -25,6 +25,7 @@ class CustomFields
             'company_profiles'   => trans('fi.company_profiles'),
             'expenses'           => trans('fi.expenses'),
             'invoices'           => trans('fi.invoices'),
+            'workorders'         => trans('fi.workorders'),
             'quotes'             => trans('fi.quotes'),
             'recurring_invoices' => trans('fi.recurring_invoices'),
             'payments'           => trans('fi.payments'),

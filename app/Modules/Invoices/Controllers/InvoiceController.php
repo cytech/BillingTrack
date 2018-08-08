@@ -47,6 +47,7 @@ class InvoiceController extends Controller
     public function bulkDelete()
     {
         Invoice::destroy(request('ids'));
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
     }
 
     public function bulkStatus()
@@ -54,6 +55,7 @@ class InvoiceController extends Controller
         Invoice::whereIn('id', request('ids'))
             ->where('invoice_status_id', '<>', InvoiceStatuses::getStatusId('paid'))
             ->update(['invoice_status_id' => request('status')]);
+        return response()->json(['success' => trans('status_successfully_updated')], 200);
     }
 
     public function pdf($id)

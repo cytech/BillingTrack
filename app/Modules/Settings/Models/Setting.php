@@ -156,6 +156,8 @@ class Setting extends Model
             'upcomingPaymentNoticeEmailBody',
             'quoteApprovedEmailBody',
             'quoteRejectedEmailBody',
+            'workorderApprovedEmailBody',
+            'workorderRejectedEmailBody',
             'paymentReceiptBody',
             'quoteEmailSubject',
             'invoiceEmailSubject',

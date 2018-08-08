@@ -81,7 +81,7 @@ class InvoicesDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px'])
             //->parameters($this->getBuilderParameters());
-            ->parameters(['order' => [2, 'asc']]);
+            ->parameters(['order' => [3, 'desc']]);
     }
 
     /**

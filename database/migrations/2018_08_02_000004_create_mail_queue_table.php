@@ -33,7 +33,7 @@ class CreateMailQueueTable extends Migration
             $table->string('subject');
             $table->longText('body');
             $table->tinyInteger('attach_pdf');
-            $table->tinyInteger('sent');
+            $table->tinyInteger('sent')->default(0);
             $table->text('error')->nullable()->default(null);
             $table->softDeletes();
             $table->nullableTimestamps();

@@ -164,6 +164,7 @@
 
 <p><a href="#what-are-email-templates">What are email templates?</a></p>
 <p><a href="#quote-email-template">Quote Email Templates</a></p>
+<p><a href="#workorder-email-template">Workorder Email Templates</a></p>
 <p><a href="#invoice-email-template">Invoice Email Templates</a></p>
 <p><a href="#payment-receipt-email-template">Payment Receipt Email Templates</a></p>
 
@@ -246,6 +247,73 @@
 &lt;p&gt;&lt;a href=&quot;{{ $quote-&gt;public_url }}&quot;&gt;{{ $quote-&gt;public_url }}&lt;/a&gt;&lt;/p&gt;</div>
 
 <hr>
+
+        <span class="anchor" id="workorder-email-template"></span>
+        <h3>Workorder Email Template</h3>
+
+        <p>The variables listed below can be used in the following fields in System Settings on the Email tab:</p>
+
+        <ul>
+            <li><strong>Workorder Email Subject</strong></li>
+            <li><strong>Default Workorder Email Body</strong></li>
+            <li><strong>Workorder Approved Email Body</strong></li>
+            <li><strong>Workorder Rejected Email Body</strong></li>
+        </ul>
+
+        <ul>
+            <li><strong>Workorder Information</strong>
+                <ul>
+                    <li>Issue Date: {{ $workorder->formatted_created_at }}</li>
+                    <li>Expiration Date: {{ $workorder->formatted_expires_at }}</li>
+                    <li>Number: {{ $workorder->number }}</li>
+                    <li>Status: {{ $workorder->status_text }}</li>
+                    <li>Summary: {{ $workorder->summary }}</li>
+                    <li>Public URL: {{ $workorder->public_url }}</li>
+                    <li>Terms: {{ $workorder->formatted_terms }}</li>
+                    <li>Footer: {{ $workorder->formatted_footer }}</li>
+                    <li>Total Amount: {{ $workorder->amount->formatted_total }}</li>
+                </ul>
+            </li>
+            <li><strong>Client Information</strong>
+                <ul>
+                    <li>Name: {{ $workorder->client->name }}</li>
+                    <li>Address: {{ $workorder->client->formatted_address }}</li>
+                    <li>Phone: {{ $workorder->client->phone }}</li>
+                    <li>Fax: {{ $workorder->client->fax }}</li>
+                    <li>Mobile: {{ $workorder->client->mobile }}</li>
+                    <li>Email: {{ $workorder->client->email }}</li>
+                    <li>Website: {{ $workorder->client->web }}</li>
+                </ul>
+            </li>
+            <li><strong>User Account Information</strong>
+                <ul>
+
+                    <li>Name: {{ $workorder->user->name }}</li>
+                    <li>Company: {{ $workorder->companyProfile->company }}</li>
+                    <li>Address: {{ $workorder->user->formatted_address }}</li>
+                    <li>Phone: {{ $workorder->user->phone }}</li>
+                    <li>Fax: {{ $workorder->user->fax }}</li>
+                    <li>Mobile: {{ $workorder->user->mobile }}</li>
+                    <li>Website: {{ $workorder->user->web }}</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>Example Subject:</p>
+
+        <div class="well well-sm">
+            Workorder #{{ $workorder-&gt;number }}</div>
+
+        <br>
+
+        <p>Example Body:</p>
+
+        <div class="well well-sm">
+            &lt;p&gt;To view your workorder from {{ $workorder-&gt;user-&gt;name }} for {{ $workorder-&gt;amount-&gt;formatted_total }}, click the link below:&lt;/p&gt;<br />
+            <br />
+            &lt;p&gt;&lt;a href=&quot;{{ $workorder-&gt;public_url }}&quot;&gt;{{ $workorder-&gt;public_url }}&lt;/a&gt;&lt;/p&gt;</div>
+
+        <hr>
 
 <span class="anchor" id="invoice-email-template"></span>
 <h3>Invoice Email Template</h3>

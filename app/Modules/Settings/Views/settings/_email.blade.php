@@ -214,6 +214,23 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>{{ trans('fi.workorder_approved_email_body') }}: </label>
+            {!! Form::textarea('setting[workorderApprovedEmailBody]', config('fi.workorderApprovedEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
+            <span class="help-block"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#workorder-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>{{ trans('fi.workorder_rejected_email_body') }}: </label>
+            {!! Form::textarea('setting[workorderRejectedEmailBody]', config('fi.workorderRejectedEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
+            <span class="help-block"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#workorder-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <label>{{ trans('fi.payment_receipt_email_subject') }}: </label>
     {!! Form::text('setting[paymentReceiptEmailSubject]', config('fi.paymentReceiptEmailSubject'), ['class' => 'form-control']) !!}

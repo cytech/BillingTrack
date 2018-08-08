@@ -25,6 +25,11 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('clientCenter.workorders') }}">
+                <i class="fa fa-file-text-o"></i> <span>{{ trans('fi.workorders') }}</span>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('clientCenter.invoices') }}">
                 <i class="fa fa-file-text"></i> <span>{{ trans('fi.invoices') }}</span>
             </a>

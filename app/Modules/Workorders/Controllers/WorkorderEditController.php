@@ -92,12 +92,12 @@ class WorkorderEditController extends Controller
         }
 
         //legacy/external calendar
-        if (config('workorder_settings.enableLegacyCalendar') == 1) {
+        if (config('fi.enableLegacyCalendar') == 1) {
 			//hardcode dbconf.php and cal2ical requirement
 			if(file_exists('custom/addons/Workorders/dbconf.php')) {
 				require_once( "dbconf.php" );
 				$mysqlical = new mysqli( $host, $user, $pass, $caldbase );
-				$filename  = config( 'workorder_settings.legacyCalendarScript' );
+				$filename  = config( 'fi.legacyCalendarScript' );
 				if ( $file = file_get_contents( $filename ) ) {
 					foreach ( explode( ";", $file ) as $query ) {
 						$query = trim( $query );

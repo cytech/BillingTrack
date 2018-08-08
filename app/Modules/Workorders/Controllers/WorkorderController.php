@@ -70,6 +70,7 @@ class WorkorderController extends Controller
     public function bulkDelete()
     {
         Workorder::destroy(request('ids'));
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
     }
 
     public function bulkStatus()
@@ -80,6 +81,7 @@ class WorkorderController extends Controller
 		    $workorder = Workorder::findOrFail($cid);
 	    	event(new WorkorderModified($workorder));
 	    }
+        return response()->json(['success' => trans('status_successfully_updated')], 200);
 
     }
 

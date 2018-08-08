@@ -114,7 +114,6 @@ class SetupController extends Controller
         //create connection to oldschema
         $otfdb = new OTFDB(['database' => $oldschema]);
 
-
         //truncate seeded tables
         DB::statement('set foreign_key_checks = 0');
         DB::statement('truncate table users');
@@ -191,6 +190,34 @@ class SetupController extends Controller
             'workorders' => 'id, created_at, updated_at, workorder_date, invoice_id, user_id, client_id, group_id, workorder_status_id, expires_at, number, footer, url_key, currency_code, exchange_rate, terms, template, summary, viewed, discount, job_date, start_time, end_time, will_call, company_profile_id, deleted_at',
             'workorders_custom' => 'workorder_id, created_at, updated_at',
         ];
+
+        //have to check for custom columns because FusionInvoice creates them on demand
+        $customtables = ['clients_custom', 'company_profiles_custom', 'expenses_custom', 'invoices_custom', 'payments_custom',
+            'quotes_custom', 'recurring_invoices_custom', 'users_custom', 'workorders_custom'];
+
+        foreach ($customtables as $table) {
+            $addcolumns[$table] = '';
+            for ($i = 1; $i <= 10; $i++) { //10 is number of custom columns to look for, there is no limit in FusionInvoice
+                $testcolumn = 'column_' . $i;
+                if ($otfdb->getConnection()->getSchemaBuilder()->hasColumn($table, $testcolumn)) {
+                    $type = $otfdb->getConnection()->getSchemaBuilder()->getColumnType($table, $testcolumn);
+                    Schema::table($table, function ($t) use ($type, $testcolumn){
+                        if ($type == 'text')
+                        {
+                            $t->text($testcolumn)->nullable();
+                        }
+                        else
+                        {
+                            $t->string($testcolumn)->nullable();
+                        }
+                    });
+                    $addcolumns[$table] .= ', ' . $testcolumn ;
+                }
+            }
+            if (!empty( $addcolumns[$table])){
+                $oldtables[$table] = substr($table, 0,-8) . '_id, created_at, updated_at'.  $addcolumns[$table];
+            }
+        }
 
         //check if workorder addon installed by looking for invoice_items->resource_table column
         if ($otfdb->getConnection()->getSchemaBuilder()->hasColumn('invoice_items','resource_table')){

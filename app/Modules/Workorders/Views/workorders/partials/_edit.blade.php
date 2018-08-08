@@ -351,7 +351,7 @@
     @if ($customFields->count())
         <div class="row">
             <div class="col-md-12">
-                @include('workorders.partials._custom_fields_unbound', ['object' => $workorder])
+                @include('custom_fields._custom_fields_unbound', ['object' => $workorder])
             </div>
         </div>
     @endif

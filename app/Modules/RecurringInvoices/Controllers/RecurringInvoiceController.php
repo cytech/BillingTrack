@@ -37,6 +37,7 @@ class RecurringInvoiceController extends Controller
     public function bulkDelete()
     {
         RecurringInvoice::destroy(request('ids'));
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
     }
 
     public function delete($id)

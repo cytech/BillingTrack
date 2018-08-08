@@ -47,7 +47,7 @@
                         <label class="col-sm-3 control-label">{{ trans('fi.group') }}</label>
 
                         <div class="col-sm-9">
-                            {!! Form::select('group_id', $groups, config('workorder_settings.workorderGroup'), ['id' => 'create_group_id', 'class' => 'form-control']) !!}
+                            {!! Form::select('group_id', $groups, config('fi.workorderGroup'), ['id' => 'create_group_id', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
