@@ -14,9 +14,12 @@ namespace FI\Modules\MailQueue\Models;
 use FI\Support\DateFormatter;
 use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MailQueue extends Model
 {
+    use SoftDeletes;
+
     use Sortable;
 
     protected $table = 'mail_queue';

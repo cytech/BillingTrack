@@ -12,9 +12,14 @@
 namespace FI\Modules\CustomFields\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CompanyProfileCustom extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $table = 'company_profiles_custom';
 
     protected $primaryKey = 'company_profile_id';

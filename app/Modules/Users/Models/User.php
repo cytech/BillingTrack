@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Users\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\UserCreated;
 use FI\Events\UserDeleted;
 use FI\Traits\Sortable;
@@ -19,11 +20,16 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, Sortable;
+    use Authenticatable, CanResetPassword, Sortable, SoftDeletes, SoftCascadeTrait;
+
+    protected $softCascade = ['custom'];
+
+    protected $dates = ['deleted_at'];
 
     protected $table = 'users';
 
@@ -44,10 +50,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             event(new UserCreated($user));
         });
 
-        static::deleted(function ($user)
+        /*static::deleted(function ($user)
         {
             event(new UserDeleted($user));
-        });
+        });*/
     }
 
     /*

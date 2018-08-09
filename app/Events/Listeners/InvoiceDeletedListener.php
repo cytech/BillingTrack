@@ -17,7 +17,7 @@ class InvoiceDeletedListener
 
     public function handle(InvoiceDeleted $event)
     {
-        foreach ($event->invoice->items as $item)
+        /*foreach ($event->invoice->items as $item)
         {
             $item->delete();
         }
@@ -25,25 +25,30 @@ class InvoiceDeletedListener
         foreach ($event->invoice->payments as $payment)
         {
             $payment->delete();
-        }
+        }*/
 
         foreach ($event->invoice->activities as $activity)
         {
-            $activity->delete();
+            ($event->isForceDeleting()) ? $activity->onlyTrashed()->forceDelete() : $activity->delete();
+        }
+
+        foreach ($event->invoice->attachments as $attachment)
+        {
+            ($event->isForceDeleting()) ? $attachment->onlyTrashed()->forceDelete() : $attachment->delete();
         }
 
         foreach ($event->invoice->mailQueue as $mailQueue)
         {
-            $mailQueue->delete();
+            ($event->isForceDeleting()) ? $mailQueue->onlyTrashed()->forceDelete() : $mailQueue->delete();
         }
 
         foreach ($event->invoice->notes as $note)
         {
-            $note->delete();
+            ($event->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
         }
 
-        $event->invoice->custom()->delete();
-        $event->invoice->amount()->delete();
+//        $event->invoice->custom()->delete();
+//        $event->invoice->amount()->delete();
 
         Quote::where('invoice_id', $event->invoice->id)->update(['invoice_id' => 0]);
 

@@ -28,7 +28,8 @@ class Client extends Model
     use SoftDeletes;
     use SoftCascadeTrait;
 
-    protected $softCascade = ['contacts', 'custom', 'invoices', 'workorders', 'quotes',  'projects','recurringInvoices'];
+    protected $softCascade = ['contacts', 'custom', 'invoices', 'workorders', 'quotes',  'projects','recurringInvoices',
+                            'merchant', 'attachments'];
 
     protected $dates = ['deleted_at'];
 
@@ -57,10 +58,10 @@ class Client extends Model
             event(new ClientSaving($client));
         });
 
-       /* static::deleted(function ($client)
+        static::deleted(function ($client)
         {
             event(new ClientDeleted($client));
-        });*/
+        });
     }
 
     /*
@@ -161,10 +162,11 @@ class Client extends Model
         return $this->hasMany('FI\Modules\RecurringInvoices\Models\RecurringInvoice');
     }
 
-    public function user()
+    //in original FI but not used
+    /*public function user()
     {
         return $this->hasOne('FI\Modules\Users\Models\User');
-    }
+    }*/
 
     /*
     |--------------------------------------------------------------------------

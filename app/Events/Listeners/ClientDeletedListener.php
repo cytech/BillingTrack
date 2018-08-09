@@ -13,7 +13,7 @@ class ClientDeletedListener
 
     public function handle(ClientDeleted $event)
     {
-        foreach ($event->client->quotes as $quote)
+        /*foreach ($event->client->quotes as $quote)
         {
             $quote->delete();
         }
@@ -26,36 +26,42 @@ class ClientDeletedListener
         foreach ($event->client->recurringInvoices as $recurringInvoice)
         {
             $recurringInvoice->delete();
-        }
+        }*/
 
         foreach ($event->client->notes as $note)
         {
-            $note->delete();
+            ($event->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
+        }
+
+        foreach ($event->client->attachments as $attachment)
+        {
+            ($event->isForceDeleting()) ? $attachment->onlyTrashed()->forceDelete() : $attachment->delete();
         }
 
         foreach ($event->client->expenses as $expense)
         {
-            $expense->delete();
+            ($event->isForceDeleting()) ? $expense->onlyTrashed()->forceDelete() : $expense->delete();
         }
 
-        foreach ($event->client->contacts as $contact)
+        /*foreach ($event->client->contacts as $contact)
         {
             $contact->delete();
-        }
+        }*/
 
-        if ($event->client->user)
+        //not used
+        /*if ($event->client->user)
         {
             $event->client->user->delete();
-        }
+        }*/
 
-        if ($event->client->custom)
+        /*if ($event->client->custom)
         {
             $event->client->custom->delete();
-        }
+        }*/
 
-        if ($event->client->merchant)
+        /*if ($event->client->merchant)
         {
             $event->client->merchant->delete();
-        }
+        }*/
     }
 }

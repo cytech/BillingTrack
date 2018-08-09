@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Expenses\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\CheckAttachment;
 use FI\Events\ExpenseCreated;
 use FI\Events\ExpenseDeleting;
@@ -25,6 +26,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Expense extends Model
 {
     use SoftDeletes;
+
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['attachments', 'custom'];
 
     protected $table = 'expenses';
 

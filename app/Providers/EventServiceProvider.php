@@ -48,9 +48,9 @@ class EventServiceProvider extends ServiceProvider
             'FI\Events\Listeners\CompanyProfileCreatingListener',
         ],
 
-        'FI\Events\CompanyProfileDeleted' => [
+/*        'FI\Events\CompanyProfileDeleted' => [
             'FI\Events\Listeners\CompanyProfileDeletedListener',
-        ],
+        ],*/
 
         'FI\Events\CompanyProfileSaving' => [
             'FI\Events\Listeners\CompanyProfileSavingListener',

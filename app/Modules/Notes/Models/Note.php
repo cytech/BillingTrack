@@ -13,9 +13,14 @@ namespace FI\Modules\Notes\Models;
 
 use FI\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Note extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $table = 'notes';
 
     protected $guarded = ['id'];

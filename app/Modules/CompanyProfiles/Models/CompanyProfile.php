@@ -11,6 +11,7 @@
 
 namespace FI\Modules\CompanyProfiles\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\CompanyProfileCreated;
 use FI\Events\CompanyProfileCreating;
 use FI\Events\CompanyProfileDeleted;
@@ -19,9 +20,16 @@ use FI\Modules\Expenses\Models\Expense;
 use FI\Modules\Invoices\Models\Invoice;
 use FI\Modules\Quotes\Models\Quote;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CompanyProfile extends Model
 {
+    use SoftDeletes;
+
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['custom'];
+
     protected $guarded = ['id'];
 
     public static function boot()
@@ -43,10 +51,10 @@ class CompanyProfile extends Model
             event(new CompanyProfileCreated($companyProfile));
         });
 
-        static::deleted(function ($companyProfile)
+        /*static::deleted(function ($companyProfile)
         {
             event(new CompanyProfileDeleted($companyProfile));
-        });
+        });*/
     }
 
     public static function getList()

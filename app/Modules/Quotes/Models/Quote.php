@@ -32,7 +32,7 @@ class Quote extends Model
 
     use SoftCascadeTrait;
 
-    protected $softCascade = ['quoteItems', 'custom', 'amount'];
+    protected $softCascade = ['quoteItems', 'custom', 'amount', 'activities', 'attachments', 'mailQueue', 'notes'];
 
     protected $guarded = ['id'];
 
@@ -54,10 +54,10 @@ class Quote extends Model
             event(new QuoteCreated($quote));
         });
 
-       /* static::deleted(function ($quote)
+        static::deleted(function ($quote)
         {
             event(new QuoteDeleted($quote));
-        });*/
+        });
     }
 
     /*

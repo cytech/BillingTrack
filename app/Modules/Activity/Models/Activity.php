@@ -13,9 +13,14 @@ namespace FI\Modules\Activity\Models;
 
 use FI\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Activity extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $table = 'activities';
 
     protected $guarded = ['id'];

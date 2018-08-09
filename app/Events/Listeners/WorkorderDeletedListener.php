@@ -8,18 +8,13 @@ use FI\Modules\Workorders\Repositories\WorkorderToSchedulerRepository;
 
 class WorkorderDeletedListener
 {
-//    public function __construct(WorkorderToSchedulerRepository $workorderToSchedulerRepository)
-//    {
-//        $this->workorderToSchedulerRepository = $workorderToSchedulerRepository;
-//    }
+    public function __construct()
+    {
+        //
+    }
 
     public function handle(WorkorderDeleted $event)
     {
-        // Delete the event in Scheduler
-//        if (config('fi.scheduler')) {
-//            $this->workorderToSchedulerRepository->delete($event->workorder->id);
-//        }
-
        /* foreach ($event->workorder->items as $item)
         {
             $item->delete();
@@ -27,17 +22,22 @@ class WorkorderDeletedListener
 
         foreach ($event->workorder->activities as $activity)
         {
-            $activity->delete();
+            ($event->isForceDeleting()) ? $activity->onlyTrashed()->forceDelete() : $activity->delete();
+        }
+
+        foreach ($event->workorder->attachments as $attachment)
+        {
+            ($event->isForceDeleting()) ? $attachment->onlyTrashed()->forceDelete() : $attachment->delete();
         }
 
         foreach ($event->workorder->mailQueue as $mailQueue)
         {
-            $mailQueue->delete();
+            ($event->isForceDeleting()) ? $mailQueue->onlyTrashed()->forceDelete() : $mailQueue->delete();
         }
 
         foreach ($event->workorder->notes as $note)
         {
-            $note->delete();
+            ($event->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
         }
 
         /*$event->workorder->custom()->delete();*/

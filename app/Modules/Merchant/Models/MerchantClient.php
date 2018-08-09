@@ -3,9 +3,12 @@
 namespace FI\Modules\Merchant\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class MerchantClient extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'merchant_clients';
 
     protected $guarded = ['id'];

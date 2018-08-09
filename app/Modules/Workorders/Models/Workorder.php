@@ -27,10 +27,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Workorder extends Model
 {
-    use SoftDeletes;
-    use SoftCascadeTrait;
+    use SoftDeletes, SoftCascadeTrait;
 
-    protected $softCascade = ['workorderItems', 'custom', 'amount'];
+    protected $softCascade = ['workorderItems', 'custom', 'amount', 'activities', 'attachments', 'mailQueue', 'notes'];
 
     protected $guarded = ['id'];
 
@@ -52,12 +51,10 @@ class Workorder extends Model
             event(new WorkorderCreated($workorder));
         });
 
-//        static::deleted(function($workorder)
-//        {
-//	        if ($workorder->forceDeleting) {
-//		        event( new WorkorderDeleted( $workorder ) );
-//	        }
-//        });
+        static::deleted(function($workorder)
+        {
+            event( new WorkorderDeleted( $workorder ) );
+        });
     }
 
     /*

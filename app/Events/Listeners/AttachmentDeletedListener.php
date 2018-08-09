@@ -17,7 +17,7 @@ class AttachmentDeletedListener
 
         if (file_exists($filePath))
         {
-            unlink($filePath);
+            if ($event->isForceDeleteing()){ unlink($filePath);}
         }
     }
 }

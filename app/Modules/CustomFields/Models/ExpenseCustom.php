@@ -12,9 +12,14 @@
 namespace FI\Modules\CustomFields\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ExpenseCustom extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $table = 'expenses_custom';
 
     protected $primaryKey = 'expense_id';

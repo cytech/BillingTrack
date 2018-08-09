@@ -15,12 +15,12 @@ class ExpenseDeletingListener
     {
         foreach ($event->expense->attachments as $attachment)
         {
-            $attachment->delete();
+            ($event->isForceDeleting()) ? $attachment->onlyTrashed()->forceDelete() : $attachment->delete();
         }
 
-        if ($event->expense->custom)
+       /* if ($event->expense->custom)
         {
             $event->expense->custom->delete();
-        }
+        }*/
     }
 }

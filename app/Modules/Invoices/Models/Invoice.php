@@ -31,7 +31,7 @@ class Invoice extends Model
     use SoftDeletes;
     use SoftCascadeTrait;
 
-    protected $softCascade = ['quote', 'payments', 'invoiceItems', 'custom', 'amount'];
+    protected $softCascade = ['payments', 'invoiceItems', 'custom', 'amount'];
 
     protected $guarded = ['id'];
 
@@ -53,10 +53,10 @@ class Invoice extends Model
             event(new InvoiceCreated($invoice));
         });
 
-       /* static::deleted(function ($invoice)
+        static::deleted(function ($invoice)
         {
             event(new InvoiceDeleted($invoice));
-        });*/
+        });
     }
 
     /*

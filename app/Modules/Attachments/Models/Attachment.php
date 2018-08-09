@@ -15,9 +15,14 @@ use FI\Events\AttachmentCreating;
 use FI\Events\AttachmentDeleted;
 use FI\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Attachment extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     protected $table = 'attachments';
 
     protected $guarded = ['id'];

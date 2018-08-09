@@ -14,28 +14,29 @@ class QuoteDeletedListener
 
     public function handle(QuoteDeleted $event)
     {
-        foreach ($event->quote->items as $item)
+        /*foreach ($event->quote->items as $item)
         {
             $item->delete();
+        }*/
+
+        foreach ($event->quote->activities as $activity) {
+            ($event->isForceDeleting()) ? $activity->onlyTrashed()->forceDelete() : $activity->delete();
         }
 
-        foreach ($event->quote->activities as $activity)
-        {
-            $activity->delete();
+        foreach ($event->quote->attachments as $attachment){
+            ($event->isForceDeleting()) ? $attachment->onlyTrashed()->forceDelete() : $attachment->delete();
         }
 
-        foreach ($event->quote->mailQueue as $mailQueue)
-        {
-            $mailQueue->delete();
+        foreach ($event->quote->mailQueue as $mailQueue){
+            ($event->isForceDeleting()) ? $mailQueue->onlyTrashed()->forceDelete() : $mailQueue->delete();
         }
 
-        foreach ($event->quote->notes as $note)
-        {
-            $note->delete();
+        foreach ($event->quote->notes as $note){
+            ($event->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
         }
 
-        $event->quote->custom()->delete();
-        $event->quote->amount()->delete();
+//        $event->quote->custom()->delete();
+//        $event->quote->amount()->delete();
 
         $group = Group::where('id', $event->quote->group_id)
             ->where('last_number', $event->quote->number)
