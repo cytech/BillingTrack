@@ -20,9 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WorkorderItem extends Model
 {
-    use SoftDeletes;
-
-    use SoftCascadeTrait;
+    use SoftDeletes, SoftCascadeTrait;
 
     protected $softCascade = ['amount'];
 

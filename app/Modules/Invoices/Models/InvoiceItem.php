@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Invoices\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\InvoiceItemSaving;
 use FI\Events\InvoiceModified;
 use FI\Support\CurrencyFormatter;

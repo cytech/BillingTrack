@@ -603,6 +603,33 @@ class SchedulerController extends Controller
         return response()->json(['success' => true, 'available_employees' => $available_employees,'available_resources' => $available_resources], 200);
     }
 
+    //trash
+    public function trashEvent($id ) {
+        $event = Schedule::find( $id );
+        $event->delete();
+
+        //return 'true';
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+    }
+
+    public function trashReminder( Request $request ) {
+        $event = ScheduleReminder::find( $request->id );
+        $event->delete();
+
+        return back()->with('alertSuccess', trans('fi.reminder_trashed_success'));
+    }
+
+    public function bulkTrash()
+    {
+        foreach (Schedule::whereIn('id',request('ids'))->get() as $delschedule){
+
+            $delschedule->delete();
+
+        }
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+
+    }
+
 	/**
 	 * @param EventRequest $request
 	 *

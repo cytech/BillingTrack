@@ -36,7 +36,7 @@ class CreateScheduleOccurrencesTable extends Migration
             $table->foreign('schedule_id', 'schedule_occurrence_event_id_foreign')
                 ->references('id')->on('schedule')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onUpdate('restrict');
         });
     }
 

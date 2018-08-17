@@ -12,17 +12,16 @@
 namespace FI\Modules\Scheduler\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
+use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-Use Carbon\Carbon;
-
+use Carbon\Carbon;
 
 class Schedule extends Model {
-    use SoftDeletes;
 
-    use SoftCascadeTrait;
+    use SoftDeletes, SoftCascadeTrait, FormAccessible;
 
-    protected $softCascade = ['occurrences', 'reminders', 'resources'];
+    protected $softCascade = ['reminders', 'occurrences', 'resources'];
 
     protected $dates = ['deleted_at'];
 
@@ -59,14 +58,14 @@ class Schedule extends Model {
     }
 
     //getters
-    //necessary here for scope below
-    /*public function getStartDateAttribute() {
+    //below for form model binding
+    public function formStartDateAttribute() {
         return Carbon::parse( $this->attributes['start_date'] )->format( 'Y-m-d H:i' );
     }
 
-    public function getEndDateAttribute() {
+    public function formEndDateAttribute() {
         return Carbon::parse( $this->attributes['end_date'] )->format( 'Y-m-d H:i' );
-    }*/
+    }
 
     //scopes
     public function scopeWithOccurrences($query){

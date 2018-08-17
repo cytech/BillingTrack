@@ -18,6 +18,7 @@ use FI\Modules\CompanyProfiles\Requests\CompanyProfileUpdateRequest;
 use FI\Modules\CustomFields\Models\CustomField;
 use FI\Modules\Invoices\Support\InvoiceTemplates;
 use FI\Modules\Quotes\Support\QuoteTemplates;
+use FI\Modules\Workorders\Support\WorkorderTemplates;
 use FI\Traits\ReturnUrl;
 
 class CompanyProfileController extends Controller
@@ -38,6 +39,7 @@ class CompanyProfileController extends Controller
             ->with('editMode', false)
             ->with('invoiceTemplates', InvoiceTemplates::lists())
             ->with('quoteTemplates', QuoteTemplates::lists())
+            ->with('workorderTemplates', WorkorderTemplates::lists())
             ->with('customFields', CustomField::forTable('company_profiles')->get());
     }
 
@@ -71,6 +73,7 @@ class CompanyProfileController extends Controller
             ->with('companyProfileInUse', CompanyProfile::inUse($id))
             ->with('invoiceTemplates', InvoiceTemplates::lists())
             ->with('quoteTemplates', QuoteTemplates::lists())
+            ->with('workorderTemplates', WorkorderTemplates::lists())
             ->with('customFields', CustomField::forTable('company_profiles')->get());
     }
 

@@ -3,15 +3,16 @@
 @section('content')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     @include('layouts._alerts')
-    <div class="container col-lg-12">
-        <div class="row">
-            <div class="col-lg-12">
-                <a href="{!! route('scheduler.categories.create') !!}" class="btn btn-success"><i
-                            class="fa fa-fw fa-plus"></i> {{ trans('fi.create_category') }}</a>
-            </div>
+    <section class="content-header">
+        <h1 class="pull-left">{{ trans('fi.categories') }}</h1>
+        <div class="pull-right">
+            <a href="{!! route('scheduler.categories.create') !!}" class="btn btn-primary"><i
+                        class="fa fa-fw fa-plus"></i> {{ trans('fi.create_category') }}</a>
         </div>
-        <br/>
 
+        <div class="clearfix"></div>
+    </section>
+    <section class="content">
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
@@ -65,6 +66,7 @@
                 </div>
             </div>
         </div>
+    </section>
 @stop
 @section('javascript')
 

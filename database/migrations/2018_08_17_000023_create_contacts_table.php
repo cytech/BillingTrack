@@ -27,9 +27,9 @@ class CreateContactsTable extends Migration
             $table->unsignedInteger('client_id');
             $table->string('name');
             $table->string('email');
-            $table->tinyInteger('default_to');
-            $table->tinyInteger('default_cc');
-            $table->tinyInteger('default_bcc');
+            $table->tinyInteger('default_to')->default(0);
+            $table->tinyInteger('default_cc')->default(0);
+            $table->tinyInteger('default_bcc')->default(0);
 
             $table->index(["client_id"], 'contacts_client_id_index');
             $table->softDeletes();

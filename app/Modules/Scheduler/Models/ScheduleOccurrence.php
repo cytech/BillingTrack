@@ -30,7 +30,7 @@ class ScheduleOccurrence extends Model {
 
 	protected $dates = ['start_date','end_date', 'deleted_at'];
 
-	protected $appends = ['start_date', 'end_date'];
+	protected $appends = ['formatted_start_date', 'formatted_end_date'];
 
     public function schedule()
     {
@@ -38,11 +38,12 @@ class ScheduleOccurrence extends Model {
     }
 
     //getters
-    public function getStartDateAttribute() {
+
+    public function getFormattedStartDateAttribute() {
         return Carbon::parse( $this->attributes['start_date'] )->format( 'Y-m-d H:i' );
     }
 
-    public function getEndDateAttribute() {
+    public function getFormattedEndDateAttribute() {
         return Carbon::parse( $this->attributes['end_date'] )->format( 'Y-m-d H:i' );
     }
 

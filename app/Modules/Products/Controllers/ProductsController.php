@@ -54,10 +54,10 @@ class ProductController extends Controller
         $products->description = $request->description;
         $products->serialnum = $request->serialnum;
         $products->active = is_null($request->active) ? 0 : $request->active;
-        $products->cost = $request->cost;
+        $products->cost = $request->cost?:0;
         $products->category = $request->category;
         $products->type = $request->type;
-        $products->numstock = $request->numstock;
+        $products->numstock = $request->numstock?:0;
         $products->save();
 
         if (config('fi.restolup')==1){

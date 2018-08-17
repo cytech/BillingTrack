@@ -13,6 +13,10 @@
         <span class="label label-info"><a href="{{ route('invoices.edit', [$quote->invoice_id]) }}" style="color: inherit;">{{ trans('fi.converted_to_invoice') }} {{ $quote->invoice->number }}</a></span>
     @endif
 
+    @if ($quote->workorder)
+        <span class="label label-info"><a href="{{ route('workorders.edit', [$quote->workorder_id]) }}" style="color: inherit;">{{ trans('fi.converted_to_workorder') }} {{ $quote->workorder->number }}</a></span>
+    @endif
+
     <div class="pull-right">
 
         <a href="{{ route('quotes.pdf', [$quote->id]) }}" target="_blank" id="btn-pdf-quote"

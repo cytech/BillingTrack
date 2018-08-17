@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+    @include('layouts._alerts')
     <div class="container col-lg-12">
         <br>
         <nav class="navbar navbar-default ">   {{--bg-primary navbar-default--}}
@@ -95,7 +96,8 @@
             </div>
         </div>
         {{--Reminder table --}}
-        <div class="row col-lg-12" ng-app="event" ng-controller="eventDeleteController">
+        {{--<div class="row col-lg-12" ng-app="event" ng-controller="eventDeleteController">--}}
+        <div class="row col-lg-12" >
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="fa fa-bell-o"></i> {{ trans('fi.reminders') }}</h3>
@@ -113,7 +115,7 @@
                         </thead>
                         <tbody>
                         @foreach($reminders as $reminder)
-                            <tr id="{!! $reminder->id !!}">
+                            <td id="{!! $reminder->id !!}">
                                 <td>{!! $reminder->Schedule->title !!}</td>
                                 <td>{!! $reminder->reminder_text !!}</td>
                                 <td>{!! $reminder->Schedule->occurrences->first()->start_date !!}</td>
@@ -122,8 +124,12 @@
                                         @if($reminder->Schedule->url)
                                             {{ trans('fi.link_to_workorder') }}</a></td>
                                 @else
-                                    <a class="btn btn-danger delete" ng-click="delete({!! $reminder->id !!})"><i
-                                                class="fa fa-fw fa-trash-o"></i>{{ trans('fi.delete') }}</a></td>
+                                   {{-- <a class="btn btn-danger delete" ng-click="delete({!! $reminder->id !!})"><i
+                                                class="fa fa-fw fa-trash-o"></i>{{ trans('fi.delete') }}</a></td>--}}
+
+                                    <a href="#" id="delete-reminder-{{ $reminder->id }}"
+                                       onclick="swalConfirm('{{ trans('fi.reminder_trash_warning') }}', '{{ route('scheduler.trashreminder', $reminder->id) }}');"><i
+                                                class="btn-danger fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></td>
                                 @endif
                             </tr>
                         @endforeach
@@ -194,10 +200,10 @@
             });
         });
     </script>
-    @include('partials._js_eventDeleteController',
+    {{--@include('partials._js_eventDeleteController',
             ['droute'=>'scheduler.trashreminder',
             'pnote'=>trans('fi.reminder_deleted_success'),
-            'pCnote'=>trans('fi.reminder_delete_warning')])
+            'pCnote'=>trans('fi.reminder_delete_warning')])--}}
 @stop
 
 

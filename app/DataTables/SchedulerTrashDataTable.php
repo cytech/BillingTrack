@@ -23,10 +23,10 @@ class SchedulerTrashDataTable extends DataTable
                 return '<input type="checkbox" class="bulk-record" data-id="' . $schedule->id . '">';
             })
             ->editColumn('start_date', function (Schedule $schedule) {
-                return $schedule->latestOccurrence->start_date ;
+                return $schedule->latestOccurrence->formatted_start_date ;
             })
             ->editColumn('end_date', function (Schedule $schedule) {
-                return $schedule->latestOccurrence->end_date ;
+                return $schedule->latestOccurrence->formatted_end_date ;
             })
             ->rawColumns(['start_date', 'end_date','action', 'id']);
     }
@@ -39,9 +39,13 @@ class SchedulerTrashDataTable extends DataTable
      */
     public function query(Schedule $model)
     {
+        /*app('debugbar')->info($model->with(['latestOccurrence' => function ($q) {
+            $q->onlyTrashed();
+        }, 'category'])->select('schedule.*')->onlyTrashed()->get());*/
         return $model->with(['latestOccurrence' => function ($q) {
-            $q->onlyTrashed()->first();
+            $q->onlyTrashed();
         }, 'category'])->select('schedule.*')->onlyTrashed();
+
 
     }
 
@@ -96,14 +100,14 @@ class SchedulerTrashDataTable extends DataTable
                 'data'  => 'description',
             ],
             //WHY relations don't work here...
-            'start_date' /*     => [
-                'name'  => 'latestOccurrence.start_date',
+            'start_date'/*      => [
+                //'name'  => 'latestOccurrence.formatted_start_date',
                 'title' => trans('fi.start_date'),
-                'data'  => 'latestOccurrence.start_date',
+                'data'  => 'latestOccurrence.formatted_start_date',
             ]*/,
             'end_date'/*    => [
                 'title'      => trans('fi.end_date'),
-                'data'       => 'occurrences.end_date',
+                'data'       => 'latestOccurrence.formatted_end_date',
                 'orderable'  => false,
                 'searchable' => false,
             ]*/,

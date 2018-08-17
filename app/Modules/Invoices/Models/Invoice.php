@@ -156,6 +156,11 @@ class Invoice extends Model
         return $this->hasOne('FI\Modules\Quotes\Models\Quote');
     }
 
+    public function workorder()
+    {
+        return $this->hasOne('FI\Modules\Workorders\Models\Workorder');
+    }
+
     public function transactions()
     {
         return $this->hasMany('FI\Modules\Merchant\Models\InvoiceTransaction');

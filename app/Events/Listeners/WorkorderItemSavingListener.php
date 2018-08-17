@@ -28,6 +28,16 @@ class WorkorderItemSavingListener
             $item->display_order = $displayOrder;
         }
 
+        if (is_null($item->tax_rate_id))
+        {
+            $item->tax_rate_id = 0;
+        }
+
+        if (is_null($item->tax_rate_2_id))
+        {
+            $item->tax_rate_2_id = 0;
+        }
+
         if (!$item->resource_id){
             $item->resource_id = 0;
         }

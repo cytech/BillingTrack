@@ -117,6 +117,11 @@ class Workorder extends Model
         return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
     }
 
+    public function quote()
+    {
+        return $this->hasOne('FI\Modules\Quotes\Models\Quote');
+    }
+
     public function mailQueue()
     {
         return $this->morphMany('FI\Modules\MailQueue\Models\MailQueue', 'mailable');

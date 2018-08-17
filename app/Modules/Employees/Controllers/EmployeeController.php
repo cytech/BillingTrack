@@ -56,7 +56,7 @@ class EmployeeController extends Controller
         $employees->full_name = $employees->first_name . ' ' .  $employees->last_name;
         $employees->short_name = $employees->first_name . ' ' . substr($employees->last_name,0,1 ) . '.';
         $employees->title = $request->title;
-        $employees->billing_rate = $request->billing_rate;
+        $employees->billing_rate = $request->billing_rate?:0;
         $employees->schedule = $request->schedule?$request->schedule:0;
         $employees->active = $request->active?$request->active:0;
         $employees->driver = $request->driver?$request->driver:0;
