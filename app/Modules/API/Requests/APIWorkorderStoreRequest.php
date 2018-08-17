@@ -11,7 +11,7 @@
  *
  */
 
-namespace FI\Modules\Workorders\Requests;
+namespace FI\Modules\API\Requests;
 
 use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
 

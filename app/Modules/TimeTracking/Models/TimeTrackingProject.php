@@ -12,6 +12,7 @@
 namespace FI\Modules\TimeTracking\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
+use FI\Events\TimeTrackingProjectCreating;
 use FI\Support\Statuses\TimeTrackingProjectStatuses;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Event;
 class TimeTrackingProject extends Model
 {
     use SoftDeletes;
+
     use SoftCascadeTrait;
 
     protected $softCascade = ['tasks'];
@@ -41,13 +43,13 @@ class TimeTrackingProject extends Model
 
         static::creating(function ($project)
         {
-            Event::fire('timeTracking.project.creating', [$project]);
+            event(new TimeTrackingProjectCreating($project));
         });
 
-        static::deleted(function ($project)
+       /* static::deleted(function ($project)
         {
             Event::fire('timeTracking.project.deleted', [$project]);
-        });
+        });*/
     }
 
     public static function getList($status = null)

@@ -19,6 +19,7 @@ Use Carbon\Carbon;
 
 class Schedule extends Model {
     use SoftDeletes;
+
     use SoftCascadeTrait;
 
     protected $softCascade = ['occurrences', 'reminders', 'resources'];
@@ -31,19 +32,6 @@ class Schedule extends Model {
 
     public $timestamps = true;
 
-	//necessary here for scope below
-	public function getStartDateAttribute() {
-		return Carbon::parse( $this->attributes['start_date'] )->format( 'Y-m-d H:i' );
-	}
-
-	public function getEndDateAttribute() {
-		return Carbon::parse( $this->attributes['end_date'] )->format( 'Y-m-d H:i' );
-	}
-
-	public function scopeWithOccurrences($query){
-		$query->leftjoin('schedule_occurrences','schedule.id', '=',
-			'schedule_occurrences.schedule_id');
-	}
 
     public function category()
     {
@@ -55,6 +43,11 @@ class Schedule extends Model {
         return $this->hasMany('FI\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id');
     }
 
+    public function latestOccurrence()
+    {
+        return $this->hasOne('FI\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id')->latest();
+    }
+
     public function reminders()
     {
         return $this->hasMany('FI\Modules\Scheduler\Models\ScheduleReminder', 'schedule_id', 'id');
@@ -63,6 +56,22 @@ class Schedule extends Model {
     public function resources()
     {
         return $this->hasMany('FI\Modules\Scheduler\Models\ScheduleResource','schedule_id', 'id');
+    }
+
+    //getters
+    //necessary here for scope below
+    /*public function getStartDateAttribute() {
+        return Carbon::parse( $this->attributes['start_date'] )->format( 'Y-m-d H:i' );
+    }
+
+    public function getEndDateAttribute() {
+        return Carbon::parse( $this->attributes['end_date'] )->format( 'Y-m-d H:i' );
+    }*/
+
+    //scopes
+    public function scopeWithOccurrences($query){
+        $query->leftjoin('schedule_occurrences','schedule.id', '=',
+            'schedule_occurrences.schedule_id');
     }
 
 }

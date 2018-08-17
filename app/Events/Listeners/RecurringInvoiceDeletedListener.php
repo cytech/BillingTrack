@@ -13,12 +13,9 @@ class RecurringInvoiceDeletedListener
 
     public function handle(RecurringInvoiceDeleted $event)
     {
-        foreach ($event->recurringInvoice->items as $item)
+        foreach ($event->recurringinvoice->activities as $activity)
         {
-            $item->delete();
+            ($event->isForceDeleting()) ? $activity->onlyTrashed()->forceDelete() : $activity->delete();
         }
-
-        $event->recurringInvoice->amount()->delete();
-        $event->recurringInvoice->custom()->delete();
     }
 }

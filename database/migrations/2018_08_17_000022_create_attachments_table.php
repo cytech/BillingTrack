@@ -31,7 +31,7 @@ class CreateAttachmentsTable extends Migration
             $table->string('mimetype');
             $table->integer('size');
             $table->string('url_key');
-            $table->integer('client_visibility');
+            $table->integer('client_visibility')->default('0');
 
             $table->index(["user_id"], 'fk_attachments_users1_idx');
             $table->softDeletes();

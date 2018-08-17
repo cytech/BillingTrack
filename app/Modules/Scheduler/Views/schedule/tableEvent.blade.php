@@ -54,7 +54,7 @@
                                     <td>{!! $event->category->name !!}</td>
                                     <td>
                                         <a class="btn btn-danger delete"
-                                           onclick="deleteConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('scheduler.trashevent', [$event->id]) }}')"><i
+                                           onclick="deleteConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('scheduler.trashevent', [$event->id]) }}')"><i
                                                     class="fa fa-fw fa-trash-o"></i>{{ trans('fi.trash') }}</a>
                                         <a class="btn btn-primary iframe"
                                            href='{!! route("scheduler.tableeventedit", [$event->id]) !!}'><i

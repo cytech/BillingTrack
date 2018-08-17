@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Quotes\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\QuoteItemSaving;
 use FI\Events\QuoteModified;
 use FI\Support\CurrencyFormatter;
@@ -22,6 +23,10 @@ class QuoteItem extends Model
 {
     use SoftDeletes;
 
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['amount'];
+
     protected $dates = ['deleted_at'];
 
     protected $guarded = ['id'];
@@ -30,10 +35,10 @@ class QuoteItem extends Model
     {
         parent::boot();
 
-        static::deleting(function ($quoteItem)
+       /* static::deleting(function ($quoteItem)
         {
             $quoteItem->amount()->delete();
-        });
+        });*/
 
         static::deleted(function($quoteItem)
         {

@@ -41,7 +41,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div class="form-group">
             <label>{{ trans('fi.coreeventslist') }}</label>
             <div class="col-lg-8 col-sm-8">
@@ -53,5 +53,16 @@
                 @endforeach
             </div>
         </div>
+    </div>
+    <div class="col-md-10">
+        <br>
+        <span class="help-block">Display Defaults:</span>
+        <span class="help-block">Quotes: if expires_at, else quote_date</span>
+        <span class="help-block">Workorders: job_date</span>
+        <span class="help-block">Invoices: If due_at, else invoice_date</span>
+        <span class="help-block">Payments: paid_at</span>
+        <span class="help-block">Expenses: expense_date</span>
+        <span class="help-block">Projects: due_at</span>
+        <span class="help-block">Tasks: start time of first timer in task</span>
     </div>
 </div>

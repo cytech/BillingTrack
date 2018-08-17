@@ -27,7 +27,7 @@ class RecurringInvoice extends Model
 
     use SoftCascadeTrait;
 
-    protected $softCascade = ['recurringInvoiceItems', 'custom', 'amount'];
+    protected $softCascade = ['recurringInvoiceItems', 'custom', 'amount', 'activities'];
 
     protected $dates = ['deleted_at'];
 
@@ -49,10 +49,10 @@ class RecurringInvoice extends Model
             event(new RecurringInvoiceCreated($recurringInvoice));
         });
 
-//        static::deleted(function ($recurringInvoice)
-//        {
-//            event(new RecurringInvoiceDeleted($recurringInvoice));
-//        });
+        static::deleted(function ($recurringInvoice)
+        {
+            event(new RecurringInvoiceDeleted($recurringInvoice));
+        });
     }
 
     /*

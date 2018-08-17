@@ -11,14 +11,17 @@
 
 namespace FI\Modules\Utilities\Controllers;
 
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Expenses\Models\Expense;
+use FI\DataTables\ClientsTrashDataTable;
+use FI\DataTables\ExpensesTrashDataTable;
+use FI\DataTables\InvoicesTrashDataTable;
+use FI\DataTables\PaymentsTrashDataTable;
+use FI\DataTables\ProjectsTrashDataTable;
+use FI\DataTables\QuotesTrashDataTable;
+use FI\DataTables\RecurringInvoicesTrashDataTable;
+use FI\DataTables\SchedulerTrashDataTable;
+use FI\DataTables\WorkordersTrashDataTable;
 use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Payments\Models\Payment;
 use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Modules\Scheduler\Models\Schedule;
-use FI\Modules\TimeTracking\Models\TimeTrackingProject;
 use FI\Modules\Workorders\Models\Workorder;
 use FI\Support\FileNames;
 use FI\Support\PDF\PDFFactory;
@@ -28,7 +31,17 @@ class UtilityController
 {
     public function manageTrash()
     {
-        $clients = Client::onlyTrashed()->get();
+        $ctdt = new ClientsTrashDataTable();
+        $qtdt = new QuotesTrashDataTable();
+        $wtdt = new WorkordersTrashDataTable();
+        $itdt = new InvoicesTrashDataTable();
+        $ritdt = new RecurringInvoicesTrashDataTable();
+        $pytdt = new PaymentsTrashDataTable();
+        $etdt = new ExpensesTrashDataTable();
+        $pjtdt = new ProjectsTrashDataTable();
+        $stdt = new SchedulerTrashDataTable();
+
+        /*$clients = Client::onlyTrashed()->get();
         $quotes = Quote::has('client')->where('invoice_id', 0)->onlyTrashed()->get();
         $workorders = Workorder::has('client')->where('invoice_id', 0)->onlyTrashed()->get();
         $invoices = Invoice::has('client')->onlyTrashed()->get();
@@ -36,55 +49,103 @@ class UtilityController
         $payments = Payment::has('client')->has('invoice')->onlyTrashed()->get();
         $expenses = Expense::onlyTrashed()->get();
         $projects = TimeTrackingProject::has('client')->onlyTrashed()->get();
-        $schedules = Schedule::onlyTrashed()->get();
+        $schedules = Schedule::onlyTrashed()->get();*/
 
-        return view('utilities.trash')
-            ->with('clients', $clients)
-            ->with('quotes', $quotes)
-            ->with('workorders', $workorders)
-            ->with('invoices', $invoices)
-            ->with('recurring_invoices', $recurring_invoices)
-            ->with('payments', $payments)
-            ->with('expenses', $expenses)
-            ->with('projects', $projects)
-            ->with('schedules', $schedules);
+        $status = (request('status')) ?: 'all';
 
+        $trash_tables = compact('ctdt', 'qtdt', 'wtdt', 'itdt', 'ritdt', 'pytdt', 'etdt', 'pjtdt', 'stdt', 'status');
+
+        if (request()->get('table') == 'clients') {
+            return $ctdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'quotes') {
+            return $qtdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'workorders') {
+            return $wtdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'invoices') {
+            return $itdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'recurring_invoices') {
+            return $ritdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'payments') {
+            return $pytdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'expenses') {
+            return $etdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'projects') {
+            return $pjtdt->render('utilities.trash', $trash_tables);
+        }
+        //scheduler
+        return $stdt->render('utilities.trash', $trash_tables);
     }
 
+    /**
+     * @param $id
+     * @param $entity fully qualified classname passed from _action
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function restoreTrash($id, $entity)
     {
-        switch ($entity){
 
-            case 'client':
-                Client::onlyTrashed()->find($id)->restore();
-                break;
-            case 'quote':
-                Quote::onlyTrashed()->find($id)->restore();
-                break;
-            case 'workorder':
-                Workorder::onlyTrashed()->find($id)->restore();
-                break;
-            case 'invoice':
-                Invoice::onlyTrashed()->find($id)->restore();
-                break;
-            case 'recurring_invoice':
-                RecurringInvoice::onlyTrashed()->find($id)->restore();
-                break;
-            case 'payment':
-                Payment::onlyTrashed()->find($id)->restore();
-                break;
-            case 'expense':
-                Expense::onlyTrashed()->find($id)->restore();
-                break;
-            case 'project':
-                TimeTrackingProject::onlyTrashed()->find($id)->restore();
-                break;
-            case 'schedule':
-                Schedule::onlyTrashed()->find($id)->restore();
-                break;
-        }
+        $entity::onlyTrashed()->find($id)->restore();
 
         return back()->with('alertSuccess', trans('fi.record_successfully_restored'));
+    }
+
+    /**
+     * @param $id
+     * @param $entity fully qualified classname passed from _action
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteTrash($id, $entity)
+    {
+        $entity::onlyTrashed()->find($id)->forceDelete();
+
+        return back()->with('alertSuccess', trans('fi.record_successfully_deleted'));
+    }
+
+    public function bulkRestoreTrash()
+    {
+        $request = request('ids');
+
+        foreach ($request as $arr) {
+            foreach ($arr as $entity => $id) {
+                if ($entity == 'Schedule') {
+                    $instance = 'FI\\Modules\\Scheduler\\Models\\' . $entity;
+                }elseif  ($entity == 'TimeTrackingProject'){
+                    $instance = 'FI\\Modules\\TimeTracking\\Models\\' . $entity;
+                }else {
+                    $instance = 'FI\\Modules\\' . $entity . 's\\Models\\' . $entity;
+                }
+
+                $instance::onlyTrashed()->where('id', $id)->restore();
+            }
+        }
+        return response()->json(['alertSuccess' => trans('fi.record_successfully_restored')], 200);
+    }
+
+    public function bulkDeleteTrash()
+    {
+        $request = request('ids');
+
+        foreach ($request as $arr) {
+            foreach ($arr as $entity => $id) {
+                if ($entity == 'Schedule') {
+                    $instance = 'FI\\Modules\\Scheduler\\Models\\' . $entity;
+                }elseif  ($entity == 'TimeTrackingProject'){
+                    $instance = 'FI\\Modules\\TimeTracking\\Models\\' . $entity;
+                } else {
+                    $instance = 'FI\\Modules\\' . $entity . 's\\Models\\' . $entity;
+                }
+
+                $instance::onlyTrashed()->where('id', $id)->forceDelete();
+            }
+        }
+        return response()->json(['alertSuccess' => trans('fi.record_successfully_deleted')], 200);
     }
 
     public function batchPrint(Request $request)

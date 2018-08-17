@@ -184,13 +184,17 @@ class EventServiceProvider extends ServiceProvider
             'FI\Events\Listeners\SettingSavingListener',
         ],
 
+        'FI\Events\TimeTrackingProjectCreating' => [
+            'FI\Events\Listeners\TimeTrackingProjectCreatingListener',
+        ],
+
         'FI\Events\UserCreated' => [
             'FI\Events\Listeners\UserCreatedListener',
         ],
 
-        'FI\Events\UserDeleted' => [
+        /*'FI\Events\UserDeleted' => [
             'FI\Events\Listeners\UserDeletedListener',
-        ],
+        ],*/
 
         'FI\Events\WorkorderCreated' => [
             'FI\Events\Listeners\WorkorderCreatedListener',

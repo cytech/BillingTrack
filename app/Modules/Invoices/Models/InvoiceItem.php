@@ -22,6 +22,10 @@ class InvoiceItem extends Model
 {
     use SoftDeletes;
 
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['amount'];
+
     protected $dates = ['deleted_at'];
 
     protected $guarded = ['id', 'item_id'];
@@ -40,10 +44,10 @@ class InvoiceItem extends Model
             event(new InvoiceModified($invoiceItem->invoice));
         });
 
-        static::deleting(function ($invoiceItem)
+       /* static::deleting(function ($invoiceItem)
         {
             $invoiceItem->amount()->delete();
-        });
+        });*/
 
         static::deleted(function($invoiceItem)
         {

@@ -30,6 +30,12 @@ Route::group(['prefix' => 'api', 'middleware' => 'web', 'namespace' => 'FI\Modul
         Route::post('quotes/items/add', ['uses' => 'ApiQuoteController@addItem']);
         Route::post('quotes/delete', ['uses' => 'ApiQuoteController@delete']);
 
+        Route::post('workorders/list', ['uses' => 'ApiWorkorderController@lists']);
+        Route::post('workorders/show', ['uses' => 'ApiWorkorderController@show']);
+        Route::post('workorders/store', ['uses' => 'ApiWorkorderController@store']);
+        Route::post('workorders/items/add', ['uses' => 'ApiWorkorderController@addItem']);
+        Route::post('workorders/delete', ['uses' => 'ApiWorkorderController@delete']);
+
         Route::post('invoices/list', ['uses' => 'ApiInvoiceController@lists']);
         Route::post('invoices/show', ['uses' => 'ApiInvoiceController@show']);
         Route::post('invoices/store', ['uses' => 'ApiInvoiceController@store']);

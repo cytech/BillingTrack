@@ -10,6 +10,7 @@
 
 namespace FI\Modules\Workorders\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\WorkorderItemSaving;
 use FI\Events\WorkorderModified;
 use FI\Support\CurrencyFormatter;
@@ -21,6 +22,10 @@ class WorkorderItem extends Model
 {
     use SoftDeletes;
 
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['amount'];
+
     protected $dates = ['deleted_at'];
 
     protected $guarded = ['id'];
@@ -29,10 +34,10 @@ class WorkorderItem extends Model
     {
         parent::boot();
 
-        static::deleting(function ($workorderItem)
+        /*static::deleting(function ($workorderItem)
         {
             $workorderItem->amount()->delete();
-        });
+        });*/
 
         static::deleted(function($workorderItem)
         {

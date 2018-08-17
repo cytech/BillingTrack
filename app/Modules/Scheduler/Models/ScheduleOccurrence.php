@@ -30,19 +30,22 @@ class ScheduleOccurrence extends Model {
 
 	protected $dates = ['start_date','end_date', 'deleted_at'];
 
-	//need after schedule->withOccurrences change..
-	public function getStartDateAttribute() {
-		return Carbon::parse( $this->attributes['start_date'] )->format( 'Y-m-d H:i' );
-	}
-
-	public function getEndDateAttribute() {
-		return Carbon::parse( $this->attributes['end_date'] )->format( 'Y-m-d H:i' );
-	}
+	protected $appends = ['start_date', 'end_date'];
 
     public function schedule()
     {
         return $this->belongsTo('FI\Modules\Scheduler\Models\Schedule', 'schedule_id', 'id');
     }
+
+    //getters
+    public function getStartDateAttribute() {
+        return Carbon::parse( $this->attributes['start_date'] )->format( 'Y-m-d H:i' );
+    }
+
+    public function getEndDateAttribute() {
+        return Carbon::parse( $this->attributes['end_date'] )->format( 'Y-m-d H:i' );
+    }
+
 
 
 }

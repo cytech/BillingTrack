@@ -11,6 +11,7 @@
 
 namespace FI\Modules\Payments\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
 use FI\Events\InvoiceModified;
 use FI\Events\PaymentCreated;
@@ -27,6 +28,10 @@ use Illuminate\Support\Facades\DB;
 class Payment extends Model
 {
     use SoftDeletes;
+
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['custom'];
 
     /**
      * Guarded properties
@@ -62,10 +67,14 @@ class Payment extends Model
         {
             foreach ($payment->mailQueue as $mailQueue)
             {
-                $mailQueue->delete();
+                ($payment->isForceDeleting()) ? $mailQueue->onlyTrashed()->forceDelete() : $mailQueue->delete();
             }
 
-            $payment->custom()->delete();
+            foreach ($payment->notes as $note)
+            {
+                ($payment->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
+            }
+
         });
 
         static::deleted(function ($payment)

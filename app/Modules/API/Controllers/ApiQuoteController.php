@@ -26,7 +26,7 @@ class ApiQuoteController extends ApiController
         $quotes = Quote::select('quotes.*')
             ->with(['items.amount', 'client', 'amount', 'currency'])
             ->status(request('status'))
-            ->sortable(['quote_date' => 'desc', 'LENGTH(number)' => 'desc', 'number' => 'desc'])
+            //->sortable(['quote_date' => 'desc', 'LENGTH(number)' => 'desc', 'number' => 'desc'])
             ->paginate(config('fi.resultsPerPage'));
 
         return response()->json($quotes);

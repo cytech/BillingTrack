@@ -25,7 +25,7 @@ class ApiInvoiceController extends ApiController
         $invoices = Invoice::select('invoices.*')
             ->with(['items.amount', 'client', 'amount', 'currency'])
             ->status(request('status'))
-            ->sortable(['invoice_date' => 'desc', 'LENGTH(number)' => 'desc', 'number' => 'desc'])
+            //->sortable(['invoice_date' => 'desc', 'LENGTH(number)' => 'desc', 'number' => 'desc'])
             ->paginate(config('fi.resultsPerPage'));
 
         return response()->json($invoices);

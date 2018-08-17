@@ -24,7 +24,7 @@ class ApiPaymentController extends ApiController
             ->clientId(request('client_id'))
             ->invoiceId(request('invoice_id'))
             ->invoiceNumber(request('invoice_number'))
-            ->sortable(['paid_at' => 'desc', 'payments.created_at' => 'desc'])
+            //->sortable(['paid_at' => 'desc', 'payments.created_at' => 'desc'])
             ->paginate(config('fi.resultsPerPage'));
 
         return response()->json($payments);

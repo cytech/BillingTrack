@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Event;
 class TimeTrackingTask extends Model
 {
     use SoftDeletes;
+
     use SoftCascadeTrait;
 
     protected $softCascade = ['timers'];
@@ -42,10 +43,10 @@ class TimeTrackingTask extends Model
             $task->display_order = $maxDisplayOrder + 1;
         });
 
-        static::deleted(function ($task)
+       /* static::deleted(function ($task)
         {
             Event::fire('timeTracking.task.deleted', [$task]);
-        });
+        });*/
     }
 
     /*

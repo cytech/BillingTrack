@@ -29,9 +29,10 @@ use Illuminate\Support\Facades\DB;
 class Invoice extends Model
 {
     use SoftDeletes;
+
     use SoftCascadeTrait;
 
-    protected $softCascade = ['payments', 'invoiceItems', 'custom', 'amount'];
+    protected $softCascade = ['payments', 'invoiceItems', 'custom', 'amount', 'activities', 'attachments', 'mailQueue', 'notes'];
 
     protected $guarded = ['id'];
 

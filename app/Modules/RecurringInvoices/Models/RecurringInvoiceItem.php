@@ -11,6 +11,7 @@
 
 namespace FI\Modules\RecurringInvoices\Models;
 
+use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\RecurringInvoiceItemSaving;
 use FI\Events\RecurringInvoiceModified;
 use FI\Support\CurrencyFormatter;
@@ -21,6 +22,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class RecurringInvoiceItem extends Model
 {
     use SoftDeletes;
+
+    use SoftCascadeTrait;
+
+    protected $softCascade = ['amount'];
 
     protected $dates = ['deleted_at'];
     /**
@@ -43,10 +48,10 @@ class RecurringInvoiceItem extends Model
             event(new RecurringInvoiceModified($recurringInvoiceItem->recurringInvoice));
         });
 
-        static::deleting(function ($recurringInvoiceItem)
+       /* static::deleting(function ($recurringInvoiceItem)
         {
             $recurringInvoiceItem->amount()->delete();
-        });
+        });*/
 
         static::deleted(function($recurringInvoiceItem)
         {

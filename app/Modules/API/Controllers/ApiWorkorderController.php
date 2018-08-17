@@ -8,18 +8,17 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Controllers;
+namespace FI\Modules\API\Controllers;
 
 use FI\Modules\API\Requests\APIInvoiceItemRequest;
-use FI\Modules\Workorders\Requests\APIWorkorderItemRequest;
-use FI\Modules\Workorders\Requests\APIWorkorderStoreRequest;
+use FI\Modules\API\Requests\APIWorkorderItemRequest;
+use FI\Modules\API\Requests\APIWorkorderStoreRequest;
 use FI\Modules\Clients\Models\Client;
 use FI\Modules\Workorders\Models\Workorder;
 use FI\Modules\Workorders\Models\WorkorderItem;
 use FI\Modules\Users\Models\User;
-use FI\Modules\API\Controllers\ApiController as FIAPIController;
 
-class ApiWorkorderController extends FIApiController
+class ApiWorkorderController extends ApiController
 {
     public function lists()
     {
