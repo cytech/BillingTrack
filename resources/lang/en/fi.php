@@ -598,7 +598,7 @@ return [
     'use_24_hour_time_format'                 => 'Use 24 Hour Time Format',
 
     // 2017-11
-    'bulk_delete_record_warning'              => 'Are you sure you wish to delete these records?',
+    'bulk_delete_record_warning'              => 'Are you sure you wish to permanently delete these records?',
     'bulk_trash_record_warning'               => 'Are you sure you wish to trash these records?',
     'bulk_invoice_change_status_warning'      => 'Are you sure you wish to change the status of the selected invoice(s)?',
     'bulk_quote_change_status_warning'        => 'Are you sure you wish to change the status of the selected quote(s)?',
@@ -821,7 +821,7 @@ return [
     'trash_delete_success'                 => 'Trash deleted successfully',
     'trash_deleteall'                      => 'Delete All Trash',
     'trash_deleteall_warning'              => 'Are you sure you want to permanently delete ALL Trash?',
-    'trash_deleteselected'                 => 'Delete Selected Trash',
+    'trash_deleteselected'                 => 'Permanently Delete Selected Trash',
     'trash_deleteselected_warning'         => 'Are you sure you want to permanently delete selected Trash?',
     'trash_deletesingle_warning'           => 'Are you sure you want to permanently delete this Trash?',
     'trash_restore_success'                => 'Trash restored successfully',
