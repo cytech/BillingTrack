@@ -19,4 +19,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - item lookup modal in quotes and invoices
 - extend skin configuration
 - integrate timetracking (projects/tasks/timers)
-- integrate workorders (projects/tasks/timers)
+- integrate workorders 
+- integrate Scheduler

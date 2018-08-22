@@ -21,6 +21,7 @@ use FI\Modules\Settings\Models\Setting;
 use FI\Modules\Setup\Requests\LicenseRequest;
 use FI\Modules\Setup\Requests\ProfileRequest;
 use FI\Modules\Users\Models\User;
+use FI\Modules\Workorders\Models\Workorder;
 use FI\Support\Migrations;
 use DB;
 use Illuminate\Http\Request;
@@ -247,14 +248,6 @@ class SetupController extends Controller
                 if($table == 'workorder_items' || $table == 'invoice_items'|| $table == 'item_lookups'){
                     DB::statement('update `'. $table .'` set resource_table = \'products\' where resource_table = \'resources\';');
                 }
-                //add default scheduler settings to settings - not transferring old database settings
-                if ($table == 'schedule'){
-                    //delete old workorder schedule items. replaced with coreevents
-                    DB::table('schedule')->where('id', '<', 1000000)->delete();
-                    DB::table('schedule_occurrences')->where('schedule_id', '<', 1000000)->delete();
-                    DB::table('schedule_reminders')->where('schedule_id', '<', 1000000)->delete();
-                    DB::table('schedule_resources')->where('schedule_id', '<', 1000000)->delete();
-                }
                 //move existing and add scheduler categories
                 if ($table == 'schedule_categories'){
                     //move user defined category ids
@@ -312,6 +305,27 @@ class SetupController extends Controller
                                 SELECT ' . $columndef . ' FROM `' . $oldschema . '`.' . $table . ';');
             }
         }
+        //these need to happen after all tables are populated
+        //delete old workorder schedule items. replaced with coreevents
+        $schedules = Schedule::where('id', '<', 1000000)->get();
+        foreach ($schedules as $schedule){
+            $schedule->occurrences()->forceDelete();
+            $schedule->reminders()->forceDelete();
+            $schedule->resources()->forceDelete();
+            $schedule->forceDelete();
+        }
+        //softcascade any existing trashed schedule events
+        $trashedsched = Schedule::onlyTrashed()->get();
+        foreach ($trashedsched as $schedule){
+            $schedule->delete();
+        }
+        //softcascade any existing trashed workorders
+        $trashedworkorders = Workorder::onlyTrashed()->get();
+        foreach ($trashedworkorders as $workorder){
+            $workorder->delete();
+        }
+
+
 
         DB::statement('set foreign_key_checks = 1');
 

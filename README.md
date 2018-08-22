@@ -19,8 +19,16 @@ edit .env and change:
 to your NEW database settings.
 
 save file.
+
+NEW INSTALL:
 run "php artisan key:generate"
-copy generated key to APP_KEY=
+copy generated key to (APP_KEY=base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+
+save file and exit.
+
+UPGRADE FROM 2018-8:
+Add your existing FusionInvoice 2018-8 app key to (APP_KEY= xxxxxxxxxxxxxxxxxxxxxx)
+
 save file and exit.
 
 Start FusionInvoiceFOSS/setup

@@ -189,7 +189,7 @@ class SchedulerController extends Controller
 		$occurrence->save();
 
 		//delete existing resources for the event
-		ScheduleResource::where('schedule_id', '=', $event->id)->delete();
+		ScheduleResource::where('schedule_id', '=', $event->id)->forceDelete();
 
 		if ( $request->category_id == 3 ) { //if client appointment
 			//if ( ! empty( config( 'workorder_settings.version' ) ) ) {//check if workorder addon is installed
@@ -380,7 +380,7 @@ class SchedulerController extends Controller
 
 		$event->save();
 
-		$event->occurrences()->delete();
+		$event->occurrences()->forceDelete();
 		foreach ( $recurrences as $index => $item ) {
 			$occurrence             = new ScheduleOccurrence();
 			$occurrence->schedule_id   = $event->id;
@@ -390,10 +390,10 @@ class SchedulerController extends Controller
 		}
 
 		//delete existing resources for the event
-		ScheduleResource::where('schedule_id', '=', $event->id)->delete();
+		ScheduleResource::where('schedule_id', '=', $event->id)->forceDelete();
 
 		if ( $request->category_id == 3 ) { //if client appointment
-			if ( ! empty( config( 'workorder_settings.version' ) ) ) {//check if workorder addon is installed
+			//if ( ! empty( config( 'workorder_settings.version' ) ) ) {//check if workorder addon is installed
 				$employee = Employee::where( 'short_name', '=', $request->title )->where( 'active', 1 )->first();
 				if ($employee && $employee->schedule == 1) { //employee exists and is scheduleable...
 					$scheduleItem = ScheduleResource::firstOrNew(['id' => $event->id]);
@@ -406,7 +406,7 @@ class SchedulerController extends Controller
 					$scheduleItem->qty = 1;
 					$scheduleItem->save();
 				}
-			}
+			//}
 		}
 
 		if ( $request->id ) {
