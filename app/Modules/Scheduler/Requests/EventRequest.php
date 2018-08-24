@@ -46,7 +46,6 @@ class EventRequest extends FormRequest
 	public function rules() {
 
 		if ( $this->method() == 'POST' ) {
-			//todo laravel 5.3 works here, this array-distinct does not
 			if ( $this->reminder_date && is_array( $this->reminder_date ) ) {
 				$this->rules['reminder_date.*'] = 'distinct';
 

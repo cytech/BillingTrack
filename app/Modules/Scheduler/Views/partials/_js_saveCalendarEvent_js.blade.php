@@ -33,12 +33,12 @@ $("#saveCalendarEvent").submit(function (e) {
                 notify('{{trans('fi.unknown_error')}}', 'error');
             }
         },
-        error: function (data) {
-            var errors = '';
-            for (datas in data.responseJSON) {
-                errors += data.responseJSON[datas] + '<br>';
-            }
-            notify(errors, 'error');
+        error: function (response) {
+            var msg ='';
+            $.each($.parseJSON(response.responseText).errors, function (id, message) {
+                msg += message + '\n';
+            });
+            notify(msg, 'error');
         }
     });
 });

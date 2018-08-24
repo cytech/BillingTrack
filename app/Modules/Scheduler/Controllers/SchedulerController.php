@@ -192,7 +192,6 @@ class SchedulerController extends Controller
 		ScheduleResource::where('schedule_id', '=', $event->id)->forceDelete();
 
 		if ( $request->category_id == 3 ) { //if client appointment
-			//if ( ! empty( config( 'workorder_settings.version' ) ) ) {//check if workorder addon is installed
 				$employee = Employee::where( 'short_name', '=', $request->title )->where( 'active', 1 )->first();
 				if ($employee && $employee->schedule == 1) { //employee exists and is scheduleable...
 					$scheduleItem = ScheduleResource::firstOrNew(['id' => $event->id]);
@@ -205,7 +204,6 @@ class SchedulerController extends Controller
 					$scheduleItem->qty = 1;
 					$scheduleItem->save();
 				}
-			//}
 		}
 
 		if ( $request->id ) {
@@ -360,7 +358,7 @@ class SchedulerController extends Controller
 		//clear all empty
 		$allfields = array_filter( $allfields );
 
-		$timezone = 'America/Phoenix';
+		$timezone = config('fi.timezone');
 
 		$rule            = Recurr\Rule::createFromArray( $allfields );
 		$transformer     = new Recurr\Transformer\ArrayTransformer();
@@ -393,7 +391,6 @@ class SchedulerController extends Controller
 		ScheduleResource::where('schedule_id', '=', $event->id)->forceDelete();
 
 		if ( $request->category_id == 3 ) { //if client appointment
-			//if ( ! empty( config( 'workorder_settings.version' ) ) ) {//check if workorder addon is installed
 				$employee = Employee::where( 'short_name', '=', $request->title )->where( 'active', 1 )->first();
 				if ($employee && $employee->schedule == 1) { //employee exists and is scheduleable...
 					$scheduleItem = ScheduleResource::firstOrNew(['id' => $event->id]);
@@ -406,7 +403,6 @@ class SchedulerController extends Controller
 					$scheduleItem->qty = 1;
 					$scheduleItem->save();
 				}
-			//}
 		}
 
 		if ( $request->id ) {
@@ -644,7 +640,7 @@ class SchedulerController extends Controller
 		//clear all empty
 		$allfields = array_filter( $allfields );
 
-		$timezone = 'America/Phoenix';
+        $timezone = config('fi.timezone');
 
 		$rule            = Recurr\Rule::createFromArray( $allfields );
 		$textTransformer = new Recurr\Transformer\TextTransformer();

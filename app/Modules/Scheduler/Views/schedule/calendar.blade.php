@@ -33,13 +33,11 @@
                         <input type="text" id="title" name="title" class="form-control" value="">
                     </div>
                     <script>
-                        @if (!empty(config('workorder_settings.version')))
                         $("#title").autocomplete({
                             appendTo: "#updateCalendarEvent",
                             source: "/scheduler/ajax/employee",
                             minLength: 2
                         }).autocomplete("widget").addClass("fixed-height");
-                        @endif
                     </script>
                 </div>
                 <div class="form-group">
@@ -109,13 +107,11 @@
                         <input type="text" id="editTitle" name="title" class="form-control" >
                     </div>
                     <script>
-                        @if (!empty(config('workorder_settings.version')))
                         $("#editTitle").autocomplete({
                             appendTo: "#updateCalendarEvent",
                             source: "/scheduler/ajax/employee",
                             minLength: 2
                         }).autocomplete("widget").addClass("fixed-height");
-                        @endif
                     </script>
                 </div>
                 <div class="form-group">

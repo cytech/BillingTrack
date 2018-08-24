@@ -969,5 +969,6 @@ return [
     'coreeventslist'                => 'Core Events to show on Calendar',
     'payment'                       => 'Payment',
     'expense'                       => 'Expense',
+    'confirm_recurr_warning'        => 'OK, I understand...',
 
 ];

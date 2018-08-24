@@ -20,13 +20,11 @@
                             {!! Form::text('title',null,['class'=>'form-control']) !!}
                         </div>
                         <script>
-                            {{--@if (!empty(config('workorder_settings.version')))--}}
                             $("#title").autocomplete({
                                 appendTo: "#event",
                                 source: "/scheduler/ajax/employee",
                                 minLength: 2
                             }).autocomplete("widget").addClass("fixed-height");
-                            {{--@endif--}}
                         </script>
                     </div>
                     <div class="form-group">

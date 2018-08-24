@@ -2,7 +2,6 @@
 
 namespace FI\Modules\Scheduler\Support;
 
-use FI\Modules\Scheduler\Models\Category;
 use stdClass;
 
 class calendarEventPresenter
@@ -19,7 +18,7 @@ class calendarEventPresenter
                 $data->id = ucfirst($type) . ': ' . $entity->number;
                 $data->url = url("/quotes/{$entity->id}/edit");
                 $data->title = trans("fi.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name;
-                $data->description = mb_strimwidth(addslashes($entity->summary), 0, 50, '...');
+                $data->description = mb_strimwidth(addslashes($entity->summary), 0, 30, '...');
                 $data->start = $entity->expires_at ?: $entity->quote_date;
                 $data->category_id = 4;
                 break;
@@ -29,8 +28,9 @@ class calendarEventPresenter
                 $data->title = trans("fi.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name;
                 $data->description = $entity->client->phone . '<br>'
                     . str_replace(array("\r\n", "\r", "\n"), "", $entity->client->address)
-                    . '<br>' . $entity->client->city . '<br>' . mb_strimwidth(addslashes($entity->summary), 0, 50, '...');
-                $data->start =  $entity->job_date;
+                    . '<br>' . $entity->client->city . '<br>' . mb_strimwidth(addslashes($entity->summary), 0, 30, '...');
+                $data->start = $entity->job_date->copy()->modify($entity->start_time);
+                $data->end = $entity->job_date->copy()->modify($entity->end_time);
                 $data->category_id =  5;
                 $data->will_call = $entity->will_call;
                 foreach ($entity->workorderItems as $workorderItem){
@@ -48,7 +48,7 @@ class calendarEventPresenter
                 $data->id = ucfirst($type) . ': ' . $entity->number;
                 $data->url = url("/invoices/{$entity->id}/edit");
                 $data->title = trans("fi.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name ;
-                $data->description = mb_strimwidth(addslashes($entity->summary), 0, 50, '...');
+                $data->description = mb_strimwidth(addslashes($entity->summary), 0, 30, '...');
                 $data->start = $entity->due_at ?: $entity->invoice_date;
                 $data->category_id =  6;
                 break;

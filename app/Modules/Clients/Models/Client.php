@@ -162,11 +162,10 @@ class Client extends Model
         return $this->hasMany('FI\Modules\RecurringInvoices\Models\RecurringInvoice');
     }
 
-    //in original FI but not used
-    /*public function user()
+    public function user()
     {
         return $this->hasOne('FI\Modules\Users\Models\User');
-    }*/
+    }
 
     /*
     |--------------------------------------------------------------------------
