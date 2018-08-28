@@ -15,7 +15,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model {
-    use SoftDeletes;
+
+    //use SoftDeletes;
 
 	protected $table = 'schedule_categories';
 
@@ -24,4 +25,14 @@ class Category extends Model {
 	protected $fillable = [ 'name', 'text_color', 'bg_color' ];
 
     protected $dates = ['deleted_at'];
+
+    public function getInUseAttribute()
+    {
+        if (Schedule::where('category_id',$this->id)->count())
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -60,16 +60,20 @@ class CategoryController extends Controller {
 	}
 
 	public function delete( $id ) {
-		//check if category is assigned
 
-		$catexist = Schedule::where('category_id',$id)->count();
-		if ($catexist){
-			return response()->json(['error' => 'Category is assigned to '. $catexist.
-			                                    ' event(s) and cannot be deleted!'], 200);
-		}
 		$category = Category::find( $id );
-		$category->delete();
-		//return redirect()->route( 'scheduler.categories.index' )->with( 'alertSuccess', 'Successfully Deleted category!' );
-        return response()->json(['success' => 'Successfully Deleted category!'], 200);
+
+        if ($category->in_use)
+        {
+            return response()->json(['error' => trans('fi.cannot_delete_record_in_use')], 200);
+        }
+        else
+        {
+            Category::destroy($id);
+
+            return response()->json(['success' => trans('fi.record_successfully_deleted')], 200);
+
+        }
+
 	}
 }

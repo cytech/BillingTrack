@@ -112,7 +112,7 @@
                     listDay: 'Day List'
                 },
                 aspectRatio: {!! config('fi.schedulerFcAspectRatio') !!},//1.35 default
-                displayEventTime: false,
+                //displayEventTime: false,  //show starttime in event title
                 // add createworkorder button to day cell header
                 @if(config('fi.schedulerCreateWorkorder'))
                 viewRender: function (view, element) {
