@@ -31,6 +31,9 @@ Add your existing FusionInvoice 2018-8 app key to (APP_KEY= xxxxxxxxxxxxxxxxxxxx
 
 save file and exit.
 
+Set permissions for your site. Note that storage and bootstrap/cache
+should be open permissions (chmod -R 777 storage, chmod -R 777 bootstrap/cache)
+
 Start FusionInvoiceFOSS/setup
 
 after database configuration finishes, you will be presented with 2 choices:
