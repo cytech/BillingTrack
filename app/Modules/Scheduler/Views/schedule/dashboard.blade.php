@@ -95,6 +95,61 @@
                 </div>
             </div>
         </div>
+        <div class="row col-lg-12">
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-info-circle fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div >{!! $thisquotes !!} {{trans('fi.this_approved_quotes')}}</div>
+                                <div >{!! $thisworkorders !!} {{trans('fi.this_approved_workorders')}}</div>
+                                <div >{!! $thisinvoices !!} {{trans('fi.this_sent_invoices')}}</div>
+                                <div >{!! $thispayments !!} {{trans('fi.this_received_payments')}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-info-circle fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div >{!! $lastquotes !!} {{trans('fi.last_approved_quotes')}}</div>
+                                <div >{!! $lastworkorders !!} {{trans('fi.last_approved_workorders')}}</div>
+                                <div >{!! $lastinvoices !!} {{trans('fi.last_sent_invoices')}}</div>
+                                <div >{!! $lastpayments !!} {{trans('fi.last_received_payments')}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-info-circle fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div >{!! $nextquotes !!} {{trans('fi.next_approved_quotes')}}</div>
+                                <div >{!! $nextworkorders !!} {{trans('fi.next_approved_workorders')}}</div>
+                                <div >{!! $nextinvoices !!} {{trans('fi.next_sent_invoices')}}</div>
+                                <div >{!! $nextpayments !!} {{trans('fi.next_received_payments')}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
         {{--Reminder table --}}
         {{--<div class="row col-lg-12" ng-app="event" ng-controller="eventDeleteController">--}}
         <div class="row col-lg-12" >

@@ -40,8 +40,9 @@
     {{--{!! Html::style('assets/addons/Scheduler/Assets/fullcalendar/dist/fullcalendar.print.min.css',['media'=>'print']) !!}--}}
     <link href="/assets/plugins/fullcalendar/fullcalendar.print.min.css" rel="stylesheet" type="text/css" media="print" />
     {!! Html::script('assets/plugins/moment/moment.min.js') !!}
+    {!! Html::script('assets/plugins/fullcalendar/fullcalendar.min.js') !!}
     {{-- customized to allow month view sort by category/start--}}
-    {!! Html::script('js/fullcalendar.mod.min.js') !!}
+    {{--{!! Html::script('js/fullcalendar.mod.min.js') !!}--}}
     {!! Html::script('assets/plugins/jquery-validation/jquery.validate.min.js') !!}
 
     <script>
@@ -113,6 +114,9 @@
                 },
                 aspectRatio: {!! config('fi.schedulerFcAspectRatio') !!},//1.35 default
                 //displayEventTime: false,  //show starttime in event title
+                // customized fullcalendar.mod.js to allow month view sort by category/start
+                //eventOrder sorts events with same dates/times
+                eventOrder: "category,start",
                 // add createworkorder button to day cell header
                 @if(config('fi.schedulerCreateWorkorder'))
                 viewRender: function (view, element) {
@@ -441,9 +445,6 @@
 
 
                 ],
-                // customized fullcalendar.mod.js to allow month view sort by category/start
-                //eventOrder sorts events with same dates/times
-                eventOrder: "category,start"
             });
             @if(Session::has('success'))
             notify('{!! Session::get('success') !!}', 'success');

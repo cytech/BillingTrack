@@ -123,6 +123,7 @@ class SettingsTableSeeder extends Seeder
         DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
         DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
         DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
+        DB::table('settings')->insert(['setting_key' => 'schedulerDisplayInvoiced', 'setting_value' => '0']);
         //new core
         DB::table('settings')->insert(['setting_key' => 'pdfDisposition', 'setting_value' => 'inline']);
 

@@ -54,7 +54,13 @@
             </div>
         </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>{{ trans('fi.show_invoiced') }}</label>
+            {!! Form::select('setting[schedulerDisplayInvoiced]', ['0' => 'No', '1' => 'Yes'], config('fi.schedulerDisplayInvoiced'), ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="col-md-8">
         <br>
         <span class="help-block">Display Defaults:</span>
         <span class="help-block">Quotes: if expires_at, else quote_date</span>

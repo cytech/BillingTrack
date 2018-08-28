@@ -100,6 +100,8 @@ class SetupController extends Controller
 
     public function postXferAccount(Request $request)
     {
+        $maxtime =  ini_get('max_execution_time');
+        ini_set('max_execution_time', '300'); // extremely large database transfer fails at default 30 seconds
         //Artisan::call('config:cache');
         //olddbname entered in form
         $oldschema = $request->olddbname;
@@ -292,6 +294,7 @@ class SetupController extends Controller
                     DB::table('settings')->insert(['setting_key' => 'schedulerFcAspectRatio', 'setting_value' => '1.35']);
                     DB::table('settings')->insert(['setting_key' => 'schedulerTimestep', 'setting_value' => '15']);
                     DB::table('settings')->insert(['setting_key' => 'schedulerEnabledCoreEvents', 'setting_value' => '15']);
+                    DB::table('settings')->insert(['setting_key' => 'schedulerDisplayInvoiced', 'setting_value' => '0']);
                     DB::table('settings')->insert(['setting_key' => 'pdfDisposition', 'setting_value' => 'inline']);
                 }
 
@@ -332,6 +335,8 @@ class SetupController extends Controller
         Setting::saveByKey('version', '4.0.0');
 
         config(['database.connections.'.$oldschema => null]);
+
+        ini_set('max_execution_time', $maxtime); //set back to original
 
         return redirect()->route('setup.complete');
     }

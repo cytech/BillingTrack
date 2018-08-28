@@ -51,10 +51,12 @@ class SchedulerController extends Controller
     {
 	    $today = new Carbon();
 
-	    $data['monthEvent'] = Schedule::withOccurrences()->where( 'schedule_occurrences.start_date', '>=', $today->copy()->modify( '0:00 first day of this month' ) )
-	                                  ->where( 'schedule_occurrences.start_date', '<=', $today->copy()->modify( '23:59:59 last day of this month' ) )
-	                                  ->count();
-
+	    $thismonthstart = $today->copy()->modify( '0:00 first day of this month' );
+	    $thismonthend = $today->copy()->modify( '23:59:59 last day of this month' ) ;
+        $lastmonthstart = $today->copy()->modify( '0:00 first day of last month' );
+        $lastmonthend = $today->copy()->modify( '23:59:59 last day of last month' );
+        $nextmonthstart = $today->copy()->modify( '0:00 first day of next month' );
+        $nextmonthend = $today->copy()->modify( '23:59:59 last day of next month' );
 
 // alternate eloquent way...
 //		$data['monthEvent'] = Schedule::whereHas('occurrences',function($q) use($today){
@@ -62,13 +64,11 @@ class SchedulerController extends Controller
 //			  ->where( 'schedule_occurrences.start_date', '<=', $today->copy()->modify( '23:59:59 last day of this month' ) );
 //			})->count();
 
-	    $data['lastMonthEvent'] = Schedule::withOccurrences()->where( 'schedule_occurrences.start_date', '>=', $today->copy()->modify( '0:00 first day of last month' ) )
-	                                      ->where( 'schedule_occurrences.start_date', '<=', $today->copy()->modify( '23:59:59 last day of last month' ) )
-	                                      ->count();
+        $data['monthEvent'] = Schedule::withOccurrences()->whereBetween( 'schedule_occurrences.start_date', [$thismonthstart, $thismonthend] )->count();
 
-	    $data['nextMonthEvent'] = Schedule::withOccurrences()->where( 'schedule_occurrences.start_date', '>=', $today->copy()->modify( '0:00 first day of next month' ) )
-	                                      ->where( 'schedule_occurrences.start_date', '<=', $today->copy()->modify( '23:59:59 last day of next month' ) )
-	                                      ->count();
+	    $data['lastMonthEvent'] = Schedule::withOccurrences()->whereBetween( 'schedule_occurrences.start_date', [$lastmonthstart, $lastmonthend] )->count();
+
+	    $data['nextMonthEvent'] = Schedule::withOccurrences()->whereBetween( 'schedule_occurrences.start_date', [$nextmonthstart, $nextmonthend] )->count();
 
 	    $data['fullMonthEvent'] = Schedule::withOccurrences()->select( DB::raw( "count('id') as total, DATE_FORMAT(schedule_occurrences.start_date, '%Y%m%d') as start_date" ) )
 	                                      ->where( 'schedule_occurrences.start_date', '>=', date( 'Y-m-01' ) )
@@ -83,6 +83,22 @@ class SchedulerController extends Controller
 	                                          ->get();
 
 	    $data['reminders'] = ScheduleReminder::whereHas('schedule')->where( 'reminder_date', '>=', $today->copy()->modify( '0:00' ) )->get();
+
+        $data['thisquotes'] = Quote::approved()->whereBetween( 'quote_date', [$thismonthstart, $thismonthend] )->count();
+        $data['lastquotes'] = Quote::approved()->whereBetween( 'quote_date', [$lastmonthstart, $lastmonthend] )->count();
+        $data['nextquotes'] = Quote::approved()->whereBetween( 'quote_date', [$nextmonthstart, $nextmonthend] )->count();
+
+	    $data['thisworkorders'] = Workorder::approved()->whereBetween( 'job_date', [$thismonthstart, $thismonthend] )->count();
+        $data['lastworkorders'] = Workorder::approved()->whereBetween( 'job_date', [$lastmonthstart, $lastmonthend] )->count();
+        $data['nextworkorders'] = Workorder::approved()->whereBetween( 'job_date', [$nextmonthstart, $nextmonthend] )->count();
+
+        $data['thisinvoices'] = Invoice::sent()->whereBetween( 'invoice_date', [$thismonthstart, $thismonthend] )->count();
+        $data['lastinvoices'] = Invoice::sent()->whereBetween( 'invoice_date', [$lastmonthstart, $lastmonthend] )->count();
+        $data['nextinvoices'] = Invoice::sent()->whereBetween( 'invoice_date', [$nextmonthstart, $nextmonthend] )->count();
+
+        $data['thispayments'] = Payment::whereBetween( 'paid_at', [$thismonthstart, $thismonthend] )->count();
+        $data['lastpayments'] = Payment::whereBetween( 'paid_at', [$lastmonthstart, $lastmonthend] )->count();
+        $data['nextpayments'] = Payment::whereBetween( 'paid_at', [$nextmonthstart, $nextmonthend] )->count();
 
         return view('schedule.dashboard', $data);
     }
@@ -105,14 +121,20 @@ class SchedulerController extends Controller
         $filter = request()->filter ?: (new Setting())->coreeventsEnabled();
 
         $coredata = [
-            //quote sent or approved,not invoiced, with client
-            'quote' => Quote::where('invoice_id', '0')
-                 ->where(function ($query) {$query->sentorapproved();})
-                 ->with('client'),
-            //workorder sent or approved,not invoiced, with client
-            'workorder' => Workorder::where('invoice_id', '0')
-                 ->where(function ($query) {$query->sentorapproved();})
-                 ->with('client', 'workorderItems.employees'),
+            //quote sent or approved,based on displayinvoiced setting, with client
+            'quote' => (config('fi.schedulerDisplayInvoiced') == 1) ?
+                Quote::where(function ($query) {$query->sentorapproved();})
+                 ->with('client'):
+                Quote::where('invoice_id', '0')
+                    ->where(function ($query) {$query->sentorapproved();})
+                    ->with('client'),
+            //workorder sent or approved, based on displayinvoiced setting, with client
+            'workorder' => (config('fi.schedulerDisplayInvoiced') == 1) ?
+                Workorder::where(function ($query) {$query->sentorapproved();})
+                 ->with('client', 'workorderItems.employees') :
+                Workorder::where('invoice_id', '0')
+                    ->where(function ($query) {$query->sentorapproved();})
+                    ->with('client', 'workorderItems.employees'),
             'invoice' => Invoice::sent()->with('client'),
             'payment' => Payment::with(['invoice', 'paymentMethod']),
             'expense' => Expense::status('not_billed')->with(['category']),

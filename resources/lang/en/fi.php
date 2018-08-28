@@ -970,5 +970,18 @@ return [
     'payment'                       => 'Payment',
     'expense'                       => 'Expense',
     'confirm_recurr_warning'        => 'OK, I understand...',
+    'show_invoiced'                 => 'Display Invoiced Quotes and Workorders ?',
+    'this_approved_quotes'          => 'approved Quotes This Month',
+    'this_approved_workorders'      => 'approved Workorders This Month',
+    'this_sent_invoices'            => 'sent Invoices This Month',
+    'this_received_payments'        => 'received Payments This Month',
+    'last_approved_quotes'          => 'approved Quotes Last Month',
+    'last_approved_workorders'      => 'approved Workorders Last Month',
+    'last_sent_invoices'            => 'sent Invoices Last Month',
+    'last_received_payments'        => 'received Payments Last Month',
+    'next_approved_quotes'          => 'approved Quotes Next Month',
+    'next_approved_workorders'      => 'approved Workorders Next Month',
+    'next_sent_invoices'            => 'sent Invoices Next Month',
+    'next_received_payments'        => 'received Payments Next Month',
 
 ];
