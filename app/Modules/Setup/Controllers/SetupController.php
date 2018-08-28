@@ -241,11 +241,7 @@ class SetupController extends Controller
                                   ON d.id = o.invoice_id
                                   SET o.client_id = d.client_id;');
                 }
-                //add default workorder settings to settings - not transferring old database settings
-                if ($table == 'workorders'){
-                    //delete orphaned workorders (with no client)
-                    DB::raw('delete FROM workorders WHERE NOT EXISTS (SELECT NULL FROM clients WHERE clients.id = workorders.client_id)');
-                }
+
                 //if workorder addon was installed, update resource table from resources to products
                 if($table == 'workorder_items' || $table == 'invoice_items'|| $table == 'item_lookups'){
                     DB::statement('update `'. $table .'` set resource_table = \'products\' where resource_table = \'resources\';');
@@ -309,6 +305,9 @@ class SetupController extends Controller
             }
         }
         //these need to happen after all tables are populated
+        //delete orphaned workorders (with no client)
+        DB::raw('delete FROM workorders WHERE NOT EXISTS (SELECT NULL FROM clients WHERE clients.id = workorders.client_id)');
+
         //delete old workorder schedule items. replaced with coreevents
         $schedules = Schedule::where('id', '<', 1000000)->get();
         foreach ($schedules as $schedule){
