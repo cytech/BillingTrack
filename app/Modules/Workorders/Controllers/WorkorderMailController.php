@@ -32,7 +32,7 @@ class WorkorderMailController extends Controller
     {
         $workorder = Workorder::find(request('workorder_id'));
 
-	    $contacts = new Contacts($quote->client);
+	    $contacts = new Contacts($workorder->client);
 
         $parser = new Parser($workorder);
 

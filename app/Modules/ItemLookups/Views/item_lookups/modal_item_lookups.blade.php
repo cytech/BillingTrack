@@ -24,7 +24,7 @@
                     @foreach ($item_lookups as $item_lookup)
                     <tr>
                     <td><input type="checkbox" name="item_lookup_ids[]" value="{!! $item_lookup->id!!}"></td>
-                    <td>{!!  $item_lookup->category == 'Driver' ? '<span style = "color:blue">'.$item_lookup->name.'</span>':$item_lookup->name !!}</td>
+                        <td>{!!  $item_lookup->formatted_name !!}</td>
                         <td>{!!  $item_lookup->description !!}</td>
                         <td>{!!  $item_lookup->formatted_price !!}</td>
                     </tr>

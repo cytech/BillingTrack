@@ -11,6 +11,7 @@
 
 namespace FI\Modules\ItemLookups\Models;
 
+use FI\Modules\Employees\Models\Employee;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
@@ -68,6 +69,18 @@ class ItemLookup extends Model
     public function getFormattedNumericPriceAttribute()
     {
         return NumberFormatter::format($this->attributes['price']);
+    }
+
+    //format drivers blue
+    public function getFormattedNameAttribute()
+    {
+        if ($this->resource_table == 'employees'){
+            if (Employee::find($this->resource_id)->driver == 1){
+                return '<span style = "color:blue">'.$this->name.'</span>';
+            }
+            return $this->name;
+        }
+        return $this->name;
     }
 
     /*

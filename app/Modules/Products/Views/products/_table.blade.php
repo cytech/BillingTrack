@@ -31,7 +31,7 @@
     </tbody>
 
 </table>
-{{--@include('Workorders::partials._js_datatables')--}}
+
 <script>
     $(function () {
         {{--for products DT--}}

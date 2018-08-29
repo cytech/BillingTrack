@@ -63,4 +63,3 @@
     </tbody>
 
 </table>
-{{--@include('partials._js_datatables')--}}
