@@ -4,7 +4,6 @@ namespace FI\Events\Listeners;
 
 use FI\Events\WorkorderDeleted;
 use FI\Modules\Groups\Models\Group;
-use FI\Modules\Workorders\Repositories\WorkorderToSchedulerRepository;
 
 class WorkorderDeletedListener
 {

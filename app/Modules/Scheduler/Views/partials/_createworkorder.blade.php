@@ -28,21 +28,28 @@
         </div>
     </div>
     <input type="hidden" id="workorder_date" name="workorder_date" value="{!! date('Y-m-d') !!}">
-    <input type="hidden" id="job_date" name="job_date" value="">
     <div class="form-group">
-        <label for="start_time"
-               class="col-sm-4 control-label">{{ trans('fi.start_datetime') }}</label>
+        <label for="job_date"
+               class="col-sm-4 control-label">{{ trans('fi.job_date') }}</label>
         <div class="col-sm-8">
-            <input type="text" id="start_time" required name="start_time"
-                   class="form-control datepicker from readonly"
-                   placeholder="Start DateTime">
+            <input id="job_date" name="job_date" value="" class="form-control" readonly>
+
         </div>
     </div>
     <div class="form-group">
-        <label for="end_time" class="col-sm-4 control-label">{{ trans('fi.end_datetime') }}</label>
+        <label for="start_time"
+               class="col-sm-4 control-label">{{ trans('fi.start_time') }}</label>
         <div class="col-sm-8">
-            <input type="text" id="end_time" required name="end_time" class="form-control datepicker to readonly"
-                   placeholder="End DateTime">
+            <input type="text" id="start_time" required name="start_time"
+                   class="form-control datepicker start_time readonly"
+                   placeholder="Start Time">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="end_time" class="col-sm-4 control-label">{{ trans('fi.end_time') }}</label>
+        <div class="col-sm-8">
+            <input type="text" id="end_time" required name="end_time" class="form-control datepicker end_time readonly"
+                   placeholder="End Time">
         </div>
     </div>
     <div class="form-group">
@@ -76,14 +83,12 @@
                     wstr = '';
                     $('#create-workorder').on('click', '[id*=worker]', function () {
                         counter = 0;
-                        //var wsel = $('input[type=checkbox]:checked').map(function (_, el) {
                         var wsel = $('#worker:checked').map(function (_, el) {
                             counter++;
                             return "worker" + counter + "/" + $(el).val();
                         }).get();
 
                         wstr = wsel.join("/");
-                        //console.log(wstr);
                     });
                 </script>
             </table>
@@ -101,14 +106,12 @@
                     rstr = '';
                     $('#create-workorder').on('click', '[id*=resource]', function () {
                         counter = 0;
-                        //var rsel = $('input[type=checkbox]:checked').map(function (_, el) {
                         var rsel = $('#resource:checked').map(function (_, el) {
                             counter++;
                             return "resource" + counter + "/" + $(el).val();
                         }).get();
 
                         rstr = rsel.join("/");
-                        //console.log(rstr);
                     });
                 </script>
             </table>

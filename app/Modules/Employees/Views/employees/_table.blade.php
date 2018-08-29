@@ -39,12 +39,10 @@
         {{--for employees DT--}}
         $('#dt-employeestable').DataTable({
             paging: false,
-            //searching: true,
             order: [[0, "asc"]],//order on id
             "columnDefs": [
                 {"orderable": false, "targets": 8}
             ]
-            //dom: 'T<"clear">lfrtip'
         });
     });
 </script>

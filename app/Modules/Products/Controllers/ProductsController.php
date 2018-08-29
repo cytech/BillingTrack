@@ -105,9 +105,6 @@ class ProductController extends Controller
     public function update(ProductRequest $request, $id)
     {
         // update
-        /*Product::find($id) THIS FAILS ON SAVING CHECKBOX STATE
-        ->fill($request->all())
-        ->save();*/
         $products = Product::find($id);
         $products->name = $request->name;
         $products->description = $request->description;

@@ -68,6 +68,7 @@
             $('#calEventDialog').dialog({autoOpen: false});
             $('#editEvent').dialog({autoOpen: false});
             $('#create-workorder').dialog({autoOpen: false});
+            /*fullcalendar event dialog datetimepicker (create,update,reminders)*/
             $(".from").datetimepicker({
                 format: 'Y-m-d H:i',
                 defaultTime: '08:00',
@@ -76,12 +77,30 @@
                     $(".to").datetimepicker({minDate: selectedDate});
                 }
             });
-
             $('.to').datetimepicker({
                 format: 'Y-m-d H:i',
                 step: {!! config('fi.schedulerTimestep') !!},
                 onClose: function (selectedDate) {
                     $(".from").datetimepicker({maxDate: selectedDate});
+                }
+            });
+            /*createworkorder dialog*/
+            $(".start_time").datetimepicker({
+                datepicker: false,
+                format: 'H:i',
+                defaultTime: '08:00',
+                step: {!! config('fi.schedulerTimestep') !!},//15
+                onClose: function (selectedTime) {
+                    $(".end_time").datetimepicker({minTime: selectedTime});
+                }
+            });
+
+            $('.end_time').datetimepicker({
+                datepicker: false,
+                format: 'H:i',
+                step: {!! config('fi.schedulerTimestep') !!},
+                onClose: function (selectedTime) {
+                    $(".start_time").datetimepicker({maxTime: selectedTime});
                 }
             });
 
@@ -161,7 +180,6 @@
                                 url: '/scheduler/getResources/' + date.format('YYYY-MM-DD'),
                                 type: 'get',
                                 dataType: 'json',
-                                //async: false,
                                 cache: false,
                                 success: function (data) {
                                     $.each(data.available_employees, function (k, v) {
@@ -227,8 +245,8 @@
                             },
                             open: function () {
                                 $("#job_date").val(date.format('YYYY-MM-DD'));
-                                $("#start_time").val(date.format('YYYY-MM-DD 08:00'));
-                                $("#end_time").val(date.format('YYYY-MM-DD 09:00'));
+                                $("#start_time").val('08:00');
+                                $("#end_time").val('09:00');
                             },
                             close: function () {
                                 $('#wtable').empty();

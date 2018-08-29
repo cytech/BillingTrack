@@ -59,8 +59,6 @@ class InvoicesDataTable extends DataTable
     public function query(Invoice $model)
     {
         $models = $model->with(['client', 'activities', 'amount.invoice.currency'])->select('invoices.*')
-//            ->join('clients', 'clients.id', '=', 'invoices.client_id')
-//            ->join('invoice_amounts', 'invoice_amounts.invoice_id', '=', 'invoices.id')
             ->status(request('status'))
             ->clientId(request('client'))
             ->companyProfileId(request('company_profile'));

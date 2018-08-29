@@ -189,7 +189,6 @@
             $.ajax({
                 url: '{!! route("scheduler.gethuman") !!}',
                 type: "POST",
-                //dataType: 'JSON',
                 data: {
                     'title': 'Show Proposed',
                     'freq': $("#freq:checked").val(),

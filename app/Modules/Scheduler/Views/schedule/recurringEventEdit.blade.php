@@ -129,7 +129,6 @@
             //changed on focus to mousedown. was taking 2 clicks
             $(document).on('mousedown', '.reminder_date', function () {
                 $(this).datetimepicker({
-                    //timepicker: false,
                     format: 'Y-m-d H:i',
                     defaultDate: '+1970/01/08' //plus 1 week
                 });
@@ -178,7 +177,6 @@
                         notify('{{trans('fi.unknown_error')}}', 'error');
                     }
                 }).catch(function (response) {
-                    //console.log('Error:', response);
                     var errors = '';
                     for (datas in response.data) {
                         errors += response.data[datas] + '<br>';

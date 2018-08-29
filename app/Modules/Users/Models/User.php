@@ -50,10 +50,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             event(new UserCreated($user));
         });
 
-        /*static::deleted(function ($user)
-        {
-            event(new UserDeleted($user));
-        });*/
     }
 
     /*

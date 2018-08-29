@@ -15,7 +15,6 @@ use FI\Modules\Workorders\Models\Workorder;
 use FI\Modules\Workorders\Models\WorkorderAmount;
 use FI\Modules\Workorders\Models\WorkorderItem;
 use FI\Modules\Workorders\Models\WorkorderItemAmount;
-//use FI\Support\Calculators\QuoteCalculator as WorkorderCalculator;
 
 class WorkorderCalculate
 {
@@ -67,7 +66,6 @@ class WorkorderCalculate
 
     public function calculateAll()
     {
-        //$workorderIds = Workorder::select('id')->get();
 
         foreach (Workorder::get() as $workorder)
         {

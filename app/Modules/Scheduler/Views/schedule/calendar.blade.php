@@ -6,7 +6,7 @@
 @extends('layouts.master')
 
 @section('content')
-
+@include('layouts._alerts')
     <br>
     <div class="container col-lg-12">
         <div class="row">

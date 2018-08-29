@@ -35,11 +35,6 @@ class QuoteItem extends Model
     {
         parent::boot();
 
-       /* static::deleting(function ($quoteItem)
-        {
-            $quoteItem->amount()->delete();
-        });*/
-
         static::deleted(function($quoteItem)
         {
             if ($quoteItem->quote)

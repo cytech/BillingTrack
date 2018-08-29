@@ -32,11 +32,6 @@ class WorkorderItem extends Model
     {
         parent::boot();
 
-        /*static::deleting(function ($workorderItem)
-        {
-            $workorderItem->amount()->delete();
-        });*/
-
         static::deleted(function($workorderItem)
         {
             if ($workorderItem->workorder)
@@ -85,13 +80,11 @@ class WorkorderItem extends Model
     public function products()
     {
         return $this->hasMany('FI\Modules\Products\Models\Product', 'id', 'resource_id');
-            //->where('resource_table','=','products');
     }
 
     public function employees()
     {
         return $this->hasMany('FI\Modules\Employees\Models\Employee', 'id', 'resource_id');
-            //->where('resource_table','=','employees');
     }
 
 

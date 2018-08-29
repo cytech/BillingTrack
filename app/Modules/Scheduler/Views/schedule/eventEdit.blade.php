@@ -130,7 +130,6 @@
             //changed on focus to mousedown. was taking 2 clicks
             $(document).on('mousedown', '.reminder_date', function () {
                 $(this).datetimepicker({
-                    //timepicker: false,
                     format: 'Y-m-d H:i',
                     defaultDate: '+1970/01/08' //plus 1 week
                 });
@@ -150,7 +149,7 @@
                 var req = {
                     method: 'POST',
                     url: "{!! route('scheduler.updateevent') !!}",
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},//{"X-Requested-With":"XMLHttpRequest"}
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: $("#event").serialize()
                 };
 

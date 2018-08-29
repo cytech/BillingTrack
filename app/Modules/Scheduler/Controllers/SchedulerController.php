@@ -110,7 +110,7 @@ class SchedulerController extends Controller
         $data['status'] = (request('status')) ?: 'now';
 
         $data['events'] = Schedule::withOccurrences()->with('resources','reminders')->whereDate('start_date', '>=',
-                            Carbon::now()->subDays(config('fi.schedulerPastdays')))->get();//->last();
+                            Carbon::now()->subDays(config('fi.schedulerPastdays')))->get();
         $data['categories'] = Category::pluck('name','id');
         $data['catbglist'] = Category::pluck('bg_color','id');
 	    $data['cattxlist'] = Category::pluck('text_color','id');
@@ -263,10 +263,8 @@ class SchedulerController extends Controller
 
     public function tableEvent()
     {
-        //$data['events'] = Schedule::with('category')->orderBy('start_date', 'desc')->paginate(500);
         $data['events'] = Schedule::withOccurrences()->
-                        with('category')->where('isRecurring', '<>', '1')->orderBy('start_date', 'desc')->get();//paginate(500);
-        //$data['companyProfiles'] =  ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+                        with('category')->where('isRecurring', '<>', '1')->orderBy('start_date', 'desc')->get();
 
         return view('schedule.tableEvent', $data);
     }
@@ -279,9 +277,8 @@ class SchedulerController extends Controller
 	 */
 	public function tableRecurringEvent(Request $request)
     {
-	        //require_once __DIR__ . '/../vendor/autoload.php';
             $data['events'] = Schedule::where('isRecurring',1)->
-            with('category')->get();//->paginate(500);
+            with('category')->get();
 
             //add human readable rule to array
             foreach ($data['events'] as $i => $event) {
@@ -305,7 +302,6 @@ class SchedulerController extends Controller
 
 			$schedule = Schedule::withOccurrences()->find( $id );
 			$rule     = Recurr\Rule::createFromString( $schedule->rrule);
-			//$rule = new Recurr\Rule($schedule->rrule);
 			$textTransformer = new Recurr\Transformer\TextTransformer();
 
 			$rrule = [
@@ -393,8 +389,7 @@ class SchedulerController extends Controller
 		$event->description = $request->description;
 		$event->isRecurring = 1;
 		$event->rrule       = $rule->getString();
-		//$event->start_date  = $rule->getStartDate();
-		//$event->end_date    = $rule->getEndDate();
+
 		$event->category_id = $request->category_id;
 		$event->user_id     = Auth::user()->id;
 
@@ -418,7 +413,6 @@ class SchedulerController extends Controller
 					$scheduleItem = ScheduleResource::firstOrNew(['id' => $event->id]);
 					$scheduleItem->id = $event->id;
 					$scheduleItem->schedule_id = $event->id;
-					//$scheduleItem->fid = 2;
 					$scheduleItem->resource_table = 'employees';
 					$scheduleItem->resource_id = $employee->id;
 					$scheduleItem->value = $event->title;
@@ -549,7 +543,6 @@ class SchedulerController extends Controller
         $drivers =  Employee::where('active','=','1')->where('driver','=', 1)->pluck('id','short_name')->toArray();
         //active, scheduleable employees
         $active_employees = Employee::where('active','=','1')->where('schedule', '=', '1')->pluck('short_name','id')->toArray();
-        //$active_resources = Resource::where('active','=','1')->pluck('name','id')->toArray();
         $active_resources = Product::where('active','=','1')->get(['id','name','numstock'])->toArray();
 
 		$scheduled_clients   = [];
@@ -626,7 +619,6 @@ class SchedulerController extends Controller
         $event = Schedule::find( $id );
         $event->delete();
 
-        //return 'true';
         return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
     }
 

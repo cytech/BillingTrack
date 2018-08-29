@@ -106,9 +106,6 @@ class EmployeeController extends Controller
     public function update(EmployeeRequest $request, $id)
     {
         // update
-        /*Resource::find($id) THIS FAILS ON SAVING CHECKBOX STATE
-        ->fill($request->all())
-        ->save();*/
         $employees = Employee::find($id);
         $employees->number = $request->number;
         $employees->first_name = ucfirst($request->first_name);

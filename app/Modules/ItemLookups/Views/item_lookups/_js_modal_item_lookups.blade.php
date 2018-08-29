@@ -70,15 +70,6 @@
                     $('#item-table tr:last input[name=price]').val(items[key].price);
                     $('#item-table tr:last select[name=tax_rate_id]').val(items[key].tax_rate_id);
                     $('#item-table tr:last select[name=tax_rate_2_id]').val(items[key].tax_rate_2_id);
-
-                    //added to set qty to zero if item description is a worker (Worker-*)
-                    // or name is a vehicle (Vehicle -*)
-                    //if ((items[key].description.indexOf("Worker-") !== -1)||(items[key].description.indexOf("Manager-") !== -1)||(items[key].name.indexOf("Vehicle -") !== -1)) {
-                    	//$('#item_table tr:last input[name=quantity]').val('0');
-                    //}
-                    //else {
-                    	//$('#item_table tr:last input[name=quantity]').val('1');
-                   // }
                     $('#item-table tr:last input[name=quantity]').val('0');
 
                     $('#modal-choose-items').modal('hide');

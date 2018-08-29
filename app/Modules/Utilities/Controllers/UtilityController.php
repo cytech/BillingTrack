@@ -153,7 +153,7 @@ class UtilityController
         if ($request->isMethod('post')) {
             $start = $request->from_date;
             $end = $request->to_date;
-            //dd($request->batch_type);
+
             switch ($request->batch_type){
                 case 'quotes':
                     //quotes sent or approved, not converted to workorder or invoice

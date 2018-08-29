@@ -45,11 +45,6 @@ class InvoiceItem extends Model
             event(new InvoiceModified($invoiceItem->invoice));
         });
 
-       /* static::deleting(function ($invoiceItem)
-        {
-            $invoiceItem->amount()->delete();
-        });*/
-
         static::deleted(function($invoiceItem)
         {
             if ($invoiceItem->invoice)

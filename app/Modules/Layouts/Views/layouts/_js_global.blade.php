@@ -189,45 +189,18 @@ font-size: 1.6rem !important;
             });
         });
 
-        /*$('#bulk-select-all').click(function() {
-            if ($(this).prop('checked')) {
-                $('.bulk-record').prop('checked', true);
-                if ($('.bulk-record:checked').length > 0) {
-                    $('.bulk-actions').show();
-                }
-            }
-            else {
-                $('.bulk-record').prop('checked', false);
-                $('.bulk-actions').hide();
-            }
-        });*/
-
         $(document).on('click','#bulk-select-all', function() {
             if ($(this).prop('checked')) {
-                //var all = this;
-                //$(this).closest('table').find('input[type="checkbox"]').prop('checked', true);
                 $(this).closest('table').find('.bulk-record').prop('checked', true);
-                //$('.bulk-record').prop('checked', true);
                 if ($('.bulk-record:checked').length > 0) {
                     $('.bulk-actions').show();
                 }
             }
             else {
-                //$(this).closest('table').find('input[type="checkbox"]').prop('checked', false);
                 $(this).closest('table').find('.bulk-record').prop('checked', false);
-                //$('.bulk-record').prop('checked', false);
                 $('.bulk-actions').hide();
             }
         });
-
-        /*$('.bulk-record').click(function() {
-            if ($('.bulk-record:checked').length > 0) {
-                $('.bulk-actions').show();
-            }
-            else {
-                $('.bulk-actions').hide();
-            }
-        });*/
 
         $(document).on('click','.bulk-record', function() {
             if ($('.bulk-record:checked').length > 0) {

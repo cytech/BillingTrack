@@ -20,6 +20,7 @@ use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
 use FI\Support\DateFormatter;
 use FI\Modules\Employees\Models\Employee;
 use FI\Modules\Products\Models\Product;
+use FI\Support\Statuses\WorkorderStatuses;
 
 class WorkorderController extends Controller
 {
@@ -29,6 +30,7 @@ class WorkorderController extends Controller
         $input['client_id'] = Client::firstOrCreateByUniqueName($request->input('client_name'))->id;
         $input['start_time'] = DateFormatter::formattime($input['start_time']);
         $input['end_time'] = DateFormatter::formattime($input['end_time']);
+        $input['workorder_status_id'] = WorkorderStatuses::getStatusId('approved');
 
         $workorder = Workorder::create($input);
 
@@ -66,6 +68,7 @@ class WorkorderController extends Controller
 
         event(new WorkorderModified(Workorder::find($workorder->id)));
 
-        return redirect()->route('workorders.edit', ['id' => $workorder->id])->with('message', 'Successfully Created workorder!');
+        //return redirect()->route('workorders.edit', ['id' => $workorder->id])->with('alertSuccess', trans('fi.record_successfully_created'));
+        return back()->with('alertSuccess', trans('fi.record_successfully_created'));
     }
 }

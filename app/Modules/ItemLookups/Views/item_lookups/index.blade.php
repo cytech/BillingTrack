@@ -81,12 +81,10 @@
             {{--for itemlookups DT--}}
             $('#dt-itemlookupstable').DataTable({
                 paging: false,
-                //searching: true,
                 order: [[6, "asc"], [0, "asc"]],//order on hidden resource table then name
                 "columnDefs": [
                     {"orderable": false, "targets": 5}
                 ]
-                //dom: 'T<"clear">lfrtip'
             });
         });
     </script>

@@ -35,7 +35,7 @@ class EventRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user();//->can('create', 'schedule');
+        return $this->user();
     }
 
     /**

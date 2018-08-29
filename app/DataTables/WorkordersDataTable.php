@@ -69,8 +69,6 @@ class WorkordersDataTable extends DataTable
     public function query(Workorder $model)
     {
         $models = $model->with(['client', 'activities', 'amount.workorder.currency'])->select('workorders.*')
-//            ->join('clients', 'clients.id', '=', 'workorders.client_id')
-//            ->join('workorder_amounts', 'workorder_amounts.workorder_id', '=', 'workorders.id')
             ->status(request('status'))
             ->clientId(request('client'))
             ->companyProfileId(request('company_profile'));

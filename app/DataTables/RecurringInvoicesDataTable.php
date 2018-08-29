@@ -50,8 +50,6 @@ class RecurringInvoicesDataTable extends DataTable
     public function query(RecurringInvoice $model)
     {
         $models = $model->with(['client', 'activities', 'amount.recurringInvoice.currency'])->select('recurring_invoices.*', 'recurring_invoices.id as number')
-//            ->join('clients', 'clients.id', '=', 'recurring_invoices.client_id')
-//            ->join('recurring_invoice_amounts', 'recurring_invoice_amounts.recurring_invoice_id', '=', 'recurring_invoices.id')
             ->status(request('status'))
             ->clientId(request('client'))
             ->companyProfileId(request('company_profile'));

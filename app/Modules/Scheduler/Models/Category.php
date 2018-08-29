@@ -16,8 +16,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model {
 
-    //use SoftDeletes;
-
 	protected $table = 'schedule_categories';
 
 	public $timestamps = false;

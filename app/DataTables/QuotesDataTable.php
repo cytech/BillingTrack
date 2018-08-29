@@ -71,8 +71,6 @@ class QuotesDataTable extends DataTable
     public function query(Quote $model)
     {
         $models = $model->with(['client', 'activities', 'amount.quote.currency'])->select('quotes.*')
-//            ->join('clients', 'clients.id', '=', 'quotes.client_id')
-//            ->join('quote_amounts', 'quote_amounts.quote_id', '=', 'quotes.id')
             ->status(request('status'))
             ->clientId(request('client'))
             ->companyProfileId(request('company_profile'));

@@ -102,10 +102,8 @@ class SetupController extends Controller
     {
         $maxtime =  ini_get('max_execution_time');
         ini_set('max_execution_time', '300'); // extremely large database transfer fails at default 30 seconds
-        //Artisan::call('config:cache');
         //olddbname entered in form
         $oldschema = $request->olddbname;
-        //$newschema = env('DB_DATABASE');
         $newschema = DB::getDatabaseName();
 
         $query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME =  ?";
