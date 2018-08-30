@@ -170,7 +170,6 @@
                         </thead>
                         <tbody>
                         @foreach($reminders as $reminder)
-                            <td id="{!! $reminder->id !!}">
                                 <td>{!! $reminder->Schedule->title !!}</td>
                                 <td>{!! $reminder->reminder_text !!}</td>
                                 <td>{!! $reminder->Schedule->occurrences->first()->start_date !!}</td>
