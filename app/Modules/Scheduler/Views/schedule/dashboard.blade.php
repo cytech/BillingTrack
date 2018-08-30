@@ -218,6 +218,7 @@
     </div>
 @stop
 @section('javascript')
+    @include('partials._js_datatables')
     {!! Html::style('assets/plugins/morris.js.so/morris.css') !!}
     {!! Html::script('assets/plugins/raphael/raphael.min.js') !!}
     {!! Html::script('assets/plugins/morris.js.so/morris.min.js') !!}

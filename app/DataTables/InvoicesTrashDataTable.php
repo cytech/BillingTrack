@@ -55,7 +55,7 @@ class InvoicesTrashDataTable extends DataTable
      */
     public function query(Invoice $model)
     {
-        return $model->has('client')->onlyTrashed();
+        return $model->has('client')->with('client')->onlyTrashed();
     }
 
     /**

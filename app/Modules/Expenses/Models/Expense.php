@@ -14,7 +14,7 @@ namespace FI\Modules\Expenses\Models;
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\CheckAttachment;
 use FI\Events\ExpenseCreated;
-use FI\Events\ExpenseDeleting;
+use FI\Events\ExpenseDeleted;
 use FI\Events\ExpenseSaving;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
@@ -58,9 +58,9 @@ class Expense extends Model
             event(new ExpenseSaving($expense));
         });
 
-        static::deleting(function ($expense)
+        static::deleted(function ($expense)
         {
-            event(new ExpenseDeleting($expense));
+            event(new ExpenseDeleted($expense));
         });
     }
 

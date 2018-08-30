@@ -5,7 +5,7 @@ namespace FI\Events;
 use FI\Modules\Expenses\Models\Expense;
 use Illuminate\Queue\SerializesModels;
 
-class ExpenseDeleting extends Event
+class ExpenseDeleted extends Event
 {
     use SerializesModels;
 

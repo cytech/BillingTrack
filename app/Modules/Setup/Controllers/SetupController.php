@@ -262,6 +262,10 @@ class SetupController extends Controller
                     DB::table('schedule_categories')->insert(['id' => 5, 'name' => 'Workorder', 'text_color' => '#000000', 'bg_color' => '#aaffaa']);
                     DB::table('schedule_categories')->where('name', 'Client Appointment')->update(['name' => 'Employee Appointment']);
 
+                    $catcount = Category::count();
+
+                    DB::statement('ALTER TABLE `' . $newschema . '`.schedule_categories AUTO_INCREMENT = '. ($catcount + 1) .';');
+
                     //update schedule category ids
                     $schedcats = Schedule::where('category_id', '>', 9)->get();
                     foreach ($schedcats as $scats){

@@ -18,6 +18,9 @@ edit .env and change:
     DB_PASSWORD=
 to your NEW database settings.
 
+Do not set APP_DEBUG to true. On a large database transfer it will cause a failure.
+If you need to run debug, wait until setup is complete and app is running.
+
 save file.
 
 NEW INSTALL:

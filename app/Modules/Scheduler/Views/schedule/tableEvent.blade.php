@@ -29,7 +29,7 @@
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <table id="dt-filtertable" class="display" cellspacing="0" width="100%">
+                        <table id="dt-filtertable" class="display table dataTable" cellspacing="0" width="100%">
                             <thead>
                             <tr>
                                 <th>
@@ -73,4 +73,5 @@
 @stop
 @section('javascript')
     @include('partials._js_bulk_ajax')
+    @include('partials._js_datatables')
 @stop

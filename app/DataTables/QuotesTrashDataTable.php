@@ -67,7 +67,7 @@ class QuotesTrashDataTable extends DataTable
      */
     public function query(Quote $model)
     {
-        return $model->has('client')->where('invoice_id', 0)->onlyTrashed();
+        return $model->has('client')->with('client')->where('invoice_id', 0)->onlyTrashed();
     }
 
     /**

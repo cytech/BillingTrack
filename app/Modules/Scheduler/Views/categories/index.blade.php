@@ -23,7 +23,7 @@
                     </div>
                     {{--@include('layouts._alerts')--}}
                     <div class="panel-body">
-                        <table id="dt-categoriestable" class="display" cellspacing="0" width="100%">
+                        <table id="dt-categoriestable" class="display table dataTable" cellspacing="0" width="100%">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -69,5 +69,5 @@
     </section>
 @stop
 @section('javascript')
-
+    @include('partials._js_datatables')
 @stop

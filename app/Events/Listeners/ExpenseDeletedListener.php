@@ -2,25 +2,20 @@
 
 namespace FI\Events\Listeners;
 
-use FI\Events\ExpenseDeleting;
+use FI\Events\ExpenseDeleted;
 
-class ExpenseDeletingListener
+class ExpenseDeletedListener
 {
     public function __construct()
     {
         //
     }
 
-    public function handle(ExpenseDeleting $event)
+    public function handle(ExpenseDeleted $event)
     {
         foreach ($event->expense->attachments as $attachment)
         {
             ($event->isForceDeleting()) ? $attachment->onlyTrashed()->forceDelete() : $attachment->delete();
         }
-
-       /* if ($event->expense->custom)
-        {
-            $event->expense->custom->delete();
-        }*/
     }
 }

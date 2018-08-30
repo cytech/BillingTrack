@@ -25,12 +25,12 @@ class PaymentsTrashDataTable extends DataTable
             ->editColumn('id', function (Payment $payment) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $payment->id . '">';
             })
-            ->editColumn('invoice.client.name', function (Payment $payment) {
-                return '<a href="clients/'.$payment->invoice->client->id .'/edit">'. $payment->invoice->client->name .'</a></td>';
+            ->editColumn('client.name', function (Payment $payment) {
+                return '<a href="clients/'.$payment->client->id .'/edit">'. $payment->client->name .'</a></td>';
             })
             ->orderColumn('formatted_paid_at', 'paid_at $1')
             ->orderColumn('formatted_amount', 'amount $1')
-            ->rawColumns([ 'invoice.number','invoice.client.name', 'action', 'id']);
+            ->rawColumns([ 'invoice.number','client.name', 'action', 'id']);
     }
 
 
@@ -42,7 +42,7 @@ class PaymentsTrashDataTable extends DataTable
      */
     public function query(Payment $model)
     {
-        return $model->has('client')->has('invoice')->with('paymentMethod')->onlyTrashed();
+        return $model->has('client')->has('invoice')->with('client', 'invoice','paymentMethod')->onlyTrashed();
     }
 
     /**
@@ -101,7 +101,7 @@ class PaymentsTrashDataTable extends DataTable
             ],
             'client_name'   => [
                 'title' => trans('fi.client'),
-                'data'       => 'invoice.client.name',
+                'data'       => 'client.name',
             ],
             'invoice_summary'   => [
                 'title' => trans('fi.summary'),

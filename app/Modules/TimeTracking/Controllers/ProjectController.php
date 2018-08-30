@@ -93,7 +93,7 @@ class ProjectController extends Controller
         TimeTrackingProject::destroy($id);
 
         return redirect()->route('timeTracking.projects.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('fi.record_successfully_trashed'));
     }
 
     public function bulkDelete()

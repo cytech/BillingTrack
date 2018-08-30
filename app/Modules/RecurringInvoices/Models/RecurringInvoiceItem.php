@@ -48,11 +48,6 @@ class RecurringInvoiceItem extends Model
             event(new RecurringInvoiceModified($recurringInvoiceItem->recurringInvoice));
         });
 
-       /* static::deleting(function ($recurringInvoiceItem)
-        {
-            $recurringInvoiceItem->amount()->delete();
-        });*/
-
         static::deleted(function($recurringInvoiceItem)
         {
             if ($recurringInvoiceItem->recurringInvoice)
