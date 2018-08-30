@@ -40,7 +40,7 @@
                             <tbody>
                             @foreach ($itemLookups as $itemLookup)
                                 <tr>
-                                    <td>{{ $itemLookup->name }}</td>
+                                    <td>{!! $itemLookup->formatted_name !!}</td>
                                     <td>{{ $itemLookup->description }}</td>
                                     <td>{{ $itemLookup->formatted_price }}</td>
                                     <td>{{ $itemLookup->taxRate->name or '' }}</td>

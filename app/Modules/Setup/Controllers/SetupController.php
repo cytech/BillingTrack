@@ -304,7 +304,10 @@ class SetupController extends Controller
         }
         //these need to happen after all tables are populated
         //delete orphaned workorders (with no client)
-        DB::raw('delete FROM workorders WHERE NOT EXISTS (SELECT NULL FROM clients WHERE clients.id = workorders.client_id)');
+        //below not running, try statement
+        //DB::raw('delete FROM workorders WHERE NOT EXISTS (SELECT NULL FROM clients WHERE clients.id = workorders.client_id)');
+        DB::statement('delete FROM `' . $newschema . '`.workorders WHERE NOT EXISTS (SELECT NULL FROM `' . $newschema . '`.clients 
+                        WHERE `' . $newschema . '`.clients.id = `' . $newschema . '`.workorders.client_id)');
 
         //delete old workorder schedule items. replaced with coreevents
         $schedules = Schedule::where('id', '<', 1000000)->get();

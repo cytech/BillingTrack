@@ -111,7 +111,7 @@ class UtilityController
     public function bulkRestoreTrash()
     {
         $request = request('ids');
-
+        app('debugbar')->info($request);
         foreach ($request as $arr) {
             foreach ($arr as $entity => $id) {
                 if ($entity == 'Schedule') {
@@ -122,10 +122,10 @@ class UtilityController
                     $instance = 'FI\\Modules\\' . $entity . 's\\Models\\' . $entity;
                 }
 
-                $instance::onlyTrashed()->where('id', $id)->restore();
+                $instance::onlyTrashed()->find($id)->restore();
             }
         }
-        return response()->json(['alertSuccess' => trans('fi.record_successfully_restored')], 200);
+        return response()->json(['success' => trans('fi.record_successfully_restored')], 200);
     }
 
     public function bulkDeleteTrash()
@@ -142,10 +142,10 @@ class UtilityController
                     $instance = 'FI\\Modules\\' . $entity . 's\\Models\\' . $entity;
                 }
 
-                $instance::onlyTrashed()->where('id', $id)->forceDelete();
+                $instance::onlyTrashed()->find($id)->forceDelete();
             }
         }
-        return response()->json(['alertSuccess' => trans('fi.record_successfully_deleted')], 200);
+        return response()->json(['success' => trans('fi.record_successfully_deleted')], 200);
     }
 
     public function batchPrint(Request $request)
