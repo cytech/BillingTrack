@@ -158,7 +158,7 @@
                     <h3 class="panel-title"><i class="fa fa-bell-o"></i> {{ trans('fi.reminders') }}</h3>
                 </div>
                 <div class="panel-body">
-                    <table id="dt-reminderstable" class="display" cellspacing="0" width="100%">
+                    <table id="dt-reminderstable" class="display table dataTable" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th>{{ trans('fi.event_title') }}</th>

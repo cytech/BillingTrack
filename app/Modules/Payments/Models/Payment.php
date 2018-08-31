@@ -31,7 +31,7 @@ class Payment extends Model
 
     use SoftCascadeTrait;
 
-    protected $softCascade = ['custom'];
+    protected $softCascade = ['custom', 'mailQueue', 'notes'];
 
     /**
      * Guarded properties

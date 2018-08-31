@@ -9,6 +9,8 @@
                         class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
         <li><a href="javascript:void(0)" class="create-quote" data-unique-name="{{ $unique_name }}"><i
                         class="fa fa-file-text-o"></i> {{ trans('fi.create_quote') }}</a></li>
+        <li><a href="javascript:void(0)" class="create-workorder" data-unique-name="{{ $unique_name }}"><i
+                        class="fa fa-file-text-o"></i> {{ trans('fi.create_workorder') }}</a></li>
         <li><a href="javascript:void(0)" class="create-invoice" data-unique-name="{{ $unique_name }}"><i
                         class="fa fa-file-text"></i> {{ trans('fi.create_invoice') }}</a></li>
         <li><a href="#" id="delete-client-{{ $id }}"

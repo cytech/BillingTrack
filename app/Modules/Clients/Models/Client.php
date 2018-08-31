@@ -29,7 +29,7 @@ class Client extends Model
     use SoftCascadeTrait;
 
     protected $softCascade = ['contacts', 'custom', 'invoices', 'workorders', 'quotes',  'projects','recurringInvoices',
-                            'merchant', 'attachments'];
+                            'merchant', 'attachments', 'notes'];
 
     protected $dates = ['deleted_at'];
 

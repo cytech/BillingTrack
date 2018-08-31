@@ -43,7 +43,7 @@ class ProjectsTrashDataTable extends DataTable
      */
     public function query(TimeTrackingProject $model)
     {
-        return $model->getSelect()
+        return $model->has('client')->getSelect()
             ->companyProfileId(request('company_profile'))
             ->statusId(request('status'))
             ->onlyTrashed();

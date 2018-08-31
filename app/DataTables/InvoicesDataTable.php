@@ -41,12 +41,18 @@ class InvoicesDataTable extends DataTable
 
                 return $ret;
             })
+            ->editColumn('formatted_due_at', function (Invoice $invoice){
+                if ($invoice->isOverdue){
+                    return '<span class="hidden-md hidden-sm hidden-xs" style="color: red; font-weight: bold;">' . $invoice->formatted_due_at . '</span>';
+                }
+                    return $invoice->formatted_due_at ;
+            })
             ->editColumn('client.name', function (Invoice $invoice){
                 return '<a href="/clients/' . $invoice->client->id . '">' . $invoice->client->name . '</a>';
             })
             ->orderColumn('formatted_invoice_date', 'invoice_date $1')
             ->orderColumn('formatted_due_at', 'due_at $1')
-            ->rawColumns(['client.name', 'invoice_status_id', 'number', 'action', 'id']);
+            ->rawColumns(['client.name', 'formatted_due_at', 'invoice_status_id', 'number', 'action', 'id']);
     }
 
 
