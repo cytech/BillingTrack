@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - transfer existing 2018-8 database to new structure upon setup
 - move sortables to server side datatables
 - implement softdeletes, with trash management
+- update to laravel 5.6.*
 - update all resources
 - add toolbox
 - add products

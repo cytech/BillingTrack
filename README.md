@@ -1,50 +1,64 @@
 # FusionInvoice-FOSS
 FusionInvoice 2018-8 after it was open sourced
 
-Install:
-clone repo
+**To Install:**
 
-composer install
+1. Clone or download the repository to a new web directory (do not attempt to upgrade an old FusionInvoice installation)
 
-create a NEW FusionInvoiceFOSS database.
-    you will be presented with an option to transfer an existing 2018-8 database during setup.
+2. Run "composer install" in web directory
 
-copy .env.example to .env
+3. create a NEW FusionInvoiceFOSS database.
 
-edit .env and change:
+    _You will be presented with an option to transfer an existing FusionInvoice 2018-8 database during setup._
+
+4. Copy .env.example to .env
+
+5. edit .env and change:
+
     DB_HOST=
+    
     DB_DATABASE=
+    
     DB_USERNAME=
+    
     DB_PASSWORD=
-to your NEW database settings.
+    
+    to your **NEW** database settings.
 
-Do not set APP_DEBUG to true. On a large database transfer it will cause a failure.
-If you need to run debug, wait until setup is complete and app is running.
+    _Do not set APP_DEBUG to true. On a large database transfer it will cause a failure._
+    _If you need to run debug, wait until setup is complete and app is running._
 
-save file.
+6. save .env file.
 
-NEW INSTALL:
-run "php artisan key:generate"
-copy generated key to (APP_KEY=base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+    **FOR NEW INSTALL:**
+        Run "php artisan key:generate"
+        Copy generated key to (APP_KEY=base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
+    
+        Save .env file and exit.
 
-save file and exit.
+    **FOR UPGRADE FROM 2018-8:**
+        Add your existing FusionInvoice 2018-8 app key to (APP_KEY= xxxxxxxxxxxxxxxxxxxxxx)
+    
+        Save .env file and exit.
 
-UPGRADE FROM 2018-8:
-Add your existing FusionInvoice 2018-8 app key to (APP_KEY= xxxxxxxxxxxxxxxxxxxxxx)
+7. Set permissions for your site. Note that storage and bootstrap/cache
+should be open permissions (chmod -R 777 storage, chmod -R 777 bootstrap/cache)
 
-save file and exit.
+8. Start FusionInvoiceFOSS/setup
 
-Set permissions for your site. Note that storage and bootstrap/cache
-should be open permissions (chmod -R 777 storage, chmod -R 777 bootstrap/cache)
+9. after database configuration finishes, you will be presented with 2 choices:
 
-Start FusionInvoiceFOSS/setup
+    **Create new account** -> creates fresh installation with account
 
-after database configuration finishes, you will be presented with 2 choices:
+    **Transfer existing 2018-8 database** -> enter EXACT existing 2018-8 database name and data will be transfered to new database and structure.
+    
+    Note: This can take a long time on a large database (i.e. 30 MiB = ~ 10 minutes). This function will transfer **only** existing FusionInvoice 2018-8. If you have an older version it will need to be upgraded to 2018-8.
+    2018-8 is available in the release section of this repository.
+    This will also transfer the cytech/workorders addon, cytech/scheduler addon and fusioninvoice/TimeTracking addon if they exist.
+    Any other addons will have to be reinstalled and data manually transferred.
+    Also, there is a limit of 10 custom fields columns transferred per _module_custom_ table. If you have more than 10 custom fields columns defined in any _module_custom_ table you will need to edit the code in SetupController.php line 201 and increase the
+    value from 10 to the maximum number of your custom field columns.
 
-create new account -> creates fresh installation with account
+10. sign in
 
-transfer existing 2018-8 database -> enter EXACT existing 2018-8 database name and data will be transfered to new database and structure.
-
-sign in
-
-If you find this product useful, feel free to buy me a beer: https://paypal.me/cytecheng
+:+1: If you find this product useful, feel free to buy me a beer: https://paypal.me/cytecheng
