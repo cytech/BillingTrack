@@ -24,7 +24,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('{!! trans('fi.bulk_invoice_change_status_warning') !!}', "{{ route('workorders.bulk.status') }}",
+                bulkConfirm('{!! trans('fi.bulk_workorder_change_status_warning') !!}', "{{ route('workorders.bulk.status') }}",
                             ids, $(this).data('status'))
             }
         });

@@ -626,7 +626,7 @@ class SchedulerController extends Controller
         $event = ScheduleReminder::find( $request->id );
         $event->delete();
 
-        return back()->with('alertSuccess', trans('fi.reminder_trashed_success'));
+        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
     }
 
     public function bulkTrash()

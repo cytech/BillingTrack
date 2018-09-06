@@ -1,6 +1,8 @@
 # FusionInvoice-FOSS
 FusionInvoice 2018-8 after it was open sourced
 
+[Link to prerequisites](https://github.com/cytech/FusionInvoice-FOSS/wiki)
+
 **To Install:**
 
 1. Clone or download the repository to a new web directory (do not attempt to upgrade an old FusionInvoice installation)

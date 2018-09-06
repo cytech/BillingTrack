@@ -30,7 +30,7 @@
                                 <th>{{ trans('fi.category_name') }}</th>
                                 <th>{{ trans('fi.category_text_color') }}</th>
                                 <th>{{ trans('fi.category_bg_color') }}</th>
-                                <th>Actions</th>
+                                <th>@lang('fi.action')</th>
                             </tr>
                             </thead>
                             <tbody>

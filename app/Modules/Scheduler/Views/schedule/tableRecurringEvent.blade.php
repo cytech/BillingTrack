@@ -42,7 +42,7 @@
                                 <th>{{ trans('fi.start_date') }}</th>
                                 <th>{{ trans('fi.frequency') }}</th>
                                 <th>{{ trans('fi.category') }}</th>
-                                <th>Action</th>
+                                <th>@lang('fi.action')</th>
                             </tr>
                             </thead>
                             <tbody>
