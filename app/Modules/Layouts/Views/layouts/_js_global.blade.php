@@ -189,6 +189,12 @@ font-size: 1.6rem !important;
             });
         });
 
+        $(document).on('click', '.enter-multi-payment', function () {
+            $('#modal-placeholder').load('{{ route('payments.create') }}', {
+                redirectTo: $(this).data('redirect-to')
+            });
+        });
+
         $(document).on('click','#bulk-select-all', function() {
             if ($(this).prop('checked')) {
                 $(this).closest('table').find('.bulk-record').prop('checked', true);

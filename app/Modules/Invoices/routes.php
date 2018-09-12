@@ -20,6 +20,7 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::post('{id}/edit', ['uses' => 'InvoiceEditController@update', 'as' => 'invoices.update']);
         Route::get('{id}/delete', ['uses' => 'InvoiceController@delete', 'as' => 'invoices.delete']);
         Route::get('{id}/pdf', ['uses' => 'InvoiceController@pdf', 'as' => 'invoices.pdf']);
+        Route::get('ajaxLookup/{name}', ['uses' => 'InvoiceController@ajaxLookup', 'as' => 'invoices.ajaxLookup']);
 
         Route::get('{id}/edit/refresh', ['uses' => 'InvoiceEditController@refreshEdit', 'as' => 'invoiceEdit.refreshEdit']);
         Route::post('edit/refresh_to', ['uses' => 'InvoiceEditController@refreshTo', 'as' => 'invoiceEdit.refreshTo']);

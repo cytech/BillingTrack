@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row col-md-6">
 
-    <div class="col-md-12">
+    <div class="col-md-4">
         <div class="form-group">
             <label>{{ trans('fi.display_profile_image') }}: </label>
             {!! Form::select('setting[displayProfileImage]', $yesNoArray, config('fi.displayProfileImage'), ['class' => 'form-control']) !!}
@@ -13,7 +13,7 @@
 
     <h4 style="font-weight: bold; clear: both;">{{ $widget }}</h4>
 
-    <div class="row">
+    <div class="row col-md-6">
         <div class="col-md-4">
             <div class="form-group">
                 <label>{{ trans('fi.enabled') }}: </label>
@@ -40,7 +40,10 @@
     </div>
 
     @if (view()->exists($widget . 'WidgetSettings'))
+        <div class="col-md-6">
         @include($widget . 'WidgetSettings')
+        </div>
     @endif
 
 @endforeach
+<div class="row"></div>

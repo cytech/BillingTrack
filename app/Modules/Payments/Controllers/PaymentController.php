@@ -36,18 +36,27 @@ class PaymentController extends Controller
     public function create()
     {
         $date = DateFormatter::format();
+        //if enter-payment
+        if (request('invoice_id')) {
+            $invoice = Invoice::find(request('invoice_id'));
 
-        $invoice = Invoice::find(request('invoice_id'));
-
-        return view('payments._modal_enter_payment')
-            ->with('invoice_id', request('invoice_id'))
-            ->with('invoiceNumber', $invoice->number)
-            ->with('balance', $invoice->amount->formatted_numeric_balance)
-            ->with('date', $date)
-            ->with('paymentMethods', PaymentMethod::getList())
-            ->with('client', $invoice->client)
-            ->with('customFields', CustomField::forTable('payments')->get())
-            ->with('redirectTo', request('redirectTo'));
+            return view('payments._modal_enter_payment')
+                ->with('invoice_id', request('invoice_id'))
+                ->with('invoiceNumber', $invoice->number)
+                ->with('balance', $invoice->amount->formatted_numeric_balance)
+                ->with('date', $date)
+                ->with('paymentMethods', PaymentMethod::getList())
+                ->with('client', $invoice->client)
+                ->with('customFields', CustomField::forTable('payments')->get())
+                ->with('redirectTo', request('redirectTo'));
+        } else{
+            //id enter-multi-payment
+            return view('payments._modal_enter_multi_payment')
+                ->with('paymentMethods', PaymentMethod::getList())
+                ->with('date', $date)
+                ->with('customFields', CustomField::forTable('payments')->get())
+                ->with('redirectTo', request('redirectTo'));
+        }
     }
 
     public function store(PaymentRequest $request)
@@ -60,7 +69,7 @@ class PaymentController extends Controller
 
         $payment->custom->update($request->input('custom', []));
 
-        return response()->json(['success' => true], 200);
+        return response()->json(['success' => trans('fi.record_successfully_created')], 200);
     }
 
     public function edit($id)

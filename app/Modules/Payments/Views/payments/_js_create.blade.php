@@ -25,8 +25,16 @@
                 note: $('#payment_note').val(),
                 custom: custom_fields,
                 email_payment_receipt: $('#email_payment_receipt').prop('checked')
-            }).done(function () {
-                window.location = '{!! $redirectTo !!}';
+            }).done(function (data) {
+                if (data.success) {
+                    setTimeout(function () { //give notify a chance to display before redirect
+                        window.location = '{!! $redirectTo !!}';
+                    }, 2000);
+                    notify(data.success, 'success');
+                }else {
+                    notify(data.error, 'error');
+                }
+
             }).fail(function (response) {
                 $btn.button('reset');
                 showErrors($.parseJSON(response.responseText).errors, '#modal-status-placeholder');

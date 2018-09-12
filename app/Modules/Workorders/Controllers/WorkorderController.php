@@ -30,23 +30,6 @@ class WorkorderController extends Controller
 {
     use ReturnUrl;
 
-    public function dashboard(){
-
-	    $today = new Carbon();
-
-	    $data['workorders'] = Workorder::where( 'job_date', '=', $today->format('Y-m-d'))
-	                                   ->where('workorder_status_id', 3)->get();
-
-	    $data['fullMonthEvent'] = Workorder::select( DB::raw( "count('id') as total, DATE_FORMAT(job_date, '%Y%m%d') as job_date" ) )
-	                                      ->where( 'job_date', '>=', date( 'Y-m-01' ) )
-	                                      ->where( 'job_date', '<=', date( 'Y-m-t' ) )
-		                                  ->where('workorder_status_id', 3)
-	                                      ->groupBy( DB::raw( "job_date" ) )
-	                                      ->get();
-
-	    return view('workorders.dashboard', $data);
-    }
-
     public function index(WorkordersDataTable $dataTable)
     {
         $this->setReturnUrl();
@@ -81,7 +64,7 @@ class WorkorderController extends Controller
 		    $workorder = Workorder::findOrFail($cid);
 	    	event(new WorkorderModified($workorder));
 	    }
-        return response()->json(['success' => trans('status_successfully_updated')], 200);
+        return response()->json(['success' => trans('fi.status_successfully_updated')], 200);
 
     }
 

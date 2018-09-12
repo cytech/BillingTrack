@@ -87,6 +87,7 @@
                         <li><a data-toggle="tab" href="#tab-online-payments">{{ trans('fi.online_payments') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-scheduler">{{ trans('fi.scheduler') }}</a></li>
                         <li><a data-toggle="tab" href="#tab-backup">{{ trans('fi.backup') }}</a></li>
+                        <li><a data-toggle="tab" href="#tab-system">{{ trans('fi.system') }}</a></li>
                     </ul>
                     <div class="tab-content">
                         <div id="tab-general" class="tab-pane active">
@@ -121,6 +122,9 @@
                         </div>
                         <div id="tab-backup" class="tab-pane">
                             @include('settings._backup')
+                        </div>
+                        <div id="tab-system" class="tab-pane">
+                            @include('settings._system')
                         </div>
                     </div>
                 </div>

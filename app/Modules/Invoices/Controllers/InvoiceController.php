@@ -19,6 +19,7 @@ use FI\Support\FileNames;
 use FI\Support\PDF\PDFFactory;
 use FI\Support\Statuses\InvoiceStatuses;
 use FI\Traits\ReturnUrl;
+use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
@@ -55,7 +56,7 @@ class InvoiceController extends Controller
         Invoice::whereIn('id', request('ids'))
             ->where('invoice_status_id', '<>', InvoiceStatuses::getStatusId('paid'))
             ->update(['invoice_status_id' => request('status')]);
-        return response()->json(['success' => trans('status_successfully_updated')], 200);
+        return response()->json(['success' => trans('fi.status_successfully_updated')], 200);
     }
 
     public function pdf($id)
@@ -65,5 +66,30 @@ class InvoiceController extends Controller
         $pdf = PDFFactory::create();
 
         $pdf->download($invoice->html, FileNames::invoice($invoice));
+    }
+
+    public function ajaxLookup($name)
+    {
+        $invoices = Invoice::whereHas( 'client', function ($query) use ($name){
+            $query->where('unique_name', $name);
+        })->whereHas( 'amount', function ($query){
+            $query->where('balance', '>', 0);
+        })->notCanceled()->get();
+
+
+        $list = [];
+
+        foreach ($invoices as $invoice){
+            $list[] =[
+            'client_id' => $invoice->client->id,
+            'id' => $invoice->id,
+            'number' => $invoice->number,
+            'amount' =>  $invoice->amount->formatted_numeric_balance,
+            'invoice_date' => $invoice->formatted_invoice_date,
+            ];
+        }
+
+        return json_encode($list);
+
     }
 }

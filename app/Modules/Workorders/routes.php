@@ -21,7 +21,6 @@ Route::group(['middleware' => 'auth.api'], function () {
 Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Workorders\Controllers'], function () {
     Route::group(['prefix' => 'workorders'], function () {
     	//workorders
-	    Route::get('dashboard', ['uses' => 'WorkorderController@dashboard', 'as' => 'workorders.dashboard']);
         Route::get('/', ['uses' => 'WorkorderController@index', 'as' => 'workorders.index']);
         Route::get('create', ['uses' => 'WorkorderCreateController@create', 'as' => 'workorders.create']);
         Route::post('create', ['uses' => 'WorkorderCreateController@store', 'as' => 'workorders.store']);
@@ -41,14 +40,6 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::post('edit/update_client', ['uses' => 'WorkorderEditController@updateClient', 'as' => 'workorderEdit.updateClient']);
         Route::post('edit/update_company_profile', ['uses' => 'WorkorderEditController@updateCompanyProfile', 'as' => 'workorderEdit.updateCompanyProfile']);
         Route::post('recalculate', ['uses' => 'WorkorderRecalculateController@recalculate', 'as' => 'workorders.recalculate']);
-	    //Route::post('bulk/status', ['uses' => 'WorkorderController@bulkStatus', 'as' => 'workorders.bulk.status']);
-		//resource and employee force update
-
-	    Route::get('/viewclear', [function () {
-		    Artisan::call('view:clear');
-		    return redirect()->route('workorders.dashboard');
-	    }]);
-
     });
     //end of group workorders
 
@@ -74,6 +65,7 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
 
 });
 Route::group(['middleware' => ['web', 'auth.admin']], function () {
+//resource and employee force update
 Route::get('/forceProductUpdate/{ret}', 'FI\Modules\Products\Controllers\ProductController@forceLUTupdate');
 Route::get('/forceEmployeeUpdate/{ret}', 'FI\Modules\Employees\Controllers\EmployeeController@forceLUTupdate');
 });

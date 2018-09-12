@@ -75,7 +75,12 @@ class SetupController extends Controller
 
     public function migration()
     {
-        return view('setup.migration');
+        if (Schema::hasTable('users')) {
+            $mode = 'upgrade';
+        } else {
+            $mode = 'setup';
+        }
+        return view('setup.migration')->with('mode', $mode);
     }
 
     public function postMigration()
