@@ -4,6 +4,12 @@
 
         $('#modal-enter-payment').modal();
 
+        $('#modal-enter-multi-payment').on("shown.bs.modal", function() {
+            $('#create_client_name').focus();
+        });
+
+        $('#modal-enter-multi-payment').modal('show');
+
         $("#payment_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
 
         $('#enter-payment-confirm').click(function () {

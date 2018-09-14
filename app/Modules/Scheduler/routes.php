@@ -29,7 +29,7 @@ Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'n
     Route::any('/table_report', ['uses' => 'SchedulerController@tableReport', 'as' => 'scheduler.tablereport']);
     Route::any('/calendar_report', ['uses' => 'SchedulerController@calendarReport', 'as' => 'scheduler.calendarreport']);
     //trash
-    Route::post('/trash_event/{id}', ['uses' => 'SchedulerController@trashEvent', 'as' => 'scheduler.trashevent']);
+    Route::get('/trash_event/{id}', ['uses' => 'SchedulerController@trashEvent', 'as' => 'scheduler.trashevent']);
     Route::get('/trash_reminder/{id}', ['uses' => 'SchedulerController@trashReminder', 'as' => 'scheduler.trashreminder']);
     Route::post('bulk/trash', ['uses' => 'SchedulerController@bulkTrash', 'as' => 'scheduler.bulk.trash']);
     //categories
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'n
     Route::get('/categories/{id}', ['uses' => 'CategoryController@show', 'as' => 'scheduler.categories.show']);
     Route::get('/categories/{id}/edit', ['uses' => 'CategoryController@edit', 'as' => 'scheduler.categories.edit']);
     Route::put('/categories/{id}', ['uses' => 'CategoryController@update', 'as' => 'scheduler.categories.update']);
-    Route::post('categories/delete/{id}', ['uses' => 'CategoryController@delete', 'as' => 'scheduler.categories.delete']);
+    Route::get('categories/delete/{id}', ['uses' => 'CategoryController@delete', 'as' => 'scheduler.categories.delete']);
     //settings
     Route::any('/settings', ['uses' => 'SchedulerController@Settings', 'as' => 'scheduler.settings']);
     //about

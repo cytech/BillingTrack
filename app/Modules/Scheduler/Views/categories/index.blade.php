@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    @include('layouts._alerts')
     <section class="content-header">
         <h1 class="pull-left">{{ trans('fi.categories') }}</h1>
         <div class="pull-right">
@@ -13,61 +11,20 @@
         <div class="clearfix"></div>
     </section>
     <section class="content">
+        @include('layouts._alerts')
         <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i
-                                    class="fa fa-fw fa-table fa-fw"></i>{{ trans('fi.categories') }}
-                        </h3>
-                    </div>
-                    {{--@include('layouts._alerts')--}}
-                    <div class="panel-body">
-                        <table id="dt-categoriestable" class="display table dataTable" cellspacing="0" width="100%">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>{{ trans('fi.category_name') }}</th>
-                                <th>{{ trans('fi.category_text_color') }}</th>
-                                <th>{{ trans('fi.category_bg_color') }}</th>
-                                <th>@lang('fi.action')</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($categories as $category)
-                                <tr id="{!! $category->id !!}">
-                                    <td>{!! $category->id !!}</td>
-                                    <td>{!! $category->name !!}</td>
-                                    <td>{!! $category->text_color !!}&nbsp;&nbsp;&nbsp;<i class="fa fa-square"
-                                                                                          style="color:{!! $category->text_color !!}"></i>
-                                    </td>
-                                    <td>{!! $category->bg_color !!}&nbsp;&nbsp;&nbsp;<i class="fa fa-square"
-                                                                                        style="color:{!! $category->bg_color !!}"></i>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-primary iframe"
-                                           href="{{ route('scheduler.categories.edit', [$category->id]) }}"><i
-                                                    class="fa fa-fw fa-edit"></i>{{ trans('fi.edit') }}</a>
-                                        @if($category->id > 10)
-                                            {{--{!! Form::button('<i class="fa fa-fw fa-trash"></i>'.trans('fi.delete'), ['type' => 'button','class' => 'btn btn-danger delete-button',--}}
-                                            {{--'onclick' => "swalConfirm(trans('fi.trash_record_warning'), route('scheduler.categories.delete', [$category->id]) )",'data-id'=> $category->id]) !!}--}}
 
-                                            <button type="button" class="btn btn-danger delete-button"
-                                                    onclick="deleteConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('scheduler.categories.delete', [$category->id]) }}')"
-                                                    ><i class="fa fa-fw fa-trash"></i>{{ trans('fi.delete') }}</button>
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+            <div class="col-xs-12">
 
+                <div class="box box-primary">
+
+                    <div class="box-body no-padding">
+                        @include('categories._dataTable')
                     </div>
+
                 </div>
+
             </div>
         </div>
     </section>
-@stop
-@section('javascript')
-    @include('partials._js_datatables')
 @stop

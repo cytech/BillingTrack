@@ -1,5 +1,5 @@
 
-{!! $dataTable->table() !!}
+{!! $dataTable->table(['class' => 'table dt-responsive display', 'width' => '100%', 'cellspacing' => '0']) !!}
 
 @push('scripts')
     {{--<link rel="stylesheet" href="/assets/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">--}}

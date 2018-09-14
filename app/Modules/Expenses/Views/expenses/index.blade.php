@@ -67,7 +67,7 @@
 
                     <div class="box-body no-padding">
 
-                        {!! $dataTable->table() !!}
+                        {!! $dataTable->table(['class' => 'table dt-responsive display', 'width' => '100%', 'cellspacing' => '0']) !!}
                     </div>
 
                 </div>

@@ -11,6 +11,8 @@
 
 namespace FI\Modules\Scheduler\Controllers;
 
+use FI\DataTables\EventsDataTable;
+use FI\DataTables\RecurringEventsDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Scheduler\Requests\ReportRequest;
 use FI\Modules\Employees\Models\Employee;
@@ -261,12 +263,10 @@ class SchedulerController extends Controller
 
 	}
 
-    public function tableEvent()
+    public function tableEvent(EventsDataTable $dataTable)
     {
-        $data['events'] = Schedule::withOccurrences()->
-                        with('category')->where('isRecurring', '<>', '1')->orderBy('start_date', 'desc')->get();
 
-        return view('schedule.tableEvent', $data);
+        return $dataTable->render('schedule.tableEvent');
     }
 
 	/**
@@ -275,7 +275,7 @@ class SchedulerController extends Controller
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 * @throws Exception\InvalidRRule
 	 */
-	public function tableRecurringEvent(Request $request)
+	public function tableRecurringEvent(Request $request, RecurringEventsDataTable $dataTable)
     {
             $data['events'] = Schedule::where('isRecurring',1)->
             with('category')->get();
@@ -287,7 +287,10 @@ class SchedulerController extends Controller
                 $data['events'][$i]->textTrans = $textTransformer->transform($rule);
             }
 
-            return view('schedule.tableRecurringEvent', $data);
+            //return view('schedule.tableRecurringEvent', $data);
+        return $dataTable->render('schedule.tableRecurringEvent');
+
+
     }
 
 	/**
@@ -619,7 +622,8 @@ class SchedulerController extends Controller
         $event = Schedule::find( $id );
         $event->delete();
 
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        //return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
     }
 
     public function trashReminder( Request $request ) {

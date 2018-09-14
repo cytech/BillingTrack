@@ -22,13 +22,14 @@ class SchedulerTrashDataTable extends DataTable
             ->editColumn('id', function (Schedule $schedule) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $schedule->id . '">';
             })
-            ->editColumn('start_date', function (Schedule $schedule) {
-                return $schedule->latestOccurrence->formatted_start_date ;
+            ->editColumn('title', function (Schedule $schedule) {
+              if ($schedule->isRecurring == 1){
+                  return '<span style = "color:blue">' .$schedule->title.'</span>';
+              }else{
+                  return $schedule->title;
+              }
             })
-            ->editColumn('end_date', function (Schedule $schedule) {
-                return $schedule->latestOccurrence->formatted_end_date ;
-            })
-            ->rawColumns(['start_date', 'end_date','action', 'id']);
+            ->rawColumns(['action', 'id','title']);
     }
 
     /**
@@ -96,17 +97,17 @@ class SchedulerTrashDataTable extends DataTable
                 'title' => trans('fi.description'),
                 'data'  => 'description',
             ],
-            //WHY relations don't work here...
             'start_date'      => [
-                //'name'  => 'latestOccurrence.formatted_start_date',
-                //'title' => trans('fi.start_date'),
-                //'data'  => 'latestOccurrence.formatted_start_date',
+                'title' => trans('fi.start_date'),
+                'name'  => 'latestOccurrence.formatted_start_date',
+                'data'  => 'latest_occurrence.formatted_start_date',
                 'orderable'  => false,
                 'searchable' => false,
             ],
             'end_date'    => [
-                //'title'      => trans('fi.end_date'),
-                //'data'       => 'latestOccurrence.formatted_end_date',
+                'title'      => trans('fi.end_date'),
+                'name'  => 'latestOccurrence.formatted_end_date',
+                'data'  => 'latest_occurrence.formatted_end_date',
                 'orderable'  => false,
                 'searchable' => false,
             ],

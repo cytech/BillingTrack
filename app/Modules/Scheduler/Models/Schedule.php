@@ -16,12 +16,17 @@ use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
+use Recurr\Exception\InvalidRRule;
+use Recurr\Rule;
+use Recurr\Transformer\TextTransformer;
 
 class Schedule extends Model {
 
     use SoftDeletes, SoftCascadeTrait, FormAccessible;
 
     protected $softCascade = ['reminders', 'occurrences', 'resources'];
+
+    protected $appends = ['text_trans', 'rule_start'];
 
     protected $dates = ['deleted_at'];
 
@@ -42,9 +47,19 @@ class Schedule extends Model {
         return $this->hasMany('FI\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id');
     }
 
+    public function occurrence()
+    {
+        return $this->hasOne('FI\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id');
+    }
+
     public function latestOccurrence()
     {
-        return $this->hasOne('FI\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id')->latest();
+        return $this->occurrence()->latest('start_date');
+    }
+
+    public function firstOccurrence()
+    {
+        return $this->occurrence()->oldest('start_date');
     }
 
     public function reminders()
@@ -58,6 +73,20 @@ class Schedule extends Model {
     }
 
     //getters
+    public function getTextTransAttribute(){
+        try {
+            $rule = new Rule($this->rrule, new \DateTime());
+        } catch (InvalidRRule $e) {
+        }
+        $textTransformer = new TextTransformer();
+        return $textTransformer->transform($rule);
+    }
+
+    public function getRuleStartAttribute(){
+        $rule     = Rule::createFromString( $this->rrule);
+        return $rule->getStartDate()->format( 'Y-m-d H:i' );
+    }
+
     //below for form model binding
     public function formStartDateAttribute() {
         return Carbon::parse( $this->attributes['start_date'] )->format( 'Y-m-d H:i' );

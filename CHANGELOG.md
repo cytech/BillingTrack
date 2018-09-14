@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - added resources/lang/en-cust where client = customer
 - added system info (.env settings) tab to system settings
 - added modal Enter Payment function, with client lookup and payable invoices
+- server side datatables for scheduler categories, events, recurring events
 
 
 ## 4.0.0

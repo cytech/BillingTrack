@@ -10,18 +10,18 @@
 
 namespace FI\Modules\Scheduler\Controllers;
 
+use FI\DataTables\CategoriesDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Scheduler\Models\Category;
-use FI\Modules\Scheduler\Models\Schedule;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller {
 
-	public function index() {
-		$categories = Category::all();
+    public function index(CategoriesDataTable $dataTable)
+    {
 
-		return view( 'categories.index' )->with( 'categories', $categories );
-	}
+        return $dataTable->render('categories.index');
+    }
 
 	public function create() {
 		return view( 'categories.create' );
@@ -65,13 +65,15 @@ class CategoryController extends Controller {
 
         if ($category->in_use)
         {
-            return response()->json(['error' => trans('fi.cannot_delete_record_in_use')], 200);
+            return redirect()->route('scheduler.categories.index')
+                ->with('alert', trans('fi.cannot_delete_record_in_use'));
         }
         else
         {
             Category::destroy($id);
 
-            return response()->json(['success' => trans('fi.record_successfully_deleted')], 200);
+            return redirect()->route('scheduler.categories.index')
+                ->with('alert', trans('fi.record_successfully_deleted'));
 
         }
 

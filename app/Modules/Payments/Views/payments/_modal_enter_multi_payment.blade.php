@@ -3,7 +3,7 @@
 @include('clients._js_lookup')
 @include('payments._js_create')
 
-<div class="modal fade" id="modal-enter-payment">
+<div class="modal fade" id="modal-enter-multi-payment">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
