@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - added system info (.env settings) tab to system settings
 - added modal Enter Payment function, with client lookup and payable invoices
 - server side datatables for scheduler categories, events, recurring events
+- correct employee lookup in calendar to approved workorders
+- workorder datatable sort by job date instead of expires_at
+- added orphan check utility for Scheduler (checks workorders for Unschedulable employees)
 
 
 ## 4.0.0
@@ -21,7 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - configure from .env (copy .env.example to .env and change required variables)
 - clean, consolidate and restructure mysql database
 - transfer existing 2018-8 database to new structure upon setup
-- move sortables to server side datatables
+- move high profile sortables to server side datatables
 - implement softdeletes, with trash management
 - update to laravel 5.6.*
 - update all resources

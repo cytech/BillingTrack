@@ -138,6 +138,9 @@
                                 <li>
                                     <a href="{{ route('scheduler.categories.index') }}"><i
                                                 class="fa fa-thumb-tack"></i>{{ trans('fi.categories') }}</a>
+                                </li><li>
+                                    <a href="{{ route('scheduler.checkschedule') }}"><i
+                                                class="fa fa-check-double"></i>{{ trans('fi.orphan_check') }}</a>
                                 </li>
                                 <li><a href="{{ route('scheduler.about') }}"><i
                                                 class="fa fa-question-circle"></i> {{ trans('fi.about') }}

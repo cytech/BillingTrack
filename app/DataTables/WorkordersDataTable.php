@@ -55,7 +55,7 @@ class WorkordersDataTable extends DataTable
                 return '<a href="/clients/' . $workorder->client->id . '">' . $workorder->client->name . '</a>';
             })
             ->orderColumn('formatted_workorder_date', 'workorder_date $1')
-            ->orderColumn('formatted_expires_at', 'expires_at $1')
+            ->orderColumn('formatted_job_date', 'job_date $1')
             ->rawColumns([ 'client.name', 'invoice_id', 'workorder_status_id', 'number', 'action', 'id']);
     }
 
@@ -89,7 +89,7 @@ class WorkordersDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '80px'])
             //->parameters($this->getBuilderParameters());
-            ->parameters(['order' => [3, 'desc']]);
+            ->parameters(['order' => [4, 'desc']]);
     }
 
     /**
@@ -122,9 +122,9 @@ class WorkordersDataTable extends DataTable
                 'data'       => 'formatted_workorder_date',
                 'searchable' => false,
             ],
-            'expires_at'     => [
-                'title' => trans('fi.due'),
-                'data'       => 'formatted_expires_at',
+            'job_date'     => [
+                'title' => trans('fi.job_date'),
+                'data'       => 'formatted_job_date',
                 'searchable' => false,
             ],
             'client_name'  => [

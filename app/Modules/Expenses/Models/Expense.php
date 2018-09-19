@@ -19,7 +19,6 @@ use FI\Events\ExpenseSaving;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 use FI\Support\NumberFormatter;
-use FI\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

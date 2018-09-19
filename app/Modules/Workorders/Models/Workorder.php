@@ -33,7 +33,7 @@ class Workorder extends Model
 
     protected $guarded = ['id'];
 
-    protected $appends = ['formatted_workorder_date', 'formatted_expires_at','status_text'];
+    protected $appends = ['formatted_workorder_date', 'formatted_expires_at', 'formatted_job_date', 'status_text'];
 
     protected $dates = ['expires_at', 'workorder_date','job_date','deleted_at'];
 

@@ -42,8 +42,10 @@ Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'n
     Route::get('/categories/{id}/edit', ['uses' => 'CategoryController@edit', 'as' => 'scheduler.categories.edit']);
     Route::put('/categories/{id}', ['uses' => 'CategoryController@update', 'as' => 'scheduler.categories.update']);
     Route::get('categories/delete/{id}', ['uses' => 'CategoryController@delete', 'as' => 'scheduler.categories.delete']);
-    //settings
-    Route::any('/settings', ['uses' => 'SchedulerController@Settings', 'as' => 'scheduler.settings']);
+    //utilities
+    Route::get('/checkschedule', ['uses' => 'SchedulerController@checkSchedule', 'as' => 'scheduler.checkschedule']);
+    Route::get('/getreplaceemployee/{item_id}/{name}/{date}', ['uses' => 'SchedulerController@getReplaceEmployee', 'as' => 'scheduler.getreplace.employee']);
+    Route::post('/setreplaceemployee', ['uses' => 'SchedulerController@setReplaceEmployee', 'as' => 'scheduler.setreplace.employee']);
     //about
     Route::get('/about', [function () {return view('schedule.about');}, 'as' => 'scheduler.about']);
     //route for ajax calc of human readable recurrence frequency

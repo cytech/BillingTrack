@@ -14,6 +14,7 @@ namespace FI\Modules\Scheduler\Controllers;
 use FI\DataTables\EventsDataTable;
 use FI\DataTables\RecurringEventsDataTable;
 use FI\Http\Controllers\Controller;
+use FI\Modules\Scheduler\Requests\ReplaceRequest;
 use FI\Modules\Scheduler\Requests\ReportRequest;
 use FI\Modules\Employees\Models\Employee;
 use FI\Modules\Products\Models\Product;
@@ -23,6 +24,7 @@ use FI\Modules\Scheduler\Models\ScheduleOccurrence;
 use FI\Modules\Scheduler\Models\ScheduleResource;
 use FI\Modules\Scheduler\Models\Category;
 use FI\Modules\Settings\Models\Setting;
+use FI\Modules\Workorders\Models\WorkorderItem;
 use Illuminate\Support\Collection;
 use Recurr;
 use Recurr\Transformer;
@@ -163,7 +165,18 @@ class SchedulerController extends Controller
         return view('schedule.calendar', $data);
     }
 
-	//event create or edit
+    public function tableEvent(EventRequest $request,EventsDataTable $dataTable)
+    {
+        return $dataTable->render('schedule.tableEvent');
+    }
+
+    public function tableRecurringEvent(Request $request, RecurringEventsDataTable $dataTable)
+    {
+        return $dataTable->render('schedule.tableRecurringEvent');
+    }
+
+
+    //event create or edit
 	public function editEvent( $id = null ) {
 		if ( $id ) { //if edit route called with id parameter
 			$data = [
@@ -262,36 +275,6 @@ class SchedulerController extends Controller
 
 
 	}
-
-    public function tableEvent(EventsDataTable $dataTable)
-    {
-
-        return $dataTable->render('schedule.tableEvent');
-    }
-
-	/**
-	 * @param Request $request
-	 *
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 * @throws Exception\InvalidRRule
-	 */
-	public function tableRecurringEvent(Request $request, RecurringEventsDataTable $dataTable)
-    {
-            $data['events'] = Schedule::where('isRecurring',1)->
-            with('category')->get();
-
-            //add human readable rule to array
-            foreach ($data['events'] as $i => $event) {
-                $rule = new Recurr\Rule($event->rrule, new \DateTime());
-                $textTransformer = new Recurr\Transformer\TextTransformer();
-                $data['events'][$i]->textTrans = $textTransformer->transform($rule);
-            }
-
-            //return view('schedule.tableRecurringEvent', $data);
-        return $dataTable->render('schedule.tableRecurringEvent');
-
-
-    }
 
 	/**
 	 * @param null $id
@@ -541,16 +524,112 @@ class SchedulerController extends Controller
 
     public function scheduledResources($date)
     {
+        list($available_employees, $available_resources) = $this->getResourceStatus($date);
+
+        return response()->json(['success' => true, 'available_employees' => $available_employees,'available_resources' => $available_resources], 200);
+    }
+
+    //trash
+    public function trashEvent($id ) {
+        $event = Schedule::find( $id );
+        $event->delete();
+
+        //return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
+    }
+
+    public function trashReminder( Request $request ) {
+        $event = ScheduleReminder::find( $request->id );
+        $event->delete();
+
+        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
+    }
+
+    public function bulkTrash()
+    {
+        foreach (Schedule::whereIn('id',request('ids'))->get() as $delschedule){
+
+            $delschedule->delete();
+
+        }
+        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+
+    }
+
+	/**
+	 * @param EventRequest $request
+	 *
+	 * @return \Illuminate\Http\JsonResponse
+	 * @throws Exception\InvalidRRule
+	 */
+	public function getHuman( EventRequest $request ) {
+		//get human readable rule from dialog
+		//generate rrule
+		$allfields = $request->all();
+		$allfields = array_change_key_case( $allfields, CASE_UPPER );
+		//clear all empty
+		$allfields = array_filter( $allfields );
+
+        $timezone = config('fi.timezone');
+
+		$rule            = Recurr\Rule::createFromArray( $allfields );
+		$textTransformer = new Recurr\Transformer\TextTransformer();
+		$textTrans       = $textTransformer->transform( $rule );
+
+		$response['type']   = 'success';
+		$response['result'] = $textTrans;
+
+		return Response::json( $response );
+	}
+
+    public function checkSchedule()
+    {
+        $today = new Carbon();
+        $employees = Employee::where('schedule', 1)->where('active', 1)->get(['id']);
+        $empresources = WorkorderItem::whereHas('workorder', function ($q) use ($today) {
+            $q->whereDate('job_date', '>=', $today->subDay(1));
+        })->with('workorder')->where('resource_table', 'employees')->whereNotIn('resource_id', $employees)->get();
+
+        return view('schedule.orphanCheck')->with('empresources', $empresources);
+
+    }
+
+    public function getReplaceEmployee($item_id,$name,$date){
+	    $inactive_employee = Employee::where('short_name', $name)->first();
+
+	    list($available_employees) = $this->getResourceStatus($date);
+
+	    if (empty($available_employees)){
+	        $available_employees[0] = trans('fi.no_emp_available');
+        }
+
+	    return view('schedule.modal_replace_employee')
+            ->with('item_id', $item_id)
+            ->with('inactive_employee', $inactive_employee)
+            ->with('available_employees', $available_employees);
+    }
+
+    public function setReplaceEmployee(ReplaceRequest $request){
+	    $item = WorkorderItem::find($request->id);
+	    $item->resource_id = $request->resource_id;
+        $item->name = $request->name;
+        $item->description = substr_replace($item->description, $request->resource_id,strpos($item->description, "-")+1);
+        $item->save();
+
+        return response()->json(['success' => trans('fi.employee_successfully_replaced')], 200);
+    }
+
+    public function getResourceStatus($date){
         $scheduled_calresources = Schedule::withOccurrences()->with('resources')->whereDate('start_date','=', $date)->get();
-        $scheduled_resources = Workorder::with('workorderItems')->whereDate('job_date','=', $date)->get();
+        $scheduled_resources = Workorder::with('workorderItems')->whereDate('job_date','=', $date)->approved()->get();
         $drivers =  Employee::where('active','=','1')->where('driver','=', 1)->pluck('id','short_name')->toArray();
         //active, scheduleable employees
         $active_employees = Employee::where('active','=','1')->where('schedule', '=', '1')->pluck('short_name','id')->toArray();
         $active_resources = Product::where('active','=','1')->get(['id','name','numstock'])->toArray();
 
-		$scheduled_clients   = [];
-		$scheduled_employees = [];
-		$scheduled_equipment = [];
+        $scheduled_clients   = [];
+        $scheduled_employees = [];
+        $scheduled_equipment = [];
 
         foreach ($scheduled_calresources as $calitem) {
             foreach ($calitem->resources as $resource) {
@@ -614,60 +693,7 @@ class SchedulerController extends Controller
             $available_resources = $active_resources;
         }
 
-        return response()->json(['success' => true, 'available_employees' => $available_employees,'available_resources' => $available_resources], 200);
+        return [$available_employees, $available_resources];
     }
-
-    //trash
-    public function trashEvent($id ) {
-        $event = Schedule::find( $id );
-        $event->delete();
-
-        //return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
-        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
-    }
-
-    public function trashReminder( Request $request ) {
-        $event = ScheduleReminder::find( $request->id );
-        $event->delete();
-
-        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
-    }
-
-    public function bulkTrash()
-    {
-        foreach (Schedule::whereIn('id',request('ids'))->get() as $delschedule){
-
-            $delschedule->delete();
-
-        }
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
-
-    }
-
-	/**
-	 * @param EventRequest $request
-	 *
-	 * @return \Illuminate\Http\JsonResponse
-	 * @throws Exception\InvalidRRule
-	 */
-	public function getHuman( EventRequest $request ) {
-		//get human readable rule from dialog
-		//generate rrule
-		$allfields = $request->all();
-		$allfields = array_change_key_case( $allfields, CASE_UPPER );
-		//clear all empty
-		$allfields = array_filter( $allfields );
-
-        $timezone = config('fi.timezone');
-
-		$rule            = Recurr\Rule::createFromArray( $allfields );
-		$textTransformer = new Recurr\Transformer\TextTransformer();
-		$textTrans       = $textTransformer->transform( $rule );
-
-		$response['type']   = 'success';
-		$response['result'] = $textTrans;
-
-		return Response::json( $response );
-	}
 
 }
