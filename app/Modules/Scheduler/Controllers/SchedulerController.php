@@ -599,7 +599,12 @@ class SchedulerController extends Controller
 
 	    list($available_employees) = $this->getResourceStatus($date);
 
-	    if (empty($available_employees)){
+	    if (!empty($available_employees)) {
+            //remove ___D from name
+            foreach($available_employees as $key => $value){
+                $available_employees[$key] = str_replace('___D','',$value);
+            }
+	    }else{
 	        $available_employees[0] = trans('fi.no_emp_available');
         }
 
