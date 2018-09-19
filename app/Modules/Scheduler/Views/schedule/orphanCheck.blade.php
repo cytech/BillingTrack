@@ -42,7 +42,7 @@
                                                 {{ trans('fi.options') }} <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="javascript:void(0)" class="btn btn-primary replace-employee"
+                                                <li><a href="javascript:void(0)" class="btn replace-employee"
                                                        data-item-id="{{ $resource->id }}"
                                                        data-route="{{ route('scheduler.getreplace.employee',[ 'item_id' => $resource->id,'name' => $resource->name, 'date' => $resource->workorder->job_date]) }}">
                                                        <i class="fa fa-sync"></i>{!! trans('fi.replace_employee') !!}</a></li>
