@@ -728,6 +728,7 @@ return [
     'to_date'                                 => 'To Date',
     'today'                                   => 'Today',
     'todays_workorders'                       => 'Today\'s Approved Workorders',
+    'tomorrow'                                => 'Tomorrow',
     'total'                                   => 'Total',
     'total_balance'                           => 'Total Balance',
     'total_billed'                            => 'Total Billed',

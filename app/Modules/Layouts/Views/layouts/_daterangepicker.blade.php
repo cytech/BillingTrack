@@ -43,6 +43,7 @@
                 ranges: {
                     '{{ trans('fi.today') }}': [moment(), moment()],
                     '{{ trans('fi.yesterday') }}': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    '{{ trans('fi.tomorrow') }}': [moment().add(1, 'days'), moment().add(1, 'days')],
                     '{{ trans('fi.lastweek') }}': [moment().subtract(1, 'weeks').startOf('isoWeek'), moment().subtract(1, 'weeks').endOf('isoWeek')],
                     '{{ trans('fi.twoweeksago') }}': [moment().subtract(2, 'weeks').startOf('isoWeek'), moment().subtract(2, 'weeks').endOf('isoWeek')],
                     '{{ trans('fi.last_7_days') }}': [moment().subtract(6, 'days'), moment()],

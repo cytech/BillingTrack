@@ -44,8 +44,6 @@
         </div>
         <div style="text-align:center" class="buttons">
             <div class="col-md-12 text-center">
-                <a class="btn btn-warning btn-lg" href={!! route('workorders.dashboard')  !!}>{{ trans('fi.cancel') }} <span
-                            class="glyphicon glyphicon-remove-circle"></span></a>
                 <button type="submit" class="btn btn-success btn-lg">{{ trans('fi.process') }} <span
                             class="glyphicon glyphicon-floppy-disk"></span></button>
             </div>
