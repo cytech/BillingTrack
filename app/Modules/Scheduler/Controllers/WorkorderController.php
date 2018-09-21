@@ -26,7 +26,7 @@ class WorkorderController extends Controller
 {
     public function create(WorkorderStoreRequest $request)
     {
-        $input = $request->except('client_name', 'workers', 'resources');
+        $input = $request->except('client_name', 'workers', 'resources','quantity');
         $input['client_id'] = Client::firstOrCreateByUniqueName($request->input('client_name'))->id;
         $input['start_time'] = DateFormatter::formattime($input['start_time']);
         $input['end_time'] = DateFormatter::formattime($input['end_time']);
@@ -34,7 +34,7 @@ class WorkorderController extends Controller
 
         $workorder = Workorder::create($input);
 
-        $input = $request->only('workers', 'resources');
+        $input = $request->only('workers', 'resources', 'quantity');
         // Now let's add some employee items to that new workorder.
         if (isset($input['workers'])) {
             foreach ($input['workers'] as $val) {
@@ -59,7 +59,7 @@ class WorkorderController extends Controller
                 $item['resource_id'] = $lookupItem->id;
                 $item['name'] = $lookupItem->name;
                 $item['description'] = $lookupItem->description;
-                $item['quantity'] = 0;
+                $item['quantity'] = $input['quantity'][$val];
                 $item['price'] = $lookupItem->cost;
 
                 WorkorderItem::create($item);

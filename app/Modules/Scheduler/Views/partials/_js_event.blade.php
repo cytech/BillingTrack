@@ -209,10 +209,19 @@
                                             'name': 'resources[]',
                                             'value': v.id
                                         });
+                                        var qty = $('<input/>', {
+                                            'type': 'number',
+                                            'id': 'quantity'+v.id+'',
+                                            'name': 'quantity['+v.id+']',
+                                            'min': '0',
+                                            'style': 'width:40px;',
+                                            'disabled': true,
+                                            'value': 1
+                                        });
                                         $("#rtable").append($('<label/>', {
                                             'style': 'display:block',
                                             'text': v.name
-                                        }).prepend(cb))
+                                        }).prepend("  ").prepend(cb).append("&nbsp;&nbsp;&nbsp;").append(qty))
                                     });
 
                                 }

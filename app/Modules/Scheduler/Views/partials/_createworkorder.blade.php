@@ -42,14 +42,14 @@
         <div class="col-sm-8">
             <input type="text" id="start_time" required name="start_time"
                    class="form-control datepicker start_time readonly"
-                   placeholder="Start Time">
+                   placeholder="Start Time" autocomplete="off">
         </div>
     </div>
     <div class="form-group">
         <label for="end_time" class="col-sm-4 control-label">{{ trans('fi.end_time') }}</label>
         <div class="col-sm-8">
             <input type="text" id="end_time" required name="end_time" class="form-control datepicker end_time readonly"
-                   placeholder="End Time">
+                   placeholder="End Time" autocomplete="off">
         </div>
     </div>
     <div class="form-group">
@@ -105,6 +105,10 @@
                 <script>
                     rstr = '';
                     $('#create-workorder').on('click', '[id*=resource]', function () {
+                        if($(this).is(":checked"))
+                            $("#quantity"+$(this).val()).removeAttr("disabled");
+                        else
+                            $("#quantity"+$(this).val()).attr("disabled" , "disabled");
                         counter = 0;
                         var rsel = $('#resource:checked').map(function (_, el) {
                             counter++;
@@ -112,6 +116,7 @@
                         }).get();
 
                         rstr = rsel.join("/");
+
                     });
                 </script>
             </table>
