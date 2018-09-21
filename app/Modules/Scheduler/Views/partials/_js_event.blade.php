@@ -194,12 +194,12 @@
                                             $("#wtable").append($('<label/>', {
                                                 'style': 'display:block;color:blue',
                                                 'text': v
-                                            }).prepend(cb))
+                                            }).prepend("  ").prepend(cb))
                                         } else {
                                             $("#wtable").append($('<label/>', {
                                                 'style': 'display:block',
                                                 'text': v
-                                            }).prepend(cb))
+                                            }).prepend("  ").prepend(cb))
                                         }
                                     });
                                     $.each(data.available_resources, function (k, v) {
