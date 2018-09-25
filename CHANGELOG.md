@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - added resource quantity selection to createworkoorder modal
 - corrected some error response dialogs
 - validation for end_time greater than start_time
+- calendar create workorder-redirect to workorder if no client address (new client)
 
 
 ## 4.0.1

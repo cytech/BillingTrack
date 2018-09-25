@@ -74,7 +74,7 @@
 
         <div class="col-lg-10">
 
-            {{--@include('partials._alerts')--}}
+            @include('layouts._alerts')
 
             <div id="form-status-placeholder"></div>
 
