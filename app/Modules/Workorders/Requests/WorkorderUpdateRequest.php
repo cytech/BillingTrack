@@ -45,7 +45,16 @@ class WorkorderUpdateRequest extends WorkorderStoreRequest
             'expires_at'      => 'required',
             'job_date'        => 'required',
             'start_time'        => 'required',
-            'end_time'        => 'required',
+            'end_time'        => 'required|after:start_time',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'start_time.required'  => 'Start Time is required',
+            'end_time.required'  => 'End Time is required',
+            'end_time.after'  => 'End Time must be greater than Start Time',
         ];
     }
 }

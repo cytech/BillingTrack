@@ -8,7 +8,7 @@
             todayHighlight:true,
             autoclose: true});
         $("#start_time").timepicker({
-            minuteStep: 15,
+            minuteStep: {!! config('fi.schedulerTimestep') !!},
             template: 'dropdown',
             appendWidgetTo: 'body',
             showSeconds: false,
@@ -18,13 +18,13 @@
             autoclose: true}
             );
         $("#end_time").timepicker({
-            minuteStep: 15,
+            minuteStep: {!! config('fi.schedulerTimestep') !!},
             template: 'dropdown',
             appendWidgetTo: 'body',
             showSeconds: false,
             showMeridian: false,
             modalBackdrop: false,
-            defaultTime: '12:00 PM',
+            defaultTime: '09:00 AM',
             autoclose: true}
         );
 
@@ -134,10 +134,12 @@
                     notify('{{ trans('fi.workorder_successfully_updated') }}', 'success');
                 });
             }).fail(function (response) {
-                if (response.status == 400) {
+                if (response.status == 422) {
+                    var msg ='';
                     $.each($.parseJSON(response.responseText).errors, function (id, message) {
-                        notify(message, 'error');
+                        msg += message + '\n';
                     });
+                    notify(msg, 'error');
                 } else {
                     notify('{{ trans('fi.unknown_error') }}', 'error');
                 }

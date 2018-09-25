@@ -51,6 +51,17 @@ class WorkorderStoreRequest extends FormRequest
             'client_name'        => 'required',
             'workorder_date'     => 'required',
             'user_id'            => 'required',
+            'start_time'        => 'required|sometimes',
+            'end_time'        => 'required|sometimes|after:start_time',
         ];
     }
+    public function messages()
+    {
+        return [
+            'start_time.required'  => 'Start Time is required',
+            'end_time.required'  => 'End Time is required',
+            'end_time.after'  => 'End Time must be greater than Start Time',
+        ];
+    }
+
 }

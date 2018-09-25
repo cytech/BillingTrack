@@ -234,7 +234,17 @@
                             minLength: 3
                         }).autocomplete("widget").addClass("fixed-height");
 
+                        $.validator.addMethod("endtime_greater_starttime", function(value, element) {
+                                return $('#end_time').val() > $('#start_time').val()
+                            }, "End Time must be greater than Start Time");
+
                         $('#create-workorderform').validate({
+                            rules:{
+                                end_time:{
+                                    required: true,
+                                    endtime_greater_starttime: true,
+                                }
+                            },
                             submitHandler: function (form) {
                                 form.submit();
                             }

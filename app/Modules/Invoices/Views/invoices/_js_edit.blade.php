@@ -94,11 +94,15 @@
                     notify('{{ trans('fi.record_successfully_updated') }}', 'success');
                 });
             }).fail(function (response) {
-                var msg ='';
-                $.each($.parseJSON(response.responseText).errors, function (id, message) {
-                    msg += message + '\n';
-                });
-                notify(msg, 'error');
+                if (response.status == 422) {
+                    var msg ='';
+                    $.each($.parseJSON(response.responseText).errors, function (id, message) {
+                        msg += message + '\n';
+                    });
+                    notify(msg, 'error');
+                } else {
+                    notify('{{ trans('fi.unknown_error') }}', 'danger');
+                }
             });
         });
 
