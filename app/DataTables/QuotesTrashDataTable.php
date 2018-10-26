@@ -28,12 +28,12 @@ class QuotesTrashDataTable extends DataTable
             })
             ->editColumn('quote_status_id', function (Quote $quote) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
-                <span class="label label-' . strtolower($statuses[$quote->status_text]) . '">
+                <span class="badge badge-' . strtolower($statuses[$quote->status_text]) . '">
                     '. trans('fi.' . strtolower($statuses[$quote->status_text])) . '</span>';
                 if ($quote->viewed)
-                    $ret .= '<span class="label label-success">' . trans('fi.viewed') . '</span>';
+                    $ret .= '<span class="badge badge-success">' . trans('fi.viewed') . '</span>';
                 else
-                    $ret .= '<span class="label label-default">' . trans('fi.not_viewed') . '</span>';
+                    $ret .= '<span class="badge badge-secondary">' . trans('fi.not_viewed') . '</span>';
                 $ret .= '</td>';
 
                 return $ret;

@@ -15,7 +15,7 @@ class Skins
 {
     public static function lists()
     {
-        $skins = Directory::listAssocContents(public_path('assets/dist/css/skins'));
+        $skins = Directory::listAssocContents(public_path('css/skins'));
 
         unset($skins['_all-skins.css'], $skins['_all-skins.min.css']);
         unset($skins['dataTable-style.css'], $skins['dataTable-style.min.css']);

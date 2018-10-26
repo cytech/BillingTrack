@@ -1,3 +1,8 @@
+{{--$("#title").autocomplete({
+appendTo: "#event",
+source: "/scheduler/ajax/employee",
+minLength: 2
+}).autocomplete("widget").addClass("fixed-height");--}}
 <script type="text/javascript">
 
     $(function () {

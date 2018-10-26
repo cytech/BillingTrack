@@ -43,8 +43,8 @@
                                     <td>{!! $itemLookup->formatted_name !!}</td>
                                     <td>{{ $itemLookup->description }}</td>
                                     <td>{{ $itemLookup->formatted_price }}</td>
-                                    <td>{{ $itemLookup->taxRate->name or '' }}</td>
-                                    <td>{{ $itemLookup->taxRate2->name or '' }}</td>
+                                    <td>{{ $itemLookup->taxRate->name ?? '' }}</td>
+                                    <td>{{ $itemLookup->taxRate2->name ?? '' }}</td>
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
@@ -53,7 +53,7 @@
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <li><a href="{{ route('itemLookups.edit', [$itemLookup->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
                                                 <li><a href="#"
-                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('itemLookups.delete', [$itemLookup->id]) }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.delete') }}</a></li>
+                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('itemLookups.delete', [$itemLookup->id]) }}');"><i class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a></li>
                                             </ul>
                                         </div>
                                     </td>

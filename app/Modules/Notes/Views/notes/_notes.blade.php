@@ -42,18 +42,18 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="box box-solid direct-chat direct-chat-warning">
+        <div class="card card-solid direct-chat direct-chat-warning">
             @if (!isset($hideHeader))
-                <div class="box-header">
-                    <h3 class="box-title">{{ trans('fi.notes') }}</h3>
+                <div class="card-header">
+                    <h3 class="card-title">{{ trans('fi.notes') }}</h3>
                 </div>
             @endif
-            <div class="box-body">
+            <div class="card-body">
                 <div class="direct-chat-messages" id="notes-list">
                     @include('notes._notes_list')
                 </div>
             </div>
-            <div class="box-footer">
+            <div class="card-footer">
                 <div class="row">
                     <div class="col-sm-12">
                         @if (isset($showPrivateCheckbox) and $showPrivateCheckbox == true)

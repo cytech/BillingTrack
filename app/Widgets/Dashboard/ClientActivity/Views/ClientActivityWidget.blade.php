@@ -1,10 +1,10 @@
 <div id="client-activity-widget">
     <section class="content">
-        <div class="box box-solid">
-            <div class="box-header">
-                <h3 class="box-title">{{ trans('fi.recent_client_activity') }}</h3>
+        <div class="card ">
+            <div class="card-header">
+                <h5 class="text-bold mb-0">{{ trans('fi.recent_client_activity') }}</h5>
             </div>
-            <div class="box-body no-padding">
+            <div class="card-body p-0">
                 <table class="table table-striped">
                     <tbody>
                     <tr>

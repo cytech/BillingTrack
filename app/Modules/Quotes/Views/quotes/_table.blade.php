@@ -20,11 +20,11 @@
         <tr>
             <td><input type="checkbox" class="bulk-record" data-id="{{ $quote->id }}"></td>
             <td class="hidden-sm hidden-xs">
-                <span class="label label-{{ $statuses[$quote->quote_status_id] }}">{{ trans('fi.' . $statuses[$quote->quote_status_id]) }}</span>
+                <span class="badge badge-{{ $statuses[$quote->quote_status_id] }}">{{ trans('fi.' . $statuses[$quote->quote_status_id]) }}</span>
                 @if ($quote->viewed)
-                    <span class="label label-success">{{ trans('fi.viewed') }}</span>
+                    <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
                 @else
-                    <span class="label label-default">{{ trans('fi.not_viewed') }}</span>
+                    <span class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
                 @endif
             </td>
             <td><a href="{{ route('quotes.edit', [$quote->id]) }}"
@@ -49,20 +49,20 @@
                     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                         {{ trans('fi.options') }} <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="{{ route('quotes.edit', [$quote->id]) }}"><i
-                                    class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                        <li><a href="{{ route('quotes.pdf', [$quote->id]) }}" target="_blank" id="btn-pdf-quote"><i
-                                    class="fa fa-print"></i> {{ trans('fi.pdf') }}</a></li>
-                        <li><a href="javascript:void(0)" class="email-quote" data-quote-id="{{ $quote->id }}"
+                    <div  class="dropdown-menu dropdown-menu-right" role="menu">
+                        <a class="dropdown-item" href="{{ route('quotes.edit', [$quote->id]) }}"><i
+                                    class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                        <a class="dropdown-item" href="{{ route('quotes.pdf', [$quote->id]) }}" target="_blank" id="btn-pdf-quote"><i
+                                    class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
+                        <a href="javascript:void(0)" class="email-quote dropdown-item" data-quote-id="{{ $quote->id }}"
                                data-redirect-to="{{ request()->fullUrl() }}"><i
-                                    class="fa fa-envelope"></i> {{ trans('fi.email') }}</a></li>
-                        <li><a href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"
-                               id="btn-public-quote"><i class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
-                        <li><a href="#"
+                                    class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
+                        <a class="dropdown-item" href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"
+                               id="btn-public-quote"><i class="fa fa-globe"></i> {{ trans('fi.public') }}</a>
+                        <a class="dropdown-item" href="#"
                                onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}','{{ route('quotes.delete', [$quote->id]) }}');"><i
-                                    class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
-                    </ul>
+                                    class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+                    </div>
                 </div>
             </td>
         </tr>

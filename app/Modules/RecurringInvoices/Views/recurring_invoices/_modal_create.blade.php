@@ -7,52 +7,48 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">{{ trans('fi.create_recurring_invoice') }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
 
                 <div id="modal-status-placeholder"></div>
-
-                <form class="form-horizontal">
-
+                <form>
                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" id="user_id">
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.client') }}</label>
-
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.client') }}</label>
+                        <div class="col-sm-8">
                             {!! Form::text('client_name', null, ['id' => 'create_client_name', 'class' => 'form-control client-lookup', 'autocomplete' => 'off']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.company_profile') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right">{{ trans('fi.company_profile') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! Form::select('company_profile_id', $companyProfiles, config('fi.defaultCompanyProfile'),
                             ['id' => 'company_profile_id', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.group') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right">{{ trans('fi.group') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! Form::select('group_id', $groups, config('fi.invoiceGroup'), ['id' => 'create_group_id', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.start_date') }}</label>
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right">{{ trans('fi.start_date') }}</label>
+                        <div class="col-sm-8">
                             {!! Form::text('next_date', date(config('fi.dateFormat')), ['id' => 'create_next_date', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.every') }}</label>
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right">{{ trans('fi.every') }}</label>
+                        <div class="col-sm-8">
                             <div class="row">
                                 <div class="col-sm-3">
                                     {!! Form::select('recurring_frequency', array_combine(range(1, 90), range(1, 90)), '1', ['id' => 'recurring_frequency', 'class' => 'form-control']) !!}
@@ -64,9 +60,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.stop_date') }}</label>
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right">{{ trans('fi.stop_date') }}</label>
+                        <div class="col-sm-8">
                             {!! Form::text('stop_date', null, ['id' => 'create_stop_date', 'class' => 'form-control']) !!}
                         </div>
                     </div>

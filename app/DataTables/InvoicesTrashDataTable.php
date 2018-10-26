@@ -28,12 +28,12 @@ class InvoicesTrashDataTable extends DataTable
             })
             ->editColumn('invoice_status_id', function (Invoice $invoice) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
-                <span class="label label-' . strtolower($statuses[$invoice->status_text]) . '">
+                <span class="badge badge-' . strtolower($statuses[$invoice->status_text]) . '">
                     '. trans('fi.' . strtolower($statuses[$invoice->status_text])) . '</span>';
                 if ($invoice->viewed)
-                    $ret .= '<span class="label label-success">' . trans('fi.viewed') . '</span>';
+                    $ret .= '<span class="badge badge-success">' . trans('fi.viewed') . '</span>';
                 else
-                    $ret .= '<span class="label label-default">' . trans('fi.not_viewed') . '</span>';
+                    $ret .= '<span class="badge badge-secondary">' . trans('fi.not_viewed') . '</span>';
                 $ret .= '</td>';
 
                 return $ret;

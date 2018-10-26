@@ -26,56 +26,54 @@
             });
         });
     </script>
-
-    <section class="content">
-
-        <div class="box box-solid">
-            <div class="box-header">
-                <h3 class="box-title">{{ trans('fi.workorder_summary') }}</h3>
-                <div class="box-tools pull-right">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-bold mb-0">{{ trans('fi.workorder_summary') }}</h5>
+                <div class="card-tools pull-right">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                        <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-calendar"></i> {{ $workorderDashboardTotalOptions[config('fi.widgetWorkorderSummaryDashboardTotals')] }}
                         </button>
-                        <ul class="dropdown-menu" role="menu">
+                        <div class="dropdown-menu" role="menu">
                             @foreach ($workorderDashboardTotalOptions as $key => $option)
-                                <li>
+                                {{--<li>--}}
                                     @if ($key != 'custom_date_range')
-                                        <a href="#" onclick="return false;" class="workorder-dashboard-total-change-option" data-id="{{ $key }}">{{ $option }}</a>
+                                        <a href="#" onclick="return false;" class="workorder-dashboard-total-change-option dropdown-item" data-id="{{ $key }}">{{ $option }}</a>
                                     @else
-                                        <a href="#" onclick="return false;" data-toggle="modal" data-target="#workorder-summary-widget-modal">{{ $option }}</a>
+                                        <a href="#" onclick="return false;" data-toggle="modal" data-target="#workorder-summary-widget-modal" class="dropdown-item">{{ $option }}</a>
                                     @endif
-                                </li>
+                                {{--</li>--}}
                             @endforeach
-                        </ul>
+                        </div>
+                        </div>
                     </div>
-                    <button class="btn btn-box-tool create-workorder"><i class="fa fa-plus"></i> {{ trans('fi.create_workorder') }}</button>
+                    <button class="btn btn-sm create-workorder"><i class="fa fa-plus"></i> {{ trans('fi.create_workorder') }}</button>
                 </div>
             </div>
-            <div class="box-body">
-
+            <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="small-box bg-purple">
                             <div class="inner">
-                                <h3>{{ $workordersTotalDraft }}</h3>
+                                <h4 class="text-bold">{{ $workordersTotalDraft }}</h4>
 
                                 <p>{{ trans('fi.draft_workorders') }}</p>
                             </div>
-                            <div class="icon"><i class="ion ion-edit"></i></div>
+                            <div class="icon"><i class="fa fa-pencil-alt"></i></div>
                             <a class="small-box-footer" href="{{ route('workorders.index') }}?status=draft">
                                 {{ trans('fi.view_draft_workorders') }} <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
-                        <div class="small-box bg-olive">
+                        <div class="small-box bg-green">
                             <div class="inner">
-                                <h3>{{ $workordersTotalSent }}</h3>
+                                <h4 class="text-bold">{{ $workordersTotalSent }}</h4>
 
                                 <p>{{ trans('fi.sent_workorders') }}</p>
                             </div>
-                            <div class="icon"><i class="ion ion-share"></i></div>
+                            <div class="icon"><i class="fa fa-share-square"></i></div>
                             <a class="small-box-footer" href="{{ route('workorders.index') }}?status=sent">
                                 {{ trans('fi.view_sent_workorders') }} <i class="fa fa-arrow-circle-right"></i>
                             </a>
@@ -85,11 +83,11 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="small-box bg-orange">
                             <div class="inner">
-                                <h3>{{ $workordersTotalRejected }}</h3>
+                                <h4 class="text-bold">{{ $workordersTotalRejected }}</h4>
 
                                 <p>{{ trans('fi.rejected_workorders') }}</p>
                             </div>
-                            <div class="icon"><i class="ion ion-thumbsdown"></i></div>
+                            <div class="icon"><i class="fa fa-thumbs-down"></i></div>
                             <a class="small-box-footer" href="{{ route('workorders.index') }}?status=rejected">
                                 {{ trans('fi.view_rejected_workorders') }} <i class="fa fa-arrow-circle-right"></i>
                             </a>
@@ -98,11 +96,11 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="small-box bg-blue">
                             <div class="inner">
-                                <h3>{{ $workordersTotalApproved }}</h3>
+                                <h4 class="text-bold">{{ $workordersTotalApproved }}</h4>
 
                                 <p>{{ trans('fi.approved_workorders') }}</p>
                             </div>
-                            <div class="icon"><i class="ion ion-thumbsup"></i></div>
+                            <div class="icon"><i class="fa fa-thumbs-up"></i></div>
                             <a class="small-box-footer" href="{{ route('workorders.index') }}?status=approved">
                                 {{ trans('fi.view_approved_workorders') }} <i class="fa fa-arrow-circle-right"></i>
                             </a>

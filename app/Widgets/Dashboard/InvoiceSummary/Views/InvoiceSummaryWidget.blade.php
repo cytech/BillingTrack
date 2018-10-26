@@ -26,43 +26,42 @@
             });
         });
     </script>
-
-    <section class="content">
-        <div class="box box-solid">
-            <div class="box-header">
-                <h3 class="box-title">{{ trans('fi.invoice_summary') }}</h3>
-
-                <div class="box-tools pull-right">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-bold mb-0">{{ trans('fi.invoice_summary') }}</h5>
+                <div class="card-tools pull-right">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                        <div class="dropdown">
+                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-calendar"></i> {{ $invoiceDashboardTotalOptions[config('fi.widgetInvoiceSummaryDashboardTotals')] }}
                         </button>
-                        <ul class="dropdown-menu" role="menu">
+                        <div class="dropdown-menu" role="menu">
                             @foreach ($invoiceDashboardTotalOptions as $key => $option)
                                 <li>
                                     @if ($key != 'custom_date_range')
-                                        <a href="#" onclick="return false;" class="invoice-dashboard-total-change-option" data-id="{{ $key }}">{{ $option }}</a>
+                                        <a href="#" onclick="return false;" class="invoice-dashboard-total-change-option  dropdown-item" data-id="{{ $key }}">{{ $option }}</a>
                                     @else
-                                        <a href="#" onclick="return false;" data-toggle="modal" data-target="#invoice-summary-widget-modal">{{ $option }}</a>
+                                        <a href="#" onclick="return false;" data-toggle="modal" data-target="#invoice-summary-widget-modal" class="dropdown-item">{{ $option }}</a>
                                     @endif
                                 </li>
                             @endforeach
-                        </ul>
+                        </div>
+                        </div>
                     </div>
-                    <button class="btn btn-box-tool create-invoice"><i class="fa fa-plus"></i> {{ trans('fi.create_invoice') }}</button>
+                    <button class="btn btn-sm create-invoice"><i class="fa fa-plus"></i> {{ trans('fi.create_invoice') }}</button>
                 </div>
             </div>
-            <div class="box-body">
+            <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
-                        <div class="small-box bg-yellow">
+                        <div class="small-box bg-purple">
                             <div class="inner">
-                                <h3>{{ $invoicesTotalDraft }}</h3>
+                                <h4 class="text-bold">{{ $invoicesTotalDraft }}</h4>
 
                                 <p>{{ trans('fi.draft_invoices') }}</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-edit"></i>
+                                <i class="fa fa-pencil-alt"></i>
                             </div>
                             <a href="{{ route('invoices.index') }}?status=draft" class="small-box-footer">
                                 {{ trans('fi.view_draft_invoices') }} <i class="fa fa-arrow-circle-right"></i>
@@ -70,14 +69,14 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
-                        <div class="small-box bg-aqua">
+                        <div class="small-box bg-green">
                             <div class="inner">
-                                <h3>{{ $invoicesTotalSent }}</h3>
+                                <h4 class="text-bold">{{ $invoicesTotalSent }}</h4>
 
                                 <p>{{ trans('fi.sent_invoices') }}</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-share"></i>
+                                <i class="fa fa-share-square"></i>
                             </div>
                             <a class="small-box-footer" href="{{ route('invoices.index') }}?status=sent">
                                 {{ trans('fi.view_sent_invoices') }} <i class="fa fa-arrow-circle-right"></i>
@@ -88,24 +87,24 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="small-box bg-red">
                             <div class="inner">
-                                <h3>{{ $invoicesTotalOverdue }}</h3>
+                                <h4 class="text-bold">{{ $invoicesTotalOverdue }}</h4>
 
                                 <p>{{ trans('fi.overdue_invoices') }}</p>
                             </div>
-                            <div class="icon"><i class="ion ion-alert"></i></div>
+                            <div class="icon"><i class="fa fa-exclamation"></i></div>
                             <a class="small-box-footer" href="{{ route('invoices.index') }}?status=overdue">
                                 {{ trans('fi.view_overdue_invoices') }} <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12">
-                        <div class="small-box bg-green">
+                        <div class="small-box bg-blue">
                             <div class="inner">
-                                <h3>{{ $invoicesTotalPaid }}</h3>
+                                <h4 class="text-bold">{{ $invoicesTotalPaid }}</h4>
 
                                 <p>{{ trans('fi.payments_collected') }}</p>
                             </div>
-                            <div class="icon"><i class="ion ion-heart"></i></div>
+                            <div class="icon"><i class="fa fa-heart"></i></div>
                             <a class="small-box-footer" href="{{ route('payments.index') }}">
                                 {{ trans('fi.view_payments') }} <i class="fa fa-arrow-circle-right"></i>
                             </a>
@@ -120,9 +119,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                    <h4 class="modal-title" id="myModalLabel">{{ trans('fi.custom_date_range') }}</h4>                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">{{ trans('fi.custom_date_range') }}</h4>
                 </div>
                 <div class="modal-body">
 

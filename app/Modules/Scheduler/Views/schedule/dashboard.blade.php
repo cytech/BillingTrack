@@ -179,11 +179,11 @@
                                             {{ trans('fi.link_to_workorder') }}</a></td>
                                 @else
                                    {{-- <a class="btn btn-danger delete" ng-click="delete({!! $reminder->id !!})"><i
-                                                class="fa fa-fw fa-trash-o"></i>{{ trans('fi.delete') }}</a></td>--}}
+                                                class="fa fa-fw fa-trash-alt"></i>{{ trans('fi.delete') }}</a></td>--}}
 
                                     <a href="#" id="delete-reminder-{{ $reminder->id }}"
                                        onclick="swalConfirm('{{ trans('fi.reminder_trash_warning') }}', '{{ route('scheduler.trashreminder', $reminder->id) }}');"><i
-                                                class="btn-danger fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></td>
+                                                class="btn-danger fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a></td>
                                 @endif
                             </tr>
                         @endforeach
@@ -218,9 +218,9 @@
 @stop
 @section('javascript')
     @include('partials._js_datatables')
-    {!! Html::style('assets/plugins/morris.js.so/morris.css') !!}
-    {!! Html::script('assets/plugins/raphael/raphael.min.js') !!}
-    {!! Html::script('assets/plugins/morris.js.so/morris.min.js') !!}
+    {!! Html::style('plugins/morris.js.so/morris.css') !!}
+    {!! Html::script('plugins/raphael/raphael.min.js') !!}
+    {!! Html::script('plugins/morris.js.so/morris.min.js') !!}
     {{--{!! Html::script('assets/addons/Scheduler/assets/js/morris-data.js') !!}--}}
     <script type="text/javascript" language="javascript" class="init">
         $(function () {

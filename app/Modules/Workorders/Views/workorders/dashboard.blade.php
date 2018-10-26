@@ -101,10 +101,10 @@
     </div>
 @stop
 @section('javascript')
-    {!! Html::style('assets/plugins/morris.js.so/morris.css') !!}
-    {!! Html::script('assets/plugins/raphael/raphael.min.js') !!}
-    {!! Html::script('assets/plugins/morris.js.so/morris.min.js') !!}
-    {{--{!! Html::script('assets/plugins/js/morris-data.js') !!}--}}
+    {!! Html::style('plugins/morris.js.so/morris.css') !!}
+    {!! Html::script('plugins/raphael/raphael.min.js') !!}
+    {!! Html::script('plugins/morris.js.so/morris.min.js') !!}
+    {{--{!! Html::script('plugins/js/morris-data.js') !!}--}}
     <script type="text/javascript" language="javascript" class="init">
         $(function () {
             Morris.Bar({

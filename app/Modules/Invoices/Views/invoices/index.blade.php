@@ -6,8 +6,8 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.invoices') }}</h1>
+    <section class="content mt-3 mb-3">
+        <h3 class="pull-left">{{ trans('fi.invoices') }}</h3>
 
         <div class="pull-right">
 
@@ -44,21 +44,13 @@
 
         @include('layouts._alerts')
 
-        <div class="row">
-
-            <div class="col-xs-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body no-padding">
+        <div class="card ">
+            <div class="card-body">
                         @include('invoices._dataTable')
                     </div>
 
                 </div>
 
-            </div>
-
-        </div>
 
     </section>
 

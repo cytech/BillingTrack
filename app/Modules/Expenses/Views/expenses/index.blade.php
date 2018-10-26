@@ -32,10 +32,10 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content mt-3 mb-3">
+        <h3 class="pull-left">
             {{ trans('fi.expenses') }}
-        </h1>
+        </h3>
 
         <div class="pull-right">
 
@@ -59,31 +59,17 @@
 
         @include('layouts._alerts')
 
-        <div class="row">
-
-            <div class="col-xs-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body no-padding">
-
-                        {!! $dataTable->table(['class' => 'table dt-responsive display', 'width' => '100%', 'cellspacing' => '0']) !!}
+        <div class="card ">
+            <div class="card-body">
+                        {!! $dataTable->table(['class' => 'table table-striped display', 'width' => '100%', 'cellspacing' => '0']) !!}
                     </div>
-
-                </div>
-
-            </div>
-
         </div>
-
     </section>
 
 @stop
 
 @push('scripts')
-    {{--<link rel="stylesheet" href="/assets/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">--}}
-    {{--<script src="/assets/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>--}}
-    {{--<script src="/vendor/datatables/buttons.server-side.js"></script>--}}
+
     {!! $dataTable->scripts() !!}
     <script>
         var htmlstr = '<input type="checkbox" class="btn-group" id="bulk-select-all"/> ';

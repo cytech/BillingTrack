@@ -35,15 +35,15 @@
 
 
     </style>
-    {!! Html::style('assets/plugins/fullcalendar/fullcalendar.min.css') !!}
+    {!! Html::style('plugins/fullcalendar/fullcalendar.min.css') !!}
     {{-- bug introduced in laravel collective 5.5 https://github.com/LaravelCollective/html/issues/504 }}
     {{--{!! Html::style('assets/addons/Scheduler/Assets/fullcalendar/dist/fullcalendar.print.min.css',['media'=>'print']) !!}--}}
-    <link href="/assets/plugins/fullcalendar/fullcalendar.print.min.css" rel="stylesheet" type="text/css" media="print" />
-    {!! Html::script('assets/plugins/moment/moment.min.js') !!}
-    {!! Html::script('assets/plugins/fullcalendar/fullcalendar.min.js') !!}
+    <link href="/plugins/fullcalendar/fullcalendar.print.min.css" rel="stylesheet" type="text/css" media="print" />
+    {!! Html::script('plugins/moment/moment.min.js') !!}
+    {!! Html::script('plugins/fullcalendar/fullcalendar.min.js') !!}
     {{-- customized to allow month view sort by category/start--}}
     {{--{!! Html::script('js/fullcalendar.mod.min.js') !!}--}}
-    {!! Html::script('assets/plugins/jquery-validation/jquery.validate.min.js') !!}
+    {!! Html::script('plugins/jquery-validation/jquery.validate.min.js') !!}
 
     <script>
         $(document).ready(function () {
@@ -142,7 +142,7 @@
                     // Add the "button" to the day headers
                     var $headers = $('.fc-day-top');
                     $headers.css('position', 'relative');
-                    $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='{{ trans('fi.create_workorder') }}'><i class='createwobutton fa fa-file-text-o' ></i></button> </div>");
+                    $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='{{ trans('fi.create_workorder') }}'><i class='createwobutton far fa-file-alt' ></i></button> </div>");
                 },
                 @endif
                 defaultDate: "{!! date('Y-m-d') !!}",

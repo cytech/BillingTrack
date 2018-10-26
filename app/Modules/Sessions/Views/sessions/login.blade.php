@@ -5,11 +5,16 @@
     <title>{{ trans('fi.welcome') }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
+    <link rel="stylesheet" href="/css/app.css">
+
+    <script src="/js/app.js"></script>
+
+
     <link href="{{ asset('favicon.png') }}" rel="icon" type="image/png">
-    <link href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('assets/dist/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('assets/style.css') }}" rel="stylesheet" type="text/css"/>
+    {{--<link href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>--}}
+    {{--<link href="{{ asset('assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>--}}
+    {{--<link href="{{ asset('assets/dist/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css"/>--}}
+    {{--<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>--}}
 
     @if (file_exists(base_path('custom/custom.css')))
         <link href="{{ asset('custom/custom.css') }}" rel="stylesheet" type="text/css"/>
@@ -30,7 +35,7 @@
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-8">
                 <div class="checkbox">
                     <label>
                         <input type="hidden" name="remember_me" value="0">
@@ -47,7 +52,7 @@
     </div>
 </div>
 
-<script src="{{ asset('assets/plugins/jQuery/jquery.min.js') }}"></script>
+<script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">

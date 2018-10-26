@@ -64,8 +64,8 @@
     </div>
 @stop
 @section('javascript')
-    {{--<link href="{{ asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css"/>--}}
-    {{--<script src="{{ asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}" type="text/javascript"></script>--}}
-    {!! Html::style('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') !!}
-    {!! Html::script('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') !!}
+    {{--<link href="{{ asset('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css"/>--}}
+    {{--<script src="{{ asset('plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}" type="text/javascript"></script>--}}
+    {!! Html::style('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') !!}
+    {!! Html::script('plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') !!}
 @stop

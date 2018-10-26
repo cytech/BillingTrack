@@ -1,20 +1,22 @@
 @include('quotes._js_edit')
 
 <section class="content-header">
-    <h1 class="pull-left">{{ trans('fi.quote') }} #{{ $quote->number }}</h1>
+    <h3 class="pull-left">{{ trans('fi.quote') }} #{{ $quote->number }}</h3>
 
     @if ($quote->viewed)
-        <span style="margin-left: 10px;" class="label label-success">{{ trans('fi.viewed') }}</span>
+        <span style="margin-left: 10px;" class="badge badge-success">{{ trans('fi.viewed') }}</span>
     @else
-        <span style="margin-left: 10px;" class="label label-default">{{ trans('fi.not_viewed') }}</span>
+        <span style="margin-left: 10px;" class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
     @endif
 
     @if ($quote->invoice)
-        <span class="label label-info"><a href="{{ route('invoices.edit', [$quote->invoice_id]) }}" style="color: inherit;">{{ trans('fi.converted_to_invoice') }} {{ $quote->invoice->number }}</a></span>
+        <span class="badge badge-info"><a href="{{ route('invoices.edit', [$quote->invoice_id]) }}"
+                                          style="color: inherit;">{{ trans('fi.converted_to_invoice') }} {{ $quote->invoice->number }}</a></span>
     @endif
 
     @if ($quote->workorder)
-        <span class="label label-info"><a href="{{ route('workorders.edit', [$quote->workorder_id]) }}" style="color: inherit;">{{ trans('fi.converted_to_workorder') }} {{ $quote->workorder->number }}</a></span>
+        <span class="badge badge-info"><a href="{{ route('workorders.edit', [$quote->workorder_id]) }}"
+                                          style="color: inherit;">{{ trans('fi.converted_to_workorder') }} {{ $quote->workorder->number }}</a></span>
     @endif
 
     <div class="pull-right">
@@ -24,7 +26,7 @@
         @if (config('fi.mailConfigured'))
             <a href="javascript:void(0)" id="btn-email-quote" class="btn btn-default email-quote"
                data-quote-id="{{ $quote->id }}" data-redirect-to="{{ route('quotes.edit', [$quote->id]) }}"><i
-                    class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
+                        class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
         @endif
 
         <div class="btn-group">
@@ -33,30 +35,30 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                 <li><a href="javascript:void(0)" id="btn-copy-quote"><i
-                            class="fa fa-copy"></i> {{ trans('fi.copy') }}</a></li>
+                                class="fa fa-copy"></i> {{ trans('fi.copy') }}</a></li>
                 <li><a href="javascript:void(0)" id="btn-quote-to-workorder"><i
                                 class="fa fa-check"></i> {{ trans('fi.quote_to_workorder') }}</a></li>
                 <li><a href="javascript:void(0)" id="btn-quote-to-invoice"><i
-                            class="fa fa-check"></i> {{ trans('fi.quote_to_invoice') }}</a></li>
+                                class="fa fa-check"></i> {{ trans('fi.quote_to_invoice') }}</a></li>
                 <li><a href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"><i
-                            class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
+                                class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
                 <li class="divider"></li>
                 <li><a href="#"
                        onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('quotes.delete', [$quote->id]) }}');"><i
-                            class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
+                                class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a></li>
             </ul>
         </div>
 
         <div class="btn-group">
             @if ($returnUrl)
                 <a href="{{ $returnUrl }}" class="btn btn-default"><i
-                        class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
+                            class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
             @endif
         </div>
 
         <div class="btn-group">
             <button type="button" class="btn btn-primary btn-save-quote"><i
-                    class="fa fa-save"></i> {{ trans('fi.save') }}</button>
+                        class="fa fa-save"></i> {{ trans('fi.save') }}</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
             </button>
@@ -71,7 +73,7 @@
     <div class="clearfix"></div>
 </section>
 
-<section class="content">
+<section class="container-fluid">
 
     <div class="row">
 
@@ -83,11 +85,11 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">{{ trans('fi.summary') }}</h3>
+                    <div class="card card-light">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ trans('fi.summary') }}</h3>
                         </div>
-                        <div class="box-body">
+                        <div class="card-body">
                             {!! Form::text('summary', $quote->summary, ['id' => 'summary', 'class' => 'form-control']) !!}
                         </div>
                     </div>
@@ -113,19 +115,19 @@
             <div class="row">
 
                 <div class="col-sm-12 table-responsive" style="overflow-x: visible;">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">{{ trans('fi.items') }}</h3>
+                    <div class="card card-light">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ trans('fi.items') }}</h3>
 
-                            <div class="box-tools pull-right">
+                            <div class="card-tools pull-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
-                                        class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
+                                            class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
                                 <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
                                             class="fa fa-plus"></i> {{ trans('fi.add_lookup') }}</button>
                             </div>
                         </div>
 
-                        <div class="box-body">
+                        <div class="card-body">
                             <table id="item-table" class="table table-hover">
                                 <thead>
                                 <tr>
@@ -174,7 +176,8 @@
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
-                                            <a class="btn btn-xs btn-default btn-delete-quote-item" href="javascript:void(0);"
+                                            <a class="btn btn-xs btn-default btn-delete-quote-item"
+                                               href="javascript:void(0);"
                                                title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -193,73 +196,83 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab-additional" data-toggle="tab">{{ trans('fi.additional') }}</a></li>
-                            <li><a href="#tab-notes" data-toggle="tab">{{ trans('fi.notes') }}</a></li>
-                            <li><a href="#tab-attachments" data-toggle="tab">{{ trans('fi.attachments') }}</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab-additional">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>{{ trans('fi.terms_and_conditions') }}</label>
-                                            {!! Form::textarea('terms', $quote->terms, ['id' => 'terms', 'class' => 'form-control', 'rows' => 5]) !!}
-                                        </div>
-                                    </div>
 
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>{{ trans('fi.footer') }}</label>
-                                            {!! Form::textarea('footer', $quote->footer, ['id' => 'footer', 'class' => 'form-control', 'rows' => 5]) !!}
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="card m-2">
 
-                                @if ($customFields->count())
+                        <div class="card-header d-flex p-0">
+                            {{--<div class="nav-tabs-custom">--}}
+                            <ul class="nav nav-tabs p-2">
+                                <li class="nav-item"><a class="nav-link active show" href="#tab-additional"
+                                                        data-toggle="tab">{{ trans('fi.additional') }}</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab-notes"
+                                                        data-toggle="tab">{{ trans('fi.notes') }}</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab-attachments"
+                                                        data-toggle="tab">{{ trans('fi.attachments') }}</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab-additional">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            @include('custom_fields._custom_fields_unbound', ['object' => $quote])
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>{{ trans('fi.terms_and_conditions') }}</label>
+                                                {!! Form::textarea('terms', $quote->terms, ['id' => 'terms', 'class' => 'form-control', 'rows' => 5]) !!}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>{{ trans('fi.footer') }}</label>
+                                                {!! Form::textarea('footer', $quote->footer, ['id' => 'footer', 'class' => 'form-control', 'rows' => 5]) !!}
+                                            </div>
                                         </div>
                                     </div>
-                                @endif
 
-                            </div>
-                            <div class="tab-pane" id="tab-notes">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        @include('notes._notes', ['object' => $quote, 'model' => 'FI\Modules\Quotes\Models\Quote', 'showPrivateCheckbox' => true, 'hideHeader' => true])
+                                    @if ($customFields->count())
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                @include('custom_fields._custom_fields_unbound', ['object' => $quote])
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                </div>
+                                <div class="tab-pane" id="tab-notes">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            @include('notes._notes', ['object' => $quote, 'model' => 'FI\Modules\Quotes\Models\Quote', 'showPrivateCheckbox' => true, 'hideHeader' => true])
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="tab-pane" id="tab-attachments">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        @include('attachments._table', ['object' => $quote, 'model' => 'FI\Modules\Quotes\Models\Quote'])
+                                <div class="tab-pane" id="tab-attachments">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            @include('attachments._table', ['object' => $quote, 'model' => 'FI\Modules\Quotes\Models\Quote'])
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
-
         <div class="col-lg-2">
 
             <div id="div-totals">
                 @include('quotes._edit_totals')
             </div>
 
-            <div class="box box-primary">
+            <div class="card card-light">
 
-                <div class="box-header">
-                    <h3 class="box-title">{{ trans('fi.options') }}</h3>
+                <div class="card-header">
+                    <h3 class="card-title">{{ trans('fi.options') }}</h3>
                 </div>
 
-                <div class="box-body">
+                <div class="card-body">
 
                     <div class="form-group">
                         <label>{{ trans('fi.quote') }} #</label>
@@ -324,6 +337,7 @@
                 </div>
             </div>
         </div>
+
 
     </div>
 

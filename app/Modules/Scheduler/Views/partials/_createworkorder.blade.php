@@ -1,5 +1,5 @@
-{!! Html::style('assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
-{!! Html::script('assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
+{!! Html::style('plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
+{!! Html::script('plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
 
 <div id="create-workorder" title="{{ trans('fi.create_workorder') }}" style="display: none">
     {!! Form::open(['route' => 'api.createwo','id' => 'create-workorderform']) !!}

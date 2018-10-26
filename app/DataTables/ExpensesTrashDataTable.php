@@ -26,11 +26,11 @@ class ExpensesTrashDataTable extends DataTable
                $ret = $expense->formatted_amount ;
                     if ($expense->is_billable)
                         if ($expense->has_been_billed)
-                            $ret .= '<br><a href="'. route('invoices.edit', [$expense->invoice_id]) .'"><span class="label label-success">'. trans('fi.billed') .'</span></a>';
+                            $ret .= '<br><a href="'. route('invoices.edit', [$expense->invoice_id]) .'"><span class="badge badge-success">'. trans('fi.billed') .'</span></a>';
                          else
-                            $ret .= '<br><span class="label label-danger">'. trans('fi.not_billed') .'</span>';
+                            $ret .= '<br><span class="badge badge-danger">'. trans('fi.not_billed') .'</span>';
                     else
-                            $ret .= '<br><span class="label label-default">'. trans('fi.not_billable') .'</span>';
+                            $ret .= '<br><span class="badge badge-secondary">'. trans('fi.not_billable') .'</span>';
 
                 return $ret;
 

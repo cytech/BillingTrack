@@ -20,11 +20,11 @@
         <tr>
             <td><input type="checkbox" class="bulk-record" data-id="{{ $invoice->id }}"></td>
             <td class="hidden-sm hidden-xs">
-                <span class="label label-{{ $statuses[$invoice->invoice_status_id] }}">{{ trans('fi.' . $statuses[$invoice->invoice_status_id]) }}</span>
+                <span class="badge badge-{{ $statuses[$invoice->invoice_status_id] }}">{{ trans('fi.' . $statuses[$invoice->invoice_status_id]) }}</span>
                 @if ($invoice->viewed)
-                    <span class="label label-success">{{ trans('fi.viewed') }}</span>
+                    <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
                 @else
-                    <span class="label label-default">{{ trans('fi.not_viewed') }}</span>
+                    <span class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
                 @endif
             </td>
             <td><a href="{{ route('invoices.edit', [$invoice->id]) }}"
@@ -41,28 +41,28 @@
                     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                         {{ trans('fi.options') }} <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="{{ route('invoices.edit', [$invoice->id]) }}"><i
-                                    class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                        <li><a href="{{ route('invoices.pdf', [$invoice->id]) }}" target="_blank"
-                               id="btn-pdf-invoice"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a></li>
-                        <li><a href="javascript:void(0)" class="email-invoice" data-invoice-id="{{ $invoice->id }}"
+                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                        <a class="dropdown-item" href="{{ route('invoices.edit', [$invoice->id]) }}"><i
+                                    class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                        <a class="dropdown-item" href="{{ route('invoices.pdf', [$invoice->id]) }}" target="_blank"
+                               id="btn-pdf-invoice"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
+                        <a href="javascript:void(0)" class="email-invoice dropdown-item" data-invoice-id="{{ $invoice->id }}"
                                data-redirect-to="{{ request()->fullUrl() }}"><i
-                                    class="fa fa-envelope"></i> {{ trans('fi.email') }}</a></li>
-                        <li><a href="{{ route('clientCenter.public.invoice.show', [$invoice->url_key]) }}"
+                                    class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
+                        <a class="dropdown-item" href="{{ route('clientCenter.public.invoice.show', [$invoice->url_key]) }}"
                                target="_blank" id="btn-public-invoice"><i
-                                    class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
+                                    class="fa fa-globe"></i> {{ trans('fi.public') }}</a>
                         @if ($invoice->isPayable or config('fi.allowPaymentsWithoutBalance'))
-                            <li><a href="javascript:void(0)" id="btn-enter-payment" class="enter-payment"
+                            <a href="javascript:void(0)" id="btn-enter-payment" class="enter-payment dropdown-item"
                                    data-invoice-id="{{ $invoice->id }}"
                                    data-invoice-balance="{{ $invoice->amount->formatted_numeric_balance }}"
                                    data-redirect-to="{{ request()->fullUrl() }}"><i
-                                        class="fa fa-credit-card"></i> {{ trans('fi.enter_payment') }}</a></li>
+                                        class="fa fa-credit-card"></i> {{ trans('fi.enter_payment') }}</a>
                         @endif
-                        <li><a href="{{ route('invoices.delete', [$invoice->id]) }}"
+                        <a class="dropdown-item" href="{{ route('invoices.delete', [$invoice->id]) }}"
                                onclick="return confirm('{{ trans('fi.trash_record_warning') }}');"><i
-                                    class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
-                    </ul>
+                                    class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+                    </div>
                 </div>
             </td>
         </tr>

@@ -32,14 +32,14 @@
                     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                         {{ trans('fi.options') }} <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="{{ route('payments.edit', [$payment->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                        <li><a href="{{ route('invoices.pdf', [$payment->invoice->id]) }}" target="_blank" id="btn-pdf-invoice"><i class="fa fa-print"></i> {{ trans('fi.invoice') }}</a></li>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                        <a class="dropdown-item" href="{{ route('payments.edit', [$payment->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                        <a class="dropdown-item" href="{{ route('invoices.pdf', [$payment->invoice->id]) }}" target="_blank" id="btn-pdf-invoice"><i class="fa fa-print"></i> {{ trans('fi.invoice') }}</a>
                         @if (config('fi.mailConfigured'))
-                            <li><a href="javascript:void(0)" class="email-payment-receipt" data-payment-id="{{ $payment->id }}" data-redirect-to="{{ request()->fullUrl() }}"><i class="fa fa-envelope"></i> {{ trans('fi.email_payment_receipt') }}</a></li>
+                            <a href="javascript:void(0)" class="email-payment-receipt dropdown-item" data-payment-id="{{ $payment->id }}" data-redirect-to="{{ request()->fullUrl() }}"><i class="fa fa-envelope"></i> {{ trans('fi.email_payment_receipt') }}</a>
                         @endif
-                        <li><a href="{{ route('payments.delete', [$payment->id]) }}" onclick="return confirm('{{ trans('fi.trash_record_warning') }}');"><i class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
-                    </ul>
+                        <a class="dropdown-item" href="{{ route('payments.delete', [$payment->id]) }}" onclick="return confirm('{{ trans('fi.trash_record_warning') }}');"><i class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+                    </div>
                 </div>
             </td>
         </tr>

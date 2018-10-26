@@ -1,6 +1,6 @@
-<div class="box box-primary">
+<div class="card card-light">
 
-    <div class="box-body">
+    <div class="card-body">
 
         <span class="pull-left"><strong>{{ trans('fi.subtotal') }}</strong></span><span
             class="pull-right">{{ $quote->amount->formatted_subtotal }}</span>

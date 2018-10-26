@@ -8,7 +8,7 @@
     <title>{{ config('fi.headerTitleText') }}</title>
 
     @include('layouts._head')
-    <script src="{{ asset('assets/plugins/jQuery/jquery.min.js') }}"></script>
+    <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
     @include('layouts._js_global')
 
     @yield('head')

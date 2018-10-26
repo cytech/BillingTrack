@@ -7,10 +7,10 @@
     @include('item_lookups._js_item_lookups')
     @include('layouts._alerts')
 
-    {!! Html::style('assets/plugins/timepicker/bootstrap-timepicker.min.css') !!}
-    {!! Html::style('assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
-    {!! Html::script('assets/plugins/timepicker/bootstrap-timepicker.min.js') !!}
-    {!! Html::script('assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
+    {!! Html::style('plugins/timepicker/bootstrap-timepicker.min.css') !!}
+    {!! Html::style('plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
+    {!! Html::script('plugins/timepicker/bootstrap-timepicker.min.js') !!}
+    {!! Html::script('plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
 
 @endsection
 

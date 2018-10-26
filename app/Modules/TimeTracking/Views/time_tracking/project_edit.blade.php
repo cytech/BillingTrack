@@ -211,7 +211,7 @@
         <div class="pull-right">
             <a href="#" class="btn btn-default"
                    onclick="swalConfirm('{{ trans('fi.confirm_trash_project') }}', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
-                            class="fa fa-trash-o"></i> {{ trans('fi.trash_project') }}</a>
+                            class="fa fa-trash-alt"></i> {{ trans('fi.trash_project') }}</a>
             <a href="{{ route('timeTracking.projects.index') }}" class="btn btn-default"><i class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
             <button class="btn btn-primary" id="btn-save-settings"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>

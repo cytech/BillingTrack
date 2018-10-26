@@ -1,10 +1,10 @@
 <div id="todays-workorders-widget">
     <section class="content">
-        <div class="box box-solid">
-            <div class="box-header">
-                <h3 class="box-title">{{ trans('fi.todays_workorders') }}</h3>
+        <div class="card ">
+            <div class="card-header">
+                <h5 class="text-bold mb-0">{{ trans('fi.todays_workorders') }}</h5>
             </div>
-            <div class="box-body no-padding">
+            <div class="card-body">
                 <table class="table table-striped">
                     <tbody>
                     <thead>

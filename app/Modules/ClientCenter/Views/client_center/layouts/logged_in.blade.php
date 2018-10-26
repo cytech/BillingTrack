@@ -21,17 +21,17 @@
         </li>
         <li>
             <a href="{{ route('clientCenter.quotes') }}">
-                <i class="fa fa-file-text-o"></i> <span>{{ trans('fi.quotes') }}</span>
+                <i class="far fa-file-alt"></i> <span>{{ trans('fi.quotes') }}</span>
             </a>
         </li>
         <li>
             <a href="{{ route('clientCenter.workorders') }}">
-                <i class="fa fa-file-text-o"></i> <span>{{ trans('fi.workorders') }}</span>
+                <i class="far fa-file-alt"></i> <span>{{ trans('fi.workorders') }}</span>
             </a>
         </li>
         <li>
             <a href="{{ route('clientCenter.invoices') }}">
-                <i class="fa fa-file-text"></i> <span>{{ trans('fi.invoices') }}</span>
+                <i class="far fa-file-alt"></i> <span>{{ trans('fi.invoices') }}</span>
             </a>
         </li>
         <li>

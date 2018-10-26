@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content mt-3 mb-3">
+        <h3 class="pull-left">
             {{ trans('fi.view_client') }}
-        </h1>
+        </h3>
         <div class="pull-right">
             <a href="javascript:void(0)" class="btn btn-default create-quote" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_quote') }}</a>
             <a href="javascript:void(0)" class="btn btn-default create-workorder" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_workorder') }}</a>
@@ -22,20 +22,22 @@
         @include('layouts._alerts')
 
         <div class="row">
+            <div class="col-12">
+                <div class="card m-2">
 
-            <div class="col-xs-12">
-
-                <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#tab-details">{{ trans('fi.details') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-recurring-invoices">{{ trans('fi.recurring_invoices') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-attachments">{{ trans('fi.attachments') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-notes">{{ trans('fi.notes') }}</a></li>
+                    <div class="card-header d-flex p-0">
+                        <ul class="nav nav-tabs p-2">
+                            <li class="nav-item "><a class="nav-link active show" data-toggle="tab" href="#tab-details">{{ trans('fi.details') }}</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab" href="#tab-recurring-invoices">{{ trans('fi.recurring_invoices') }}</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab" href="#tab-attachments">{{ trans('fi.attachments') }}</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab" href="#tab-notes">{{ trans('fi.notes') }}</a></li>
                     </ul>
+                    </div>
+                    <div class="card-body">
                     <div class="tab-content">
 
                         <div id="tab-details" class="tab-pane active">
@@ -149,13 +151,12 @@
                         <div id="tab-notes" class="tab-pane">
                             @include('notes._notes', ['object' => $client, 'model' => 'FI\Modules\Clients\Models\Client', 'hideHeader' => true])
                         </div>
-
                     </div>
+                    </div>
+                </div>
                 </div>
 
             </div>
-
-        </div>
 
     </section>
 

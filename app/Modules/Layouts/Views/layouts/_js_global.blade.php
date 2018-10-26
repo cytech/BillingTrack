@@ -1,8 +1,9 @@
-<style>
-.swal2-popup {
-font-size: 1.6rem !important;
-}
-</style>
+{{--for bootstrap 3--}}
+{{--<style>--}}
+{{--.swal2-popup {--}}
+{{--font-size: 1.6rem !important;--}}
+{{--}--}}
+{{--</style>--}}
 
 <script type="text/javascript">
 

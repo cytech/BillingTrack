@@ -1,10 +1,10 @@
 <div id="recent-payments-widget">
     <section class="content">
-        <div class="box box-solid">
-            <div class="box-header">
-                <h3 class="box-title">{{ trans('fi.recent_payments') }}</h3>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-bold mb-0">{{ trans('fi.recent_payments') }}</h5>
             </div>
-            <div class="box-body no-padding">
+            <div class="card-bodyg">
                 <table class="table table-striped">
                     <tbody>
                     <tr>

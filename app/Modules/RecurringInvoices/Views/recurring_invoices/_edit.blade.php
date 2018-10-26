@@ -15,7 +15,7 @@
                 <li class="divider"></li>
                 <li><a href="#"
                        onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('recurringInvoices.delete', [$recurringInvoice->id]) }}');"><i
-                            class="fa fa-trash-o"></i> {{ trans('fi.trash') }}</a></li>
+                            class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a></li>
             </ul>
         </div>
 
