@@ -14,41 +14,27 @@
         {!! Form::open(['route' => 'paymentMethods.store']) !!}
     @endif
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content m-3">
+        <h3 class="float-left">
             {{ trans('fi.payment_method_form') }}
-        </h1>
-        <div class="pull-right">
+        </h3>
+        <div class="float-right">
             <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
-
-        <div class="row">
-
-            <div class="col-md-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body">
-
-                        <div class="control-group">
-                            <label>{{ trans('fi.payment_method') }}: </label>
-                            {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
-                        </div>
-
-                    </div>
-
+        <div class=" card card-light">
+            <div class="card-body">
+                <div class="control-group">
+                    <label>{{ trans('fi.payment_method') }}: </label>
+                    {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     {!! Form::close() !!}

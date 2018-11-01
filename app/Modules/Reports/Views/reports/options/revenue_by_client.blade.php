@@ -36,64 +36,57 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.revenue_by_client') }}</h1>
+    <section class="container-fluid m-2">
+        <h1 class="float-left">{{ trans('fi.revenue_by_client') }}</h1>
 
-        <div class="pull-right">
+        <div class="float-right">
             <button class="btn btn-primary" id="btn-run-report">{{ trans('fi.run_report') }}</button>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         <div id="form-validation-placeholder"></div>
 
-        <div class="row">
+        <div class="card card-light">
+            <div class="card-header">
+                <h3 class="card-title">{{ trans('fi.options') }}</h3>
+            </div>
+            <div class="card-body">
 
-            <div class="col-md-12">
-
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">{{ trans('fi.options') }}</h3>
-                    </div>
-                    <div class="box-body">
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>{{ trans('fi.company_profile') }}:</label>
-                                    {!! Form::select('company_profile_id', $companyProfiles, null, ['id' => 'company_profile_id', 'class' => 'form-control'])  !!}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>{{ trans('fi.year') }}:</label>
-                                        {!! Form::select('year', $years, date('Y'), ['id' => 'year', 'class' => 'form-control']) !!}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="input-group">
-                                    <label>{{ trans('fi.output_type') }}:</label><br>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="output_type" value="preview"
-                                               checked="checked"> {{ trans('fi.preview') }}
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="output_type"
-                                               value="pdf"> {{ trans('fi.pdf') }}
-                                    </label>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ trans('fi.company_profile') }}:</label>
+                            {!! Form::select('company_profile_id', $companyProfiles, null, ['id' => 'company_profile_id', 'class' => 'form-control'])  !!}
                         </div>
                     </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ trans('fi.year') }}:</label>
+                            {!! Form::select('year', $years, date('Y'), ['id' => 'year', 'class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <label>{{ trans('fi.output_type') }}:</label>
+                            <label class="form-check-label ml-3">
+                                <input class="form-check-input" type="radio" name="output_type" value="preview"
+                                       checked="checked"> {{ trans('fi.preview') }}
+                            </label>
+                            <label class="form-check-label ml-3">
+                                <input class="form-check-input" type="radio" name="output_type"
+                                       value="pdf"> {{ trans('fi.pdf') }}
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
 

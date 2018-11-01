@@ -3,8 +3,8 @@
 @section('javascript')
 
     @include('layouts._datepicker')
-    @include('layouts._typeahead')
-    @include('clients._js_lookup')
+    {{--@include('layouts._typeahead')--}}
+    {{--@include('clients._js_lookup')--}}
     @include('time_tracking._task_list_refresh_js')
     @include('time_tracking._project_edit_totals_refresh')
 
@@ -205,10 +205,10 @@
 @section('content')
 
     <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.time_tracking') }}
+        <h3 class="float-left">{{ trans('fi.time_tracking') }}
             <small>{{ $project->name }}</small>
-        </h1>
-        <div class="pull-right">
+        </h3>
+        <div class="float-right">
             <a href="#" class="btn btn-default"
                    onclick="swalConfirm('{{ trans('fi.confirm_trash_project') }}', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
                             class="fa fa-trash-alt"></i> {{ trans('fi.trash_project') }}</a>
@@ -218,36 +218,36 @@
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         <div class="row">
 
             <div class="col-lg-10">
 
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <i class="fa fa-list"></i>
+                <div class="card card-light">
+                    <div class="card-header">
 
-                        <h3 class="box-title">{{ trans('fi.tasks') }}</h3>
+                        <h3 class="card-title"><i class="fa fa-list"></i> {{ trans('fi.tasks') }}</h3>
 
-                        <div class="box-tools pull-right">
+                        <div class="card-tools float-right">
                             <button class="btn btn-sm btn-primary" id="btn-add-task">
                                 <i class="fa fa-plus"></i> {{ trans('fi.add_task') }}
                             </button>
                         </div>
                     </div>
 
-                    <div class="box-body">
+                    <div class="card-body">
 
                         <div class="form-group">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     {{ trans('fi.bulk_actions') }} <span class="caret"></span>
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)" id="btn-bulk-bill-tasks"><i class="fa fa-dollar"></i> {{ trans('fi.bill_tasks') }}</a></li>
-                                    <li><a href="javascript:void(0)" id="btn-bulk-delete-tasks"><i class="fa fa-trash"></i> {{ trans('fi.trash_tasks') }}</a></li>
-                                </ul>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0)" id="btn-bulk-bill-tasks"><i class="fa fa-dollar-sign"></i> {{ trans('fi.bill_tasks') }}</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void(0)" id="btn-bulk-delete-tasks"><i class="fa fa-trash"></i> {{ trans('fi.trash_tasks') }}</a>
+                                </div>
                             </div>
                         </div>
 
@@ -259,15 +259,15 @@
                     </div>
                 </div>
 
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <i class="fa fa-list"></i>
+                <div class="card card-light">
+                    <div class="card-header">
 
-                        <h3 class="box-title">{{ trans('fi.billed_tasks') }}</h3>
+
+                        <h3 class="card-title"><i class="fa fa-list"></i> {{ trans('fi.billed_tasks') }}</h3>
 
                     </div>
 
-                    <div class="box-body no-padding">
+                    <div class="card-body no-padding">
 
                         <table class="table table-hover">
                             <thead>
@@ -302,13 +302,13 @@
                     @include('time_tracking._project_edit_totals')
                 </div>
 
-                <div class="box box-primary">
+                <div class="card card-light">
 
-                    <div class="box-header">
-                        <h3 class="box-title">{{ trans('fi.options') }}</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">{{ trans('fi.options') }}</h3>
                     </div>
 
-                    <div class="box-body">
+                    <div class="card-body">
 
                         <div class="form-group">
                             <label>{{ trans('fi.project_name') }}:</label>
@@ -323,6 +323,13 @@
                         <div class="form-group">
                             <label>* {{ trans('fi.client') }}:</label>
                             {!! Form::text('client_name', $project->client_name, ['id' => 'client_name', 'class' => 'form-control client-lookup input-sm', 'autocomplete' => 'off']) !!}
+                            <script>
+                            $('.client-lookup').autocomplete({
+                            appendTo: '#create-quote',
+                            source: '{{ route('clients.ajax.lookup') }}',
+                            minLength: 3
+                            }).autocomplete("widget").addClass("fixed-height");
+                            </script>
                         </div>
 
                         <div class="form-group">

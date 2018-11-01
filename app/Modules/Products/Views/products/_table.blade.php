@@ -24,7 +24,8 @@
             <td class="hidden-sm hidden-xs">{{ $product->category }}</td>
             <td class="hidden-sm hidden-xs">{{ $product->type }}</td>
             <td class="hidden-sm hidden-xs">{{ $product->numstock }}</td>
-            <td> <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-default btn-sm ">
+            <td> <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary btn-sm "><i
+                            class="fa fa-edit"></i>
                     {{ trans('fi.edit') }} </a></td>
         </tr>
     @endforeach

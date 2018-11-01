@@ -1,30 +1,24 @@
 @extends('layouts.master')
 
 @section('content')
-    <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.categories') }}</h1>
-        <div class="pull-right">
+    <section class="container-fluid mt-2">
+        <h1 class="float-left">{{ trans('fi.categories') }}</h1>
+        <div class="float-right">
             <a href="{!! route('scheduler.categories.create') !!}" class="btn btn-primary"><i
                         class="fa fa-fw fa-plus"></i> {{ trans('fi.create_category') }}</a>
         </div>
-
         <div class="clearfix"></div>
     </section>
-    <section class="content">
+    <section class="container-fluid">
         @include('layouts._alerts')
-        <div class="row">
-
-            <div class="col-xs-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body no-padding">
-                        @include('categories._dataTable')
-                    </div>
-
-                </div>
-
+        <div class="card card-light">
+            <div class="card-body no-padding">
+                {!! $dataTable->table(['class' => 'table table-striped display', 'width' => '100%', 'cellspacing' => '0']) !!}
             </div>
         </div>
     </section>
 @stop
+
+@push('scripts')
+    {!! $dataTable->scripts() !!}
+@endpush

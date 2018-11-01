@@ -25,9 +25,6 @@ Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'n
     Route::get('/table_recurring_event/create_recurring_event', ['uses' => 'SchedulerController@editRecurringEvent', 'as' => 'scheduler.createrecurringevent']);
     Route::get('/table_recurring_event/edit_recurring_event/{id?}', ['uses' => 'SchedulerController@editRecurringEvent', 'as' => 'scheduler.editrecurringevent']);
     Route::any('/table_recurring_event/update_recurring_event/{id?}', ['uses' => 'SchedulerController@updateRecurringEvent', 'as' => 'scheduler.updaterecurringevent']);
-    //reports
-    Route::any('/table_report', ['uses' => 'SchedulerController@tableReport', 'as' => 'scheduler.tablereport']);
-    Route::any('/calendar_report', ['uses' => 'SchedulerController@calendarReport', 'as' => 'scheduler.calendarreport']);
     //trash
     Route::get('/trash_event/{id}', ['uses' => 'SchedulerController@trashEvent', 'as' => 'scheduler.trashevent']);
     Route::get('/trash_reminder/{id}', ['uses' => 'SchedulerController@trashReminder', 'as' => 'scheduler.trashreminder']);

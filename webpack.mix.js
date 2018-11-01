@@ -34,7 +34,6 @@ mix.copy('node_modules/jquery-ui-dist/jquery-ui.min.js', 'public/plugins/jQueryU
 mix.copy('node_modules/jquery-slimscroll/jquery.slimscroll.min.js', 'public/plugins/slimScroll/jquery.slimscroll.min.js');
 mix.copy('node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css', 'public/plugins/timepicker/bootstrap-timepicker.min.css');
 mix.copy('node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js', 'public/plugins/timepicker/bootstrap-timepicker.min.js');
-mix.copy('node_modules/typeahead.js/dist/typeahead.bundle.js', 'public/plugins/typeahead/typeahead.bundle.js');
 mix.copyDirectory('node_modules/sweetalert2/dist', 'public/plugins/sweetalert2');
 mix.copyDirectory('node_modules/datatables.net', 'public/plugins/datatables.net');
 mix.copyDirectory('node_modules/datatables.net-bs4', 'public/plugins/datatables.net-bs4');

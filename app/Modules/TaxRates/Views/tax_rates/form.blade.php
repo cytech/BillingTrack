@@ -14,83 +14,64 @@
         {!! Form::open(['route' => 'taxRates.store']) !!}
     @endif
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content m-3">
+        <h3 class="float-left">
             {{ trans('fi.tax_rate_form') }}
-        </h1>
-        <div class="pull-right">
+        </h3>
+        <div class="float-right">
             <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
-
         @if ($editMode and $taxRate->in_use)
             <div class="alert alert-warning">{{ trans('fi.cannot_edit_record_in_use') }}</div>
         @endif
 
-        <div class="row">
-
-            <div class="col-md-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body">
-
-                        <div class="form-group">
-                            <label>{{ trans('fi.tax_rate_name') }}: </label>
-                            {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
-                        </div>
-
-                        <div class="form-group">
-                            <label>{{ trans('fi.tax_rate_percent') }}: </label>
-                            @if ($editMode and $taxRate->in_use)
-                                {!! Form::text('percent', (($editMode) ? $taxRate->formatted_numeric_percent : null),
-                                ['id' => 'percent', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
-                            @else
-                                {!! Form::text('percent', (($editMode) ? $taxRate->formatted_numeric_percent : null),
-                                ['id' => 'percent', 'class' => 'form-control']) !!}
-                            @endif
-
-                        </div>
-
-                        <div class="form-group">
-                            <label>{{ trans('fi.calculate_as_vat_gst') }}:</label>
-                            @if ($editMode and $taxRate->in_use)
-                                {!! Form::select('calculate_vat', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
-                                null, ['class' => 'form-control', 'readonly' => 'readonly', 'disabled' =>
-                                'disabled']) !!}
-                            @else
-                                {!! Form::select('calculate_vat', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
-                                null, ['class' => 'form-control']) !!}
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label>{{ trans('fi.compound') }}:</label>
-                            @if ($editMode and $taxRate->in_use)
-                                {!! Form::select('is_compound', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
-                                null, ['class' => 'form-control', 'readonly' => 'readonly', 'disabled' =>
-                                'disabled']) !!}
-                            @else
-                                {!! Form::select('is_compound', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
-                                null, ['class' => 'form-control']) !!}
-                            @endif
-
-                            <span class="help-block">{{ trans('fi.compound_tax_note') }}</span>
-                        </div>
-
-                    </div>
-
+        <div class=" card card-light">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>{{ trans('fi.tax_rate_name') }}: </label>
+                    {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
                 </div>
-
+                <div class="form-group">
+                    <label>{{ trans('fi.tax_rate_percent') }}: </label>
+                    @if ($editMode and $taxRate->in_use)
+                        {!! Form::text('percent', (($editMode) ? $taxRate->formatted_numeric_percent : null),
+                        ['id' => 'percent', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
+                    @else
+                        {!! Form::text('percent', (($editMode) ? $taxRate->formatted_numeric_percent : null),
+                        ['id' => 'percent', 'class' => 'form-control']) !!}
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label>{{ trans('fi.calculate_as_vat_gst') }}:</label>
+                    @if ($editMode and $taxRate->in_use)
+                        {!! Form::select('calculate_vat', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
+                        null, ['class' => 'form-control', 'readonly' => 'readonly', 'disabled' =>
+                        'disabled']) !!}
+                    @else
+                        {!! Form::select('calculate_vat', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
+                        null, ['class' => 'form-control']) !!}
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label>{{ trans('fi.compound') }}:</label>
+                    @if ($editMode and $taxRate->in_use)
+                        {!! Form::select('is_compound', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
+                        null, ['class' => 'form-control', 'readonly' => 'readonly', 'disabled' =>
+                        'disabled']) !!}
+                    @else
+                        {!! Form::select('is_compound', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
+                        null, ['class' => 'form-control']) !!}
+                    @endif
+                    <span class="help-block">{{ trans('fi.compound_tax_note') }}</span>
+                </div>
             </div>
-
         </div>
-
     </section>
 
     {!! Form::close() !!}

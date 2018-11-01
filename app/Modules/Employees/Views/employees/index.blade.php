@@ -2,45 +2,21 @@
 
 @section('content')
     {{--{!! Form::wobreadcrumbs() !!}--}}
-    <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.employees') }}</h1>
+    <section class="content mt-3 mb-3">
+        <h3 class="float-left">{{ trans('fi.employees') }}</h3>
 
-        <div class="pull-right">
-
-            {{--<a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i--}}
-            {{--class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>--}}
-
-            {{--<div class="btn-group">--}}
-            {{--<a href="{{ route('clients.index', ['status' => 'active']) }}"--}}
-            {{--class="btn btn-default @if ($status == 'active') active @endif">{{ trans('fi.active') }}</a>--}}
-            {{--<a href="{{ route('clients.index', ['status' => 'inactive']) }}"--}}
-            {{--class="btn btn-default @if ($status == 'inactive') active @endif">{{ trans('fi.inactive') }}</a>--}}
-            {{--<a href="{{ route('clients.index') }}"--}}
-            {{--class="btn btn-default @if ($status == 'all') active @endif">{{ trans('fi.all') }}</a>--}}
-            {{--</div>--}}
-
-            <a href="{{ route('employees.create') }}" class="btn btn-primary btn-margin-left"><i
+        <div class="float-right">
+            <a href="{{ route('employees.create') }}" class="btn btn-primary "><i
                         class="fa fa-plus"></i> {{ trans('fi.create_employee') }}</a>
         </div>
-        {{--<div class="col-lg-3">--}}
-        {{--<a href="{{ route('employees.create') }}" class="btn btn-primary create-resource"><i--}}
-        {{--class="fa fa-plus"></i> {{ trans('fi.create_employee') }}</a>--}}
-        {{--</div>--}}
         <div class="clearfix"></div>
     </section>
-        <section class="content">
-            @include('layouts._alerts')
-            <div class="col-lg-12">
-                <div class="panel panel-info" id="hidepanel1">
-                    {{--<div class="panel-heading">--}}
-                        {{--<h3 class="panel-title">--}}
-                            {{--Employee Table--}}
-                        {{--</h3>--}}
-                    {{--</div>--}}
-                    <div class="panel-body">
-                        @include('employees._table')
-                    </div>
-                </div>
+    <section class="container-fluid">
+        @include('layouts._alerts')
+        <div class="card">
+            <div class="card-body">
+                @include('employees._table')
             </div>
-        </section>
+        </div>
+    </section>
 @stop

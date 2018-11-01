@@ -23,7 +23,7 @@
 </head>
 <body class="login-page">
 <div class="login-box">
-    <div class="login-box-body">
+    <div class="login-card-body">
         @include('layouts._alerts')
         {!! Form::open() !!}
         <div class="form-group has-feedback">

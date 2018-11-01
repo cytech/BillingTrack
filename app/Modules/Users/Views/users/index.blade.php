@@ -12,56 +12,44 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content m-3">
+        <h3 class="float-left">
             {{ trans('fi.users') }}
-        </h1>
+        </h3>
 
-        <div class="pull-right">
-            <div class="btn-group">
-                {!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}
-                {!! Form::select('userType', $userTypes, request('userType'), ['class' => 'user_filter_options form-control ']) !!}
-                {!! Form::close() !!}
-            </div>
-
+        <div class="float-right">
+            {{--fix for datatable--}}
+            {{--<div class="btn-group">--}}
+                {{--{!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}--}}
+                {{--{!! Form::select('userType', $userTypes, request('userType'), ['class' => 'user_filter_options form-control ']) !!}--}}
+                {{--{!! Form::close() !!}--}}
+            {{--</div>--}}
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
                     {{ trans('fi.new') }} <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="{{ route('users.create', ['admin']) }}">{{ trans('fi.admin_account') }}</a></li>
-                    <li><a href="{{ route('users.create', ['client']) }}">{{ trans('fi.client_account') }}</a></li>
-                </ul>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="{{ route('users.create', ['admin']) }}">{{ trans('fi.admin_account') }}</a>
+                    <a class="dropdown-item" href="{{ route('users.create', ['client']) }}">{{ trans('fi.client_account') }}</a>
+                </div>
             </div>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
 
-        <div class="row">
-
-            <div class="col-xs-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body">
-
-                        {!! $dataTable->table(['class' => 'table dt-responsive display', 'width' => '100%', 'cellspacing' => '0']) !!}
-
-                    </div>
-                </div>
+        <div class=" card card-light">
+            <div class="card-body">
+                {!! $dataTable->table(['class' => 'table dt-responsive display', 'width' => '100%', 'cellspacing' => '0']) !!}
             </div>
         </div>
     </section>
 @endsection
 
 @push('scripts')
-    {{--<link rel="stylesheet" href="/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">--}}
-    {{--<script src="/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>--}}
-    {{--<script src="/vendor/datatables/buttons.server-side.js"></script>--}}
     {!! $dataTable->scripts() !!}
 @endpush

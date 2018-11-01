@@ -2,20 +2,10 @@
 
     $(function () {
 
-        var categories = new Bloodhound({
-            datumTokenizer: function (d) {
-                return Bloodhound.tokenizers.whitespace(d.num);
-            },
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            remote: '{{ route('expenses.lookupCategory') }}' + '?query=%QUERY'
-        });
-
-        categories.initialize();
-
-        $('.category-lookup').typeahead(null, {
-            minLength: 3,
-            source: categories.ttAdapter()
-        });
+        $('.category-lookup').autocomplete({
+            source: '{{ route('expenses.lookupCategory') }}',
+            minLength: 3
+        }).autocomplete("widget").addClass("fixed-height");
 
     });
 

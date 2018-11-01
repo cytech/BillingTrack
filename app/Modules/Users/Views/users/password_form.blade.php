@@ -10,46 +10,32 @@
 
     {!! Form::open(['route' => ['users.password.update', $user->id]]) !!}
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content m-3">
+        <h3 class="float-left">
             {{ trans('fi.reset_password') }}: {{ $user->name }} ({{ $user->email }})
-        </h1>
-        <div class="pull-right">
+        </h3>
+        <div class="float-right">
             {!! Form::submit(trans('fi.reset_password'), ['class' => 'btn btn-primary']) !!}
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
 
-        <div class="row">
-
-            <div class="col-md-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body">
-
-                        <div class="form-group">
-                            <label>{{ trans('fi.password') }}: </label>
-                            {!! Form::password('password', ['id' => 'password', 'class' => 'form-control']) !!}
-                        </div>
-
-                        <div class="form-group">
-                            <label>{{ trans('fi.password_confirmation') }}: </label>
-                            {!! Form::password('password_confirmation', ['id' => 'password_confirmation', 'class' => 'form-control']) !!}
-                        </div>
-
-                    </div>
-
+        <div class=" card card-light">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>{{ trans('fi.password') }}: </label>
+                    {!! Form::password('password', ['id' => 'password', 'class' => 'form-control']) !!}
                 </div>
-
+                <div class="form-group">
+                    <label>{{ trans('fi.password_confirmation') }}: </label>
+                    {!! Form::password('password_confirmation', ['id' => 'password_confirmation', 'class' => 'form-control']) !!}
+                </div>
             </div>
-
         </div>
-
     </section>
 
     {!! Form::close() !!}

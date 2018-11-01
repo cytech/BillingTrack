@@ -1,22 +1,25 @@
 @extends('layouts.master')
 
 @section('content')
-    <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.orphan_check') }}</h1>
-
+    <section class="container-fluid">
+        <div>
+        <h3 class="float-left">{{ trans('fi.orphan_check') }}</h3>
+        </div>
         <br>
-        <h4>{{ trans('fi.orphan_list') }}</h4>
-
+        <br>
+        <div>
+        <h4 class="float-left">{{ trans('fi.orphan_list') }}</h4>
+        </div>
         <div class="clearfix"></div>
 
     </section>
-    <section class="content">
+    <section class="container-fluid">
         @include('layouts._alerts')
         <div class="row">
             <div class="col-lg-12">
-                <div class="box box-primary">
+                <div class="card card-light">
 
-                    <div class="box-body no-padding">
+                    <div class="card-body no-padding">
                         <table class="table table-hover">
                             <thead>
                             <tr>
@@ -41,13 +44,13 @@
                                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                                                 {{ trans('fi.options') }} <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="javascript:void(0)" class="btn replace-employee"
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="btn replace-employee dropdown-item" href="javascript:void(0)"
                                                        data-item-id="{{ $resource->id }}"
                                                        data-route="{{ route('scheduler.getreplace.employee',[ 'item_id' => $resource->id,'name' => $resource->name, 'date' => $resource->workorder->job_date]) }}">
-                                                       <i class="fa fa-sync"></i>{!! trans('fi.replace_employee') !!}</a></li>
-                                                <li><a href="{{ route('workorders.edit', [$resource->workorder->id]) }}"><i class="fa fa-edit"></i>{!! trans('fi.edit_workorder') !!}</a></li>
-                                            </ul>
+                                                       <i class="fa fa-sync"></i> {!! trans('fi.replace_employee') !!}</a>
+                                                <a class="dropdown-item" href="{{ route('workorders.edit', [$resource->workorder->id]) }}"><i class="fa fa-edit"></i> {!! trans('fi.edit_workorder') !!}</a>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>

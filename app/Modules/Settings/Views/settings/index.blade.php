@@ -11,9 +11,9 @@
             $('#btn-recalculate-invoices').click(function () {
                 var $btn = $(this).button('loading');
                 $.post("{{ route('invoices.recalculate') }}").done(function (response) {
-                    notify(response.message,'info');
+                    notify(response.message, 'info');
                 }).fail(function (response) {
-                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message, 'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -22,9 +22,9 @@
             $('#btn-recalculate-workorders').click(function () {
                 var $btn = $(this).button('loading');
                 $.post("{{ route('workorders.recalculate') }}").done(function (response) {
-                    notify(response.message,'info');
+                    notify(response.message, 'info');
                 }).fail(function (response) {
-                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message, 'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -33,9 +33,9 @@
             $('#btn-recalculate-quotes').click(function () {
                 var $btn = $(this).button('loading');
                 $.post("{{ route('quotes.recalculate') }}").done(function (response) {
-                    notify(response.message,'info');
+                    notify(response.message, 'info');
                 }).fail(function (response) {
-                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message,'error');
+                    notify('{{ trans('fi.error') }}: ' + $.parseJSON(response.responseText).message, 'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -54,12 +54,12 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content m-3">
+        <h3 class="float-left">
             {{ trans('fi.system_settings') }}
-        </h1>
+        </h3>
 
-        <div class="pull-right">
+        <div class="float-right">
             <button class="btn btn-primary" id="btn-submit"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>
         <div class="clearfix"></div>
@@ -74,22 +74,38 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs" id="setting-tabs">
-                        <li class="active"><a data-toggle="tab" href="#tab-general">{{ trans('fi.general') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-dashboard">{{ trans('fi.dashboard') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-taxes">{{ trans('fi.taxes') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-email">{{ trans('fi.email') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-pdf">{{ trans('fi.pdf') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-online-payments">{{ trans('fi.online_payments') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-scheduler">{{ trans('fi.scheduler') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-backup">{{ trans('fi.backup') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-system">{{ trans('fi.system') }}</a></li>
-                    </ul>
-                    <div class="tab-content">
+                <div class="card m-2">
+
+                    <div class="card-header d-flex p-0">
+                        <ul class="nav nav-tabs" id="setting-tabs">
+                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab"
+                                                    href="#tab-general">{{ trans('fi.general') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-dashboard">{{ trans('fi.dashboard') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-taxes">{{ trans('fi.taxes') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-email">{{ trans('fi.email') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-pdf">{{ trans('fi.pdf') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-online-payments">{{ trans('fi.online_payments') }}</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-scheduler">{{ trans('fi.scheduler') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-backup">{{ trans('fi.backup') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-system">{{ trans('fi.system') }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content m-2">
                         <div id="tab-general" class="tab-pane active">
                             @include('settings._general')
                         </div>
@@ -128,9 +144,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
 
         {!! Form::close() !!}

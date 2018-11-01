@@ -11,10 +11,10 @@
 
         @if (config('fi.displayProfileImage'))
             <div class="user-panel">
-                <div class="pull-left image">
+                <div class="float-left image">
                     <img src="{{ $profileImageUrl }}" alt="User Image"/>
                 </div>
-                <div class="pull-left info">
+                <div class="float-left info">
                     <p>{{ $userName }}</p>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                     <a class="nav-link" href="#">
                         <i class="nav-icon fa fa-calendar"></i>
                         <p class="nav-link-text">{{ trans('fi.scheduler') }}</p>
-                        <i class="nav-icon fa fa-angle-left pull-right"></i>
+                        <i class="nav-icon fa fa-angle-left float-right"></i>
                     </a>
                     <ul class="nav nav-treeview nav">
                         <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.index') }}"><i
@@ -119,24 +119,9 @@
                         <li class="nav-item has-treeview">
                             <a class="nav-link" href="#"><i class="nav-icon fa fa-cogs fa-fw ml-3"></i>
                                 <p class="nav-link-text">{{ trans('fi.utilities') }}</p><i
-                                        class="nav-icon fa fa-angle-left pull-right"></i></a>
+                                        class="nav-icon fa fa-angle-left float-right"></i></a>
                             <ul class="nav nav-treeview">
 
-                                <li class="nav-item has-treeview">
-                                    <a class="nav-link" href="#"><i class="nav-icon fa fa-chart-bar fa-fw ml-4"></i>
-                                        <p class="nav-link-text">{{ trans('fi.report') }}</p><i
-                                                class="nav-icon fa fa-angle-left pull-right"></i></a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-5"
-                                               href="{{ route('scheduler.tablereport') }}">{{ trans('fi.table_report') }}</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link ml-5"
-                                               href="{{ route('scheduler.calendarreport') }}">{{ trans('fi.calendar_report') }}</a>
-                                        </li>
-                                    </ul>
-                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('scheduler.categories.index') }}"><i
                                                 class="nav-icon fas fa-thumbtack fa-fw ml-4"></i>{{ trans('fi.categories') }}
@@ -159,7 +144,7 @@
                     <a class="nav-link" href="#">
                         <i class="nav-icon fa fa-chart-bar"></i>
                         <p class="nav-link-text">{{ trans('fi.reports') }}</p>
-                        <i class="nav-icon fa fa-angle-left pull-right"></i>
+                        <i class="nav-icon fa fa-angle-left float-right"></i>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item"><a class="nav-link" href="{{ route('reports.clientStatement') }}"><i

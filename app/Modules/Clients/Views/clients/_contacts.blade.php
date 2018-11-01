@@ -42,7 +42,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="pull-right">
+        <div class="float-right">
             <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-add-contact"><i class="fa fa-plus"></i> {{ trans('fi.add_contact') }}</a>
         </div>
         <table class="table table-hover">

@@ -1,7 +1,7 @@
 @include('quotes._js_edit')
 
 <section class="content-header">
-    <h3 class="pull-left">{{ trans('fi.quote') }} #{{ $quote->number }}</h3>
+    <h3 class="float-left">{{ trans('fi.quote') }} #{{ $quote->number }}</h3>
 
     @if ($quote->viewed)
         <span style="margin-left: 10px;" class="badge badge-success">{{ trans('fi.viewed') }}</span>
@@ -19,7 +19,7 @@
                                           style="color: inherit;">{{ trans('fi.converted_to_workorder') }} {{ $quote->workorder->number }}</a></span>
     @endif
 
-    <div class="pull-right">
+    <div class="float-right">
 
         <a href="{{ route('quotes.pdf', [$quote->id]) }}" target="_blank" id="btn-pdf-quote"
            class="btn btn-default"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
@@ -33,20 +33,20 @@
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 {{ trans('fi.other') }} <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                <li><a href="javascript:void(0)" id="btn-copy-quote"><i
-                                class="fa fa-copy"></i> {{ trans('fi.copy') }}</a></li>
-                <li><a href="javascript:void(0)" id="btn-quote-to-workorder"><i
-                                class="fa fa-check"></i> {{ trans('fi.quote_to_workorder') }}</a></li>
-                <li><a href="javascript:void(0)" id="btn-quote-to-invoice"><i
-                                class="fa fa-check"></i> {{ trans('fi.quote_to_invoice') }}</a></li>
-                <li><a href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"><i
-                                class="fa fa-globe"></i> {{ trans('fi.public') }}</a></li>
-                <li class="divider"></li>
-                <li><a href="#"
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <a class="dropdown-item" href="javascript:void(0)" id="btn-copy-quote"><i
+                                class="fa fa-copy"></i> {{ trans('fi.copy') }}</a>
+                <a class="dropdown-item" href="javascript:void(0)" id="btn-quote-to-workorder"><i
+                                class="fa fa-check"></i> {{ trans('fi.quote_to_workorder') }}</a>
+                <a class="dropdown-item" href="javascript:void(0)" id="btn-quote-to-invoice"><i
+                                class="fa fa-check"></i> {{ trans('fi.quote_to_invoice') }}</a>
+                <a class="dropdown-item" href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"><i
+                                class="fa fa-globe"></i> {{ trans('fi.public') }}</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"
                        onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('quotes.delete', [$quote->id]) }}');"><i
-                                class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a></li>
-            </ul>
+                                class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+            </div>
         </div>
 
         <div class="btn-group">
@@ -62,10 +62,10 @@
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                <li><a href="#" class="btn-save-quote"
-                       data-apply-exchange-rate="1">{{ trans('fi.save_and_apply_exchange_rate') }}</a></li>
-            </ul>
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+               <a href="#" class="btn-save-quote dropdown-item"
+                       data-apply-exchange-rate="1">{{ trans('fi.save_and_apply_exchange_rate') }}</a>
+            </div>
         </div>
 
     </div>
@@ -84,19 +84,6 @@
             <div id="form-status-placeholder"></div>
 
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-light">
-                        <div class="card-header">
-                            <h3 class="card-title">{{ trans('fi.summary') }}</h3>
-                        </div>
-                        <div class="card-body">
-                            {!! Form::text('summary', $quote->summary, ['id' => 'summary', 'class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
 
                 <div class="col-sm-6" id="col-from">
 
@@ -113,13 +100,26 @@
             </div>
 
             <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-light">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ trans('fi.summary') }}</h3>
+                        </div>
+                        <div class="card-body">
+                            {!! Form::text('summary', $quote->summary, ['id' => 'summary', 'class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
 
                 <div class="col-sm-12 table-responsive" style="overflow-x: visible;">
                     <div class="card card-light">
                         <div class="card-header">
                             <h3 class="card-title">{{ trans('fi.items') }}</h3>
 
-                            <div class="card-tools pull-right">
+                            <div class="card-tools float-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
                                             class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
                                 <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
@@ -176,8 +176,7 @@
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
-                                            <a class="btn btn-xs btn-default btn-delete-quote-item"
-                                               href="javascript:void(0);"
+                                            <a class="btn btn-sm btn-default btn-delete-quote-item" href="javascript:void(0);"
                                                title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -196,11 +195,8 @@
             <div class="row">
 
                 <div class="col-lg-12">
-
                     <div class="card m-2">
-
                         <div class="card-header d-flex p-0">
-                            {{--<div class="nav-tabs-custom">--}}
                             <ul class="nav nav-tabs p-2">
                                 <li class="nav-item"><a class="nav-link active show" href="#tab-additional"
                                                         data-toggle="tab">{{ trans('fi.additional') }}</a></li>

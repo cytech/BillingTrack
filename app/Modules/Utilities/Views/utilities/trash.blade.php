@@ -2,13 +2,15 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="container-fluid m-3">
+        <h3 class="float-left">
             {{ trans('fi.manage_trash') }}
-        </h1>
-        <div class="pull-right">
-            <a href="javascript:void(0)" class="btn btn-warning bulk-actions" id="btn-bulk-restore"><i class="fa fa-edit"></i> {{ trans('fi.trash_restoreselected') }}</a>
-            <a href="javascript:void(0)" class="btn btn-danger bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.trash_deleteselected') }}</a>
+        </h3>
+        <div class="float-right">
+            <a href="javascript:void(0)" class="btn btn-warning bulk-actions" id="btn-bulk-restore"><i
+                        class="fa fa-edit"></i> {{ trans('fi.trash_restoreselected') }}</a>
+            <a href="javascript:void(0)" class="btn btn-danger bulk-actions" id="btn-bulk-delete"><i
+                        class="fa fa-trash"></i> {{ trans('fi.trash_deleteselected') }}</a>
         </div>
 
         <div class="clearfix"></div>
@@ -19,22 +21,33 @@
         @include('layouts._alerts')
 
         <div class="row">
-            <div class="col-xs-12">
-                <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#tab-clients">{{ trans('fi.clients') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-recurring_invoices">{{ trans('fi.recurring_invoices') }}</a>
-                        </li>
-                        <li><a data-toggle="tab" href="#tab-payments">{{ trans('fi.payments') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-expenses">{{ trans('fi.expenses') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-projects">{{ trans('fi.projects') }}</a></li>
-                        <li><a data-toggle="tab" href="#tab-schedule">{{ trans('fi.scheduler') }}</a></li>
-                    </ul>
+            <div class="col-12">
+                <div class="card m-2">
 
-                    <div class="tab-content">
+                    <div class="card-header d-flex p-0">
+                        <ul class="nav nav-tabs p-2">
+                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab"
+                                                     href="#tab-clients">{{ trans('fi.clients') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-quotes">{{ trans('fi.quotes') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-workorders">{{ trans('fi.workorders') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-invoices">{{ trans('fi.invoices') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-recurring_invoices">{{ trans('fi.recurring_invoices') }}</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-payments">{{ trans('fi.payments') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-expenses">{{ trans('fi.expenses') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-projects">{{ trans('fi.projects') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-schedule">{{ trans('fi.scheduler') }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content m-2">
                         <div id="tab-clients" class="tab-pane active">
                             <div class="row">
                                 <div class="col-md-12">
@@ -122,18 +135,18 @@
     </script>
 
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             $('#btn-bulk-restore').click(function () {
                 var ids = [];
 
                 $('.bulk-record:checked').each(function () {
                     var entity = $(this).closest('table').attr('id');
                     var id = $(this).data('id');
-                    ids.push({[entity] : id});
+                    ids.push({[entity]: id});
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('{!! trans('fi.trash_restoreselected_warning') !!}', "{{ route('utilities.bulk.restoretrash') }}",  ids);
+                    bulkConfirm('{!! trans('fi.trash_restoreselected_warning') !!}', "{{ route('utilities.bulk.restoretrash') }}", ids);
                 }
             });
             $('#btn-bulk-delete').click(function () {
@@ -142,11 +155,11 @@
                 $('.bulk-record:checked').each(function () {
                     var entity = $(this).closest('table').attr('id');
                     var id = $(this).data('id');
-                    ids.push({[entity] : id});
+                    ids.push({[entity]: id});
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('utilities.bulk.deletetrash') }}",  ids);
+                    bulkConfirm('{!! trans('fi.bulk_delete_record_warning') !!}', "{{ route('utilities.bulk.deletetrash') }}", ids);
                 }
             });
         });

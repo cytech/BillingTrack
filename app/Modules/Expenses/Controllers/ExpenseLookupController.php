@@ -20,7 +20,7 @@ class ExpenseLookupController extends Controller
     public function lookupCategory()
     {
         $expenses = ExpenseCategory::select('name')
-            ->where('name', 'like', '%' . request('query') . '%')
+            ->where('name', 'like', '%' . request('term') . '%')
             ->orderBy('name')
             ->get();
 
@@ -37,7 +37,7 @@ class ExpenseLookupController extends Controller
     public function lookupVendor()
     {
         $expenses = ExpenseVendor::select('name')
-            ->where('name', 'like', '%' . request('query') . '%')
+            ->where('name', 'like', '%' . request('term') . '%')
             ->orderBy('name')
             ->get();
 

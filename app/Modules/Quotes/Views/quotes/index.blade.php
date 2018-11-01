@@ -7,8 +7,8 @@
 @section('content')
 
     <section class="content mt-3 mb-3">
-        <h3 class="pull-left">{{ trans('fi.quotes') }}</h3>
-        <div class="pull-right">
+        <h3 class="float-left">{{ trans('fi.quotes') }}</h3>
+        <div class="float-right">
             <div class="btn-group bulk-actions">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     {{ trans('fi.change_status') }} <span class="caret"></span>
@@ -35,9 +35,7 @@
     </section>
 
     <section class="content">
-
         @include('layouts._alerts')
-
         <div class="card ">
             <div class="card-body">
                         @include('quotes._dataTable')

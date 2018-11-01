@@ -10,17 +10,17 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="box box-primary">
+                <div class=" card card-light">
                     <div class="box-header">
                         <h3 class="box-title">{{ trans('fi.recent_quotes') }}</h3>
                     </div>
                     @if (count($quotes))
-                        <div class="box-body no-padding">
+                        <div class="card-body no-padding">
                             @include('client_center.quotes._table')
                             <p style="text-align: center;"><a href="{{ route('clientCenter.quotes') }}" class="btn btn-default">{{ trans('fi.view_all') }}</a></p>
                         </div>
                     @else
-                        <div class="box-body">
+                        <div class="card-body">
                             <p>{{ trans('fi.no_records_found') }}</p>
                         </div>
                     @endif
@@ -29,17 +29,17 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="box box-primary">
+                <div class=" card card-light">
                     <div class="box-header">
                         <h3 class="box-title">{{ trans('fi.recent_workorders') }}</h3>
                     </div>
                     @if (count($workorders))
-                        <div class="box-body no-padding">
+                        <div class="card-body no-padding">
                             @include('client_center.workorders._table')
                             <p style="text-align: center;"><a href="{{ route('clientCenter.workorders') }}" class="btn btn-default">{{ trans('fi.view_all') }}</a></p>
                         </div>
                     @else
-                        <div class="box-body">
+                        <div class="card-body">
                             <p>{{ trans('fi.no_records_found') }}</p>
                         </div>
                     @endif
@@ -48,17 +48,17 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="box box-primary">
+                <div class=" card card-light">
                     <div class="box-header">
                         <h3 class="box-title">{{ trans('fi.recent_invoices') }}</h3>
                     </div>
                     @if (count($invoices))
-                        <div class="box-body no-padding">
+                        <div class="card-body no-padding">
                             @include('client_center.invoices._table')
                             <p style="text-align: center;"><a href="{{ route('clientCenter.invoices') }}" class="btn btn-default">{{ trans('fi.view_all') }}</a></p>
                         </div>
                     @else
-                        <div class="box-body">
+                        <div class="card-body">
                             <p>{{ trans('fi.no_records_found') }}</p>
                         </div>
                     @endif
@@ -67,17 +67,17 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="box box-primary">
+                <div class=" card card-light">
                     <div class="box-header">
                         <h3 class="box-title">{{ trans('fi.recent_payments') }}</h3>
                     </div>
                     @if (count($payments))
-                        <div class="box-body no-padding">
+                        <div class="card-body no-padding">
                             @include('client_center.payments._table')
                             <p style="text-align: center;"><a href="{{ route('clientCenter.payments') }}" class="btn btn-default">{{ trans('fi.view_all') }}</a></p>
                         </div>
                     @else
-                        <div class="box-body">
+                        <div class="card-body">
                             <p>{{ trans('fi.no_records_found') }}</p>
                         </div>
                     @endif

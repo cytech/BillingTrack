@@ -3,10 +3,10 @@
 @section('content')
 
     <section class="content mt-3 mb-3">
-        <h3 class="pull-left">
+        <h3 class="float-left">
             {{ trans('fi.view_client') }}
         </h3>
-        <div class="pull-right">
+        <div class="float-right">
             <a href="javascript:void(0)" class="btn btn-default create-quote" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_quote') }}</a>
             <a href="javascript:void(0)" class="btn btn-default create-workorder" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_workorder') }}</a>
             <a href="javascript:void(0)" class="btn btn-default create-invoice" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_invoice') }}</a>
@@ -46,11 +46,11 @@
 
                                 <div class="col-md-12">
 
-                                    <div class="pull-left">
+                                    <div class="float-left">
                                         <h2>{!! $client->name !!}</h2>
                                     </div>
 
-                                    <div class="pull-right" style="text-align: right;">
+                                    <div class="float-right" style="text-align: right;">
                                         <p>
                                             <strong>{{ trans('fi.total_billed') }}:</strong> {{ $client->formatted_total }}<br/>
                                             <strong>{{ trans('fi.total_paid') }}:</strong> {{ $client->formatted_paid }}<br/>

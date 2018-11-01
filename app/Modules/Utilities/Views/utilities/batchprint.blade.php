@@ -7,17 +7,20 @@
 @section('content')
     @include('layouts._alerts')
 
-    <div class="col-lg-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    {{ trans('fi.getdates') }}
+    <section class="content mt-3 mb-3">
+        {!! Form::open(['route' => 'utilities.batchprint', 'class'=>'form-horizontal']) !!}
+        <div class="card card-light">
+            <div class="card-header">
+                <h3 class="card-title">
+                    {{ trans('fi.criteria_batchprint') }}
+                    <button type="submit" class="btn btn-success float-right"><i
+                                class="fa fa-save"></i> {{ trans('fi.process') }} </button>
                 </h3>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 <div class="modal-body">
                     <div id="modal-status-placeholder"></div>
-                        {!! Form::open(['route' => 'utilities.batchprint', 'class'=>'form-horizontal']) !!}
+
                     <div class="form-group">
                         <label>Select Entity Type for BatchPrint</label>
                         {!! Form::select('batch_type',['quotes' => 'Quotes', 'workorders' => 'Workorders', 'invoices' => 'Invoices'],
@@ -42,13 +45,6 @@
                 </div>
             </div>
         </div>
-        <div style="text-align:center" class="buttons">
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success btn-lg">{{ trans('fi.process') }} <span
-                            class="glyphicon glyphicon-floppy-disk"></span></button>
-            </div>
-        </div>
-
         {!! Form::close() !!}
-    </div>
+    </section>
 @stop

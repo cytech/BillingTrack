@@ -1,5 +1,5 @@
 @include('layouts._datepicker')
-@include('layouts._typeahead')
+{{--@include('layouts._typeahead')--}}
 @include('clients._js_lookup')
 @include('recurring_invoices._js_create')
 

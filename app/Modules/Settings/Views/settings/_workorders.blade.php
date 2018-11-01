@@ -42,12 +42,12 @@
 
 <div class="form-group">
     <label>{{ trans('fi.default_terms') }}: </label>
-    {!! Form::textarea('setting[workorderTerms]', config('fi.workorderTerms'), ['class' => 'form-control', 'rows' => 5]) !!}
+    {!! Form::textarea('setting[workorderTerms]', config('fi.workorderTerms'), ['class' => 'form-control', 'rows' => 2]) !!}
 </div>
 
 <div class="form-group">
     <label>{{ trans('fi.default_footer') }}: </label>
-    {!! Form::textarea('setting[workorderFooter]', config('fi.workorderFooter'), ['class' => 'form-control', 'rows' => 5]) !!}
+    {!! Form::textarea('setting[workorderFooter]', config('fi.workorderFooter'), ['class' => 'form-control', 'rows' => 2]) !!}
 </div>
 <div class="row">
     <div class="col-md-3">

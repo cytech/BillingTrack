@@ -1,4 +1,4 @@
-<script src='{{ asset('plugins/daterangepicker/moment.js') }}'></script>
+<script src='{{ asset('plugins/daterangepicker/moment.min.js') }}'></script>
 <script src='{{ asset('plugins/daterangepicker/daterangepicker.js') }}'></script>
 <link href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet" type="text/css"/>
 

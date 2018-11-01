@@ -23,8 +23,8 @@
             <span class="text">{{ $task->name }}</span>
 
             <div class="tools" style="font-size: 1.25em;">
-                <a href="javascript:void(0)" class="btn-show-timers" data-task-id="{{ $task->id }}" data-toggle="tooltip" title="{{ trans('fi.show_timers') }}"><i class="fa fa-clock-o"></i></a>
-                <a href="javascript:void(0)" class="btn-bill-task" data-task-id="{{ $task->id }}" data-toggle="tooltip" title="{{ trans('fi.bill_task') }}"><i class="fa fa-dollar"></i></a>
+                <a href="javascript:void(0)" class="btn-show-timers" data-task-id="{{ $task->id }}" data-toggle="tooltip" title="{{ trans('fi.show_timers') }}"><i class="fa fa-clock"></i></a>
+                <a href="javascript:void(0)" class="btn-bill-task" data-task-id="{{ $task->id }}" data-toggle="tooltip" title="{{ trans('fi.bill_task') }}"><i class="fa fa-dollar-sign"></i></a>
                 <a href="javascript:void(0)" class="btn-edit-task" data-task-id="{{ $task->id }}" data-toggle="tooltip" title="{{ trans('fi.edit_task') }}"><i class="fa fa-edit"></i></a>
                 <a href="javascript:void(0)" class="btn-delete-task" data-task-id="{{ $task->id }}" data-toggle="tooltip" title="{{ trans('fi.trash_task') }}"><i class="fa fa-trash-alt"></i></a>
             </div>

@@ -14,11 +14,11 @@
     @foreach ($quotes as $quote)
         <tr>
             <td>
-                <span class="label label-{{ $quoteStatuses[$quote->quote_status_id] }}">{{ trans('fi.' . $quoteStatuses[$quote->quote_status_id]) }}</span>
+                <span class="badge badge-{{ $quoteStatuses[$quote->quote_status_id] }}">{{ trans('fi.' . $quoteStatuses[$quote->quote_status_id]) }}</span>
                 @if ($quote->viewed)
-                    <span class="label label-success">{{ trans('fi.viewed') }}</span>
+                    <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
                 @else
-                    <span class="label label-default">{{ trans('fi.not_viewed') }}</span>
+                    <span class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
                 @endif
             </td>
             <td>{{ $quote->number }}</td>

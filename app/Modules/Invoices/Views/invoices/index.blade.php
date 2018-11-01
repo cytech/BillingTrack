@@ -7,9 +7,9 @@
 @section('content')
 
     <section class="content mt-3 mb-3">
-        <h3 class="pull-left">{{ trans('fi.invoices') }}</h3>
+        <h3 class="float-left">{{ trans('fi.invoices') }}</h3>
 
-        <div class="pull-right">
+        <div class="float-right">
 
             <div class="btn-group bulk-actions">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"

@@ -62,13 +62,13 @@
     </div>
     <div class="col-md-8">
         <br>
-        <span class="help-block">Display Defaults:</span>
-        <span class="help-block">Quotes: if expires_at, else quote_date</span>
-        <span class="help-block">Workorders: job_date</span>
-        <span class="help-block">Invoices: If due_at, else invoice_date</span>
-        <span class="help-block">Payments: paid_at</span>
-        <span class="help-block">Expenses: expense_date</span>
-        <span class="help-block">Projects: due_at</span>
+        <span class="help-block">Display Defaults:</span><br>
+        <span class="help-block">Quotes: if expires_at, else quote_date</span><br>
+        <span class="help-block">Workorders: job_date</span><br>
+        <span class="help-block">Invoices: If due_at, else invoice_date</span><br>
+        <span class="help-block">Payments: paid_at</span><br>
+        <span class="help-block">Expenses: expense_date</span><br>
+        <span class="help-block">Projects: due_at</span><br>
         <span class="help-block">Tasks: start time of first timer in task</span>
     </div>
 </div>

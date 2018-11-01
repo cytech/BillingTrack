@@ -4,59 +4,59 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">{{ trans('fi.email_workorder') }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
 
                 <div id="modal-status-placeholder"></div>
 
-                <form class="form-horizontal">
+                <form >
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.to') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.to') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! $contactDropdownTo !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.cc') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.cc') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! $contactDropdownCc !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.bcc') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.bcc') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! $contactDropdownBcc !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.subject') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.subject') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! Form::text('subject', $subject, ['id' => 'subject', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.body') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.body') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! Form::textarea('body', $body, ['id' => 'body', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.attach_pdf') }}</label>
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.attach_pdf') }}</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             {!! Form::checkbox('attach_pdf', 1, config('fi.attachPdf'), ['id' => 'attach_pdf']) !!}
                         </div>
                     </div>

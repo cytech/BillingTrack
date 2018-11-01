@@ -7,9 +7,9 @@
 
 @section('content')
     <section class="content mt-3 mb-3">
-        <h3 class="pull-left">{{ trans('fi.workorders') }}</h3>
-        {{--<div class="pull-left">{!! Form::wobreadcrumbs() !!}</div>--}}
-        <div class="pull-right">
+        <h3 class="float-left">{{ trans('fi.workorders') }}</h3>
+        {{--<div class="float-left">{!! Form::wobreadcrumbs() !!}</div>--}}
+        <div class="float-right">
             <div class="btn-group bulk-actions">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">

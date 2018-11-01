@@ -74,7 +74,7 @@ class InvoiceController extends Controller
             $query->where('unique_name', $name);
         })->whereHas( 'amount', function ($query){
             $query->where('balance', '>', 0);
-        })->notCanceled()->get();
+        })->sent()->get();
 
 
         $list = [];

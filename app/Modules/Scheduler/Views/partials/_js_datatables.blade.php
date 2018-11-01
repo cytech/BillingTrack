@@ -1,10 +1,10 @@
-<div id= "rangefilter" style="display: none;" class="col-sm-6 col-sm-offset-2">
-    <label>Start Date Range Filter From </label>
-    {!! Form::text('rangestart', null, ['id' =>'rangestart', 'style'=>'width:25%','class' => '']) !!}
-    <label> To </label>
-    {!! Form::text('rangeend', null, ['id' =>'rangeend', 'style'=>'width:25%','class' => '']) !!}
+<div id= "rangefilter" style="display: none;" class="col-sm-12 offset-sm-2 d-flex">
+    <label>Start Date Range Filter From &nbsp; </label>
+    {!! Form::text('rangestart', null, ['id' =>'rangestart','class' => 'col-sm-3']) !!}
+    <label> &nbsp; To  &nbsp;</label>
+    {!! Form::text('rangeend', null, ['id' =>'rangeend','class' => 'col-sm-3']) !!}
     {{--<button id="filter" class="button radius" >Filter</button>--}}
-    <button id="clearFilter" class="button radius secondary">Clear Filter</button>
+    <button id="clearFilter" class="btn btn-secondary btn-sm">Clear Filter</button>
 </div>
 
 <script type="text/javascript" language="javascript" class="init">
@@ -32,7 +32,7 @@ $(function () {
         "columnDefs": [
             {"orderable": false, "targets": 6}
         ],
-        dom: '<"top"<"col-sm-1"l><"toolbar">f>rt<"bottom"ip><"clear">',
+        dom: '<"row bg-green pt-2"<"col-sm-1"l><"toolbar col-sm-6"><"offset-sm-3"f>>rt<"bottom"ip><"clear">',
         rowId: 'id',
         initComplete: function(){
             $('div.toolbar').html($('#rangefilter').show());

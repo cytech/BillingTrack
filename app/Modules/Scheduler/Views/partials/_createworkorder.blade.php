@@ -5,22 +5,22 @@
     {!! Form::open(['route' => 'api.createwo','id' => 'create-workorderform']) !!}
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf">
     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" id="user_id">
-    <div class="form-group">
-        <label for="company_profile_id" class="col-sm-4 control-label">{{ trans('fi.company_profile') }}</label>
+    <div class="form-group d-flex align-items-center">
+        <label for="company_profile_id" class="col-sm-4 text-right text">{{ trans('fi.company_profile') }}</label>
         <div class="col-sm-8">
             {!! Form::select('company_profile_id', $companyProfiles, config('fi.defaultCompanyProfile'),
             ['id' => 'company_profile_id', 'class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="form-group">
-        <label for="client_name" class="col-sm-4 control-label">{{ trans('fi.customer') }}</label>
+    <div class="form-group d-flex align-items-center">
+        <label for="client_name" class="col-sm-4 text-right text">{{ trans('fi.customer') }}</label>
         <div class="col-sm-8">
             <input type="text" id="client_name" name="client_name" class="form-control"
                    placeholder="Enter Customer Name" minlength="3" required>
         </div>
     </div>
-    <div class="form-group">
-        <label for="summary" class="col-sm-4 control-label">{{ trans('fi.job_summary') }}</label>
+    <div class="form-group d-flex align-items-center">
+        <label for="summary" class="col-sm-4 text-right text">{{ trans('fi.job_summary') }}</label>
         <div class="col-sm-8">
             <input type="text" id="summary" name="summary" class="form-control"
                    placeholder="Enter Job Summary - (500 characters max)"
@@ -28,32 +28,32 @@
         </div>
     </div>
     <input type="hidden" id="workorder_date" name="workorder_date" value="{!! date('Y-m-d') !!}">
-    <div class="form-group">
+    <div class="form-group d-flex align-items-center">
         <label for="job_date"
-               class="col-sm-4 control-label">{{ trans('fi.job_date') }}</label>
+               class="col-sm-4 text-right text">{{ trans('fi.job_date') }}</label>
         <div class="col-sm-8">
             <input id="job_date" name="job_date" value="" class="form-control" readonly>
 
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex align-items-center">
         <label for="start_time"
-               class="col-sm-4 control-label">{{ trans('fi.start_time') }}</label>
+               class="col-sm-4 text-right text">{{ trans('fi.start_time') }}</label>
         <div class="col-sm-8">
             <input type="text" id="start_time" required name="start_time"
                    class="form-control datepicker start_time readonly"
                    placeholder="Start Time" autocomplete="off">
         </div>
     </div>
-    <div class="form-group">
-        <label for="end_time" class="col-sm-4 control-label">{{ trans('fi.end_time') }}</label>
+    <div class="form-group d-flex align-items-center">
+        <label for="end_time" class="col-sm-4 text-right text">{{ trans('fi.end_time') }}</label>
         <div class="col-sm-8">
             <input type="text" id="end_time" required name="end_time" class="form-control datepicker end_time readonly"
                    placeholder="End Time" autocomplete="off">
         </div>
     </div>
-    <div class="form-group">
-        <label for="will_call" class="col-sm-4 control-label"> {{ trans('fi.will_call') }}</label>
+    <div class="form-group d-flex align-items-center">
+        <label for="will_call" class="col-sm-4 text-right text"> {{ trans('fi.will_call') }}</label>
         <div class="col-sm-8">
             {!! Form::checkbox('will_call', 1, null, ['id' => 'will_call', 'class' => 'checkbox']) !!}
         </div>

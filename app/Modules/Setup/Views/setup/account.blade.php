@@ -14,9 +14,9 @@
 
             <div class="col-md-12">
 
-                <div class="box box-primary">
+                <div class=" card card-light">
 
-                    <div class="box-body">
+                    <div class="card-body">
 
                         @include('layouts._alerts')
 

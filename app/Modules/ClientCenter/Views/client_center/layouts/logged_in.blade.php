@@ -4,10 +4,10 @@
 
     @if (config('fi.displayProfileImage'))
         <div class="user-panel">
-            <div class="pull-left image">
+            <div class="float-left image">
                 <img src="{{ profileImageUrl(auth()->user()) }}" alt="User Image"/>
             </div>
-            <div class="pull-left info">
+            <div class="float-left info">
                 <p>{{ auth()->user()->name }}</p>
             </div>
         </div>

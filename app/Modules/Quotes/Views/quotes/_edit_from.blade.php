@@ -4,7 +4,7 @@
     <div class="card-header">
         <h3 class="card-title">{{ trans('fi.from') }}</h3>
 
-        <div class="card-tools pull-right">
+        <div class="card-tools float-right">
             <button class="btn btn-default btn-sm" id="btn-change-company_profile">
                 <i class="fa fa-exchange"></i> {{ trans('fi.change') }}
             </button>

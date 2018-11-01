@@ -3,9 +3,9 @@
 @section('content')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
 
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-body">
+    <div class="col-lg-12 mt-2">
+        <div class="card card-light">
+            <div class="card-body">
                 {{--cut and paste doc start--}}
                 <p style="margin-bottom: 0in; line-height: 100%"><font size="4" style="font-size: 16pt"><u><b>Scheduler
                                 for FusionInvoiceFOSS</b></u></font></p>

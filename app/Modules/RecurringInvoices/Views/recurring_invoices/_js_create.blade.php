@@ -6,7 +6,11 @@
 
         $('#create-recurring-invoice').on('shown.bs.modal', function () {
             $("#create_client_name").focus();
-            $('#create_client_name').typeahead('val', clientName);
+            $('#create_client_name').autocomplete({
+                appendTo: '#create-recurring-invoice',
+                source: '{{ route('clients.ajax.lookup') }}',
+                minLength: 3
+            }).autocomplete("widget").addClass("fixed-height");
         });
 
         $('#create_next_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});

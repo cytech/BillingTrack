@@ -134,7 +134,7 @@ class ClientController extends Controller
     {
         $clients = Client::select('unique_name')
             ->where('active', 1)
-            ->where('unique_name', 'like', '%' . request('query') . '%')
+            ->where('unique_name', 'like', '%' . request('term') . '%')
             ->orderBy('unique_name')
             ->get();
 

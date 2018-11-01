@@ -20,18 +20,18 @@
     {!! Form::hidden('client_id') !!}
 
     <section class="content-header">
-        <h1 class="pull-left">
+        <h3 class="float-left">
             {{ trans('fi.payment_form') }}
-        </h1>
+        </h3>
 
-        <div class="pull-right">
+        <div class="float-right">
             <a href="{{ route('payments.index') }}" class="btn btn-default">Cancel</a>
             {!! Form::submit(trans('fi.save'), ['class' => 'btn btn-primary']) !!}
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
 
@@ -39,9 +39,9 @@
 
             <div class="col-md-12">
 
-                <div class="box box-primary">
+                <div class="card card-light">
 
-                    <div class="box-body">
+                    <div class="card-body">
 
                         <div class="form-group">
                             <label>{{ trans('fi.amount') }}: </label>
@@ -63,7 +63,7 @@
 
                         <div class="form-group">
                             <label>{{ trans('fi.note') }}</label>
-                            {!! Form::textarea('note', null, ['id' => 'note', 'class' => 'form-control']) !!}
+                            {!! Form::textarea('note', null, ['id' => 'note', 'rows' => '2', 'class' => 'form-control ']) !!}
                         </div>
 
                         @if ($customFields->count())
@@ -82,7 +82,7 @@
 
     {!! Form::close() !!}
 
-    <section class="content">
+    <section class="container-fluid">
         @include('notes._notes', ['object' => $payment, 'model' => 'FI\Modules\Payments\Models\Payment', 'showPrivateCheckbox' => true])
     </section>
 @stop

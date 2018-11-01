@@ -58,8 +58,8 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">{{ trans('fi.timers') }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
 
@@ -70,9 +70,11 @@
                         <label>{{ trans('fi.add_timer') }}</label>
                         <div class="input-group">
                             {!! Form::text('date_time_range', null, ['id' => 'date_time_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
-                            <span class="input-group-addon open-daterangetimepicker">
+                            <div class="input-group-append">
+                            <span class="input-group-text open-daterangetimepicker">
                                 <i class="fa fa-calendar"></i>
                             </span>
+                            </div>
                         </div>
                         {!! Form::hidden('from_date_time', null, ['id' => 'from_date_time']) !!}
                         {!! Form::hidden('to_date_time', null, ['id' => 'to_date_time']) !!}

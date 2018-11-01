@@ -1,4 +1,4 @@
-@include('layouts._typeahead')
+{{--@include('layouts._typeahead')--}}
 
 @include('clients._js_lookup')
 @include('clients._js_subchange')
@@ -7,8 +7,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">{{ trans('fi.change_client') }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
 

@@ -4,47 +4,35 @@
 
     {!! Form::open(['route' => ['import.map.submit', $importType], 'class' => 'form-horizontal']) !!}
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content m-3">
+        <h3 class="float-left">
             {{ trans('fi.map_fields_to_import') }}
-        </h1>
+        </h3>
 
-        <div class="pull-right">
+        <div class="float-right">
             {!! Form::submit(trans('fi.submit'), ['class' => 'btn btn-primary']) !!}
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
-
-        <div class="row">
-
-            <div class="col-md-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
-                            <tbody>
-                            @foreach ($importFields as $key => $field)
-                                <tr>
-                                    <td style="width: 20%;">{{ $field }}</td>
-                                    <td>{!! Form::select($key, $fileFields, (is_numeric(array_search($key, $fileFields)) ? array_search($key, $fileFields) : null), ['class' => 'form-control']) !!}
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-
+        <div class=" card card-light">
+            <div class="card-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                    @foreach ($importFields as $key => $field)
+                        <tr>
+                            <td style="width: 20%;">{{ $field }}</td>
+                            <td>{!! Form::select($key, $fileFields, (is_numeric(array_search($key, $fileFields)) ? array_search($key, $fileFields) : null), ['class' => 'form-control']) !!}
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
-
         </div>
-
     </section>
 
     {!! Form::close() !!}

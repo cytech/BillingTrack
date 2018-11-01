@@ -302,21 +302,21 @@
                         var reminderHtml = '';
                         for (var key in event.reminder) {
 
-                            reminderHtml += '<div class="reminder_delete_div"><div class="form-group">' +
+                            reminderHtml += '<div class="reminder_delete_div"><div class="form-group d-flex align-items-center">' +
                                 '<hr class="col-sm-10 hr-clr-green"/>' +
-                                '<span class="col-sm-1 pull-right reminder-cross delete_reminder" style="cursor: pointer"><i class="fa fa-times-circle"></i></span>' +
-                                '</div><div class="form-group">' +
-                                '<label for="reminder_date" class="col-sm-3 control-label">{{ trans('fi.reminder_date') }}</label>' +
-                                '<div class="col-sm-9">' +
+                                '<span class="col-sm-1 float-right reminder-cross delete_reminder" style="cursor: pointer"><i class="fa fa-times-circle"></i></span>' +
+                                '</div><div class="form-group d-flex align-items-center">' +
+                                '<label for="reminder_date" class="col-sm-4 text-right text">{{ trans('fi.reminder_date') }}</label>' +
+                                '<div class="col-sm-8">' +
                                 '<input type="text" name="reminder_date[]" class="form-control reminder_date " style="cursor: pointer" readonly value="' + event.reminder[key].reminder_date + '">' +
                                 '<input type="hidden" name="reminder_id[]"  value="' + event.reminder[key].reminder_id + '">' +
-                                '</div></div><div class="form-group">' +
-                                '<label for="reminder_location" class="col-sm-3 control-label">{{ trans('fi.reminder_location') }}</label>' +
-                                '<div class="col-sm-9">' +
+                                '</div></div><div class="form-group d-flex align-items-center">' +
+                                '<label for="reminder_location" class="col-sm-4 text-right text">{{ trans('fi.reminder_location') }}</label>' +
+                                '<div class="col-sm-8">' +
                                 '<input type="text" name="reminder_location[]" class="form-control" value="' + event.reminder[key].reminder_location + '">' +
-                                '</div></div><div class="form-group">' +
-                                '<label for="reminder_text" class="col-sm-3 control-label">{{ trans('fi.reminder_text') }}</label>' +
-                                '<div class="col-sm-9">' +
+                                '</div></div><div class="form-group d-flex align-items-center">' +
+                                '<label for="reminder_text" class="col-sm-4 text-right text">{{ trans('fi.reminder_text') }}</label>' +
+                                '<div class="col-sm-8">' +
                                 '<textarea name="reminder_text[]" class="form-control" >' + event.reminder[key].reminder_text + '</textarea>' +
                                 '</div></div></div>'
                         }

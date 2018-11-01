@@ -2,20 +2,11 @@
 
     $(function () {
 
-        var clients = new Bloodhound({
-            datumTokenizer: function (d) {
-                return Bloodhound.tokenizers.whitespace(d.num);
-            },
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            remote: '{{ route('clients.ajax.lookup') }}' + '?query=%QUERY'
-        });
-
-        clients.initialize();
-
-        $('.client-lookup').typeahead(null, {
-            minLength: 3,
-            source: clients.ttAdapter()
-        });
+        $('#change_client_name').autocomplete({
+            appendTo: '#modal-lookup-client',
+            source: '{{ route('clients.ajax.lookup') }}',
+            minLength: 3
+        }).autocomplete("widget").addClass("fixed-height");
 
     });
 

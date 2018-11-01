@@ -1,6 +1,4 @@
 @include('layouts._datepicker')
-@include('layouts._typeahead')
-@include('clients._js_lookup')
 @include('workorders.partials._js_create')
 
 <div class="modal fade" id="create-workorder">

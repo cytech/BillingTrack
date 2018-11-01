@@ -1,6 +1,6 @@
 @include('layouts._datepicker')
-@include('layouts._typeahead')
-@include('clients._js_lookup')
+{{--@include('layouts._typeahead')--}}
+{{--@include('clients._js_lookup')--}}
 @include('invoices._js_create')
 
 <div class="modal fade" id="create-invoice">

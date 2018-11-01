@@ -12,9 +12,9 @@
 
             <div class="col-md-12">
 
-                <div class="box box-primary">
+                <div class=" card card-light">
 
-                    <div class="box-body">
+                    <div class="card-body">
                         This should only be used on initial setup. It will clear the new database defaults
                         and any data added since creation, and replace with all data of the database entered below.
                         The result is all old database data transferred to new database format.

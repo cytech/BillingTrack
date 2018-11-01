@@ -1,86 +1,5 @@
 @extends('layouts.master')
 
-@section('content')
-    @include('layouts._alerts')
-
-    <section class="content">
-        {{--{!! Form::wobreadcrumbs() !!}--}}
-        <div id="form-validation-placeholder"></div>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            {{ trans('fi.getdates',['name' => $title]) }}
-                        </h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>{{ trans('fi.company_profile') }}:</label>
-                                    {!! Form::select('company_profile_id', $companyProfiles, null, ['id' => 'company_profile_id', 'class' => 'form-control'])  !!}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>{{ trans('fi.date_range') }}:</label>
-                                    {!! Form::hidden('from_date', null, ['id' => 'from_date']) !!}
-                                    {!! Form::hidden('to_date', null, ['id' => 'to_date']) !!}
-                                    {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
-                                </div>
-                                <script>
-                                    $('#from_date').val(moment().subtract(1, 'weeks').startOf('isoWeek'));
-                                    $('#to_date').val(moment().subtract(1, 'weeks').endOf('isoWeek'));
-                                </script>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <label>{{ trans('fi.output_type') }}</label><br>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="output_type" value="preview"
-                                               checked="checked"> {{ trans('fi.preview') }}
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="output_type" value="pdf"> {{ trans('fi.pdf') }}
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="output_type" value="iif"> {{ trans('fi.export_to_timer') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div style="text-align:center" class="buttons">
-                    <div class="col-md-12 text-center">
-                        <a class="btn btn-warning btn-lg" href={!! route('dashboard.index')  !!}>{{ trans('fi.cancel') }} <span
-                                    class="glyphicon glyphicon-remove-circle"></span></a>
-                        <button type="submit" class="btn btn-success btn-lg " id="btn-run-report">{{ trans('fi.run_report') }} <span
-                                    class="glyphicon glyphicon-floppy-disk"></span></button>
-                    </div>
-                </div>
-            </div>
-            {!! Form::close() !!}
-        </div>
-        <div class="row" id="preview"
-             style="height: 100%; background-color: #e6e6e6; padding: 25px; margin: 0; display: none;">
-            <div class="col-lg-8 col-lg-offset-2" style="background-color: white;">
-                <iframe src="about:blank" id="preview-results" frameborder="0" style="width: 100%;" scrolling="no"
-                        onload="resizeIframe(this, 500);"></iframe>
-            </div>
-        </div>
-
-    </section>
-
-@stop
-
 @section('javascript')
 
     {{--@include('reports.options._mod_daterangepicker')--}}
@@ -121,5 +40,89 @@
             });
         });
     </script>
+@stop
+
+@section('content')
+    @include('layouts._alerts')
+
+    <section class="container-fluid m-2">
+        {{--{!! Form::wobreadcrumbs() !!}--}}
+        <h3 class="float-left">{{ trans('fi.timesheet') }}</h3>
+
+        <div class="float-right">
+            <button class="btn btn-primary" id="btn-run-report">{{ trans('fi.run_report') }}</button>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+
+    <section class="container-fluid">
+
+        <div id="form-validation-placeholder"></div>
+
+        <div class="card card-light">
+            <div class="card-header">
+                <h3 class="card-title">
+                    {{ trans('fi.criteria_timesheet') }}
+                </h3>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ trans('fi.company_profile') }}:</label>
+                            {!! Form::select('company_profile_id', $companyProfiles, null, ['id' => 'company_profile_id', 'class' => 'form-control'])  !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>{{ trans('fi.date_range') }}:</label>
+                            {!! Form::hidden('from_date', null, ['id' => 'from_date']) !!}
+                            {!! Form::hidden('to_date', null, ['id' => 'to_date']) !!}
+                            {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
+                        </div>
+                        <script>
+                            $('#from_date').val(moment().subtract(1, 'weeks').startOf('isoWeek'));
+                            $('#to_date').val(moment().subtract(1, 'weeks').endOf('isoWeek'));
+                        </script>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>{{ trans('fi.output_type') }}</label>
+                        <div class="form-check form-check-inline">
+
+                            <label class="form-check-label ">
+                                <input class="form-check-input ml-3" type="radio" name="output_type" value="preview"
+                                       checked="checked"> {{ trans('fi.preview') }}
+                            </label>
+                            <label class="form-check-label ml-3">
+                                <input class="form-check-input" type="radio" name="output_type"
+                                       value="pdf"> {{ trans('fi.pdf') }}
+                            </label>
+                            <label class="form-check-label ml-3">
+                                <input class="form-check-input" type="radio" name="output_type"
+                                       value="iif"> {{ trans('fi.export_to_timer') }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {!! Form::close() !!}
+        </div>
+
+        <div class="row" id="preview"
+             style="height: 100%; background-color: #e6e6e6; padding: 25px; margin: 0; display: none;">
+            <div class="col-lg-8 offset-lg-2" style="background-color: white;">
+                <iframe src="about:blank" id="preview-results" frameborder="0" style="width: 100%;" scrolling="no"
+                        onload="resizeIframe(this, 500);"></iframe>
+            </div>
+        </div>
+
+    </section>
+
 @stop
 

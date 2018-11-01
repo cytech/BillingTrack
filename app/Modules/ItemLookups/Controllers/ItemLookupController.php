@@ -91,13 +91,15 @@ class ItemLookupController extends Controller
 
     public function ajaxItemLookup()
     {
-        $items = ItemLookup::orderBy('name')->where('name', 'like', '%' . request('query') . '%')->get();
+
+        $items = ItemLookup::orderBy('name')->where('name', 'like', '%' . request('term') . '%')->get();
 
         $list = [];
 
         foreach ($items as $item)
         {
             $list[] = [
+                'value'         => $item->name, //for autocomplete
                 'name'          => $item->name,
                 'description'   => $item->description,
                 'price'         => NumberFormatter::format($item->price),

@@ -1,8 +1,8 @@
 <div id="scheduler-dashboard-totals-widget">
     <section class="content">
-        <div class="card box-solid">
+        <div class="card ">
             <div class="card-header">
-                <h5 class="text-bold mb-0">{{ trans('fi.schedule_summary') }}</h3>
+                <h5 class="text-bold mb-0">{{ trans('fi.schedule_summary') }}</h5>
             </div>
             <div class="card-body">
                 <div class="row">

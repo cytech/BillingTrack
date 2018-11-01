@@ -36,7 +36,7 @@
                         <li><a href="{{ route('utilities.batchprint') }}"><i class="fa fa-print"></i>{{ trans('fi.batchprint') }}</a></li>
                         <li><a href="{{ route('utilities.manage_trash') }}"><i class="fa fa-trash"></i>{{ trans('fi.manage_trash') }}</a></li>
 
-                        <li class="dropdown-submenu pull-left">
+                        <li class="dropdown-submenu float-left">
                             <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" title="{{ trans('fi.about') }}">
                                 <i class="fa fa-question-circle"></i>{{ trans('fi.about') }}
                             </a>

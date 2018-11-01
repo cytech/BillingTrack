@@ -4,45 +4,52 @@
     <!--basic form starts-->
     {{--{!! Form::wobreadcrumbs() !!}--}}
     @include('layouts._alerts')
-    <div class="col-lg-12">
-        <div class="panel panel-info" id="hidepanel1">
-            <div class="panel-heading">
-                <h3 class="panel-title">
+    <div class="container-fluid mt-2">
+        {!! Form::model($employees, array('route' => array('employees.update', $employees->id),
+                                                        'id'=>'employees_form','action'=>'#','method' => 'PUT', 'class'=>'form-horizontal')) !!}
+
+        <div class="card card-light">
+            <div class="card-header">
+                <h3 class="card-title">
                     {{ trans('fi.edit_employee') }}
+                    <a class="btn btn-warning float-right" href={!! route('employees.index')  !!}><i
+                                class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+                    <button type="submit" class="btn btn-primary float-right"><i
+                                class="fa fa-save"></i> {{ trans('fi.save') }} </button>
                 </h3>
             </div>
-            <div class="panel-body">
-            {!! Form::model($employees, array('route' => array('employees.update', $employees->id),
-                                                        'id'=>'employees_form','action'=>'#','method' => 'PUT', 'class'=>'form-horizontal')) !!}
-            <!-- Employee Number input-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+
+            <div class="card-body">
+
+                <!-- Employee Number input-->
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="number">{{ trans('fi.employee_number') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::text('number',$employees->number,['id'=>'number', 'class'=>'form-control']) !!}
                     </div>
                 </div>
                 <!-- First Name input-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="first_name">{{ trans('fi.employee_first_name') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::text('first_name',$employees->first_name,['id'=>'first_name', 'class'=>'form-control']) !!}
                     </div>
                 </div>
                 <!-- Last Name input-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="last_name">{{ trans('fi.employee_last_name') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::text('last_name',$employees->last_name,['id'=>'last_name', 'class'=>'form-control']) !!}
                     </div>
                 </div>
                 <!-- Title input-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="title">{{ trans('fi.employee_title') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::text('title',$employees->title,['id'=>'title', 'class'=>'form-control',
                         'list'=>'listid']) !!}
                         <datalist id='listid'>
@@ -58,53 +65,40 @@
                     </div>
                 </div>
                 <!-- Billing Rate input-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="billing_rate">{{ trans('fi.employee_billing_rate') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::text('billing_rate',$employees->billing_rate,['id'=>'billing_rate', 'class'=>'form-control']) !!}
                     </div>
                 </div>
                 <!-- Schedule Checkbox-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="schedule">{{ trans('fi.scheduleable') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::checkbox('schedule',1,$employees->schedule,['id'=>'schedule', 'class'=>'checkbox']) !!}
                     </div>
                 </div>
                 <!-- Active Checkbox-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="active">{{ trans('fi.employee_active') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::checkbox('active',1,$employees->active,['id'=>'active', 'class'=>'checkbox']) !!}
                     </div>
                 </div>
                 <!-- Driver Checkbox-->
-                <div class="form-group">
-                    <label class="col-md-3 control-label"
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-1 text-right text"
                            for="driver">{{ trans('fi.employee_driver') }}</label>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         {!! Form::checkbox('driver',1,$employees->driver,['id'=>'driver', 'class'=>'checkbox']) !!}
                     </div>
                 </div>
             </div>
         </div>
-        <div style="text-align:center" class="buttons">
-            <a class="btn btn-warning btn-lg" href={!! route('employees.index')  !!}>{{ trans('fi.cancel') }} <span
-                        class="glyphicon glyphicon-remove-circle"></span></a>
-            <button type="submit" class="btn btn-success btn-lg">{{ trans('fi.save') }} <span
-                        class="glyphicon glyphicon-floppy-disk"></span></button>
-            {{--{!! Button::normal(trans('texts.cancel'))
-                    ->large()
-                    ->asLinkTo(URL::previous())
-                    ->appendIcon(Icon::create('remove-circle')) !!}
-            {!! Button::success('Save')
-                    ->submit()
-                    ->large()
-                    ->appendIcon(Icon::create('floppy-disk')) !!}--}}
-        </div>
+
         {!! Form::close() !!}
     </div>
 @stop

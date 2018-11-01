@@ -3,21 +3,27 @@
 
 @section('content')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <div class="container col-lg-12">
-        <div class="row" ng-app="event" ng-controller="recurringEventController">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i
-                                    class="fa fa-edit fa-fw"></i> {{ trans('fi.'.$title) }}</h3>
+    <div class="row" ng-app="event" ng-controller="recurringEventController">
+
+        <div class="container-fluid m-2">
+            {!! Form::model($schedule,['id' => 'event', 'accept-charset' => 'utf-8', 'ng-submit'=>'create($event)']) !!}
+
+            
+                <div class="card card-light">
+                    <div class="card-header">
+                        <h3 class="card-title"><i
+                                    class="fa fa-edit fa-fw"></i> {{ trans('fi.'.$title) }}
+                                <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i class="fa fa-ban"></i> {{ trans('fi.cancel') }} </a>
+                                <button type="submit" class="btn btn-success float-right"><i class="fa fa-save"></i> {{ trans('fi.'.$title) }} </button>
+
+                        </h3>
                     </div>
-                    <div class="panel-body">
-                        {!! Form::model($schedule,['id' => 'event', 'accept-charset' => 'utf-8', 'class' => 'form-horizontal',  'ng-submit'=>'create($event)']) !!}
+                    <div class="card-body">
                         {!! Form::hidden('id') !!}
                         {!! Form::hidden('oid') !!}
                         {{--{!! Form::hidden('public_id') !!}--}}
-                        <div class="form-group">
-                            {!! Form::label('title',trans('fi.title'),['class'=>'col-sm-2 control-label']) !!}
+                        <div class="form-group d-flex align-items-center">
+                            {!! Form::label('title',trans('fi.title'),['class'=>'col-sm-2 text-right text']) !!}
                             <div class="col-sm-6">
                                 {!! Form::text('title',null,['class'=>'form-control']) !!}
                             </div>
@@ -29,14 +35,14 @@
                                 }).autocomplete("widget").addClass("fixed-height");
                             </script>
                         </div>
-                        <div class="form-group">
-                            {!! Form::label('description',trans('fi.description'),['class'=>'col-sm-2 control-label']) !!}
+                        <div class="form-group d-flex align-items-center">
+                            {!! Form::label('description',trans('fi.description'),['class'=>'col-sm-2 text-right text']) !!}
                             <div class="col-sm-6">
                                 {!! Form::text('description',null,['class'=>'form-control']) !!}
                             </div>
                         </div>
-                        <div class="form-group">
-                            {!! Form::label('category_id',trans('fi.category'),['class'=>'col-sm-2 control-label']) !!}
+                        <div class="form-group d-flex align-items-center">
+                            {!! Form::label('category_id',trans('fi.category'),['class'=>'col-sm-2 text-right text']) !!}
                             <div class="col-sm-3">
                                 {!! Form::select('category_id',$categories,null, ['id' => 'category_id','class'=>'form-control']) !!}
                             </div>
@@ -47,25 +53,25 @@
                         @if(!$schedule->reminders->isEmpty())
                             @foreach($schedule->reminders as $reminder)
                                 <div class="reminder_delete_div">
-                                    <div class="form-group">
+                                    <div class="form-group d-flex align-items-center">
                                         <hr class="col-sm-8 width60 hr-clr-green"/>
-                                        <span class="col-sm-1 pull-left reminder-cross-table delete_reminder"
+                                        <span class="col-sm-1 float-left reminder-cross-table delete_reminder"
                                               style="cursor: pointer"><i class="fa fa-times-circle"></i> </span>
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('reminder_date',trans('fi.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 control-label']) !!}
+                                        {!! Form::label('reminder_date',trans('fi.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 text-right text']) !!}
                                         <div class="col-sm-10">
                                             {!! Form::input('text','reminder_date[]',$reminder->reminder_date, ['class'=>'form-control reminder_date','style'=>'cursor: pointer','readonly']) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('reminder_location',trans('fi.reminder_location'),['class'=>'col-sm-2 control-label']) !!}
+                                        {!! Form::label('reminder_location',trans('fi.reminder_location'),['class'=>'col-sm-2 text-right text']) !!}
                                         <div class="col-sm-10">
                                             {!! Form::text('reminder_location[]',$reminder->reminder_location,['class'=>'form-control']) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        {!! Form::label('reminder_text',trans('fi.reminder_text'),['class'=>'col-sm-2 control-label']) !!}
+                                        {!! Form::label('reminder_text',trans('fi.reminder_text'),['class'=>'col-sm-2 text-right text']) !!}
                                         <div class="col-sm-10">
                                             {!! Form::text('reminder_text[]',$reminder->reminder_text,['class'=>'form-control']) !!}
                                         </div>
@@ -76,7 +82,7 @@
 
                         <div id="addReminderShow">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group offset-2">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="button" id="addReminderCreate"
                                         class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('fi.add_reminder') }}
@@ -85,22 +91,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div style="text-align:center" class="buttons">
-            <a class="btn btn-warning btn-lg" href={!! URL::previous()  !!}>{{ trans('fi.cancel') }} <span
-                        class="glyphicon glyphicon-remove-circle"></span></a>
-            <button type="submit" class="btn btn-success btn-lg">{{ trans('fi.'.$title) }} <span
-                        class="glyphicon glyphicon-floppy-disk"></span></button>
-            {{--        {!! Button::normal(trans('texts.cancel'))
-                            ->large()
-                            ->asLinkTo(URL::previous())
-                            ->appendIcon(Icon::create('remove-circle')) !!}
-
-                    {!! Button::success($title)
-                            ->submit()
-                            ->large()
-                            ->appendIcon(Icon::create('floppy-disk')) !!}--}}
+            
         </div>
 
         {!! Form::close() !!}

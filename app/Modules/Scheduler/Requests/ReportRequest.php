@@ -17,8 +17,8 @@ use Illuminate\Foundation\Http\FormRequest;
 class ReportRequest extends FormRequest
 {
 	protected $rules = [
-		'start_date' => 'required|date_format:Y-m-d H:i',
-		'end_date'   => 'required|date_format:Y-m-d H:i|after:start_date',
+		'start' => 'required|date_format:Y-m-d H:i',
+		'end'   => 'required|date_format:Y-m-d H:i|after:start',
 	];
 
     /**
@@ -37,7 +37,11 @@ class ReportRequest extends FormRequest
      * @return array
      */
 	public function rules() {
-			return [];
+        if ( $this->method() == 'POST' ) {
+            return $this->rules;
+        } else {
+            return [];
+        }
 	}
 
 }

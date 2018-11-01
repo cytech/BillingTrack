@@ -1,16 +1,16 @@
-<div class="box box-primary">
-    <div class="box-body">
+<div class="card card-light">
+    <div class="card-body">
 
-        <span class="pull-left"><strong>{{ trans('fi.unbilled_hours') }}</strong></span>
-        <span class="pull-right">{{ $project->unbilled_hours }}</span>
+        <span class="float-left"><strong>{{ trans('fi.unbilled_hours') }}</strong></span>
+        <span class="float-right">{{ $project->unbilled_hours }}</span>
         <div class="clearfix"></div>
 
-        <span class="pull-left"><strong>{{ trans('fi.billed_hours') }}</strong></span>
-        <span class="pull-right">{{ $project->billed_hours }}</span>
+        <span class="float-left"><strong>{{ trans('fi.billed_hours') }}</strong></span>
+        <span class="float-right">{{ $project->billed_hours }}</span>
         <div class="clearfix"></div>
 
-        <span class="pull-left"><strong>{{ trans('fi.total_hours') }}</strong></span>
-        <span class="pull-right">{{ $project->hours }}</span>
+        <span class="float-left"><strong>{{ trans('fi.total_hours') }}</strong></span>
+        <span class="float-right">{{ $project->hours }}</span>
         <div class="clearfix"></div>
 
     </div>

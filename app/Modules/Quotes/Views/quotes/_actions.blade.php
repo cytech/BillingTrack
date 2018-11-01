@@ -7,7 +7,7 @@
                         class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
         <a class="dropdown-item" href ="{{ route('quotes.pdf', [$id]) }}" target="_blank"
                id="btn-pdf-quote"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
-        <a class="dropdown-item" href ="javascript:void(0)" class="email-quote" data-quote-id="{{ $id }}"
+        <a class="dropdown-item email-quote" href ="javascript:void(0)" data-quote-id="{{ $id }}"
                data-redirect-to="{{ request()->fullUrl() }}"><i
                         class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
         <a class="dropdown-item" href ="{{ route('clientCenter.public.quote.show', [$url_key]) }}"

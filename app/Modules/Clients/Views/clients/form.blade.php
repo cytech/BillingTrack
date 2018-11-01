@@ -7,9 +7,9 @@
         @else
             {!! Form::open(['route' => 'clients.store']) !!}
         @endif
-        <h3 class="pull-left">{{ trans('fi.client_form') }}</h3>
+        <h3 class="float-left">{{ trans('fi.client_form') }}</h3>
 
-        <div class="pull-right">
+        <div class="float-right">
             @if ($editMode)
                 <a href="{{ $returnUrl }}" class="btn btn-default"><i class="fa fa-backward"></i> {{ trans('fi.back') }}
                 </a>

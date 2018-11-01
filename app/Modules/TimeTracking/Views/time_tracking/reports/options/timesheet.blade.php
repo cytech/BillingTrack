@@ -42,9 +42,9 @@
 @section('content')
 
     <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.time_tracking') }}</h1>
+        <h1 class="float-left">{{ trans('fi.time_tracking') }}</h1>
 
-        <div class="pull-right">
+        <div class="float-right">
             <button class="btn btn-primary" id="btn-run-report">{{ trans('fi.run_report') }}</button>
         </div>
         <div class="clearfix"></div>
@@ -58,11 +58,11 @@
 
             <div class="col-md-12">
 
-                <div class="box box-primary">
+                <div class=" card card-light">
                     <div class="box-header">
                         <h3 class="box-title">{{ trans('fi.options') }}</h3>
                     </div>
-                    <div class="box-body">
+                    <div class="card-body">
 
                         <div class="row">
                             <div class="col-md-3">

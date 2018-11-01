@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
 @section('javascript')
-    @include('layouts._typeahead')
-    @include('clients._js_lookup')
+    {{--@include('layouts._typeahead')--}}
+    {{--@include('clients._js_lookup')--}}
     @include('layouts._datepicker')
 @stop
 
@@ -17,16 +17,16 @@
     {!! Form::open(['route' => 'timeTracking.projects.store']) !!}
 
     <section class="content-header">
-        <h1 class="pull-left">
+        <h3 class="float-left">
             {{ trans('fi.create_project') }}
-        </h1>
-        <div class="pull-right">
+        </h3>
+        <div class="float-right">
             <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
 
@@ -34,9 +34,9 @@
 
             <div class="col-md-12">
 
-                <div class="box box-primary">
+                <div class="card card-light">
 
-                    <div class="box-body">
+                    <div class="card-body">
 
                         <div class="form-group">
                             <label>* {{ trans('fi.project_name') }}: </label>
@@ -53,6 +53,12 @@
                                 <label>* {{ trans('fi.client') }}:</label>
                                 {!! Form::text('client_name', null, ['id' => 'client_name', 'class' =>
                                 'form-control client-lookup', 'autocomplete' => 'off']) !!}
+                                <script>
+                                    $('.client-lookup').autocomplete({
+                                        source: '{{ route('clients.ajax.lookup') }}',
+                                        minLength: 3
+                                    }).autocomplete("widget").addClass("fixed-height");
+                                </script>
                             </div>
                             <div class="col-md-4">
                                 <label>* {{ trans('fi.due_date') }}:</label>

@@ -42,12 +42,12 @@
 
 <div class="form-group">
     <label>{{ trans('fi.default_terms') }}: </label>
-    {!! Form::textarea('setting[quoteTerms]', config('fi.quoteTerms'), ['class' => 'form-control', 'rows' => 5]) !!}
+    {!! Form::textarea('setting[quoteTerms]', config('fi.quoteTerms'), ['class' => 'form-control', 'rows' => 2]) !!}
 </div>
 
 <div class="form-group">
     <label>{{ trans('fi.default_footer') }}: </label>
-    {!! Form::textarea('setting[quoteFooter]', config('fi.quoteFooter'), ['class' => 'form-control', 'rows' => 5]) !!}
+    {!! Form::textarea('setting[quoteFooter]', config('fi.quoteFooter'), ['class' => 'form-control', 'rows' => 2]) !!}
 </div>
 
 <div class="row">

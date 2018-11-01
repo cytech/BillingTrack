@@ -10,20 +10,11 @@
         $('#copy_next_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
         $('#copy_stop_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
 
-        var clients = new Bloodhound({
-            datumTokenizer: function (d) {
-                return Bloodhound.tokenizers.whitespace(d.num);
-            },
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            remote: '{{ route('clients.ajax.lookup') }}' + '?query=%QUERY'
-        });
-
-        clients.initialize();
-
-        $('#copy_client_name').typeahead(null, {
-            minLength: 3,
-            source: clients.ttAdapter()
-        });
+        $('#copy_client_name').autocomplete({
+            appendTo: '#modal-copy-recurring-invoice',
+            source: '{{ route('clients.ajax.lookup') }}',
+            minLength: 3
+        }).autocomplete("widget").addClass("fixed-height");
 
         // Creates the recurringInvoice
         $('#btn-copy-recurring-invoice-submit').click(function () {

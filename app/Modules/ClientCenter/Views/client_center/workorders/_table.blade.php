@@ -14,11 +14,11 @@
     @foreach ($workorders as $workorder)
         <tr>
             <td>
-                <span class="label label-{{ $workorderStatuses[$workorder->workorder_status_id] }}">{{ trans('fi.' . $workorderStatuses[$workorder->workorder_status_id]) }}</span>
+                <span class="badge badge-{{ $workorderStatuses[$workorder->workorder_status_id] }}">{{ trans('fi.' . $workorderStatuses[$workorder->workorder_status_id]) }}</span>
                 @if ($workorder->viewed)
-                    <span class="label label-success">{{ trans('fi.viewed') }}</span>
+                    <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
                 @else
-                    <span class="label label-default">{{ trans('fi.not_viewed') }}</span>
+                    <span class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
                 @endif
             </td>
             <td>{{ $workorder->number }}</td>

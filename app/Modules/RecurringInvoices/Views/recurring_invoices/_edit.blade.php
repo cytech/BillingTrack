@@ -1,22 +1,22 @@
 @include('recurring_invoices._js_edit')
 
 <section class="content-header">
-    <h1 class="pull-left">{{ trans('fi.recurring_invoice') }} #{{ $recurringInvoice->id }}</h1>
+    <h3 class="float-left">{{ trans('fi.recurring_invoice') }} #{{ $recurringInvoice->id }}</h3>
 
-    <div class="pull-right">
+    <div class="float-right">
 
         <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 {{ trans('fi.other') }} <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                <li><a href="javascript:void(0)" id="btn-copy-recurring-invoice"><i
-                            class="fa fa-copy"></i> {{ trans('fi.copy') }}</a></li>
-                <li class="divider"></li>
-                <li><a href="#"
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <a class="dropdown-item" href="javascript:void(0)" id="btn-copy-recurring-invoice"><i
+                            class="fa fa-copy"></i> {{ trans('fi.copy') }}</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"
                        onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('recurringInvoices.delete', [$recurringInvoice->id]) }}');"><i
-                            class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a></li>
-            </ul>
+                            class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+            </div>
         </div>
 
         <div class="btn-group">
@@ -32,10 +32,10 @@
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                <li><a href="#" class="btn-save-recurring-invoice"
-                       data-apply-exchange-rate="1">{{ trans('fi.save_and_apply_exchange_rate') }}</a></li>
-            </ul>
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <a class="dropdown-item" href="#" class="btn-save-recurring-invoice"
+                       data-apply-exchange-rate="1">{{ trans('fi.save_and_apply_exchange_rate') }}</a>
+            </div>
         </div>
 
     </div>
@@ -43,26 +43,15 @@
     <div class="clearfix"></div>
 </section>
 
-<section class="content">
+<section class="container-fluid">
 
     <div class="row">
 
         <div class="col-lg-10">
 
-            <div id="form-status-placeholder"></div>
+            @include('layouts._alerts')
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">{{ trans('fi.summary') }}</h3>
-                        </div>
-                        <div class="box-body">
-                            {!! Form::text('summary', $recurringInvoice->summary, ['id' => 'summary', 'class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="form-status-placeholder"></div>
 
             <div class="row">
 
@@ -81,13 +70,26 @@
             </div>
 
             <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-light">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ trans('fi.summary') }}</h3>
+                        </div>
+                        <div class="card-body">
+                            {!! Form::text('summary', $recurringInvoice->summary, ['id' => 'summary', 'class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
 
                 <div class="col-sm-12 table-responsive" style="overflow-x: visible;">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">{{ trans('fi.items') }}</h3>
+                    <div class="card card-light">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ trans('fi.items') }}</h3>
 
-                            <div class="box-tools pull-right">
+                            <div class="card-tools float-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
                                         class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
                                 <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
@@ -95,7 +97,7 @@
                             </div>
                         </div>
 
-                        <div class="box-body">
+                        <div class="card-body">
                             <table id="item-table" class="table table-hover">
                                 <thead>
                                 <tr>
@@ -143,7 +145,7 @@
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
-                                            <a class="btn btn-xs btn-default btn-delete-recurring-invoice-item" href="javascript:void(0);"
+                                            <a class="btn btn-sm btn-default btn-delete-recurring-invoice-item" href="javascript:void(0);"
                                                title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -162,10 +164,14 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab-additional" data-toggle="tab">{{ trans('fi.additional') }}</a></li>
+                    <div class="card m-2">
+                        <div class="card-header d-flex p-0">
+                        <ul class="nav nav-tabs p-2">
+                            <li class="nav-item"><a class="nav-link active show" href="#tab-additional" data-toggle="tab">{{ trans('fi.additional') }}</a></li>
                         </ul>
+                        </div>
+                        <div class="card-body">
+
                         <div class="tab-content">
 
                             <div class="tab-pane active" id="tab-additional">
@@ -199,20 +205,20 @@
                 </div>
             </div>
         </div>
-
+        </div>
         <div class="col-lg-2">
 
             <div id="div-totals">
                 @include('recurring_invoices._edit_totals')
             </div>
 
-            <div class="box box-primary">
+            <div class="card card-light">
 
-                <div class="box-header">
-                    <h3 class="box-title">{{ trans('fi.options') }}</h3>
+                <div class="card-header">
+                    <h3 class="card-title">{{ trans('fi.options') }}</h3>
                 </div>
 
-                <div class="box-body">
+                <div class="card-body">
 
                     <div class="form-group">
                         <label>{{ trans('fi.next_date') }}</label>

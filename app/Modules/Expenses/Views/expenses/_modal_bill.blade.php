@@ -32,8 +32,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">{{ trans('fi.bill_this_expense') }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
 
@@ -62,7 +62,7 @@
 
                             <div class="form-group">
                                 <label class="control-label">{{ trans('fi.label_item_description') }}:</label>
-                                {!! Form::textarea('item_description', $expense->description, ['id' => 'item_description', 'class' => 'form-control']) !!}
+                                {!! Form::textarea('item_description', $expense->description, ['id' => 'item_description', 'rows' => '3', 'class' => 'form-control']) !!}
                             </div>
                         </div>
                     @else

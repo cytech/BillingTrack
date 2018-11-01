@@ -15,11 +15,11 @@
     @foreach ($invoices as $invoice)
         <tr>
             <td>
-                <span class="label label-{{ $invoiceStatuses[$invoice->invoice_status_id] }}">{{ trans('fi.' . $invoiceStatuses[$invoice->invoice_status_id]) }}</span>
+                <span class="badge badge-{{ $invoiceStatuses[$invoice->invoice_status_id] }}">{{ trans('fi.' . $invoiceStatuses[$invoice->invoice_status_id]) }}</span>
                 @if ($invoice->viewed)
-                    <span class="label label-success">{{ trans('fi.viewed') }}</span>
+                    <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
                 @else
-                    <span class="label label-default">{{ trans('fi.not_viewed') }}</span>
+                    <span class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
                 @endif
             </td>
             <td>{{ $invoice->number }}</td>

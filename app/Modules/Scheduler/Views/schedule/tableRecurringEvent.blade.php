@@ -2,9 +2,9 @@
 
 @section('content')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <section class="content-header">
-        <h1 class="pull-left">{{ trans('fi.recurring_events') }}</h1>
-        <div class="pull-right">
+    <section class="container-fluid m-2">
+        <h3 class="float-left">{{ trans('fi.recurring_events') }}</h3>
+        <div class="float-right">
 
             <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-trash"><i
                         class="fa fa-trash"></i> {{ trans('fi.bulk_event_trash') }}</a>
@@ -24,9 +24,9 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="box box-primary">
+                <div class="card card-light">
 
-                    <div class="box-body no-padding">
+                    <div class="card-body no-padding">
                         @include('partials._dataTable')
                     </div>
                 </div>

@@ -2,8 +2,8 @@
 
 @section('head')
     @include('layouts._datepicker')
-    @include('layouts._typeahead')
-    @include('clients._js_lookup')
+    {{--@include('layouts._typeahead')--}}
+    {{--@include('clients._js_lookup')--}}
     @include('expenses._js_vendor_lookup')
     @include('expenses._js_category_lookup')
 @stop
@@ -27,16 +27,16 @@
     {!! Form::hidden('user_id', auth()->user()->id) !!}
 
     <section class="content-header">
-        <h1 class="pull-left">
+        <h3 class="float-left">
             {{ trans('fi.expense_form') }}
-        </h1>
-        <div class="pull-right">
+        </h3>
+        <div class="float-right">
             <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
 
@@ -44,9 +44,9 @@
 
             <div class="col-md-12">
 
-                <div class="box box-primary">
+                <div class="card card-light">
 
-                    <div class="box-body">
+                    <div class="card-body">
 
                         <div class="row">
 
@@ -99,15 +99,21 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label> {{ trans('fi.client') }}: </label>
-                                    {!! Form::text('client_name', null, ['id' => 'client_name', 'class' => 'form-control client-lookup']) !!}
+                                    {!! Form::text('client_name', null, ['id' => 'client_name', 'class' => 'form-control client-lookup', 'autocomplete' => 'off']) !!}
                                 </div>
+                                <script>
+                                    $('.client-lookup').autocomplete({
+                                        source: '{{ route('clients.ajax.lookup') }}',
+                                        minLength: 3
+                                    }).autocomplete("widget").addClass("fixed-height");
+                                </script>
                             </div>
 
                         </div>
 
                         <div class="form-group">
                             <label>{{ trans('fi.description') }}: </label>
-                            {!! Form::textarea('description', null, ['id' => 'description', 'class' => 'form-control']) !!}
+                            {!! Form::textarea('description', null, ['id' => 'description', 'rows' => '5', 'class' => 'form-control']) !!}
                         </div>
 
                         @if ($customFields->count())

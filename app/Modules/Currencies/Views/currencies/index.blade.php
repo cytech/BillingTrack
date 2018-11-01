@@ -2,28 +2,24 @@
 
 @section('content')
 
-    <section class="content-header">
-        <h1 class="pull-left">
+    <section class="content m-3">
+        <h1 class="float-left">
             {{ trans('fi.currencies') }}
         </h1>
 
-        <div class="pull-right">
+        <div class="float-right">
             <a href="{{ route('currencies.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
         </div>
         <div class="clearfix"></div>
     </section>
 
-    <section class="content">
+    <section class="container-fluid">
 
         @include('layouts._alerts')
 
-        <div class="row">
+                <div class="card card-light">
 
-            <div class="col-xs-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body no-padding">
+                    <div class="card-body">
                         <table class="table table-hover">
 
                             <thead>
@@ -52,11 +48,12 @@
                                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
                                                 {{ trans('fi.options') }} <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="{{ route('currencies.edit', [$currency->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                                                <li><a href="#"
-                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a></li>
-                                            </ul>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="{{ route('currencies.edit', [$currency->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#"
+                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -68,13 +65,10 @@
 
                 </div>
 
-                <div class="pull-right">
+                <div class="float-right">
                     {!! $currencies->appends(request()->except('page'))->render() !!}
                 </div>
 
-            </div>
-
-        </div>
 
     </section>
 @stop

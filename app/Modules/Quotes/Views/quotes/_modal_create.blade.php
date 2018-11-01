@@ -1,6 +1,6 @@
 @include('layouts._datepicker')
-@include('layouts._typeahead')
-@include('clients._js_lookup')
+{{--@include('layouts._typeahead')--}}
+{{--@include('clients._js_lookup')--}}
 @include('quotes._js_create')
 <div class="modal fade" id="create-quote">
     <div class="modal-dialog">

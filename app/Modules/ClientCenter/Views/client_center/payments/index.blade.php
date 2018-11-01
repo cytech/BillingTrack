@@ -14,15 +14,15 @@
 
             <div class="col-xs-12">
 
-                <div class="box box-primary">
+                <div class=" card card-light">
 
-                    <div class="box-body no-padding">
+                    <div class="card-body no-padding">
                         @include('client_center.payments._table')
                     </div>
 
                 </div>
 
-                <div class="pull-right">
+                <div class="float-right">
                     {!! $payments->render() !!}
                 </div>
 

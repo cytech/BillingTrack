@@ -8,7 +8,7 @@
                         class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
         <a class="dropdown-item" href ="{{ route('invoices.pdf', [$id]) }}" target="_blank"
                id="btn-pdf-invoice"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
-        <a class="dropdown-item" href ="javascript:void(0)" class="email-invoice" data-invoice-id="{{ $id }}"
+        <a class="dropdown-item email-invoice" href ="javascript:void(0)" data-invoice-id="{{ $id }}"
                data-redirect-to="{{ request()->fullUrl() }}"><i
                         class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
         <a class="dropdown-item" href ="{{ route('clientCenter.public.invoice.show', [$url_key]) }}"
@@ -16,7 +16,7 @@
                         class="fa fa-globe"></i> {{ trans('fi.public') }}</a>
 
         @if ($model->isPayable or config('fi.allowPaymentsWithoutBalance'))
-            <a class="dropdown-item" href ="javascript:void(0)" id="btn-enter-payment" class="enter-payment"
+            <a class="dropdown-item enter-payment" href ="javascript:void(0)" id="btn-enter-payment"
                    data-invoice-id="{{ $id }}"
                    {{--data-invoice-balance="{{ $amount->formatted_numeric_balance }}"--}}
                    data-redirect-to="{{ request()->fullUrl() }}"><i

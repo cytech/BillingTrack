@@ -1,22 +1,22 @@
-<h3>Set Recurrence</h3>
-
+<h3 class="offset-2">Set Recurrence</h3>
+<br>
 <div class="form-group">
     {!! Form::model($rrule) !!}
-    <div class="form-group">
-        {!! Form::label('frequency',trans('fi.frequency_string'),['class'=>'col-sm-2 control-label ']) !!}
+    <div class="form-group d-flex align-items-center">
+        {!! Form::label('frequency',trans('fi.frequency_string'),['class'=>'col-sm-2 text-right text ']) !!}
         <div class="col-sm-6 ">
             {!! Form::text('frequency',null,['class'=>'form-control ','placeholder'=>'Frequency','readonly']) !!}
         </div>
     </div>
-    <div class="form-group">
-        {!! Form::label('freqtext',trans('fi.frequency_text'),['class'=>'col-sm-2 control-label']) !!}
+    <div class="form-group d-flex align-items-center">
+        {!! Form::label('freqtext',trans('fi.frequency_text'),['class'=>'col-sm-2 text-right text']) !!}
         <div class="col-sm-6">
             {!! Form::text('freqtext',null,['class'=>'form-control','placeholder'=>'Frequency to Text','readonly']) !!}
         </div>
     </div>
-    {!! Form::label('Frequency',null,['for'=>'freq', 'class'=>'col-sm-2 control-label','title'=> 'Frequency']) !!}
-    <div class="form-group">
-        <label class="btn btn-primary">
+    <div class="form-group d-flex align-items-center">
+        {!! Form::label('Frequency',null,['for'=>'freq', 'class'=>'col-sm-2 text-right text','title'=> 'Frequency']) !!}
+        <label class="btn btn-primary ">
             {!! Form::radio('freq','YEARLY',null,['id' => 'freq']) !!}<span> YEARLY</span></label>
         <label class="btn btn-primary">
             {!! Form::radio('freq','MONTHLY',null,['id' => 'freq']) !!}<span> MONTHLY</span></label>
@@ -29,8 +29,8 @@
         {{--{!! Form::radio('freq','SECONDLY',false,['disabled' => 'true']) !!}{!! Form::label('SECONDLY',null,['style'=>'margin-right: 10px']) !!}--}}
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Start DateTime',null,['for'=>'start_date', 'class'=>'col-sm-2 control-label','title'=>
+<div class="form-group d-flex align-items-center">
+    {!! Form::label('Start DateTime',null,['for'=>'start_date', 'class'=>'col-sm-2 text-right text','title'=>
     'The recurrence start. Besides being the base for the recurrence, missing parameters in the final recurrence instances will also be extracted from this date. If not given, "new Date" will be used instead.'
     ]) !!}
     {{--<td><input name="start_date" type="datetime-local" value="{!! date('Y-m-d').'T08:00' !!}"/></td>--}}
@@ -50,8 +50,8 @@
         {!! Form::input('text','until',null, ['id'=>'until','class'=>'form-control until','style'=>'cursor: pointer','readonly']) !!}
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Count',null,['for'=>'count', 'class'=>'col-sm-2 control-label','title'=>
+<div class="form-group d-flex align-items-center">
+    {!! Form::label('Count',null,['for'=>'count', 'class'=>'col-sm-2 text-right text','title'=>
     'How many occurrences will be generated.']) !!}
     <div class="col-sm-3">
         {!! Form::input('number','count',null, ['id'=>'count','class'=>'form-control','max'=>'500', 'min'=>'1']) !!}
@@ -63,8 +63,8 @@
         {!! Form::input('number','interval',null, ['id'=>'interval','class'=>'form-control','max'=>'50', 'min'=>'0']) !!}
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Week Start',null,['for'=>'wkst', 'class'=>'col-sm-2 control-label','title'=>
+<div class="form-group d-flex align-items-center">
+    {!! Form::label('Week Start',null,['for'=>'wkst', 'class'=>'col-sm-2 text-right text','title'=>
     'The week start day. Must be one of the "RRule.MO", "RRule.TU", "RRule.WE" constants, or an integer, specifying the first day of the week. This will affect recurrences based on weekly periods. The default week start is "RRule.MO".'
     ]) !!}
     <div class="form-group">
@@ -84,8 +84,8 @@
             {!! Form::radio('wkst','SU',null,['id'=>'wkst']) !!}<span> SU</span></label>
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Week Days(s)',null,['for'=>'byday', 'class'=>'col-sm-2 control-label','title'=>
+<div class="form-group d-flex align-items-center">
+    {!! Form::label('Week Days(s)',null,['for'=>'byday', 'class'=>'col-sm-2 text-right text','title'=>
     'If given, it must be either an integer ("0 == RRule.MO"), a sequence of integers, one of the weekday constants ("RRule.MO", "RRule.TU", etc), or a sequence of these constants. When given, these variables will define the weekdays where the recurrence will be applied. It is also possible to use an argument n for the weekday instances, which will mean the nth occurrence of this weekday in the period. For example, with "RRule.MONTHLY", or with "RRule.YEARLY" and "BYMONTH", using "RRule.FR.clone(+1)" in "byweekday" will specify the first friday of the month where the recurrence happens. Notice that the RFC documentation, this is specified as "BYDAY", but was renamed to avoid the ambiguity of that argument.'
     ]) !!}
     <div class="form-group">
@@ -105,8 +105,8 @@
             {!! Form::checkbox('byday[]', 'SU',null,['id'=>'byday']) !!}<span> SU</span></label>
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Month(s)',null,['for'=>'bymonth', 'class'=>'col-sm-2 control-label','title'=>
+<div class="form-group d-flex align-items-center">
+    {!! Form::label('Month(s)',null,['for'=>'bymonth', 'class'=>'col-sm-2 text-right text','title'=>
     'If given, it must be either an integer, or a sequence of integers, meaning the months to apply the recurrence to.'
     ]) !!}
     <div class="form-group">
@@ -136,16 +136,16 @@
             {!! Form::checkbox('bymonth[]', '12',null,['id'=>'bymonth']) !!}<span> Dec</span></label>
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Position',null,['for'=>'bysetpos', 'class'=>'col-sm-2 control-label','title'=>
+<div class="form-group d-flex align-items-center">
+    {!! Form::label('Position',null,['for'=>'bysetpos', 'class'=>'col-sm-2 text-right text','title'=>
     'If given, it must be either an integer, or a sequence of integers, positive or negative. Each given integer will specify an occurrence number, corresponding to the nth occurrence of the rule inside the frequency period. For example, a "bysetpos" of "-1" if combined with a "RRule.MONTHLY" frequency, and a byweekday of ("RRule.MO", "RRule.TU", "RRule.WE", "RRule.TH", "FR"), will result in the last work day of every month.'
     ]) !!}
     <div class="col-sm-2">
         {!! Form::input('text','bysetpos',null, ['id'=>'bysetpos','class'=>'form-control']) !!}
     </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Monthday',null,['for'=>'bymonthday', 'class'=>'col-sm-2 control-label','title'=>
+<div class="form-group d-flex align-items-center">
+    {!! Form::label('Monthday',null,['for'=>'bymonthday', 'class'=>'col-sm-2 text-right text','title'=>
     'If given, it must be either an integer, or a sequence of integers, meaning the month days to apply the recurrence to.'
     ]) !!}
     <div class="col-sm-2">
@@ -165,7 +165,7 @@
     </div>
 </div>
 {{--<div class="form-group">
-    {!! Form::label('Hour',null,['for'=>'byhour', 'class'=>'col-sm-2 control-label','title'=> 'byhour - If given, it must
+    {!! Form::label('Hour',null,['for'=>'byhour', 'class'=>'col-sm-2 text-right text','title'=> 'byhour - If given, it must
                     be either an integer, or a sequence of integers, meaning the hours to apply the recurrence to.']) !!}
     <div class="col-sm-2">
         {!! Form::input('text','byhour',null, ['class'=>'form-control','disabled'=>'true']) !!}
@@ -181,7 +181,7 @@
         {!! Form::input('text','bysecond',null, ['class'=>'form-control','disabled'=>'true']) !!}
     </div>
 </div>--}}
-<div class="form-group">
+<div class="form-group d-flex align-items-center offset-2">
     {!! Form::button('Show proposed recurrence ',['onclick' => 'return showhuman()','class'=>'col-sm-4 btn btn-warning']) !!}
     {{--{!! Form::close() !!}--}}
     <script>

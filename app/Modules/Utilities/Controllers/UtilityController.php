@@ -191,7 +191,7 @@ class UtilityController
             $pdf->download($wohtml, FileNames::batchprint());
 
         } else {
-            return view('utilities.getdates');
+            return view('utilities.batchprint', ['title' => 'Batch Print']);
         }
     }
 

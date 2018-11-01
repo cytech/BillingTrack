@@ -5,6 +5,10 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
+    <link rel="stylesheet" href="/css/app.css">
+
+    <script src="/js/app.js"></script>
+
     <title>{{ config('fi.headerTitleText') }}</title>
 
     @include('layouts._head')

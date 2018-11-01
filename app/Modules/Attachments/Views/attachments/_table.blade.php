@@ -69,7 +69,7 @@
                     </div>
                 </td>
                 <td>
-                    <a class="btn btn-xs btn-default btn-delete-attachment" href="javascript:void(0);"
+                    <a class="btn btn-sm btn-default btn-delete-attachment" href="javascript:void(0);"
                        title="{{ trans('fi.trash') }}" data-attachment-id="{{ $attachment->id }}">
                         <i class="fa fa-times"></i>
                     </a>

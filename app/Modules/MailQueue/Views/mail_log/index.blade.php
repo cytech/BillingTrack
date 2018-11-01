@@ -2,8 +2,8 @@
 
 @section('javascript')
     <script type="text/javascript">
-        $(function() {
-            $('.btn-show-content').click(function() {
+        $(function () {
+            $('.btn-show-content').click(function () {
                 $('#modal-placeholder').load('{{ route('mailLog.content') }}', {
                     id: $(this).data('id')
                 });
@@ -13,75 +13,58 @@
 @stop
 
 @section('content')
+    <section class="content mt-3 mb-3">
+        <h3 class="float-left">{{ trans('fi.mail_log') }}</h3>
+        <div class="clearfix"></div>
 
-    <section class="content-header">
-        <h1>{{ trans('fi.mail_log') }}</h1>
     </section>
-
-    <section class="content">
-
+    <section class="container-fluid">
         @include('layouts._alerts')
-
-        <div class="row">
-
-            <div class="col-xs-12">
-
-                <div class="box box-primary">
-
-                    <div class="box-body no-padding">
-                        <table id="dt-maillogtable" class="table dataTable no-footer">
-
-                            <thead>
-                            <tr>
-                                <th>{{ trans('fi.date') }}</th>
-                                <th>{{ trans('fi.from') }}</th>
-                                <th>{{ trans('fi.to') }}</th>
-                                <th>{{ trans('fi.cc') }}</th>
-                                <th>{{ trans('fi.bcc') }}</th>
-                                <th>{{ trans('fi.subject') }}</th>
-                                <th>{{ trans('fi.sent') }}</th>
-                                <th>{{ trans('fi.options') }}</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            @foreach ($mails as $mail)
-                                <tr>
-                                    <td>{{ $mail->formatted_created_at }}</td>
-                                    <td>{{ $mail->formatted_from }}</td>
-                                    <td>{{ $mail->formatted_to }}</td>
-                                    <td>{{ $mail->formatted_cc }}</td>
-                                    <td>{{ $mail->formatted_bcc }}</td>
-                                    <td><a href="javascript:void(0)" class="btn-show-content" data-id="{{ $mail->id }}">{{ $mail->subject }}</a></td>
-                                    <td>{{ $mail->formatted_sent }}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                {{ trans('fi.options') }} <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                <li><a href="#"
-                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('mailLog.delete', [$mail->id]) }}');"><i class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-
-                        </table>
-                    </div>
-
-                </div>
-
-                {{--<div class="pull-right">--}}
-                    {{--{!! $mails->appends(request()->except('page'))->render() !!}--}}
-                {{--</div>--}}
-
+        <div class="card card-light">
+            <div class="card-body">
+                <table id="dt-maillogtable" class="table dataTable no-footer">
+                    <thead>
+                    <tr>
+                        <th>{{ trans('fi.date') }}</th>
+                        <th>{{ trans('fi.from') }}</th>
+                        <th>{{ trans('fi.to') }}</th>
+                        <th>{{ trans('fi.cc') }}</th>
+                        <th>{{ trans('fi.bcc') }}</th>
+                        <th>{{ trans('fi.subject') }}</th>
+                        <th>{{ trans('fi.sent') }}</th>
+                        <th>{{ trans('fi.options') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($mails as $mail)
+                        <tr>
+                            <td>{{ $mail->formatted_created_at }}</td>
+                            <td>{{ $mail->formatted_from }}</td>
+                            <td>{{ $mail->formatted_to }}</td>
+                            <td>{{ $mail->formatted_cc }}</td>
+                            <td>{{ $mail->formatted_bcc }}</td>
+                            <td><a href="javascript:void(0)" class="btn-show-content"
+                                   data-id="{{ $mail->id }}">{{ $mail->subject }}</a></td>
+                            <td>{{ $mail->formatted_sent }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm dropdown-toggle"
+                                            data-toggle="dropdown">
+                                        {{ trans('fi.options') }} <span class="caret"></span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#"
+                                               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('mailLog.delete', [$mail->id]) }}');"><i
+                                                        class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
-
         </div>
-
     </section>
     <script>
         $(function () {

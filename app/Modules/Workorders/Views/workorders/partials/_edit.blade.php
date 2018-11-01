@@ -1,23 +1,23 @@
 @include('workorders.partials._js_edit')
 
 <section class="content-header">
-    <h1 class="pull-left">{{ trans('fi.workorder') }} #{{ $workorder->number }}</h1>
+    <h3 class="float-left">{{ trans('fi.workorder') }} #{{ $workorder->number }}</h3>
 
     @if ($workorder->viewed)
-        <span style="margin-left: 10px;" class="label label-success">{{ trans('fi.viewed') }}</span>
+        <span style="margin-left: 10px;" class="badge badge-success">{{ trans('fi.viewed') }}</span>
     @else
-        <span style="margin-left: 10px;" class="label label-default">{{ trans('fi.not_viewed') }}</span>
+        <span style="margin-left: 10px;" class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
     @endif
 
     @if (($workorder->invoice))
-        <span class="label label-info"><a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}" style="color: inherit;">{{ trans('fi.converted_to_invoice') }} {{ $workorder->invoice->number }}</a></span>
+        <span class="badge badge-info"><a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}" style="color: inherit;">{{ trans('fi.converted_to_invoice') }} {{ $workorder->invoice->number }}</a></span>
     @endif
 
     @if ($workorder->quote()->count())
-        <span class="label label-info"><a href="{{ route('quotes.edit', [$workorder->quote->id]) }}" style="color: inherit;">{{ trans('fi.converted_from_quote') }} {{ $workorder->quote->number }}</a></span>
+        <span class="badge badge-info"><a href="{{ route('quotes.edit', [$workorder->quote->id]) }}" style="color: inherit;">{{ trans('fi.converted_from_quote') }} {{ $workorder->quote->number }}</a></span>
     @endif
 
-    <div class="pull-right">
+    <div class="float-right">
 
         <a href="{{ route('workorders.pdf', [$workorder->id]) }}" target="_blank" id="btn-pdf-workorder"
            class="btn btn-default"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
@@ -32,16 +32,16 @@
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 {{ trans('fi.other') }} <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                <li><a href="javascript:void(0)" id="btn-copy-workorder"><i
-                                class="fa fa-copy"></i> {{ trans('fi.copy_workorder') }}</a></li>
-                <li><a href="javascript:void(0)" id="btn-workorder-to-invoice"><i
-                                class="fa fa-check"></i> {{ trans('fi.workorder_to_invoice') }}</a></li>
-                <li class="divider"></li>
-                <li><a href="#"
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <a class="dropdown-item" href="javascript:void(0)" id="btn-copy-workorder"><i
+                            class="fa fa-copy"></i> {{ trans('fi.copy_workorder') }}</a>
+                <a class="dropdown-item" href="javascript:void(0)" id="btn-workorder-to-invoice"><i
+                            class="fa fa-check"></i> {{ trans('fi.workorder_to_invoice') }}</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"
                        onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('workorders.delete', [$workorder->id]) }}');"><i
-                                class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a></li>
-            </ul>
+                                class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+            </div>
         </div>
 
         <div class="btn-group">
@@ -57,10 +57,10 @@
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                <li><a href="#" class="btn-save-workorder"
-                       data-apply-exchange-rate="1">{{ trans('fi.save_and_apply_exchange_rate') }}</a></li>
-            </ul>
+            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                <a class="dropdown-item" href="#" class="btn-save-workorder"
+                       data-apply-exchange-rate="1">{{ trans('fi.save_and_apply_exchange_rate') }}</a>
+            </div>
         </div>
 
     </div>
@@ -68,7 +68,7 @@
     <div class="clearfix"></div>
 </section>
 
-<section class="content">
+<section class="container-fluid">
 
     <div class="row">
 
@@ -77,8 +77,6 @@
             @include('layouts._alerts')
 
             <div id="form-status-placeholder"></div>
-
-
 
             <div class="row">
 
@@ -98,38 +96,41 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">{{ trans('fi.summary') }}</h3>
+                    <div class="card card-light">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ trans('fi.summary') }}</h3>
                         </div>
-                        <div class="box-body">
+                        <div class="card-body">
                             {!! Form::text('summary', $workorder->summary, ['id' => 'summary', 'class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-
-                    <label>{{ trans('fi.job_date') }}</label>
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-4 text-right text">{{ trans('fi.job_date') }}</label>
+                    <div class="col-sm-8">
                     {!! Form::text('job_date', $workorder->formatted_job_date, ['id' =>
                     'job_date', 'class' => 'form-control input-sm']) !!}
+                    </div>
                 </div>
-                <div class="col-md-3">
-
-                    <label>{{ trans('fi.start_time') }}</label>
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-4 text-right text">{{ trans('fi.start_time') }}</label>
+                    <div class="col-sm-8">
                     {!! Form::text('start_time', $workorder->formatted_start_time, ['id' =>
                     'start_time', 'class' => 'form-control input-sm']) !!}
+                    </div>
                 </div>
-                <div class="col-md-3">
-
-                    <label>{{ trans('fi.end_time') }}</label>
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-4 text-right text">{{ trans('fi.end_time') }}</label>
+                    <div class="col-sm-8">
                     {!! Form::text('end_time', $workorder->formatted_end_time, ['id' =>
                     'end_time', 'class' => 'form-control input-sm']) !!}
+                    </div>
                 </div>
-                <div class="col-md-3">
-
-                    <label>{{ trans('fi.will_call') }}</label><br>
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-6 text-right text">{{ trans('fi.will_call') }}</label>
+                    <div class="col-sm-6">
                     {!! Form::checkbox('will_call', 1, $workorder->will_call, ['id' =>
                     'will_call', 'class' => 'checkbox']) !!}
 
@@ -141,7 +142,7 @@
                         $.fn.bootstrapSwitch.defaults.offColor = 'danger';
                         $("[name='will_call']").bootstrapSwitch();
                     </script>
-
+                    </div>
                 </div>
 
             </div>
@@ -151,11 +152,11 @@
             <div class="row">
 
                 <div class="col-sm-12 table-responsive" style="overflow-x: visible;">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">{{ trans('fi.items') }}</h3>
+                    <div class="card card-light">
+                        <div class="card-header">
+                            <h3 class="card-title">{{ trans('fi.items') }}</h3>
 
-                            <div class="box-tools pull-right">
+                            <div class="card-tools float-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
                                             class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
 
@@ -165,7 +166,7 @@
                             </div>
                         </div>
 
-                        <div class="box-body">
+                        <div class="card-body">
                             <table id="item-table" class="table table-hover">
                                 <thead>
                                 <tr>
@@ -215,7 +216,7 @@
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
-                                            <a class="btn btn-xs btn-default btn-delete-workorder-item" href="#"
+                                            <a class="btn btn-sm btn-default btn-delete-workorder-item" href="#"
                                                title="{{ trans('fi.delete') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -235,12 +236,17 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab-additional" data-toggle="tab">{{ trans('fi.additional') }}</a></li>
-                            <li><a href="#tab-notes" data-toggle="tab">{{ trans('fi.notes') }}</a></li>
-                            <li><a href="#tab-attachments" data-toggle="tab">{{ trans('fi.attachments') }}</a></li>
+                    <div class="card m-2">
+                        <div class="card-header d-flex p-0">
+
+                        <ul class="nav nav-tabs p-2">
+                            <li class="nav-item"><a class="nav-link active show" href="#tab-additional" data-toggle="tab">{{ trans('fi.additional') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#tab-notes" data-toggle="tab">{{ trans('fi.notes') }}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#tab-attachments" data-toggle="tab">{{ trans('fi.attachments') }}</a></li>
                         </ul>
+                        </div>
+                        <div class="card-body">
+
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab-additional">
                                 <div class="row">
@@ -279,18 +285,18 @@
             </div>
 
         </div>
-
+        </div>
         <div class="col-lg-2">
 
             <div id="div-totals">
                 @include('workorders.partials._edit_totals')
             </div>
 
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">{{ trans('fi.options') }}</h3>
+            <div class="card card-light">
+                <div class="card-header">
+                    <h3 class="card-title">{{ trans('fi.options') }}</h3>
                 </div>
-                <div class="box-body">
+                <div class="card-body">
                     <div class="form-group">
                         <label>{{ trans('fi.workorder') }} #</label>
                         {!! Form::text('number', $workorder->number, ['id' => 'number', 'class' =>

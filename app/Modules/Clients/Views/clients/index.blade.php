@@ -21,8 +21,8 @@
 
 @section('content')
     <section class="content mt-3 mb-3">
-        <h3 class="pull-left">{{ trans('fi.clients') }}</h3>
-        <div class="pull-right">
+        <h3 class="float-left">{{ trans('fi.clients') }}</h3>
+        <div class="float-right">
             <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i
                         class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
             <div class="btn-group">

@@ -26,7 +26,8 @@
             <td class="hidden-sm hidden-xs">{{ $employee->schedule }}</td>
             <td class="hidden-sm hidden-xs">{{ $employee->active }}</td>
             <td class="hidden-sm hidden-xs">{{ $employee->driver }}</td>
-            <td> <a href="{{ route('employees.edit', [$employee->id]) }}" class="btn btn-default btn-sm ">
+            <td> <a href="{{ route('employees.edit', [$employee->id]) }}" class="btn btn-primary btn-sm "><i
+                            class="fa fa-user-edit"></i>
                     {{ trans('fi.edit') }} </a></td>
         </tr>
     @endforeach
