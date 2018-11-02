@@ -41,7 +41,7 @@
                         $('#modal-attach-files').modal('hide');
                     },
                     error: function (XMLHttpRequest, textStatus, error) {
-                        $("#attachment-upload-progress-bar").addClass('progress-bar-danger').html(error);
+                        $("#attachment-upload-progress-bar").addClass('bg-danger').html(error);
                         $('#input-attachments').removeAttr('disabled');
                     }
                 });
@@ -57,15 +57,15 @@
 
                     if (Percentage == 100) {
                         resetProgressBar('100%', '{{ trans('fi.complete') }}');
-                        $('#attachment-upload-progress-bar').addClass('progress-bar-success').html('{{ trans('fi.complete') }}');
+                        $('#attachment-upload-progress-bar').addClass('bg-success').html('{{ trans('fi.complete') }}');
                     }
                 }
             }
 
             function resetProgressBar(width, text) {
                 $('#attachment-upload-progress-bar')
-                    .removeClass('progress-bar-danger')
-                    .removeClass('progress-bar-success')
+                    .removeClass('bg-danger')
+                    .removeClass('bg-success')
                     .css('width', width)
                     .html(text);
             }
@@ -99,7 +99,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 </div>
             </div>
         </div>

@@ -37,9 +37,9 @@
                             <td>{{ $itemLookup->taxRate2->name ?? '' }}</td>
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm dropdown-toggle"
+                                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        {{ trans('fi.options') }} <span class="caret"></span>
+                                        {{ trans('fi.options') }}
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item"

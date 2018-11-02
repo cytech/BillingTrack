@@ -11,11 +11,11 @@
     </script>
     <div class="container col-lg-12">
         <br>
-        <nav class="navbar navbar-default ">
+        <nav class="navbar navbar-light ">
             <div class="container-fluid">
-                <div class="navbar-header">
+
                     <a class="navbar-brand mb-0" href="#">{{ trans('fi.workorders') }}</a>
-                </div>
+
                 <ul class="nav navbar-nav ">
                     <li>
                         <a href="javascript:void(0)" class="create-workorder"> {{ trans('fi.create_workorder') }}</a></li>
@@ -29,7 +29,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"
                            href="#">{{ trans('fi.timesheet') }}
-                            <span class="caret"></span></a>
+                            </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="{!! route('timesheets.report') !!}">{{ trans('fi.timesheetreport') }}</a>
@@ -41,7 +41,7 @@
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"> {{ trans('fi.utilities') }}
-                            <span class="caret"></span></a>
+                            </a>
                         <ul class="dropdown-menu">
                                 <li><a href="{{ route('utilities.batchprint') }}"><i
                                                 class="fa fa-print"></i> {{ trans('fi.batchprint') }}
@@ -60,11 +60,11 @@
 
 
         {{--Reminder table --}}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bell-o"></i> {{ trans('fi.todays_workorders') }}</h3>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fa fa-bell"></i> {{ trans('fi.todays_workorders') }}</h3>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 <table id="dt-reminderstable" class="display" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -90,11 +90,11 @@
                 </table>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('fi.month_workorders') }}
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-chart-bar fa-fw"></i> {{ trans('fi.month_workorders') }}
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 <div id="morris-bar-chart"></div>
             </div>
         </div>

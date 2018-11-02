@@ -14,7 +14,7 @@
             appendTo: '#modal-copy-recurring-invoice',
             source: '{{ route('clients.ajax.lookup') }}',
             minLength: 3
-        }).autocomplete("widget").addClass("fixed-height");
+        }).autocomplete("widget");
 
         // Creates the recurringInvoice
         $('#btn-copy-recurring-invoice-submit').click(function () {

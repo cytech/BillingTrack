@@ -6,7 +6,7 @@
         <h3 class="float-left">{{ trans('fi.recurring_events') }}</h3>
         <div class="float-right">
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-trash"><i
+            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-trash"><i
                         class="fa fa-trash"></i> {{ trans('fi.bulk_event_trash') }}</a>
             {{--<div class="btn-group">--}}
             {{--{!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}--}}
@@ -26,7 +26,7 @@
             <div class="col-lg-12">
                 <div class="card card-light">
 
-                    <div class="card-body no-padding">
+                    <div class="card-body">
                         @include('partials._dataTable')
                     </div>
                 </div>

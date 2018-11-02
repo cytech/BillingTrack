@@ -10,8 +10,8 @@
         <h3 class="float-left">{{ trans('fi.quotes') }}</h3>
         <div class="float-right">
             <div class="btn-group bulk-actions">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    {{ trans('fi.change_status') }} <span class="caret"></span>
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    {{ trans('fi.change_status') }}
                 </button>
                 <ul class="dropdown-menu">
                     @foreach ($keyedStatuses as $key => $status)
@@ -20,7 +20,7 @@
                 </ul>
             </div>
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
+            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
             <div class="btn-group">
                 {!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}

@@ -4,7 +4,7 @@
             <div class="card-header">
                 <h5 class="text-bold mb-0">{{ trans('fi.recent_payments') }}</h5>
             </div>
-            <div class="card-bodyg">
+            <div class="card-body">
                 <table class="table table-striped">
                     <tbody>
                     <tr>

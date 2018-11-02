@@ -6,9 +6,9 @@
         <br>
         <nav class="navbar navbar-expand navbar-light border-bottom">   {{--bg-primary navbar-default--}}
             <div class="container-fluid">
-                <div class="navbar-header">
+
                     <a class="navbar-brand mb-0" href="#">{{ trans('fi.schedule_dashboard') }}</a>
-                </div>
+
                 <div class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link"
                                             href="{!! route('scheduler.fullcalendar') !!}">{{ trans('fi.calendar') }}</a>
@@ -24,7 +24,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ trans('fi.utilities') }}
-                            <span class="caret"></span></a>
+                            </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item"
                                href="{!! route('scheduler.categories.index') !!}"><i
@@ -122,7 +122,7 @@
             <div class="container-fluid">
                 <div class="card card-light">
                     <div class="card-header">
-                        <h3 class="card-title"><i class="fa fa-bell-o"></i> {{ trans('fi.reminders') }}</h3>
+                        <h3 class="card-title"><i class="fa fa-bell"></i> {{ trans('fi.reminders') }}</h3>
                     </div>
                     <div class="card-body">
                         <table id="dt-reminderstable" class="display table dataTable" cellspacing="0" width="100%">
@@ -162,7 +162,7 @@
                 <div class="card card-light">
                     <div class="card-header">
                         <h3 class="card-title"><i
-                                    class="fa fa-bar-chart-o fa-fw"></i> {{ trans('fi.month_day_events') }}</h3>
+                                    class="fa fa-chart-bar fa-bar fa-fw"></i> {{ trans('fi.month_day_events') }}</h3>
                     </div>
                     <div class="card-body">
                         <div id="morris-bar-chart"></div>
@@ -173,7 +173,7 @@
         <div class="container-fluid">
             <div class="card card-light">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('fi.year_month_report') }}
+                    <h3 class="card-title"><i class="fa fa-chart-bar fa-fw"></i> {{ trans('fi.year_month_report') }}
                     </h3>
                 </div>
                 <div class="card-body">

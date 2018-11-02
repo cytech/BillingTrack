@@ -14,10 +14,10 @@
 
                 <div id="modal-status-placeholder"></div>
 
-                <form class="form-horizontal">
+                <form>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.client') }}</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('fi.client') }}</label>
 
                         <div class="col-sm-9">
                             {!! Form::text('client_name', null, ['id' => 'change_client_name', 'class' =>
@@ -29,7 +29,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 <button type="button" id="btn-submit-change-client" class="btn btn-primary">{{ trans('fi.save') }}
                 </button>
             </div>

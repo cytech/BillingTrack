@@ -30,9 +30,10 @@
         <h3 class="float-left">
             {{ trans('fi.admin') . ' ' . trans('fi.user_form') }}
         </h3>
-        <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('users.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 
@@ -81,8 +82,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-default" id="btn-generate-api-keys">{{ trans('fi.generate_keys') }}</a>
-                <a href="#" class="btn btn-default" id="btn-clear-api-keys">{{ trans('fi.clear_keys') }}</a>
+                <a href="#" class="btn btn-secondary" id="btn-generate-api-keys">{{ trans('fi.generate_keys') }}</a>
+                <a href="#" class="btn btn-secondary" id="btn-clear-api-keys">{{ trans('fi.clear_keys') }}</a>
             </div>
         </div>
 

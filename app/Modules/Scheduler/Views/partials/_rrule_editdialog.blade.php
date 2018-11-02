@@ -37,13 +37,13 @@
     <div class="col-sm-2">
         {!! Form::input('text','start_date',null, ['id'=>'start_date','class'=>'form-control from','style'=>'cursor: pointer','readonly']) !!}
     </div>
-    {!! Form::label('End DateTime',null,['for'=>'end_date', 'class'=>'col-sm-1 control-label','title'=>
+    {!! Form::label('End DateTime',null,['for'=>'end_date', 'class'=>'col-sm-1 col-form-label','title'=>
     'The recurrence end. Besides being the base for the recurrence, missing parameters in the final recurrence instances will also be extracted from this date. If not given, "new Date" will be used instead.'
     ]) !!}
     <div class="col-sm-2">
         {!! Form::input('text','end_date',null, ['id'=>'end_date','class'=>'form-control to','style'=>'cursor: pointer','readonly']) !!}
     </div>
-    {!! Form::label('Until DateTime',null,['for'=>'until', 'class'=>'col-sm-1 control-label','title'=>
+    {!! Form::label('Until DateTime',null,['for'=>'until', 'class'=>'col-sm-1 col-form-label','title'=>
     'until - If given, this must be a "Date" instance, that will specify the limit of the recurrence. If a recurrence instance happens to be the same as the"Date" instance given in the "until" argument, this will be the last occurrence.'
     ]) !!}
     <div class="col-sm-2">
@@ -56,7 +56,7 @@
     <div class="col-sm-3">
         {!! Form::input('number','count',null, ['id'=>'count','class'=>'form-control','max'=>'500', 'min'=>'1']) !!}
     </div>
-    {!! Form::label('Interval',null,['for'=>'interval', 'class'=>'col-sm-1 control-label','title'=>
+    {!! Form::label('Interval',null,['for'=>'interval', 'class'=>'col-sm-1 col-form-label','title'=>
     'The interval between each freq iteration. For example, when using "RRule.YEARLY", an interval of "2" means once every two years, but with "RRule.HOURLY", it means once every two hours. The default interval is "1".'
     ]) !!}
     <div class="col-sm-3">
@@ -151,13 +151,13 @@
     <div class="col-sm-2">
         {!! Form::input('text','bymonthday',null, ['id'=>'bymonthday','class'=>'form-control']) !!}
     </div>
-    {!! Form::label('Yearday',null,['for'=>'byyearday', 'class'=>'col-sm-1 control-label','title'=>
+    {!! Form::label('Yearday',null,['for'=>'byyearday', 'class'=>'col-sm-1 col-form-label','title'=>
     'If given, it must be either an integer, or a sequence of integers, meaning the year days to apply the recurrence to.'
     ]) !!}
     <div class="col-sm-2">
         {!! Form::input('text','byyearday',null, ['id'=>'byyearday','class'=>'form-control']) !!}
     </div>
-    {!! Form::label('Weeknumber',null,['for'=>'byweekno', 'class'=>'col-sm-1 control-label','title'=>
+    {!! Form::label('Weeknumber',null,['for'=>'byweekno', 'class'=>'col-sm-1 col-form-label','title'=>
     'If given, it must be either an integer, or a sequence of integers, meaning the week numbers to apply the recurrence to. Week numbers have the meaning described in ISO8601, that is, the first week of the year is that containing at least four days of the new year.'
     ]) !!}
     <div class="col-sm-2">
@@ -170,12 +170,12 @@
     <div class="col-sm-2">
         {!! Form::input('text','byhour',null, ['class'=>'form-control','disabled'=>'true']) !!}
     </div>
-    {!! Form::label('Minute',null,['for'=>'byminute', 'class'=>'col-sm-1 control-label','title'=> 'byminute - If given,
+    {!! Form::label('Minute',null,['for'=>'byminute', 'class'=>'col-sm-1 col-form-label','title'=> 'byminute - If given,
                     it must be either an integer, or a sequence of integers, meaning the minutes to apply the recurrence to.']) !!}
     <div class="col-sm-2">
         {!! Form::input('text','byminute',null, ['class'=>'form-control','disabled'=>'true']) !!}
     </div>
-    {!! Form::label('Second',null,['for'=>'bysecond', 'class'=>'col-sm-1 control-label','title'=> 'bysecond - If given,
+    {!! Form::label('Second',null,['for'=>'bysecond', 'class'=>'col-sm-1 col-form-label','title'=> 'bysecond - If given,
                     it must be either an integer, or a sequence of integers, meaning the seconds to apply the recurrence to.']) !!}
     <div class="col-sm-2">
         {!! Form::input('text','bysecond',null, ['class'=>'form-control','disabled'=>'true']) !!}

@@ -18,7 +18,7 @@
                     {!! Form::hidden('oid') !!}
                     {{--{!! Form::hidden('public_id') !!}--}}
                     <div class="form-group">
-                        {!! Form::label('title',trans('fi.title'),['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label('title',trans('fi.title'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-6">
                             {!! Form::text('title',null,['class'=>'form-control']) !!}
                         </div>
@@ -27,30 +27,30 @@
                                 appendTo: "#event",
                                 source: "/scheduler/ajax/employee",
                                 minLength: 2
-                            }).autocomplete("widget").addClass("fixed-height");
+                            }).autocomplete("widget");
                         </script>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('description',trans('fi.description'),['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label('description',trans('fi.description'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-6">
                             {!! Form::text('description',null,['class'=>'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('Start DateTime',null,['for'=>'start_date', 'class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label('Start DateTime',null,['for'=>'start_date', 'class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-6">
                             {!! Form::input('text','start_date',null, ['id'=>'start_date','class'=>'form-control datepicker from ','style'=>'cursor: pointer','readonly']) !!}
                         </div>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('End DateTime',null,['for'=>'end_date', 'class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label('End DateTime',null,['for'=>'end_date', 'class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-6">
                             {!! Form::input('text','end_date',null, ['id'=>'end_date','class'=>'form-control to','style'=>'cursor: pointer','readonly']) !!}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('category_id',trans('fi.category'),['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label('category_id',trans('fi.category'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-3">
                             {!! Form::select('category_id',$categories,null, ['id' => 'category_id','class'=>'form-control']) !!}
                         </div>
@@ -66,19 +66,19 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    {!! Form::label('reminder_date',trans('fi.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 control-label']) !!}
+                                    {!! Form::label('reminder_date',trans('fi.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 col-form-label']) !!}
                                     <div class="col-sm-10">
                                         {!! Form::input('text','reminder_date[]',$reminder->reminder_date, ['class'=>'form-control datepicker reminder_date ','style'=>'cursor: pointer','readonly']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    {!! Form::label('reminder_location',trans('fi.reminder_location'),['class'=>'col-sm-2 control-label']) !!}
+                                    {!! Form::label('reminder_location',trans('fi.reminder_location'),['class'=>'col-sm-2 col-form-label']) !!}
                                     <div class="col-sm-10">
                                         {!! Form::text('reminder_location[]',$reminder->reminder_location ,['class'=>'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    {!! Form::label('reminder_text',trans('fi.reminder_text'),['class'=>'col-sm-2 control-label']) !!}
+                                    {!! Form::label('reminder_text',trans('fi.reminder_text'),['class'=>'col-sm-2 col-form-label']) !!}
                                     <div class="col-sm-10">
                                         {!! Form::text('reminder_text[]',$reminder->reminder_text,['class'=>'form-control']) !!}
                                     </div>
@@ -90,7 +90,7 @@
                     <div id="addReminderShow">
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="offset-2 col-sm-10">
                             <button type="button" id="addReminderCreate"
                                     class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('fi.add_reminder') }}
                             </button>

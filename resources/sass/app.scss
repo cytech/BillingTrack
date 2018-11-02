@@ -30,6 +30,9 @@ $theme-colors: (
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
+//jquery-ui
+@import '~jquery-ui/themes/base/all.css';
+
 // SweetAlert2
 //@import "~sweetalert2/dist/sweetalert2.css";
 

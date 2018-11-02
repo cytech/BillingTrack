@@ -2,14 +2,14 @@
 
 @section('content')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <div class="col-md-8 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i
+    <div class="col-md-8 offset-1">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i
                             class="fa fa-fw fa-table fa-fw"></i>{{ trans('fi.settings') }}</h3>
             </div>
             {{--@include('layouts._alerts')--}}
-            <div class="panel-body">
+            <div class="card-body">
                 {!! Form::open(['route' => 'scheduler.settings']) !!}
                 <div class="row">
                     <div class="col-md-6">
@@ -67,7 +67,7 @@
                             <label>{{ trans('fi.coreeventslist') }}</label>
                             <div class="col-lg-8 col-sm-8">
                                 @foreach (\FI\Modules\Scheduler\Models\Setting::$coreevents as $entityType => $value)
-                                    <div class="checkbox">
+                                    <div class="form-check">
                                         <label for="enabledCoreEvents{{ $value}}">
                                             <input name="enabledCoreEvents[]" id="enabledCoreEvents{{ $value}}" type="checkbox" {{ (new \FI\Modules\Scheduler\Models\Setting())->isCoreeventEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}">{{ trans("fi.{$entityType}") }}</label>
                                     </div>

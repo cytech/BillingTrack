@@ -5,7 +5,7 @@
         $('.item-lookup').autocomplete({
             source: '{{ route('itemLookups.ajax.itemLookup') }}',
             minLength: 2
-        }).autocomplete("widget").addClass("fixed-height");
+        }).autocomplete("widget");
 
         // All existing items should populate proper fields
         typeaheadTrigger();
@@ -17,7 +17,7 @@
             row.find('input[name="name"]').addClass('item-lookup').autocomplete({
                 source: '{{ route('itemLookups.ajax.itemLookup') }}',
                 minLength: 2,
-            }).autocomplete("widget").addClass("fixed-height");
+            }).autocomplete("widget");
             typeaheadTrigger();
             $('textarea').autosize();
         }

@@ -19,7 +19,7 @@
 
         @include('layouts._alerts')
         <div class=" card card-light">
-            <div class="card-body table-responsive no-padding">
+            <div class="card-body table-responsive">
                 <table class="table table-hover">
                     <tbody>
                     @foreach ($importFields as $key => $field)

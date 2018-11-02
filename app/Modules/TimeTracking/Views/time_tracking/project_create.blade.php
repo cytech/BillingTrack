@@ -57,7 +57,7 @@
                                     $('.client-lookup').autocomplete({
                                         source: '{{ route('clients.ajax.lookup') }}',
                                         minLength: 3
-                                    }).autocomplete("widget").addClass("fixed-height");
+                                    }).autocomplete("widget");
                                 </script>
                             </div>
                             <div class="col-md-4">

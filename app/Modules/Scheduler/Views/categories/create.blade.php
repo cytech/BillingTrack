@@ -22,14 +22,14 @@
             <div class="card-body">
                 <!-- Name input-->
                 <div class="form-group">
-                    {!! Form::label('name',trans('fi.category_name'),['class'=>'col-sm-2 control-label']) !!}
+                    {!! Form::label('name',trans('fi.category_name'),['class'=>'col-sm-2 col-form-label']) !!}
                     <div class="col-md-6">
                         {!! Form::text('name',old('name'),['id'=>'name', 'placeholder'=>'Category Name', 'class'=>'form-control', 'autocomplete' => 'off']) !!}
                     </div>
                 </div>
                 <!-- text_color input-->
                 <div id="cp1" class="form-group colorpicker-component">
-                    {!! Form::label('text_color',trans('fi.category_text_color'),['class'=>'col-sm-2 control-label']) !!}
+                    {!! Form::label('text_color',trans('fi.category_text_color'),['class'=>'col-sm-2 col-form-label']) !!}
                     <div class="input-group col-md-3">
                         {!! Form::text('text_color',Request::old('text_color'),['id'=>'text_color', 'placeholder'=>'Text Color', 'class'=>'form-control', 'autocomplete' => 'off']) !!}
                         <div class="input-group-append">
@@ -40,7 +40,7 @@
                 </div>
                 <!-- text_color input-->
                 <div id="cp2" class="form-group colorpicker-component">
-                    {!! Form::label('bg_color',trans('fi.category_bg_color'),['class'=>'col-sm-2 control-label']) !!}
+                    {!! Form::label('bg_color',trans('fi.category_bg_color'),['class'=>'col-sm-2 col-form-label']) !!}
                     <div class="input-group col-md-3">
                         {!! Form::text('bg_color',Request::old('bg_color'),['id'=>'bg_color', 'placeholder'=>'Background Color', 'class'=>'form-control', 'autocomplete' => 'off']) !!}
                         <div class="input-group-append">

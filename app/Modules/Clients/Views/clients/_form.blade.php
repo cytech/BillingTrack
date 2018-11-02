@@ -11,7 +11,7 @@
         <div class="form-group">
             <label>* {{ trans('fi.client_name') }}:</label>
             {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
-            <p class="help-block">
+            <p class="form-text text-muted">
                 <small>{{ trans('fi.help_text_client_name') }}
                     <a href="javascript:void(0)" id="btn-show-unique-name"
                        tabindex="-1">{{ trans('fi.view_unique_name') }}</a>
@@ -23,7 +23,7 @@
         <div class="form-group">
             <label>* {{ trans('fi.unique_name') }}:</label>
             {!! Form::text('unique_name', null, ['id' => 'unique_name', 'class' => 'form-control']) !!}
-            <p class="help-block">
+            <p class="form-text text-muted">
                 <small>{{ trans('fi.help_text_client_unique_name') }}</small>
             </p>
         </div>

@@ -36,7 +36,7 @@
                             </td>
                             <td>
                                 @if ($addon->enabled)
-                                    <a href="#" class="btn btn-sm btn-default"
+                                    <a href="#" class="btn btn-sm btn-secondary"
                                        onclick="swalConfirm('{{ trans('fi.uninstall_addon_warning') }}', '{{ route('addons.uninstall', [$addon->id]) }}');">{{ trans('fi.disable') }}</a>
                                     @if ($addon->has_pending_migrations)
                                         <a href="{{ route('addons.upgrade', [$addon->id]) }}"
@@ -44,7 +44,7 @@
                                     @endif
                                 @else
                                     <a href="{{ route('addons.install', [$addon->id]) }}"
-                                       class="btn btn-sm btn-default">{{ trans('fi.install') }}</a>
+                                       class="btn btn-sm btn-secondary">{{ trans('fi.install') }}</a>
                                 @endif
                             </td>
                         </tr>

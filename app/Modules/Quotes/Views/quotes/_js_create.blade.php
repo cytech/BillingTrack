@@ -10,7 +10,7 @@
                 appendTo: '#create-quote',
                 source: '{{ route('clients.ajax.lookup') }}',
                 minLength: 3
-            }).autocomplete("widget").addClass("fixed-height");
+            }).autocomplete("widget");
         });
 
         $("#create_quote_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});

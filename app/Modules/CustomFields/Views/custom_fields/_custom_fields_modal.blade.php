@@ -6,7 +6,7 @@
 
 @foreach ($customFields as $customField)
     <div class="form-group">
-        <label class="col-sm-3 control-label">{{ $customField->field_label }}</label>
+        <label class="col-sm-3 col-form-label">{{ $customField->field_label }}</label>
 
         <div class="col-sm-9">
             @if ($customField->field_type == 'dropdown')

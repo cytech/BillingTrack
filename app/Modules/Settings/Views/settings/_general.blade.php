@@ -37,8 +37,8 @@
 
             <div class="input-group">
                 {!! Form::text('version', config('fi.version'), ['class' => 'form-control', 'disabled' => 'disabled']) !!}
-                <span class="input-group-btn">
-					<button class="btn btn-default" id="btn-check-update"
+                <span class="input-group-append">
+					<button class="btn btn-secondary" id="btn-check-update"
                             type="button" disabled>{{ trans('fi.check_for_update') }} </button>
 				</span>
             </div>
@@ -183,7 +183,7 @@
         <div class="form-group">
             <label>{{ trans('fi.force_https') }}:</label>
             {!! Form::select('setting[forceHttps]', $yesNoArray, config('fi.forceHttps'), ['class' => 'form-control', 'title' => trans('fi.force_https_help') ]) !!}
-            {{--<p class="help-block">{{ trans('fi.force_https_help') }}</p>--}}
+            {{--<p class="form-text text-muted">{{ trans('fi.force_https_help') }}</p>--}}
         </div>
     </div>
 </div>

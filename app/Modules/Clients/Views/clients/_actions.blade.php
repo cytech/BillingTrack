@@ -1,6 +1,6 @@
 <div class="btn-group">
-    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-        {{ trans('fi.options') }} <span class="caret"></span>
+    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+        {{ trans('fi.options') }}
     </button>
     <div class="dropdown-menu dropdown-menu-right" role="menu">
         <a class="dropdown-item" href="{{ route('clients.show', [$id]) }}" id="view-client-{{ $id }}"><i

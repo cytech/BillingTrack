@@ -14,9 +14,10 @@
         <h3 class="float-left">
             {{ trans('fi.reset_password') }}: {{ $user->name }} ({{ $user->email }})
         </h3>
-        <div class="float-right">
-            {!! Form::submit(trans('fi.reset_password'), ['class' => 'btn btn-primary']) !!}
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('users.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-user-lock"></i> {{ trans('fi.reset_password') }} </button>
         <div class="clearfix"></div>
     </section>
 

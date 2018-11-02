@@ -18,9 +18,10 @@
         <h3 class="float-left">
             {{ trans('fi.tax_rate_form') }}
         </h3>
-        <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('taxRates.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 
@@ -68,7 +69,7 @@
                         {!! Form::select('is_compound', ['0' => trans('fi.no'), '1' => trans('fi.yes')],
                         null, ['class' => 'form-control']) !!}
                     @endif
-                    <span class="help-block">{{ trans('fi.compound_tax_note') }}</span>
+                    <span class="form-text text-muted">{{ trans('fi.compound_tax_note') }}</span>
                 </div>
             </div>
         </div>

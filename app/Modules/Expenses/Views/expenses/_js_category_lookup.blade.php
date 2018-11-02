@@ -5,7 +5,7 @@
         $('.category-lookup').autocomplete({
             source: '{{ route('expenses.lookupCategory') }}',
             minLength: 3
-        }).autocomplete("widget").addClass("fixed-height");
+        }).autocomplete("widget");
 
     });
 

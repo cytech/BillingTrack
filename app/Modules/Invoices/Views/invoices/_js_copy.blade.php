@@ -13,7 +13,7 @@
             appendTo: '#modal-copy-invoice',
             source: '{{ route('clients.ajax.lookup') }}',
             minLength: 3
-        }).autocomplete("widget").addClass("fixed-height");
+        }).autocomplete("widget");
 
         // Creates the invoice
         $('#btn-copy-invoice-submit').click(function () {

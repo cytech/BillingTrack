@@ -26,9 +26,10 @@
         <h3 class="float-left">
             {{ trans('fi.company_profile_form') }}
         </h3>
-        <div class="float-right">
-            {!! Form::submit(trans('fi.save'), ['class' => 'btn btn-primary']) !!}
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('companyProfiles.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 

@@ -46,7 +46,7 @@
             <label>{{ trans('fi.coreeventslist') }}</label>
             <div class="col-lg-8 col-sm-8">
                 @foreach (\FI\Modules\Settings\Models\Setting::$coreevents as $entityType => $value)
-                    <div class="checkbox">
+                    <div class="form-check">
                         <label for="enabledCoreEvents{{ $value}}">
                             <input name="enabledCoreEvents[]" id="enabledCoreEvents{{ $value}}" type="checkbox" {{ (new \FI\Modules\Settings\Models\Setting())->isCoreeventEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}">{{ trans("fi.{$entityType}") }}</label>
                     </div>
@@ -62,13 +62,13 @@
     </div>
     <div class="col-md-8">
         <br>
-        <span class="help-block">Display Defaults:</span><br>
-        <span class="help-block">Quotes: if expires_at, else quote_date</span><br>
-        <span class="help-block">Workorders: job_date</span><br>
-        <span class="help-block">Invoices: If due_at, else invoice_date</span><br>
-        <span class="help-block">Payments: paid_at</span><br>
-        <span class="help-block">Expenses: expense_date</span><br>
-        <span class="help-block">Projects: due_at</span><br>
-        <span class="help-block">Tasks: start time of first timer in task</span>
+        <span class="form-text text-muted">Display Defaults:</span><br>
+        <span class="form-text text-muted">Quotes: if expires_at, else quote_date</span><br>
+        <span class="form-text text-muted">Workorders: job_date</span><br>
+        <span class="form-text text-muted">Invoices: If due_at, else invoice_date</span><br>
+        <span class="form-text text-muted">Payments: paid_at</span><br>
+        <span class="form-text text-muted">Expenses: expense_date</span><br>
+        <span class="form-text text-muted">Projects: due_at</span><br>
+        <span class="form-text text-muted">Tasks: start time of first timer in task</span>
     </div>
 </div>

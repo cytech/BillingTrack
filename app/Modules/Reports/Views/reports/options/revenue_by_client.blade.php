@@ -94,7 +94,7 @@
 
         <div class="row" id="preview"
              style="height: 100%; background-color: #e6e6e6; padding: 25px; margin: 0; display: none;">
-            <div class="col-lg-10 col-lg-offset-1" style="background-color: white;">
+            <div class="col-lg-10 offset-1" style="background-color: white;">
                 <iframe src="about:blank" id="preview-results" frameborder="0" style="width: 100%;" scrolling="no"
                         onload="resizeIframe(this, 500);"></iframe>
             </div>

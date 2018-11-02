@@ -27,7 +27,7 @@
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
-                    {{ trans('fi.new') }} <span class="caret"></span>
+                    {{ trans('fi.new') }}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{{ route('users.create', ['admin']) }}">{{ trans('fi.admin_account') }}</a>

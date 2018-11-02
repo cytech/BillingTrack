@@ -18,9 +18,10 @@
         <h3 class="float-left">
             {{ trans('fi.payment_method_form') }}
         </h3>
-        <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('paymentMethods.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 

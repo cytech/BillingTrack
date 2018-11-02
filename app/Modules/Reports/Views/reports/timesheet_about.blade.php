@@ -3,13 +3,13 @@
 @section('content')
     {{--{!! Form::wobreadcrumbs() !!}--}}
     <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><i
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i
                             class="fa fa-fw fa-question-circle"></i>{{ trans('fi.about') }}
                 </h3>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 {{--cut and paste doc start--}}
                 <p style="margin-bottom: 0in; line-height: 100%"><b>About Workorders
                         Timesheet</b></p>

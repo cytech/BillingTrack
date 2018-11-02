@@ -6,8 +6,8 @@
     <div class="float-right">
 
         <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                {{ trans('fi.other') }} <span class="caret"></span>
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                {{ trans('fi.other') }}
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a class="dropdown-item" href="javascript:void(0)" id="btn-copy-recurring-invoice"><i
@@ -21,7 +21,7 @@
 
         <div class="btn-group">
             @if ($returnUrl)
-                <a href="{{ $returnUrl }}" class="btn btn-default"><i
+                <a href="{{ $returnUrl }}" class="btn btn-secondary"><i
                         class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
             @endif
         </div>
@@ -30,7 +30,7 @@
             <button type="button" class="btn btn-primary btn-save-recurring-invoice"><i
                     class="fa fa-save"></i> {{ trans('fi.save') }}</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
+
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a class="dropdown-item" href="#" class="btn-save-recurring-invoice"
@@ -145,7 +145,7 @@
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-default btn-delete-recurring-invoice-item" href="javascript:void(0);"
+                                            <a class="btn btn-sm btn-secondary btn-delete-recurring-invoice-item" href="javascript:void(0);"
                                                title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -222,7 +222,7 @@
 
                     <div class="form-group">
                         <label>{{ trans('fi.next_date') }}</label>
-                        {!! Form::text('next_date', $recurringInvoice->formatted_next_date, ['id' => 'next_date', 'class' => 'form-control input-sm']) !!}
+                        {!! Form::text('next_date', $recurringInvoice->formatted_next_date, ['id' => 'next_date', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
@@ -239,32 +239,34 @@
 
                     <div class="form-group">
                         <label>{{ trans('fi.stop_date') }}</label>
-                        {!! Form::text('stop_date', $recurringInvoice->formatted_stop_date, ['id' => 'stop_date', 'class' => 'form-control input-sm']) !!}
+                        {!! Form::text('stop_date', $recurringInvoice->formatted_stop_date, ['id' => 'stop_date', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.discount') }}</label>
-                        <div class="input-group">
+                        <div class="input-group input-group-sm">
                             {!! Form::text('discount', $recurringInvoice->formatted_numeric_discount, ['id' =>
-                            'discount', 'class' => 'form-control input-sm']) !!}
-                            <span class="input-group-addon">%</span>
+                            'discount', 'class' => 'form-control form-control-sm']) !!}
+                            <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.currency') }}</label>
                         {!! Form::select('currency_code', $currencies, $recurringInvoice->currency_code, ['id' =>
-                        'currency_code', 'class' => 'form-control input-sm']) !!}
+                        'currency_code', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.exchange_rate') }}</label>
                         <div class="input-group">
-                            {!! Form::text('exchange_rate', $recurringInvoice->exchange_rate, ['id' => 'exchange_rate', 'class' => 'form-control input-sm']) !!}
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" id="btn-update-exchange-rate" type="button"
+                            {!! Form::text('exchange_rate', $recurringInvoice->exchange_rate, ['id' => 'exchange_rate', 'class' => 'form-control form-control-sm']) !!}
+                            <span class="input-group-append">
+                                <button class="btn btn-sm" id="btn-update-exchange-rate" type="button"
                                         data-toggle="tooltip" data-placement="left" title="{{ trans('fi.update_exchange_rate') }}">
-                                    <i class="fa fa-refresh"></i>
+                                    <i class="fa fa-sync"></i>
                                 </button>
                             </span>
                         </div>
@@ -272,12 +274,12 @@
 
                     <div class="form-group">
                         <label>{{ trans('fi.group') }}</label>
-                        {!! Form::select('group_id', $groups, $recurringInvoice->group_id, ['id' => 'group_id', 'class' => 'form-control input-sm']) !!}
+                        {!! Form::select('group_id', $groups, $recurringInvoice->group_id, ['id' => 'group_id', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.template') }}</label>
-                        {!! Form::select('template', $templates, $recurringInvoice->template, ['id' => 'template', 'class' => 'form-control input-sm']) !!}
+                        {!! Form::select('template', $templates, $recurringInvoice->template, ['id' => 'template', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                 </div>

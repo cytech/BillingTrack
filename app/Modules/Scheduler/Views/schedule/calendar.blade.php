@@ -36,7 +36,7 @@
                             appendTo: "#updateCalendarEvent",
                             source: "/scheduler/ajax/employee",
                             minLength: 2
-                        }).autocomplete("widget").addClass("fixed-height");
+                        }).autocomplete("widget");
                     </script>
                 </div>
                 <div class="form-group d-flex align-items-center">
@@ -110,7 +110,7 @@
                             appendTo: "#updateCalendarEvent",
                             source: "/scheduler/ajax/employee",
                             minLength: 2
-                        }).autocomplete("widget").addClass("fixed-height");
+                        }).autocomplete("widget");
                     </script>
                 </div>
                 <div class="form-group d-flex align-items-center">

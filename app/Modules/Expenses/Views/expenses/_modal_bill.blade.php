@@ -45,23 +45,23 @@
 
                     @if ($invoices)
                         <div class="form-group">
-                            <label class="control-label">* {{ trans('fi.label_invoice') }}:</label>
+                            <label class="col-form-label">* {{ trans('fi.label_invoice') }}:</label>
                             {!! Form::select('invoice_id', $invoices, null, ['id' => 'invoice_id', 'class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label">{!! Form::radio('add_line_item', 1, true, ['class' => 'add-line-item']) !!} {{ trans('fi.add_line_item_to_invoice') }}</label><br>
-                            <label class="control-label">{!! Form::radio('add_line_item', 0, false, ['class' => 'add-line-item']) !!} {{ trans('fi.do_not_add_line_item_to_invoice') }}</label>
+                            <label class="col-form-label">{!! Form::radio('add_line_item', 1, true, ['class' => 'add-line-item']) !!} {{ trans('fi.add_line_item_to_invoice') }}</label><br>
+                            <label class="col-form-label">{!! Form::radio('add_line_item', 0, false, ['class' => 'add-line-item']) !!} {{ trans('fi.do_not_add_line_item_to_invoice') }}</label>
                         </div>
 
                         <div id="line-item-options">
                             <div class="form-group">
-                                <label class="control-label">* {{ trans('fi.label_item_name') }}:</label>
+                                <label class="col-form-label">* {{ trans('fi.label_item_name') }}:</label>
                                 {!! Form::text('item_name', $expense->category->name, ['id' => 'item_name', 'class' => 'form-control']) !!}
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label">{{ trans('fi.label_item_description') }}:</label>
+                                <label class="col-form-label">{{ trans('fi.label_item_description') }}:</label>
                                 {!! Form::textarea('item_description', $expense->description, ['id' => 'item_description', 'rows' => '3', 'class' => 'form-control']) !!}
                             </div>
                         </div>
@@ -73,7 +73,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 @if ($invoices)
                     <button type="button" id="btn-create-expense-bill-confirm" class="btn btn-primary">{{ trans('fi.submit') }}</button>
                 @endif

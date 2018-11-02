@@ -37,7 +37,7 @@
 
         <div class="float-right">
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
+            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
             <a href="javascript:void(0)" id="btn-enter-multi-payment" class="btn btn-primary enter-multi-payment"
                data-redirect-to="{{ request()->fullUrl() }}"><i

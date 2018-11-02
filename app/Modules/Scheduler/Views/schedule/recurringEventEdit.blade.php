@@ -32,7 +32,7 @@
                                     appendTo: "#event",
                                     source: "/scheduler/ajax/employee",
                                     minLength: 2
-                                }).autocomplete("widget").addClass("fixed-height");
+                                }).autocomplete("widget");
                             </script>
                         </div>
                         <div class="form-group d-flex align-items-center">
@@ -83,7 +83,7 @@
                         <div id="addReminderShow">
                         </div>
                         <div class="form-group offset-2">
-                            <div class="col-sm-offset-2 col-sm-10">
+                            <div class="offset-2 col-sm-10">
                                 <button type="button" id="addReminderCreate"
                                         class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('fi.add_reminder') }}
                                 </button>

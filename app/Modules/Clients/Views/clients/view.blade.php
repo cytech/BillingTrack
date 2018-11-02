@@ -7,11 +7,11 @@
             {{ trans('fi.view_client') }}
         </h3>
         <div class="float-right">
-            <a href="javascript:void(0)" class="btn btn-default create-quote" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_quote') }}</a>
-            <a href="javascript:void(0)" class="btn btn-default create-workorder" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_workorder') }}</a>
-            <a href="javascript:void(0)" class="btn btn-default create-invoice" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_invoice') }}</a>
-            <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-default">{{ trans('fi.edit') }}</a>
-            <a class="btn btn-default" href="#"
+            <a href="javascript:void(0)" class="btn btn-secondary create-quote" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_quote') }}</a>
+            <a href="javascript:void(0)" class="btn btn-secondary create-workorder" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_workorder') }}</a>
+            <a href="javascript:void(0)" class="btn btn-secondary create-invoice" data-unique-name="{{ $client->unique_name }}">{{ trans('fi.create_invoice') }}</a>
+            <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-secondary">{{ trans('fi.edit') }}</a>
+            <a class="btn btn-secondary" href="#"
                onclick="swalConfirm('{{ trans('fi.trash_client_warning') }}', '{{ route('clients.delete', [$client->id]) }}');"><i class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
         </div>
         <div class="clearfix"></div>
@@ -67,32 +67,32 @@
                                 <div class="col-md-12">
 
                                     <table class="table table-striped">
-                                        <tr>
+                                        <tr class="row">
                                             <td class="col-md-2">{{ trans('fi.address') }}</td>
                                             <td class="col-md-10">{!! $client->formatted_address !!}</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="row">
                                             <td class="col-md-2">{{ trans('fi.email') }}</td>
                                             <td class="col-md-10"><a href="mailto:{!! $client->email !!}">{!! $client->email !!}</a></td>
                                         </tr>
-                                        <tr>
+                                        <tr class="row">
                                             <td class="col-md-2">{{ trans('fi.phone') }}</td>
                                             <td class="col-md-10">{!! $client->phone !!}</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="row">
                                             <td class="col-md-2">{{ trans('fi.mobile') }}</td>
                                             <td class="col-md-10">{!! $client->mobile !!}</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="row">
                                             <td class="col-md-2">{{ trans('fi.fax') }}</td>
                                             <td class="col-md-10">{!! $client->fax !!}</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="row">
                                             <td class="col-md-2">{{ trans('fi.web') }}</td>
                                             <td class="col-md-10"><a href="{!! $client->web !!}" target="_blank">{!! $client->web !!}</a></td>
                                         </tr>
                                         @foreach ($customFields as $customField)
-                                            <tr>
+                                            <tr class="row">
                                                 <td class="col-md-2">{!! $customField->field_label !!}</td>
                                                 <td class="col-md-10">
                                                     @if (isset($client->custom->{$customField->column_name}))
@@ -110,37 +110,37 @@
                         </div>
 
                         <div id="tab-quotes" class="tab-pane">
-                            <div class="panel panel-default">
+                            <div class="card">
                                 @include('quotes._table')
-                                <div class="panel-footer"><p class="text-center"><strong><a href="{{ route('quotes.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
+                                <div class="card-footer"><p class="text-center"><strong><a href="{{ route('quotes.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
                             </div>
                         </div>
 
                         <div id="tab-workorders" class="tab-pane">
-                            <div class="panel panel-default">
+                            <div class="card">
                                 @include('workorders.partials._table')
-                                <div class="panel-footer"><p class="text-center"><strong><a href="{{ route('workorders.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
+                                <div class="card-footer"><p class="text-center"><strong><a href="{{ route('workorders.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
                             </div>
                         </div>
 
                         <div id="tab-invoices" class="tab-pane">
-                            <div class="panel panel-default">
+                            <div class="card">
                                 @include('invoices._table')
-                                <div class="panel-footer"><p class="text-center"><strong><a href="{{ route('invoices.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
+                                <div class="card-footer"><p class="text-center"><strong><a href="{{ route('invoices.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
                             </div>
                         </div>
 
                         <div id="tab-recurring-invoices" class="tab-pane">
-                            <div class="panel panel-default">
+                            <div class="card">
                                 @include('recurring_invoices._table')
-                                <div class="panel-footer"><p class="text-center"><strong><a href="{{ route('recurringInvoices.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
+                                <div class="card-footer"><p class="text-center"><strong><a href="{{ route('recurringInvoices.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
                             </div>
                         </div>
 
                         <div id="tab-payments" class="tab-pane">
-                            <div class="panel panel-default">
+                            <div class="card">
                                 @include('payments._table')
-                                <div class="panel-footer"><p class="text-center"><strong><a href="{{ route('payments.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
+                                <div class="card-footer"><p class="text-center"><strong><a href="{{ route('payments.index') }}?client={{ $client->id }}">{{ trans('fi.view_all') }}</a></strong></p></div>
                             </div>
                         </div>
 

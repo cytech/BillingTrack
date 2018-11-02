@@ -30,7 +30,7 @@ mix.copy('node_modules/daterangepicker/daterangepicker.js', 'public/plugins/date
 mix.copy('node_modules/daterangepicker/moment.min.js', 'public/plugins/daterangepicker/moment.min.js');
 mix.copy('node_modules/fastclick/lib/fastclick.js', 'public/plugins/fastclick/fastclick.js');
 //mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/plugins/jQuery/jquery.min.js');
-mix.copy('node_modules/jquery-ui-dist/jquery-ui.min.js', 'public/plugins/jQueryUI/jquery-ui.min.js');
+// mix.copy('node_modules/jquery-ui-dist/jquery-ui.min.js', 'public/plugins/jQueryUI/jquery-ui.min.js');
 mix.copy('node_modules/jquery-slimscroll/jquery.slimscroll.min.js', 'public/plugins/slimScroll/jquery.slimscroll.min.js');
 mix.copy('node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css', 'public/plugins/timepicker/bootstrap-timepicker.min.css');
 mix.copy('node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js', 'public/plugins/timepicker/bootstrap-timepicker.min.js');

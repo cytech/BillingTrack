@@ -19,7 +19,7 @@
             <div class="col-lg-12">
                 <div class="card card-light">
 
-                    <div class="card-body no-padding">
+                    <div class="card-body">
                         <table class="table table-hover">
                             <thead>
                             <tr>
@@ -41,8 +41,8 @@
                                     <td>{{ $resource->workorder->client->unique_name }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                {{ trans('fi.options') }} <span class="caret"></span>
+                                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                {{ trans('fi.options') }}
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="btn replace-employee dropdown-item" href="javascript:void(0)"

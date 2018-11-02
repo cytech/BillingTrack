@@ -3,12 +3,12 @@
     <thead>
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
-        <th class="hidden-sm hidden-xs">{{ trans('fi.status') }}</th>
+        <th>{{ trans('fi.status') }}</th>
         <th>{{ trans('fi.quote') }}</th>
-        <th class="hidden-xs">{{ trans('fi.date') }}</th>
-        <th class="hidden-sm hidden-xs">{{ trans('fi.expires') }}</th>
+        <th>{{ trans('fi.date') }}</th>
+        <th>{{ trans('fi.expires') }}</th>
         <th>{{ trans('fi.client') }}</th>
-        <th class="hidden-sm hidden-xs">{{ trans('fi.summary') }}</th>
+        <th>{{ trans('fi.summary') }}</th>
         <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
         <th>{{ trans('fi.invoiced') }}</th>
         <th>{{ trans('fi.options') }}</th>
@@ -19,7 +19,7 @@
     @foreach ($quotes as $quote)
         <tr>
             <td><input type="checkbox" class="bulk-record" data-id="{{ $quote->id }}"></td>
-            <td class="hidden-sm hidden-xs">
+            <td>
                 <span class="badge badge-{{ $statuses[$quote->quote_status_id] }}">{{ trans('fi.' . $statuses[$quote->quote_status_id]) }}</span>
                 @if ($quote->viewed)
                     <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
@@ -29,13 +29,13 @@
             </td>
             <td><a href="{{ route('quotes.edit', [$quote->id]) }}"
                    title="{{ trans('fi.edit') }}">{{ $quote->number }}</a></td>
-            <td class="hidden-xs">{{ $quote->formatted_quote_date }}</td>
-            <td class="hidden-sm hidden-xs">{{ $quote->formatted_expires_at }}</td>
+            <td>{{ $quote->formatted_quote_date }}</td>
+            <td>{{ $quote->formatted_expires_at }}</td>
             <td><a href="{{ route('clients.show', [$quote->client->id]) }}"
                    title="{{ trans('fi.view_client') }}">{{ $quote->client->unique_name }}</a></td>
-            <td class="hidden-sm hidden-xs">{{ $quote->summary }}</td>
+            <td>{{ mb_strimwidth($quote->summary,0,100,'...') }}</td>
             <td style="text-align: right; padding-right: 25px;">{{ $quote->amount->formatted_total }}</td>
-            <td class="hidden-xs">
+            <td>
                 @if ($quote->invoice)
                     <a href="{{ route('invoices.edit', [$quote->invoice_id]) }}">{{ trans('fi.invoice') }}</a>
                 @elseif ($quote->workorder)
@@ -46,8 +46,8 @@
             </td>
             <td>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ trans('fi.options') }} <span class="caret"></span>
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        {{ trans('fi.options') }}
                     </button>
                     <div  class="dropdown-menu dropdown-menu-right" role="menu">
                         <a class="dropdown-item" href="{{ route('quotes.edit', [$quote->id]) }}"><i

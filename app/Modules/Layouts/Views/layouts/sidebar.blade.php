@@ -1,6 +1,6 @@
 {{--<aside class="main-sidebar sidebar-dark-primary elevation-2">--}}
 
-<aside class="main-sidebar sidebar-dark-dark elevation-2 side">
+<aside class="main-sidebar sidebar-dark-dark elevation-2">
     <a href="/" class="brand-link bg-{{ str_replace('skin-', '', $skinClass) }} border-bottom">
         <img src="/img/fi_logo.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
         style="opacity: .8">
@@ -26,7 +26,7 @@
                 <div class="input-group">
                     <input type="text" name="search" class="form-control"
                            placeholder="{{ trans('fi.search') }}..."/>
-                    <span class="input-group-btn">
+                    <span class="input-group-append">
                 <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
                 </div>
@@ -39,70 +39,70 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard.index') }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p class="nav-link-text">{{ trans('fi.dashboard') }}</p>
+                        <p>{{ trans('fi.dashboard') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('clients.index', ['status' => 'active']) }}">
                         <i class="nav-icon fas fa-users"></i>
-                        <p class="nav-link-text">{{ trans('fi.clients') }}</p>
+                        <p>{{ trans('fi.clients') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('quotes.index', ['status' => config('fi.quoteStatusFilter')]) }}">
                         <i class="nav-icon far fa-file-alt"></i>
-                        <p class="nav-link-text">{{ trans('fi.quotes') }}</p>
+                        <p>{{ trans('fi.quotes') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('workorders.index', ['status' => config('fi.workorderStatusFilter')]) }}">
                         <i class="nav-icon far fa-file-alt"></i>
-                        <p class="nav-link-text">{{ trans('fi.workorders') }}</p>
+                        <p>{{ trans('fi.workorders') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('invoices.index', ['status' => config('fi.invoiceStatusFilter')]) }}">
                         <i class="nav-icon fas fa-file-alt"></i>
-                        <p class="nav-link-text">{{ trans('fi.invoices') }}</p>
+                        <p>{{ trans('fi.invoices') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('recurringInvoices.index') }}">
                         <i class="nav-icon fas fa-sync-alt"></i>
-                        <p class="nav-link-text">{{ trans('fi.recurring_invoices') }}</p>
+                        <p>{{ trans('fi.recurring_invoices') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('payments.index') }}">
                         <i class="nav-icon fa fa-credit-card"></i>
-                        <p class="nav-link-text">{{ trans('fi.payments') }}</p>
+                        <p>{{ trans('fi.payments') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('expenses.index') }}">
                         <i class="nav-icon fas fa-dollar-sign"></i>
-                        <p class="nav-link-text">{{ trans('fi.expenses') }}</p>
+                        <p>{{ trans('fi.expenses') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('timeTracking.projects.index', ['status' => 1]) }}">
                         <i class="nav-icon far fa-clock"></i>
-                        <p class="nav-link-text">{{ trans('fi.time_tracking') }}</p>
+                        <p>{{ trans('fi.time_tracking') }}</p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="nav-icon fa fa-calendar"></i>
-                        <p class="nav-link-text">{{ trans('fi.scheduler') }}</p>
+                        <p>{{ trans('fi.scheduler') }}</p>
                         <i class="nav-icon fa fa-angle-left float-right"></i>
                     </a>
                     <ul class="nav nav-treeview nav">
                         <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.index') }}"><i
                                         class="nav-icon fas fa-tachometer-alt ml-3"></i>
-                                <p class="nav-link-text"> {{ trans('fi.dashboard') }}</p></a>
+                                <p> {{ trans('fi.dashboard') }}</p></a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.fullcalendar') }}"><i
                                         class="nav-icon fa fa-th ml-3"></i> {{ trans('fi.calendar') }}</a>
@@ -116,9 +116,9 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.tablerecurringevent') }}"><i
                                         class="nav-icon fa fa-sync-alt ml-3"></i> {{ trans('fi.recurring_event') }}</a>
                         </li>
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item">
                             <a class="nav-link" href="#"><i class="nav-icon fa fa-cogs fa-fw ml-3"></i>
-                                <p class="nav-link-text">{{ trans('fi.utilities') }}</p><i
+                                <p>{{ trans('fi.utilities') }}</p><i
                                         class="nav-icon fa fa-angle-left float-right"></i></a>
                             <ul class="nav nav-treeview">
 
@@ -140,10 +140,10 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="nav-icon fa fa-chart-bar"></i>
-                        <p class="nav-link-text">{{ trans('fi.reports') }}</p>
+                        <p>{{ trans('fi.reports') }}</p>
                         <i class="nav-icon fa fa-angle-left float-right"></i>
                     </a>
                     <ul class="nav nav-treeview">

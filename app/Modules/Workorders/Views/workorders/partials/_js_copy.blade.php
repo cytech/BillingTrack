@@ -13,7 +13,7 @@
               appendTo: '#modal-copy-workorder',
               source: '{{ route('clients.ajax.lookup') }}',
               minLength: 3
-          }).autocomplete("widget").addClass("fixed-height");
+          }).autocomplete("widget");
 
         // Creates the workorder
         $('#btn-copy-workorder-submit').click(function () {

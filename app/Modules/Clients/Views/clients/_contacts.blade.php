@@ -66,8 +66,8 @@
                 <td><a href="javascript:void(0)" class="update-default" data-default="bcc" data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_bcc }}</a></td>
                 <td>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                            {{ trans('fi.options') }} <span class="caret"></span>
+                        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                            {{ trans('fi.options') }}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="javascript:void(0)" class="btn-edit-contact" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>

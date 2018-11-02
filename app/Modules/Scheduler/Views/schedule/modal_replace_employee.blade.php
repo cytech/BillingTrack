@@ -11,7 +11,7 @@
 
                 <div id="modal-status-placeholder"></div>
 
-                <form class="form-horizontal">
+                <form>
 
                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" id="user_id">
                     <input type="hidden" name="item_id" value="{{ $item_id }}" id="item_id">
@@ -29,7 +29,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fi.cancel')</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
                 <button type="button" id="replace-employee-confirm"
                         class="btn btn-primary">@lang('fi.submit')</button>
             </div>

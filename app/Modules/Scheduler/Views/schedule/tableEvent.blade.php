@@ -5,7 +5,7 @@
         <h3 class="float-left">{{ trans('fi.events') }}</h3>
         <div class="float-right">
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-trash"><i
+            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-trash"><i
                         class="fa fa-trash"></i> {{ trans('fi.bulk_event_trash') }}</a>
             <a href="{!! route('scheduler.tableeventcreate') !!}" class="btn btn-primary "><i
                         class="fa fa-fw fa-plus"></i> {{ trans('fi.create_event') }}</a>
@@ -20,7 +20,7 @@
             <div class="col-lg-12">
                 <div class="card card-light">
 
-                    <div class="card-body no-padding">
+                    <div class="card-body">
                         @include('partials._dataTable')
                         {{--<table id="dt-filtertable" class="display" cellspacing="0" width="100%">--}}
                             {{--<thead>--}}

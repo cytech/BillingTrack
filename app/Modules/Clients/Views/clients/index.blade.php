@@ -23,17 +23,17 @@
     <section class="content mt-3 mb-3">
         <h3 class="float-left">{{ trans('fi.clients') }}</h3>
         <div class="float-right">
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i
+            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i
                         class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
             <div class="btn-group">
                 <a href="{{ route('clients.index', ['status' => 'active']) }}"
-                   class="btn btn-default @if ($status == 'active') active @endif">{{ trans('fi.active') }}</a>
+                   class="btn btn-secondary @if ($status == 'active') active @endif">{{ trans('fi.active') }}</a>
                 <a href="{{ route('clients.index', ['status' => 'inactive']) }}"
-                   class="btn btn-default @if ($status == 'inactive') active @endif">{{ trans('fi.inactive') }}</a>
+                   class="btn btn-secondary @if ($status == 'inactive') active @endif">{{ trans('fi.inactive') }}</a>
                 <a href="{{ route('clients.index') }}"
-                   class="btn btn-default @if ($status == 'all') active @endif">{{ trans('fi.all') }}</a>
+                   class="btn btn-secondary @if ($status == 'all') active @endif">{{ trans('fi.all') }}</a>
             </div>
-            <a href="{{ route('clients.create') }}" class="btn btn-primary btn-margin-left"><i
+            <a href="{{ route('clients.create') }}" class="btn btn-primary"><i
                         class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
         </div>
         <div class="clearfix"></div>

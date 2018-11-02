@@ -27,7 +27,7 @@
                                         'workorders', ['class' => 'form-control']) !!}
                     </div>
                     <div>
-                        <span class="help-block">Criteria:<br>Quotes- sent or approved, not converted to workorder or invoice<br>
+                        <span class="form-text text-muted">Criteria:<br>Quotes- sent or approved, not converted to workorder or invoice<br>
                         Workorders - sent or approved, not converted to invoice<br>
                         Invoices - sent (not paid)<br>
                         Note: If there are a large number of documents in the daterange, this will take a long time to generate the PDF</span>

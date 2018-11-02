@@ -20,16 +20,16 @@
     <div class="float-right">
 
         <a href="{{ route('invoices.pdf', [$invoice->id]) }}" target="_blank" id="btn-pdf-invoice"
-           class="btn btn-default"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
+           class="btn btn-secondary"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
         @if (config('fi.mailConfigured'))
-            <a href="javascript:void(0)" id="btn-email-invoice" class="btn btn-default email-invoice"
+            <a href="javascript:void(0)" id="btn-email-invoice" class="btn btn-secondary email-invoice"
                data-invoice-id="{{ $invoice->id }}" data-redirect-to="{{ route('invoices.edit', [$invoice->id]) }}"><i
                     class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
         @endif
 
         <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                {{ trans('fi.other') }} <span class="caret"></span>
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                {{ trans('fi.other') }}
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 @if ($invoice->isPayable or config('fi.allowPaymentsWithoutBalance'))
@@ -52,7 +52,7 @@
 
         <div class="btn-group">
             @if ($returnUrl)
-                <a href="{{ $returnUrl }}" class="btn btn-default"><i
+                <a href="{{ $returnUrl }}" class="btn btn-secondary"><i
                         class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
             @endif
         </div>
@@ -61,7 +61,7 @@
             <button type="button" class="btn btn-primary btn-save-invoice"><i
                     class="fa fa-save"></i> {{ trans('fi.save') }}</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
+
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a class="dropdown-item" href="#" class="btn-save-invoice"
@@ -176,7 +176,7 @@
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-default btn-delete-invoice-item" href="javascript:void(0);"
+                                            <a class="btn btn-sm btn-secondary btn-delete-invoice-item" href="javascript:void(0);"
                                                title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -303,45 +303,47 @@
                         <label>{{ trans('fi.invoice') }} #</label>
                         {!! Form::text('number', $invoice->number, ['id' => 'number', 'class' =>
                         'form-control
-                        input-sm']) !!}
+                        form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.date') }}</label>
                         {!! Form::text('invoice_date', $invoice->formatted_invoice_date, ['id' =>
-                        'invoice_date', 'class' => 'form-control input-sm']) !!}
+                        'invoice_date', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.due_date') }}</label>
                         {!! Form::text('due_at', $invoice->formatted_due_at, ['id' => 'due_at', 'class'
-                        => 'form-control input-sm']) !!}
+                        => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.discount') }}</label>
-                        <div class="input-group">
+                        <div class="input-group input-group-sm">
                             {!! Form::text('discount', $invoice->formatted_numeric_discount, ['id' =>
-                            'discount', 'class' => 'form-control input-sm']) !!}
-                            <span class="input-group-addon">%</span>
+                            'discount', 'class' => 'form-control form-control-sm']) !!}
+                            <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.currency') }}</label>
                         {!! Form::select('currency_code', $currencies, $invoice->currency_code, ['id' =>
-                        'currency_code', 'class' => 'form-control input-sm']) !!}
+                        'currency_code', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.exchange_rate') }}</label>
                         <div class="input-group">
                             {!! Form::text('exchange_rate', $invoice->exchange_rate, ['id' =>
-                            'exchange_rate', 'class' => 'form-control input-sm']) !!}
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" id="btn-update-exchange-rate" type="button"
+                            'exchange_rate', 'class' => 'form-control form-control-sm']) !!}
+                            <span class="input-group-append">
+                                <button class="btn btn-sm" id="btn-update-exchange-rate" type="button"
                                         data-toggle="tooltip" data-placement="left"
-                                        title="{{ trans('fi.update_exchange_rate') }}"><i class="fa fa-refresh"></i>
+                                        title="{{ trans('fi.update_exchange_rate') }}"><i class="fa fa-sync"></i>
                                 </button>
                             </span>
                         </div>
@@ -350,13 +352,13 @@
                     <div class="form-group">
                         <label>{{ trans('fi.status') }}</label>
                         {!! Form::select('invoice_status_id', $statuses, $invoice->invoice_status_id,
-                        ['id' => 'invoice_status_id', 'class' => 'form-control input-sm']) !!}
+                        ['id' => 'invoice_status_id', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.template') }}</label>
                         {!! Form::select('template', $templates, $invoice->template,
-                        ['id' => 'template', 'class' => 'form-control input-sm']) !!}
+                        ['id' => 'template', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                 </div>

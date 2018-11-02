@@ -20,17 +20,17 @@
     <div class="float-right">
 
         <a href="{{ route('workorders.pdf', [$workorder->id]) }}" target="_blank" id="btn-pdf-workorder"
-           class="btn btn-default"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
+           class="btn btn-secondary"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
         {{-- removed email button from workorders, there should not be emailing a customer a workorder, only a quote or invoice --}}
         {{--@if (config('fi.mailConfigured'))
-            <a href="javascript:void(0)" id="btn-email-workorder" class="btn btn-default email-workorder"
+            <a href="javascript:void(0)" id="btn-email-workorder" class="btn btn-secondary email-workorder"
                data-workorder-id="{{ $workorder->id }}" data-redirect-to="{{ route('workorders.edit', [$workorder->id]) }}"><i
                         class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
         @endif--}}
 
         <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                {{ trans('fi.other') }} <span class="caret"></span>
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                {{ trans('fi.other') }}
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a class="dropdown-item" href="javascript:void(0)" id="btn-copy-workorder"><i
@@ -46,7 +46,7 @@
 
         <div class="btn-group">
             @if ($returnUrl)
-                <a href="{{ $returnUrl }}" class="btn btn-default"><i
+                <a href="{{ $returnUrl }}" class="btn btn-secondary"><i
                             class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
             @endif
         </div>
@@ -55,7 +55,7 @@
             <button type="button" class="btn btn-primary btn-save-workorder"><i
                         class="fa fa-save"></i> {{ trans('fi.save') }}</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
+
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a class="dropdown-item" href="#" class="btn-save-workorder"
@@ -111,21 +111,21 @@
                     <label class="col-sm-4 text-right text">{{ trans('fi.job_date') }}</label>
                     <div class="col-sm-8">
                     {!! Form::text('job_date', $workorder->formatted_job_date, ['id' =>
-                    'job_date', 'class' => 'form-control input-sm']) !!}
+                    'job_date', 'class' => 'form-control form-control-sm']) !!}
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-4 text-right text">{{ trans('fi.start_time') }}</label>
                     <div class="col-sm-8">
                     {!! Form::text('start_time', $workorder->formatted_start_time, ['id' =>
-                    'start_time', 'class' => 'form-control input-sm']) !!}
+                    'start_time', 'class' => 'form-control form-control-sm']) !!}
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-4 text-right text">{{ trans('fi.end_time') }}</label>
                     <div class="col-sm-8">
                     {!! Form::text('end_time', $workorder->formatted_end_time, ['id' =>
-                    'end_time', 'class' => 'form-control input-sm']) !!}
+                    'end_time', 'class' => 'form-control form-control-sm']) !!}
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
@@ -216,7 +216,7 @@
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
-                                            <a class="btn btn-sm btn-default btn-delete-workorder-item" href="#"
+                                            <a class="btn btn-sm btn-secondary btn-delete-workorder-item" href="#"
                                                title="{{ trans('fi.delete') }}" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
@@ -301,37 +301,39 @@
                         <label>{{ trans('fi.workorder') }} #</label>
                         {!! Form::text('number', $workorder->number, ['id' => 'number', 'class' =>
                         'form-control
-                        input-sm']) !!}
+                        form-control-sm']) !!}
                     </div>
                     <div class="form-group">
                         <label>{{ trans('fi.date') }}</label>
                         {!! Form::text('workorder_date', $workorder->formatted_workorder_date, ['id' =>
-                        'workorder_date', 'class' => 'form-control input-sm']) !!}
+                        'workorder_date', 'class' => 'form-control form-control-sm']) !!}
                     </div>
                     <div class="form-group">
                         <label>{{ trans('fi.status') }}</label>
                         {!! Form::select('workorder_status_id', $statuses, $workorder->workorder_status_id,
-                        ['id' => 'workorder_status_id', 'class' => 'form-control input-sm']) !!}
+                        ['id' => 'workorder_status_id', 'class' => 'form-control form-control-sm']) !!}
                     </div>
                     <div class="form-group">
                         <label>{{ trans('fi.expires') }}</label>
                         {!! Form::text('expires_at', $workorder->formatted_expires_at, ['id' => 'expires_at', 'class'
-                        => 'form-control input-sm']) !!}
+                        => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.discount') }}</label>
-                        <div class="input-group">
+                        <div class="input-group input-group-sm">
                             {!! Form::text('discount', $workorder->formatted_numeric_discount, ['id' =>
-                            'discount', 'class' => 'form-control input-sm']) !!}
-                            <span class="input-group-addon">%</span>
+                            'discount', 'class' => 'form-control form-control-sm']) !!}
+                            <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>{{ trans('fi.currency') }}</label>
                         {!! Form::select('currency_code', $currencies, $workorder->currency_code, ['id' =>
-                        'currency_code', 'class' => 'form-control input-sm']) !!}
+                        'currency_code', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
@@ -339,11 +341,11 @@
 
                         <div class="input-group">
                             {!! Form::text('exchange_rate', $workorder->exchange_rate, ['id' =>
-                            'exchange_rate', 'class' => 'form-control input-sm']) !!}
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-sm" id="btn-update-exchange-rate" type="button"
+                            'exchange_rate', 'class' => 'form-control form-control-sm']) !!}
+                            <span class="input-group-append">
+                                <button class="btn btn-sm" id="btn-update-exchange-rate" type="button"
                                         data-toggle="tooltip" data-placement="left"
-                                        title="{{ trans('fi.update_exchange_rate') }}"><i class="fa fa-refresh"></i>
+                                        title="{{ trans('fi.update_exchange_rate') }}"><i class="fa fa-sync"></i>
                                 </button>
                             </span>
                         </div>
@@ -351,7 +353,7 @@
                     <div class="form-group">
                         <label>{{ trans('fi.template') }}</label>
                         {!! Form::select('template', $templates, $workorder->template,
-                        ['id' => 'template', 'class' => 'form-control input-sm']) !!}
+                        ['id' => 'template', 'class' => 'form-control form-control-sm']) !!}
                     </div>
                 </div>
             </div>

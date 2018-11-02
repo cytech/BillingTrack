@@ -14,10 +14,10 @@
 
                 <div id="modal-status-placeholder"></div>
 
-                <form class="form-horizontal">
+                <form>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.to') }}</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('fi.to') }}</label>
 
                         <div class="col-sm-9">
                             {!! $contactDropdownTo !!}
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.cc') }}</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('fi.cc') }}</label>
 
                         <div class="col-sm-9">
                             {!! $contactDropdownCc !!}
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.bcc') }}</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('fi.bcc') }}</label>
 
                         <div class="col-sm-9">
                             {!! $contactDropdownBcc !!}
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.subject') }}</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('fi.subject') }}</label>
 
                         <div class="col-sm-9">
                             {!! Form::text('subject', $subject, ['id' => 'subject', 'class' => 'form-control']) !!}
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.body') }}</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('fi.body') }}</label>
 
                         <div class="col-sm-9">
                             {!! Form::textarea('body', $body, ['id' => 'body', 'class' => 'form-control']) !!}
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">{{ trans('fi.attach_pdf') }}</label>
+                        <label class="col-sm-3 col-form-label">{{ trans('fi.attach_pdf') }}</label>
 
                         <div class="col-sm-9">
                             {!! Form::checkbox('attach_pdf', 1, config('fi.attachPdf'), ['id' => 'attach_pdf']) !!}
@@ -68,7 +68,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 <button type="button" id="btn-submit-mail-payment" class="btn btn-primary" data-loading-text="{{ trans('fi.sending') }}...">{{ trans('fi.send') }}</button>
             </div>
         </div>

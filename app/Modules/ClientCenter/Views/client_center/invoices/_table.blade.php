@@ -30,8 +30,8 @@
             <td>{{ $invoice->amount->formatted_balance }}</td>
             <td>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ trans('fi.options') }} <span class="caret"></span>
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        {{ trans('fi.options') }}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="{{ route('clientCenter.public.invoice.pdf', [$invoice->url_key]) }}" target="_blank"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a></li>

@@ -7,6 +7,9 @@
 
 require('./bootstrap');
 
+import 'jquery-ui/ui/widgets/autocomplete';
+import 'jquery-ui/ui/widgets/dialog';
+
 //window.Vue = require('vue');
 
 /**

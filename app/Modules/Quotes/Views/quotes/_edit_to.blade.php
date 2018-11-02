@@ -5,9 +5,9 @@
         <h3 class="card-title">{{ trans('fi.to') }}</h3>
 
         <div class="card-tools float-right">
-            <button class="btn btn-default btn-sm" id="btn-change-client"><i
+            <button class="btn btn-secondary btn-sm" id="btn-change-client"><i
                     class="fa fa-exchange"></i> {{ trans('fi.change') }}</button>
-            <button class="btn btn-default btn-sm" id="btn-edit-client" data-client-id="{{ $quote->client->id }}"><i
+            <button class="btn btn-secondary btn-sm" id="btn-edit-client" data-client-id="{{ $quote->client->id }}"><i
                     class="fa fa-pencil"></i> {{ trans('fi.edit') }}</button>
         </div>
     </div>

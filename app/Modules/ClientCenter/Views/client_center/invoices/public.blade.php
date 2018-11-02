@@ -59,7 +59,7 @@
                 @if (count($attachments))
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-files-o"></i> {{ trans('fi.attachments') }} <span class="caret"></span>
+                            <i class="fa fa-files-o"></i> {{ trans('fi.attachments') }}
                         </button>
                         <ul class="dropdown-menu">
                             @foreach ($attachments as $attachment)

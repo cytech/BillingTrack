@@ -12,7 +12,7 @@
     <section class="container-fluid">
         @include('layouts._alerts')
         <div class="card card-light">
-            <div class="card-body no-padding">
+            <div class="card-body">
                 {!! $dataTable->table(['class' => 'table table-striped display', 'width' => '100%', 'cellspacing' => '0']) !!}
             </div>
         </div>

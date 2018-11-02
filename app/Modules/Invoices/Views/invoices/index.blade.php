@@ -12,9 +12,9 @@
         <div class="float-right">
 
             <div class="btn-group bulk-actions">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
-                    {{ trans('fi.change_status') }} <span class="caret"></span>
+                    {{ trans('fi.change_status') }}
                 </button>
                 <ul class="dropdown-menu">
                     @foreach ($keyedStatuses as $key => $status)
@@ -24,7 +24,7 @@
                 </ul>
             </div>
 
-            <a href="javascript:void(0)" class="btn btn-default bulk-actions" id="btn-bulk-delete"><i
+            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i
                         class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
 
             <div class="btn-group">

@@ -65,6 +65,7 @@
             @include('partials._js_updateCalendarEvent_js')
 
             /* init first - init first */
+            $.fn.button.noConflict();
             $('#calEventDialog').dialog({autoOpen: false});
             $('#editEvent').dialog({autoOpen: false});
             $('#create-workorder').dialog({autoOpen: false});
@@ -160,7 +161,7 @@
                         appendTo: "#calEventDialog",
                         source: "/scheduler/ajax/employee",
                         minLength: 2
-                    }).autocomplete("widget").addClass("fixed-height");
+                    }).autocomplete("widget");
                     $("#title").val('');
                     $("#description").val('');
                     $(".from").val(start.format('YYYY-MM-DD 08:00'));
@@ -232,7 +233,7 @@
                             appendTo: "#create-workorder",
                             source: "/scheduler/ajax/customer",
                             minLength: 3
-                        }).autocomplete("widget").addClass("fixed-height");
+                        }).autocomplete("widget");
 
                         $.validator.addMethod("endtime_greater_starttime", function(value, element) {
                                 return $('#end_time').val() > $('#start_time').val()
@@ -326,7 +327,7 @@
                         appendTo: "#editEvent",
                         source: "/scheduler/ajax/employee",
                         minLength: 2
-                    }).autocomplete("widget").addClass("fixed-height");
+                    }).autocomplete("widget");
                     $("#editTitle").val(event.title);
                     $("#editDescription").val(event.description);
                     $("#editID").val(event.id);

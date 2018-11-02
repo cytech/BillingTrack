@@ -55,13 +55,15 @@
 @section('content')
 
     <section class="content m-3">
+        {!! Form::open(['route' => 'settings.update', 'files' => true, 'id' => 'form-settings']) !!}
+
         <h3 class="float-left">
             {{ trans('fi.system_settings') }}
         </h3>
-
-        <div class="float-right">
-            <button class="btn btn-primary" id="btn-submit"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('dashboard.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 
@@ -69,7 +71,6 @@
 
         @include('layouts._alerts')
 
-        {!! Form::open(['route' => 'settings.update', 'files' => true, 'id' => 'form-settings']) !!}
 
         <div class="row">
             <div class="col-md-12">

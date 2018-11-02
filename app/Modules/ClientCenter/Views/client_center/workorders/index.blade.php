@@ -12,11 +12,11 @@
 
         <div class="row">
 
-            <div class="col-xs-12">
+            <div class="col-12">
 
                 <div class=" card card-light">
 
-                    <div class="card-body no-padding">
+                    <div class="card-body">
                         @include('client_center.workorders._table')
                     </div>
 

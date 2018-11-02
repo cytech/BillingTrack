@@ -13,7 +13,7 @@
             appendTo: '#modal-copy-quote',
             source: '{{ route('clients.ajax.lookup') }}',
             minLength: 3
-        }).autocomplete("widget").addClass("fixed-height");
+        }).autocomplete("widget");
 
         // Creates the quote
         $('#btn-copy-quote-submit').click(function () {

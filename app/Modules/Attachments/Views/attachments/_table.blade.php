@@ -50,7 +50,7 @@
         <a href="javascript:void(0)" class="btn btn-primary btn-sm">File attachments are disabled in the demo</a>
     @endif
 
-    <table class="table table-condensed">
+    <table class="table table-sm">
         <thead>
         <tr>
             <th>{{ trans('fi.attachment') }}</th>
@@ -69,7 +69,7 @@
                     </div>
                 </td>
                 <td>
-                    <a class="btn btn-sm btn-default btn-delete-attachment" href="javascript:void(0);"
+                    <a class="btn btn-sm btn-secondary btn-delete-attachment" href="javascript:void(0);"
                        title="{{ trans('fi.trash') }}" data-attachment-id="{{ $attachment->id }}">
                         <i class="fa fa-times"></i>
                     </a>

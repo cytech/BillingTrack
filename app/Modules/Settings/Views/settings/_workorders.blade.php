@@ -60,9 +60,9 @@
     <div class="col-md-3">
         <div class="form-group">
             <label>{{ trans('fi.recalculate_workorders') }}: </label><br>
-            <button type="button" class="btn btn-default" id="btn-recalculate-workorders"
+            <button type="button" class="btn btn-secondary" id="btn-recalculate-workorders"
                     data-loading-text="{{ trans('fi.recalculating_wait') }}">{{ trans('fi.recalculate') }}</button>
-            <p class="help-block">{{ trans('fi.recalculate_help_text') }}</p>
+            <p class="form-text text-muted">{{ trans('fi.recalculate_help_text') }}</p>
         </div>
     </div>
 </div>

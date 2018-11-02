@@ -29,7 +29,7 @@
                                 appendTo: '#modal-enter-multi-payment',
                                 source: '{{ route('clients.ajax.lookup') }}',
                                 minLength: 3
-                            }).autocomplete("widget").addClass("fixed-height");
+                            }).autocomplete("widget");
                         </script>
                     </div>
 
@@ -97,7 +97,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 <button type="button" id="enter-payment-confirm" class="btn btn-primary"
                         data-loading-text="{{ trans('fi.please_wait') }}...">{{ trans('fi.submit') }}</button>
             </div>

@@ -18,9 +18,10 @@
         <h3 class="float-left">
             {{ trans('fi.group_form') }}
         </h3>
-        <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('groups.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 
@@ -37,7 +38,7 @@
                 <div class="form-group">
                     <label>{{ trans('fi.format') }}: </label>
                     {!! Form::text('format', null, ['id' => 'format', 'class' => 'form-control']) !!}
-                    <span class="help-block">{{ trans('fi.available_fields') }}: {NUMBER} {YEAR} {MONTH} {MONTHSHORTNAME} {WEEK}</span>
+                    <span class="form-text text-muted">{{ trans('fi.available_fields') }}: {NUMBER} {YEAR} {MONTH} {MONTHSHORTNAME} {WEEK}</span>
                 </div>
                 <div class="form-group">
                     <label>{{ trans('fi.next_number') }}: </label>
@@ -46,7 +47,7 @@
                 <div class="form-group">
                     <label>{{ trans('fi.left_pad') }}: </label>
                     {!! Form::text('left_pad', isset($group->left_pad) ? $group->left_pad : 0, ['id' => 'left_pad', 'class' => 'form-control']) !!}
-                    <span class="help-block">{{ trans('fi.left_pad_description') }}</span>
+                    <span class="form-text text-muted">{{ trans('fi.left_pad_description') }}</span>
                 </div>
                 <div class="form-group">
                     <label>{{ trans('fi.reset_number') }}: </label>

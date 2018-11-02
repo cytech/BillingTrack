@@ -18,9 +18,10 @@
         <h3 class="float-left">
             {{ trans('fi.currency_form') }}
         </h3>
-        <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
-        </div>
+            <a class="btn btn-warning float-right" href={!! route('currencies.index')  !!}><i
+                        class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+            <button type="submit" class="btn btn-primary float-right"><i
+                        class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 
@@ -36,7 +37,7 @@
                 <div class="form-group">
                     <label>{{ trans('fi.name') }}: </label>
                     {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
-                    <p class="help-block">{{ trans('fi.help_currency_name') }}</p>
+                    <p class="form-text text-muted">{{ trans('fi.help_currency_name') }}</p>
                 </div>
 
                 <div class="row">
@@ -51,7 +52,7 @@
                                 !!}
                             @endif
 
-                            <p class="help-block">{{ trans('fi.help_currency_code') }}</p>
+                            <p class="form-text text-muted">{{ trans('fi.help_currency_code') }}</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -59,7 +60,7 @@
                             <label>{{ trans('fi.symbol') }}: </label>
                             {!! Form::text('symbol', null, ['id' => 'symbol', 'class' => 'form-control'])
                             !!}
-                            <p class="help-block">{{ trans('fi.help_currency_symbol') }}</p>
+                            <p class="form-text text-muted">{{ trans('fi.help_currency_symbol') }}</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -67,7 +68,7 @@
                             <label>{{ trans('fi.symbol_placement') }}: </label>
                             {!! Form::select('placement', ['before' => trans('fi.before_amount'), 'after'
                             => trans('fi.after_amount')], null, ['class' => 'form-control']) !!}
-                            <p class="help-block">{{ trans('fi.help_currency_symbol_placement') }}</p>
+                            <p class="form-text text-muted">{{ trans('fi.help_currency_symbol_placement') }}</p>
                         </div>
                     </div>
                 </div>

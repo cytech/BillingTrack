@@ -12,14 +12,14 @@
 
                 <div id="modal-status-placeholder"></div>
 
-                <form class="form-horizontal">
+                <form>
 
                     <input type="hidden" name="invoice_id" id="invoice_id" value="{{ $invoice_id }}">
 
                     <input type="hidden" name="client_id" id="client_id" value="{{ $client->id }}">
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ trans('fi.amount') }}</label>
+                        <label class="col-sm-4 col-form-label">{{ trans('fi.amount') }}</label>
 
                         <div class="col-sm-8">
                             {!! Form::text('payment_amount', $balance, ['id' => 'payment_amount', 'class' => 'form-control']) !!}
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ trans('fi.payment_date') }}</label>
+                        <label class="col-sm-4 col-form-label">{{ trans('fi.payment_date') }}</label>
 
                         <div class="col-sm-8">
                             {!! Form::text('payment_date', $date, ['id' => 'payment_date', 'class' => 'form-control']) !!}
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ trans('fi.payment_method') }}</label>
+                        <label class="col-sm-4 col-form-label">{{ trans('fi.payment_method') }}</label>
 
                         <div class="col-sm-8">
                             {!! Form::select('payment_method_id', $paymentMethods, null, ['id' => 'payment_method_id', 'class' => 'form-control']) !!}
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ trans('fi.note') }}</label>
+                        <label class="col-sm-4 col-form-label">{{ trans('fi.note') }}</label>
 
                         <div class="col-sm-8">
                             {!! Form::textarea('payment_note', null, ['id' => 'payment_note', 'class' => 'form-control', 'rows' => 4]) !!}
@@ -52,7 +52,7 @@
 
                     @if (config('fi.mailConfigured') and $client->email)
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">{{ trans('fi.email_payment_receipt') }}</label>
+                            <label class="col-sm-4 col-form-label">{{ trans('fi.email_payment_receipt') }}</label>
 
                             <div class="col-sm-8">
                                 {!! Form::checkbox('email_payment_receipt', 1, config('fi.automaticEmailPaymentReceipts'), ['id' => 'email_payment_receipt']) !!}
@@ -70,7 +70,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 <button type="button" id="enter-payment-confirm" class="btn btn-primary" data-loading-text="{{ trans('fi.please_wait') }}...">{{ trans('fi.submit') }}</button>
             </div>
         </div>

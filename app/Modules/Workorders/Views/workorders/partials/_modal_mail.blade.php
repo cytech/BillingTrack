@@ -65,7 +65,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 <button type="button" id="btn-submit-mail-workorder" class="btn btn-primary" data-loading-text="{{ trans('fi.sending') }}...">{{ trans('fi.send') }}</button>
             </div>
         </div>

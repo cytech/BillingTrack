@@ -18,9 +18,10 @@
         <h3 class="float-left">
             {{ trans('fi.custom_field_form') }}
         </h3>
-        <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
-        </div>
+        <a class="btn btn-warning float-right" href={!! route('customFields.index')  !!}><i
+                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        <button type="submit" class="btn btn-primary float-right"><i
+                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
         <div class="clearfix"></div>
     </section>
 
@@ -53,7 +54,7 @@
                 <div class="form-group">
                     <label>{{ trans('fi.field_meta') }}: </label>
                     {!! Form::text('field_meta', null, ['id' => 'field_meta', 'class' => 'form-control']) !!}
-                    <span class="help-block">{{ trans('fi.field_meta_description') }}</span>
+                    <span class="form-text text-muted">{{ trans('fi.field_meta_description') }}</span>
                 </div>
 
             </div>

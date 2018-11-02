@@ -36,14 +36,14 @@
         </div>
         <div class="row">
             <div class="col-8">
-                <div class="checkbox">
+                <div class="form-check">
                     <label>
                         <input type="hidden" name="remember_me" value="0">
                         <input type="checkbox" name="remember_me" value="1"> {{ trans('fi.remember_me') }}
                     </label>
                 </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-4">
                 <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('fi.sign_in') }}</button>
             </div>
         </div>

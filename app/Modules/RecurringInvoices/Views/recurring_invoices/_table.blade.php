@@ -4,7 +4,7 @@
     <tr>
         <th>{{ trans('fi.id') }}</th>
         <th>{{ trans('fi.client') }}</th>
-        <th class="hidden-sm hidden-xs">{{ trans('fi.summary') }}</th>
+        <th>{{ trans('fi.summary') }}</th>
         <th>{{ trans('fi.next_date') }}</th>
         <th>{{ trans('fi.stop_date') }}</th>
         <th>{{ trans('fi.every') }}</th>
@@ -22,15 +22,15 @@
             <td>
                 <a href="{{ route('clients.show', [$recurringInvoice->client->id]) }}" title="{{ trans('fi.view_client') }}">{{ $recurringInvoice->client->unique_name }}</a>
             </td>
-            <td class="hidden-sm hidden-xs">{{ $recurringInvoice->summary }}</td>
+            <td>{{ mb_strimwidth($recurringInvoice->summary,0,100,'...') }}</td>
             <td>{{ $recurringInvoice->formatted_next_date }}</td>
             <td>{{ $recurringInvoice->formatted_stop_date }}</td>
             <td>{{ $recurringInvoice->recurring_frequency . ' ' . $frequencies[$recurringInvoice->recurring_period] }}</td>
             <td style="text-align: right; padding-right: 25px;">{{ $recurringInvoice->amount->formatted_total }}</td>
             <td>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ trans('fi.options') }} <span class="caret"></span>
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        {{ trans('fi.options') }}
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
                         <a class="dropdown-item" href="{{ route('recurringInvoices.edit', [$recurringInvoice->id]) }}"><i

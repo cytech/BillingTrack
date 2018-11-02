@@ -46,7 +46,7 @@
 
                         <a class="btn btn-primary" id="btn-run-migration">{{ trans('fi.continue') }}</a>
 
-                        <a class="btn btn-default" id="btn-running-migration" style="display: none;" disabled="disabled">{{ trans('fi.installing_please_wait') }}</a>
+                        <a class="btn btn-secondary" id="btn-running-migration" style="display: none;" disabled="disabled">{{ trans('fi.installing_please_wait') }}</a>
                         @if($mode == 'setup')
                         <a href="{{ route('setup.neworxfer') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">{{ trans('fi.continue') }}</a>
                         @else

@@ -22,7 +22,10 @@
 
 {{--<script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>--}}
 {{--<script src="{{ asset('plugins/jQueryUI/jquery-ui-1.10.3.min.js') }}"></script>--}}
-<script src="{{ asset('plugins/jQueryUI/jquery-ui.min.js') }}"></script>
+{{--<script>--}}
+    {{--$.fn.bootstrapBtn = $.fn.button.noConflict();--}}
+{{--</script>--}}
+{{--<script src="{{ asset('plugins/jQueryUI/jquery-ui.min.js') }}"></script>--}}
 {{--make sure to use from the BUILD directory...--}}
 {!! Html::script('plugins/jquery-datetimepicker/jquery.datetimepicker.full.min.js') !!}
 {{--test bootstrap 4.1--}}

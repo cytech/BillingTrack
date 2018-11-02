@@ -17,7 +17,7 @@
 
         @include('layouts._alerts')
         <div class=" card card-light">
-            <div class="card-body no-padding">
+            <div class="card-body">
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -31,9 +31,9 @@
                             <td>{{ $paymentMethod->name }}</td>
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-sm dropdown-toggle"
+                                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        {{ trans('fi.options') }} <span class="caret"></span>
+                                        {{ trans('fi.options') }}
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item"

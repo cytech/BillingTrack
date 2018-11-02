@@ -5,7 +5,7 @@
         $('.vendor-lookup').autocomplete({
             source: '{{ route('expenses.lookupVendor') }}',
             minLength: 3
-        }).autocomplete("widget").addClass("fixed-height");
+        }).autocomplete("widget");
 
     });
 

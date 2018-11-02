@@ -209,10 +209,10 @@
             <small>{{ $project->name }}</small>
         </h3>
         <div class="float-right">
-            <a href="#" class="btn btn-default"
+            <a href="#" class="btn btn-secondary"
                    onclick="swalConfirm('{{ trans('fi.confirm_trash_project') }}', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
                             class="fa fa-trash-alt"></i> {{ trans('fi.trash_project') }}</a>
-            <a href="{{ route('timeTracking.projects.index') }}" class="btn btn-default"><i class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
+            <a href="{{ route('timeTracking.projects.index') }}" class="btn btn-secondary"><i class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
             <button class="btn btn-primary" id="btn-save-settings"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
         </div>
         <div class="clearfix"></div>
@@ -240,8 +240,8 @@
 
                         <div class="form-group">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    {{ trans('fi.bulk_actions') }} <span class="caret"></span>
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    {{ trans('fi.bulk_actions') }}
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="javascript:void(0)" id="btn-bulk-bill-tasks"><i class="fa fa-dollar-sign"></i> {{ trans('fi.bill_tasks') }}</a>
@@ -267,7 +267,7 @@
 
                     </div>
 
-                    <div class="card-body no-padding">
+                    <div class="card-body">
 
                         <table class="table table-hover">
                             <thead>
@@ -312,39 +312,39 @@
 
                         <div class="form-group">
                             <label>{{ trans('fi.project_name') }}:</label>
-                            {!! Form::text('project_name', $project->name, ['id' => 'project_name', 'class' => 'form-control input-sm']) !!}
+                            {!! Form::text('project_name', $project->name, ['id' => 'project_name', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
                             <label>{{ trans('fi.company_profile') }}:</label>
-                            {!! Form::select('company_profile_id', $companyProfiles, $project->company_profile_id, ['id' => 'company_profile_id', 'class' => 'form-control input-sm']) !!}
+                            {!! Form::select('company_profile_id', $companyProfiles, $project->company_profile_id, ['id' => 'company_profile_id', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
                             <label>* {{ trans('fi.client') }}:</label>
-                            {!! Form::text('client_name', $project->client_name, ['id' => 'client_name', 'class' => 'form-control client-lookup input-sm', 'autocomplete' => 'off']) !!}
+                            {!! Form::text('client_name', $project->client_name, ['id' => 'client_name', 'class' => 'form-control client-lookup form-control-sm', 'autocomplete' => 'off']) !!}
                             <script>
                             $('.client-lookup').autocomplete({
                             appendTo: '#create-quote',
                             source: '{{ route('clients.ajax.lookup') }}',
                             minLength: 3
-                            }).autocomplete("widget").addClass("fixed-height");
+                            }).autocomplete("widget");
                             </script>
                         </div>
 
                         <div class="form-group">
                             <label>* {{ trans('fi.due_date') }}:</label>
-                            {!! Form::text('due_at', $project->formatted_due_at, ['id' => 'due_at', 'class' => 'form-control datepicker input-sm']) !!}
+                            {!! Form::text('due_at', $project->formatted_due_at, ['id' => 'due_at', 'class' => 'form-control datepicker form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
                             <label>{{ trans('fi.hourly_rate') }}:</label>
-                            {!! Form::text('hourly_rate', $project->hourly_rate, ['id' => 'hourly_rate', 'class' => 'form-control input-sm']) !!}
+                            {!! Form::text('hourly_rate', $project->hourly_rate, ['id' => 'hourly_rate', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
                             <label>{{ trans('fi.status') }}:</label>
-                            {!! Form::select('status_id', $statuses, $project->status_id, ['id' => 'status_id', 'class' => 'form-control input-sm']) !!}
+                            {!! Form::select('status_id', $statuses, $project->status_id, ['id' => 'status_id', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 
                     </div>

@@ -31,13 +31,13 @@
                 <div id="modal-status-placeholder"></div>
 
                     <div class="form-group">
-                        <label class="control-label">{{ trans('fi.task') }}:</label>
+                        <label class="col-form-label">{{ trans('fi.task') }}:</label>
                         {!! Form::text('name', $task->name, ['id' => 'edit_task_name', 'class' => 'form-control']) !!}
                     </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
                 <button type="button" class="btn btn-primary" id="btn-submit-task">{{ trans('fi.submit') }}</button>
             </div>
         </div>

@@ -97,11 +97,11 @@
                             <div class="col-md-3">
                                 <div class="input-group">
                                     <label>{{ trans('fi.output_type') }}</label><br>
-                                    <label class="radio-inline">
+                                    <label >
                                         <input type="radio" name="output_type" value="preview"
                                                checked="checked"> {{ trans('fi.preview') }}
                                     </label>
-                                    <label class="radio-inline">
+                                    <label>
                                         <input type="radio" name="output_type" value="pdf"> {{ trans('fi.pdf') }}
                                     </label>
                                 </div>
@@ -117,7 +117,7 @@
 
         <div class="row" id="preview"
              style="height: 100%; background-color: #e6e6e6; padding: 25px; margin: 0; display: none;">
-            <div class="col-lg-8 col-lg-offset-2" style="background-color: white;">
+            <div class="col-lg-8 offset-2" style="background-color: white;">
                 <iframe src="about:blank" id="preview-results" frameborder="0" style="width: 100%;" scrolling="no"
                         onload="resizeIframe(this, 500);"></iframe>
             </div>

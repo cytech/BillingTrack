@@ -25,7 +25,7 @@
         </h3>
 
         <div class="float-right">
-            <a href="{{ route('payments.index') }}" class="btn btn-default">Cancel</a>
+            <a href="{{ route('payments.index') }}" class="btn btn-secondary">Cancel</a>
             {!! Form::submit(trans('fi.save'), ['class' => 'btn btn-primary']) !!}
         </div>
         <div class="clearfix"></div>

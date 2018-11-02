@@ -3,12 +3,12 @@
     <thead>
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
-        <th class="hidden-sm hidden-xs">{{ trans('fi.status') }}</th>
+        <th>{{ trans('fi.status') }}</th>
         <th>{{ trans('fi.workorder') }}</th>
-        <th class="hidden-xs">{{ trans('fi.date') }}</th>
+        <th>{{ trans('fi.date') }}</th>
         <th>{{ trans('fi.job_date') }}</th>
         <th>{{ trans('fi.client_name') }}</th>
-        <th class="hidden-sm hidden-xs">{{ trans('fi.summary') }}</th>
+        <th>{{ trans('fi.summary') }}</th>
         <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
         <th>{{ trans('fi.invoiced') }}</th>
         <th>{{ trans('fi.options') }}</th>
@@ -19,7 +19,7 @@
     @foreach ($workorders as $workorder)
         <tr id="{!! $workorder->id !!}">
             <td><input type="checkbox" class="bulk-record" data-id="{{ $workorder->id }}"></td>
-            <td class="hidden-sm hidden-xs">
+            <td>
                 <span class="badge badge-{{ $statuses[$workorder->workorder_status_id] }}">{{ trans('fi.' . $statuses[$workorder->workorder_status_id]) }}</span>
                 @if ($workorder->viewed)
                     <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
@@ -29,13 +29,13 @@
             </td>
             <td><a href="{{ route('workorders.edit', [$workorder->id]) }}"
                    title="{{ trans('fi.edit') }}">{{ $workorder->number }}</a></td>
-            <td class="hidden-xs">{{ DateTime::createFromFormat('Y-m-d H:i:s',$workorder->workorder_date)->format('Y-m-d') }}</td>
-            <td class="hidden-sm hidden-xs">{{ DateTime::createFromFormat('Y-m-d H:i:s',$workorder->job_date)->format('Y-m-d') }}</td>
+            <td>{{ $workorder->formatted_workorder_date }}</td>
+            <td>{{ $workorder->formatted_job_date }}</td>
             <td><a href="{{ route('clients.show', [$workorder->client->id]) }}"
                    title="{{ trans('fi.view_client') }}">{{ $workorder->client->unique_name }}</a></td>
-            <td class="hidden-sm hidden-xs">{{ mb_strimwidth($workorder->summary,0,100,'...') }}</td>
+            <td>{{ mb_strimwidth($workorder->summary,0,100,'...') }}</td>
             <td style="text-align: right; padding-right: 25px;">{{ $workorder->amount->formatted_total }}</td>
-            <td class="hidden-xs">
+            <td>
                 @if ($workorder->invoice)
                     <a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}">{{ trans('fi.yes') }}</a>
                 @else
@@ -44,8 +44,8 @@
             </td>
             <td>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ trans('fi.options') }} <span class="caret"></span>
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        {{ trans('fi.options') }}
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
                         <a class="dropdown-item" href="{{ route('workorders.edit', [$workorder->id]) }}"><i
