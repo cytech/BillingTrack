@@ -19,13 +19,13 @@
         <tr>
             <td><a href="{{ route('employees.edit', [$employee->id]) }}"
                    title="{{ trans('fi.edit') }}">{{ $employee->number }}</a></td>
-            <td class="d-none d-sm-block">{{ $employee->first_name }}</td>
-            <td class="d-none d-md-block">{{ $employee->last_name }}</td>
-            <td class="d-none d-md-block">{{ $employee->short_name }}</td>
-            <td class="d-none d-md-block">{{ $employee->title }}</td>
-            <td class="d-none d-md-block">{{ $employee->schedule }}</td>
-            <td class="d-none d-md-block">{{ $employee->active }}</td>
-            <td class="d-none d-md-block">{{ $employee->driver }}</td>
+            <td>{{ $employee->first_name }}</td>
+            <td>{{ $employee->last_name }}</td>
+            <td>{{ $employee->short_name }}</td>
+            <td>{{ $employee->title }}</td>
+            <td>{{ $employee->schedule }}</td>
+            <td>{{ $employee->active }}</td>
+            <td>{{ $employee->driver }}</td>
             <td> <a href="{{ route('employees.edit', [$employee->id]) }}" class="btn btn-primary btn-sm "><i
                             class="fa fa-user-edit"></i>
                     {{ trans('fi.edit') }} </a></td>

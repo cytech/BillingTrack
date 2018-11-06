@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 4.1.0
 - upgrade to laravel 5.7.*
+- migrate to Bootstrap 4.1.*
+- fix email cc and bcc
 
 ## 4.0.2
 - added resource quantity selection to createworkoorder modal

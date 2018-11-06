@@ -9,6 +9,7 @@ require('./bootstrap');
 
 import 'jquery-ui/ui/widgets/autocomplete';
 import 'jquery-ui/ui/widgets/dialog';
+import 'jquery-ui/ui/widgets/sortable';
 
 //window.Vue = require('vue');
 

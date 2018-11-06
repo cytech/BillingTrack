@@ -2,31 +2,37 @@
 
     $(function () {
 
-        $("#workorder_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
-        $("#expires_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
-        $("#job_date").datepicker({format: '{{ config('fi.datepickerFormat') }}',
-            todayHighlight:true,
-            autoclose: true});
-        $("#start_time").timepicker({
-            minuteStep: {!! config('fi.schedulerTimestep') !!},
-            template: 'dropdown',
-            appendWidgetTo: 'body',
-            showSeconds: false,
-            showMeridian: false,
-            modalBackdrop: false,
-            defaultTime: '08:00 AM',
-            autoclose: true}
-            );
-        $("#end_time").timepicker({
-            minuteStep: {!! config('fi.schedulerTimestep') !!},
-            template: 'dropdown',
-            appendWidgetTo: 'body',
-            showSeconds: false,
-            showMeridian: false,
-            modalBackdrop: false,
-            defaultTime: '09:00 AM',
-            autoclose: true}
-        );
+        {{--$("#workorder_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});--}}
+        {{--$("#expires_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});--}}
+        {{--$("#job_date").datepicker({format: '{{ config('fi.datepickerFormat') }}',--}}
+            {{--todayHighlight:true,--}}
+            {{--autoclose: true});--}}
+        $("#workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#expires_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#job_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+
+        $("#start_time").datetimepicker({
+            datepicker: false,
+            format: 'H:i',
+            // format: 'm/d/Y g:i a',
+            //validateOnBlur: false
+            formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+            defaultTime: '08:00',
+            step: {!! config('fi.schedulerTimestep') !!},//15
+            // onClose: function (selectedTime) {
+            //     $("#end_time").datetimepicker({minTime: selectedTime});
+            // }
+        });
+
+        $('#end_time').datetimepicker({
+            datepicker: false,
+            format: 'H:i',
+            formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+            step: {!! config('fi.schedulerTimestep') !!},
+            // onClose: function (selectedTime) {
+            //     $("#start_time").datetimepicker({maxTime: selectedTime});
+            // }
+        });
 
 
         $('#btn-add-lookup').click(function() {

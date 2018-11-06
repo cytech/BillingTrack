@@ -34,9 +34,9 @@
 {{--<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>--}}
 <script src="{{ asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+{{--<script src="{{ asset('plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>--}}
 <script src="{{ asset('plugins/angular/angular.min.js') }}" type="text/javascript"></script>
-<script src='{{ asset('plugins/fastclick/fastclick.js') }}'></script>
+{{--<script src='{{ asset('plugins/fastclick/fastclick.js') }}'></script>--}}
 <script src='{{ asset('plugins/sweetalert2/sweetalert2.all.js') }}'></script>
 
 {{--<script src="{{ asset('assets/dist/js/adminlte.min.js') }}" type="text/javascript"></script>--}}

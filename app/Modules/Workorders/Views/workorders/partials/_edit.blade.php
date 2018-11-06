@@ -108,24 +108,24 @@
             </div>
             <div class="row">
                 <div class="form-group d-flex align-items-center">
-                    <label class="col-sm-4 text-right text">{{ trans('fi.job_date') }}</label>
-                    <div class="col-sm-8">
+                    <label class="col-sm-5 text-right text">{{ trans('fi.job_date') }}</label>
+                    <div class="col-sm-7">
                     {!! Form::text('job_date', $workorder->formatted_job_date, ['id' =>
                     'job_date', 'class' => 'form-control form-control-sm']) !!}
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label class="col-sm-4 text-right text">{{ trans('fi.start_time') }}</label>
-                    <div class="col-sm-8">
+                    <label for="start_time" class="col-sm-5 text-right text">{{ trans('fi.start_time') }}</label>
+                    <div class="col-sm-7">
                     {!! Form::text('start_time', $workorder->formatted_start_time, ['id' =>
-                    'start_time', 'class' => 'form-control form-control-sm']) !!}
+                    'start_time', 'class' => 'form-control form-control-sm', 'autocomplete' => 'off']) !!}
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label class="col-sm-4 text-right text">{{ trans('fi.end_time') }}</label>
-                    <div class="col-sm-8">
+                    <label for="end_time" class="col-sm-5 text-right text">{{ trans('fi.end_time') }}</label>
+                    <div class="col-sm-7">
                     {!! Form::text('end_time', $workorder->formatted_end_time, ['id' =>
-                    'end_time', 'class' => 'form-control form-control-sm']) !!}
+                    'end_time', 'class' => 'form-control form-control-sm', 'autocomplete' => 'off']) !!}
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">

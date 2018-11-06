@@ -16,14 +16,8 @@
 
             });
 
-            $('#workorder-dashboard-total-setting-from-date').datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true
-            });
-            $('#workorder-dashboard-total-setting-to-date').datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true
-            });
+            $('#workorder-dashboard-total-setting-from-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
+            $('#workorder-dashboard-total-setting-to-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
         });
     </script>
         <div class="card">

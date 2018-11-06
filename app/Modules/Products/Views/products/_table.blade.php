@@ -18,12 +18,12 @@
         <tr>
             <td><a href="{{ route('products.edit', [$product->id]) }}"
                    title="{{ trans('fi.edit') }}">{{ $product->id }}</a></td>
-            <td class="d-none d-sm-block">{{ $product->name }}</td>
-            <td class="d-none d-md-block">{{ $product->active }}</td>
-            <td class="d-none d-md-block">{{ $product->cost }}</td>
-            <td class="d-none d-md-block">{{ $product->category }}</td>
-            <td class="d-none d-md-block">{{ $product->type }}</td>
-            <td class="d-none d-md-block">{{ $product->numstock }}</td>
+            <td>{{ $product->name }}</td>
+            <td>{{ $product->active }}</td>
+            <td>{{ $product->cost }}</td>
+            <td>{{ $product->category }}</td>
+            <td>{{ $product->type }}</td>
+            <td>{{ $product->numstock }}</td>
             <td> <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary btn-sm "><i
                             class="fa fa-edit"></i>
                     {{ trans('fi.edit') }} </a></td>

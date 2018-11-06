@@ -20,31 +20,21 @@
     @yield('javascript')
 
 </head>
-<body class="{{ $skinClass }} sidebar-mini fixed">
+<body class="{{ $skinClass }} hold-transition sidebar-mini ">
 
 <div class="wrapper">
 
-    <header class="main-header">
+    <nav class="main-header navbar navbar-expand navbar-dark bg-{{ str_replace('skin-', '', $skinClass) }} border-bottom">
+        <div class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"
+                    ></i></a>
+            </li>
+        </div>
 
-        <a href="{{ route('clientCenter.dashboard')}}" class="logo">
-            <span class="logo-lg">{{ config('fi.headerTitleText') }}</span>
-        </a>
+        @yield('header')
 
-        <nav class="navbar navbar-static-top" role="navigation">
-            {{--<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">--}}
-                {{--<span class="sr-only">Toggle navigation</span>--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-            {{--</a>--}}
-            <ul class="nav navbar-nav">
-                <li><a href="#" class="nav-link" data-toggle="push-menu" ><i class="fa fa-bars"></i></a></li>
-            </ul>
-
-            @yield('header')
-
-        </nav>
-    </header>
+    </nav>
 
     <aside class="main-sidebar">
 

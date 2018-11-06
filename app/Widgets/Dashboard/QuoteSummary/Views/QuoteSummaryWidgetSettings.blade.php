@@ -2,14 +2,8 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#quote-dashboard-total-setting-from-date').datepicker({
-            format: 'yyyy-mm-dd',
-            autoclose: true
-        });
-        $('#quote-dashboard-total-setting-to-date').datepicker({
-            format: 'yyyy-mm-dd',
-            autoclose: true
-        });
+        $('#quote-dashboard-total-setting-from-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
+        $('#quote-dashboard-total-setting-to-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
 
         $('#quote-dashboard-total-setting').change(function () {
             toggleWidgetQuoteDashboardTotalsDateRange($('#quote-dashboard-total-setting').val());

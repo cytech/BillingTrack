@@ -2,14 +2,8 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#workorder-dashboard-total-setting-from-date').datepicker({
-            format: 'yyyy-mm-dd',
-            autoclose: true
-        });
-        $('#workorder-dashboard-total-setting-to-date').datepicker({
-            format: 'yyyy-mm-dd',
-            autoclose: true
-        });
+        $('#workorder-dashboard-total-setting-from-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
+        $('#workorder-dashboard-total-setting-to-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
 
         $('#workorder-dashboard-total-setting').change(function () {
             toggleWidgetWorkorderDashboardTotalsDateRange($('#workorder-dashboard-total-setting').val());
