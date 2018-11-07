@@ -21,6 +21,7 @@ class DateFormatter
      *
      * @return array
      */
+    //replaced bootstrap-datepicker with datetimepicker so datepicker values below are  not used
     static function formats()
     {
         return [

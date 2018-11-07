@@ -2,10 +2,10 @@
 
 @section('content')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <div class="row" ng-app="event" ng-controller="scheduleEventController">
+    <div class="row" >
 
         <div class="container-fluid m-2">
-            {!! Form::model($schedule,['id' => 'event', 'accept-charset' => 'utf-8', 'ng-submit'=>'create($event)']) !!}
+            {!! Form::model($schedule,['route' => ['scheduler.updateevent', $schedule->id],'id' => 'event', 'accept-charset' => 'utf-8']) !!}
             <div class="card card-light">
                 <div class="card-header">
                     <h3 class="card-title"><i
@@ -128,38 +128,6 @@
             $(document).on('click', '.delete_reminder', function () {
                 $(this).parent().parent().remove();
             });
-        });
-        var event = angular.module('event', [], function ($interpolateProvider) {
-            $interpolateProvider.startSymbol('{dfh');
-            $interpolateProvider.endSymbol('dfh}');
-        });
-        event.controller('scheduleEventController', function ($scope, $http) {
-            $scope.create = function (event) {
-                event.preventDefault();
-                var req = {
-                    method: 'POST',
-                    url: "{!! route('scheduler.updateevent') !!}",
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    data: $("#event").serialize()
-                };
-
-                $http(req).then(function (response) {
-                    if (response.data.type === 'success') {
-                        notify('{{trans('fi.'.$message)}}', 'success');
-                        setTimeout(function() {//give notify a chance to display before redirect
-                            window.location.href = "{!!  route('scheduler.tableevent') !!}";
-                        }, 2000);
-                    } else {
-                        notify('{{trans('fi.unknown_error')}}', 'error');
-                    }
-                }).catch(function (response) {
-                    var errors = '';
-                    for (datas in response.data) {
-                        errors += response.data[datas] + '<br>';
-                    }
-                    notify(errors, 'error');
-                });
-            };
         });
     </script>
 @stop

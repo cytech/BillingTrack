@@ -1,4 +1,4 @@
-@include('layouts._datepicker')
+
 {{--@include('layouts._typeahead')--}}
 {{--@include('clients._js_lookup')--}}
 @include('payments._js_create')

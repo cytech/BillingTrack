@@ -13,7 +13,7 @@
             }).autocomplete("widget");
         });
 
-        $("#create_quote_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $("#create_quote_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
         $('#quote-create-confirm').click(function () {
 

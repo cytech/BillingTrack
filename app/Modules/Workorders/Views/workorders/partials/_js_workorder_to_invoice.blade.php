@@ -4,7 +4,7 @@
         // Display the create workorder modal
         $('#modal-workorder-to-invoice').modal('show');
 
-        $("#to_invoice_workorder_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $("#to_invoice_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
         // Creates the invoice
         $('#btn-workorder-to-invoice-submit').click(function () {

@@ -22,6 +22,8 @@
                    data-redirect-to="{{ request()->fullUrl() }}"><i
                             class="fa fa-credit-card"></i> {{ trans('fi.enter_payment') }}</a>
         @endif
+        <div class="dropdown-divider"></div>
+
         <a class="dropdown-item" href ="#"
                onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('invoices.delete', [$id]) }}');"><i
                         class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>

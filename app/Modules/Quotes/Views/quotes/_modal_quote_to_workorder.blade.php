@@ -1,4 +1,4 @@
-@include('layouts._datepicker')
+
 
 @include('quotes._js_quote_to_workorder')
 

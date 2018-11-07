@@ -13,6 +13,8 @@
         <a class="dropdown-item" href ="{{ route('clientCenter.public.quote.show', [$url_key]) }}"
                target="_blank" id="btn-public-quote"><i
                         class="fa fa-globe"></i> {{ trans('fi.public') }}</a>
+        <div class="dropdown-divider"></div>
+
         <a class="dropdown-item" href ="#"
                onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('quotes.delete', [$id]) }}');"><i
                         class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>

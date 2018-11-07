@@ -21,7 +21,7 @@
 
     </section>
     <section class="content">
-
+        @include('layouts._alerts')
         <div class="row">
             <div class="col-lg-12">
                 <div class="card card-light">

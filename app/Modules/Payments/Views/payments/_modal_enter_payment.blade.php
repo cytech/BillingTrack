@@ -1,4 +1,4 @@
-@include('layouts._datepicker')
+
 @include('payments._js_create')
 
 <div class="modal fade" id="modal-enter-payment">

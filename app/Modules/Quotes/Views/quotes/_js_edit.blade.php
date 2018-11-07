@@ -2,8 +2,8 @@
 
     $(function () {
 
-        $("#quote_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
-        $("#expires_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $("#quote_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#expires_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
         $('#btn-add-lookup').click(function() {
             $('#modal-placeholder').load('{{ route( 'itemLookups.ajax.getItemLookup') }}');

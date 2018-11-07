@@ -2,11 +2,6 @@
 
     $(function () {
 
-        {{--$("#workorder_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});--}}
-        {{--$("#expires_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});--}}
-        {{--$("#job_date").datepicker({format: '{{ config('fi.datepickerFormat') }}',--}}
-            {{--todayHighlight:true,--}}
-            {{--autoclose: true});--}}
         $("#workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
         $("#expires_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
         $("#job_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});

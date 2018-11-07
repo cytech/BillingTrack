@@ -33,7 +33,7 @@
                     </div>
                     <script>
                         $("#title").autocomplete({
-                            appendTo: "#updateCalendarEvent",
+                            appendTo: "#saveCalendarEvent",
                             source: "/scheduler/ajax/employee",
                             minLength: 2
                         }).autocomplete("widget");

@@ -7,8 +7,8 @@
             $("#client_name").focus();
         });
 
-        $('#copy_next_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
-        $('#copy_stop_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $('#copy_next_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $('#copy_stop_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
         $('#copy_client_name').autocomplete({
             appendTo: '#modal-copy-recurring-invoice',

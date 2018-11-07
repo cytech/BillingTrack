@@ -1,4 +1,4 @@
-@include('layouts._datepicker')
+
 
 <div id="quote-dashboard-totals-widget">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
 
             });
 
-            $('#quote-dashboard-total-setting-from-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
-            $('#quote-dashboard-total-setting-to-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
+            $('#quote-dashboard-total-setting-from-date').datetimepicker({format: 'Y-m-d', timepicker: false});
+            $('#quote-dashboard-total-setting-to-date').datetimepicker({format: 'Y-m-d', timepicker: false});
         });
     </script>
     <div class="card">

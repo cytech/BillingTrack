@@ -3,21 +3,17 @@
 
 @section('content')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <div class="row" ng-app="event" ng-controller="recurringEventController">
+    <div class="row">
 
         <div class="container-fluid m-2">
-            {!! Form::model($schedule,['id' => 'event', 'accept-charset' => 'utf-8', 'ng-submit'=>'create($event)']) !!}
-
-            
+            {!! Form::model($schedule,['route' => ['scheduler.updaterecurringevent', $schedule->id],'id' => 'recurringevent', 'accept-charset' => 'utf-8']) !!}
                 <div class="card card-light">
                     <div class="card-header">
                         <h3 class="card-title"><i
                                     class="fa fa-edit fa-fw"></i> {{ trans('fi.'.$title) }}
                                 <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i class="fa fa-ban"></i> {{ trans('fi.cancel') }} </a>
                                 <button type="submit" class="btn btn-success float-right"><i class="fa fa-save"></i> {{ trans('fi.'.$title) }} </button>
-
-                        </h3>
-                    </div>
+                        </h3></div>
                     <div class="card-body">
                         {!! Form::hidden('id') !!}
                         {!! Form::hidden('oid') !!}
@@ -29,7 +25,7 @@
                             </div>
                             <script>
                                 $("#title").autocomplete({
-                                    appendTo: "#event",
+                                    appendTo: "#recurringevent",
                                     source: "/scheduler/ajax/employee",
                                     minLength: 2
                                 }).autocomplete("widget");
@@ -129,52 +125,6 @@
                 $(this).parent().parent().remove();
             });
         });
-        var event = angular.module('event', [], function ($interpolateProvider) {
-            $interpolateProvider.startSymbol('{dfh');
-            $interpolateProvider.endSymbol('dfh}');
-        });
-        event.controller('recurringEventController', function ($scope, $http) {
-            $scope.create = function (event) {
-                event.preventDefault();
-                var data = $("#event").serializeArray();
-                //format checkbox arrays properly for rrule
-                data.push({
-                    name: "byday",
-                    value: $("#byday:checked").map(function () {
-                        return $(this).val().toString();
-                    }).get().join(","),
-                });
-                data.push({
-                    name: "bymonth",
-                    value: $("#bymonth:checked").map(function () {
-                        return $(this).val().toString();
-                    }).get().join(",")
-                });
 
-                var req = {
-                    method: 'POST',
-                    url: "{!! route('scheduler.updaterecurringevent') !!}",
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    data: $.param(data)
-                };
-
-                $http(req).then(function (response) {
-                    if (response.data.type === 'success') {
-                        notify('{{trans('fi.'.$message)}}', 'success');
-                        setTimeout(function() { //give notify a chance to display before redirect
-                        window.location.href = "{!! URL::previous() !!}";
-                        }, 2000);
-                    } else {
-                        notify('{{trans('fi.unknown_error')}}', 'error');
-                    }
-                }).catch(function (response) {
-                    var errors = '';
-                    for (datas in response.data) {
-                        errors += response.data[datas] + '<br>';
-                    }
-                    notify(errors, 'error');
-                });
-            };
-        });
     </script>
 @stop

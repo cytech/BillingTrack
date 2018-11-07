@@ -2,7 +2,7 @@
 
 @section('javascript')
 
-    @include('layouts._datepicker')
+
     {{--@include('layouts._typeahead')--}}
     {{--@include('clients._js_lookup')--}}
     @include('time_tracking._task_list_refresh_js')
@@ -13,7 +13,7 @@
 
             var timers = [];
 
-            $("#due_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+            $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
             $('#btn-add-task').click(function () {
                 $('#modal-placeholder').load('{{ route('timeTracking.tasks.create') }}', {

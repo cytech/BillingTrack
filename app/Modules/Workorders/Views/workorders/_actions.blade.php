@@ -13,6 +13,7 @@
         <a class="dropdown-item" href ="{{ route('clientCenter.public.workorder.show', [$url_key]) }}"
                target="_blank" id="btn-public-workorder"><i
                         class="fa fa-globe"></i> {{ trans('fi.public') }}</a>
+        <div class="dropdown-divider"></div>
         <a class="dropdown-item" href ="#"
                onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('workorders.delete', [$id]) }}');"><i
                         class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>

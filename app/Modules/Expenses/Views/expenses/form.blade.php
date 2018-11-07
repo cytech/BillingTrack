@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-    @include('layouts._datepicker')
+
     {{--@include('layouts._typeahead')--}}
     {{--@include('clients._js_lookup')--}}
     @include('expenses._js_vendor_lookup')
@@ -11,7 +11,7 @@
 @section('javascript')
     <script type="text/javascript">
         $(function () {
-            $('#expense_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+            $('#expense_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
         });
     </script>
 @stop

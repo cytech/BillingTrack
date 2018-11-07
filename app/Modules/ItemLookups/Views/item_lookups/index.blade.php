@@ -45,6 +45,7 @@
                                         <a class="dropdown-item"
                                            href="{{ route('itemLookups.edit', [$itemLookup->id]) }}"><i
                                                     class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                                        <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#"
                                            onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('itemLookups.delete', [$itemLookup->id]) }}');"><i
                                                     class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>

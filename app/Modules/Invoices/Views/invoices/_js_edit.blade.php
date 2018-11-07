@@ -2,8 +2,8 @@
 
     $(function () {
 
-        $("#invoice_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
-        $("#due_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $("#invoice_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
         $('#btn-add-lookup').click(function() {
             $('#modal-placeholder').load('{{ route( 'itemLookups.ajax.getItemLookup') }}');

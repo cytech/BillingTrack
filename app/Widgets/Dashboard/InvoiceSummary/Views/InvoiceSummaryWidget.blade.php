@@ -1,4 +1,4 @@
-@include('layouts._datepicker')
+
 
 <div id="invoice-dashboard-totals-widget">
     <script type="text/javascript">
@@ -16,8 +16,8 @@
 
             });
 
-            $('#invoice-dashboard-total-setting-from-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
-            $('#invoice-dashboard-total-setting-to-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
+            $('#invoice-dashboard-total-setting-from-date').datetimepicker({format: 'Y-m-d', timepicker: false});
+            $('#invoice-dashboard-total-setting-to-date').datetimepicker({format: 'Y-m-d', timepicker: false});
         });
     </script>
         <div class="card">

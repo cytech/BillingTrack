@@ -13,8 +13,8 @@
             }).autocomplete("widget");
         });
 
-        $('#create_next_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
-        $('#create_stop_date').datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $('#create_next_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $('#create_stop_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
         $('#recurring-invoice-create-confirm').click(function () {
 

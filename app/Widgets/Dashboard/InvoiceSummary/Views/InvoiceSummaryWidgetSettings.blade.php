@@ -1,9 +1,9 @@
-@include('layouts._datepicker')
+
 
 <script type="text/javascript">
     $(function () {
-        $('#invoice-dashboard-total-setting-from-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
-        $('#invoice-dashboard-total-setting-to-date').datepicker({format: 'yyyy-mm-dd', autoclose: true});
+        $('#invoice-dashboard-total-setting-from-date').datetimepicker({format: 'Y-m-d', timepicker: false});
+        $('#invoice-dashboard-total-setting-to-date').datetimepicker({format: 'Y-m-d', timepicker: false});
 
         $('#invoice-dashboard-total-setting').change(function () {
             toggleWidgetInvoiceDashboardTotalsDateRange($('#invoice-dashboard-total-setting').val());

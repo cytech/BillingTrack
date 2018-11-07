@@ -10,7 +10,7 @@
 
         $('#modal-enter-multi-payment').modal('show');
 
-        $("#payment_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $("#payment_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
         $('#enter-payment-confirm').click(function () {
 

@@ -209,6 +209,7 @@ class SchedulerController extends Controller
 
 	//event store or update
 	public function updateEvent( EventRequest $request ) {
+
 		$event = ($request->id) ? Schedule::find( $request->id ) : new Schedule();
 
 		$event->title       = $request->title;
@@ -258,21 +259,27 @@ class SchedulerController extends Controller
 			}
 		}
 
-		//retrieve for fullcalendar render after create
-		$catinfo    = Category::where( 'id', '=', $event->category_id )->first();
-		$text_color = $catinfo->text_color;
-		$bg_color   = $catinfo->bg_color;
+		//if ajax request from calendar create/update
+        if($request->ajax()) {
+            //retrieve for fullcalendar render after create
+            $catinfo = Category::where('id', '=', $event->category_id)->first();
+            $text_color = $catinfo->text_color;
+            $bg_color = $catinfo->bg_color;
 
-		$response = [
-			'type'       => 'success',
-			'data'       => $event->id,
-			'dataoid'    => $occurrence->oid,
-			'text_color' => $text_color,
-			'bg_color'   => $bg_color,
-		];
+            $response = [
+                'type'       => 'success',
+                'data'       => $event->id,
+                'dataoid'    => $occurrence->oid,
+                'text_color' => $text_color,
+                'bg_color'   => $bg_color,
+            ];
 
-		return Response::json( $response );
+            return Response::json($response);
 
+        }else{ //request from eventtable create/update
+            $msg = $request->id ? trans('fi.record_successfully_updated') : trans('fi.record_successfully_created');
+            return redirect()->route('scheduler.tableevent')->with('alertSuccess', $msg);
+        }
 
 	}
 
@@ -424,6 +431,8 @@ class SchedulerController extends Controller
 			}
 		}
 
+        //if ajax request from calendar create/update
+        if($request->ajax()) {
 		//retrieve for fullcalendar render after create
 		$catinfo    = Category::where( 'id', '=', $event->category_id )->first();
 		$text_color = $catinfo->text_color;
@@ -439,6 +448,10 @@ class SchedulerController extends Controller
 
 		return Response::json( $response );
 
+        } else { //request from eventtable create/update
+            $msg = $request->id ? trans('fi.record_successfully_updated') : trans('fi.record_successfully_created');
+            return redirect()->route('scheduler.tablerecurringevent')->with('alertSuccess', $msg);
+        }
 
 	}
 

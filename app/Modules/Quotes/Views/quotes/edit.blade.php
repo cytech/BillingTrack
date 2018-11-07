@@ -2,7 +2,7 @@
 
 @section('javascript')
 
-    @include('layouts._datepicker')
+
     @include('item_lookups._js_item_lookups')
 
 @stop

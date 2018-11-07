@@ -2,7 +2,7 @@
 
 @section('javascript')
 
-    @include('layouts._datepicker')
+
     @include('payments._js_form')
 
 @stop

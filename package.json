@@ -22,9 +22,7 @@
     },
     "dependencies": {
         "admin-lte": "^3.0.0-alpha.2",
-        "angular": "^1.7.2",
         "bootstrap-colorpicker": "^3.0.3",
-        "bootstrap-datepicker": "^1.8.0",
         "bootstrap-switch": "^3.3.4",
         "chosen-js": "^1.8.5",
         "datatables.net": "^1.10.19",

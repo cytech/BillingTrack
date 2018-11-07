@@ -3,7 +3,7 @@
 @section('javascript')
     {{--@include('layouts._typeahead')--}}
     {{--@include('clients._js_lookup')--}}
-    @include('layouts._datepicker')
+
 @stop
 
 @section('content')
@@ -87,7 +87,7 @@
 
     <script type="text/javascript">
         $(function () {
-            $("#due_at").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+            $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
         })
     </script>
 

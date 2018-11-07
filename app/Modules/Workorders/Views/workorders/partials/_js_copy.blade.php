@@ -7,7 +7,7 @@
             $("#client_name").focus();
         });
 
-        $("#copy_workorder_date").datepicker({format: '{{ config('fi.datepickerFormat') }}', autoclose: true});
+        $("#copy_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
           $('#copy_client_name').autocomplete({
               appendTo: '#modal-copy-workorder',

@@ -8,6 +8,8 @@
         @if (config('fi.mailConfigured'))
             <a class="dropdown-item email-payment-receipt" href ="javascript:void(0)" data-payment-id="{{ $id }}" data-redirect-to="{{ request()->fullUrl() }}"><i class="fa fa-envelope"></i> {{ trans('fi.email_payment_receipt') }}</a>
         @endif
+        <div class="dropdown-divider"></div>
+
         <a class="dropdown-item" href ="#"
                onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('payments.delete', [$id]) }}');"><i class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
     </div>

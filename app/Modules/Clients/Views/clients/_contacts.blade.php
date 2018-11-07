@@ -69,10 +69,11 @@
                         <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
                             {{ trans('fi.options') }}
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="javascript:void(0)" class="btn-edit-contact" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a></li>
-                            <li><a href="javascript:void(0)" class="btn-delete-contact" data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a></li>
-                        </ul>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="btn-edit-contact dropdown-item" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="javascript:void(0)" class="btn-delete-contact dropdown-item" data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+                        </div>
                     </div>
                 </td>
             </tr>

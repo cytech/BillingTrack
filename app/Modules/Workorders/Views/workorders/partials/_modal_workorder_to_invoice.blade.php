@@ -1,4 +1,4 @@
-@include('layouts._datepicker')
+
 
 @include('workorders.partials._js_workorder_to_invoice')
 
