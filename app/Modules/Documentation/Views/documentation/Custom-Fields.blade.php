@@ -17,14 +17,14 @@
 
         <p>Click the System menu and select Custom Fields.</p>
 
-        <a href="../../../assets/img/docs/2018/custom_fields.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/custom_fields_small.png" class="img-responsive">
+        <a href="/img/documentation/custom_fields.png" target="_blank">
+            <img src="/img/documentation/custom_fields_small.png" class="img-responsive">
         </a>
 
         <p>Press the New button.</p>
 
-        <a href="../../../assets/img/docs/2018/custom_fields2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/custom_fields2_small.png" class="img-responsive">
+        <a href="/img/documentation/custom_fields2.png" target="_blank">
+            <img src="/img/documentation/custom_fields2_small.png" class="img-responsive">
         </a>
 
         <p>Use the Table Name field to choose the table to add the custom field to.</p>
@@ -36,8 +36,8 @@
             not dropdown, leave Field Meta empty.</p>
         <p>Press the Save button. Your custom field(s) will now appear on the appropriate edit screens.</p>
 
-        <a href="../../../assets/img/docs/2018/custom_fields3.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/custom_fields3_small.png" class="img-responsive">
+        <a href="/img/documentation/custom_fields3.png" target="_blank">
+            <img src="/img/documentation/custom_fields3_small.png" class="img-responsive">
         </a>
 
         <hr>

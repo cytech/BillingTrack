@@ -68,28 +68,10 @@
             </li>
             <li class="nav-item">
                 {{--<a class="nav-link" href="/documentation" title="{{ trans('fi.documentation') }}"--}}
-                <a class="nav-link" href="{{ url('documentation', ['master']) }}" title="{{ trans('fi.documentation') }}"
+                <a class="nav-link" href="{{ url('documentation', ['Requirements']) }}" title="{{ trans('fi.documentation') }}"
                    aria-haspopup="true" aria-expanded="false" target="_blank">
-                    <i class="fa fa-file"></i>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" title="{{ trans('fi.about') }}">
                     <i class="fa fa-question-circle"></i>
                 </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            {{--<a class="dropdown-item" tabindex="-1" href="#"><i class="fa fa-file"></i>FusionInvoiceFOSS</a>--}}
-                            <a class="dropdown-item" tabindex="-1" href="{{ route('workorders.about') }}"><i
-                                        class="fa fa-file"></i> {{ trans('fi.workorders') }}</a>
-                            <a class="dropdown-item" tabindex="-1" href="{{ route('scheduler.about') }}"><i
-                                        class="fa fa-file"></i> {{ trans('fi.scheduler') }}</a>
-                            <a class="dropdown-item" tabindex="-1" href="{{ route('timesheets.about') }}"><i
-                                        class="fa fa-clock"></i> {{ trans('fi.timesheet') }}</a>
-
-
-                        </div>
-
-
             </li>
 
             <li class="nav-item">

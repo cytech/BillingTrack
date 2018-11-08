@@ -19,8 +19,8 @@
 
         <p>Click the Expenses menu item and press the New button.</p>
 
-        <a href="../../../assets/img/docs/2018/expense_create.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/expense_create_small.png" class="img-responsive">
+        <a href="/img/documentation/expense_create.png" target="_blank">
+            <img src="/img/documentation/expense_create_small.png" class="img-responsive">
         </a>
 
         <p>Adjust the company profile and the date of the expense if needed.</p>
@@ -36,8 +36,8 @@
         <p>Optionally select one or more files to attach to the expense.</p>
         <p>Press the Save button.</p>
 
-        <a href="../../../assets/img/docs/2018/expense_create2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/expense_create2_small.png" class="img-responsive">
+        <a href="/img/documentation/expense_create2.png" target="_blank">
+            <img src="/img/documentation/expense_create2_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -48,8 +48,8 @@
         <p>Click the Expenses menu item, press the Options button on the expense to bill and select Bill This
             Expense.</p>
 
-        <a href="../../../assets/img/docs/2018/expense_bill.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/expense_bill_small.png" class="img-responsive">
+        <a href="/img/documentation/expense_bill.png" target="_blank">
+            <img src="/img/documentation/expense_bill_small.png" class="img-responsive">
         </a>
 
         <p>Choose the invoice to add the expense to.</p>
@@ -58,8 +58,8 @@
         <p>To add the expense to the invoice without adding a line item, choose Do not add line item to invoice.</p>
         <p>Press the Submit button.
         </p>
-        <a href="../../../assets/img/docs/2018/expense_bill2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/expense_bill2_small.png" class="img-responsive">
+        <a href="/img/documentation/expense_bill2.png" target="_blank">
+            <img src="/img/documentation/expense_bill2_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -70,8 +70,8 @@
         <p>Click the Reports menu item and choose Profit and Loss.</p>
         <p>The Profit and Loss report can be run against all or one company profile for a specific date range.</p>
 
-        <a href="../../../assets/img/docs/2018/expense_profit_loss.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/expense_profit_loss_small.png" class="img-responsive">
+        <a href="/img/documentation/expense_profit_loss.png" target="_blank">
+            <img src="/img/documentation/expense_profit_loss_small.png" class="img-responsive">
         </a>
 
     </div>

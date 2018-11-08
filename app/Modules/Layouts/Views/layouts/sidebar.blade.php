@@ -132,10 +132,6 @@
                                                 class="nav-icon fas fa-check-double fa-fw ml-4"></i>{{ trans('fi.orphan_check') }}
                                     </a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.about') }}"><i
-                                                class="nav-icon fa fa-question-circle fa-fw ml-4"></i> {{ trans('fi.about') }}
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                     </ul>

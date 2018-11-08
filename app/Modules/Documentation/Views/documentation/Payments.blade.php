@@ -32,8 +32,8 @@
             and securely using the invoice public link.</p>
         <p>To configure FusionInvoice for online payments, click the System icon and select System Settings.</p>
 
-        <a href="../../../assets/img/docs/2018/system_settings.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/system_settings_small.png" class="img-responsive">
+        <a href="/img/documentation/system_settings.png" target="_blank">
+            <img src="/img/documentation/system_settings_small.png" class="img-responsive">
         </a>
 
         <p>Each of the different payment gateways that are compatible with FusionInvoice are listed on the
@@ -86,8 +86,8 @@
             </li>
         </ul>
 
-        <a href="../../../assets/img/docs/2018/system_settings_online_payments.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/system_settings_online_payments_small.png" class="img-responsive">
+        <a href="/img/documentation/system_settings_online_payments.png" target="_blank">
+            <img src="/img/documentation/system_settings_online_payments_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -102,13 +102,13 @@
                 Developer</a> portal using your standard PayPal credentials.</p>
 
         <p>Click the Create App button in the REST API apps section of the My Apps & Credentials page.</p>
-        <a href="../../../assets/img/docs/2018/online_payments_paypal_rest1.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/online_payments_paypal_rest1_small.png" class="img-responsive">
+        <a href="/img/documentation/online_payments_paypal_rest1.png" target="_blank">
+            <img src="/img/documentation/online_payments_paypal_rest1_small.png" class="img-responsive">
         </a>
 
         <p>Give the app a name, such as FusionInvoice (or whatever you'd like) and click the Create App button.</p>
-        <a href="../../../assets/img/docs/2018/online_payments_paypal_rest2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/online_payments_paypal_rest2_small.png" class="img-responsive">
+        <a href="/img/documentation/online_payments_paypal_rest2.png" target="_blank">
+            <img src="/img/documentation/online_payments_paypal_rest2_small.png" class="img-responsive">
         </a>
 
         <p>Once the app is created, the Client ID and Secret ID can be obtained. Note there is an option to switch
@@ -118,8 +118,8 @@
             Secret ID spans two lines, so be sure the entire key gets copied. Configure the keys in FusionInvoice on the
             Online Payments
             tab in System Settings.</p>
-        <a href="../../../assets/img/docs/2018/online_payments_paypal_rest3.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/online_payments_paypal_rest3_small.png" class="img-responsive">
+        <a href="/img/documentation/online_payments_paypal_rest3.png" target="_blank">
+            <img src="/img/documentation/online_payments_paypal_rest3_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -134,8 +134,8 @@
             "invoice public link". Buttons for each of the enabled payment gateways will appear at the top of the
             invoice as shown below.</p>
 
-        <a href="../../../assets/img/docs/2018/payment_online.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/payment_online_small.png"
+        <a href="/img/documentation/payment_online.png" target="_blank">
+            <img src="/img/documentation/payment_online_small.png"
                  class="img-responsive">
         </a>
 

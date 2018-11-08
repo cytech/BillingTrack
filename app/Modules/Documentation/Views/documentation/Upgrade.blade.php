@@ -9,6 +9,7 @@
         <hr>
 
         <ul>
+            <li><a href="#how-to-upgrade-fusioninvoicefoss">How to Upgrade FusionInvoiceFOSS</a></li>
             <li><a href="#how-to-upgrade-fusioninvoice-2018">How to Upgrade FusionInvoice 2018</a></li>
             <li><a href="#how-to-upgrade-to-fusioninvoice-2018-from-fusioninvoice-2017-2016">How to Upgrade to
                     FusionInvoice 2018 from FusionInvoice 2017 or 2016</a></li>
@@ -16,6 +17,15 @@
                     2018 from FusionInvoice v2</a></li>
             <li><a href="#how-to-upgrade-an-add-on">How to Upgrade an Add-on</a></li>
         </ul>
+        <hr>
+        <span class="anchor" id="how-to-upgrade-fusioninvoicefoss"></span>
+        <h3>How to Upgrade FusionInvoiceFOSS</h3>
+        <pre>
+1. Git pull (if originally cloned) or download and overwrite existing installation.
+2. run composer update
+3. Start FusionInvoiceFOSS/setup
+4. after migration completes, signin.
+        </pre>
 
         <hr>
 

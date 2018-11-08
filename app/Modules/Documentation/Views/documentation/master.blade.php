@@ -15,7 +15,7 @@
         <div class="navbar-header">
             <a class="navbar-brand">
                 <img src="/img/fi_logo2.png" style="float: left; margin-top: -10px;">
-                <span style="padding-left: 10px;">FusionInvoiceFOSS</span>
+                <span style="padding-left: 10px;">FusionInvoiceFOSS Documentation</span>
             </a>
         </div>
     </div>
@@ -25,19 +25,14 @@
         <div class="col-lg-3">
             <div class="bs-sidebar">
                 <h4>Versions</h4>
-                <p style="padding-left: 15px; font-size: 1em;"><a href="#"><span class="label label-primary"
-                                                                                 style="font-size: 1em;">FusionInvoiceFOSS v4.1.x</span></a>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="#">FusionInvoiceFOSS v4.1.x</a>
                 </p>
                 <p style="padding-left: 15px; font-size: 1em;"><a href="#">FusionInvoiceFOSS v4.0.x</a></p>
                 <h4>About FusionInvoiceFOSS</h4>
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <li class="nav-item" style="background-color: #eee;"><a class="nav-link"
-                        href="Requirements">Requirements</a>
+                    <li class="nav-item" "><a class="nav-link" href="Requirements">Requirements</a>
                     </li>
-                    {{--<li class="nav-item" style="background-color: #eee;"><a class="nav-link"--}}
-                    {{--href="{{ action('FI\Modules\Documentation\Controllers\DocumentationController@showPage', ['2018.About-FusionInvoice', 'Requirements']) }}">Requirements</a>--}}
-                    {{--</li>--}}
                     <li class="nav-item"><a class="nav-link" href="License">License</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="Support">Support</a>
@@ -67,6 +62,8 @@
                     <li class="nav-item"><a class="nav-link" href="Time-Tracking">Time Tracking</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="Scheduler">Scheduler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Reports">Reports</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Utilities">Utilities</a></li>
                     <li class="nav-item"><a class="nav-link" href="System-Settings">System
                             Settings</a></li>
                     <li class="nav-item"><a class="nav-link" href="Importing-Data">Importing
@@ -94,32 +91,6 @@
             </div>
         </div>
         @yield('content')
-        {{--@include('documentation.2018.About-FusionInvoice.Requirements')--}}
-        {{--<div class="col-lg-9 documentation">--}}
-            {{--<h2>Requirements</h2>--}}
-            {{--<hr>--}}
-            {{--<p>--}}
-                {{--FusionInvoiceFOSS is web-based software, so to install and use it, you must have a server environment of--}}
-                {{--some sort.--}}
-                {{--Please review the minimum requirements below to determine whether or not you will be able to install and--}}
-                {{--use the--}}
-                {{--software.--}}
-            {{--</p>--}}
-            {{--<ul>--}}
-                {{--<li>A web server of some sort - Apache, nginx, etc.</li>--}}
-                {{--<li>PHP >= 7.0.0</li>--}}
-                {{--<li>OpenSSL PHP Extension</li>--}}
-                {{--<li>PDO PHP Extension</li>--}}
-                {{--<li>Mbstring PHP Extension</li>--}}
-                {{--<li>Tokenizer PHP Extension</li>--}}
-                {{--<li>XML PHP Extension</li>--}}
-                {{--<li>DOM PHP Extension</li>--}}
-                {{--<li>iconv PHP Extension</li>--}}
-                {{--<li>Fileinfo PHP Extension (only if using the data import module)</li>--}}
-                {{--<li>MySQL or MariaDB</li>--}}
-                {{--<li>A modern and updated web browser</li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
     </div>
 </div>
 <br><br>

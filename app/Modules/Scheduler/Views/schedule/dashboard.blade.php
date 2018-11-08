@@ -32,8 +32,6 @@
                             <a class="dropdown-item"
                                href="{!! route('scheduler.checkschedule') !!}"><i
                                         class="nav-icon fas fa-check-double"></i> {{ trans('fi.orphan_check') }}</a>
-                            <a class="dropdown-item" href="{!! route('scheduler.about') !!}"><i
-                                        class="nav-icon fa fa-question-circle"></i> {{ trans('fi.about') }}</a>
                         </div>
                     </li>
                 </div>

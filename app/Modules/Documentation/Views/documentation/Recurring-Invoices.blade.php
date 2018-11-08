@@ -39,8 +39,8 @@
         <h3>How do I create a recurring invoice?</h3>
 
         <p>Click the Recurring Invoices menu item and press the New button.</p>
-        <a href="../../../assets/img/docs/2018/recurring_invoice_create.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/recurring_invoice_create_small.png" class="img-responsive">
+        <a href="/img/documentation/recurring_invoice_create.png" target="_blank">
+            <img src="/img/documentation/recurring_invoice_create_small.png" class="img-responsive">
         </a>
 
         <p>The Create Recurring Invoice screen will prompt you for the client name, company profile, group, start date
@@ -58,8 +58,8 @@
         <p>Set the frequency for the invoice.</p>
         <p>Press Submit when done and you'll be taken to the Recurring Invoice Edit screen.</p>
 
-        <a href="../../../assets/img/docs/2018/recurring_invoice_create2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/recurring_invoice_create2_small.png" class="img-responsive">
+        <a href="/img/documentation/recurring_invoice_create2.png" target="_blank">
+            <img src="/img/documentation/recurring_invoice_create2_small.png" class="img-responsive">
         </a>
 
         <p>The Recurring Invoice Edit screen is where you'll add line items as well as define further properties and
@@ -117,8 +117,8 @@
             </li>
         </ul>
 
-        <a href="../../../assets/img/docs/2018/recurring_invoice_edit.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/recurring_invoice_edit_small.png" class="img-responsive">
+        <a href="/img/documentation/recurring_invoice_edit.png" target="_blank">
+            <img src="/img/documentation/recurring_invoice_edit_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -128,16 +128,16 @@
 
         <p>Press the Other button and choose Copy from the Invoice Edit screen.</p>
 
-        <a href="../../../assets/img/docs/2018/recurring_invoice_copy.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/recurring_invoice_copy_small.png" class="img-responsive">
+        <a href="/img/documentation/recurring_invoice_copy.png" target="_blank">
+            <img src="/img/documentation/recurring_invoice_copy_small.png" class="img-responsive">
         </a>
 
         <p>Change the client's name if the copy will be for a different client.</p>
         <p>Review the date, company profile, group, start date and frequency. Change if necessary.</p>
         <p>Press the Submit button to complete the copy.</p>
 
-        <a href="../../../assets/img/docs/2018/recurring_invoice_copy2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/recurring_invoice_copy2_small.png" class="img-responsive">
+        <a href="/img/documentation/recurring_invoice_copy2.png" target="_blank">
+            <img src="/img/documentation/recurring_invoice_copy2_small.png" class="img-responsive">
         </a>
 
     </div>

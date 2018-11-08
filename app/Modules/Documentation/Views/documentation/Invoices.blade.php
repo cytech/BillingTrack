@@ -20,8 +20,8 @@
         <h3>How do I create an invoice?</h3>
 
         <p>Click the Invoices menu item and press the New button.</p>
-        <a href="../../../assets/img/docs/2018/invoice_create.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_create_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_create.png" target="_blank">
+            <img src="/img/documentation/invoice_create_small.png" class="img-responsive">
         </a>
 
         <p>The Create Invoice screen will prompt you for the client name, invoice date, company profile and group.</p>
@@ -37,8 +37,8 @@
         <p>The group controls the format of the number assigned to each invoice.</p>
         <p>Press Submit when done and you'll be taken to the Invoice Edit screen.</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_create2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_create2_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_create2.png" target="_blank">
+            <img src="/img/documentation/invoice_create2_small.png" class="img-responsive">
         </a>
 
         <p>The Invoice Edit screen is where you'll add line items as well as define further properties and options
@@ -108,8 +108,8 @@
             </li>
         </ul>
 
-        <a href="../../../assets/img/docs/2018/invoice_edit.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_edit_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_edit.png" target="_blank">
+            <img src="/img/documentation/invoice_edit_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -122,16 +122,16 @@
             email settings in System
             Settings on the Email tab.</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_email.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_email_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_email.png" target="_blank">
+            <img src="/img/documentation/invoice_email_small.png" class="img-responsive">
         </a>
 
         <p>The Email Invoice screen allows you to add additional recipients, change the subject and / or body, if
             necessary.</p>
         <p>Press the Send button to send the email.</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_email2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_email2_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_email2.png" target="_blank">
+            <img src="/img/documentation/invoice_email2_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -143,8 +143,8 @@
             Other
             button and choosing Enter Payment.</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_enter_payment.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_enter_payment_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_enter_payment.png" target="_blank">
+            <img src="/img/documentation/invoice_enter_payment_small.png" class="img-responsive">
         </a>
 
         <p>If the invoice is being paid in full, the amount field will already contain the full balance amount so you
@@ -158,8 +158,8 @@
         <p>If you'd like to email the client with an email receipt of payment, check the Email Payment Receipt box.</p>
         <p>Press the Submit button and the payment will be submitted to the invoice.</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_enter_payment2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_enter_payment2_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_enter_payment2.png" target="_blank">
+            <img src="/img/documentation/invoice_enter_payment2_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -169,16 +169,16 @@
 
         <p>Press the Other button and choose Copy from the Invoice Edit screen.</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_copy.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_copy_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_copy.png" target="_blank">
+            <img src="/img/documentation/invoice_copy_small.png" class="img-responsive">
         </a>
 
         <p>Change the client's name if the copy will be for a different client.</p>
         <p>Review the date, company profile, and group. Change if necessary.</p>
         <p>Press the Submit button to complete the copy.</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_copy2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_copy2_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_copy2.png" target="_blank">
+            <img src="/img/documentation/invoice_copy2_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -206,8 +206,8 @@
             invoice
             to your clients (or just to store related files for your own purposes).</p>
 
-        <a href="../../../assets/img/docs/2018/invoice_attachments.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/invoice_attachments_small.png" class="img-responsive">
+        <a href="/img/documentation/invoice_attachments.png" target="_blank">
+            <img src="/img/documentation/invoice_attachments_small.png" class="img-responsive">
         </a>
 
     </div>

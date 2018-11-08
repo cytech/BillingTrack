@@ -8,8 +8,6 @@
 
         <hr>
 
-        <p><a href="#license-expiration">Why does my license show an expiration date? I thought FusionInvoice was buy
-                once, use forever?</a></p>
         <p><a href="#change-status-paid">Why can't I change my invoice status to Paid?</a></p>
         <p><a href="#troubleshooting-recurring-invoices">Why aren't my recurring invoices working?</a></p>
         <p><a href="#how-do-i-reset-my-password">I forgot my password - how can I reset it?</a></p>
@@ -17,18 +15,6 @@
         <p><a href="#supported-payment-gateways">Can FusionInvoice work with XYZ payment gateway?</a></p>
         <p><a href="#how-to-remove-index-php">How can I remove index.php from my URL?</a></p>
         <p><a href="#how-to-force-https">How can I force my FusionInvoice installation to be served over https?</a></p>
-
-        <hr>
-
-        <span class="anchor" id="license-expiration"></span>
-        <h3>Why does my license show an expiration date? I thought FusionInvoice was buy once, use forever?</h3>
-
-        <p>You're right - it is, and it always will be! Renewing your support period is completely optional.
-            FusionInvoice will never stop
-            working simply because your support period has expired. Renewing your support period gives you access to
-            another full year of support
-            and program updates (every update, including major version releases).
-        </p>
 
         <hr>
 
@@ -50,8 +36,8 @@
 
         <p>First, check the Next Date of the recurring invoice you expect should have generated.</p>
 
-        <a href="../../../assets/img/docs/2018/troubleshoot_recurring_invoices.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/troubleshoot_recurring_invoices_small.png"
+        <a href="/img/documentation/troubleshoot_recurring_invoices.png" target="_blank">
+            <img src="/img/documentation/troubleshoot_recurring_invoices_small.png"
                  class="img-responsive">
         </a>
 
@@ -108,9 +94,7 @@
 
         <span class="anchor" id="dashboard-totals"></span>
         <h3>Why do the totals on my dashboard all show zero?</h3>
-        <a href="../../../assets/img/docs/faq_dashboard_totals.png" target="_blank">
-            <img src="../../../assets/img/docs/faq_dashboard_totals_small.png" class="img-responsive">
-        </a>
+
         <p>
             There are settings on the Dashboard tab of System Settings which control this behavior for both quotes and
             invoices.

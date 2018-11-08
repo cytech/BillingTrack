@@ -20,8 +20,8 @@
 
             <p>Click the Clients menu item and press the New button.</p>
 
-            <a href="../../../assets/img/docs/2018/client_create.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_create_small.png" class="img-responsive">
+            <a href="/img/documentation/client_create.png" target="_blank">
+                <img src="/img/documentation/client_create_small.png" class="img-responsive">
             </a>
 
             <p>Use the Client Form screen to fill in details and contact information for your client.</p>
@@ -40,8 +40,8 @@
 
             <p>Press the Save button when finished.</p>
 
-            <a href="../../../assets/img/docs/2018/client_create2.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_create2_small.png" class="img-responsive">
+            <a href="/img/documentation/client_create2.png" target="_blank">
+                <img src="/img/documentation/client_create2_small.png" class="img-responsive">
             </a>
 
             <hr>
@@ -51,29 +51,29 @@
 
             <p>On the client edit screen, select the Contacts tab and click the Add Contact button.</p>
 
-            <a href="../../../assets/img/docs/2018/client_contact1.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_contact1_small.png" class="img-responsive">
+            <a href="/img/documentation/client_contact1.png" target="_blank">
+                <img src="/img/documentation/client_contact1_small.png" class="img-responsive">
             </a>
 
             <p>Enter the name and email address for the new contact and press the Save button.</p>
 
-            <a href="../../../assets/img/docs/2018/client_contact2.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_contact2_small.png" class="img-responsive">
+            <a href="/img/documentation/client_contact2.png" target="_blank">
+                <img src="/img/documentation/client_contact2_small.png" class="img-responsive">
             </a>
 
             <p>Once the contact has been added, you can set them as a default to, cc or bcc recipient for outgoing
                 quotes
                 and invoices for the client the contact was added to.</p>
 
-            <a href="../../../assets/img/docs/2018/client_contact3.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_contact3_small.png" class="img-responsive">
+            <a href="/img/documentation/client_contact3.png" target="_blank">
+                <img src="/img/documentation/client_contact3_small.png" class="img-responsive">
             </a>
 
             <p>Contacts which are not identified as a default to, cc or bcc recipient can still be selected as a
                 recipient when emailing a quote or an invoice.</p>
 
-            <a href="../../../assets/img/docs/2018/client_contact4.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_contact4_small.png" class="img-responsive">
+            <a href="/img/documentation/client_contact4.png" target="_blank">
+                <img src="/img/documentation/client_contact4_small.png" class="img-responsive">
             </a>
 
             <hr>
@@ -95,13 +95,13 @@
 
             <p>User accounts are managed under System -> User Accounts.</p>
 
-            <a href="../../../assets/img/docs/2018/user_account_client1.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/user_account_client1_small.png" class="img-responsive">
+            <a href="/img/documentation/user_account_client1.png" target="_blank">
+                <img src="/img/documentation/user_account_client1_small.png" class="img-responsive">
             </a>
 
             <p>To create a client user account, click the New button and then choose Client Account. </p>
-            <a href="../../../assets/img/docs/2018/user_account_client2.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/user_account_client2_small.png" class="img-responsive">
+            <a href="/img/documentation/user_account_client2.png" target="_blank">
+                <img src="/img/documentation/user_account_client2_small.png" class="img-responsive">
             </a>
 
             <p>Select the name of the client to create the account for from the dropdown. The name and email address
@@ -113,16 +113,16 @@
                 have a user account, b) their client record doesn't have an email address, or c) their client record is
                 set
                 to inactive.</p>
-            <a href="../../../assets/img/docs/2018/user_account_client3.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/user_account_client3_small.png" class="img-responsive">
+            <a href="/img/documentation/user_account_client3.png" target="_blank">
+                <img src="/img/documentation/user_account_client3_small.png" class="img-responsive">
             </a>
 
             <p>Once the account has been created, it will be listed as a Client account. Client accounts log in
                 using the same URL as admin accounts, but they will be logged into the Client Center, which provides
                 limited
                 access to just their invoices, quotes and payments.</p>
-            <a href="../../../assets/img/docs/2018/user_account_client4.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/user_account_client4_small.png" class="img-responsive">
+            <a href="/img/documentation/user_account_client4.png" target="_blank">
+                <img src="/img/documentation/user_account_client4_small.png" class="img-responsive">
             </a>
 
             <hr>
@@ -138,16 +138,16 @@
                 on the
                 client to edit and choosing Edit.</p>
 
-            <a href="../../../assets/img/docs/2018/client_edit.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_edit_small.png" class="img-responsive">
+            <a href="/img/documentation/client_edit.png" target="_blank">
+                <img src="/img/documentation/client_edit_small.png" class="img-responsive">
             </a>
 
             <p>Both the currency and the language can be adjusted on the Client Form screen when editing an existing
                 client
                 or adding a new client.</p>
 
-            <a href="../../../assets/img/docs/2018/client_localization.png" target="_blank">
-                <img src="../../../assets/img/docs/2018/client_localization_small.png" class="img-responsive">
+            <a href="/img/documentation/client_localization.png" target="_blank">
+                <img src="/img/documentation/client_localization_small.png" class="img-responsive">
             </a>
 
         </div>

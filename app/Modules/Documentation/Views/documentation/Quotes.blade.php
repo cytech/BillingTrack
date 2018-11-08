@@ -20,8 +20,8 @@
         <h3>How do I create a quote?</h3>
 
         <p>Click the Quotes menu item and press the New button.</p>
-        <a href="../../../assets/img/docs/2018/quote_create.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_create_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_create.png" target="_blank">
+            <img src="/img/documentation/quote_create_small.png" class="img-responsive">
         </a>
 
         <p>The Create Quote screen will prompt you for the client name, quote date, company profile and group.</p>
@@ -35,8 +35,8 @@
         <p>The group controls the format of the number assigned to each quote.</p>
         <p>Press Submit when done and you'll be taken to the Quote Edit screen.</p>
 
-        <a href="../../../assets/img/docs/2018/quote_create2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_create2_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_create2.png" target="_blank">
+            <img src="/img/documentation/quote_create2_small.png" class="img-responsive">
         </a>
 
         <p>The Quote Edit screen is where you'll add line items as well as define further properties and options
@@ -103,8 +103,8 @@
             </li>
         </ul>
 
-        <a href="../../../assets/img/docs/2018/quote_edit.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_edit_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_edit.png" target="_blank">
+            <img src="/img/documentation/quote_edit_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -117,35 +117,35 @@
             email settings in System
             Settings on the Email tab.</p>
 
-        <a href="../../../assets/img/docs/2018/quote_email.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_email_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_email.png" target="_blank">
+            <img src="/img/documentation/quote_email_small.png" class="img-responsive">
         </a>
 
         <p>The Email Quote screen allows you to add additional recipients, change the subject and / or body, if
             necessary.</p>
         <p>Press the Send button to send the email.</p>
 
-        <a href="../../../assets/img/docs/2018/quote_email2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_email2_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_email2.png" target="_blank">
+            <img src="/img/documentation/quote_email2_small.png" class="img-responsive">
         </a>
 
         <hr>
 
         <span class="anchor" id="convert-to-invoice"></span>
-        <h3>How do I convert a quote to an invoice?</h3>
+        <h3>How do I convert a quote to a workorder or an invoice?</h3>
 
-        <p>Once a client has accepted your quote, you can convert it to an invoice on the Quote Edit screen by clicking
-            the Options button and choosing Quote to Invoice.</p>
+        <p>Once a client has accepted your quote, you can convert it to a workorder or an invoice on the Quote Edit screen by clicking
+            the Options button and choosing Quote to Workorder or Quote to Invoice.</p>
 
-        <a href="../../../assets/img/docs/2018/quote_to_invoice.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_to_invoice_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_to_invoice.png" target="_blank">
+            <img src="/img/documentation/quote_to_invoice_small.png" class="img-responsive">
         </a>
 
         <p>Review the date and group, adjust if necessary and press the Submit button. Once submitted, you will
             be taken to the Invoice Edit screen for the new invoice.</p>
 
-        <a href="../../../assets/img/docs/2018/quote_to_invoice2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_to_invoice2_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_to_invoice2.png" target="_blank">
+            <img src="/img/documentation/quote_to_invoice2_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -155,16 +155,16 @@
 
         <p>Press the Other button and choose Copy from the Quote Edit screen.</p>
 
-        <a href="../../../assets/img/docs/2018/quote_copy.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_copy_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_copy.png" target="_blank">
+            <img src="/img/documentation/quote_copy_small.png" class="img-responsive">
         </a>
 
         <p>Change the client's name if the copy will be for a different client.</p>
         <p>Review the date, company profile, and group. Change if necessary.</p>
         <p>Press the Submit button to complete the copy.</p>
 
-        <a href="../../../assets/img/docs/2018/quote_copy2.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_copy2_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_copy2.png" target="_blank">
+            <img src="/img/documentation/quote_copy2_small.png" class="img-responsive">
         </a>
 
         <hr>
@@ -188,8 +188,8 @@
             quote
             to your clients (or just to store related files for your own purposes).</p>
 
-        <a href="../../../assets/img/docs/2018/quote_attachments.png" target="_blank">
-            <img src="../../../assets/img/docs/2018/quote_attachments_small.png" class="img-responsive">
+        <a href="/img/documentation/quote_attachments.png" target="_blank">
+            <img src="/img/documentation/quote_attachments_small.png" class="img-responsive">
         </a>
 
     </div>
