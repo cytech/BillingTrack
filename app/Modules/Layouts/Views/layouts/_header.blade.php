@@ -67,7 +67,8 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/documentation" title="{{ trans('fi.documentation') }}"
+                {{--<a class="nav-link" href="/documentation" title="{{ trans('fi.documentation') }}"--}}
+                <a class="nav-link" href="{{ url('documentation', ['master']) }}" title="{{ trans('fi.documentation') }}"
                    aria-haspopup="true" aria-expanded="false" target="_blank">
                     <i class="fa fa-file"></i>
                 </a>

@@ -8,16 +8,6 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => 'auth.api'], function () {
-    Route::group(['prefix' => 'woapi', 'namespace' => 'FI\Modules\Workorders\Controllers'], function () {
-        Route::post('workorders/list', ['uses' => 'ApiWorkorderController@lists']);
-        Route::post('workorders/show', ['uses' => 'ApiWorkorderController@show']);
-        Route::post('workorders/create', ['uses' => 'ApiWorkorderController@create']);
-        Route::post('workorders/items/add', ['uses' => 'ApiWorkorderController@addItem']);
-        Route::post('workorders/delete', ['uses' => 'ApiWorkorderController@delete']);
-    });
-});
-
 Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Workorders\Controllers'], function () {
     Route::group(['prefix' => 'workorders'], function () {
     	//workorders

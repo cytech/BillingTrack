@@ -2,7 +2,7 @@
 
 <aside class="main-sidebar sidebar-dark-dark elevation-2">
     <a href="/" class="brand-link bg-{{ str_replace('skin-', '', $skinClass) }} border-bottom">
-        <img src="/img/fi_logo.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+        <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
         style="opacity: .8">
         <span class="brand-text font-weight-light">{{ config('app.name', 'FusionInvoiceFOSS') }}</span>
     </a>
