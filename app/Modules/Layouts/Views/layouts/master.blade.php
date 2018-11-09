@@ -22,7 +22,7 @@
     @yield('javascript')
 
 </head>
-<body class="{{ $skinClass }} hold-transition sidebar-mini">
+<body class=" hold-transition sidebar-mini">
 
 <div class="wrapper">
 

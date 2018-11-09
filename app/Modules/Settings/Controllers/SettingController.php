@@ -100,6 +100,8 @@ class SettingController extends Controller
 
         Setting::saveByKey('schedulerEnabledCoreEvents', array_sum($request->enabledCoreEvents));
 
+        Setting::saveByKey('skin', json_encode($request->skin));
+
         foreach (request('setting') as $key => $value)
         {
             $skipSave = false;

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="content m-3">
+    <section class="content p-3">
         <h3 class="float-left">
             {{ trans('fi.company_profiles') }}
         </h3>

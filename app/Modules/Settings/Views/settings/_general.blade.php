@@ -49,12 +49,7 @@
 
 <div class="row">
 
-    <div class="col-md-2">
-        <div class="form-group">
-            <label>{{ trans('fi.skin') }}: </label>
-            {!! Form::select('setting[skin]', $skins, config('fi.skin'), ['class' => 'form-control']) !!}
-        </div>
-    </div>
+
 
     <div class="col-md-2">
         <div class="form-group">
@@ -84,6 +79,32 @@
         </div>
     </div>
 
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>{{ trans('fi.skin_header_bg') }}: </label>
+            {!! Form::select('skin[headBackground]', $skins, json_decode(config('fi.skin'),true)['headBackground'], ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>{{ trans('fi.skin_header_text') }}: </label>
+            {!! Form::select('skin[headClass]', ['dark'=>'Dark', 'light'=>'Light'], json_decode(config('fi.skin'),true)['headClass'], ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>{{ trans('fi.skin_menu_bg') }}: </label>
+            {!! Form::select('skin[sidebarBackground]', $skins, json_decode(config('fi.skin'),true)['sidebarBackground'], ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>{{ trans('fi.skin_menu_text') }}: </label>
+            {!! Form::select('skin[sidebarClass]', ['dark'=>'Dark', 'light'=>'Light'], json_decode(config('fi.skin'),true)['sidebarClass'], ['class' => 'form-control']) !!}
+        </div>
+    </div>
 </div>
 
 <div class="row">

@@ -14,7 +14,7 @@
         {!! Form::open(['route' => 'currencies.store']) !!}
     @endif
 
-    <section class="content m-3">
+    <section class="content p-3">
         <h3 class="float-left">
             {{ trans('fi.currency_form') }}
         </h3>

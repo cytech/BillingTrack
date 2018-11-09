@@ -1,13 +1,11 @@
-{{--<aside class="main-sidebar sidebar-dark-primary elevation-2">--}}
-
-<aside class="main-sidebar sidebar-dark-dark elevation-2">
-    <a href="/" class="brand-link bg-{{ str_replace('skin-', '', $skinClass) }} border-bottom">
+<aside class="main-sidebar sidebar-{{ $headClass }} elevation-2">
+    <a href="/" class="brand-link bg-{{ $headBackground }} border-bottom">
         <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
-        style="opacity: .8">
+             style="opacity: .8">
         <span class="brand-text font-weight-light">{{ config('app.name', 'FusionInvoiceFOSS') }}</span>
     </a>
 
-    <div class="sidebar bg-light">
+    <div class="sidebar bg-{{ $sidebarBackground }}">
 
         @if (config('fi.displayProfileImage'))
             <div class="user-panel">
@@ -34,7 +32,7 @@
         @endif
         <nav class="mt-2">
 
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+            <ul class="nav nav-pills-{{ $sidebarClass }} nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard.index') }}">

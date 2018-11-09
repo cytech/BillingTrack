@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="container-fluid m-3">
+    <section class="container-fluid p-3">
         <h3 class="float-left">
             {{ trans('fi.manage_trash') }}
         </h3>

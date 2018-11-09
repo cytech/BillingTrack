@@ -4,7 +4,7 @@
 
     {!! Form::open(['route' => 'import.upload', 'files' => true]) !!}
 
-    <section class="content m-3">
+    <section class="content p-3">
         <h3 class="float-left">
             {{ trans('fi.import_data') }}
         </h3>

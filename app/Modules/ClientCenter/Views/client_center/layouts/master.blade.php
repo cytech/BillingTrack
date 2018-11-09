@@ -20,11 +20,11 @@
     @yield('javascript')
 
 </head>
-<body class="{{ $skinClass }} hold-transition sidebar-mini ">
+<body class="hold-transition sidebar-mini ">
 
 <div class="wrapper">
 
-    <nav class="main-header navbar navbar-expand navbar-dark bg-{{ str_replace('skin-', '', $skinClass) }} border-bottom">
+    <nav class="main-header navbar navbar-expand navbar-{{ $headClass }} bg-{{ $headBackground }} border-bottom">
         <div class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"

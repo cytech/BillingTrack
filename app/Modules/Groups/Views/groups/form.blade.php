@@ -14,7 +14,7 @@
         {!! Form::open(['route' => 'groups.store']) !!}
     @endif
 
-    <section class="content m-3">
+    <section class="content p-3">
         <h3 class="float-left">
             {{ trans('fi.group_form') }}
         </h3>

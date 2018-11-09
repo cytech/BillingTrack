@@ -15,8 +15,14 @@ class SkinComposer
 {
     public function compose($view)
     {
-        $skin = (config('fi.skin') ?: 'skin-fusioninvoice.min.css');
-        $view->with('skin', $skin);
-        $view->with('skinClass', str_replace('.min.css', '', $skin));
+        $defaultSkin = json_decode('{"headBackground":"purple","headClass":"Light","sidebarBackground":"white","sidebarClass":"Light"}',true);
+
+        $skin = (config('fi.skin') ? json_decode(config('fi.skin'),true) : $defaultSkin);
+
+        $view->with('headClass', $skin['headClass']);
+        $view->with('headBackground', $skin['headBackground']);
+        $view->with('sidebarClass', $skin['sidebarClass']);
+        $view->with('sidebarBackground', $skin['sidebarBackground']);
+
     }
 }

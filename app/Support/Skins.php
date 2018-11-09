@@ -15,23 +15,23 @@ class Skins
 {
     public static function lists()
     {
-        $skins = Directory::listAssocContents(public_path('css/skins'));
 
-        unset($skins['_all-skins.css'], $skins['_all-skins.min.css']);
-        unset($skins['dataTable-style.css'], $skins['dataTable-style.min.css']);
-
-        foreach ($skins as $skin)
-        {
-            if (!strstr($skin, '.min.css'))
-            {
-                unset($skins[$skin]);
-                continue;
-            }
-
-            $skins[$skin] = str_replace('skin-', '', $skins[$skin]);
-            $skins[$skin] = str_replace('.min.css', '', $skins[$skin]);
-
-        }
+        $skins = [
+            'black' => 'Black',
+            'blue' => 'Blue',
+            'cyan' => 'Cyan',
+            'gray' => 'Gray',
+            'gray-light' => 'Gray (light)',
+            'green' => 'Green',
+            'indigo' => 'Indigo',
+            'orange' => 'Orange',
+            'pink' => 'Pink',
+            'purple' => 'Purple',
+            'red' => 'Red',
+            'teal' => 'Teal',
+            'white' => 'White',
+            'yellow' => 'Yellow',
+        ];
 
         return $skins;
     }

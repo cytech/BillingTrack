@@ -14,7 +14,7 @@
         {!! Form::open(['route' => 'paymentMethods.store']) !!}
     @endif
 
-    <section class="content m-3">
+    <section class="content p-3">
         <h3 class="float-left">
             {{ trans('fi.payment_method_form') }}
         </h3>

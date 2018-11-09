@@ -10,7 +10,7 @@
 
     {!! Form::open(['route' => ['users.password.update', $user->id]]) !!}
 
-    <section class="content m-3">
+    <section class="content p-3">
         <h3 class="float-left">
             {{ trans('fi.reset_password') }}: {{ $user->name }} ({{ $user->email }})
         </h3>

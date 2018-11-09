@@ -23,7 +23,7 @@
         {!! Form::open(['route' => ['users.store', 'client']]) !!}
     @endif
 
-    <section class="content m-3">
+    <section class="content p-3">
         <h3 class="float-left">
             {{ trans('fi.client') . ' ' . trans('fi.user_form') }}
         </h3>

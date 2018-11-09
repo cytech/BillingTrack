@@ -20,14 +20,14 @@
     @yield('javascript')
 
 </head>
-<body class="{{ $skinClass }} layout-boxed sidebar-mini ">
+<body class="layout-boxed sidebar-mini ">
 
 <div class="wrapper">
 
-    <header class="navbar-dark bg-{{ str_replace('skin-', '', $skinClass) }} border-bottom">
+    <header class="navbar-{{ $headClass }} bg-{{ $headBackground }} border-bottom">
 
-        <a href="{{ auth()->check() ? route('dashboard.index') : '#' }}" class="brand-link bg-green border-bottom ">
-            <img src="/img/fi_logo.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+        <a href="{{ auth()->check() ? route('dashboard.index') : '#' }}" class="brand-link bg-{{ $headBackground }} border-bottom ">
+            <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">{{ config('app.name', 'FusionInvoiceFOSS') }}</span>
         </a>

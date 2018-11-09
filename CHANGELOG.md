@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 4.1.0
 - upgrade to laravel 5.7.*
 - migrate to Bootstrap 4.1.*
+- start resource move to laravel mix where applicable
 - fix email cc and bcc
 - documentation
 

@@ -3,8 +3,9 @@ FusionInvoice 2018-8 after it was open sourced
 
 [Link to prerequisites](https://github.com/cytech/FusionInvoice-FOSS/wiki)
 
-**To Upgrade from v4.0.1 to v4.0.2**
+**To Upgrade from v4.0.x to v4.1.0**
 1. Git pull (if originally cloned) or download and overwrite existing installation.
+   (if downloading and extracting zip, delete the contents of "YourFusionInvoiceFOSS/public" directory prior to extracting.)
 2. run composer update
 3. Start FusionInvoiceFOSS/setup
 4. after migration completes, signin.

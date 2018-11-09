@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="container-fluid m-3">
+    <section class="container-fluid p-3">
         <h3>{{ trans('fi.addons') }}</h3>
         <div class="clearfix"></div>
     </section>
