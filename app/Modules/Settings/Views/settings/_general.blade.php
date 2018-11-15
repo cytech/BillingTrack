@@ -39,7 +39,7 @@
                 {!! Form::text('version', config('fi.version'), ['class' => 'form-control', 'disabled' => 'disabled']) !!}
                 <span class="input-group-append">
 					<button class="btn btn-secondary" id="btn-check-update"
-                            type="button" disabled>{{ trans('fi.check_for_update') }} </button>
+                            type="button" >{{ trans('fi.check_for_update') }} </button>
 				</span>
             </div>
         </div>

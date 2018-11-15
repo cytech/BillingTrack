@@ -13,7 +13,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                     {{ trans('fi.criteria_batchprint') }}
-                    <button type="submit" class="btn btn-success float-right"><i
+                    <button type="submit" class="btn btn-primary float-right"><i
                                 class="fa fa-save"></i> {{ trans('fi.process') }} </button>
                 </h3>
             </div>
@@ -39,8 +39,8 @@
                         {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
                     </div>
                     <script>
-                        $('#from_date').val(moment());
-                        $('#to_date').val(moment());
+                        $('#from_date').val('{{ \Carbon\Carbon::now() }}');
+                        $('#to_date').val('{{ \Carbon\Carbon::now()}}');
                     </script>
                 </div>
             </div>

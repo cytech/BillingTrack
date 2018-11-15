@@ -6,14 +6,12 @@
         </li>
     </ul>
     <script>
-        //need to connect up scss themes...
+        //need to connect up scss bs4 themes...
         //style datatable header and btn-primary like the navbar
         var top_bar = $('.bg-{{ $headBackground }}');
         var bg = top_bar.css('background-color');
-        {{--var top_bar_text = $('.navbar-{{ $headClass }}');--}}
-        // var color = top_bar_text.css('color');
         var color = '#FFFFFF';
-
+        // override white yellow and light gray color to black
         if (bg === 'rgb(255, 255, 255)' || bg === 'rgb(255, 237, 74)' || bg === 'rgb(242, 244, 245)'){
             color = '#000000';
         }

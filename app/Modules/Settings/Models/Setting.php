@@ -34,6 +34,15 @@ class Setting extends Model
         });
     }
 
+    public static $modules = [
+        'quote' => 1,
+        'workorder' => 2,
+        'recurring_invoice' => 4,
+        'expense' => 8,
+        'time_tracking' => 16,
+        'scheduler' => 32,
+    ];
+
     public static $coreevents = [
         'quote' => 1,
         'workorder' => 2,
@@ -43,6 +52,25 @@ class Setting extends Model
         'project' => 32,
         'task' => 64,
     ];
+
+    public static function isModuleEnabled($entityType)
+    {
+        if (! in_array($entityType, [
+            'quote',
+            'workorder',
+            'recurring_invoice',
+            'expense',
+            'time_tracking',
+            'scheduler',
+        ])) {
+            return true;
+        }
+
+        $enabledmodules = self::where('setting_key', 'enabledModules')->value('setting_value');
+
+        // note: single & checks bitmask match
+        return $enabledmodules & static::$modules[$entityType];
+    }
 
 
     public function isCoreeventEnabled($entityType)

@@ -17,9 +17,11 @@ class UpdateChecker
 
     public function __construct()
     {
-        //TODO
-        //$this->currentVersion = file_get_contents('https://somewebsite/current-version');
-        $this->currentVersion = '2018-8';
+        $options = array('http' => array('user_agent' => 'FusionInvoice-FOSS'));
+        $context = stream_context_create($options);
+
+        $this->currentVersion = json_decode(file_get_contents('https://api.github.com/repos/cytech/FusionInvoice-FOSS/releases/latest', false, $context), true)['tag_name'];
+
     }
 
     /**
@@ -29,7 +31,7 @@ class UpdateChecker
      */
     public function updateAvailable()
     {
-        if (str_replace('-', '', $this->currentVersion) > str_replace('-', '', config('fi.version')))
+        if (str_replace('v', '', $this->currentVersion) > config('fi.version'))
         {
             return true;
         }

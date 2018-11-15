@@ -301,6 +301,7 @@ return [
     'emptolup'                                => 'Push active Employees to Item Lookups?',
     'enable_cwo'                              => 'Enable "Create Workorder" functionality',
     'enabled'                                 => 'Enabled',
+    'enabled_modules'                         => 'Modules Enabled in Sidebar',
     'end_at'                                  => 'End At',
     'end_date'                                => 'End Date',
     'end_datetime'                            => 'End DateTime',

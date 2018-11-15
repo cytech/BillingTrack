@@ -144,9 +144,9 @@
                                             @if($reminder->Schedule->url)
                                                 {{ trans('fi.link_to_workorder') }}</a></td>
                                     @else
-                                        <a href="#" id="delete-reminder-{{ $reminder->id }}"
+                                        <a href="#" class="btn btn-danger btn-sm" id="delete-reminder-{{ $reminder->id }}"
                                            onclick="swalConfirm('{{ trans('fi.reminder_trash_warning') }}', '{{ route('scheduler.trashreminder', $reminder->id) }}');"><i
-                                                    class="btn-danger fa fa-trash-alt"></i> {{ trans('fi.trash') }}
+                                                    class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}
                                         </a></td>
                                     @endif
                                 </tr>

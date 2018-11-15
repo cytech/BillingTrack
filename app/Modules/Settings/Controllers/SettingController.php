@@ -98,6 +98,13 @@ class SettingController extends Controller
             $request['enabledCoreEvents'] = [0];
         };
 
+        //check if no enabledModules checkboxes checked
+        if(! $request->has('enabledModules')){
+            $request['enabledModules'] = [0];
+        };
+
+        Setting::saveByKey('enabledModules', array_sum($request->enabledModules));
+
         Setting::saveByKey('schedulerEnabledCoreEvents', array_sum($request->enabledCoreEvents));
 
         Setting::saveByKey('skin', json_encode($request->skin));

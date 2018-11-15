@@ -14,7 +14,7 @@
                     {{ trans('fi.create_category') }}
                     <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i
                                 class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
-                    <button type="submit" class="btn btn-success float-right"><i
+                    <button type="submit" class="btn btn-primary float-right"><i
                                 class="fa fa-save"></i> {{ trans('fi.save') }}</button>
                 </h3>
 

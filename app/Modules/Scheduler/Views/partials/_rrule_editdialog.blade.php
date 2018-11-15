@@ -68,7 +68,7 @@
     'The week start day. Must be one of the "RRule.MO", "RRule.TU", "RRule.WE" constants, or an integer, specifying the first day of the week. This will affect recurrences based on weekly periods. The default week start is "RRule.MO".'
     ]) !!}
     <div class="form-group">
-        <label class="btn btn-success ">
+        <label class="btn btn-primary ">
             {!! Form::radio('wkst','MO',null,['id'=>'wkst']) !!}<span> MO</span></label>
         <label class="btn btn-warning">
             {!! Form::radio('wkst','TU',null,['id'=>'wkst']) !!}<span> TU</span></label>

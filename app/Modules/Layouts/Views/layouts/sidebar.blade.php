@@ -46,6 +46,7 @@
                         <p>{{ trans('fi.clients') }}</p>
                     </a>
                 </li>
+                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('quote'))
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('quotes.index', ['status' => config('fi.quoteStatusFilter')]) }}">
@@ -53,6 +54,8 @@
                         <p>{{ trans('fi.quotes') }}</p>
                     </a>
                 </li>
+                @endif
+                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('workorder'))
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('workorders.index', ['status' => config('fi.workorderStatusFilter')]) }}">
@@ -60,6 +63,7 @@
                         <p>{{ trans('fi.workorders') }}</p>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('invoices.index', ['status' => config('fi.invoiceStatusFilter')]) }}">
@@ -67,30 +71,37 @@
                         <p>{{ trans('fi.invoices') }}</p>
                     </a>
                 </li>
+                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('recurring_invoice'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('recurringInvoices.index') }}">
                         <i class="nav-icon fas fa-sync-alt"></i>
                         <p>{{ trans('fi.recurring_invoices') }}</p>
                     </a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('payments.index') }}">
                         <i class="nav-icon fa fa-credit-card"></i>
                         <p>{{ trans('fi.payments') }}</p>
                     </a>
                 </li>
+                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('expense'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('expenses.index') }}">
                         <i class="nav-icon fas fa-dollar-sign"></i>
                         <p>{{ trans('fi.expenses') }}</p>
                     </a>
                 </li>
+                @endif
+                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('time_tracking'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('timeTracking.projects.index', ['status' => 1]) }}">
                         <i class="nav-icon far fa-clock"></i>
                         <p>{{ trans('fi.time_tracking') }}</p>
                     </a>
                 </li>
+                @endif
+                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('scheduler'))
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="nav-icon fa fa-calendar"></i>
@@ -134,6 +145,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="nav-icon fa fa-chart-bar"></i>

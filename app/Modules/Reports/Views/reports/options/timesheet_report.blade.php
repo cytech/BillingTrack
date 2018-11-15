@@ -84,8 +84,8 @@
                             {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
                         </div>
                         <script>
-                            $('#from_date').val(moment().subtract(1, 'weeks').startOf('isoWeek'));
-                            $('#to_date').val(moment().subtract(1, 'weeks').endOf('isoWeek'));
+                            $('#from_date').val('{{ \Carbon\Carbon::now()->startOfWeek()->subWeek() }}');
+                            $('#to_date').val('{{ \Carbon\Carbon::now()->endOfWeek()->subWeek() }}');
                         </script>
                     </div>
                 </div>
