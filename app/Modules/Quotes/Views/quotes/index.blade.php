@@ -38,7 +38,7 @@
         @include('layouts._alerts')
         <div class="card ">
             <div class="card-body">
-                        @include('quotes._dataTable')
+                        @include('layouts._dataTable')
                     </div>
                 </div>
     </section>

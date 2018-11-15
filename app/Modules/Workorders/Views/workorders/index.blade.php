@@ -40,7 +40,7 @@
 
         <div class="card ">
             <div class="card-body">
-                        @include('workorders._dataTable')
+                        @include('layouts._dataTable')
                     </div>
 
                 </div>

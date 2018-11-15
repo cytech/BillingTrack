@@ -21,7 +21,7 @@
                 <div class="card card-light">
 
                     <div class="card-body">
-                        @include('partials._dataTable')
+                        @include('layouts._dataTable')
                         {{--<table id="dt-filtertable" class="display" cellspacing="0" width="100%">--}}
                             {{--<thead>--}}
                             {{--<tr>--}}

@@ -46,7 +46,7 @@
 
         <div class="card ">
             <div class="card-body">
-                        @include('invoices._dataTable')
+                        @include('layouts._dataTable')
                     </div>
 
                 </div>

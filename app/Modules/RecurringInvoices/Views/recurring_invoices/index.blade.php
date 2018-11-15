@@ -30,7 +30,7 @@
         @include('layouts._alerts')
         <div class="card ">
             <div class="card-body">
-                        @include('recurring_invoices._dataTable')
+                        @include('layouts._dataTable')
                     </div>
 
                 </div>

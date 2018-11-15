@@ -27,7 +27,7 @@
                 <div class="card card-light">
 
                     <div class="card-body">
-                        @include('partials._dataTable')
+                        @include('layouts._dataTable')
                     </div>
                 </div>
             </div>
