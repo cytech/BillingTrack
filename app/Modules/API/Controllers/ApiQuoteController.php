@@ -11,7 +11,6 @@
 
 namespace FI\Modules\API\Controllers;
 
-use FI\Modules\API\Requests\APIInvoiceItemRequest;
 use FI\Modules\API\Requests\APIQuoteItemRequest;
 use FI\Modules\API\Requests\APIQuoteStoreRequest;
 use FI\Modules\Clients\Models\Client;

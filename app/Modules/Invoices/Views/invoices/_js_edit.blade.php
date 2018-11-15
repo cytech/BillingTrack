@@ -34,19 +34,19 @@
         }
 
         $('.btn-delete-invoice-item').click(function () {
-            var id = $(this).data('item-id');
+            const id = $(this).data('item-id');
             deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('invoiceItem.delete') }}', id,
                 '{{ route('invoiceEdit.refreshTotals') }}', '{{ $invoice->id }}' );
         });
 
         $('.btn-save-invoice').click(function () {
-            var items = [];
-            var display_order = 1;
-            var custom_fields = {};
-            var apply_exchange_rate = $(this).data('apply-exchange-rate');
+            const items = [];
+            let display_order = 1;
+            const custom_fields = {};
+            const apply_exchange_rate = $(this).data('apply-exchange-rate');
 
             $('table tr.item').each(function () {
-                var row = {};
+                const row = {};
                 $(this).find('input,select,textarea').each(function () {
                     if ($(this).attr('name') !== undefined) {
                         if ($(this).is(':checkbox')) {
@@ -68,7 +68,7 @@
             });
 
             $('.custom-form-field').each(function () {
-                var fieldName = $(this).data('invoices-field-name');
+                const fieldName = $(this).data('invoices-field-name');
                 if (fieldName !== undefined) {
                     custom_fields[$(this).data('invoices-field-name')] = $(this).val();
                 }
@@ -95,7 +95,7 @@
                 });
             }).fail(function (response) {
                 if (response.status == 422) {
-                    var msg ='';
+                    let msg = '';
                     $.each($.parseJSON(response.responseText).errors, function (id, message) {
                         msg += message + '\n';
                     });
@@ -106,9 +106,9 @@
             });
         });
 
-        var fixHelper = function (e, tr) {
-            var $originals = tr.children();
-            var $helper = tr.clone();
+        const fixHelper = function (e, tr) {
+            const $originals = tr.children();
+            const $helper = tr.clone();
             $helper.children().each(function (index) {
                 $(this).width($originals.eq(index).width())
             });

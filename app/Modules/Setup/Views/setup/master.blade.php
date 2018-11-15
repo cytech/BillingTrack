@@ -26,18 +26,13 @@
 
 <div class="wrapper">
 
-    <header class="main-header">
-
-        <a href="#" class="logo">
-            <span class="logo-lg">FusionInvoiceFOSS</span>
+        <a href="#" class="brand-link bg-light border-bottom">
+            <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">{{ config('app.name', 'FusionInvoiceFOSS') }}</span>
         </a>
 
-        <nav class="navbar navbar-static-top" role="navigation">
-
             @yield('header')
-
-        </nav>
-    </header>
 
     <div class="content-wrapper content-wrapper-public">
         @yield('content')

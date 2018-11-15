@@ -49,7 +49,7 @@
                 <a href="Upgrade"> update documentation</a>.
             </li>
             <li>FusionInvoice uses Laravel's <a href="https://laravel.com/docs/5.1/blade"
-                                                targe="_blank">Blade templating
+                                                target="_blank">Blade templating
                     engine</a>.
             </li>
             <li>There is no limit to how many custom templates you may have.</li>

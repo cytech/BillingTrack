@@ -19,7 +19,6 @@ use FI\Support\FileNames;
 use FI\Support\PDF\PDFFactory;
 use FI\Support\Statuses\InvoiceStatuses;
 use FI\Traits\ReturnUrl;
-use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {

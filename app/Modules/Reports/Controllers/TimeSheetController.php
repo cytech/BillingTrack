@@ -41,12 +41,6 @@ class TimeSheetController extends Controller
             ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
     }
 
-	public function about()
-	{
-		return view('reports.timesheet_about');
-	}
-
-
     public function ajaxValidate(TimeSheetReportRequest $request)
     {
 

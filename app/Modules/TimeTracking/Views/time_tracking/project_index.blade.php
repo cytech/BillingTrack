@@ -8,7 +8,7 @@
             });
         });
         $(document).on('click', '#btn-bulk-delete', function () {
-            var ids = [];
+            const ids = [];
 
             $('.bulk-record:checked').each(function () {
                 ids.push($(this).data('id'));
@@ -20,7 +20,7 @@
         });
 
         $(document).on('click', '.bulk-change-status', function () {
-            var ids = [];
+            const ids = [];
 
             $('.bulk-record:checked').each(function () {
                 ids.push($(this).data('id'));
@@ -86,7 +86,7 @@
 @push('scripts')
     {!! $dataTable->scripts() !!}
     <script>
-        var htmlstr = '<input type="checkbox" class="btn-group" id="bulk-select-all"/> ';
+        const htmlstr = '<input type="checkbox" class="btn-group" id="bulk-select-all"/> ';
         $('.bulk-record').html(htmlstr)
     </script>
 @endpush

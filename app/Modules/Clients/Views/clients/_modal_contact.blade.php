@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(function () {
-        var modalContact = $('#modal-contact');
+        const modalContact = $('#modal-contact');
 
         modalContact.modal();
 

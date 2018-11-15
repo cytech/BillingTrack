@@ -8,10 +8,10 @@
         $(function () {
             $('#btn-run-report').click(function () {
 
-                var from_date = $('#from_date').val();
-                var to_date = $('#to_date').val();
-                var company_profile_id = $('#company_profile_id').val();
-                var exclude_unpaid_invoices = $('#exclude_unpaid_invoices').val();
+                const from_date = $('#from_date').val();
+                const to_date = $('#to_date').val();
+                const company_profile_id = $('#company_profile_id').val();
+                const exclude_unpaid_invoices = $('#exclude_unpaid_invoices').val();
 
                 $.post("{{ route('reports.taxSummary.validate') }}", {
                     from_date: from_date,

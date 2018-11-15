@@ -15,8 +15,8 @@
             });
 
             $('.btn-pay').click(function () {
-                var $btn = $(this).button('loading');
-                
+                const $btn = $(this).button('loading');
+
                 $.post("{{ route('merchant.pay') }}", {
                     driver: $(this).data('driver'),
                     urlKey: '{{ $invoice->url_key }}'

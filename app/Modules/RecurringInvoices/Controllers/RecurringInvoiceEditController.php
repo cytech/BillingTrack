@@ -14,7 +14,6 @@ namespace FI\Modules\RecurringInvoices\Controllers;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Currencies\Models\Currency;
 use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\CustomFields\Models\RecurringInvoiceCustom;
 use FI\Modules\Groups\Models\Group;
 use FI\Modules\Invoices\Support\InvoiceTemplates;
 use FI\Modules\ItemLookups\Models\ItemLookup;
@@ -24,7 +23,6 @@ use FI\Modules\RecurringInvoices\Requests\RecurringInvoiceUpdateRequest;
 use FI\Modules\TaxRates\Models\TaxRate;
 use FI\Support\DateFormatter;
 use FI\Support\Frequency;
-use FI\Support\NumberFormatter;
 use FI\Traits\ReturnUrl;
 
 class RecurringInvoiceEditController extends Controller

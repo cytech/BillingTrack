@@ -12,7 +12,7 @@
 
         $('#btn-submit-mail-workorder').click(function () {
 
-            var $btn = $(this).button('loading');
+            const $btn = $(this).button('loading');
 
             if ($('#attach_pdf').prop('checked') == true) {
                 attachPdf = 1;

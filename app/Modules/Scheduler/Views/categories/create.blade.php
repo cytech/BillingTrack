@@ -64,8 +64,6 @@
             $('.cp2icon').css('color', event.color.toString());
         });
     </script>
-    </div>
-    </div>
 @stop
 @section('javascript')
     <link href="{{ asset('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet"

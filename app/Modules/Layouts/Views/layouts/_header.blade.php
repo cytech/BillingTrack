@@ -8,15 +8,15 @@
     <script>
         //need to connect up scss bs4 themes...
         //style datatable header and btn-primary like the navbar
-        var top_bar = $('.bg-{{ $headBackground }}');
-        var bg = top_bar.css('background-color');
-        var color = '#FFFFFF';
+        const top_bar = $('.bg-{{ $headBackground }}');
+        const bg = top_bar.css('background-color');
+        let color = '#FFFFFF';
         // override white yellow and light gray color to black
         if (bg === 'rgb(255, 255, 255)' || bg === 'rgb(255, 237, 74)' || bg === 'rgb(242, 244, 245)'){
             color = '#000000';
         }
 
-        var newStyles = document.createElement('style');
+        const newStyles = document.createElement('style');
         document.head.append(newStyles);
         newStyles.innerHTML = ".btn-primary, .table.dataTable thead > tr > th {background-color: "
                                 + bg + " !important; color: " + color + " !important;}";

@@ -11,7 +11,7 @@
     <script type="text/javascript">
         $(function () {
 
-            var timers = [];
+            const timers = [];
 
             $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
 
@@ -50,7 +50,7 @@
             });
 
             $('#btn-bulk-delete-tasks').click(function () {
-                var ids = [];
+                const ids = [];
                 $('.checkbox-bulk-action:checked').each(function () {
                     ids.push($(this).data('task-id'));
                 });
@@ -89,7 +89,7 @@
             }
 
             $('#btn-bulk-bill-tasks').click(function () {
-                var ids = [];
+                const ids = [];
                 $('.checkbox-bulk-action:checked').each(function () {
                     ids.push($(this).data('task-id'));
                 });
@@ -99,7 +99,7 @@
             });
 
             $(document).on('click', '.btn-bill-task', function() {
-                var ids = [];
+                const ids = [];
                 ids.push($(this).data('task-id'));
 
                 if (ids.length > 0) {
@@ -159,7 +159,7 @@
                     notify('{{ trans('fi.settings_successfully_saved') }}', 'success');
                 }).fail(function (response) {
                     if (response.status == 422) {
-                        var msg ='';
+                        let msg = '';
                         $.each($.parseJSON(response.responseText).errors, function (id, message) {
                             msg += message + '\n';
                         });

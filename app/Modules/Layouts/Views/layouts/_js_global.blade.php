@@ -60,7 +60,7 @@
                     });
 
                 }).fail(function (response) {
-                    var msg ='';
+                    let msg = '';
                     $.each($.parseJSON(response.responseText).errors, function (id, message) {
                         msg += message + '\n';
                     });
@@ -224,7 +224,7 @@
 
     function resizeIframe(obj, minHeight) {
         obj.style.height = '';
-        var height = obj.contentWindow.document.body.scrollHeight;
+        const height = obj.contentWindow.document.body.scrollHeight;
 
         if (height < minHeight) {
             obj.style.height = minHeight + 'px';

@@ -4,10 +4,10 @@
 
 <script type="text/javascript">
     $(function () {
-        var sentStart = $('#from_date').val();
-        var sentEnd = $('#to_date').val();
-        var startDate =  (sentStart === '' ? moment().startOf('month') : moment(sentStart));
-        var endDate = (sentEnd === '' ? moment().endOf('month') : moment(sentEnd));
+        const sentStart = $('#from_date').val();
+        const sentEnd = $('#to_date').val();
+        const startDate = (sentStart === '' ? moment().startOf('month') : moment(sentStart));
+        const endDate = (sentEnd === '' ? moment().endOf('month') : moment(sentEnd));
         $('#date_range').daterangepicker({
                 autoApply: true,
                 startDate: startDate,

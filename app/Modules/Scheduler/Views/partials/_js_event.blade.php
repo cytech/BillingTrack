@@ -141,7 +141,7 @@
                 @if(config('fi.schedulerCreateWorkorder'))
                 viewRender: function (view, element) {
                     // Add the "button" to the day headers
-                    var $headers = $('.fc-day-top');
+                    const $headers = $('.fc-day-top');
                     $headers.css('position', 'relative');
                     $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='{{ trans('fi.create_workorder') }}'><i class='createwobutton far fa-file-alt' ></i></button> </div>");
                 },
@@ -184,7 +184,7 @@
                                 cache: false,
                                 success: function (data) {
                                     $.each(data.available_employees, function (k, v) {
-                                        var cb = $('<input/>', {
+                                        const cb = $('<input/>', {
                                             'type': 'checkbox',
                                             'id': 'worker',
                                             'name': 'workers[]',
@@ -204,16 +204,16 @@
                                         }
                                     });
                                     $.each(data.available_resources, function (k, v) {
-                                        var cb = $('<input/>', {
+                                        const cb = $('<input/>', {
                                             'type': 'checkbox',
                                             'id': 'resource',
                                             'name': 'resources[]',
                                             'value': v.id
                                         });
-                                        var qty = $('<input/>', {
+                                        const qty = $('<input/>', {
                                             'type': 'number',
-                                            'id': 'quantity'+v.id+'',
-                                            'name': 'quantity['+v.id+']',
+                                            'id': 'quantity' + v.id + '',
+                                            'name': 'quantity[' + v.id + ']',
                                             'min': '0',
                                             'style': 'width:40px;',
                                             'disabled': true,
@@ -300,8 +300,8 @@
                     $("#updateReminderShow").html('');
 
                     if (event.reminder) {
-                        var reminderHtml = '';
-                        for (var key in event.reminder) {
+                        let reminderHtml = '';
+                        for (let key in event.reminder) {
 
                             reminderHtml += '<div class="reminder_delete_div"><div class="form-group d-flex align-items-center">' +
                                 '<hr class="col-sm-10 hr-clr-green"/>' +
@@ -344,14 +344,14 @@
                 },
                 // added mouseover
                 eventMouseover: function (event, jsEvent, view) {
-                    var rstr = "";
-                    var tooltip = "";
+                    let rstr = "";
+                    let tooltip = "";
                     if (event.type === 'Workorder') {
-                        var wrstr = "{{trans('fi.employees')}}: ";
+                        let wrstr = "{{trans('fi.employees')}}: ";
                         if (event.willcall === '1') {
                             wrstr = "<span style='color:magenta'>{{trans('fi.employees')}}: </span>";
                         }
-                        var erstr = "Resources: ";
+                        let erstr = "Resources: ";
                         if (event.hasOwnProperty("resource")) {
                             $.each(event.resource, function (key, value) {
 

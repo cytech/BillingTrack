@@ -227,7 +227,7 @@
                     }
                 },
                 error: function (response) {
-                    var msg ='';
+                    let msg = '';
                     $.each($.parseJSON(response.responseText).errors, function (id, message) {
                         msg += message + '\n';
                     });

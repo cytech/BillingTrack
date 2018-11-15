@@ -13,7 +13,7 @@
         some sort.
         Please review the minimum requirements below to determine whether or not you will be able to install and
         use the
-        software. </a>.
+        software. .
     </p>
 
     <ul>

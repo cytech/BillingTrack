@@ -8,10 +8,10 @@
         $(function () {
             $('#btn-run-report').click(function () {
 
-                var from_date = $('#from_date').val();
-                var to_date = $('#to_date').val();
-                var client_name = $('#client_name').val();
-                var company_profile_id = $('#company_profile_id').val();
+                const from_date = $('#from_date').val();
+                const to_date = $('#to_date').val();
+                const client_name = $('#client_name').val();
+                const company_profile_id = $('#company_profile_id').val();
 
                 $.post("{{ route('reports.clientStatement.validate') }}", {
                     from_date: from_date,

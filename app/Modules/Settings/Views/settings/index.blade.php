@@ -9,7 +9,7 @@
             });
 
             $('#btn-recalculate-invoices').click(function () {
-                var $btn = $(this).button('loading');
+                const $btn = $(this).button('loading');
                 $.post("{{ route('invoices.recalculate') }}").done(function (response) {
                     notify(response.message, 'info');
                 }).fail(function (response) {
@@ -20,7 +20,7 @@
             });
 
             $('#btn-recalculate-workorders').click(function () {
-                var $btn = $(this).button('loading');
+                const $btn = $(this).button('loading');
                 $.post("{{ route('workorders.recalculate') }}").done(function (response) {
                     notify(response.message, 'info');
                 }).fail(function (response) {
@@ -31,7 +31,7 @@
             });
 
             $('#btn-recalculate-quotes').click(function () {
-                var $btn = $(this).button('loading');
+                const $btn = $(this).button('loading');
                 $.post("{{ route('quotes.recalculate') }}").done(function (response) {
                     notify(response.message, 'info');
                 }).fail(function (response) {
@@ -42,7 +42,7 @@
             });
 
             $('#setting-tabs a').click(function (e) {
-                var tabId = $(e.target).attr("href").substr(1);
+                const tabId = $(e.target).attr("href").substr(1);
                 $.post("{{ route('settings.saveTab') }}", {settingTabId: tabId});
             });
 

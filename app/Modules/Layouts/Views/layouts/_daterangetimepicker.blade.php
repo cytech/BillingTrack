@@ -4,8 +4,8 @@
 
 <script type="text/javascript">
     $(function () {
-        var startDate = moment().startOf('day');
-        var endDate = moment().startOf('day');
+        const startDate = moment().startOf('day');
+        const endDate = moment().startOf('day');
 
         $('#date_time_range').daterangepicker({
                 timePicker: true,

@@ -14,16 +14,11 @@ use FI\DataTables\WorkordersDataTable;
 use FI\Events\WorkorderModified;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Quotes\Models\Quote;
 use FI\Modules\Workorders\Models\Workorder;
 use FI\Support\FileNames;
 use FI\Support\PDF\PDFFactory;
 use FI\Support\Statuses\WorkorderStatuses;
 use FI\Traits\ReturnUrl;
-use Illuminate\Http\Request;
-use DB;
-use Carbon\Carbon;
 
 
 class WorkorderController extends Controller

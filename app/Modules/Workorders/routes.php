@@ -20,8 +20,6 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
         Route::get('{id}/pdf', ['uses' => 'WorkorderController@pdf', 'as' => 'workorders.pdf']);
         Route::post('bulk/delete', ['uses' => 'WorkorderController@bulkDelete', 'as' => 'workorders.bulk.delete']);
         Route::post('bulk/status', ['uses' => 'WorkorderController@bulkStatus', 'as' => 'workorders.bulk.status']);
-		//workorders about page
-        Route::get('about', [function () {return view('workorders.about');}, 'as' => 'workorders.about']);
 		//assorted
         Route::get('{id}/edit/refresh', ['uses' => 'WorkorderEditController@refreshEdit', 'as' => 'workorderEdit.refreshEdit']);
         Route::post('edit/refresh_to', ['uses' => 'WorkorderEditController@refreshTo', 'as' => 'workorderEdit.refreshTo']);

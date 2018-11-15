@@ -5,7 +5,7 @@
         });
 
         $('#btn-bulk-delete').click(function () {
-            var ids = [];
+            const ids = [];
 
             $('.bulk-record:checked').each(function () {
                 ids.push($(this).data('id'));

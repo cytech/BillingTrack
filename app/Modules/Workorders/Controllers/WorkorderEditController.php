@@ -20,10 +20,8 @@ use FI\Modules\Workorders\Support\WorkorderTemplates;
 use FI\Modules\Workorders\Requests\WorkorderUpdateRequest;
 use FI\Modules\TaxRates\Models\TaxRate;
 use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
 use FI\Support\Statuses\WorkorderStatuses;
 use FI\Traits\ReturnUrl;
-use mysqli;
 
 class WorkorderEditController extends Controller
 {
@@ -89,26 +87,6 @@ class WorkorderEditController extends Controller
                 $workorderItem->fill($item);
                 $workorderItem->save();
             }
-        }
-
-        //legacy/external calendar
-        if (config('fi.enableLegacyCalendar') == 1) {
-			//hardcode dbconf.php and cal2ical requirement
-			if(file_exists('custom/addons/Workorders/dbconf.php')) {
-				require_once( "dbconf.php" );
-				$mysqlical = new mysqli( $host, $user, $pass, $caldbase );
-				$filename  = config( 'fi.legacyCalendarScript' );
-				if ( $file = file_get_contents( $filename ) ) {
-					foreach ( explode( ";", $file ) as $query ) {
-						$query = trim( $query );
-						if ( ! empty( $query ) && $query != ";" ) {
-							mysqli_query( $mysqlical, $query );
-						}
-					}
-				}
-				mysqli_close( $mysqlical );
-				include 'cal2ical.php';
-			}
         }
 
         return response()->json(['success' => true], 200);

@@ -22,7 +22,7 @@
                     type: 'POST',
                     data: formData,
                     xhr: function () {
-                        var myXhr = $.ajaxSettings.xhr();
+                        const myXhr = $.ajaxSettings.xhr();
                         if (myXhr.upload) {
                             myXhr.upload.addEventListener('progress', progress, false);
                         }
@@ -50,9 +50,9 @@
 
             function progress(e) {
                 if (e.lengthComputable) {
-                    var max = e.total;
-                    var current = e.loaded;
-                    var Percentage = Math.round((current * 100) / max);
+                    const max = e.total;
+                    const current = e.loaded;
+                    const Percentage = Math.round((current * 100) / max);
                     $("#attachment-upload-progress-bar").css("width", Percentage + '%').html(Percentage + '%');
 
                     if (Percentage == 100) {

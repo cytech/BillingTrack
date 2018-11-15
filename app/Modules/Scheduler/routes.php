@@ -43,8 +43,6 @@ Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'n
     Route::get('/checkschedule', ['uses' => 'SchedulerController@checkSchedule', 'as' => 'scheduler.checkschedule']);
     Route::get('/getreplaceemployee/{item_id}/{name}/{date}', ['uses' => 'SchedulerController@getReplaceEmployee', 'as' => 'scheduler.getreplace.employee']);
     Route::post('/setreplaceemployee', ['uses' => 'SchedulerController@setReplaceEmployee', 'as' => 'scheduler.setreplace.employee']);
-    //about
-    Route::get('/about', [function () {return view('schedule.about');}, 'as' => 'scheduler.about']);
     //route for ajax calc of human readable recurrence frequency
     Route::post('/get_human', ['uses' => 'SchedulerController@getHuman', 'as' => 'scheduler.gethuman']);
     //other ajax

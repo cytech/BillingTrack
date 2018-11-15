@@ -12,7 +12,6 @@ namespace FI\Modules\Employees\Controllers;
 
 use FI\Modules\Employees\Models\Employee;
 use FI\Modules\Employees\Requests\EmployeeRequest;
-use DB;
 use FI\Http\Controllers\Controller;
 use FI\Modules\ItemLookups\Models\ItemLookup;
 

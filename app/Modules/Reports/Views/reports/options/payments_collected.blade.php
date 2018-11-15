@@ -8,9 +8,9 @@
         $(function () {
             $('#btn-run-report').click(function () {
 
-                var from_date = $('#from_date').val();
-                var to_date = $('#to_date').val();
-                var company_profile_id = $('#company_profile_id').val();
+                const from_date = $('#from_date').val();
+                const to_date = $('#to_date').val();
+                const company_profile_id = $('#company_profile_id').val();
 
                 $.post("{{ route('reports.paymentsCollected.validate') }}", {
                     from_date: from_date,

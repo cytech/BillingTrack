@@ -2,7 +2,7 @@
 
     $(function () {
 
-        var attachPdf = 0;
+        let attachPdf = 0;
 
         $('#modal-mail-invoice').modal({backdrop: 'static'}).on('shown.bs.modal', function () {
             $('#to').chosen();
@@ -12,7 +12,7 @@
 
         $('#btn-submit-mail-invoice').click(function () {
 
-            var $btn = $(this).button('loading');
+            const $btn = $(this).button('loading');
 
             if ($('#attach_pdf').prop('checked') == true) {
                 attachPdf = 1;

@@ -31,7 +31,7 @@
                 <h4>About FusionInvoiceFOSS</h4>
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <li class="nav-item" "><a class="nav-link" href="Requirements">Requirements</a>
+                    <li class="nav-item"><a class="nav-link" href="Requirements">Requirements</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="License">License</a>
                     </li>

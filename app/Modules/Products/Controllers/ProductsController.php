@@ -13,7 +13,6 @@ namespace FI\Modules\Products\Controllers;
 use FI\Modules\ItemLookups\Models\ItemLookup;
 use FI\Modules\Products\Models\Product;
 use FI\Modules\Products\Requests\ProductRequest;
-use DB;
 use FI\Http\Controllers\Controller;
 
 class ProductController extends Controller

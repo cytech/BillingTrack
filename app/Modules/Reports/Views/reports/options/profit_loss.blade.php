@@ -8,10 +8,10 @@
         $(function () {
             $('#btn-run-report').click(function () {
 
-                var from_date = $('#from_date').val();
-                var to_date = $('#to_date').val();
-                var company_profile_id = $('#company_profile_id').val();
-                var include_profit_based_on = $('#include_profit_based_on').val();
+                const from_date = $('#from_date').val();
+                const to_date = $('#to_date').val();
+                const company_profile_id = $('#company_profile_id').val();
+                const include_profit_based_on = $('#include_profit_based_on').val();
 
                 $.post("{{ route('reports.profitLoss.validate') }}", {
                     from_date: from_date,

@@ -130,18 +130,18 @@
     {!! $stdt->html()->scripts() !!}
 
     <script>
-        var htmlstr = '<input type="checkbox" class="btn-group" id="bulk-select-all"/> ';
+        const htmlstr = '<input type="checkbox" class="btn-group" id="bulk-select-all"/> ';
         $('.bulk-record').html(htmlstr)
     </script>
 
     <script type="text/javascript">
         $(function () {
             $('#btn-bulk-restore').click(function () {
-                var ids = [];
+                const ids = [];
 
                 $('.bulk-record:checked').each(function () {
-                    var entity = $(this).closest('table').attr('id');
-                    var id = $(this).data('id');
+                    const entity = $(this).closest('table').attr('id');
+                    const id = $(this).data('id');
                     ids.push({[entity]: id});
                 });
 
@@ -150,11 +150,11 @@
                 }
             });
             $('#btn-bulk-delete').click(function () {
-                var ids = [];
+                const ids = [];
 
                 $('.bulk-record:checked').each(function () {
-                    var entity = $(this).closest('table').attr('id');
-                    var id = $(this).data('id');
+                    const entity = $(this).closest('table').attr('id');
+                    const id = $(this).data('id');
                     ids.push({[entity]: id});
                 });
 

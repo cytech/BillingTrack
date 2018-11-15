@@ -4,7 +4,7 @@
 @push('scripts')
     {!! $dataTable->scripts() !!}
     <script>
-        var htmlstr = '<input type="checkbox" id="bulk-select-all"/> ';
+        const htmlstr = '<input type="checkbox" id="bulk-select-all"/> ';
         $('.bulk-record').html(htmlstr)
     </script>
 @endpush

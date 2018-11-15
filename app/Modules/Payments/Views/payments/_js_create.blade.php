@@ -14,9 +14,9 @@
 
         $('#enter-payment-confirm').click(function () {
 
-            var custom_fields = {};
+            const custom_fields = {};
 
-            var $btn = $(this).button('loading');
+            const $btn = $(this).button('loading');
 
             $('#payment-custom-fields .custom-form-field').each(function () {
                 custom_fields[$(this).data('payments-field-name')] = $(this).val();

@@ -83,7 +83,7 @@
                     wstr = '';
                     $('#create-workorder').on('click', '[id*=worker]', function () {
                         counter = 0;
-                        var wsel = $('#worker:checked').map(function (_, el) {
+                        const wsel = $('#worker:checked').map(function (_, el) {
                             counter++;
                             return "worker" + counter + "/" + $(el).val();
                         }).get();
@@ -110,7 +110,7 @@
                         else
                             $("#quantity"+$(this).val()).attr("disabled" , "disabled");
                         counter = 0;
-                        var rsel = $('#resource:checked').map(function (_, el) {
+                        const rsel = $('#resource:checked').map(function (_, el) {
                             counter++;
                             return "resource" + counter + "/" + $(el).val();
                         }).get();

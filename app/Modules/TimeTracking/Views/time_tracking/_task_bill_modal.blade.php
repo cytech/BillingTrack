@@ -3,8 +3,8 @@
 
         $('#modal-bill-task').modal();
 
-        var howToBill = $('#how_to_bill');
-        var invoiceCount = '{{ $invoiceCount }}';
+        const howToBill = $('#how_to_bill');
+        const invoiceCount = '{{ $invoiceCount }}';
 
         billOptions(howToBill.val(), invoiceCount);
 

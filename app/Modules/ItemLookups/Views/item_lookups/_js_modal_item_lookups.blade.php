@@ -2,12 +2,12 @@
     function setModalMaxHeight(element) {
         this.$element     = $(element);
         this.$content     = this.$element.find('.modal-content');
-        var borderWidth   = this.$content.outerHeight() - this.$content.innerHeight();
-        var dialogMargin  = $(window).width() > 767 ? 60 : 20;
-        var contentHeight = $(window).height() - (dialogMargin + borderWidth);
-        var headerHeight  = this.$element.find('.modal-header').outerHeight() || 0;
-        var footerHeight  = this.$element.find('.modal-footer').outerHeight() || 0;
-        var maxHeight     = contentHeight - (headerHeight + footerHeight);
+        const borderWidth = this.$content.outerHeight() - this.$content.innerHeight();
+        const dialogMargin = $(window).width() > 767 ? 60 : 20;
+        const contentHeight = $(window).height() - (dialogMargin + borderWidth);
+        const headerHeight = this.$element.find('.modal-header').outerHeight() || 0;
+        const footerHeight = this.$element.find('.modal-footer').outerHeight() || 0;
+        const maxHeight = contentHeight - (headerHeight + footerHeight);
 
         //hardcoded modal width - default is auto (600px)
         this.$element
@@ -46,7 +46,7 @@
         // Creates the invoice
         $('#select-items-confirm').click(function()
         {
-            var item_lookup_ids = [];
+            const item_lookup_ids = [];
 
             $("input[name='item_lookup_ids[]']:checked").each(function ()
             {
@@ -58,7 +58,7 @@
             }, function(data) {
                 items = JSON.parse(data);
 
-                for(var key in items) {
+                for(let key in items) {
                     if ($('#item-table tr:last input[name=name]').val() !== '') {
                         $('#new-item').clone().appendTo('#item-table').removeAttr('id').addClass('item').show();
                     }

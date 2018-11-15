@@ -25,8 +25,7 @@ $(function () {
             {"orderable": false, "targets": 4}
         ]
     });
-   {{--for trash, event, recurring event tables DT--}}
-     var oTable = $('#dt-filtertable').DataTable({
+    const oTable = $('#dt-filtertable').DataTable({
         order: [[3, "desc"]],//order on job_date Desc
         lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
         "columnDefs": [
@@ -34,7 +33,7 @@ $(function () {
         ],
         dom: '<"row bg-green pt-2"<"col-sm-1"l><"toolbar col-sm-6"><"offset-sm-3"f>>rt<"bottom"ip><"clear">',
         rowId: 'id',
-        initComplete: function(){
+        initComplete: function () {
             $('div.toolbar').html($('#rangefilter').show());
         }
     });

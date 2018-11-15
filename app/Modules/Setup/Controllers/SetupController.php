@@ -11,10 +11,8 @@
 
 namespace FI\Modules\Setup\Controllers;
 
-use Artisan;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\ItemLookups\Models\ItemLookup;
 use FI\Modules\Scheduler\Models\Category;
 use FI\Modules\Scheduler\Models\Schedule;
 use FI\Modules\Settings\Models\Setting;
@@ -50,7 +48,7 @@ class SetupController extends Controller
     public function prerequisites()
     {
         $errors          = [];
-        $versionRequired = '5.5.9';
+        $versionRequired = '7.1.3';
         $dbDriver        = config('database.default');
         $dbConfig        = config('database.connections.' . $dbDriver);
 

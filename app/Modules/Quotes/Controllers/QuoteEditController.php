@@ -21,7 +21,6 @@ use FI\Modules\Quotes\Support\QuoteTemplates;
 use FI\Modules\Quotes\Requests\QuoteUpdateRequest;
 use FI\Modules\TaxRates\Models\TaxRate;
 use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
 use FI\Support\Statuses\QuoteStatuses;
 use FI\Traits\ReturnUrl;
 

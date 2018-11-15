@@ -107,15 +107,15 @@
 <script>
 
     $('#create_client_name').on('autocompleteselect', function (event, ui) {
-        var clientName = ui.item.value;
+        const clientName = ui.item.value;
         $.get('/invoices/ajaxLookup/' + clientName, function (data) {
             $('#client_invoices').empty();
-            var first = $("<option></option>")
+            const first = $("<option></option>")
                 .attr("value", 'first')
                 .text('@lang('fi.select_invoice')');
             $('#client_invoices').append(first);
             $.each(JSON.parse(data), function (key, value) {
-                var option = $("<option></option>")
+                const option = $("<option></option>")
                     .attr("value", value.id)
                     .attr("client_id", value.client_id)
                     .attr("amount", value.amount)
@@ -129,11 +129,11 @@
 
     $('#client_invoices').change(function () {
         $('#client_invoices option[value="first"]').remove();
-        var invoice_id = $('#client_invoices').val();
+        const invoice_id = $('#client_invoices').val();
         $('#invoice_id').val(invoice_id);
-        var client_id = $('#client_invoices option:selected ').attr("client_id");
+        const client_id = $('#client_invoices option:selected ').attr("client_id");
         $('#client_id').val(client_id);
-        var payment_amount = $('#client_invoices option:selected ').attr("amount");
+        const payment_amount = $('#client_invoices option:selected ').attr("amount");
         $('#payment_amount').val(payment_amount);
     });
 

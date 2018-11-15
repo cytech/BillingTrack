@@ -1,7 +1,11 @@
 <script type="text/javascript">
-    var handler = StripeCheckout.configure({
+    const handler = StripeCheckout.configure({
         key: '{{ $driver->getSetting('publishableKey') }}',
-        image: @if ($invoice->companyProfile->logo_url) '{{ $invoice->companyProfile->logo_url }}', @else 'https://stripe.com/img/documentation/checkout/marketplace.png', @endif
+        image: @if ($invoice->companyProfile->logo_url)
+                '{{ $invoice->companyProfile->logo_url }}',
+               @else
+               'https://stripe.com/img/documentation/checkout/marketplace.png',
+               @endif
         locale: 'auto',
         token: function(token) {
             window.location = '{{ route('merchant.returnUrl', [$driver->getName(), $urlKey]) }}?token=' + token.id;

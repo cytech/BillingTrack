@@ -7,8 +7,8 @@
 
             $('#btn-run-report').click(function () {
 
-                var company_profile_id = $('#company_profile_id').val();
-                var year = $('#year').val();
+                const company_profile_id = $('#company_profile_id').val();
+                const year = $('#year').val();
 
                 $.post("{{ route('reports.revenueByClient.validate') }}", {
                     company_profile_id: company_profile_id,
@@ -16,7 +16,7 @@
                 }).done(function () {
                     clearErrors();
                     $('#form-validation-placeholder').html('');
-                    var output_type = $("input[name=output_type]:checked").val();
+                    const output_type = $("input[name=output_type]:checked").val();
                     query_string = "?company_profile_id=" + company_profile_id + "&year=" + year;
                     if (output_type == 'preview') {
                         $('#preview').show();

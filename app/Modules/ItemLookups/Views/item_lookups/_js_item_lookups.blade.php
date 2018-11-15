@@ -12,7 +12,7 @@
 
         // Clones a new item row
         function cloneItemRow() {
-            var row = $('#new-item').clone().appendTo('#item-table');
+            const row = $('#new-item').clone().appendTo('#item-table');
             row.removeAttr('id').addClass('item').show();
             row.find('input[name="name"]').addClass('item-lookup').autocomplete({
                 source: '{{ route('itemLookups.ajax.itemLookup') }}',
@@ -25,7 +25,7 @@
         // Sets up .item-lookup to populate proper fields when item is selected
         function typeaheadTrigger() {
             $('.item-lookup').on('autocompleteselect', function (obj, ui) {
-                var row = $(this).closest('tr');
+                const row = $(this).closest('tr');
                 row.find('textarea[name="description"]').val(ui.item.description);
                 row.find('input[name="quantity"]').val('1');
                 row.find('input[name="price"]').val(ui.item.price);

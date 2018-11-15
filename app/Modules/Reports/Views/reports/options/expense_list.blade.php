@@ -8,11 +8,11 @@
         $(function () {
             $('#btn-run-report').click(function () {
 
-                var from_date = $('#from_date').val();
-                var to_date = $('#to_date').val();
-                var company_profile_id = $('#company_profile_id').val();
-                var category_id = $('#category_id').val();
-                var vendor_id = $('#vendor_id').val();
+                const from_date = $('#from_date').val();
+                const to_date = $('#to_date').val();
+                const company_profile_id = $('#company_profile_id').val();
+                const category_id = $('#category_id').val();
+                const vendor_id = $('#vendor_id').val();
 
                 $.post("{{ route('reports.expenseList.validate') }}", {
                     from_date: from_date,
