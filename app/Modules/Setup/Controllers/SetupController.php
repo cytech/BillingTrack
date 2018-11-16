@@ -339,7 +339,10 @@ class SetupController extends Controller
 
         DB::statement('set foreign_key_checks = 1');
 
-        Setting::saveByKey('version', '4.0.0');
+
+        Setting::saveByKey('enabledModules', '63');
+        Setting::saveByKey('skin','{"headBackground":"purple","headClass":"dark","sidebarBackground":"white","sidebarClass":"light"}');
+        Setting::saveByKey('version', '4.1.0');
 
         config(['database.connections.'.$oldschema => null]);
 

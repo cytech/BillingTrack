@@ -50,10 +50,12 @@ class EmployeeController extends Controller
         // store
         $employees = new Employee;
         $employees->number = $request->number;
-        $employees->first_name = ucfirst($request->first_name);
-        $employees->last_name = ucfirst($request->last_name);
-        $employees->full_name = $employees->first_name . ' ' .  $employees->last_name;
-        $employees->short_name = $employees->first_name . ' ' . substr($employees->last_name,0,1 ) . '.';
+        $employees->first_name = $request->first_name;
+        $employees->last_name = $request->last_name;
+        //handled by mutator
+        $employees->full_name = null;
+        $employees->short_name = null;
+        //
         $employees->title = $request->title;
         $employees->billing_rate = $request->billing_rate?:0;
         $employees->schedule = $request->schedule?$request->schedule:0;
@@ -107,10 +109,12 @@ class EmployeeController extends Controller
         // update
         $employees = Employee::find($id);
         $employees->number = $request->number;
-        $employees->first_name = ucfirst($request->first_name);
-        $employees->last_name = ucfirst($request->last_name);
-        $employees->full_name = $employees->first_name . ' ' .  $employees->last_name;
-        $employees->short_name = $employees->first_name . ' ' . substr($employees->last_name,0,1 ) . '.';
+        $employees->first_name = $request->first_name;
+        $employees->last_name = $request->last_name;
+        //handled by mutator
+        $employees->full_name = null;
+        $employees->short_name = null;
+        //
         $employees->title = $request->title;
         $employees->billing_rate = $request->billing_rate;
         $employees->schedule = $request->schedule ? $request->schedule : 0;

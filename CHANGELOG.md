@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - start resource move to laravel mix where applicable
 - fix email cc and bcc
 - documentation
-- "enabled module" in sidebar system setting
+- "enabled module" in sidebar (system setting)
 - enabled update checker
 
 ## 4.0.2

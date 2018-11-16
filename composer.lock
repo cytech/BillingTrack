@@ -1958,16 +1958,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.34.1",
+            "version": "1.35.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9"
+                "reference": "5c05a2be472b22f63291d192410df9f0e0de3b19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9",
-                "reference": "19201b87f7dba2a7cbf1cccdf0e1da13c04ee9c9",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/5c05a2be472b22f63291d192410df9f0e0de3b19",
+                "reference": "5c05a2be472b22f63291d192410df9f0e0de3b19",
                 "shasum": ""
             },
             "require": {
@@ -1975,8 +1975,11 @@
                 "symfony/translation": "~2.6 || ~3.0 || ~4.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "~2",
                 "phpunit/phpunit": "^4.8.35 || ^5.7"
+            },
+            "suggest": {
+                "friendsofphp/php-cs-fixer": "Needed for the `composer phpcs` command. Allow to automatically fix code style.",
+                "phpstan/phpstan": "Needed for the `composer phpstan` command. Allow to detect potential errors."
             },
             "type": "library",
             "extra": {
@@ -2009,7 +2012,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-11-08T13:33:47+00:00"
+            "time": "2018-11-14T21:55:58+00:00"
         },
         {
             "name": "opis/closure",
@@ -2695,16 +2698,16 @@
         },
         {
             "name": "simshaun/recurr",
-            "version": "v3.0.7",
+            "version": "v3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simshaun/recurr.git",
-                "reference": "f729bfd715f4fdf2fc2d8f400e89c9753e479c7c"
+                "reference": "9aa6f01382ced5d2a18addd27799dc0065916af0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simshaun/recurr/zipball/f729bfd715f4fdf2fc2d8f400e89c9753e479c7c",
-                "reference": "f729bfd715f4fdf2fc2d8f400e89c9753e479c7c",
+                "url": "https://api.github.com/repos/simshaun/recurr/zipball/9aa6f01382ced5d2a18addd27799dc0065916af0",
+                "reference": "9aa6f01382ced5d2a18addd27799dc0065916af0",
                 "shasum": ""
             },
             "require": {
@@ -2746,7 +2749,7 @@
                 "recurring",
                 "rrule"
             ],
-            "time": "2018-09-19T05:26:21+00:00"
+            "time": "2018-11-08T20:53:11+00:00"
         },
         {
             "name": "sonata-project/exporter",
@@ -2820,16 +2823,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v6.20.1",
+            "version": "v6.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "d9e9b35309dbaf3c44e5a848ca1eba179459d22a"
+                "reference": "2a87430d6cefe71c6b618e163aa05e7de97d2619"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d9e9b35309dbaf3c44e5a848ca1eba179459d22a",
-                "reference": "d9e9b35309dbaf3c44e5a848ca1eba179459d22a",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/2a87430d6cefe71c6b618e163aa05e7de97d2619",
+                "reference": "2a87430d6cefe71c6b618e163aa05e7de97d2619",
                 "shasum": ""
             },
             "require": {
@@ -2871,7 +2874,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2018-11-07T18:35:42+00:00"
+            "time": "2018-11-15T22:35:15+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3953,23 +3956,23 @@
         },
         {
             "name": "yajra/laravel-datatables-buttons",
-            "version": "v4.4.0",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-buttons.git",
-                "reference": "649f0f6c02b391e349cff3f186aa88b61fb0cdd0"
+                "reference": "95933d631df42affbaea6bc85fd0ebf5e642889a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/649f0f6c02b391e349cff3f186aa88b61fb0cdd0",
-                "reference": "649f0f6c02b391e349cff3f186aa88b61fb0cdd0",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/95933d631df42affbaea6bc85fd0ebf5e642889a",
+                "reference": "95933d631df42affbaea6bc85fd0ebf5e642889a",
                 "shasum": ""
             },
             "require": {
                 "illuminate/console": "^5.5",
                 "maatwebsite/excel": "^3.0",
                 "php": ">=7.0",
-                "yajra/laravel-datatables-html": "3.*",
+                "yajra/laravel-datatables-html": "3.*|4.*",
                 "yajra/laravel-datatables-oracle": "8.*"
             },
             "require-dev": {
@@ -4013,23 +4016,24 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2018-10-06T02:23:34+00:00"
+            "time": "2018-11-14T08:48:02+00:00"
         },
         {
             "name": "yajra/laravel-datatables-html",
-            "version": "v3.12.7",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-html.git",
-                "reference": "50be05aeb281fb5009a27d3aecb6df2633095e68"
+                "reference": "85b3b065f43e246601bcfe91e8224ce1f683304b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/50be05aeb281fb5009a27d3aecb6df2633095e68",
-                "reference": "50be05aeb281fb5009a27d3aecb6df2633095e68",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/85b3b065f43e246601bcfe91e8224ce1f683304b",
+                "reference": "85b3b065f43e246601bcfe91e8224ce1f683304b",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "laravelcollective/html": "^5.4",
                 "php": ">=7.0",
                 "yajra/laravel-datatables-oracle": "8.*"
@@ -4041,7 +4045,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "4.0-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -4072,7 +4076,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2018-11-03T04:21:45+00:00"
+            "time": "2018-11-16T03:48:42+00:00"
         },
         {
             "name": "yajra/laravel-datatables-oracle",
@@ -4149,16 +4153,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "5b68f3972083a7eeec0d6f161962fcda71a127c0"
+                "reference": "9d5caf43c5f3a3aea2178942f281054805872e7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/5b68f3972083a7eeec0d6f161962fcda71a127c0",
-                "reference": "5b68f3972083a7eeec0d6f161962fcda71a127c0",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/9d5caf43c5f3a3aea2178942f281054805872e7c",
+                "reference": "9d5caf43c5f3a3aea2178942f281054805872e7c",
                 "shasum": ""
             },
             "require": {
@@ -4213,7 +4217,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2018-08-22T11:06:19+00:00"
+            "time": "2018-11-09T08:37:55+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -5173,16 +5177,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.4.3",
+            "version": "7.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c151651fb6ed264038d486ea262e243af72e5e64"
+                "reference": "b1be2c8530c4c29c3519a052c9fb6cee55053bbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c151651fb6ed264038d486ea262e243af72e5e64",
-                "reference": "c151651fb6ed264038d486ea262e243af72e5e64",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b1be2c8530c4c29c3519a052c9fb6cee55053bbd",
+                "reference": "b1be2c8530c4c29c3519a052c9fb6cee55053bbd",
                 "shasum": ""
             },
             "require": {
@@ -5253,7 +5257,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-10-23T05:57:41+00:00"
+            "time": "2018-11-14T16:52:02+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

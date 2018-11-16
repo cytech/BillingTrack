@@ -228,11 +228,11 @@
                     <div class="form-group">
                         <label>{{ trans('fi.every') }}</label>
                         <div class="row">
-                            <div class="col-md-4">
-                                {!! Form::select('recurring_frequency', array_combine(range(1, 90), range(1, 90)), $recurringInvoice->recurring_frequency, ['id' => 'recurring_frequency', 'class' => 'form-control']) !!}
+                            <div class="col-5">
+                                {!! Form::select('recurring_frequency', array_combine(range(1, 90), range(1, 90)), $recurringInvoice->recurring_frequency, ['id' => 'recurring_frequency', 'class' => 'form-control form-control-sm']) !!}
                             </div>
-                            <div class="col-md-8">
-                                {!! Form::select('recurring_period', $frequencies, $recurringInvoice->recurring_period, ['id' => 'recurring_period', 'class' => 'form-control']) !!}
+                            <div class="col-7">
+                                {!! Form::select('recurring_period', $frequencies, $recurringInvoice->recurring_period, ['id' => 'recurring_period', 'class' => 'form-control form-control-sm']) !!}
                             </div>
                         </div>
                     </div>

@@ -48,12 +48,12 @@
                         aria-expanded="false">
                     {{ trans('fi.change_status') }}
                 </button>
-                <ul class="dropdown-menu">
+                <div class="dropdown-menu dropdown-menu-right" role="menu">
                     @foreach ($keyedStatuses as $key => $status)
-                        <li><a href="javascript:void(0)" class="bulk-change-status"
-                               data-status="{{ $key }}">{{ $status }}</a></li>
+                        <a href="javascript:void(0)" class="bulk-change-status dropdown-item"
+                               data-status="{{ $key }}">{{ $status }}</a>
                     @endforeach
-                </ul>
+                </div>
             </div>
 
             <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i

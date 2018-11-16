@@ -14,6 +14,7 @@
             </div>
         </div>
     </div>
+    @if (!config('app.demo'))
     <div class="form-group col-md-4">
         <label>Application URL: </label>
         {!! Form::text('app_url',config('app.url'), ['class' => 'form-control', 'readonly']) !!}
@@ -28,6 +29,7 @@
         <label>Database UserName: </label>
         {!! Form::text('db_username',env('DB_USERNAME', 'empty'), ['class' => 'form-control', 'readonly']) !!}
     </div>
+        @endif
 </div>
 {{--<div class="form-group">--}}
 {{--<label>Database Password: </label>--}}

@@ -13,11 +13,18 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\FI\Modules\Users\Models\User::class, function (Faker $faker) {
+$factory->define(\FI\Modules\Employees\Models\Employee::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+        'number' => $faker->unique()->randomNumber(3),
+        'first_name' => $faker->firstName,
+        'last_name' => $faker->lastName,
+        'full_name' => null,
+        'short_name' => null,
+        'title' => 'Worker',
+        'billing_rate' => '20.00',
+        'schedule' => '1',
+        'active' => '1',
+        'driver' => $faker->numberBetween(0,1),
+
     ];
 });

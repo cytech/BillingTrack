@@ -62,8 +62,13 @@
         </h3>
         <a class="btn btn-warning float-right" href={!! route('dashboard.index')  !!}><i
                     class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+        @if (!config('app.demo'))
         <button type="submit" class="btn btn-primary float-right"><i
                     class="fa fa-save"></i> {{ trans('fi.save') }} </button>
+        @else
+            <p  class="btn btn-primary float-right " disabled><i
+                        class="fa fa-save"></i> Save disabled in demo. </p>
+        @endif
         <div class="clearfix"></div>
     </section>
 

@@ -38,8 +38,12 @@
             <div class="input-group">
                 {!! Form::text('version', config('fi.version'), ['class' => 'form-control', 'disabled' => 'disabled']) !!}
                 <span class="input-group-append">
+                    @if (!config('app.demo'))
 					<button class="btn btn-secondary" id="btn-check-update"
                             type="button" >{{ trans('fi.check_for_update') }} </button>
+                    @else
+                        Check updates are disabled in the demo.
+                    @endif
 				</span>
             </div>
         </div>
@@ -209,16 +213,26 @@
     </div>
 </div>
 <div class="row">
+
     <div class="col-md-4">
         <div class="form-group">
+            @if (!config('app.demo'))
             <a href="{{action('FI\Modules\Products\Controllers\ProductController@forceLUTupdate',['ret' => 0])}}"
                class="btn btn-warning">{{ trans('fi.force_product_update') }}</a>
+            @else
+                Force updates are disabled in the demo.
+            @endif
         </div>
     </div>
     <div class="col-md-4">
         <div class="form-group">
+            @if (!config('app.demo'))
             <a href="{{action('FI\Modules\Employees\Controllers\EmployeeController@forceLUTupdate',['ret' => 0])}}"
                class="btn btn-warning">{{ trans('fi.force_employee_update') }}</a>
+            @else
+                Force updates are disabled in the demo.
+            @endif
         </div>
     </div>
+
 </div>

@@ -362,7 +362,10 @@ class SchedulerController extends Controller
 		$allfields['DTEND']   = $allfields['end_date'];
 		unset( $allfields['start_date'] );
 		unset( $allfields['end_date'] );
-		$allfields = array_change_key_case( $allfields, CASE_UPPER );
+		isset($allfields['byday']) ? $allfields['byday'] = implode(',',$allfields['byday']) : null;
+        isset($allfields['bymonth']) ? $allfields['bymonth'] = implode(',',$allfields['bymonth']) : null;
+
+        $allfields = array_change_key_case( $allfields, CASE_UPPER );
 		//clear all empty
 		$allfields = array_filter( $allfields );
 

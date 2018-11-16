@@ -6,6 +6,7 @@
 
         $('#create-workorder').on('shown.bs.modal', function () {
             $("#create_client_name").focus();
+            $("#create_client_name").val(clientName);
             $('#create_client_name').autocomplete({
                 appendTo: '#create-workorder',
                 source: '{{ route('clients.ajax.lookup') }}',

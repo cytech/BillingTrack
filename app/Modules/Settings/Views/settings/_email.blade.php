@@ -34,7 +34,11 @@
 
 <div class="form-group">
     <label>{{ trans('fi.email_send_method') }}: </label>
+    @if (!config('app.demo'))
     {!! Form::select('setting[mailDriver]', $emailSendMethods, config('fi.mailDriver'), ['id' => 'mailDriver', 'class' => 'form-control']) !!}
+    @else
+        Email is disabled in the demo. Options are SMTP, PHPMail and Sendmail
+    @endif
 </div>
 
 <div class="row smtp-option email-option">

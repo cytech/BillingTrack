@@ -6,6 +6,7 @@
 
         $('#create-recurring-invoice').on('shown.bs.modal', function () {
             $("#create_client_name").focus();
+            $("#create_client_name").val(clientName);
             $('#create_client_name').autocomplete({
                 appendTo: '#create-recurring-invoice',
                 source: '{{ route('clients.ajax.lookup') }}',

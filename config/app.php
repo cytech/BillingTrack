@@ -8,7 +8,7 @@ return [
     //moved to .env APP_KEY
     //'key' => 'ReplaceThisWithYourOwnLicenseKey',
 
-
+    'demo' => env('APP_DEMO', false),
 
     /**
      * Values below here are not required to be changed to FusionInvoice to function.

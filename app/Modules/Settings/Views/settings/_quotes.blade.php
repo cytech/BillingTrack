@@ -61,8 +61,12 @@
     <div class="col-md-3">
         <div class="form-group">
             <label>{{ trans('fi.recalculate_quotes') }}: </label><br>
+            @if (!config('app.demo'))
             <button type="button" class="btn btn-secondary" id="btn-recalculate-quotes"
                     data-loading-text="{{ trans('fi.recalculating_wait') }}">{{ trans('fi.recalculate') }}</button>
+            @else
+                Recalculate is disabled in the demo.
+            @endif
             <p class="form-text text-muted">{{ trans('fi.recalculate_help_text') }}</p>
         </div>
     </div>

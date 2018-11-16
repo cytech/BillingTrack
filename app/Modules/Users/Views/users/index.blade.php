@@ -16,7 +16,7 @@
         <h3 class="float-left">
             {{ trans('fi.users') }}
         </h3>
-
+        @if (!config('app.demo'))
         <div class="float-right">
             {{--fix for datatable--}}
             {{--<div class="btn-group">--}}
@@ -48,6 +48,10 @@
             </div>
         </div>
     </section>
+    @else
+        <br><br>
+        User configuration is disabled in the demo.
+    @endif
 @endsection
 
 @push('scripts')
