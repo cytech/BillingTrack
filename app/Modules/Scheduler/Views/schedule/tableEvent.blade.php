@@ -22,38 +22,6 @@
 
                     <div class="card-body">
                         @include('layouts._dataTable')
-                        {{--<table id="dt-filtertable" class="display" cellspacing="0" width="100%">--}}
-                            {{--<thead>--}}
-                            {{--<tr>--}}
-                                {{--<th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>--}}
-                                {{--<th>{{ trans('fi.title') }}</th>--}}
-                                {{--<th>{{ trans('fi.description') }}</th>--}}
-                                {{--<th>{{ trans('fi.start_date') }}</th>--}}
-                                {{--<th>{{ trans('fi.end_date') }}</th>--}}
-                                {{--<th>{{ trans('fi.category') }}</th>--}}
-                                {{--<th>Action</th>--}}
-                            {{--</tr>--}}
-                            {{--</thead>--}}
-                            {{--<tbody>--}}
-                            {{--@foreach($events as $event)--}}
-                                {{--<tr id="{!! $event->id !!}">--}}
-                                    {{--<td><input type="checkbox" class="bulk-record" data-id="{{ $event->id }}"></td>--}}
-                                    {{--<td>{!! $event->title !!}</td>--}}
-                                    {{--<td>{!! str_limit(strip_tags($event->description),25) !!}</td>--}}
-                                    {{--<td>{!! $event->start_date !!}</td>--}}
-                                    {{--<td>{!! $event->end_date !!}</td>--}}
-                                    {{--<td>{!! $event->category->name !!}</td>--}}
-                                    {{--<td>--}}
-                                        {{--<a class="btn btn-outline-primary" href ="{{ route('scheduler.tableeventedit', [$event->id]) }}"><i--}}
-                                                    {{--class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>--}}
-                                        {{--<a class="btn btn-outline-danger" href ="#"--}}
-                                           {{--onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('scheduler.trashevent', [$event->id]) }}');"><i--}}
-                                                    {{--class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>--}}
-                                    {{--</td>--}}
-                                {{--</tr>--}}
-                            {{--@endforeach--}}
-                            {{--</tbody>--}}
-                        {{--</table>--}}
                     </div>
                 </div>
             </div>
@@ -62,5 +30,4 @@
 @stop
 @section('javascript')
     @include('partials._js_bulk_ajax')
-    {{--@include('partials._js_datatables')--}}
 @stop

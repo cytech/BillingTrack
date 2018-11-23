@@ -77,7 +77,7 @@ class SettingController extends Controller
                 'displayOrderArray'       => array_combine(range(1, 24), range(1, 24)),
                 'merchant'                => config('fi.merchant'),
                 'skins'                   => Skins::lists(),
-                'resultsPerPage'          => array_combine(range(15, 100, 5), range(15, 100, 5)),
+                'resultsPerPage'          => array_combine([10,25,50,100], [10,25,50,100]),
                 'amountDecimalOptions'    => ['0' => '0', '2' => '2', '3' => '3', '4' => '4'],
                 'roundTaxDecimalOptions'  => ['2' => '2', '3' => '3', '4' => '4'],
                 'companyProfiles'         => CompanyProfile::getList(),
@@ -88,6 +88,7 @@ class SettingController extends Controller
                 'invoiceWhenDraftOptions' => [0 => trans('fi.keep_invoice_date_as_is'), 1 => trans('fi.change_invoice_date_to_todays_date')],
                 'workorderWhenDraftOptions' => [0 => trans('fi.keep_workorder_date_as_is'), 1 => trans('fi.change_workorder_date_to_todays_date')],
                 'quoteWhenDraftOptions'   => [0 => trans('fi.keep_quote_date_as_is'), 1 => trans('fi.change_quote_date_to_todays_date')],
+                'jquiTheme'               => Setting::jquiThemes(),
             ]);
     }
 

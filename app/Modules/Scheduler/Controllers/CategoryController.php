@@ -13,6 +13,7 @@ namespace FI\Modules\Scheduler\Controllers;
 use FI\DataTables\CategoriesDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Scheduler\Models\Category;
+use FI\Modules\Scheduler\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller {
@@ -27,7 +28,7 @@ class CategoryController extends Controller {
 		return view( 'categories.create' );
 	}
 
-	public function store( Request $request ) {
+	public function store( CategoryRequest $request ) {
 		$categories             = new Category;
 		$categories->name       = $request->name;
 		$categories->text_color = $request->text_color;
@@ -49,7 +50,7 @@ class CategoryController extends Controller {
 		return view( 'categories.edit', compact( 'categories' ) );
 	}
 
-	public function update( Request $request, $id ) {
+	public function update( CategoryRequest $request, $id ) {
 		$categories             = Category::find( $id );
 		$categories->name       = $request->name;
 		$categories->text_color = $request->text_color;

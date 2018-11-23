@@ -1,3 +1,12 @@
+<style>
+    .xdsoft_datetimepicker .xdsoft_timepicker {
+        width: 75px;
+        float: left;
+        text-align: center;
+        margin-left: 8px;
+        margin-top: 0;
+    }
+</style>
 <script type="text/javascript">
 
     $(function () {

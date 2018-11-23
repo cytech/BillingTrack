@@ -190,10 +190,10 @@ class SchedulerController extends Controller
 			$schedule = new Schedule();
 			$data = [
 				'schedule'   => $schedule,
+                'categories' => Category::pluck( 'name', 'id' ),
 				'url'        => 'schedule\edit_event',
 				'title'      => 'create_event',
 				'message'    => 'event_created',
-				'categories' => Category::pluck( 'name', 'id' )
 			];
 			//defaults
 			$schedule['category_id'] = 3;

@@ -43,6 +43,8 @@ class Setting extends Model
         'scheduler' => 32,
     ];
 
+
+
     public static $coreevents = [
         'quote' => 1,
         'workorder' => 2,
@@ -52,6 +54,18 @@ class Setting extends Model
         'project' => 32,
         'task' => 64,
     ];
+
+    public static function jquiThemes(){
+
+        $themes = array_map('basename',\File::directories(public_path('css/jquery-ui-themes')));
+
+        foreach ($themes as $key => $value){
+            unset($themes[$key]);
+            $themes[$value] = $value;
+        }
+
+        return $themes;
+    }
 
     public static function isModuleEnabled($entityType)
     {

@@ -340,6 +340,8 @@ class SetupController extends Controller
         DB::statement('set foreign_key_checks = 1');
 
 
+        Setting::saveByKey('jquiTheme', 'cupertino');
+        Setting::saveByKey('resultsPerPage', 10);
         Setting::saveByKey('enabledModules', '63');
         Setting::saveByKey('skin','{"headBackground":"purple","headClass":"dark","sidebarBackground":"white","sidebarClass":"light"}');
         Setting::saveByKey('version', '4.1.0');

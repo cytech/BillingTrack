@@ -17,6 +17,8 @@ class Version410 extends Migration
         deleteTempFiles();
         deleteViewCache();
 
+        Setting::saveByKey('jquiTheme', 'cupertino');
+        Setting::saveByKey('resultsPerPage', 10);
         Setting::saveByKey('enabledModules', '63');
         Setting::saveByKey('skin','{"headBackground":"purple","headClass":"dark","sidebarBackground":"white","sidebarClass":"light"}');
         Setting::saveByKey('version', '4.1.0');

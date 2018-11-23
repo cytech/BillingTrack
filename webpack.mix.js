@@ -15,6 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 mix.copyDirectory('resources/img', 'public/img');
 mix.copyDirectory('resources/css', 'public/css');
+mix.copyDirectory('node_modules/jquery-ui-built-themes', 'public/css/jquery-ui-themes');
 mix.copy('node_modules/jquery-autosize/jquery.autosize.min.js', 'public/plugins/autosize/jquery.autosize.min.js');
 mix.copyDirectory('node_modules/chosen-js', 'public/plugins/chosen');
 mix.copy('node_modules/daterangepicker/daterangepicker.css', 'public/plugins/daterangepicker/daterangepicker.css');

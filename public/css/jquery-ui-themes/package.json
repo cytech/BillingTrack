@@ -1,0 +1,43 @@
+{
+  "_from": "jquery-ui-built-themes@^1.12.1",
+  "_id": "jquery-ui-built-themes@1.12.1",
+  "_inBundle": false,
+  "_integrity": "sha512-yoTQms/8MJqccVfz7OGCos18IrtOaxSjxwfzyErY4yKn0lWB2JHSaDRIDSOxURnrDhrp0VSypNkvkFLud2Wcww==",
+  "_location": "/jquery-ui-built-themes",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "jquery-ui-built-themes@^1.12.1",
+    "name": "jquery-ui-built-themes",
+    "escapedName": "jquery-ui-built-themes",
+    "rawSpec": "^1.12.1",
+    "saveSpec": null,
+    "fetchSpec": "^1.12.1"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/jquery-ui-built-themes/-/jquery-ui-built-themes-1.12.1.tgz",
+  "_shasum": "fb21015159e6a7e9400bb514dc17b00f0078a457",
+  "_spec": "jquery-ui-built-themes@^1.12.1",
+  "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ngagne/codeorigin.jquery.com/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Prebuilt official themes for jQuery UI",
+  "homepage": "https://github.com/ngagne/codeorigin.jquery.com#readme",
+  "license": "MIT",
+  "name": "jquery-ui-built-themes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngagne/codeorigin.jquery.com.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.12.1"
+}

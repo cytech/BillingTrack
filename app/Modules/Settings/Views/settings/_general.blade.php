@@ -208,7 +208,6 @@
         <div class="form-group">
             <label>{{ trans('fi.force_https') }}:</label>
             {!! Form::select('setting[forceHttps]', $yesNoArray, config('fi.forceHttps'), ['class' => 'form-control', 'title' => trans('fi.force_https_help') ]) !!}
-            {{--<p class="form-text text-muted">{{ trans('fi.force_https_help') }}</p>--}}
         </div>
     </div>
 </div>
@@ -234,5 +233,9 @@
             @endif
         </div>
     </div>
-
+    <div class="col-md-4">
+        <div class="form-group">
+            <p class="form-text text-muted">{{ trans('fi.force_https_help') }}</p>
+        </div>
+    </div>
 </div>

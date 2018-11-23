@@ -411,6 +411,8 @@ return [
     'items'                                   => 'Items',
     'job_date'                                => 'Job Date',
     'job_summary'                             => 'Job Summary',
+    'jqui_theme'                              => 'JQuery-UI Theme',
+    'jqui_themenote'                          => '(Applies to Calendar and JQuery-UI Dialogs)',
     'keep_invoice_date_as_is'                 => 'Keep Invoice Date As Is',
     'keep_quote_date_as_is'                   => 'Keep Quote Date As Is',
     'keep_workorder_date_as_is'               => 'Keep Workorder Date As Is',

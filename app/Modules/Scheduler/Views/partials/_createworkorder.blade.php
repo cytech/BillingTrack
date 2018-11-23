@@ -68,16 +68,12 @@
         </script>
     </div>
     <div class="row">
-        <div class="col-md-6 text-center">
+        <div class="col-md-5 ml-5">
             <br>
             <b>{{ trans('fi.available_employees') }}</b><br>
-            {!!  trans('fi.toworkorder_names_blue')  !!}
-            <br>
             {{ trans('fi.select_workers_toworkorder') }}<br>
-            <table style="margin-left:auto;margin-right:auto" id="wtable">
-                <tr>
-                    <th></th>
-                </tr>
+            <div id="ScrollCB1" style="height:200px;width:250px;overflow:auto">
+            <div id="wtable">
                 {{--script to get selected worker checkboxes,format as uri, and open new fusioninvoice workorder--}}
                 <script>
                     wstr = '';
@@ -91,17 +87,16 @@
                         wstr = wsel.join("/");
                     });
                 </script>
-            </table>
+            </div>
+            </div>
         </div>
 
-        <div class="col-md-6 text-center">
+        <div class="col-md-5 ml-4">
             <br>
-            <b>{{ trans('fi.available_equip') }}</b><br><br>
+            <b>{{ trans('fi.available_equip') }}</b><br>
             {{ trans('fi.select_items_toworkorder') }}
-            <table style='margin-left:auto;margin-right:auto' id="rtable">
-                <tr>
-                    <th></th>
-                </tr>
+            <div id="ScrollCB2" style="height:200px;width:250px;overflow:auto">
+            <div style='margin-left:auto;margin-right:auto' id="rtable">
                 <script>
                     rstr = '';
                     $('#create-workorder').on('click', '[id*=resource]', function () {
@@ -119,7 +114,8 @@
 
                     });
                 </script>
-            </table>
+            </div>
+            </div>
         </div>
     </div>
     {!! Form::close() !!}

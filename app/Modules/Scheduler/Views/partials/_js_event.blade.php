@@ -1,49 +1,21 @@
 @section('javascript')
-    {{--{!! Html::style('assets/addons/Scheduler/Assets/css/jquery-ui-peppergrinder.min.css') !!}--}}
-    {{--{!! Html::style('css/jquery-ui-cupertino.min.css') !!}--}}
-    <style>
-       /* .xdsoft_datetimepicker {
-            z-index: 99999;
-        }
 
-        .xdsoft_datetimepicker .xdsoft_label {
-            z-index: 99999;
-        }
-
-        .reminder_date {
-            position: relative;
-            z-index: 10000;
-        }*/
-
-        /* .ui-dialog .ui-dialog-content {
-             border: 0;
-             padding: 20px;
-             font-size:18px;
-             color: #000000;
-             background-color: #ebebeb;
-             overflow: auto;
-         }*/
-
-        .ui-widget {
-            position: relative;
-            z-index: 900;
-        }
-
-        /*.swal2-container {*/
-            /*z-index: 900;*/
-        /*}*/
-
-
-    </style>
     {!! Html::style('plugins/fullcalendar/fullcalendar.min.css') !!}
     {{-- bug introduced in laravel collective 5.5 https://github.com/LaravelCollective/html/issues/504 }}
     {{--{!! Html::style('assets/addons/Scheduler/Assets/fullcalendar/dist/fullcalendar.print.min.css',['media'=>'print']) !!}--}}
     <link href="/plugins/fullcalendar/fullcalendar.print.min.css" rel="stylesheet" type="text/css" media="print" />
     {!! Html::script('plugins/moment/moment.min.js') !!}
     {!! Html::script('plugins/fullcalendar/fullcalendar.min.js') !!}
-    {{-- customized to allow month view sort by category/start--}}
-    {{--{!! Html::script('js/fullcalendar.mod.min.js') !!}--}}
     {!! Html::script('plugins/jquery-validation/jquery.validate.min.js') !!}
+    <style>
+        .xdsoft_datetimepicker .xdsoft_timepicker {
+            width: 75px;
+            float: left;
+            text-align: center;
+            margin-left: 8px;
+            margin-top: 0;
+        }
+    </style>
 
     <script>
         $(document).ready(function () {
@@ -62,16 +34,13 @@
             });
 
             @include('partials._js_saveCalendarEvent_js')
-            @include('partials._js_updateCalendarEvent_js')
 
             /* init first - init first */
             $.fn.button.noConflict();
-            $('#calEventDialog').dialog({autoOpen: false});
-            $('#editEvent').dialog({autoOpen: false});
-            $('#create-workorder').dialog({autoOpen: false});
             /*fullcalendar event dialog datetimepicker (create,update,reminders)*/
             $(".from").datetimepicker({
                 format: 'Y-m-d H:i',
+                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                 defaultTime: '08:00',
                 step: {!! config('fi.schedulerTimestep') !!},//15
                 onClose: function (selectedDate) {
@@ -80,6 +49,7 @@
             });
             $('.to').datetimepicker({
                 format: 'Y-m-d H:i',
+                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                 step: {!! config('fi.schedulerTimestep') !!},
                 onClose: function (selectedDate) {
                     $(".from").datetimepicker({maxDate: selectedDate});
@@ -89,6 +59,7 @@
             $(".start_time").datetimepicker({
                 datepicker: false,
                 format: 'H:i',
+                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                 defaultTime: '08:00',
                 step: {!! config('fi.schedulerTimestep') !!},//15
                 onClose: function (selectedTime) {
@@ -99,6 +70,7 @@
             $('.end_time').datetimepicker({
                 datepicker: false,
                 format: 'H:i',
+                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                 step: {!! config('fi.schedulerTimestep') !!},
                 onClose: function (selectedTime) {
                     $(".start_time").datetimepicker({maxTime: selectedTime});
@@ -108,6 +80,7 @@
             $(document).on('mousedown', '.reminder_date', function () {
                 $(this).datetimepicker({
                     format: 'Y-m-d H:i',
+                    formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                     defaultDate: '+1970/01/08', //plus 1 week
                     step: {!! config('fi.schedulerTimestep') !!}
                 });
@@ -118,7 +91,7 @@
             });
 
             $('#calendar').fullCalendar({
-                themeSystem: '{!! config('fi.schedulerFcThemeSystem') !!}', //'jquery-ui' 'bootstrap3' 'standard'
+                themeSystem: '{!! config('fi.schedulerFcThemeSystem') !!}', //'jquery-ui' 'bootstrap4' 'standard'
                 header: {
                     left: 'prev,next today',
                     center: 'title',
@@ -134,8 +107,6 @@
                 },
                 aspectRatio: {!! config('fi.schedulerFcAspectRatio') !!},//1.35 default
                 //displayEventTime: false,  //show starttime in event title
-                // customized fullcalendar.mod.js to allow month view sort by category/start
-                //eventOrder sorts events with same dates/times
                 eventOrder: "category,start",
                 // add createworkorder button to day cell header
                 @if(config('fi.schedulerCreateWorkorder'))
@@ -154,27 +125,10 @@
                 @else
                 defaultDate: "{!! date('Y-m-d') !!}",
                 @endif
-                selectable: true,
-                selectHelper: true,
-                select: function (start, end) {
-                    $("#title").autocomplete({
-                        appendTo: "#calEventDialog",
-                        source: "/scheduler/ajax/employee",
-                        minLength: 2
-                    }).autocomplete("widget");
-                    $("#title").val('');
-                    $("#description").val('');
-                    $(".from").val(start.format('YYYY-MM-DD 08:00'));
-                    $(".to").val(start.endOf('day').format('YYYY-MM-DD 09:00'));
-                    $("#category").val(2); //default to general appointment
-                    $("#addReminderShow").html('');
-                    $('#calEventDialog').dialog({
-                        width: 500,
-                        position: {my: 'center top', at: 'center+100 top+200', of: window}
-                    });
-                },
+                selectable: false,
+                selectHelper: false,
                 dayClick: function (date, jsEvent, view) {
-                    // IF BUTTON ICON SELECTED
+                    // If Workorder Button Icon Selected
                     if ($(jsEvent.target).hasClass("createwobutton")) {
                         $.ajax(
                             {
@@ -215,7 +169,7 @@
                                             'id': 'quantity' + v.id + '',
                                             'name': 'quantity[' + v.id + ']',
                                             'min': '0',
-                                            'style': 'width:40px;',
+                                            'style': 'width:40px;height:25px',
                                             'disabled': true,
                                             'value': 1
                                         });
@@ -252,9 +206,11 @@
                         });
 
                         $('#create-workorder').dialog({
+                            autoOpen: false,
                             width: 650,
-                            position: {my: 'center top', at: 'center top', of: '.fc-view-container'},
+                            position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
                             closeOnEscape: true,
+                            modal: true,
                             buttons: {
                                 "{{trans('fi.create_workorder')}}": function () {
                                     $('form#create-workorderform').submit();//send to validate
@@ -277,6 +233,45 @@
                         $('#create-workorder').dialog('open');
 
                     } else {
+
+                        $('#calEventDialog').dialog({
+                            autoOpen: false,
+                            width: 500,
+                            position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
+                            closeOnEscape: true,
+                            modal: true,
+                            title: '{{ trans('fi.create_event_calendar') }}',
+                            open: function () {
+                                $("#title").autocomplete({
+                                    appendTo: "#calEventDialog",
+                                    source: "/scheduler/ajax/employee",
+                                    minLength: 2
+                                }).autocomplete("widget");
+                                $("#title").val('');
+                                $("#description").val('');
+                                $(".from").val(date.format('YYYY-MM-DD 08:00'));
+                                $(".to").val(date.endOf('day').format('YYYY-MM-DD 09:00'));
+                                $("#category").val(2); //default to general appointment
+                                $("#addReminderShow").html('');
+                                $( this ).find( "[type=submit]" ).hide();
+                            },
+                            buttons: [
+                                {
+                                    text: '{{ trans('fi.create') }}',
+                                    click: function(){ $(this).dialog().find('form').submit();},
+                                    type: 'submit',
+                                    form: 'saveCalendarEvent' // <-- Make the association
+                                },
+                                {
+                                    text: '{{ trans('fi.cancel') }}',
+                                    click: function() { $( this ).dialog( "close" );}
+                                }
+                            ],
+                            close: function () {
+                                $("#addReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_reminder') }}');
+                            }
+                        });
+
                         $('#calEventDialog').dialog('open');
                     }
                 },
@@ -296,8 +291,7 @@
                         });
                     }
 
-                    $("#reminderShowFormCalendar").html('');
-                    $("#updateReminderShow").html('');
+                    $("#addReminderShow").html('');
 
                     if (event.reminder) {
                         let reminderHtml = '';
@@ -321,25 +315,50 @@
                                 '<textarea name="reminder_text[]" class="form-control" >' + event.reminder[key].reminder_text + '</textarea>' +
                                 '</div></div></div>'
                         }
-                        $("#reminderShowFormCalendar").html(reminderHtml);
+                        $("#addReminderShow").html(reminderHtml);
+                        $("#addReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_another_reminder') }}');
                     }
-                    $("#editTitle").autocomplete({
-                        appendTo: "#editEvent",
-                        source: "/scheduler/ajax/employee",
-                        minLength: 2
-                    }).autocomplete("widget");
-                    $("#editTitle").val(event.title);
-                    $("#editDescription").val(event.description);
-                    $("#editID").val(event.id);
-                    $("#editOID").val(event.oid);
-                    $("#editStart").val(event.start._i);
-                    $("#editEnd").val(event.end._i);
-                    $("#editCategory").val(event.category);//defined inside calendar.blade
-                    $('#editEvent').dialog({
+
+                    $('#calEventDialog').dialog({
+                        autoOpen: false,
                         width: 500,
-                        position: {my: 'center top', at: 'center+100 top+200', of: window}
+                        position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
+                        closeOnEscape: true,
+                        modal: true,
+                        title: '{{ trans('fi.update_event_calendar') }}',
+                        open: function () {
+                            $("#title").autocomplete({
+                                appendTo: "#calEventDialog",
+                                source: "/scheduler/ajax/employee",
+                                minLength: 2
+                            }).autocomplete("widget");
+                            $("#title").val(event.title);
+                            $("#description").val(event.description);
+                            $("#id").val(event.id);
+                            $("#oid").val(event.oid);
+                            $("#from").val(event.start._i);
+                            $("#to").val(event.end._i);
+                            $("#category").val(event.category);//defined inside calendar.blade
+                            $( this ).find( "[type=submit]" ).hide();
+                        },
+                        buttons: [
+                            {
+                                text: '{{ trans('fi.update') }}',
+                                click: function(){ $(this).dialog().find('form').submit();},
+                                type: 'submit',
+                                form: 'saveCalendarEvent' // <-- Make the association
+                            },
+                            {
+                                text: '{{ trans('fi.cancel') }}',
+                                click: function() { $( this ).dialog( "close" );}
+                            }
+                        ],
+                        close: function () {
+                            $("#addReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_reminder') }}');
+                        }
                     });
-                    $('#editEvent').dialog('open');
+
+                    $('#calEventDialog').dialog('open');
 
                 },
                 // added mouseover
@@ -395,9 +414,7 @@
                     $('.tooltipevent').remove();
                 },
 
-                //editable: true,
-
-                eventLimit: parseInt({!! config('fi.schedulerEventLimit') !!}), // true allows "more" link when too many events
+                eventLimit: parseInt({!! config('fi.schedulerEventLimit') !!}), // allows "more" link when too many events
 
                 events: [
                         @foreach($events as $event)

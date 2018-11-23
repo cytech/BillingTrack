@@ -24,7 +24,7 @@ class MailLogController extends Controller
 
         return view('mail_log.index')
             ->with('mails', $mails)
-            ->with('displaySearch', true);
+            ->with('displaySearch', false);
     }
 
     public function content()

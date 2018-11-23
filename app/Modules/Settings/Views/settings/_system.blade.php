@@ -14,6 +14,15 @@
             </div>
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>@lang('fi.jqui_theme')</label>
+            <p class="form-text text-muted font-italic">@lang('fi.jqui_themenote')</p>
+            <div class="form-group col-md-6">
+                {{ Form::select('setting[jquiTheme]', $jquiTheme, config('fi.jquiTheme'), ['class' => 'form-control'] ) }}
+            </div>
+        </div>
+    </div>
     @if (!config('app.demo'))
     <div class="form-group col-md-4">
         <label>Application URL: </label>

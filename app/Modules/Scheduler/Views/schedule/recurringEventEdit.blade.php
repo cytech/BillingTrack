@@ -2,6 +2,7 @@
 
 
 @section('content')
+    @include('layouts._alerts')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     <div class="row">
 
@@ -11,7 +12,7 @@
                     <div class="card-header">
                         <h3 class="card-title"><i
                                     class="fa fa-edit fa-fw"></i> {{ trans('fi.'.$title) }}
-                                <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i class="fa fa-ban"></i> {{ trans('fi.cancel') }} </a>
+                                <a class="btn btn-warning float-right" href={!! url('/scheduler')  !!}><i class="fa fa-ban"></i> {{ trans('fi.cancel') }} </a>
                                 <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> {{ trans('fi.'.$title) }} </button>
                         </h3></div>
                     <div class="card-body">
@@ -117,6 +118,7 @@
             $(document).on('mousedown', '.reminder_date', function () {
                 $(this).datetimepicker({
                     format: 'Y-m-d H:i',
+                    formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                     defaultDate: '+1970/01/08' //plus 1 week
                 });
             });

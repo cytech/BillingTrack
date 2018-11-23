@@ -18,9 +18,7 @@
                                 class="fa fa-save"></i> {{ trans('fi.save') }} </button>
                 </h3>
             </div>
-
             <div class="card-body">
-
                 <!-- Employee Number input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-1 text-right text"
