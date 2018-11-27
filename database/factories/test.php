@@ -20,7 +20,8 @@ class TestController extends Controller
 {
     public function test()
     {
-        $client = factory(Client::class, 50)->create();
+        //clientfactory change between company and name, run twice
+        $client = factory(Client::class, 25)->create();
         $employee = factory(Employee::class, 10)->create();
         $product = factory(Product::class, 20)->create();
 

@@ -13,31 +13,35 @@
 
                 <form>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.client') }}</label>
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.client') }}</label>
+
+                        <div class="col-sm-8">
                             {!! Form::text('client_name', $invoice->client->unique_name, ['id' => 'copy_client_name', 'class' => 'form-control client-lookup', 'autocomplete' => 'off']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.date') }}</label>
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.date') }}</label>
+
+                        <div class="col-sm-8">
                             {!! Form::text('invoice_date', date(config('fi.dateFormat')), ['id' => 'copy_invoice_date', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.company_profile') }}</label>
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.company_profile') }}</label>
+
+                        <div class="col-sm-8">
                             {!! Form::select('company_profile_id', $companyProfiles, config('fi.defaultCompanyProfile'),
                             ['id' => 'copy_company_profile_id', 'class' => 'form-control']) !!}
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.group') }}</label>
-                        <div class="col-sm-9">
+                    <div class="form-group d-flex align-items-center">
+                        <label class="col-sm-4 text-right text">{{ trans('fi.group') }}</label>
+
+                        <div class="col-sm-8">
                             {!! Form::select('group_id', $groups, $invoice->group_id, ['id' => 'copy_group_id', 'class' => 'form-control']) !!}
                         </div>
                     </div>

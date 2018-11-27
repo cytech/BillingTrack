@@ -16,6 +16,7 @@ use Faker\Generator as Faker;
 $factory->define(\FI\Modules\Clients\Models\Client::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
+        //'name' => $faker->firstName . ' ' . $faker->lastName,
         'address' => $faker->streetAddress,
         'city' => $faker->city,
         'state' => $faker->stateAbbr,

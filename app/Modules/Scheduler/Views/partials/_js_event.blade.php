@@ -207,7 +207,7 @@
 
                         $('#create-workorder').dialog({
                             autoOpen: false,
-                            width: 650,
+                            width: 800,
                             position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
                             closeOnEscape: true,
                             modal: true,
@@ -217,8 +217,10 @@
                                 },
                                 "{{trans('fi.cancel')}}": function () {
                                     $(this).dialog("close");
-                                }
+                                },
+
                             },
+                            title: "{{ trans('fi.create_workorder') }} for {{ trans('fi.job_date') }} " + date.format('dddd MMMM DD, YYYY') ,
                             open: function () {
                                 $("#job_date").val(date.format('YYYY-MM-DD'));
                                 $("#start_time").val('08:00');

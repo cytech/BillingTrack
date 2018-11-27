@@ -1,7 +1,7 @@
 {!! Html::style('plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
 {!! Html::script('plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
 
-<div id="create-workorder" title="{{ trans('fi.create_workorder') }}" style="display: none">
+<div id="create-workorder" style="display: none">
     {!! Form::open(['route' => 'api.createwo','id' => 'create-workorderform']) !!}
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf">
     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" id="user_id">
@@ -27,34 +27,34 @@
                    value="" minlength="3" required>
         </div>
     </div>
-    <input type="hidden" id="workorder_date" name="workorder_date" value="{!! date('Y-m-d') !!}">
-    <div class="form-group d-flex align-items-center">
-        <label for="job_date"
-               class="col-sm-4 text-right text">{{ trans('fi.job_date') }}</label>
-        <div class="col-sm-8">
-            <input id="job_date" name="job_date" value="" class="form-control" readonly>
+    {{--<input type="hidden" id="workorder_date" name="workorder_date" value="{!! date('Y-m-d') !!}">--}}
+    {{--<div class="form-group d-flex align-items-center">--}}
+        {{--<label for="job_date"--}}
+               {{--class="col-sm-4 text-right text">{{ trans('fi.job_date') }}</label>--}}
+        {{--<div class="col-sm-8">--}}
+            {{--<input id="job_date" name="job_date" value="" class="form-control" readonly>--}}
 
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="form-group d-flex align-items-center">
         <label for="start_time"
-               class="col-sm-4 text-right text">{{ trans('fi.start_time') }}</label>
-        <div class="col-sm-8">
+               class="col-sm-2 text-right text">{{ trans('fi.start_time') }}</label>
+        <div class="col-sm-2">
             <input type="text" id="start_time" required name="start_time"
                    class="form-control datepicker start_time readonly"
                    placeholder="Start Time" autocomplete="off">
         </div>
-    </div>
-    <div class="form-group d-flex align-items-center">
-        <label for="end_time" class="col-sm-4 text-right text">{{ trans('fi.end_time') }}</label>
-        <div class="col-sm-8">
+    {{--</div>--}}
+    {{--<div class="form-group d-flex align-items-center">--}}
+        <label for="end_time" class="col-sm-2 text-right text">{{ trans('fi.end_time') }}</label>
+        <div class="col-sm-2">
             <input type="text" id="end_time" required name="end_time" class="form-control datepicker end_time readonly"
                    placeholder="End Time" autocomplete="off">
         </div>
-    </div>
-    <div class="form-group d-flex align-items-center">
-        <label for="will_call" class="col-sm-4 text-right text"> {{ trans('fi.will_call') }}</label>
-        <div class="col-sm-8">
+    {{--</div>--}}
+    {{--<div class="form-group d-flex align-items-center">--}}
+        <label for="will_call" class="col-sm-2 text-right text"> {{ trans('fi.will_call') }}</label>
+        <div class="col-sm-2">
             {!! Form::checkbox('will_call', 1, null, ['id' => 'will_call', 'class' => 'checkbox']) !!}
         </div>
 
@@ -68,7 +68,7 @@
         </script>
     </div>
     <div class="row">
-        <div class="col-md-5 ml-5">
+        <div class="col-5 ml-5">
             <br>
             <b>{{ trans('fi.available_employees') }}</b><br>
             {{ trans('fi.select_workers_toworkorder') }}<br>
@@ -91,11 +91,11 @@
             </div>
         </div>
 
-        <div class="col-md-5 ml-4">
+        <div class="col-6 ml-1">
             <br>
             <b>{{ trans('fi.available_equip') }}</b><br>
             {{ trans('fi.select_items_toworkorder') }}
-            <div id="ScrollCB2" style="height:200px;width:250px;overflow:auto">
+            <div id="ScrollCB2" style="height:200px;width:350px;overflow:auto">
             <div style='margin-left:auto;margin-right:auto' id="rtable">
                 <script>
                     rstr = '';
