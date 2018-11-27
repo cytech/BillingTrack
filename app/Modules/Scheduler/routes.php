@@ -52,7 +52,5 @@ Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'n
     //route to pass available resources to ajax in _js_event.blade
     Route::get('/getResources/{date}', ['uses' => 'SchedulerController@scheduledResources', 'as' => 'scheduler.getresources']);
 
-    Route::get('/viewclear', [function () {Artisan::call('view:clear');return redirect()->route('scheduler.index');}]);
-
 });
 
