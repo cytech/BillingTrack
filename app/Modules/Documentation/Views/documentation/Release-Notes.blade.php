@@ -11,8 +11,14 @@
         <pre>
         - upgrade to laravel 5.7.*
         - migrate to Bootstrap 4.1.*
+        - start resource move to laravel mix where applicable
         - fix email cc and bcc
         - documentation
+        - "enabled module" in sidebar (system setting)
+        - enabled update checker
+        - added JQuery-UI theme config
+        - clean and optimize scheduler
+        - enable live demo
         </pre>
 
         <hr>

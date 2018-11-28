@@ -44,7 +44,7 @@
 
         </p>
         <p style="margin-bottom: 0; line-height: 100%"><b>Report</b>:
-            (Timesheet report can also be accessed thru the FusionInvoice Reports
+            (Timesheet report can also be accessed thru the FusionInvoiceFOSS Reports
             Menu)</p>
         <p style="margin-bottom: 0; line-height: 100%"><br/>
 

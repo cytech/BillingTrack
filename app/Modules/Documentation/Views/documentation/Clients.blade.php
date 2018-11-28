@@ -81,7 +81,7 @@
             <span class="anchor" id="create-logins"></span>
             <h3>How do I create logins for my clients?</h3>
 
-            <p>FusionInvoice provides a limited access client login feature called Client Center. The Client Center
+            <p>FusionInvoiceFOSS provides a limited access client login feature called Client Center. The Client Center
                 allows clients
                 to log in and view their own invoices, quotes and payments without being able to access anything else in
                 your system.</p>

@@ -30,13 +30,13 @@
 
         <p>Once online payments have been enabled, your clients can pay their invoices quickly, conveniently
             and securely using the invoice public link.</p>
-        <p>To configure FusionInvoice for online payments, click the System icon and select System Settings.</p>
+        <p>To configure FusionInvoiceFOSS for online payments, click the System icon and select System Settings.</p>
 
         <a href="/img/documentation/system_settings.png" target="_blank">
             <img src="/img/documentation/system_settings_small.png" class="img-responsive">
         </a>
 
-        <p>Each of the different payment gateways that are compatible with FusionInvoice are listed on the
+        <p>Each of the different payment gateways that are compatible with FusionInvoiceFOSS are listed on the
             Online Payments tab.</p>
 
         <p>Each of the payment gateways have their own set of options to be configured:</p>
@@ -95,7 +95,7 @@
         <span class="anchor" id="paypal-rest-api-keys"></span>
         <h3>How do I get my PayPal REST API keys?</h3>
 
-        <p>Prior to version 2018-7, FusionInvoice used PayPal's classic NVP/SOAP api. Version 2018-7 and later use
+        <p>Prior to version 2018-7, FusionInvoiceFOSS used PayPal's classic NVP/SOAP api. Version 2018-7 and later use
             PayPal's REST api.</p>
 
         <p>Log into the <a href="https://developer.paypal.com/developer/applications/">PayPal
@@ -106,7 +106,7 @@
             <img src="/img/documentation/online_payments_paypal_rest1_small.png" class="img-responsive">
         </a>
 
-        <p>Give the app a name, such as FusionInvoice (or whatever you'd like) and click the Create App button.</p>
+        <p>Give the app a name, such as FusionInvoiceFOSS (or whatever you'd like) and click the Create App button.</p>
         <a href="/img/documentation/online_payments_paypal_rest2.png" target="_blank">
             <img src="/img/documentation/online_payments_paypal_rest2_small.png" class="img-responsive">
         </a>
@@ -115,7 +115,7 @@
             between
             the keys for Sandbox and Live. Be sure and use Sandbox for testing purposes and Live for production. Also
             note the
-            Secret ID spans two lines, so be sure the entire key gets copied. Configure the keys in FusionInvoice on the
+            Secret ID spans two lines, so be sure the entire key gets copied. Configure the keys in FusionInvoiceFOSS on the
             Online Payments
             tab in System Settings.</p>
         <a href="/img/documentation/online_payments_paypal_rest3.png" target="_blank">
@@ -127,7 +127,7 @@
         <span class="anchor" id="client-online-payments"></span>
         <h3>How does my client pay their invoice online?</h3>
 
-        <p>Once you have FusionInvoice configured to accept online payments, clients may pay their invoices using the
+        <p>Once you have FusionInvoiceFOSS configured to accept online payments, clients may pay their invoices using the
             invoice public link.</p>
         <p>When an invoice is emailed to the client, the email will contain a link to view and pay the invoice online.
             This is the

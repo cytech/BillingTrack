@@ -6,7 +6,7 @@
 
         <h2>Time Tracking</h2>
 
-        <p>The Time Tracking add-on for FusionInvoice lets you easily build projects, add tasks, track your time and
+        <p>The Time Tracking add-on for FusionInvoiceFOSS lets you easily build projects, add tasks, track your time and
             most importantly - bill
             for that time!</p>
 
@@ -60,7 +60,7 @@
         <p>Now that we have some tasks added, we can start timers on one or more tasks by pressing the green Start Timer
             button for the appropriate task(s).</p>
 
-        <p>* Note: Running tasks will continue to run even if you log out of FusionInvoice or close your browser.</p>
+        <p>* Note: Running tasks will continue to run even if you log out of FusionInvoiceFOSS or close your browser.</p>
         <a href="/img/documentation/time_tracking_add_task3.png" target="_blank">
             <img src="/img/documentation/time_tracking_add_task3_small.png" class="img-responsive">
         </a>

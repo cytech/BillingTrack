@@ -12,9 +12,9 @@
         <p><a href="#troubleshooting-recurring-invoices">Why aren't my recurring invoices working?</a></p>
         <p><a href="#how-do-i-reset-my-password">I forgot my password - how can I reset it?</a></p>
         <p><a href="#dashboard-totals">Why do the totals on my dashboard all show zero?</a></p>
-        <p><a href="#supported-payment-gateways">Can FusionInvoice work with XYZ payment gateway?</a></p>
+        <p><a href="#supported-payment-gateways">Can FusionInvoiceFOSS work with XYZ payment gateway?</a></p>
         <p><a href="#how-to-remove-index-php">How can I remove index.php from my URL?</a></p>
-        <p><a href="#how-to-force-https">How can I force my FusionInvoice installation to be served over https?</a></p>
+        <p><a href="#how-to-force-https">How can I force my FusionInvoiceFOSS installation to be served over https?</a></p>
 
         <hr>
 
@@ -79,7 +79,7 @@
         <h3>I forgot my password - how can I reset it?</h3>
 
         <ol>
-            <li>Download the <a href="../../../ResetPassword-2018.zip">Reset Password</a> utility.</li>
+            <li>Get the ResetPassword-2018.zip utility from the resources/misc directory of this repository.</li>
             <li>Unzip the contents.</li>
             <li>Upload the unzipped ResetPassword folder to the app/Modules folder on your server so that it becomes
                 app/Modules/ResetPassword.
@@ -103,15 +103,15 @@
         <hr>
 
         <span class="anchor" id="supported-payment-gateways"></span>
-        <h3>Can FusionInvoice work with XYZ payment gateway?</h3>
+        <h3>Can FusionInvoiceFOSS work with XYZ payment gateway?</h3>
 
         <p>
-            FusionInvoice uses the <a href="https://github.com/thephpleague/omnipay"
+            FusionInvoiceFOSS uses the <a href="https://github.com/thephpleague/omnipay"
                                       target="_blank">Omnipay</a> payment
             processing library which supports a large number of different
             <a href="https://github.com/thephpleague/omnipay#payment-gateways"
                target="_blank">payment gateways</a>. Even though
-            Omnipay supports a large number of gateways, FusionInvoice implements support for those gateways upon
+            Omnipay supports a large number of gateways, FusionInvoiceFOSS implements support for those gateways upon
             popular
             request. If a gateway is on the list of Omnipay supported gateways that isn't yet implemented in
             FusionInvoice,
@@ -129,9 +129,9 @@
 
         <ol>
             <li>
-                Verify that the .htaccess file distributed in the FusionInvoice download file was actually uploaded to
+                Verify that the .htaccess file distributed in the FusionInvoiceFOSS download file was actually uploaded to
                 your
-                server. This file should exist in the root folder of your FusionInvoice installation (in the same folder
+                server. This file should exist in the root folder of your FusionInvoiceFOSS installation (in the same folder
                 as the
                 index.php file). This file should work out of the box 99% of the time for Apache environments.
             </li>
@@ -173,12 +173,12 @@ location / {
         <hr>
 
         <span class="anchor" id="how-to-force-https"></span>
-        <h3>How can I force my FusionInvoice installation to be served over https?</h3>
+        <h3>How can I force my FusionInvoiceFOSS installation to be served over https?</h3>
 
         <p>
-            Version 2018-4 added an option to the General tab of System Settings which will force FusionInvoice to be
+            Version 2018-4 added an option to the General tab of System Settings which will force FusionInvoiceFOSS to be
             served over https.
-            Prior to enabling this option, be sure your FusionInvoice installation is functional via https. Failure to
+            Prior to enabling this option, be sure your FusionInvoiceFOSS installation is functional via https. Failure to
             do so may result in a
             non-functional (but fixable) installation.
         </p>
@@ -190,7 +190,7 @@ location / {
         </p>
 
         <p>If you're unable to access your installation after enabling the Force HTTPS option, run the following query
-            in your FusionInvoice database to undo the change:</p>
+            in your FusionInvoiceFOSS database to undo the change:</p>
 
         <pre>
 update settings set setting_value = '0' where setting_key = 'forceHttps'

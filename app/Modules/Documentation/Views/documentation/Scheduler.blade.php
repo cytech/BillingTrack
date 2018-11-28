@@ -8,16 +8,11 @@
 
         <hr>
 
-        <p style="margin-bottom: 0; line-height: 100%"><font size="4" style="font-size: 16pt"><u><b>Scheduler
-                        for FusionInvoiceFOSS</b></u></font></p>
-        <p style="margin-bottom: 0; line-height: 100%"><br/>
 
-        </p>
-        <p style="margin-bottom: 0; line-height: 100%">This addon adds the
-            capability to FusionInvoice for creation of a FullCalendar Schedule.
-            If enabled, it integrates directly with the  Workorder addon for
-            FusionInvoice functionality. Events and recurring events can be
-            created and edited with categories and reminders.</p>
+        <p style="margin-bottom: 0; line-height: 100%">Creation of a FullCalendar Schedule.
+            Events and recurring events can be
+            created and edited with categories and reminders.
+            Core Events (Quotes, Workorders, Invoices, etc.) can be shown via the system settings - Scheduler tab</p>
         <p style="margin-bottom: 0; line-height: 100%"><br/>
 
         </p>
@@ -49,15 +44,17 @@
         <p style="margin-left: 0.49in; margin-bottom: 0; line-height: 100%">
             When enabled in settings, This will launch a dialog to populate for
             an automatic Workorder creation.  Customer will do a typeahead lookup
-            of the FusionInvoice client database (same rules apply as workorder
+            of the FusionInvoiceFOSS client database (same rules apply as workorder
             creation in FusionInvoice). Only Available Employees and Resources
             (un-scheduled) for the day are shown in the item selection. THIS ONLY
             TAKES INTO EFFECT SCHEDULED EMPLOYEES AND ITEMS FOR THE ENTIRE DAY.
             It does not look at time slots during the day. Resources are
             calculated against the number in inventory and the resources
             scheduled for the day. When all selections are made, select CREATE
-            WORKORDER and the information will be send to FusionInvoice and
-            create a draft workorder containing all the information.</p>
+            WORKORDER and the information will be send to FusionInvoiceFOSS and
+            create an approved workorder containing all the information.
+            Note: If a NEW client name is entered, you will be taken to the workorder
+            after create to edit the client information.</p>
         <p style="margin-bottom: 0; line-height: 100%"><br/>
 
         </p>
@@ -92,7 +89,7 @@
         <p style="margin-left: 0.49in; margin-bottom: 0; line-height: 100%">
             <b>Categories</b></p>
         <p style="margin-left: 0.49in; margin-bottom: 0; line-height: 100%">
-            Assign and edit custom calendar categories and colors. Note (3)
+            Assign and edit custom calendar categories and colors. Note (10)
             default categories and custom categories assigned to events cannot be
             deleted.</p>
         <p style="margin-left: 0.49in; margin-bottom: 0; line-height: 100%">

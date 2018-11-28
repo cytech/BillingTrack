@@ -8,11 +8,7 @@
 
         <hr>
 
-        <p style="margin-bottom: 0; line-height: 100%"><font size="4" style="font-size: 16pt"><u><b>Workorders
-                        for FusionInvoiceFOSS</b></u></font></p>
-        <p style="margin-bottom: 0; line-height: 100%"><br/>
 
-        </p>
 
         <p style="margin-bottom: 0; line-height: 100%"><br/>
 
@@ -24,7 +20,7 @@
         <p style="margin-bottom: 0; font-weight: normal; line-height: 100%">
             The list may be sorted by the available header fields and filtered by
             selecting the appropriate tob buttons. You can also search using the
-            FusionInvoice search field in the sidebar.</p>
+            FusionInvoiceFOSS search field in the sidebar.</p>
         <p style="margin-left: 0.49in; margin-bottom: 0; line-height: 100%">
             <b>New</b></p>
         <p style="margin-left: 0.49in; margin-bottom: 0; font-weight: normal; line-height: 100%">
@@ -39,7 +35,7 @@
             <b>Edit (New)</b></p>
         <p style="margin-left: 0.49in; margin-bottom: 0; font-weight: normal; line-height: 100%">
             Edit (or selecting the workorder number in list) opens the selected
-            workorder for editing. All common  FusionInvoice functions apply. The
+            workorder for editing. All common  FusionInvoiceFOSS functions apply. The
             summary field should contain a job summary (i.e. Install AC Unit),
             Job Date is the date of the job and enter estimated start and end
             times. The Will Call field may be assigned for custom will call entry

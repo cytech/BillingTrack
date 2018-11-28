@@ -500,7 +500,7 @@
             </tr>
             <tr>
                 <td><span class="anchor" id="backup-database"></span>Download Database Backup</td>
-                <td>This button will create a full .sql file backup of your FusionInvoice database for download.</td>
+                <td>This button will create a full .sql file backup of your FusionInvoiceFOSS database for download.</td>
                 <td></td>
             </tr>
         </table>

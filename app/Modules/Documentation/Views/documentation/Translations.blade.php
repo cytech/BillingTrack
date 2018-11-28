@@ -8,16 +8,16 @@
 
         <hr>
 
-        <p><a href="#how-to-translate">How do I translate FusionInvoice into my own language?</a></p>
+        <p><a href="#how-to-translate">How do I translate FusionInvoiceFOSS into my own language?</a></p>
         <p><a href="#can-i-share">Can I share my translation for others to use?</a></p>
 
         <hr>
 
         <span class="anchor" id="how-to-translate"></span>
-        <h3>How do I translate FusionInvoice into my own language?</h3>
+        <h3>How do I translate FusionInvoiceFOSS into my own language?</h3>
 
         <p>
-            The translation files for FusionInvoice live in the resources/lang folder. To translate FusionInvoice into
+            The translation files for FusionInvoiceFOSS live in the resources/lang folder. To translate FusionInvoiceFOSS into
             your
             native language, create a new folder inside resources/lang for your language and then copy the files from
             resources/lang/en into your specific language folder. Once the files have been copied, you can begin the

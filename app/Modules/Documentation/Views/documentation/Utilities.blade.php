@@ -37,7 +37,8 @@
         <p style="margin-left: 0.49in; margin-bottom: 0; font-weight: normal; line-height: 100%">
             Create a new Product.</p>
         <p style="margin-bottom: 0; line-height: 100%"><br/>
-
+        Note: Both Employees and Products can be "pushed" to the Item Lookup Table.
+            Settings (or force function) can be found in System Settings-General tab.
         </p>
         <p style="margin-bottom: 0; line-height: 100%"><br/>
 
