@@ -1,6 +1,8 @@
 # FusionInvoice-FOSS
 FusionInvoice 2018-8 after it was open sourced
 
+[Link to Live Demo](http://fusioninvoicefoss-demo.cytech-eng.com)
+
 [Link to prerequisites](https://github.com/cytech/FusionInvoice-FOSS/wiki)
 
 **To Upgrade from v4.0.x to v4.1.0**

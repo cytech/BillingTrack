@@ -17,3 +17,4 @@ _ide_helper.php
 /custom/addons/TimeTracking/
 /.phpstorm.meta.php
 /resources/robust-admin-lite/
+/.env.demo

@@ -27,15 +27,8 @@
                    value="" minlength="3" required>
         </div>
     </div>
-    {{--<input type="hidden" id="workorder_date" name="workorder_date" value="{!! date('Y-m-d') !!}">--}}
-    {{--<div class="form-group d-flex align-items-center">--}}
-        {{--<label for="job_date"--}}
-               {{--class="col-sm-4 text-right text">{{ trans('fi.job_date') }}</label>--}}
-        {{--<div class="col-sm-8">--}}
-            {{--<input id="job_date" name="job_date" value="" class="form-control" readonly>--}}
-
-        {{--</div>--}}
-    {{--</div>--}}
+    <input type="hidden" id="workorder_date" name="workorder_date" value="{!! date('Y-m-d') !!}">
+    <input type="hidden" id="job_date" name="job_date" value="" class="form-control" readonly>
     <div class="form-group d-flex align-items-center">
         <label for="start_time"
                class="col-sm-2 text-right text">{{ trans('fi.start_time') }}</label>
@@ -44,15 +37,11 @@
                    class="form-control datepicker start_time readonly"
                    placeholder="Start Time" autocomplete="off">
         </div>
-    {{--</div>--}}
-    {{--<div class="form-group d-flex align-items-center">--}}
         <label for="end_time" class="col-sm-2 text-right text">{{ trans('fi.end_time') }}</label>
         <div class="col-sm-2">
             <input type="text" id="end_time" required name="end_time" class="form-control datepicker end_time readonly"
                    placeholder="End Time" autocomplete="off">
         </div>
-    {{--</div>--}}
-    {{--<div class="form-group d-flex align-items-center">--}}
         <label for="will_call" class="col-sm-2 text-right text"> {{ trans('fi.will_call') }}</label>
         <div class="col-sm-2">
             {!! Form::checkbox('will_call', 1, null, ['id' => 'will_call', 'class' => 'checkbox']) !!}
@@ -73,21 +62,21 @@
             <b>{{ trans('fi.available_employees') }}</b><br>
             {{ trans('fi.select_workers_toworkorder') }}<br>
             <div id="ScrollCB1" style="height:200px;width:250px;overflow:auto">
-            <div id="wtable">
-                {{--script to get selected worker checkboxes,format as uri, and open new fusioninvoice workorder--}}
-                <script>
-                    wstr = '';
-                    $('#create-workorder').on('click', '[id*=worker]', function () {
-                        counter = 0;
-                        const wsel = $('#worker:checked').map(function (_, el) {
-                            counter++;
-                            return "worker" + counter + "/" + $(el).val();
-                        }).get();
+                <div id="wtable">
+                    {{--script to get selected worker checkboxes,format as uri, and open new fusioninvoice workorder--}}
+                    <script>
+                        wstr = '';
+                        $('#create-workorder').on('click', '[id*=worker]', function () {
+                            counter = 0;
+                            const wsel = $('#worker:checked').map(function (_, el) {
+                                counter++;
+                                return "worker" + counter + "/" + $(el).val();
+                            }).get();
 
-                        wstr = wsel.join("/");
-                    });
-                </script>
-            </div>
+                            wstr = wsel.join("/");
+                        });
+                    </script>
+                </div>
             </div>
         </div>
 
@@ -96,25 +85,25 @@
             <b>{{ trans('fi.available_equip') }}</b><br>
             {{ trans('fi.select_items_toworkorder') }}
             <div id="ScrollCB2" style="height:200px;width:350px;overflow:auto">
-            <div style='margin-left:auto;margin-right:auto' id="rtable">
-                <script>
-                    rstr = '';
-                    $('#create-workorder').on('click', '[id*=resource]', function () {
-                        if($(this).is(":checked"))
-                            $("#quantity"+$(this).val()).removeAttr("disabled");
-                        else
-                            $("#quantity"+$(this).val()).attr("disabled" , "disabled");
-                        counter = 0;
-                        const rsel = $('#resource:checked').map(function (_, el) {
-                            counter++;
-                            return "resource" + counter + "/" + $(el).val();
-                        }).get();
+                <div style='margin-left:auto;margin-right:auto' id="rtable">
+                    <script>
+                        rstr = '';
+                        $('#create-workorder').on('click', '[id*=resource]', function () {
+                            if ($(this).is(":checked"))
+                                $("#quantity" + $(this).val()).removeAttr("disabled");
+                            else
+                                $("#quantity" + $(this).val()).attr("disabled", "disabled");
+                            counter = 0;
+                            const rsel = $('#resource:checked').map(function (_, el) {
+                                counter++;
+                                return "resource" + counter + "/" + $(el).val();
+                            }).get();
 
-                        rstr = rsel.join("/");
+                            rstr = rsel.join("/");
 
-                    });
-                </script>
-            </div>
+                        });
+                    </script>
+                </div>
             </div>
         </div>
     </div>

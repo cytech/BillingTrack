@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - enabled update checker
 - added JQuery-UI theme config
 - clean and optimize scheduler
+- enable live demo
 
 ## 4.0.2
 - added resource quantity selection to createworkoorder modal

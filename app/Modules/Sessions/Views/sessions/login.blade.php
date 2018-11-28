@@ -18,9 +18,26 @@
 
 </head>
 <body class="login-page">
+        @if(!config('app.demo'))
+            <div class="brand-link bg-purple ">
+                <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light h2"> {{ config('app.name', 'FusionInvoiceFOSS') }}</span>
+            </div>
+        @else
+            <div class="brand-link bg-purple ">
+                <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light h2"> {{ config('app.name', 'FusionInvoiceFOSS') }} Live Demo</span>
+            </div>
+        @endif
 <div class="login-box">
     <div class="login-box-body">
         @include('layouts._alerts')
+        <h2 class="text-center">
+            Account Login
+        </h2>
+        <hr class="bg-green">
         {!! Form::open() !!}
         <div class="form-group has-feedback">
             <input type="email" name="email" id="email" class="form-control" placeholder="{{ trans('fi.email') }}">
@@ -35,7 +52,9 @@
                 <div class="form-check">
                     <label>
                         <input type="hidden" name="remember_me" value="0">
+                        @if(!config('app.demo'))
                         <input type="checkbox" name="remember_me" value="1"> {{ trans('fi.remember_me') }}
+                        @endif
                     </label>
                 </div>
             </div>
@@ -44,6 +63,16 @@
             </div>
         </div>
         {!! Form::close() !!}
+        @if(config('app.demo'))
+            <div class="row text-center ml-5">
+                <br><br>
+                Demo Login
+                <br>
+                Email = admin@example.com
+                <br>
+                Password = secret
+            </div>
+        @endif
 
     </div>
 </div>

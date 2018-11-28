@@ -3,7 +3,6 @@
 @section('sidebar')
 
     <aside class="main-sidebar sidebar-light-light elevation-2">
-        {{--<a href="/" class="brand-link bg-{{ str_replace('skin-', '', $skinClass) }} border-bottom">--}}
         <a href="/" class="brand-link bg-purple border-bottom">
             <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
                  style="opacity: .8">
