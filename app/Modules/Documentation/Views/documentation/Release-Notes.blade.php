@@ -8,63 +8,61 @@
 
         <hr>
         <h3>FusionInvoiceFOSS 4.1.0 (develop branch)</h3>
-        <pre>
-        - upgrade to laravel 5.7.*
-        - migrate to Bootstrap 4.1.*
-        - start resource move to laravel mix where applicable
-        - fix email cc and bcc
-        - documentation
-        - "enabled module" in sidebar (system setting)
-        - enabled update checker
-        - added JQuery-UI theme config
-        - clean and optimize scheduler
-        - enable live demo
-        </pre>
-
+        <ul>
+            <li>- upgrade to laravel 5.7.*</li>
+            <li>- migrate to Bootstrap 4.1.*</li>
+            <li>- start resource move to laravel mix where applicable</li>
+            <li>- fix email cc and bcc</li>
+            <li>- documentation</li>
+            <li>- "enabled module" in sidebar (system setting)</li>
+            <li>- enabled update checker</li>
+            <li>- added JQuery-UI theme config</li>
+            <li>- clean and optimize scheduler</li>
+            <li>- enable live demo</li>
+        </ul>
         <hr>
         <h3>FusionInvoiceFOSS 4.0.2 (Oct 14, 2018)</h3>
-        <pre>
-        - added resource quantity selection to createworkoorder modal
-        - corrected some error response dialogs
-        - validation for end_time greater than start_time
-        - calendar create workorder-redirect to workorder if no client address (new client)
-        </pre>
-
+            <ul>
+                <li>- added resource quantity selection to createworkoorder modal</li>
+                <li>- corrected some error response dialogs</li>
+                <li>- validation for end_time greater than start_time</li>
+                <li>- calendar create workorder-redirect to workorder if no client address (new client)</li>
+        </ul>
         <hr>
         <h3>FusionInvoiceFOSS 4.0.1 (Sept 20, 2018)</h3>
-        <pre>
-        - added "todays workorder" widget
-        - added "recent payments" widget
-        - modified setup for upgrade
-        - added resources/lang/en-cust where client = customer
-        - added system info (.env settings) tab to system settings
-        - added modal Enter Payment function, with client lookup and payable invoices
-        - server side datatables for scheduler categories, events, recurring events
-        - correct employee lookup in calendar to approved workorders
-        - workorder datatable sort by job date instead of expires_at
-        - added orphan check utility for Scheduler (checks workorders for Unschedulable employees)
-        </pre>
+        <ul>
+            <li>- added "todays workorder" widget</li>
+            <li>- added "recent payments" widget</li>
+            <li>- modified setup for upgrade</li>
+            <li>- added resources/lang/en-cust where client = customer</li>
+            <li>- added system info (.env settings) tab to system settings</li>
+            <li>- added modal Enter Payment function, with client lookup and payable invoices</li>
+            <li>- server side datatables for scheduler categories, events, recurring events</li>
+            <li>- correct employee lookup in calendar to approved workorders</li>
+            <li>- workorder datatable sort by job date instead of expires_at</li>
+            <li>- added orphan check utility for Scheduler (checks workorders for Unschedulable employees)</li>
+        </ul>
 
         <hr>
         <h3>FusionInvoiceFOSS 4.0.0 (Sept 6, 2018)</h3>
-        <pre>
-        - change server to public directory (requires apache change)
-        - configure from .env (copy .env.example to .env and change required variables)
-        - clean, consolidate and restructure mysql database
-        - transfer existing 2018-8 database to new structure upon setup
-        - move high profile sortables to server side datatables
-        - implement softdeletes, with trash management
-        - update to laravel 5.6.*
-        - update all resources
-        - add toolbox
-        - add products
-        - add employees
-        - item lookup modal in quotes and invoices
-        - extend skin configuration
-        - integrate timetracking (projects/tasks/timers)
-        - integrate workorders
-        - integrate Scheduler
-        </pre>
+        <ul>
+            <li>- change server to public directory (requires apache change)</li>
+            <li>- configure from .env (copy .env.example to .env and change required variables)</li>
+            <li>- clean, consolidate and restructure mysql database</li>
+            <li>- transfer existing 2018-8 database to new structure upon setup</li>
+            <li>- move high profile sortables to server side datatables</li>
+            <li>- implement softdeletes, with trash management</li>
+            <li>- update to laravel 5.6.*</li>
+            <li>- update all resources</li>
+            <li>- add toolbox</li>
+            <li>- add products</li>
+            <li>- add employees</li>
+            <li>- item lookup modal in quotes and invoices</li>
+            <li>- extend skin configuration</li>
+            <li>- integrate timetracking (projects/tasks/timers)</li>
+            <li>- integrate workorders</li>
+            <li>- integrate Scheduler</li>
+        </ul>
 
         <hr>
         <h3>FusionInvoice 2018-74.0.0 (Apr 22, 2018)</h3>

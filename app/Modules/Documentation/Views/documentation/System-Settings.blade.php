@@ -37,9 +37,9 @@
                 <td></td>
             </tr>
             <tr>
-                <td>Skin</td>
-                <td>Multiple skins are available which control the color scheme of your installation.</td>
-                <td>fusioninvoice</td>
+                <td>Skin Header Background, Skin Header Text Contrast, Skin Menu background, Skin Menu Text Contrast</td>
+                <td>Multiple skin definitions are available which control the color scheme of your installation.</td>
+                <td>purple,dark,white,light</td>
             </tr>
             <tr>
                 <td>Language</td>
@@ -115,6 +115,20 @@
                     etc).
                 </td>
                 <td>15</td>
+            </tr>
+            <tr>
+                <td>Push active Products to Item Lookups</td>
+                <td>If set to yes, automatically updates Item Lookup Table when there is a modification to the Products table.
+                    Also allows user to force the update.
+                </td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Push active Employees to Item Lookups</td>
+                <td>If set to yes, automatically updates Item Lookup Table when there is a modification to the Employees table.
+                    Also allows user to force the update.
+                </td>
+                <td>No</td>
             </tr>
         </table>
 

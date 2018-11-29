@@ -10,7 +10,7 @@
 
         <p><a href="#create-quote">How do I create a quote?</a></p>
         <p><a href="#email-quote">How do I email a quote?</a></p>
-        <p><a href="#convert-to-invoice">How do I convert a quote to an invoice?</a></p>
+        <p><a href="#convert-to-invoice">How do I convert a quote to a workorder or an invoice?</a></p>
         <p><a href="#copy-quote">How do I copy a quote?</a></p>
         <p><a href="#attach-files-quote">How do I attach files to a quote?</a></p>
 

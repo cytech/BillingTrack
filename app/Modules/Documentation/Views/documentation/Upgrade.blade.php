@@ -20,14 +20,15 @@
         <hr>
         <span class="anchor" id="how-to-upgrade-fusioninvoicefoss"></span>
         <h3>How to Upgrade FusionInvoiceFOSS</h3>
-        <pre>
-1. Git pull (if originally cloned) or download and overwrite existing installation.
-   (if downloading and extracting zip, delete the contents of "YourFusionInvoiceFOSS/public"
-    directory prior to extracting.)
-2. run composer update
-3. Start FusionInvoiceFOSS/setup
-4. after migration completes, signin.
-        </pre>
+        <ul>
+            <li>Git pull (if originally cloned) or download and overwrite existing installation.
+                (if downloading and extracting zip, delete the contents of "YourFusionInvoiceFOSS/public"
+                directory prior to extracting.)
+            </li>
+            <li>Run composer update</li>
+            <li>Start FusionInvoiceFOSS/setup</li>
+            <li>After migration completes, signin.</li>
+        </ul>
 
         <hr>
 

@@ -278,19 +278,14 @@
                     }
                 },
                 eventClick: function (event, element) {
-                    // added link to workorder
+                    // added link to core events
                     if (event.url) {
                         window.open(event.url, '_parent');
                         return false;
                     }
                     if (event.isrecurring === '1') {
-                        swal({
-                            title: '{{ trans('fi.recurring_event_warning') }}',
-                            type: "warning",
-                            showCancelButton: false,
-                            confirmButtonColor: '#d68500',
-                            confirmButtonText: '{{ trans('fi.confirm_recurr_warning') }}'
-                        });
+                        window.open('{{ route('scheduler.editrecurringevent') }}' + '/'  + event.id, '_parent');
+                        return false;
                     }
 
                     $("#addReminderShow").html('');

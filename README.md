@@ -1,6 +1,8 @@
 # FusionInvoice-FOSS
 FusionInvoice 2018-8 after it was open sourced
 
+:+1: If you find this product useful, feel free to buy me a beer: https://paypal.me/cytecheng
+
 [Link to Live Demo](http://fusioninvoicefoss-demo.cytech-eng.com)
 
 [Link to prerequisites](https://github.com/cytech/FusionInvoice-FOSS/wiki)
@@ -58,8 +60,7 @@ FusionInvoice 2018-8 after it was open sourced
     
         Save .env file and exit.
 
-7. Set permissions for your site. Note that storage and bootstrap/cache
-should be open permissions (chmod -R 777 storage, chmod -R 777 bootstrap/cache)
+7. Set permissions for your site.
 
 8. Start FusionInvoiceFOSS/setup
 
@@ -78,4 +79,3 @@ should be open permissions (chmod -R 777 storage, chmod -R 777 bootstrap/cache
 
 10. sign in
 
-:+1: If you find this product useful, feel free to buy me a beer: https://paypal.me/cytecheng
