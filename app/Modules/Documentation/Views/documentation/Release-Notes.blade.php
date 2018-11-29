@@ -7,7 +7,7 @@
         <h2>Release Notes</h2>
 
         <hr>
-        <h3>FusionInvoiceFOSS 4.1.0 (develop branch)</h3>
+        <h3>FusionInvoiceFOSS 4.1.0 (Nov 29, 2018)</h3>
         <ul>
             <li>- upgrade to laravel 5.7.*</li>
             <li>- migrate to Bootstrap 4.1.*</li>
