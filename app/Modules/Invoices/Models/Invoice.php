@@ -38,7 +38,7 @@ class Invoice extends Model
 
     protected $dates = ['due_at', 'invoice_date', 'deleted_at'];
 
-    protected $appends = ['formatted_invoice_date', 'formatted_due_at'];
+    protected $appends = ['formatted_invoice_date', 'formatted_due_at', 'formatted_summary'];
 
     public static function boot()
     {
@@ -270,6 +270,10 @@ class Invoice extends Model
     public function getIsPayableAttribute()
     {
         return $this->status_text <> 'canceled' and $this->amount->balance > 0;
+    }
+
+    public function  getFormattedSummaryAttribute(){
+        return mb_strimwidth($this->attributes['summary'],0,50,'...');
     }
 
     /**

@@ -133,7 +133,7 @@ class WorkordersDataTable extends DataTable
             ],
             'summary' => [
                 'title' => trans('fi.summary'),
-                'data' => 'summary',
+                'data' => 'formatted_summary',
             ],
             'amount'   => [
                 'title' => trans('fi.total'),

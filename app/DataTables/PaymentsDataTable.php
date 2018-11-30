@@ -101,7 +101,7 @@ class PaymentsDataTable extends DataTable
             ],
             'invoice_summary'   => [
                 'title' => trans('fi.summary'),
-                'data'       => 'invoice.summary',
+                'data'       => 'invoice.formatted_summary',
             ],
             'amount'   => [
                 'title' => trans('fi.amount'),

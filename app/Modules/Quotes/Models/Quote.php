@@ -38,7 +38,7 @@ class Quote extends Model
 
     protected $dates = ['expires_at', 'quote_date','deleted_at'];
 
-    protected $appends = ['formatted_quote_date', 'formatted_expires_at','status_text'];
+    protected $appends = ['formatted_quote_date', 'formatted_expires_at','status_text', 'formatted_summary'];
 
     public static function boot()
     {
@@ -235,6 +235,10 @@ class Quote extends Model
     public function getFormattedNumericDiscountAttribute()
     {
         return NumberFormatter::format($this->attributes['discount']);
+    }
+
+    public function  getFormattedSummaryAttribute(){
+        return mb_strimwidth($this->attributes['summary'],0,50,'...');
     }
 
     /**

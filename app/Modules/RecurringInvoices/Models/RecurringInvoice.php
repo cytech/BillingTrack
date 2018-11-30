@@ -33,7 +33,7 @@ class RecurringInvoice extends Model
 
     protected $guarded = ['id'];
 
-    protected $appends = ['formatted_next_date', 'formatted_stop_date'];
+    protected $appends = ['formatted_next_date', 'formatted_stop_date', 'formatted_summary'];
 
     public static function boot()
     {
@@ -164,6 +164,10 @@ class RecurringInvoice extends Model
         }
 
         return true;
+    }
+
+    public function  getFormattedSummaryAttribute(){
+        return mb_strimwidth($this->attributes['summary'],0,50,'...');
     }
 
     /*

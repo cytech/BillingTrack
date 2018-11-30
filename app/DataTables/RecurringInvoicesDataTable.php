@@ -101,7 +101,7 @@ class RecurringInvoicesDataTable extends DataTable
             ],
             'summary' => [
                 'title' => trans('fi.summary'),
-                'data' => 'summary',
+                'data' => 'formatted_summary',
             ],
             'next_date'    => [
                 'title' => trans('fi.next_date'),

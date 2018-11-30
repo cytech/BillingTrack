@@ -33,7 +33,7 @@ class Workorder extends Model
 
     protected $guarded = ['id'];
 
-    protected $appends = ['formatted_workorder_date', 'formatted_expires_at', 'formatted_job_date', 'status_text'];
+    protected $appends = ['formatted_workorder_date', 'formatted_expires_at', 'formatted_job_date', 'status_text', 'formatted_summary'];
 
     protected $dates = ['expires_at', 'workorder_date','job_date','deleted_at'];
 
@@ -254,6 +254,10 @@ class Workorder extends Model
     public function getFormattedNumericDiscountAttribute()
     {
         return NumberFormatter::format($this->attributes['discount']);
+    }
+
+    public function  getFormattedSummaryAttribute(){
+        return mb_strimwidth($this->attributes['summary'],0,50,'...');
     }
 
     /**

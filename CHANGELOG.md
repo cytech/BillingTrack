@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.1.1
+- add formatted_summary to truncate display
+
 ## 4.1.0
 - upgrade to laravel 5.7.*
 - migrate to Bootstrap 4.1.*
