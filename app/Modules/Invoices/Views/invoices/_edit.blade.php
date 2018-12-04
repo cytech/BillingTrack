@@ -33,7 +33,7 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 @if ($invoice->isPayable or config('fi.allowPaymentsWithoutBalance'))
-                    <a class="dropdown-item" href="javascript:void(0)" id="btn-enter-payment" class="enter-payment"
+                    <a class="dropdown-item enter-payment" href="javascript:void(0)" id="btn-enter-payment"
                            data-invoice-id="{{ $invoice->id }}"
                            data-invoice-balance="{{ $invoice->amount->formatted_numeric_balance }}"
                            data-redirect-to="{{ route('invoices.edit', [$invoice->id]) }}"><i
