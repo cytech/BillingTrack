@@ -105,7 +105,7 @@
                     listWeek: 'Week List',
                     listDay: 'Day List'
                 },
-                aspectRatio: {!! config('fi.schedulerFcAspectRatio') !!},//1.35 default
+                aspectRatio: '{!! config('fi.schedulerFcAspectRatio') !!}',//1.35 default
                 //displayEventTime: false,  //show starttime in event title
                 eventOrder: "category,start",
                 // add createworkorder button to day cell header

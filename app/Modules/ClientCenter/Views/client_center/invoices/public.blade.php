@@ -71,7 +71,7 @@
 
                 @if ($invoice->isPayable)
                     @foreach ($merchantDrivers as $driver)
-                        <a href="javascript:void(0)" class="btn btn-primary btn-pay" data-driver="{{ $driver->getName() }}" data-loading-text="@lang('fi.please_wait') }}"><i class="fa fa-credit-card"></i> {{ $driver->getSetting('paymentButtonText')</a>
+                        <a href="javascript:void(0)" class="btn btn-primary btn-pay" data-driver="{{ $driver->getName() }}" data-loading-text="@lang('fi.please_wait')"><i class="fa fa-credit-card"></i> {{ $driver->getSetting('paymentButtonText') }}</a>
                     @endforeach
                 @endif
             </div>
