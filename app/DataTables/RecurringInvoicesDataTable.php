@@ -100,6 +100,7 @@ class RecurringInvoicesDataTable extends DataTable
                 'data' => 'client.id',
             ],
             'summary' => [
+                'name' => 'summary',
                 'title' => trans('fi.summary'),
                 'data' => 'formatted_summary',
             ],
@@ -120,9 +121,10 @@ class RecurringInvoicesDataTable extends DataTable
                 'searchable' => false,
             ],
             'total'   => [
+                'name' => 'amount.total',
                 'title' => trans('fi.total'),
                 'data'       => 'amount.formatted_total',
-                'orderable'  => false,
+                'orderable'  => true,
                 'searchable' => false,
             ],
 

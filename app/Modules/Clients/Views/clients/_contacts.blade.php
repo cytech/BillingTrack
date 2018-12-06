@@ -11,7 +11,7 @@
         $('.btn-delete-contact').click(function() {
 
             Swal({
-                title: '{{ trans('fi.trash_record_warning') }}',
+                title: '@lang('fi.trash_record_warning')',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
@@ -43,21 +43,21 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="float-right">
-            <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-add-contact"><i class="fa fa-plus"></i> {{ trans('fi.add_contact') }}</a>
+            <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-add-contact"><i class="fa fa-plus"></i> @lang('fi.add_contact')</a>
         </div>
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>{{ trans('fi.name') }}</th>
-                <th>{{ trans('fi.email') }}</th>
-                <th>{{ trans('fi.default_to') }}</th>
-                <th>{{ trans('fi.default_cc') }}</th>
-                <th>{{ trans('fi.default_bcc') }}</th>
-                <th>{{ trans('fi.options') }}</th>
+                <th>@lang('fi.name')</th>
+                <th>@lang('fi.email')</th>
+                <th>@lang('fi.default_to')</th>
+                <th>@lang('fi.default_cc')</th>
+                <th>@lang('fi.default_bcc')</th>
+                <th>@lang('fi.options')</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($contacts as $contact) { ?>
+            @foreach ($contacts as $contact)
             <tr>
                 <td>{{ $contact->name }}</td>
                 <td>{{ $contact->email }}</td>
@@ -67,17 +67,17 @@
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                            {{ trans('fi.options') }}
+                            @lang('fi.options')
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0)" class="btn-edit-contact dropdown-item" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                            <a href="javascript:void(0)" class="btn-edit-contact dropdown-item" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> @lang('fi.edit')</a>
                             <div class="dropdown-divider"></div>
-                            <a href="javascript:void(0)" class="btn-delete-contact dropdown-item" data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+                            <a href="javascript:void(0)" class="btn-delete-contact dropdown-item" data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> @lang('fi.trash')</a>
                         </div>
                     </div>
                 </td>
             </tr>
-            <?php } ?>
+            @endforeach
             </tbody>
         </table>
 

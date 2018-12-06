@@ -91,9 +91,10 @@ class ClientsTrashDataTable extends DataTable
                 'data'  => 'phone',
             ],
             'balance'    => [
+                'name' => 'balance',
                 'title'      => trans('fi.balance'),
                 'data'       => 'formatted_balance',
-                'orderable'  => false,
+                'orderable'  => true,
                 'searchable' => false,
             ],
             'active'     => [

@@ -134,13 +134,15 @@ class QuotesDataTable extends DataTable
                 'data' => 'client.name',
             ],
             'summary' => [
+                'name' => 'summary',
                 'title' => trans('fi.summary'),
                 'data' => 'formatted_summary',
             ],
             'amount'   => [
+                'name' => 'amount.total',
                 'title' => trans('fi.total'),
                 'data'       => 'amount.formatted_total',
-                'orderable'  => false,
+                'orderable'  => true,
                 'searchable' => false,
             ],
             'invoice_id' => [

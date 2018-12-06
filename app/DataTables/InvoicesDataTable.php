@@ -128,19 +128,22 @@ class InvoicesDataTable extends DataTable
                 'data' => 'client.name',
             ],
             'summary' => [
+                'name' => 'summary',
                 'title' => trans('fi.summary'),
                 'data' => 'formatted_summary',
             ],
             'total'   => [
+                'name' => 'amount.total',
                 'title' => trans('fi.total'),
                 'data'       => 'amount.formatted_total',
-                'orderable'  => false,
+                'orderable'  => true,
                 'searchable' => false,
             ],
             'balance' => [
+                'name' => 'amount.balance',
                 'title' => trans('fi.balance'),
                 'data'       => 'amount.formatted_balance',
-                'orderable'  => false,
+                'orderable'  => true,
                 'searchable' => false,
             ],
         ];

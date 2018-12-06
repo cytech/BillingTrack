@@ -749,7 +749,6 @@ return [
     'total_paid'                              => 'Total Paid',
     'total_workorders_day'                    => 'Total Workorders This Day',
     'totalhours'                              => 'TotalHours',
-    'toworkorder_names_blue'                  => '(Names in <span style="color:blue">BLUE</span> are authorized drivers)',
     'transfer_existing'                       => 'Transfer Existing FusionInvoice 2018-8 database',
     'trash'                                   => 'Trash',
     'trash_client_warning'                    => 'If you trash this client you will also trash any contacts, custom fields, invoices, recurring invoices, quotes, payments and projects related to this client. Are you sure you want to trash this client?',

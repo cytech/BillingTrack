@@ -94,9 +94,10 @@ class PaymentsTrashDataTable extends DataTable
                     'data'       => 'invoice.number',
                 ],
             'invoice_date' => [
-                'title' => trans('fi.date'),
+                'name' => 'invoice.invoice_date',
+                'title' => trans('fi.invoice_date'),
                 'data'       => 'invoice.formatted_invoice_date',
-                'orderable'  => false,
+                'orderable'  => true,
                 'searchable' => false,
             ],
             'client_name'   => [

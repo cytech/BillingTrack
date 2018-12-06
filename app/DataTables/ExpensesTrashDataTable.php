@@ -127,9 +127,10 @@ class ExpensesTrashDataTable extends DataTable
                 'searchable' => false,
             ],
             'amount'   => [
+                'name' => 'amount',
                 'title' => trans('fi.amount'),
                 'data'       => 'formatted_amount',
-                'orderable' => false,
+                'orderable' => true,
                 'searchable' => false,
             ],
             'attachments'   => [

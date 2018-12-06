@@ -90,9 +90,10 @@ class PaymentsDataTable extends DataTable
                     'data'       => 'invoice.number',
                 ],
             'invoice_date' => [
-                'title' => trans('fi.date'),
+                'name' => 'invoice.invoice_date',
+                'title' => trans('fi.invoice_date'),
                 'data'       => 'invoice.formatted_invoice_date',
-                'orderable'  => false,
+                'orderable'  => true,
                 'searchable' => false,
             ],
             'client_name'   => [
@@ -100,6 +101,7 @@ class PaymentsDataTable extends DataTable
                 'data'       => 'invoice.client.name',
             ],
             'invoice_summary'   => [
+                'name' => 'invoice.summary',
                 'title' => trans('fi.summary'),
                 'data'       => 'invoice.formatted_summary',
             ],
