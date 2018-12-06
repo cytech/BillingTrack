@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label>{{ trans('fi.enabled_modules') }}</label>
+            <label>@lang('fi.enabled_modules')</label>
             <div class="col-lg-8 col-sm-8">
                 @foreach (\FI\Modules\Settings\Models\Setting::$modules as $entityType => $value)
                     <div class="form-check">
@@ -19,7 +19,7 @@
             <label>@lang('fi.jqui_theme')</label>
             <p class="form-text text-muted font-italic">@lang('fi.jqui_themenote')</p>
             <div class="form-group col-md-6">
-                {{ Form::select('setting[jquiTheme]', $jquiTheme, config('fi.jquiTheme'), ['class' => 'form-control'] ) }}
+                {!! Form::select('setting[jquiTheme]', $jquiTheme, config('fi.jquiTheme'), ['class' => 'form-control'] ) !!}
             </div>
         </div>
     </div>

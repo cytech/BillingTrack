@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{{ trans('fi.workorder') }} #{{ $workorder->number }}</title>
+    <title>@lang('fi.workorder') #{{ $workorder->number }}</title>
 
     <style>
         @page {

@@ -42,10 +42,10 @@
 @section('content')
 
     <section class="content-header">
-        <h1 class="float-left">{{ trans('fi.time_tracking') }}</h1>
+        <h1 class="float-left">@lang('fi.time_tracking')</h1>
 
         <div class="float-right">
-            <button class="btn btn-primary" id="btn-run-report">{{ trans('fi.run_report') }}</button>
+            <button class="btn btn-primary" id="btn-run-report">@lang('fi.run_report')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -60,14 +60,14 @@
 
                 <div class=" card card-light">
                     <div class="box-header">
-                        <h3 class="box-title">{{ trans('fi.options') }}</h3>
+                        <h3 class="box-title">@lang('fi.options')</h3>
                     </div>
                     <div class="card-body">
 
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>{{ trans('fi.company_profile') }}:</label>
+                                    <label>@lang('fi.company_profile'):</label>
                                     {!! Form::select('company_profile_id', $companyProfiles, null, ['id' => 'company_profile_id', 'class' => 'form-control'])  !!}
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>{{ trans('fi.status') }}:</label>
+                                    <label>@lang('fi.status'):</label>
                                     {!! Form::select('status_id', $statuses, null, ['id' => 'status_id', 'class' => 'form-control'])  !!}
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>{{ trans('fi.date_range') }}:</label>
+                                    <label>@lang('fi.date_range'):</label>
                                     {!! Form::hidden('from_date', null, ['id' => 'from_date']) !!}
                                     {!! Form::hidden('to_date', null, ['id' => 'to_date']) !!}
                                     {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
@@ -96,13 +96,13 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="input-group">
-                                    <label>{{ trans('fi.output_type') }}</label><br>
+                                    <label>@lang('fi.output_type')</label><br>
                                     <label >
                                         <input type="radio" name="output_type" value="preview"
-                                               checked="checked"> {{ trans('fi.preview') }}
+                                               checked="checked"> @lang('fi.preview')
                                     </label>
                                     <label>
-                                        <input type="radio" name="output_type" value="pdf"> {{ trans('fi.pdf') }}
+                                        <input type="radio" name="output_type" value="pdf"> @lang('fi.pdf')
                                     </label>
                                 </div>
                             </div>

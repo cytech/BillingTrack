@@ -9,12 +9,12 @@
                                'id'=>'categories_form','action'=>'#','method' => 'PUT', 'class'=>'form-horizontal')) !!}
         <div class="card card-light">
             <div class="card-header">
-                <h3 class="card-title">{{ trans('fi.edit_category') }}
+                <h3 class="card-title">@lang('fi.edit_category')
                     <div style="text-align:center" class="buttons">
                         <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i
-                                    class="fa fa-ban"></i> {{ trans('fi.cancel') }} </a>
+                                    class="fa fa-ban"></i> @lang('fi.cancel') </a>
                         <button type="submit" class="btn btn-primary float-right"><i
-                                    class="fa fa-save"></i> {{ trans('fi.update') }}</button>
+                                    class="fa fa-save"></i> @lang('fi.update')</button>
                     </div>
                 </h3>
             </div>

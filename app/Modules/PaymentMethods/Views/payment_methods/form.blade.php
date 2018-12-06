@@ -16,12 +16,12 @@
 
     <section class="content p-3">
         <h3 class="float-left">
-            {{ trans('fi.payment_method_form') }}
+            @lang('fi.payment_method_form')
         </h3>
         <a class="btn btn-warning float-right" href={!! route('paymentMethods.index')  !!}><i
-                    class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+                    class="fa fa-ban"></i> @lang('fi.cancel')</a>
         <button type="submit" class="btn btn-primary float-right"><i
-                    class="fa fa-save"></i> {{ trans('fi.save') }} </button>
+                    class="fa fa-save"></i> @lang('fi.save') </button>
         <div class="clearfix"></div>
     </section>
 
@@ -31,7 +31,7 @@
         <div class=" card card-light">
             <div class="card-body">
                 <div class="control-group">
-                    <label>{{ trans('fi.payment_method') }}: </label>
+                    <label>@lang('fi.payment_method'): </label>
                     {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
                 </div>
             </div>

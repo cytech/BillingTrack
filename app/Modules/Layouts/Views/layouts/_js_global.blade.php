@@ -30,7 +30,7 @@
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: '#d68500',
-            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+            confirmButtonText: '@lang('fi.yes_sure')'
         }).then((result) => {
                 if (result.value) {
                     window.location.href = link;
@@ -47,7 +47,7 @@
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d68500',
-            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+            confirmButtonText: '@lang('fi.yes_sure')'
         }).then((result) => {
             if (result.value) {
                 if (id){
@@ -79,7 +79,7 @@
                 }).fail(function (data) {
                     //below not displaying in notify with 422 so above...
                     //notify(data.error, 'error');
-                    notify('{!! trans('fi.unknown_error')!!}', 'error');
+                    notify('@lang('fi.unknown_error')', 'error');
                 });}
 
             } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -95,7 +95,7 @@
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d68500',
-            confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+            confirmButtonText: '@lang('fi.yes_sure')'
         }).then((result) => {
             if (result.value) {
                 $.post(route, {
@@ -166,7 +166,7 @@
                 redirectTo: $(this).data('redirect-to')
             }, function (response, status, xhr) {
                 if (status == 'error') {
-                    notify('{{ trans('fi.problem_with_email_template') }}','error');
+                    notify('@lang('fi.problem_with_email_template')','error');
                 }
             });
         });
@@ -177,7 +177,7 @@
                 redirectTo: $(this).data('redirect-to')
             }, function (response, status, xhr) {
                 if (status == 'error') {
-                    notify('{{ trans('fi.problem_with_email_template') }}','error');
+                    notify('@lang('fi.problem_with_email_template')','error');
                 }
             });
         });

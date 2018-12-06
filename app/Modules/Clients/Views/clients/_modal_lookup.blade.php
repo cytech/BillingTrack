@@ -7,7 +7,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">{{ trans('fi.change_client') }}</h4>
+                <h4 class="modal-title">@lang('fi.change_client')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
@@ -17,7 +17,7 @@
                 <form>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.client') }}</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.client')</label>
 
                         <div class="col-sm-9">
                             {!! Form::text('client_name', null, ['id' => 'change_client_name', 'class' =>
@@ -29,8 +29,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
-                <button type="button" id="btn-submit-change-client" class="btn btn-primary">{{ trans('fi.save') }}
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
+                <button type="button" id="btn-submit-change-client" class="btn btn-primary">@lang('fi.save')
                 </button>
             </div>
         </div>

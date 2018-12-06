@@ -2,14 +2,14 @@
     <section class="content">
         <div class="card ">
             <div class="card-header">
-                <h5 class="text-bold mb-0">{{ trans('fi.recent_client_activity') }}</h5>
+                <h5 class="text-bold mb-0">@lang('fi.recent_client_activity')</h5>
             </div>
             <div class="card-body p-0">
                 <table class="table table-striped">
                     <tbody>
                     <tr>
-                        <th>{{ trans('fi.date') }}</th>
-                        <th>{{ trans('fi.activity') }}</th>
+                        <th>@lang('fi.date')</th>
+                        <th>@lang('fi.activity')</th>
                     </tr>
                     @foreach ($recentClientActivity as $activity)
                         <tr>

@@ -7,14 +7,14 @@
         @else
             {!! Form::open(['route' => 'clients.store']) !!}
         @endif
-        <h3 class="float-left">{{ trans('fi.client_form') }}</h3>
+        <h3 class="float-left">@lang('fi.client_form')</h3>
 
         <div class="float-right">
             @if ($editMode)
-                <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> {{ trans('fi.back') }}
+                <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('fi.back')
                 </a>
             @endif
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
+            <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('fi.save')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -31,14 +31,14 @@
                         {{--<div class="nav-tabs-custom">--}}
                         <ul class="nav nav-tabs p-2">
                             <li class="nav-item"><a class="nav-link active show" href="#tab-general"
-                                                     data-toggle="tab">{{ trans('fi.general') }}</a></li>
+                                                     data-toggle="tab">@lang('fi.general')</a></li>
                             @if ($editMode)
                                 <li class="nav-item"><a class="nav-link" href="#tab-contacts"
-                                                        data-toggle="tab">{{ trans('fi.contacts') }}</a></li>
+                                                        data-toggle="tab">@lang('fi.contacts')</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab-attachments"
-                                                        data-toggle="tab">{{ trans('fi.attachments') }}</a></li>
+                                                        data-toggle="tab">@lang('fi.attachments')</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab-notes"
-                                                        data-toggle="tab">{{ trans('fi.notes') }}</a></li>
+                                                        data-toggle="tab">@lang('fi.notes')</a></li>
                             @endif
                         </ul>
                     </div>

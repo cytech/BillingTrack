@@ -27,7 +27,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>{{ trans('fi.database_setup') }}</h1>
+        <h1>@lang('fi.database_setup')</h1>
     </section>
 
     <section class="content">
@@ -42,15 +42,15 @@
 
                         <div class="alert alert-error" id="div-exception" style="display: none;"></div>
 
-                        <p>{{ trans('fi.step_database_setup') }}</p>
+                        <p>@lang('fi.step_database_setup')</p>
 
-                        <a class="btn btn-primary" id="btn-run-migration">{{ trans('fi.continue') }}</a>
+                        <a class="btn btn-primary" id="btn-run-migration">@lang('fi.continue')</a>
 
-                        <a class="btn btn-secondary" id="btn-running-migration" style="display: none;" disabled="disabled">{{ trans('fi.installing_please_wait') }}</a>
+                        <a class="btn btn-secondary" id="btn-running-migration" style="display: none;" disabled="disabled">@lang('fi.installing_please_wait')</a>
                         @if($mode == 'setup')
-                        <a href="{{ route('setup.neworxfer') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">{{ trans('fi.continue') }}</a>
+                        <a href="{{ route('setup.neworxfer') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">@lang('fi.continue')</a>
                         @else
-                        <a href="{{ route('setup.newaccount') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">{{ trans('fi.continue') }}</a>
+                        <a href="{{ route('setup.newaccount') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">@lang('fi.continue')</a>
                         @endif
                     </div>
 

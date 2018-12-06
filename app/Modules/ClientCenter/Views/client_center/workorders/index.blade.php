@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>{{ trans('fi.workorders') }}</h1>
+        <h1>@lang('fi.workorders')</h1>
     </section>
 
     <section class="content">

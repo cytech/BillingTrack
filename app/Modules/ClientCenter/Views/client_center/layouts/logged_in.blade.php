@@ -30,27 +30,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.dashboard') }}">
                             <i class="fa fa-tachometer-alt"></i>
-                            <p>{{ trans('fi.dashboard') }}</p>
+                            <p>@lang('fi.dashboard')</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.quotes') }}">
-                            <i class="far fa-file-alt"></i> <span>{{ trans('fi.quotes') }}</span>
+                            <i class="far fa-file-alt"></i> <span>@lang('fi.quotes')</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.workorders') }}">
-                            <i class="far fa-file-alt"></i> <span>{{ trans('fi.workorders') }}</span>
+                            <i class="far fa-file-alt"></i> <span>@lang('fi.workorders')</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.invoices') }}">
-                            <i class="far fa-file-alt"></i> <span>{{ trans('fi.invoices') }}</span>
+                            <i class="far fa-file-alt"></i> <span>@lang('fi.invoices')</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.payments') }}">
-                            <i class="fa fa-credit-card"></i> <span>{{ trans('fi.payments') }}</span>
+                            <i class="fa fa-credit-card"></i> <span>@lang('fi.payments')</span>
                         </a>
                     </li>
                 </ul>

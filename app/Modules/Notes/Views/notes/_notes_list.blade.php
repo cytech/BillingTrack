@@ -4,15 +4,15 @@
             <span class="direct-chat-name float-left">{{ $note->user->name }}</span>
             <span class="direct-chat-scope float-right">
                 @if (!auth()->user()->client_id)
-                    <a href="javascript:void(0)" class="delete-note" data-note-id="{{ $note->id }}">{{ trans('fi.trash') }}</a>
+                    <a href="javascript:void(0)" class="delete-note" data-note-id="{{ $note->id }}">@lang('fi.trash')</a>
                 @endif
             </span>
             @if (isset($showPrivateCheckbox) and $showPrivateCheckbox == true)
                 <span class="direct-chat-scope float-right">
                 @if ($note->private)
-                    <span class="badge badge-danger">{{ trans('fi.private') }}</span>
+                    <span class="badge badge-danger">@lang('fi.private')</span>
                 @else
-                    <span class="badge badge-success">{{ trans('fi.public') }}</span>
+                    <span class="badge badge-success">@lang('fi.public')</span>
                 @endif
             </span>
             @endif

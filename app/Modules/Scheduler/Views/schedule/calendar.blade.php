@@ -14,7 +14,7 @@
                 <div class="card card-light">
                     <div class="card-header">
                         <h6 class="card-title"><i class="fa fa-fw fa-th fa-fw"></i><a
-                                    href="{{ route('scheduler.index') }}">{{ trans('fi.schedule') }}</a> /{{ trans('fi.calendar') }}</h6>
+                                    href="{{ route('scheduler.index') }}">@lang('fi.schedule')</a> @lang('fi.calendar')</h6>
                     </div>
                     <div class="card-body">
                         <div id="calendar">
@@ -30,31 +30,31 @@
                 <input type="hidden" id="id" name="id" class="form-control">
                 <input type="hidden" id="oid" name="oid" class="form-control">
                 <div class="form-group d-flex align-items-center">
-                    <label for="title" class="col-sm-4 text-right text">{{ trans('fi.title') }}</label>
+                    <label for="title" class="col-sm-4 text-right text">@lang('fi.title')</label>
                     <div class="col-sm-8">
                         <input type="text" id="title" name="title" class="form-control" value="">
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label for="description" class="col-sm-4 text-right text">{{ trans('fi.description') }}</label>
+                    <label for="description" class="col-sm-4 text-right text">@lang('fi.description')</label>
                     <div class="col-sm-8">
                         <input type="text" id="description" name="description" class="form-control" value="">
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label for="from" class="col-sm-4 text-right text">{{ trans('fi.start_datetime') }}</label>
+                    <label for="from" class="col-sm-4 text-right text">@lang('fi.start_datetime')</label>
                     <div class="col-sm-8">
                         <input type="text" id="from" name="start_date" class="form-control from readonly" autocomplete="off" style="cursor: pointer">
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label for="to" class="col-sm-4 text-right text">{{ trans('fi.end_datetime') }}</label>
+                    <label for="to" class="col-sm-4 text-right text">@lang('fi.end_datetime')</label>
                     <div class="col-sm-8">
                         <input type="text" id="to" name="end_date" class="form-control to readonly" autocomplete="off" style="cursor: pointer">
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label for="category" class="col-sm-4 text-right text">{{ trans('fi.category') }}</label>
+                    <label for="category" class="col-sm-4 text-right text">@lang('fi.category')</label>
                     <div class="col-sm-8">
                         {!! Form::select('category_id',$categories,'category', ['id' => 'category', 'class'=> 'form-control']) !!}
                     </div>
@@ -66,7 +66,7 @@
                 <div class="form-group d-flex align-items-center">
                     <div class="col-md-4 offset-md-4">
                         <button type="button" id="addReminderCreate" class="btn ui-button"><i class="fa fa-plus"></i>
-                            {{ trans('fi.add_reminder') }}
+                            @lang('fi.add_reminder')
                         </button>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="form-group d-flex align-items-center">
                     <div class="col-md-4 offset-md-4">
                         <button type="submit" id="" class="btn btn-secondary"><i class="fa fa-fw fa-plus"></i>
-                            {{ trans('fi.create') }}
+                            @lang('fi.create')
                         </button>
                     </div>
                 </div>
@@ -91,19 +91,19 @@
                                 class="fa fa-times-circle"></i> </span>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label for="reminder_date" class="col-sm-4 text-right text">{{ trans('fi.reminder_date') }}</label>
+                    <label for="reminder_date" class="col-sm-4 text-right text">@lang('fi.reminder_date')</label>
                     <div class="col-sm-8">
                         <input type="text" name="reminder_date[]" id="reminder_date" class="form-control reminder_date " style="cursor: pointer" readonly>
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label for="reminder_location" class="col-sm-4 text-right text">{{ trans('fi.reminder_location') }}</label>
+                    <label for="reminder_location" class="col-sm-4 text-right text">@lang('fi.reminder_location')</label>
                     <div class="col-sm-8">
                         <input type="text" name="reminder_location[]" id="reminder_location" class="form-control">
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label for="reminder_text" class="col-sm-4 text-right text">{{ trans('fi.reminder_text') }}</label>
+                    <label for="reminder_text" class="col-sm-4 text-right text">@lang('fi.reminder_text')</label>
                     <div class="col-sm-8">
                         <textarea name="reminder_text[]" id="reminder_text" class="form-control"></textarea>
                     </div>

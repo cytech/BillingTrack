@@ -4,11 +4,11 @@
 
     <section class="content p-3">
         <h1 class="float-left">
-            {{ trans('fi.currencies') }}
+            @lang('fi.currencies')
         </h1>
 
         <div class="float-right">
-            <a href="{{ route('currencies.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
+            <a href="{{ route('currencies.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('fi.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -30,7 +30,7 @@
                                 <th>{!! Sortable::link('placement', trans('fi.symbol_placement')) !!}</th>
                                 <th>{!! Sortable::link('decimal', trans('fi.decimal_point')) !!}</th>
                                 <th>{!! Sortable::link('thousands', trans('fi.thousands_separator')) !!}</th>
-                                <th>{{ trans('fi.options') }}</th>
+                                <th>@lang('fi.options')</th>
                             </tr>
                             </thead>
 
@@ -46,13 +46,13 @@
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                {{ trans('fi.options') }}
+                                                @lang('fi.options')
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="{{ route('currencies.edit', [$currency->id]) }}"><i class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                                                <a class="dropdown-item" href="{{ route('currencies.edit', [$currency->id]) }}"><i class="fa fa-edit"></i> @lang('fi.edit')</a>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="#"
-                                                       onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>
+                                                       onclick="swalConfirm('@lang('fi.delete_record_warning')', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
                                             </div>
                                         </div>
                                     </td>

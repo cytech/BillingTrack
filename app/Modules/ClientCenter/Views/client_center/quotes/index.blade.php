@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>{{ trans('fi.quotes') }}</h1>
+        <h1>@lang('fi.quotes')</h1>
     </section>
 
     <section class="content">

@@ -21,7 +21,7 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            {{ trans('fi.payment_form') }}
+            @lang('fi.payment_form')
         </h3>
 
         <div class="float-right">
@@ -44,25 +44,25 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label>{{ trans('fi.amount') }}: </label>
+                            <label>@lang('fi.amount'): </label>
                             {!! Form::text('amount', $payment->formatted_numeric_amount, ['id' => 'amount',
                             'class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans('fi.payment_date') }}: </label>
+                            <label>@lang('fi.payment_date'): </label>
                             {!! Form::text('paid_at', $payment->formatted_paid_at, ['id' => 'paid_at', 'class'
                             => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans('fi.payment_method') }}</label>
+                            <label>@lang('fi.payment_method')</label>
                             {!! Form::select('payment_method_id', $paymentMethods, null, ['id' =>
                             'payment_method_id', 'class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans('fi.note') }}</label>
+                            <label>@lang('fi.note')</label>
                             {!! Form::textarea('note', null, ['id' => 'note', 'rows' => '2', 'class' => 'form-control ']) !!}
                         </div>
 

@@ -33,7 +33,7 @@
 @stop
 
 <div class="form-group">
-    <label>{{ trans('fi.email_send_method') }}: </label>
+    <label>@lang('fi.email_send_method'): </label>
     @if (!config('app.demo'))
     {!! Form::select('setting[mailDriver]', $emailSendMethods, config('fi.mailDriver'), ['id' => 'mailDriver', 'class' => 'form-control']) !!}
     @else
@@ -44,13 +44,13 @@
 <div class="row smtp-option email-option">
     <div class="col-md-9">
         <div class="form-group smtp-option email-option">
-            <label>{{ trans('fi.smtp_host_address') }}: </label>
+            <label>@lang('fi.smtp_host_address'): </label>
             {!! Form::text('setting[mailHost]', config('fi.mailHost'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group smtp-option email-option">
-            <label>{{ trans('fi.smtp_host_port') }}: </label>
+            <label>@lang('fi.smtp_host_port'): </label>
             {!! Form::text('setting[mailPort]', config('fi.mailPort'), ['class' => 'form-control']) !!}
         </div>
     </div>
@@ -58,25 +58,25 @@
 <div class="row smtp-option email-option">
     <div class="col-md-3">
         <div class="form-group smtp-option email-option">
-            <label>{{ trans('fi.smtp_username') }}: </label>
+            <label>@lang('fi.smtp_username'): </label>
             {!! Form::text('setting[mailUsername]', config('fi.mailUsername'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group smtp-option email-option">
-            <label>{{ trans('fi.smtp_password') }}: </label>
+            <label>@lang('fi.smtp_password'): </label>
             {!! Form::password('setting[mailPassword]', ['id' => 'mailPassword', 'class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group smtp-option email-option">
-            <label>{{ trans('fi.smtp_encryption') }}: </label>
+            <label>@lang('fi.smtp_encryption'): </label>
             {!! Form::select('setting[mailEncryption]', $emailEncryptions, config('fi.mailEncryption'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group smtp-option email-option">
-            <label>{{ trans('fi.allow_self_signed_cert') }}: </label>
+            <label>@lang('fi.allow_self_signed_cert'): </label>
             {!! Form::select('setting[mailAllowSelfSignedCertificate]', $yesNoArray, config('fi.mailAllowSelfSignedCertificate'), ['class' => 'form-control']) !!}
         </div>
     </div>
@@ -84,7 +84,7 @@
 
 <div class="form-group sendmail-option email-option">
     <div class="form-group">
-        <label>{{ trans('fi.sendmail_path') }}: </label>
+        <label>@lang('fi.sendmail_path'): </label>
         {!! Form::text('setting[mailSendmail]', config('fi.mailSendmail'), ['class' => 'form-control']) !!}
     </div>
 </div>
@@ -92,25 +92,25 @@
 <div class="row smtp-option sendmail-option phpmail-option email-option">
     <div class="col-md-3">
         <div class="form-group smtp-option sendmail-option phpmail-option email-option">
-            <label>{{ trans('fi.always_attach_pdf') }}: </label>
+            <label>@lang('fi.always_attach_pdf'): </label>
             {!! Form::select('setting[attachPdf]', $yesNoArray, config('fi.attachPdf'), ['id' => 'attachPdf', 'class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group smtp-option sendmail-option phpmail-option email-option">
-            <label>{{ trans('fi.reply_to_address') }}: </label>
+            <label>@lang('fi.reply_to_address'): </label>
             {!! Form::text('setting[mailReplyToAddress]', config('fi.mailReplyToAddress'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group smtp-option sendmail-option phpmail-option email-option">
-            <label>{{ trans('fi.always_cc') }}: </label>
+            <label>@lang('fi.always_cc'): </label>
             {!! Form::text('setting[mailDefaultCc]', config('fi.mailDefaultCc'), ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group smtp-option sendmail-option phpmail-option email-option">
-            <label>{{ trans('fi.always_bcc') }}: </label>
+            <label>@lang('fi.always_bcc'): </label>
             {!! Form::text('setting[mailDefaultBcc]', config('fi.mailDefaultBcc'), ['class' => 'form-control']) !!}
         </div>
     </div>
@@ -119,16 +119,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.quote_email_subject') }}: </label>
+            <label>@lang('fi.quote_email_subject'): </label>
             {!! Form::text('setting[quoteEmailSubject]', config('fi.quoteEmailSubject'), ['class' => 'form-control']) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.invoice_email_subject') }}: </label>
+            <label>@lang('fi.invoice_email_subject'): </label>
             {!! Form::text('setting[invoiceEmailSubject]', config('fi.invoiceEmailSubject'), ['class' => 'form-control']) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
 </div>
@@ -136,16 +136,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.default_quote_email_body') }}: </label>
+            <label>@lang('fi.default_quote_email_body'): </label>
             {!! Form::textarea('setting[quoteEmailBody]', config('fi.quoteEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.default_invoice_email_body') }}: </label>
+            <label>@lang('fi.default_invoice_email_body'): </label>
             {!! Form::textarea('setting[invoiceEmailBody]', config('fi.invoiceEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
 </div>
@@ -153,16 +153,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.overdue_email_subject') }}: </label>
+            <label>@lang('fi.overdue_email_subject'): </label>
             {!! Form::text('setting[overdueInvoiceEmailSubject]', config('fi.overdueInvoiceEmailSubject'), ['class' => 'form-control']) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.upcoming_payment_notice_email_subject') }}: </label>
+            <label>@lang('fi.upcoming_payment_notice_email_subject'): </label>
             {!! Form::text('setting[upcomingPaymentNoticeEmailSubject]', config('fi.upcomingPaymentNoticeEmailSubject'), ['class' => 'form-control']) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
 </div>
@@ -170,16 +170,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.default_overdue_invoice_email_body') }}: </label>
+            <label>@lang('fi.default_overdue_invoice_email_body'): </label>
             {!! Form::textarea('setting[overdueInvoiceEmailBody]', config('fi.overdueInvoiceEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.upcoming_payment_notice_email_body') }}: </label>
+            <label>@lang('fi.upcoming_payment_notice_email_body'): </label>
             {!! Form::textarea('setting[upcomingPaymentNoticeEmailBody]', config('fi.upcomingPaymentNoticeEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#invoice-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
 </div>
@@ -187,16 +187,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.overdue_invoice_reminder_frequency') }}: </label>
+            <label>@lang('fi.overdue_invoice_reminder_frequency'): </label>
             {!! Form::text('setting[overdueInvoiceReminderFrequency]', config('fi.overdueInvoiceReminderFrequency'), ['class' => 'form-control']) !!}
-            <span class="form-text text-muted">{{ trans('fi.overdue_invoice_reminder_frequency_help') }}</span>
+            <span class="form-text text-muted">@lang('fi.overdue_invoice_reminder_frequency_help')</span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.upcoming_payment_notice_frequency') }}: </label>
+            <label>@lang('fi.upcoming_payment_notice_frequency'): </label>
             {!! Form::text('setting[upcomingPaymentNoticeFrequency]', config('fi.upcomingPaymentNoticeFrequency'), ['class' => 'form-control']) !!}
-            <span class="form-text text-muted">{{ trans('fi.upcoming_payment_notice_frequency_help') }}</span>
+            <span class="form-text text-muted">@lang('fi.upcoming_payment_notice_frequency_help')</span>
         </div>
     </div>
 </div>
@@ -204,16 +204,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.quote_approved_email_body') }}: </label>
+            <label>@lang('fi.quote_approved_email_body'): </label>
             {!! Form::textarea('setting[quoteApprovedEmailBody]', config('fi.quoteApprovedEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.quote_rejected_email_body') }}: </label>
+            <label>@lang('fi.quote_rejected_email_body'): </label>
             {!! Form::textarea('setting[quoteRejectedEmailBody]', config('fi.quoteRejectedEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#quote-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
 </div>
@@ -221,28 +221,28 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.workorder_approved_email_body') }}: </label>
+            <label>@lang('fi.workorder_approved_email_body'): </label>
             {!! Form::textarea('setting[workorderApprovedEmailBody]', config('fi.workorderApprovedEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#workorder-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#workorder-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label>{{ trans('fi.workorder_rejected_email_body') }}: </label>
+            <label>@lang('fi.workorder_rejected_email_body'): </label>
             {!! Form::textarea('setting[workorderRejectedEmailBody]', config('fi.workorderRejectedEmailBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#workorder-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+            <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#workorder-email-template" target="_blank">@lang('fi.available_fields')</a></span>
         </div>
     </div>
 </div>
 
 <div class="form-group">
-    <label>{{ trans('fi.payment_receipt_email_subject') }}: </label>
+    <label>@lang('fi.payment_receipt_email_subject'): </label>
     {!! Form::text('setting[paymentReceiptEmailSubject]', config('fi.paymentReceiptEmailSubject'), ['class' => 'form-control']) !!}
-    <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#payment-receipt-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+    <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#payment-receipt-email-template" target="_blank">@lang('fi.available_fields')</a></span>
 </div>
 
 <div class="form-group">
-    <label>{{ trans('fi.default_payment_receipt_body') }}: </label>
+    <label>@lang('fi.default_payment_receipt_body'): </label>
     {!! Form::textarea('setting[paymentReceiptBody]', config('fi.paymentReceiptBody'), ['class' => 'form-control', 'rows' => 5]) !!}
-    <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#payment-receipt-email-template" target="_blank">{{ trans('fi.available_fields') }}</a></span>
+    <span class="form-text text-muted"><a href="/documentation/fusioninvoicefoss/docs/2018/Customization/Email-Templates.html#payment-receipt-email-template" target="_blank">@lang('fi.available_fields')</a></span>
 </div>

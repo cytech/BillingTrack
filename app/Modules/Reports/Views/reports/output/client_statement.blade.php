@@ -26,22 +26,22 @@
             </td>
         </tr>
     </table>
-    <h1 style="margin-bottom: 0;">{{ trans('fi.client_statement') }}</h1>
+    <h1 style="margin-bottom: 0;">@lang('fi.client_statement')</h1>
     <h3 style="margin-top: 0; margin-bottom: 0;">{{ $results['client_name'] }}</h3>
     <h3 style="margin-top: 0;">{{ $results['from_date'] }} - {{ $results['to_date'] }}</h3>
     <br>
     <table class="alternate">
         <thead>
         <tr>
-            <th>{{ trans('fi.date') }}</th>
-            <th>{{ trans('fi.invoice') }}</th>
-            <th>{{ trans('fi.summary') }}</th>
-            <th class="amount">{{ trans('fi.subtotal') }}</th>
-            <th class="amount">{{ trans('fi.discount') }}</th>
-            <th class="amount">{{ trans('fi.tax') }}</th>
-            <th class="amount">{{ trans('fi.total') }}</th>
-            <th class="amount">{{ trans('fi.paid') }}</th>
-            <th class="amount">{{ trans('fi.balance') }}</th>
+            <th>@lang('fi.date')</th>
+            <th>@lang('fi.invoice')</th>
+            <th>@lang('fi.summary')</th>
+            <th class="amount">@lang('fi.subtotal')</th>
+            <th class="amount">@lang('fi.discount')</th>
+            <th class="amount">@lang('fi.tax')</th>
+            <th class="amount">@lang('fi.total')</th>
+            <th class="amount">@lang('fi.paid')</th>
+            <th class="amount">@lang('fi.balance')</th>
         </tr>
         </thead>
         <tbody>

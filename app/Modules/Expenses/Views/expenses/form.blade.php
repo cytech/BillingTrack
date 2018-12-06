@@ -28,10 +28,10 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            {{ trans('fi.expense_form') }}
+            @lang('fi.expense_form')
         </h3>
         <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
+            <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('fi.save')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -52,21 +52,21 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>* {{ trans('fi.company_profile') }}: </label>
+                                    <label>* @lang('fi.company_profile'): </label>
                                     {!! Form::select('company_profile_id', $companyProfiles, (($editMode) ? $expense->company_profile_id : config('fi.defaultCompanyProfile')), ['id' => 'company_profile_id', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>* {{ trans('fi.date') }}: </label>
+                                    <label>* @lang('fi.date'): </label>
                                     {!! Form::text('expense_date', (($editMode) ? $expense->formatted_expense_date : $currentDate), ['id' => 'expense_date', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>* {{ trans('fi.category') }}: </label>
+                                    <label>* @lang('fi.category'): </label>
                                     {!! Form::text('category_name', null, ['id' => 'category_name', 'class' => 'form-control category-lookup']) !!}
                                 </div>
                             </div>
@@ -77,28 +77,28 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>* {{ trans('fi.amount') }}: </label>
+                                    <label>* @lang('fi.amount'): </label>
                                     {!! Form::text('amount', (($editMode) ? $expense->formatted_numeric_amount : null), ['id' => 'amount', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>{{ trans('fi.tax') }}: </label>
+                                    <label>@lang('fi.tax'): </label>
                                     {!! Form::text('tax', (($editMode) ? $expense->formatted_numeric_tax : null), ['id' => 'amount', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label> {{ trans('fi.vendor') }}: </label>
+                                    <label> @lang('fi.vendor'): </label>
                                     {!! Form::text('vendor_name', null, ['id' => 'vendor_name', 'class' => 'form-control vendor-lookup']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label> {{ trans('fi.client') }}: </label>
+                                    <label> @lang('fi.client'): </label>
                                     {!! Form::text('client_name', null, ['id' => 'client_name', 'class' => 'form-control client-lookup', 'autocomplete' => 'off']) !!}
                                 </div>
                                 <script>
@@ -112,7 +112,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans('fi.description') }}: </label>
+                            <label>@lang('fi.description'): </label>
                             {!! Form::textarea('description', null, ['id' => 'description', 'rows' => '5', 'class' => 'form-control']) !!}
                         </div>
 
@@ -123,7 +123,7 @@
                         @if (!$editMode)
                             @if (!config('app.demo'))
                                 <div class="form-group">
-                                    <label>{{ trans('fi.attach_files') }}: </label>
+                                    <label>@lang('fi.attach_files'): </label>
                                     {!! Form::file('attachments[]', ['id' => 'attachments', 'class' => 'form-control', 'multiple' => 'multiple']) !!}
                                 </div>
                             @endif

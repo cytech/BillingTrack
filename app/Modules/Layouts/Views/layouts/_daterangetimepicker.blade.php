@@ -22,29 +22,29 @@
                     @else
                     format: "{{ strtoupper(config('fi.datepickerFormat')) }} h:mm A",
                     @endif
-                    customRangeLabel: "{{ trans('fi.custom') }}",
+                    customRangeLabel: "@lang('fi.custom')",
                     daysOfWeek: [
-                        "{{ trans('fi.day_short_sunday') }}",
-                        "{{ trans('fi.day_short_monday') }}",
-                        "{{ trans('fi.day_short_tuesday') }}",
-                        "{{ trans('fi.day_short_wednesday') }}",
-                        "{{ trans('fi.day_short_thursday') }}",
-                        "{{ trans('fi.day_short_friday') }}",
-                        "{{ trans('fi.day_short_saturday') }}"
+                        "@lang('fi.day_short_sunday')",
+                        "@lang('fi.day_short_monday')",
+                        "@lang('fi.day_short_tuesday')",
+                        "@lang('fi.day_short_wednesday')",
+                        "@lang('fi.day_short_thursday')",
+                        "@lang('fi.day_short_friday')",
+                        "@lang('fi.day_short_saturday')"
                     ],
                     monthNames: [
-                        "{{ trans('fi.month_january') }}",
-                        "{{ trans('fi.month_february') }}",
-                        "{{ trans('fi.month_march') }}",
-                        "{{ trans('fi.month_april') }}",
-                        "{{ trans('fi.month_may') }}",
-                        "{{ trans('fi.month_june') }}",
-                        "{{ trans('fi.month_july') }}",
-                        "{{ trans('fi.month_august') }}",
-                        "{{ trans('fi.month_september') }}",
-                        "{{ trans('fi.month_october') }}",
-                        "{{ trans('fi.month_november') }}",
-                        "{{ trans('fi.month_december') }}"
+                        "@lang('fi.month_january')",
+                        "@lang('fi.month_february')",
+                        "@lang('fi.month_march')",
+                        "@lang('fi.month_april')",
+                        "@lang('fi.month_may')",
+                        "@lang('fi.month_june')",
+                        "@lang('fi.month_july')",
+                        "@lang('fi.month_august')",
+                        "@lang('fi.month_september')",
+                        "@lang('fi.month_october')",
+                        "@lang('fi.month_november')",
+                        "@lang('fi.month_december')"
                     ],
                     firstDay: 1
                 }

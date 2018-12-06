@@ -7,7 +7,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">{{ trans('fi.email_payment_receipt') }}</h4>
+                <h4 class="modal-title">@lang('fi.email_payment_receipt')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
@@ -17,7 +17,7 @@
                 <form>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.to') }}</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.to')</label>
 
                         <div class="col-sm-9">
                             {!! $contactDropdownTo !!}
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.cc') }}</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.cc')</label>
 
                         <div class="col-sm-9">
                             {!! $contactDropdownCc !!}
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.bcc') }}</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.bcc')</label>
 
                         <div class="col-sm-9">
                             {!! $contactDropdownBcc !!}
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.subject') }}</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.subject')</label>
 
                         <div class="col-sm-9">
                             {!! Form::text('subject', $subject, ['id' => 'subject', 'class' => 'form-control']) !!}
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.body') }}</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.body')</label>
 
                         <div class="col-sm-9">
                             {!! Form::textarea('body', $body, ['id' => 'body', 'class' => 'form-control']) !!}
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.attach_pdf') }}</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.attach_pdf')</label>
 
                         <div class="col-sm-9">
                             {!! Form::checkbox('attach_pdf', 1, config('fi.attachPdf'), ['id' => 'attach_pdf']) !!}
@@ -68,8 +68,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
-                <button type="button" id="btn-submit-mail-payment" class="btn btn-primary" data-loading-text="{{ trans('fi.sending') }}...">{{ trans('fi.send') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
+                <button type="button" id="btn-submit-mail-payment" class="btn btn-primary" data-loading-text="@lang('fi.sending')...">@lang('fi.send')</button>
             </div>
         </div>
     </div>

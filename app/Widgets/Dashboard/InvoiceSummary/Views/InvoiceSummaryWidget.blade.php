@@ -22,7 +22,7 @@
     </script>
         <div class="card">
             <div class="card-header">
-                <h5 class="text-bold mb-0">{{ trans('fi.invoice_summary') }}</h5>
+                <h5 class="text-bold mb-0">@lang('fi.invoice_summary')</h5>
                 <div class="card-tools pull-right">
                     <div class="btn-group">
                         <div class="dropdown">
@@ -42,7 +42,7 @@
                         </div>
                         </div>
                     </div>
-                    <button class="btn btn-sm create-invoice"><i class="fa fa-plus"></i> {{ trans('fi.create_invoice') }}</button>
+                    <button class="btn btn-sm create-invoice"><i class="fa fa-plus"></i> @lang('fi.create_invoice')</button>
                 </div>
             </div>
             <div class="card-body">
@@ -52,13 +52,13 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalDraft }}</h4>
 
-                                <p>{{ trans('fi.draft_invoices') }}</p>
+                                <p>@lang('fi.draft_invoices')</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-pencil-alt"></i>
                             </div>
                             <a href="{{ route('invoices.index') }}?status=draft" class="small-box-footer">
-                                {{ trans('fi.view_draft_invoices') }} <i class="fa fa-arrow-circle-right"></i>
+                                @lang('fi.view_draft_invoices') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -67,13 +67,13 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalSent }}</h4>
 
-                                <p>{{ trans('fi.sent_invoices') }}</p>
+                                <p>@lang('fi.sent_invoices')</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-share-square"></i>
                             </div>
                             <a class="small-box-footer" href="{{ route('invoices.index') }}?status=sent">
-                                {{ trans('fi.view_sent_invoices') }} <i class="fa fa-arrow-circle-right"></i>
+                                @lang('fi.view_sent_invoices') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -83,11 +83,11 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalOverdue }}</h4>
 
-                                <p>{{ trans('fi.overdue_invoices') }}</p>
+                                <p>@lang('fi.overdue_invoices')</p>
                             </div>
                             <div class="icon"><i class="fa fa-exclamation"></i></div>
                             <a class="small-box-footer" href="{{ route('invoices.index') }}?status=overdue">
-                                {{ trans('fi.view_overdue_invoices') }} <i class="fa fa-arrow-circle-right"></i>
+                                @lang('fi.view_overdue_invoices') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -96,11 +96,11 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalPaid }}</h4>
 
-                                <p>{{ trans('fi.payments_collected') }}</p>
+                                <p>@lang('fi.payments_collected')</p>
                             </div>
                             <div class="icon"><i class="fa fa-heart"></i></div>
                             <a class="small-box-footer" href="{{ route('payments.index') }}">
-                                {{ trans('fi.view_payments') }} <i class="fa fa-arrow-circle-right"></i>
+                                @lang('fi.view_payments') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -113,25 +113,25 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">{{ trans('fi.custom_date_range') }}</h4>                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                    <h4 class="modal-title" id="myModalLabel">@lang('fi.custom_date_range')</h4>                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label>{{ trans('fi.from_date') }} (yyyy-mm-dd):</label>
+                        <label>@lang('fi.from_date') (yyyy-mm-dd):</label>
                         {!! Form::text('setting_widgetInvoiceSummaryDashboardTotalsFromDate', config('fi.widgetInvoiceSummaryDashboardTotalsFromDate'), ['class' => 'form-control', 'id' => 'invoice-dashboard-total-setting-from-date']) !!}
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.to_date') }} (yyyy-mm-dd):</label>
+                        <label>@lang('fi.to_date') (yyyy-mm-dd):</label>
                         {!! Form::text('setting_widgetInvoiceSummaryDashboardTotalsToDate', config('fi.widgetInvoiceSummaryDashboardTotalsToDate'), ['class' => 'form-control', 'id' => 'invoice-dashboard-total-setting-to-date']) !!}
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
-                    <button type="button" class="btn btn-primary invoice-dashboard-total-change-option" data-id="custom_date_range" data-dismiss="modal">{{ trans('fi.save') }}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fi.cancel')</button>
+                    <button type="button" class="btn btn-primary invoice-dashboard-total-change-option" data-id="custom_date_range" data-dismiss="modal">@lang('fi.save')</button>
                 </div>
             </div>
         </div>

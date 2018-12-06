@@ -35,7 +35,7 @@
 
         $('.btn-delete-recurring-invoice-item').click(function () {
             const id = $(this).data('item-id');
-            deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('recurringInvoiceItem.delete') }}', id,
+            deleteConfirm('@lang('fi.trash_record_warning')', '{{ route('recurringInvoiceItem.delete') }}', id,
                     '{{ route('recurringInvoiceEdit.refreshTotals') }}', '{{ $recurringInvoice->id }}' );
         });
 
@@ -92,7 +92,7 @@
                 group_id: $('#group_id').val()
             }).done(function () {
                 $('#div-recurring-invoice-edit').load('{{ route('recurringInvoiceEdit.refreshEdit', [$recurringInvoice->id]) }}', function () {
-                    notify('{{ trans('fi.record_successfully_updated') }}', 'success');
+                    notify('@lang('fi.record_successfully_updated')', 'success');
                 });
             }).fail(function (response) {
                 if (response.status == 422) {
@@ -102,7 +102,7 @@
                     });
                     notify(msg, 'error');
                 } else {
-                    notify('{{ trans('fi.unknown_error') }}', 'danger');
+                    notify('@lang('fi.unknown_error')', 'danger');
                 }
             });
         });

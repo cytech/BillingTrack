@@ -15,7 +15,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('{!! trans('fi.bulk_trash_record_warning') !!}', "{{ route('timeTracking.projects.bulk.delete') }}", ids)
+                bulkConfirm('@lang('fi.bulk_trash_record_warning')', "{{ route('timeTracking.projects.bulk.delete') }}", ids)
             }
         });
 
@@ -27,7 +27,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('{!! trans('fi.bulk_project_change_status_warning') !!}', "{{ route('timeTracking.projects.bulk.status') }}",
+                bulkConfirm('@lang('fi.bulk_project_change_status_warning')', "{{ route('timeTracking.projects.bulk.status') }}",
                     ids, $(this).data('status'))
             }
         });
@@ -38,15 +38,15 @@
 
     <section class="content mt-3 mb-3">
         <h3 class="float-left">
-            {{ trans('fi.time_tracking') }}
-            <small>{{ trans('fi.projects') }}</small>
+            @lang('fi.time_tracking')
+            <small>@lang('fi.projects')</small>
         </h3>
 
         <div class="float-right">
             <div class="btn-group bulk-actions">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
-                    {{ trans('fi.change_status') }}
+                    @lang('fi.change_status')
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     @foreach ($keyedStatuses as $key => $status)
@@ -57,7 +57,7 @@
             </div>
 
             <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i
-                        class="fa fa-trash"></i> {{ trans('fi.trash') }}</a>
+                        class="fa fa-trash"></i> @lang('fi.trash')</a>
 
             <div class="btn-group form-inline">
                 {!! Form::open(['method' => 'GET', 'id' => 'filter']) !!}
@@ -66,7 +66,7 @@
                 {!! Form::close() !!}
             </div>
             <a href="{{ route('timeTracking.projects.create') }}" class="btn btn-primary"><i
-                        class="fa fa-plus"></i> {{ trans('fi.create_project') }}</a>
+                        class="fa fa-plus"></i> @lang('fi.create_project')</a>
         </div>
         <div class="clearfix"></div>
     </section>

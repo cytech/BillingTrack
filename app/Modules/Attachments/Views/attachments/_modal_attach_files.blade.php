@@ -56,8 +56,8 @@
                     $("#attachment-upload-progress-bar").css("width", Percentage + '%').html(Percentage + '%');
 
                     if (Percentage == 100) {
-                        resetProgressBar('100%', '{{ trans('fi.complete') }}');
-                        $('#attachment-upload-progress-bar').addClass('bg-success').html('{{ trans('fi.complete') }}');
+                        resetProgressBar('100%', '@lang('fi.complete')');
+                        $('#attachment-upload-progress-bar').addClass('bg-success').html('@lang('fi.complete')');
                     }
                 }
             }
@@ -77,18 +77,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">{{ trans('fi.attach_files') }}</h4>
+                    <h4 class="modal-title">@lang('fi.attach_files')</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
 
-                    <p class="text-bold">{{ trans('fi.attach_files') }}</p>
+                    <p class="text-bold">@lang('fi.attach_files')</p>
                     <form method="post" enctype="multipart/form-data" name="form-attachments" id="form-attachments" style="margin-bottom: 10px;">
                         <input type="file" name="attachments[]" id="input-attachments" multiple>
                     </form>
 
                     <div style="display: none;" id="attachment-upload-progress">
-                        <p class="text-bold">{{ trans('fi.upload_progress') }}</p>
+                        <p class="text-bold">@lang('fi.upload_progress')</p>
 
                         <div class="progress">
                             <div id="attachment-upload-progress-bar" class="progress-bar" role="progressbar" style="width: 0;">
@@ -99,7 +99,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
                 </div>
             </div>
         </div>

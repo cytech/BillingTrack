@@ -6,7 +6,7 @@
 
     <section class="content p-3">
         <h3 class="float-left">
-            {{ trans('fi.import_data') }}
+            @lang('fi.import_data')
         </h3>
         <div class="float-right">
             @if (!config('app.demo'))
@@ -22,11 +22,11 @@
         <div class=" card card-light">
             <div class="card-body">
                 <div class="form-group">
-                    <label>{{ trans('fi.what_to_import') }}</label>
+                    <label>@lang('fi.what_to_import')</label>
                     {!! Form::select('import_type', $importTypes, null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    <label>{{ trans('fi.select_file_to_import') }}</label>
+                    <label>@lang('fi.select_file_to_import')</label>
                     @if (!config('app.demo'))
                         {!! Form::file('import_file') !!}
                     @else

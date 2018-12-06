@@ -7,31 +7,31 @@
         <nav class="navbar navbar-expand navbar-light border-bottom">   {{--bg-primary navbar-default--}}
             <div class="container-fluid">
 
-                    <a class="navbar-brand mb-0" href="#">{{ trans('fi.schedule_dashboard') }}</a>
+                    <a class="navbar-brand mb-0" href="#">@lang('fi.schedule_dashboard')</a>
 
                 <div class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link"
-                                            href="{!! route('scheduler.fullcalendar') !!}">{{ trans('fi.calendar') }}</a>
+                                            href="{!! route('scheduler.fullcalendar') !!}">@lang('fi.calendar')</a>
                     </li>
                     <li class="nav-item"><a class="nav-link"
-                                            href="{!! route('scheduler.create') !!}">{{ trans('fi.create_event') }}</a>
+                                            href="{!! route('scheduler.create') !!}">@lang('fi.create_event')</a>
                     </li>
                     <li class="nav-item"><a class="nav-link"
-                                            href="{!! route('scheduler.tableevent') !!}">{{ trans('fi.event_table') }}</a>
+                                            href="{!! route('scheduler.tableevent') !!}">@lang('fi.event_table')</a>
                     </li>
                     <li class="nav-item"><a class="nav-link"
-                                            href="{!! route('scheduler.tablerecurringevent') !!}">{{ trans('fi.recurring_event') }}</a>
+                                            href="{!! route('scheduler.tablerecurringevent') !!}">@lang('fi.recurring_event')</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ trans('fi.utilities') }}
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">@lang('fi.utilities')
                             </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item"
                                href="{!! route('scheduler.categories.index') !!}"><i
-                                        class="nav-icon fas fa-thumbtack"></i> {{ trans('fi.categories') }}</a>
+                                        class="nav-icon fas fa-thumbtack"></i> @lang('fi.categories')</a>
                             <a class="dropdown-item"
                                href="{!! route('scheduler.checkschedule') !!}"><i
-                                        class="nav-icon fas fa-check-double"></i> {{ trans('fi.orphan_check') }}</a>
+                                        class="nav-icon fas fa-check-double"></i> @lang('fi.orphan_check')</a>
                         </div>
                     </li>
                 </div>
@@ -42,11 +42,11 @@
                 <div class="small-box bg-green">
                     <div class="inner">
                         <div><h1 class="text-bold">{!! $monthEvent !!}</h1></div>
-                        <p>{{ trans('fi.events_this_month') }}</p>
+                        <p>@lang('fi.events_this_month')</p>
                     </div>
                     <div class="icon"><i class="fas fa-tasks"></i></div>
                     <a class="small-box-footer" href="{!! route('scheduler.fullcalendar') !!}">
-                        {{ trans('fi.vevents_this_month') }}
+                        @lang('fi.vevents_this_month')
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -55,11 +55,11 @@
                 <div class="small-box bg-blue">
                     <div class="inner">
                         <div><h1 class="text-bold">{!! $lastMonthEvent !!}</h1></div>
-                        <p>{{ trans('fi.events_last_month') }}</p>
+                        <p>@lang('fi.events_last_month')</p>
                     </div>
                     <div class="icon"><i class="fas fa-tasks"></i></div>
                     <a class="small-box-footer" href="{!! route('scheduler.fullcalendar') !!}?status=last">
-                        {{ trans('fi.vevents_last_month') }}
+                        @lang('fi.vevents_last_month')
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -68,11 +68,11 @@
                 <div class="small-box bg-orange">
                     <div class="inner">
                         <div><h1 class="text-bold">{!! $nextMonthEvent !!}</h1></div>
-                        <p>{{ trans('fi.events_next_month') }}</p>
+                        <p>@lang('fi.events_next_month')</p>
                     </div>
                     <div class="icon"><i class="fas fa-tasks"></i></div>
                     <a class="small-box-footer" href="{!! route('scheduler.fullcalendar') !!}?status=next">
-                        {{ trans('fi.vevents_next_month') }}
+                        @lang('fi.vevents_next_month')
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -82,10 +82,10 @@
             <div class="col-lg-4 col-md-4">
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <div>{!! $thisquotes !!} {{trans('fi.this_approved_quotes')}}</div>
-                        <div>{!! $thisworkorders !!} {{trans('fi.this_approved_workorders')}}</div>
-                        <div>{!! $thisinvoices !!} {{trans('fi.this_sent_invoices')}}</div>
-                        <div>{!! $thispayments !!} {{trans('fi.this_received_payments')}}</div>
+                        <div>{!! $thisquotes !!} @lang('fi.this_approved_quotes')</div>
+                        <div>{!! $thisworkorders !!} @lang('fi.this_approved_workorders')</div>
+                        <div>{!! $thisinvoices !!} @lang('fi.this_sent_invoices')</div>
+                        <div>{!! $thispayments !!} @lang('fi.this_received_payments')</div>
                     </div>
                     <div class="icon"><i class="fas fa-info-circle"></i></div>
                 </div>
@@ -94,10 +94,10 @@
             <div class="col-lg-4 col-md-4">
                 <div class="small-box bg-blue">
                     <div class="inner">
-                        <div>{!! $lastquotes !!} {{trans('fi.last_approved_quotes')}}</div>
-                        <div>{!! $lastworkorders !!} {{trans('fi.last_approved_workorders')}}</div>
-                        <div>{!! $lastinvoices !!} {{trans('fi.last_sent_invoices')}}</div>
-                        <div>{!! $lastpayments !!} {{trans('fi.last_received_payments')}}</div>
+                        <div>{!! $lastquotes !!} @lang('fi.last_approved_quotes')</div>
+                        <div>{!! $lastworkorders !!} @lang('fi.last_approved_workorders')</div>
+                        <div>{!! $lastinvoices !!} @lang('fi.last_sent_invoices')</div>
+                        <div>{!! $lastpayments !!} @lang('fi.last_received_payments')</div>
                     </div>
                     <div class="icon"><i class="fas fa-info-circle"></i></div>
                 </div>
@@ -106,10 +106,10 @@
             <div class="col-lg-4 col-md-4">
                 <div class="small-box bg-orange">
                     <div class="inner">
-                        <div>{!! $nextquotes !!} {{trans('fi.next_approved_quotes')}}</div>
-                        <div>{!! $nextworkorders !!} {{trans('fi.next_approved_workorders')}}</div>
-                        <div>{!! $nextinvoices !!} {{trans('fi.next_sent_invoices')}}</div>
-                        <div>{!! $nextpayments !!} {{trans('fi.next_received_payments')}}</div>
+                        <div>{!! $nextquotes !!} @lang('fi.next_approved_quotes')</div>
+                        <div>{!! $nextworkorders !!} @lang('fi.next_approved_workorders')</div>
+                        <div>{!! $nextinvoices !!} @lang('fi.next_sent_invoices')</div>
+                        <div>{!! $nextpayments !!} @lang('fi.next_received_payments')</div>
                     </div>
                     <div class="icon"><i class="fas fa-info-circle"></i></div>
                 </div>
@@ -120,17 +120,17 @@
             <div class="container-fluid">
                 <div class="card card-light">
                     <div class="card-header">
-                        <h3 class="card-title"><i class="fa fa-bell"></i> {{ trans('fi.reminders') }}</h3>
+                        <h3 class="card-title"><i class="fa fa-bell"></i> @lang('fi.reminders')</h3>
                     </div>
                     <div class="card-body">
                         <table id="dt-reminderstable" class="display table dataTable" cellspacing="0" width="100%">
                             <thead>
                             <tr>
-                                <th>{{ trans('fi.event_title') }}</th>
-                                <th>{{ trans('fi.reminder_text') }}</th>
-                                <th>{{ trans('fi.occasion_start') }}</th>
-                                <th>{{ trans('fi.occasion_end') }}</th>
-                                <th>{{ trans('fi.link') }}</th>
+                                <th>@lang('fi.event_title')</th>
+                                <th>@lang('fi.reminder_text')</th>
+                                <th>@lang('fi.occasion_start')</th>
+                                <th>@lang('fi.occasion_end')</th>
+                                <th>@lang('fi.link')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -142,11 +142,11 @@
                                     <td>{!! $reminder->Schedule->occurrences->first()->end_date !!}</td>
                                     <td><a href="{!! $reminder->Schedule->url !!}">
                                             @if($reminder->Schedule->url)
-                                                {{ trans('fi.link_to_workorder') }}</a></td>
+                                                @lang('fi.link_to_workorder')</a></td>
                                     @else
                                         <a href="#" class="btn btn-danger btn-sm" id="delete-reminder-{{ $reminder->id }}"
-                                           onclick="swalConfirm('{{ trans('fi.reminder_trash_warning') }}', '{{ route('scheduler.trashreminder', $reminder->id) }}');"><i
-                                                    class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}
+                                           onclick="swalConfirm('@lang('fi.reminder_trash_warning')', '{{ route('scheduler.trashreminder', $reminder->id) }}');"><i
+                                                    class="fa fa-trash-alt"></i> @lang('fi.trash')
                                         </a></td>
                                     @endif
                                 </tr>
@@ -160,7 +160,7 @@
                 <div class="card card-light">
                     <div class="card-header">
                         <h3 class="card-title"><i
-                                    class="fa fa-chart-bar fa-bar fa-fw"></i> {{ trans('fi.month_day_events') }}</h3>
+                                    class="fa fa-chart-bar fa-bar fa-fw"></i> @lang('fi.month_day_events')</h3>
                     </div>
                     <div class="card-body">
                         <div id="morris-bar-chart"></div>
@@ -171,7 +171,7 @@
         <div class="container-fluid">
             <div class="card card-light">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fa fa-chart-bar fa-fw"></i> {{ trans('fi.year_month_report') }}
+                    <h3 class="card-title"><i class="fa fa-chart-bar fa-fw"></i> @lang('fi.year_month_report')
                     </h3>
                 </div>
                 <div class="card-body">

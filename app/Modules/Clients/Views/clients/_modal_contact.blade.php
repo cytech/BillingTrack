@@ -25,9 +25,9 @@
             <div class="modal-header">
                 <h4 class="modal-title">
                     @if ($editMode)
-                        {{ trans('fi.edit_contact') }}
+                        @lang('fi.edit_contact')
                     @else
-                        {{ trans('fi.add_contact') }}
+                        @lang('fi.add_contact')
                     @endif
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -39,14 +39,14 @@
                 <form>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.name') }}:</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.name'):</label>
                         <div class="col-sm-9">
                             {!! Form::text('contact_name', ($editMode) ? $contact->name : null, ['class' => 'form-control', 'id' => 'contact_name']) !!}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">{{ trans('fi.email') }}:</label>
+                        <label class="col-sm-3 col-form-label">@lang('fi.email'):</label>
                         <div class="col-sm-9">
                             {!! Form::text('contact_email', ($editMode) ? $contact->email : null, ['class' => 'form-control', 'id' => 'contact_email']) !!}
                         </div>
@@ -56,8 +56,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.cancel') }}</button>
-                <button type="button" id="btn-contact-submit" class="btn btn-primary">{{ trans('fi.save') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
+                <button type="button" id="btn-contact-submit" class="btn btn-primary">@lang('fi.save')</button>
             </div>
         </div>
     </div>

@@ -35,11 +35,11 @@
 
             $(document).on('click', '.btn-delete-task', function () {
                 Swal({
-                    title: '{!! trans('fi.confirm_trash_task') !!}',
+                    title: '@lang('fi.confirm_trash_task')',
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d68500',
-                    confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+                    confirmButtonText: '@lang('fi.yes_sure')'
                 }).then((result) => {
                     if (result.value) {
                         submitTaskDelete([$(this).data('task-id')]);
@@ -56,11 +56,11 @@
                 });
                 if (ids.length > 0) {
                     Swal({
-                        title: '{!! trans('fi.confirm_trash_task') !!}',
+                        title: '@lang('fi.confirm_trash_task')',
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#d68500',
-                        confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+                        confirmButtonText: '@lang('fi.yes_sure')'
                     }).then((result) => {
                         if (result.value) {
                             submitTaskDelete(ids);
@@ -156,7 +156,7 @@
                     status_id: $('#status_id').val(),
                     due_at: $('#due_at').val()
                 }).done(function () {
-                    notify('{{ trans('fi.settings_successfully_saved') }}', 'success');
+                    notify('@lang('fi.settings_successfully_saved')', 'success');
                 }).fail(function (response) {
                     if (response.status == 422) {
                         let msg = '';
@@ -165,7 +165,7 @@
                         });
                         notify(msg, 'error');
                     } else {
-                        notify('{{ trans('fi.unknown_error') }}', 'danger');
+                        notify('@lang('fi.unknown_error')', 'danger');
                     }
                 });
             });
@@ -205,15 +205,15 @@
 @section('content')
 
     <section class="content-header">
-        <h3 class="float-left">{{ trans('fi.time_tracking') }}
+        <h3 class="float-left">@lang('fi.time_tracking')
             <small>{{ $project->name }}</small>
         </h3>
         <div class="float-right">
             <a href="#" class="btn btn-secondary"
-                   onclick="swalConfirm('{{ trans('fi.confirm_trash_project') }}', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
-                            class="fa fa-trash-alt"></i> {{ trans('fi.trash_project') }}</a>
-            <a href="{{ route('timeTracking.projects.index') }}" class="btn btn-secondary"><i class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
-            <button class="btn btn-primary" id="btn-save-settings"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
+                   onclick="swalConfirm('@lang('fi.confirm_trash_project')', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
+                            class="fa fa-trash-alt"></i> @lang('fi.trash_project')</a>
+            <a href="{{ route('timeTracking.projects.index') }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('fi.back')</a>
+            <button class="btn btn-primary" id="btn-save-settings"><i class="fa fa-save"></i> @lang('fi.save')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -227,11 +227,11 @@
                 <div class="card card-light">
                     <div class="card-header">
 
-                        <h3 class="card-title"><i class="fa fa-list"></i> {{ trans('fi.tasks') }}</h3>
+                        <h3 class="card-title"><i class="fa fa-list"></i> @lang('fi.tasks')</h3>
 
                         <div class="card-tools float-right">
                             <button class="btn btn-sm btn-primary" id="btn-add-task">
-                                <i class="fa fa-plus"></i> {{ trans('fi.add_task') }}
+                                <i class="fa fa-plus"></i> @lang('fi.add_task')
                             </button>
                         </div>
                     </div>
@@ -241,12 +241,12 @@
                         <div class="form-group">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    {{ trans('fi.bulk_actions') }}
+                                    @lang('fi.bulk_actions')
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0)" id="btn-bulk-bill-tasks"><i class="fa fa-dollar-sign"></i> {{ trans('fi.bill_tasks') }}</a>
+                                    <a class="dropdown-item" href="javascript:void(0)" id="btn-bulk-bill-tasks"><i class="fa fa-dollar-sign"></i> @lang('fi.bill_tasks')</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)" id="btn-bulk-delete-tasks"><i class="fa fa-trash"></i> {{ trans('fi.trash_tasks') }}</a>
+                                    <a class="dropdown-item" href="javascript:void(0)" id="btn-bulk-delete-tasks"><i class="fa fa-trash"></i> @lang('fi.trash_tasks')</a>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +263,7 @@
                     <div class="card-header">
 
 
-                        <h3 class="card-title"><i class="fa fa-list"></i> {{ trans('fi.billed_tasks') }}</h3>
+                        <h3 class="card-title"><i class="fa fa-list"></i> @lang('fi.billed_tasks')</h3>
 
                     </div>
 
@@ -272,9 +272,9 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>{{ trans('fi.task') }}</th>
-                                <th class="text-right">{{ trans('fi.hours') }}</th>
-                                <th>{{ trans('fi.invoice') }}</th>
+                                <th>@lang('fi.task')</th>
+                                <th class="text-right">@lang('fi.hours')</th>
+                                <th>@lang('fi.invoice')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -305,23 +305,23 @@
                 <div class="card card-light">
 
                     <div class="card-header">
-                        <h3 class="card-title">{{ trans('fi.options') }}</h3>
+                        <h3 class="card-title">@lang('fi.options')</h3>
                     </div>
 
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label>{{ trans('fi.project_name') }}:</label>
+                            <label>@lang('fi.project_name'):</label>
                             {!! Form::text('project_name', $project->name, ['id' => 'project_name', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans('fi.company_profile') }}:</label>
+                            <label>@lang('fi.company_profile'):</label>
                             {!! Form::select('company_profile_id', $companyProfiles, $project->company_profile_id, ['id' => 'company_profile_id', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>* {{ trans('fi.client') }}:</label>
+                            <label>* @lang('fi.client'):</label>
                             {!! Form::text('client_name', $project->client_name, ['id' => 'client_name', 'class' => 'form-control client-lookup form-control-sm', 'autocomplete' => 'off']) !!}
                             <script>
                             $('.client-lookup').autocomplete({
@@ -333,17 +333,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label>* {{ trans('fi.due_date') }}:</label>
+                            <label>* @lang('fi.due_date'):</label>
                             {!! Form::text('due_at', $project->formatted_due_at, ['id' => 'due_at', 'class' => 'form-control datepicker form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans('fi.hourly_rate') }}:</label>
+                            <label>@lang('fi.hourly_rate'):</label>
                             {!! Form::text('hourly_rate', $project->hourly_rate, ['id' => 'hourly_rate', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>{{ trans('fi.status') }}:</label>
+                            <label>@lang('fi.status'):</label>
                             {!! Form::select('status_id', $statuses, $project->status_id, ['id' => 'status_id', 'class' => 'form-control form-control-sm']) !!}
                         </div>
 

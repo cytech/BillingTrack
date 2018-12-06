@@ -2,14 +2,14 @@
 
     <thead>
     <tr>
-        <th>{!! trans('fi.product_id') !!}</th>
-        <th>{!! trans('fi.product_name') !!}</th>
-        <th>{!! trans('fi.product_active') !!}</th>
-        <th>{!! trans('fi.product_cost') !!}</th>
-        <th>{!! trans('fi.product_category') !!}</th>
-        <th>{!! trans('fi.product_type') !!}</th>
-        <th>{!! trans('fi.product_numstock') !!}</th>
-        <th>{{ trans('fi.options') }}</th>
+        <th>@lang('fi.product_id')</th>
+        <th>@lang('fi.product_name')</th>
+        <th>@lang('fi.product_active')</th>
+        <th>@lang('fi.product_cost')</th>
+        <th>@lang('fi.product_category')</th>
+        <th>@lang('fi.product_type')</th>
+        <th>@lang('fi.product_numstock')</th>
+        <th>@lang('fi.options')</th>
     </tr>
     </thead>
 
@@ -17,7 +17,7 @@
     @foreach ($products as $product)
         <tr>
             <td><a href="{{ route('products.edit', [$product->id]) }}"
-                   title="{{ trans('fi.edit') }}">{{ $product->id }}</a></td>
+                   title="@lang('fi.edit')">{{ $product->id }}</a></td>
             <td>{{ $product->name }}</td>
             <td>{{ $product->active }}</td>
             <td>{{ $product->cost }}</td>
@@ -26,7 +26,7 @@
             <td>{{ $product->numstock }}</td>
             <td> <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary btn-sm "><i
                             class="fa fa-edit"></i>
-                    {{ trans('fi.edit') }} </a></td>
+                    @lang('fi.edit') </a></td>
         </tr>
     @endforeach
     </tbody>

@@ -15,7 +15,7 @@
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
-                confirmButtonText: '{!! trans('fi.yes_sure') !!}'
+                confirmButtonText: '@lang('fi.yes_sure')'
             }).then((result) => {
                 if (result.value) {
                     $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {

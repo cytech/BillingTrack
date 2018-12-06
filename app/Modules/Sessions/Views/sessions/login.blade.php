@@ -2,13 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ trans('fi.welcome') }}</title>
+    <title>@lang('fi.welcome')</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <link rel="stylesheet" href="/css/app.css">
 
     <script src="/js/app.js"></script>
-
 
     <link href="{{ asset('favicon.png') }}" rel="icon" type="image/png">
 
@@ -40,11 +39,11 @@
         <hr class="bg-green">
         {!! Form::open() !!}
         <div class="form-group has-feedback">
-            <input type="email" name="email" id="email" class="form-control" placeholder="{{ trans('fi.email') }}">
+            <input type="email" name="email" id="email" class="form-control" placeholder="@lang('fi.email')">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" name="password" class="form-control" placeholder="{{ trans('fi.password') }}">
+            <input type="password" name="password" class="form-control" placeholder="@lang('fi.password')">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -53,13 +52,13 @@
                     <label>
                         <input type="hidden" name="remember_me" value="0">
                         @if(!config('app.demo'))
-                        <input type="checkbox" name="remember_me" value="1"> {{ trans('fi.remember_me') }}
+                        <input type="checkbox" name="remember_me" value="1"> @lang('fi.remember_me')
                         @endif
                     </label>
                 </div>
             </div>
             <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('fi.sign_in') }}</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('fi.sign_in')</button>
             </div>
         </div>
         {!! Form::close() !!}

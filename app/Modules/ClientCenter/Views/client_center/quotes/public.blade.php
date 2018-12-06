@@ -24,20 +24,20 @@
 
             <div style="margin-bottom: 15px;">
                 <a href="{{ route('clientCenter.public.quote.pdf', [$quote->url_key]) }}" target="_blank"
-                   class="btn btn-primary"><i class="fa fa-print"></i> <span>{{ trans('fi.pdf') }}</span>
+                   class="btn btn-primary"><i class="fa fa-print"></i> <span>@lang('fi.pdf')</span>
                 </a>
                 @if (auth()->check())
                     <a href="javascript:void(0)" id="btn-notes" data-button-toggle="btn-notes-back" class="btn btn-primary btn-notes">
-                        <i class="fa fa-comments"></i> {{ trans('fi.notes') }}
+                        <i class="fa fa-comments"></i> @lang('fi.notes')
                     </a>
                     <a href="javascript:void(0)" id="btn-notes-back" data-button-toggle="btn-notes" class="btn btn-primary btn-notes" style="display: none;">
-                        <i class="fa fa-backward"></i> {{ trans('fi.back_to_quote') }}
+                        <i class="fa fa-backward"></i> @lang('fi.back_to_quote')
                     </a>
                 @endif
                 @if (count($attachments))
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-files-o"></i> {{ trans('fi.attachments') }}
+                            <i class="fa fa-files-o"></i> @lang('fi.attachments')
                         </button>
                         <ul class="dropdown-menu">
                             @foreach ($attachments as $attachment)
@@ -48,12 +48,12 @@
                 @endif
                 @if (in_array($quote->status_text, ['draft', 'sent']))
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('{{ trans('fi.confirm_approve_quote') }}', '{{ route('clientCenter.public.quote.approve', [$quote->url_key]) }}');">
-                        <i class="fa fa-thumbs-up"></i> {{ trans('fi.approve') }}
+                       onclick="swalConfirm('@lang('fi.confirm_approve_quote')', '{{ route('clientCenter.public.quote.approve', [$quote->url_key]) }}');">
+                        <i class="fa fa-thumbs-up"></i> @lang('fi.approve')
                     </a>
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('{{ trans('fi.confirm_reject_quote') }}', '{{ route('clientCenter.public.quote.reject', [$quote->url_key]) }}');">
-                        <i class="fa fa-thumbs-down"></i> {{ trans('fi.reject') }}
+                       onclick="swalConfirm('@lang('fi.confirm_reject_quote')', '{{ route('clientCenter.public.quote.reject', [$quote->url_key]) }}');">
+                        <i class="fa fa-thumbs-down"></i> @lang('fi.reject')
                     </a>
                 @endif
             </div>

@@ -1,35 +1,35 @@
 @include('invoices._js_edit')
 
 <section class="content-header">
-    <h3 class="float-left">{{ trans('fi.invoice') }} #{{ $invoice->number }}</h3>
+    <h3 class="float-left">@lang('fi.invoice') #{{ $invoice->number }}</h3>
 
     @if ($invoice->viewed)
-        <span style="margin-left: 10px;" class="badge badge-success">{{ trans('fi.viewed') }}</span>
+        <span style="margin-left: 10px;" class="badge badge-success">@lang('fi.viewed')</span>
     @else
-        <span style="margin-left: 10px;" class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
+        <span style="margin-left: 10px;" class="badge badge-secondary">@lang('fi.not_viewed')</span>
     @endif
 
     @if ($invoice->quote()->count())
-        <span class="badge badge-info"><a href="{{ route('quotes.edit', [$invoice->quote->id]) }}" style="color: inherit;">{{ trans('fi.converted_from_quote') }} {{ $invoice->quote->number }}</a></span>
+        <span class="badge badge-info"><a href="{{ route('quotes.edit', [$invoice->quote->id]) }}" style="color: inherit;">@lang('fi.converted_from_quote') {{ $invoice->quote->number }}</a></span>
     @endif
 
     @if ($invoice->workorder()->count())
-        <span class="badge badge-info"><a href="{{ route('workorders.edit', [$invoice->workorder->id]) }}" style="color: inherit;">{{ trans('fi.converted_from_workorder') }} {{ $invoice->workorder->number }}</a></span>
+        <span class="badge badge-info"><a href="{{ route('workorders.edit', [$invoice->workorder->id]) }}" style="color: inherit;">@lang('fi.converted_from_workorder') {{ $invoice->workorder->number }}</a></span>
     @endif
 
     <div class="float-right">
 
         <a href="{{ route('invoices.pdf', [$invoice->id]) }}" target="_blank" id="btn-pdf-invoice"
-           class="btn btn-secondary"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
+           class="btn btn-secondary"><i class="fa fa-print"></i> @lang('fi.pdf')</a>
         @if (config('fi.mailConfigured'))
             <a href="javascript:void(0)" id="btn-email-invoice" class="btn btn-secondary email-invoice"
                data-invoice-id="{{ $invoice->id }}" data-redirect-to="{{ route('invoices.edit', [$invoice->id]) }}"><i
-                    class="fa fa-envelope"></i> {{ trans('fi.email') }}</a>
+                    class="fa fa-envelope"></i> @lang('fi.email')</a>
         @endif
 
         <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                {{ trans('fi.other') }}
+                @lang('fi.other')
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 @if ($invoice->isPayable or config('fi.allowPaymentsWithoutBalance'))
@@ -37,35 +37,35 @@
                            data-invoice-id="{{ $invoice->id }}"
                            data-invoice-balance="{{ $invoice->amount->formatted_numeric_balance }}"
                            data-redirect-to="{{ route('invoices.edit', [$invoice->id]) }}"><i
-                                class="fa fa-credit-card"></i> {{ trans('fi.enter_payment') }}</a>
+                                class="fa fa-credit-card"></i> @lang('fi.enter_payment')</a>
                 @endif
                 <a class="dropdown-item" href="javascript:void(0)" id="btn-copy-invoice"><i
-                            class="fa fa-copy"></i> {{ trans('fi.copy') }}</a>
+                            class="fa fa-copy"></i> @lang('fi.copy')</a>
                 <a class="dropdown-item" href="{{ route('clientCenter.public.invoice.show', [$invoice->url_key]) }}" target="_blank"><i
-                            class="fa fa-globe"></i> {{ trans('fi.public') }}</a>
+                            class="fa fa-globe"></i> @lang('fi.public')</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#"
-                       onclick="swalConfirm('{{ trans('fi.trash_record_warning') }}', '{{ route('invoices.delete', [$invoice->id]) }}');"><i
-                            class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+                       onclick="swalConfirm('@lang('fi.trash_record_warning')', '{{ route('invoices.delete', [$invoice->id]) }}');"><i
+                            class="fa fa-trash-alt"></i> @lang('fi.trash')</a>
             </div>
         </div>
 
         <div class="btn-group">
             @if ($returnUrl)
                 <a href="{{ $returnUrl }}" class="btn btn-secondary"><i
-                        class="fa fa-backward"></i> {{ trans('fi.back') }}</a>
+                        class="fa fa-backward"></i> @lang('fi.back')</a>
             @endif
         </div>
 
         <div class="btn-group">
             <button type="button" class="btn btn-primary btn-save-invoice"><i
-                    class="fa fa-save"></i> {{ trans('fi.save') }}</button>
+                    class="fa fa-save"></i> @lang('fi.save')</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 
             </button>
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a class="dropdown-item" href="#" class="btn-save-invoice"
-                       data-apply-exchange-rate="1">{{ trans('fi.save_and_apply_exchange_rate') }}</a>
+                       data-apply-exchange-rate="1">@lang('fi.save_and_apply_exchange_rate')</a>
             </div>
         </div>
 
@@ -104,7 +104,7 @@
                 <div class="col-md-12">
                     <div class="card card-light">
                         <div class="card-header">
-                            <h3 class="card-title">{{ trans('fi.summary') }}</h3>
+                            <h3 class="card-title">@lang('fi.summary')</h3>
                         </div>
                         <div class="card-body">
                             {!! Form::text('summary', $invoice->summary, ['id' => 'summary', 'class' => 'form-control']) !!}
@@ -118,13 +118,13 @@
                 <div class="col-sm-12 table-responsive" style="overflow-x: visible;">
                     <div class="card card-light">
                         <div class="card-header">
-                            <h3 class="card-title">{{ trans('fi.items') }}</h3>
+                            <h3 class="card-title">@lang('fi.items')</h3>
 
                             <div class="card-tools float-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
-                                        class="fa fa-plus"></i> {{ trans('fi.add_item') }}</button>
+                                        class="fa fa-plus"></i> @lang('fi.add_item')</button>
                                 <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
-                                            class="fa fa-plus"></i> {{ trans('fi.add_lookup') }}</button>
+                                            class="fa fa-plus"></i> @lang('fi.add_lookup')</button>
                             </div>
                         </div>
 
@@ -132,13 +132,13 @@
                             <table id="item-table" class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th style="width: 20%;">{{ trans('fi.product') }}</th>
-                                    <th style="width: 25%;">{{ trans('fi.description') }}</th>
-                                    <th style="width: 10%;">{{ trans('fi.qty') }}</th>
-                                    <th style="width: 10%;">{{ trans('fi.price') }}</th>
-                                    <th style="width: 10%;">{{ trans('fi.tax_1') }}</th>
-                                    <th style="width: 10%;">{{ trans('fi.tax_2') }}</th>
-                                    <th style="width: 10%; text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
+                                    <th style="width: 20%;">@lang('fi.product')</th>
+                                    <th style="width: 25%;">@lang('fi.description')</th>
+                                    <th style="width: 10%;">@lang('fi.qty')</th>
+                                    <th style="width: 10%;">@lang('fi.price')</th>
+                                    <th style="width: 10%;">@lang('fi.tax_1')</th>
+                                    <th style="width: 10%;">@lang('fi.tax_2')</th>
+                                    <th style="width: 10%; text-align: right; padding-right: 25px;">@lang('fi.total')</th>
                                     <th style="width: 5%;"></th>
                                 </tr>
                                 </thead>
@@ -150,7 +150,7 @@
                                         {!! Form::hidden('resource_table', '') !!}
                                         {!! Form::hidden('resource_id', '') !!}
                                         {!! Form::text('name', null, ['class' => 'form-control']) !!}<br>
-                                        <label><input type="checkbox" name="save_item_as_lookup" tabindex="999"> {{ trans('fi.save_item_as_lookup') }}</label>
+                                        <label><input type="checkbox" name="save_item_as_lookup" tabindex="999"> @lang('fi.save_item_as_lookup')</label>
                                     </td>
                                     <td>{!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 1]) !!}</td>
                                     <td>{!! Form::text('quantity', null, ['class' => 'form-control']) !!}</td>
@@ -177,7 +177,7 @@
                                         <td style="text-align: right; padding-right: 25px;">{{ $item->amount->formatted_subtotal }}</td>
                                         <td>
                                             <a class="btn btn-sm btn-secondary btn-delete-invoice-item" href="javascript:void(0);"
-                                               title="{{ trans('fi.trash') }}" data-item-id="{{ $item->id }}">
+                                               title="@lang('fi.trash')" data-item-id="{{ $item->id }}">
                                                 <i class="fa fa-times"></i>
                                             </a>
                                         </td>
@@ -199,13 +199,13 @@
                         <div class="card-header d-flex p-0">
                         <ul class="nav nav-tabs p-2">
                             <li class="nav-item"><a class="nav-link active show" href="#tab-additional"
-                                                    data-toggle="tab">{{ trans('fi.additional') }}</a></li>
+                                                    data-toggle="tab">@lang('fi.additional')</a></li>
                             <li class="nav-item"><a class="nav-link" href="#tab-notes"
-                                                    data-toggle="tab">{{ trans('fi.notes') }}</a></li>
+                                                    data-toggle="tab">@lang('fi.notes')</a></li>
                             <li class="nav-item"><a class="nav-link" href="#tab-attachments"
-                                                    data-toggle="tab">{{ trans('fi.attachments') }}</a></li>
+                                                    data-toggle="tab">@lang('fi.attachments')</a></li>
                             <li class="nav-item"><a class="nav-link" href="#tab-payments"
-                                                    data-toggle="tab">{{ trans('fi.payments') }}</a></li>
+                                                    data-toggle="tab">@lang('fi.payments')</a></li>
                         </ul>
                         </div>
                         <div class="card-body">
@@ -216,14 +216,14 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>{{ trans('fi.terms_and_conditions') }}</label>
+                                            <label>@lang('fi.terms_and_conditions')</label>
                                             {!! Form::textarea('terms', $invoice->terms, ['id' => 'terms', 'class' => 'form-control', 'rows' => 5]) !!}
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>{{ trans('fi.footer') }}</label>
+                                            <label>@lang('fi.footer')</label>
                                             {!! Form::textarea('footer', $invoice->footer, ['id' => 'footer', 'class' => 'form-control', 'rows' => 5]) !!}
                                         </div>
                                     </div>
@@ -259,10 +259,10 @@
 
                                     <thead>
                                     <tr>
-                                        <th>{{ trans('fi.payment_date') }}</th>
-                                        <th>{{ trans('fi.amount') }}</th>
-                                        <th>{{ trans('fi.payment_method') }}</th>
-                                        <th>{{ trans('fi.note') }}</th>
+                                        <th>@lang('fi.payment_date')</th>
+                                        <th>@lang('fi.amount')</th>
+                                        <th>@lang('fi.payment_method')</th>
+                                        <th>@lang('fi.note')</th>
                                     </tr>
                                     </thead>
 
@@ -294,32 +294,32 @@
             <div class="card card-light">
 
                 <div class="card-header">
-                    <h3 class="card-title">{{ trans('fi.options') }}</h3>
+                    <h3 class="card-title">@lang('fi.options')</h3>
                 </div>
 
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label>{{ trans('fi.invoice') }} #</label>
+                        <label>@lang('fi.invoice') #</label>
                         {!! Form::text('number', $invoice->number, ['id' => 'number', 'class' =>
                         'form-control
                         form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.date') }}</label>
+                        <label>@lang('fi.date')</label>
                         {!! Form::text('invoice_date', $invoice->formatted_invoice_date, ['id' =>
                         'invoice_date', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.due_date') }}</label>
+                        <label>@lang('fi.due_date')</label>
                         {!! Form::text('due_at', $invoice->formatted_due_at, ['id' => 'due_at', 'class'
                         => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.discount') }}</label>
+                        <label>@lang('fi.discount')</label>
                         <div class="input-group input-group-sm">
                             {!! Form::text('discount', $invoice->formatted_numeric_discount, ['id' =>
                             'discount', 'class' => 'form-control form-control-sm']) !!}
@@ -330,33 +330,33 @@
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.currency') }}</label>
+                        <label>@lang('fi.currency')</label>
                         {!! Form::select('currency_code', $currencies, $invoice->currency_code, ['id' =>
                         'currency_code', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.exchange_rate') }}</label>
+                        <label>@lang('fi.exchange_rate')</label>
                         <div class="input-group">
                             {!! Form::text('exchange_rate', $invoice->exchange_rate, ['id' =>
                             'exchange_rate', 'class' => 'form-control form-control-sm']) !!}
                             <span class="input-group-append">
                                 <button class="btn btn-sm" id="btn-update-exchange-rate" type="button"
                                         data-toggle="tooltip" data-placement="left"
-                                        title="{{ trans('fi.update_exchange_rate') }}"><i class="fa fa-sync"></i>
+                                        title="@lang('fi.update_exchange_rate')"><i class="fa fa-sync"></i>
                                 </button>
                             </span>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.status') }}</label>
+                        <label>@lang('fi.status')</label>
                         {!! Form::select('invoice_status_id', $statuses, $invoice->invoice_status_id,
                         ['id' => 'invoice_status_id', 'class' => 'form-control form-control-sm']) !!}
                     </div>
 
                     <div class="form-group">
-                        <label>{{ trans('fi.template') }}</label>
+                        <label>@lang('fi.template')</label>
                         {!! Form::select('template', $templates, $invoice->template,
                         ['id' => 'template', 'class' => 'form-control form-control-sm']) !!}
                     </div>

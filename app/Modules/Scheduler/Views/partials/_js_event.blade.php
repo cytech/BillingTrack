@@ -24,12 +24,12 @@
             });
             $("#addReminderCreate").click(function (event) {
                 event.preventDefault();
-                $("#addReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_another_reminder') }}');
+                $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_another_reminder')');
                 $("#addReminderShow").append($(".addReminderView").html());
             });
             $("#updateReminderCreate").click(function (event) {
                 event.preventDefault();
-                $("#updateReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_another_reminder') }}');
+                $("#updateReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_another_reminder')');
                 $("#updateReminderShow").append($(".addReminderView").html());
             });
 
@@ -114,7 +114,7 @@
                     // Add the "button" to the day headers
                     const $headers = $('.fc-day-top');
                     $headers.css('position', 'relative');
-                    $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='{{ trans('fi.create_workorder') }}'><i class='createwobutton far fa-file-alt' ></i></button> </div>");
+                    $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='@lang('fi.create_workorder')'><i class='createwobutton far fa-file-alt' ></i></button> </div>");
                 },
                 @endif
                 defaultDate: "{!! date('Y-m-d') !!}",
@@ -212,15 +212,15 @@
                             closeOnEscape: true,
                             modal: true,
                             buttons: {
-                                "{{trans('fi.create_workorder')}}": function () {
+                                "@lang('fi.create_workorder')": function () {
                                     $('form#create-workorderform').submit();//send to validate
                                 },
-                                "{{trans('fi.cancel')}}": function () {
+                                "@lang('fi.cancel')": function () {
                                     $(this).dialog("close");
                                 },
 
                             },
-                            title: "{{ trans('fi.create_workorder') }} for {{ trans('fi.job_date') }} " + date.format('dddd MMMM DD, YYYY') ,
+                            title: "@lang('fi.create_workorder') for @lang('fi.job_date') " + date.format('dddd MMMM DD, YYYY') ,
                             open: function () {
                                 $("#job_date").val(date.format('YYYY-MM-DD'));
                                 $("#start_time").val('08:00');
@@ -242,7 +242,7 @@
                             position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
                             closeOnEscape: true,
                             modal: true,
-                            title: '{{ trans('fi.create_event_calendar') }}',
+                            title: '@lang('fi.create_event_calendar')',
                             open: function () {
                                 $("#title").autocomplete({
                                     appendTo: "#calEventDialog",
@@ -259,18 +259,18 @@
                             },
                             buttons: [
                                 {
-                                    text: '{{ trans('fi.create') }}',
+                                    text: '@lang('fi.create')',
                                     click: function(){ $(this).dialog().find('form').submit();},
                                     type: 'submit',
                                     form: 'saveCalendarEvent' // <-- Make the association
                                 },
                                 {
-                                    text: '{{ trans('fi.cancel') }}',
+                                    text: '@lang('fi.cancel')',
                                     click: function() { $( this ).dialog( "close" );}
                                 }
                             ],
                             close: function () {
-                                $("#addReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_reminder') }}');
+                                $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_reminder')');
                             }
                         });
 
@@ -298,22 +298,22 @@
                                 '<hr class="col-sm-10 hr-clr-green"/>' +
                                 '<span class="col-sm-1 float-right reminder-cross delete_reminder" style="cursor: pointer"><i class="fa fa-times-circle"></i></span>' +
                                 '</div><div class="form-group d-flex align-items-center">' +
-                                '<label for="reminder_date" class="col-sm-4 text-right text">{{ trans('fi.reminder_date') }}</label>' +
+                                '<label for="reminder_date" class="col-sm-4 text-right text">@lang('fi.reminder_date')</label>' +
                                 '<div class="col-sm-8">' +
                                 '<input type="text" name="reminder_date[]" class="form-control reminder_date " style="cursor: pointer" readonly value="' + event.reminder[key].reminder_date + '">' +
                                 '<input type="hidden" name="reminder_id[]"  value="' + event.reminder[key].reminder_id + '">' +
                                 '</div></div><div class="form-group d-flex align-items-center">' +
-                                '<label for="reminder_location" class="col-sm-4 text-right text">{{ trans('fi.reminder_location') }}</label>' +
+                                '<label for="reminder_location" class="col-sm-4 text-right text">@lang('fi.reminder_location')</label>' +
                                 '<div class="col-sm-8">' +
                                 '<input type="text" name="reminder_location[]" class="form-control" value="' + event.reminder[key].reminder_location + '">' +
                                 '</div></div><div class="form-group d-flex align-items-center">' +
-                                '<label for="reminder_text" class="col-sm-4 text-right text">{{ trans('fi.reminder_text') }}</label>' +
+                                '<label for="reminder_text" class="col-sm-4 text-right text">@lang('fi.reminder_text')</label>' +
                                 '<div class="col-sm-8">' +
                                 '<textarea name="reminder_text[]" class="form-control" >' + event.reminder[key].reminder_text + '</textarea>' +
                                 '</div></div></div>'
                         }
                         $("#addReminderShow").html(reminderHtml);
-                        $("#addReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_another_reminder') }}');
+                        $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_another_reminder')');
                     }
 
                     $('#calEventDialog').dialog({
@@ -322,7 +322,7 @@
                         position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
                         closeOnEscape: true,
                         modal: true,
-                        title: '{{ trans('fi.update_event_calendar') }}',
+                        title: '@lang('fi.update_event_calendar')',
                         open: function () {
                             $("#title").autocomplete({
                                 appendTo: "#calEventDialog",
@@ -340,18 +340,18 @@
                         },
                         buttons: [
                             {
-                                text: '{{ trans('fi.update') }}',
+                                text: '@lang('fi.update')',
                                 click: function(){ $(this).dialog().find('form').submit();},
                                 type: 'submit',
                                 form: 'saveCalendarEvent' // <-- Make the association
                             },
                             {
-                                text: '{{ trans('fi.cancel') }}',
+                                text: '@lang('fi.cancel')',
                                 click: function() { $( this ).dialog( "close" );}
                             }
                         ],
                         close: function () {
-                            $("#addReminderCreate").html('<i class="fa fa-plus"></i>{{ trans('fi.add_reminder') }}');
+                            $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_reminder')');
                         }
                     });
 
@@ -363,9 +363,9 @@
                     let rstr = "";
                     let tooltip = "";
                     if (event.type === 'Workorder') {
-                        let wrstr = "{{trans('fi.employees')}}: ";
+                        let wrstr = "@lang('fi.employees'): ";
                         if (event.willcall === '1') {
-                            wrstr = "<span style='color:magenta'>{{trans('fi.employees')}}: </span>";
+                            wrstr = "<span style='color:magenta'>@lang('fi.employees'): </span>";
                         }
                         let erstr = "Resources: ";
                         if (event.hasOwnProperty("resource")) {
@@ -379,7 +379,7 @@
                                 }
                             });
                         }
-                        if ((wrstr === "{{trans('fi.employees')}}: ") || (wrstr === "<span style='color:magenta'>{{trans('fi.employees')}}: </span>")) {
+                        if ((wrstr === "@lang('fi.employees'): ") || (wrstr === "<span style='color:magenta'>@lang('fi.employees'): </span>")) {
                             wrstr = "";
                         }
                         if (erstr === "Resources: ") {

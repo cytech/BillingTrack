@@ -19,7 +19,7 @@ class UsersDataTable extends DataTable
         $dataTable = new EloquentDataTable($query);
 
         return $dataTable->addColumn('action','users._actions')
-                         ->editColumn('user_type', '{{trans(\'fi.\' . $user_type)}}')
+                         ->editColumn('user_type', '{{ trans(\'fi.\' . $user_type)}}')
                          ->editColumn('name', function(User $user){
                              return '<a href="/users/'. $user->id .'/edit/'. $user->user_type .'">'.$user->name . '</a>';
                          })

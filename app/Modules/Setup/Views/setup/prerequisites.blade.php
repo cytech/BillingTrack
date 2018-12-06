@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>{{ trans('fi.prerequisites') }}</h1>
+        <h1>@lang('fi.prerequisites')</h1>
     </section>
 
     <section class="content">
@@ -16,7 +16,7 @@
 
                     <div class="card-body">
 
-                        <p>{{ trans('fi.step_prerequisites') }}</p>
+                        <p>@lang('fi.step_prerequisites')</p>
 
                         <ul>
                             @foreach ($errors as $error)
@@ -24,7 +24,7 @@
                             @endforeach
                         </ul>
 
-                        <a href="{{ route('setup.prerequisites') }}" class="btn btn-primary">{{ trans('fi.try_again') }}</a>
+                        <a href="{{ route('setup.prerequisites') }}" class="btn btn-primary">@lang('fi.try_again')</a>
 
                     </div>
 

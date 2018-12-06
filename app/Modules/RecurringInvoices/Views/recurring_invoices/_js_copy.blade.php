@@ -34,7 +34,7 @@
                 if (response.status == 400) {
                     showErrors($.parseJSON(response.responseText).errors, '#modal-status-placeholder');
                 } else {
-                    notify('{{ trans('fi.unknown_error') }}','error');
+                    notify('@lang('fi.unknown_error')','error');
                 }
             });
         });

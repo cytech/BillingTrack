@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="container-fluid p-3">
-        <h3>{{ trans('fi.addons') }}</h3>
+        <h3>@lang('fi.addons')</h3>
         <div class="clearfix"></div>
     </section>
 
@@ -14,11 +14,11 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>{{ trans('fi.name') }}</th>
-                        <th>{{ trans('fi.author') }}</th>
-                        <th>{{ trans('fi.web_address') }}</th>
-                        <th>{{ trans('fi.status') }}</th>
-                        <th>{{ trans('fi.options') }}</th>
+                        <th>@lang('fi.name')</th>
+                        <th>@lang('fi.author')</th>
+                        <th>@lang('fi.web_address')</th>
+                        <th>@lang('fi.status')</th>
+                        <th>@lang('fi.options')</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,22 +29,22 @@
                             <td>{{ $addon->author_url }}</td>
                             <td>
                                 @if ($addon->enabled)
-                                    <span class="badge badge-success">{{ trans('fi.enabled') }}</span>
+                                    <span class="badge badge-success">@lang('fi.enabled')</span>
                                 @else
-                                    <span class="badge badge-danger">{{ trans('fi.disabled') }}</span>
+                                    <span class="badge badge-danger">@lang('fi.disabled')</span>
                                 @endif
                             </td>
                             <td>
                                 @if ($addon->enabled)
                                     <a href="#" class="btn btn-sm btn-secondary"
-                                       onclick="swalConfirm('{{ trans('fi.uninstall_addon_warning') }}', '{{ route('addons.uninstall', [$addon->id]) }}');">{{ trans('fi.disable') }}</a>
+                                       onclick="swalConfirm('@lang('fi.uninstall_addon_warning')', '{{ route('addons.uninstall', [$addon->id]) }}');">@lang('fi.disable')</a>
                                     @if ($addon->has_pending_migrations)
                                         <a href="{{ route('addons.upgrade', [$addon->id]) }}"
-                                           class="btn btn-sm btn-info">{{ trans('fi.complete_upgrade') }}</a>
+                                           class="btn btn-sm btn-info">@lang('fi.complete_upgrade')</a>
                                     @endif
                                 @else
                                     <a href="{{ route('addons.install', [$addon->id]) }}"
-                                       class="btn btn-sm btn-secondary">{{ trans('fi.install') }}</a>
+                                       class="btn btn-sm btn-secondary">@lang('fi.install')</a>
                                 @endif
                             </td>
                         </tr>

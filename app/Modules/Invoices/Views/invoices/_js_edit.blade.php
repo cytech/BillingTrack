@@ -35,7 +35,7 @@
 
         $('.btn-delete-invoice-item').click(function () {
             const id = $(this).data('item-id');
-            deleteConfirm('{!! trans('fi.trash_record_warning') !!}', '{{ route('invoiceItem.delete') }}', id,
+            deleteConfirm('@lang('fi.trash_record_warning')', '{{ route('invoiceItem.delete') }}', id,
                 '{{ route('invoiceEdit.refreshTotals') }}', '{{ $invoice->id }}' );
         });
 
@@ -91,7 +91,7 @@
                 discount: $('#discount').val()
             }).done(function () {
                 $('#div-invoice-edit').load('{{ route('invoiceEdit.refreshEdit', [$invoice->id]) }}', function () {
-                    notify('{{ trans('fi.record_successfully_updated') }}', 'success');
+                    notify('@lang('fi.record_successfully_updated')', 'success');
                 });
             }).fail(function (response) {
                 if (response.status == 422) {
@@ -101,7 +101,7 @@
                     });
                     notify(msg, 'error');
                 } else {
-                    notify('{{ trans('fi.unknown_error') }}', 'danger');
+                    notify('@lang('fi.unknown_error')', 'danger');
                 }
             });
         });

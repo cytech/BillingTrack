@@ -4,12 +4,12 @@
 
     <section class="content p-3">
         <h3 class="float-left">
-            {{ trans('fi.company_profiles') }}
+            @lang('fi.company_profiles')
         </h3>
 
         <div class="float-right">
             <a href="{{ route('companyProfiles.create') }}" class="btn btn-primary"><i
-                        class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
+                        class="fa fa-plus"></i> @lang('fi.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -21,8 +21,8 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>{{ trans('fi.company') }}</th>
-                        <th>{{ trans('fi.options') }}</th>
+                        <th>@lang('fi.company')</th>
+                        <th>@lang('fi.options')</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,15 +33,15 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        {{ trans('fi.options') }}
+                                        @lang('fi.options')
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="{{ route('companyProfiles.edit', [$companyProfile->id]) }}"><i
-                                                    class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                                                    class="fa fa-edit"></i> @lang('fi.edit')</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#"
-                                           onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}','{{ route('companyProfiles.delete', [$companyProfile->id]) }}');"><i
-                                                    class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>
+                                           onclick="swalConfirm('@lang('fi.delete_record_warning')','{{ route('companyProfiles.delete', [$companyProfile->id]) }}');"><i
+                                                    class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
                                     </div>
                                 </div>
                             </td>

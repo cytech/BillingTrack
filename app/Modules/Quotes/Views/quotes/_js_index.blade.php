@@ -12,7 +12,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('{!! trans('fi.bulk_trash_record_warning') !!}', "{{ route('quotes.bulk.delete') }}", ids)
+                bulkConfirm('@lang('fi.bulk_trash_record_warning')', "{{ route('quotes.bulk.delete') }}", ids)
             }
         });
 
@@ -24,7 +24,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('{!! trans('fi.bulk_quote_change_status_warning') !!}', "{{ route('quotes.bulk.status') }}",
+                bulkConfirm('@lang('fi.bulk_quote_change_status_warning')', "{{ route('quotes.bulk.status') }}",
                             ids, $(this).data('status'))
             }
         });

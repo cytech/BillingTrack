@@ -3,12 +3,12 @@
 @section('content')
     <section class="container-fluid">
         <div>
-        <h3 class="float-left">{{ trans('fi.orphan_check') }}</h3>
+        <h3 class="float-left">@lang('fi.orphan_check')</h3>
         </div>
         <br>
         <br>
         <div>
-        <h4 class="float-left">{{ trans('fi.orphan_list') }}</h4>
+        <h4 class="float-left">@lang('fi.orphan_list')</h4>
         </div>
         <div class="clearfix"></div>
 
@@ -23,12 +23,12 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>{!! trans('fi.name') !!}</th>
-                                <th>{!! trans('fi.workorder_number') !!} </th>
-                                <th>{!! trans('fi.job_date') !!}</th>
-                                <th>{!! trans('fi.description') !!}</th>
-                                <th>{!! trans('fi.client') !!}</th>
-                                <th>{{ trans('fi.options') }}</th>
+                                <th>@lang('fi.name')</th>
+                                <th>@lang('fi.workorder_number') </th>
+                                <th>@lang('fi.job_date')</th>
+                                <th>@lang('fi.description')</th>
+                                <th>@lang('fi.client')</th>
+                                <th>@lang('fi.options')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -42,14 +42,14 @@
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                {{ trans('fi.options') }}
+                                                @lang('fi.options')
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="btn replace-employee dropdown-item" href="javascript:void(0)"
                                                        data-item-id="{{ $resource->id }}"
                                                        data-route="{{ route('scheduler.getreplace.employee',[ 'item_id' => $resource->id,'name' => $resource->name, 'date' => $resource->workorder->job_date]) }}">
-                                                       <i class="fa fa-sync"></i> {!! trans('fi.replace_employee') !!}</a>
-                                                <a class="dropdown-item" href="{{ route('workorders.edit', [$resource->workorder->id]) }}"><i class="fa fa-edit"></i> {!! trans('fi.edit_workorder') !!}</a>
+                                                       <i class="fa fa-sync"></i> @lang('fi.replace_employee')</a>
+                                                <a class="dropdown-item" href="{{ route('workorders.edit', [$resource->workorder->id]) }}"><i class="fa fa-edit"></i> @lang('fi.edit_workorder')</a>
                                             </div>
                                         </div>
                                     </td>

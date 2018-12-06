@@ -18,10 +18,10 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            {{ trans('fi.create_project') }}
+            @lang('fi.create_project')
         </h3>
         <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('fi.save') }}</button>
+            <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('fi.save')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -39,18 +39,18 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label>* {{ trans('fi.project_name') }}: </label>
+                            <label>* @lang('fi.project_name'): </label>
                             {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
                         </div>
 
                         <div class="row">
                             <div class="col-md-4">
-                                <label>* {{ trans('fi.company_profile') }}:</label>
+                                <label>* @lang('fi.company_profile'):</label>
                                 {!! Form::select('company_profile_id', $companyProfiles, config('fi.defaultCompanyProfile'),
                                 ['id' => 'company_profile_id', 'class' => 'form-control']) !!}
                             </div>
                             <div class="col-md-4">
-                                <label>* {{ trans('fi.client') }}:</label>
+                                <label>* @lang('fi.client'):</label>
                                 {!! Form::text('client_name', null, ['id' => 'client_name', 'class' =>
                                 'form-control client-lookup', 'autocomplete' => 'off']) !!}
                                 <script>
@@ -61,14 +61,14 @@
                                 </script>
                             </div>
                             <div class="col-md-4">
-                                <label>* {{ trans('fi.due_date') }}:</label>
+                                <label>* @lang('fi.due_date'):</label>
                                 {!! Form::text('due_at', null, ['id' => 'due_at', 'class' => 'date-picker form-control', 'autocomplete' => 'off']) !!}
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-4">
-                                <label>* {{ trans('fi.hourly_rate') }}:</label>
+                                <label>* @lang('fi.hourly_rate'):</label>
                                 {!! Form::text('hourly_rate', null, ['id' => 'hourly_rate', 'class' => 'form-control']) !!}
                             </div>
                         </div>

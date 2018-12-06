@@ -5,7 +5,7 @@
     @include('layouts._alerts')
 
     <section class="content-header">
-        <h1>{{ trans('fi.dashboard') }}</h1>
+        <h1>@lang('fi.dashboard')</h1>
     </section>
     <div class="container-fluid">
         <div class="row">

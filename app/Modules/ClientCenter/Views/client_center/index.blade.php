@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>{{ trans('fi.dashboard') }}</h1>
+        <h1>@lang('fi.dashboard')</h1>
     </section>
 
     <section class="content">
@@ -12,16 +12,16 @@
             <div class="col-md-12">
                 <div class=" card card-light">
                     <div class="box-header">
-                        <h3 class="box-title">{{ trans('fi.recent_quotes') }}</h3>
+                        <h3 class="box-title">@lang('fi.recent_quotes')</h3>
                     </div>
                     @if (count($quotes))
                         <div class="card-body">
                             @include('client_center.quotes._table')
-                            <p style="text-align: center;"><a href="{{ route('clientCenter.quotes') }}" class="btn btn-secondary">{{ trans('fi.view_all') }}</a></p>
+                            <p style="text-align: center;"><a href="{{ route('clientCenter.quotes') }}" class="btn btn-secondary">@lang('fi.view_all')</a></p>
                         </div>
                     @else
                         <div class="card-body">
-                            <p>{{ trans('fi.no_records_found') }}</p>
+                            <p>@lang('fi.no_records_found')</p>
                         </div>
                     @endif
                 </div>
@@ -31,16 +31,16 @@
             <div class="col-md-12">
                 <div class=" card card-light">
                     <div class="box-header">
-                        <h3 class="box-title">{{ trans('fi.recent_workorders') }}</h3>
+                        <h3 class="box-title">@lang('fi.recent_workorders')</h3>
                     </div>
                     @if (count($workorders))
                         <div class="card-body">
                             @include('client_center.workorders._table')
-                            <p style="text-align: center;"><a href="{{ route('clientCenter.workorders') }}" class="btn btn-secondary">{{ trans('fi.view_all') }}</a></p>
+                            <p style="text-align: center;"><a href="{{ route('clientCenter.workorders') }}" class="btn btn-secondary">@lang('fi.view_all')</a></p>
                         </div>
                     @else
                         <div class="card-body">
-                            <p>{{ trans('fi.no_records_found') }}</p>
+                            <p>@lang('fi.no_records_found')</p>
                         </div>
                     @endif
                 </div>
@@ -50,16 +50,16 @@
             <div class="col-lg-12">
                 <div class=" card card-light">
                     <div class="box-header">
-                        <h3 class="box-title">{{ trans('fi.recent_invoices') }}</h3>
+                        <h3 class="box-title">@lang('fi.recent_invoices')</h3>
                     </div>
                     @if (count($invoices))
                         <div class="card-body">
                             @include('client_center.invoices._table')
-                            <p style="text-align: center;"><a href="{{ route('clientCenter.invoices') }}" class="btn btn-secondary">{{ trans('fi.view_all') }}</a></p>
+                            <p style="text-align: center;"><a href="{{ route('clientCenter.invoices') }}" class="btn btn-secondary">@lang('fi.view_all')</a></p>
                         </div>
                     @else
                         <div class="card-body">
-                            <p>{{ trans('fi.no_records_found') }}</p>
+                            <p>@lang('fi.no_records_found')</p>
                         </div>
                     @endif
                 </div>
@@ -69,16 +69,16 @@
             <div class="col-lg-12">
                 <div class=" card card-light">
                     <div class="box-header">
-                        <h3 class="box-title">{{ trans('fi.recent_payments') }}</h3>
+                        <h3 class="box-title">@lang('fi.recent_payments')</h3>
                     </div>
                     @if (count($payments))
                         <div class="card-body">
                             @include('client_center.payments._table')
-                            <p style="text-align: center;"><a href="{{ route('clientCenter.payments') }}" class="btn btn-secondary">{{ trans('fi.view_all') }}</a></p>
+                            <p style="text-align: center;"><a href="{{ route('clientCenter.payments') }}" class="btn btn-secondary">@lang('fi.view_all')</a></p>
                         </div>
                     @else
                         <div class="card-body">
-                            <p>{{ trans('fi.no_records_found') }}</p>
+                            <p>@lang('fi.no_records_found')</p>
                         </div>
                     @endif
 

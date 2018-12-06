@@ -23,17 +23,17 @@
 </script>
 
 <div class="form-group">
-    <label>{{ trans('fi.dashboard_totals_option') }}: </label>
+    <label>@lang('fi.dashboard_totals_option'): </label>
     {!! Form::select('setting[widgetWorkorderSummaryDashboardTotals]', $dashboardTotalOptions, config('fi.widgetWorkorderSummaryDashboardTotals'), ['class' => 'form-control', 'id' => 'workorder-dashboard-total-setting']) !!}
 </div>
 
 <div class="row" id="div-workorder-dashboard-totals-date-range">
     <div class="col-md-2">
-        <label>{{ trans('fi.from_date') }}:</label>
+        <label>@lang('fi.from_date'):</label>
         {!! Form::text('setting[widgetWorkorderSummaryDashboardTotalsFromDate]', config('fi.widgetWorkorderSummaryDashboardTotalsFromDate'), ['class' => 'form-control', 'id' => 'workorder-dashboard-total-setting-from-date']) !!}
     </div>
     <div class="col-md-2">
-        <label>{{ trans('fi.to_date') }}:</label>
+        <label>@lang('fi.to_date'):</label>
         {!! Form::text('[setting_widgetWorkorderSummaryDashboardTotalsToDate]', config('fi.widgetWorkorderSummaryDashboardTotalsToDate'), ['class' => 'form-control', 'id' => 'workorder-dashboard-total-setting-to-date']) !!}
     </div>
 </div>

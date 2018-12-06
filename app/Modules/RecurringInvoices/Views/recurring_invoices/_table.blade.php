@@ -2,14 +2,14 @@
 
     <thead>
     <tr>
-        <th>{{ trans('fi.id') }}</th>
-        <th>{{ trans('fi.client') }}</th>
-        <th>{{ trans('fi.summary') }}</th>
-        <th>{{ trans('fi.next_date') }}</th>
-        <th>{{ trans('fi.stop_date') }}</th>
-        <th>{{ trans('fi.every') }}</th>
-        <th style="text-align: right; padding-right: 25px;">{{ trans('fi.total') }}</th>
-        <th>{{ trans('fi.options') }}</th>
+        <th>@lang('fi.id')</th>
+        <th>@lang('fi.client')</th>
+        <th>@lang('fi.summary')</th>
+        <th>@lang('fi.next_date')</th>
+        <th>@lang('fi.stop_date')</th>
+        <th>@lang('fi.every')</th>
+        <th style="text-align: right; padding-right: 25px;">@lang('fi.total')</th>
+        <th>@lang('fi.options')</th>
     </tr>
     </thead>
 
@@ -17,10 +17,10 @@
     @foreach ($recurringInvoices as $recurringInvoice)
         <tr>
             <td>
-                <a href="{{ route('recurringInvoices.edit', [$recurringInvoice->id]) }}" title="{{ trans('fi.edit') }}">{{ $recurringInvoice->id }}</a>
+                <a href="{{ route('recurringInvoices.edit', [$recurringInvoice->id]) }}" title="@lang('fi.edit')">{{ $recurringInvoice->id }}</a>
             </td>
             <td>
-                <a href="{{ route('clients.show', [$recurringInvoice->client->id]) }}" title="{{ trans('fi.view_client') }}">{{ $recurringInvoice->client->unique_name }}</a>
+                <a href="{{ route('clients.show', [$recurringInvoice->client->id]) }}" title="@lang('fi.view_client')">{{ $recurringInvoice->client->unique_name }}</a>
             </td>
             <td>{{ mb_strimwidth($recurringInvoice->summary,0,100,'...') }}</td>
             <td>{{ $recurringInvoice->formatted_next_date }}</td>
@@ -30,14 +30,14 @@
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ trans('fi.options') }}
+                        @lang('fi.options')
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
                         <a class="dropdown-item" href="{{ route('recurringInvoices.edit', [$recurringInvoice->id]) }}"><i
-                                    class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                                    class="fa fa-edit"></i> @lang('fi.edit')</a>
                         <a class="dropdown-item" href="{{ route('recurringInvoices.delete', [$recurringInvoice->id]) }}"
-                               onclick="return confirm('{{ trans('fi.trash_record_warning') }}');"><i
-                                    class="fa fa-trash-alt"></i> {{ trans('fi.trash') }}</a>
+                               onclick="return confirm('@lang('fi.trash_record_warning')');"><i
+                                    class="fa fa-trash-alt"></i> @lang('fi.trash')</a>
                     </div>
                 </div>
             </td>

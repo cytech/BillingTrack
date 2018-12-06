@@ -40,7 +40,7 @@ $("#saveCalendarEvent").on("submit", function (e) {
         cache: false,
     }).done(function (data) {
         if (data.type === 'success') {
-            notify( (id) ? '{{trans('fi.event_updated')}}' : '{{trans('fi.event_created')}}' , 'success');
+            notify( (id) ? '@lang('fi.event_updated')' : '@lang('fi.event_created')' , 'success');
             eventData = {
                 id: (id) ? id : parseInt(data.data) ,
                 oid: (oid) ? oid :  parseInt(data.dataoid) ,
@@ -68,7 +68,7 @@ $("#saveCalendarEvent").on("submit", function (e) {
             });
             createReminder = [];
         } else {
-            notify('{{trans('fi.unknown_error')}}', 'error');
+            notify('@lang('fi.unknown_error')', 'error');
         }
     }).fail(function (response) {
         if (response.status === 422) {
@@ -78,7 +78,7 @@ $("#saveCalendarEvent").on("submit", function (e) {
             });
             notify(msg, 'error');
         } else {
-            notify('{{ trans('fi.unknown_error') }}', 'danger');
+            notify('@lang('fi.unknown_error')', 'danger');
         }
     });
 

@@ -4,11 +4,11 @@
 
     <section class="content p-3">
         <h3 class="float-left">
-            {{ trans('fi.groups') }}
+            @lang('fi.groups')
         </h3>
         <div class="float-right">
             <a href="{{ route('groups.create') }}" class="btn btn-primary"><i
-                        class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
+                        class="fa fa-plus"></i> @lang('fi.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -26,7 +26,7 @@
                         <th>{!! Sortable::link('next_id', trans('fi.next_number')) !!}</th>
                         <th>{!! Sortable::link('left_pad', trans('fi.left_pad')) !!}</th>
                         <th>{!! Sortable::link('reset_number', trans('fi.reset_number')) !!}</th>
-                        <th>{{ trans('fi.options') }}</th>
+                        <th>@lang('fi.options')</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,15 +41,15 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        {{ trans('fi.options') }}
+                                        @lang('fi.options')
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="{{ route('groups.edit', [$group->id]) }}"><i
-                                                        class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                                                        class="fa fa-edit"></i> @lang('fi.edit')</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#"
-                                               onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('groups.delete', [$group->id]) }}');"><i
-                                                        class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>
+                                               onclick="swalConfirm('@lang('fi.delete_record_warning')', '{{ route('groups.delete', [$group->id]) }}');"><i
+                                                        class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
                                     </div>
                                 </div>
                             </td>

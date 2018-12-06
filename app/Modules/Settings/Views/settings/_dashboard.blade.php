@@ -2,7 +2,7 @@
 
     <div class="col-md-4">
         <div class="form-group">
-            <label>{{ trans('fi.display_profile_image') }}: </label>
+            <label>@lang('fi.display_profile_image'): </label>
             {!! Form::select('setting[displayProfileImage]', $yesNoArray, config('fi.displayProfileImage'), ['class' => 'form-control']) !!}
         </div>
     </div>
@@ -16,14 +16,14 @@
     <div class="row col-md-6">
         <div class="col-md-4">
             <div class="form-group">
-                <label>{{ trans('fi.enabled') }}: </label>
+                <label>@lang('fi.enabled'): </label>
                 {!! Form::select('setting[widgetEnabled' . $widget . ']', $yesNoArray, config('fi.widgetEnabled' .
                 $widget), ['id' => 'widgetEnabled' . $widget, 'class' => 'form-control']) !!}
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label>{{ trans('fi.display_order') }}: </label>
+                <label>@lang('fi.display_order'): </label>
                 {!! Form::select('setting[widgetDisplayOrder' . $widget . ']', $displayOrderArray,
                 config('fi.widgetDisplayOrder' . $widget),
                 ['id' => 'widgetDisplayOrder' . $widget, 'class' => 'form-control']) !!}
@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label>{{ trans('fi.column_width') }}: </label>
+                <label>@lang('fi.column_width'): </label>
                 {!! Form::select('setting[widgetColumnWidth' . $widget . ']', $colWidthArray,
                 config('fi.widgetColumnWidth' . $widget), ['id' => 'widgetColumnWidth' . $widget, 'class' =>
                 'form-control']) !!}

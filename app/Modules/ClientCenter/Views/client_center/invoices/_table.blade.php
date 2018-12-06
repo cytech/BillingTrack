@@ -1,14 +1,14 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>{{ trans('fi.status') }}</th>
-        <th>{{ trans('fi.invoice') }}</th>
-        <th>{{ trans('fi.date') }}</th>
-        <th>{{ trans('fi.due') }}</th>
-        <th>{{ trans('fi.summary') }}</th>
-        <th>{{ trans('fi.total') }}</th>
-        <th>{{ trans('fi.balance') }}</th>
-        <th>{{ trans('fi.options') }}</th>
+        <th>@lang('fi.status')</th>
+        <th>@lang('fi.invoice')</th>
+        <th>@lang('fi.date')</th>
+        <th>@lang('fi.due')</th>
+        <th>@lang('fi.summary')</th>
+        <th>@lang('fi.total')</th>
+        <th>@lang('fi.balance')</th>
+        <th>@lang('fi.options')</th>
     </tr>
     </thead>
     <tbody>
@@ -17,9 +17,9 @@
             <td>
                 <span class="badge badge-{{ $invoiceStatuses[$invoice->invoice_status_id] }}">{{ trans('fi.' . $invoiceStatuses[$invoice->invoice_status_id]) }}</span>
                 @if ($invoice->viewed)
-                    <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
+                    <span class="badge badge-success">@lang('fi.viewed')</span>
                 @else
-                    <span class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
+                    <span class="badge badge-secondary">@lang('fi.not_viewed')</span>
                 @endif
             </td>
             <td>{{ $invoice->number }}</td>
@@ -31,11 +31,11 @@
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ trans('fi.options') }}
+                        @lang('fi.options')
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{ route('clientCenter.public.invoice.pdf', [$invoice->url_key]) }}" target="_blank"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
-                        <a class="dropdown-item" href="{{ route('clientCenter.public.invoice.show', [$invoice->url_key]) }}" target="_blank"><i class="fa fa-search"></i> {{ trans('fi.view') }}</a>
+                        <a class="dropdown-item" href="{{ route('clientCenter.public.invoice.pdf', [$invoice->url_key]) }}" target="_blank"><i class="fa fa-print"></i> @lang('fi.pdf')</a>
+                        <a class="dropdown-item" href="{{ route('clientCenter.public.invoice.show', [$invoice->url_key]) }}" target="_blank"><i class="fa fa-search"></i> @lang('fi.view')</a>
                     </div>
                 </div>
             </td>

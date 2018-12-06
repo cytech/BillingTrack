@@ -42,10 +42,10 @@
 @section('content')
 
     <section class="container-fluid m-2">
-        <h3 class="float-left">{{ trans('fi.expense_list') }}</h3>
+        <h3 class="float-left">@lang('fi.expense_list')</h3>
 
         <div class="float-right">
-            <button class="btn btn-primary" id="btn-run-report">{{ trans('fi.run_report') }}</button>
+            <button class="btn btn-primary" id="btn-run-report">@lang('fi.run_report')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -56,14 +56,14 @@
 
         <div class="card card-light">
             <div class="card-header">
-                <h3 class="card-title">{{ trans('fi.options') }}</h3>
+                <h3 class="card-title">@lang('fi.options')</h3>
             </div>
             <div class="card-body">
 
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>{{ trans('fi.company_profile') }}:</label>
+                            <label>@lang('fi.company_profile'):</label>
                             {!! Form::select('company_profile_id', $companyProfiles, null, ['id' => 'company_profile_id', 'class' => 'form-control'])  !!}
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>{{ trans('fi.date_range') }}:</label>
+                            <label>@lang('fi.date_range'):</label>
                             {!! Form::hidden('from_date', null, ['id' => 'from_date']) !!}
                             {!! Form::hidden('to_date', null, ['id' => 'to_date']) !!}
                             {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>{{ trans('fi.category') }}:</label>
+                            <label>@lang('fi.category'):</label>
                             {!! Form::select('category_id', $categories, null, ['id' => 'category_id', 'class' => 'form-control'])  !!}
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>{{ trans('fi.vendor') }}:</label>
+                            <label>@lang('fi.vendor'):</label>
                             {!! Form::select('vendor_id', $vendors, null, ['id' => 'vendor_id', 'class' => 'form-control'])  !!}
                         </div>
                     </div>
@@ -101,14 +101,14 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-check form-check-inline">
-                            <label>{{ trans('fi.output_type') }}:</label>
+                            <label>@lang('fi.output_type'):</label>
                             <label class="form-check-label ml-3">
                                 <input class="form-check-input" type="radio" name="output_type" value="preview"
-                                       checked="checked"> {{ trans('fi.preview') }}
+                                       checked="checked"> @lang('fi.preview')
                             </label>
                             <label class="form-check-label ml-3">
                                 <input class="form-check-input" type="radio" name="output_type"
-                                       value="pdf"> {{ trans('fi.pdf') }}
+                                       value="pdf"> @lang('fi.pdf')
                             </label>
                         </div>
                     </div>

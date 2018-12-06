@@ -16,12 +16,12 @@
 
     <section class="content p-3">
         <h3 class="float-left">
-            {{ trans('fi.currency_form') }}
+            @lang('fi.currency_form')
         </h3>
             <a class="btn btn-warning float-right" href={!! route('currencies.index')  !!}><i
-                        class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+                        class="fa fa-ban"></i> @lang('fi.cancel')</a>
             <button type="submit" class="btn btn-primary float-right"><i
-                        class="fa fa-save"></i> {{ trans('fi.save') }} </button>
+                        class="fa fa-save"></i> @lang('fi.save') </button>
         <div class="clearfix"></div>
     </section>
 
@@ -35,15 +35,15 @@
             <div class="card-body">
 
                 <div class="form-group">
-                    <label>{{ trans('fi.name') }}: </label>
+                    <label>@lang('fi.name'): </label>
                     {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
-                    <p class="form-text text-muted">{{ trans('fi.help_currency_name') }}</p>
+                    <p class="form-text text-muted">@lang('fi.help_currency_name')</p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>{{ trans('fi.code') }}: </label>
+                            <label>@lang('fi.code'): </label>
                             @if ($editMode and $currency->in_use)
                                 {!! Form::text('code', null, ['id' => 'code', 'class' => 'form-control',
                                 'readonly' => 'readonly']) !!}
@@ -52,23 +52,23 @@
                                 !!}
                             @endif
 
-                            <p class="form-text text-muted">{{ trans('fi.help_currency_code') }}</p>
+                            <p class="form-text text-muted">@lang('fi.help_currency_code')</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>{{ trans('fi.symbol') }}: </label>
+                            <label>@lang('fi.symbol'): </label>
                             {!! Form::text('symbol', null, ['id' => 'symbol', 'class' => 'form-control'])
                             !!}
-                            <p class="form-text text-muted">{{ trans('fi.help_currency_symbol') }}</p>
+                            <p class="form-text text-muted">@lang('fi.help_currency_symbol')</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>{{ trans('fi.symbol_placement') }}: </label>
+                            <label>@lang('fi.symbol_placement'): </label>
                             {!! Form::select('placement', ['before' => trans('fi.before_amount'), 'after'
                             => trans('fi.after_amount')], null, ['class' => 'form-control']) !!}
-                            <p class="form-text text-muted">{{ trans('fi.help_currency_symbol_placement') }}</p>
+                            <p class="form-text text-muted">@lang('fi.help_currency_symbol_placement')</p>
                         </div>
                     </div>
                 </div>
@@ -76,14 +76,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>{{ trans('fi.decimal_point') }}: </label>
+                            <label>@lang('fi.decimal_point'): </label>
                             {!! Form::text('decimal', null, ['id' => 'decimal', 'class' => 'form-control'])
                             !!}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>{{ trans('fi.thousands_separator') }}: </label>
+                            <label>@lang('fi.thousands_separator'): </label>
                             {!! Form::text('thousands', null, ['id' => 'thousands', 'class' =>
                             'form-control']) !!}
                         </div>

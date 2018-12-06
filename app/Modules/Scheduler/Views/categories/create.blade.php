@@ -11,11 +11,11 @@
             <div class="card-header">
                 <h3 class="card-title"><i
                             class="fa fa-edit fa-fw"></i>
-                    {{ trans('fi.create_category') }}
+                    @lang('fi.create_category')
                     <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i
-                                class="fa fa-ban"></i> {{ trans('fi.cancel') }}</a>
+                                class="fa fa-ban"></i> @lang('fi.cancel')</a>
                     <button type="submit" class="btn btn-primary float-right"><i
-                                class="fa fa-save"></i> {{ trans('fi.save') }}</button>
+                                class="fa fa-save"></i> @lang('fi.save')</button>
                 </h3>
 
             </div>

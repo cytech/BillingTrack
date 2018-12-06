@@ -12,9 +12,9 @@
         <div class="card card-light">
             <div class="card-header">
                 <h3 class="card-title">
-                    {{ trans('fi.criteria_batchprint') }}
+                    @lang('fi.criteria_batchprint')
                     <button type="submit" class="btn btn-primary float-right"><i
-                                class="fa fa-save"></i> {{ trans('fi.process') }} </button>
+                                class="fa fa-save"></i> @lang('fi.process') </button>
                 </h3>
             </div>
             <div class="card-body">
@@ -33,7 +33,7 @@
                         Note: If there are a large number of documents in the daterange, this will take a long time to generate the PDF</span>
                     </div>
                     <div class="form-group">
-                        <label>{{ trans('fi.date_range') }}:</label>
+                        <label>@lang('fi.date_range'):</label>
                         {!! Form::hidden('from_date', null, ['id' => 'from_date']) !!}
                         {!! Form::hidden('to_date', null, ['id' => 'to_date']) !!}
                         {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}

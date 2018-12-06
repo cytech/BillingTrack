@@ -17,7 +17,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('fi.close') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.close')</button>
             </div>
         </div>
     </div>

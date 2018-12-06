@@ -2,11 +2,11 @@
 
 @section('content')
     <section class="content mt-3 mb-3">
-        <h3 class="float-left">{{ trans('fi.item_lookups') }}</h3>
+        <h3 class="float-left">@lang('fi.item_lookups')</h3>
 
         <div class="float-right">
             <a href="{{ route('itemLookups.create') }}" class="btn btn-primary "><i
-                        class="fa fa-plus"></i> {{ trans('fi.new') }}</a>
+                        class="fa fa-plus"></i> @lang('fi.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -18,12 +18,12 @@
                 <table id="dt-itemlookupstable" class="table dataTable no-footer">
                     <thead>
                     <tr>
-                        <th>{{ trans('fi.name') }}</th>
-                        <th>{{ trans('fi.description') }}</th>
-                        <th>{{ trans('fi.price') }}</th>
-                        <th>{{ trans('fi.tax_1') }}</th>
-                        <th>{{ trans('fi.tax_2') }}</th>
-                        <th>{{ trans('fi.options') }}</th>
+                        <th>@lang('fi.name')</th>
+                        <th>@lang('fi.description')</th>
+                        <th>@lang('fi.price')</th>
+                        <th>@lang('fi.tax_1')</th>
+                        <th>@lang('fi.tax_2')</th>
+                        <th>@lang('fi.options')</th>
                         <th class="d-none">resource_table</th>
                     </tr>
                     </thead>
@@ -39,16 +39,16 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        {{ trans('fi.options') }}
+                                        @lang('fi.options')
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item"
                                            href="{{ route('itemLookups.edit', [$itemLookup->id]) }}"><i
-                                                    class="fa fa-edit"></i> {{ trans('fi.edit') }}</a>
+                                                    class="fa fa-edit"></i> @lang('fi.edit')</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#"
-                                           onclick="swalConfirm('{{ trans('fi.delete_record_warning') }}', '{{ route('itemLookups.delete', [$itemLookup->id]) }}');"><i
-                                                    class="fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>
+                                           onclick="swalConfirm('@lang('fi.delete_record_warning')', '{{ route('itemLookups.delete', [$itemLookup->id]) }}');"><i
+                                                    class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
                                     </div>
                                 </div>
                             </td>

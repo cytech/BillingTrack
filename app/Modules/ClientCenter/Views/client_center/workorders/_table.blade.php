@@ -1,13 +1,13 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>{{ trans('fi.status') }}</th>
-        <th>{{ trans('fi.workorder') }}</th>
-        <th>{{ trans('fi.date') }}</th>
-        <th>{{ trans('fi.expires') }}</th>
-        <th>{{ trans('fi.summary') }}</th>
-        <th>{{ trans('fi.total') }}</th>
-        <th>{{ trans('fi.options') }}</th>
+        <th>@lang('fi.status')</th>
+        <th>@lang('fi.workorder')</th>
+        <th>@lang('fi.date')</th>
+        <th>@lang('fi.expires')</th>
+        <th>@lang('fi.summary')</th>
+        <th>@lang('fi.total')</th>
+        <th>@lang('fi.options')</th>
     </tr>
     </thead>
     <tbody>
@@ -16,9 +16,9 @@
             <td>
                 <span class="badge badge-{{ $workorderStatuses[$workorder->workorder_status_id] }}">{{ trans('fi.' . $workorderStatuses[$workorder->workorder_status_id]) }}</span>
                 @if ($workorder->viewed)
-                    <span class="badge badge-success">{{ trans('fi.viewed') }}</span>
+                    <span class="badge badge-success">@lang('fi.viewed')</span>
                 @else
-                    <span class="badge badge-secondary">{{ trans('fi.not_viewed') }}</span>
+                    <span class="badge badge-secondary">@lang('fi.not_viewed')</span>
                 @endif
             </td>
             <td>{{ $workorder->number }}</td>
@@ -29,11 +29,11 @@
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                        {{ trans('fi.options') }}
+                        @lang('fi.options')
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{ route('clientCenter.public.workorder.pdf', [$workorder->url_key]) }}" target="_blank"><i class="fa fa-print"></i> {{ trans('fi.pdf') }}</a>
-                        <a class="dropdown-item" href="{{ route('clientCenter.public.workorder.show', [$workorder->url_key]) }}" target="_blank"><i class="fa fa-search"></i> {{ trans('fi.view') }}</a>
+                        <a class="dropdown-item" href="{{ route('clientCenter.public.workorder.pdf', [$workorder->url_key]) }}" target="_blank"><i class="fa fa-print"></i> @lang('fi.pdf')</a>
+                        <a class="dropdown-item" href="{{ route('clientCenter.public.workorder.show', [$workorder->url_key]) }}" target="_blank"><i class="fa fa-search"></i> @lang('fi.view')</a>
                     </div>
                 </div>
             </td>

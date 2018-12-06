@@ -2,13 +2,13 @@
 
 @section('content')
     <section class="container-fluid m-2">
-        <h3 class="float-left">{{ trans('fi.events') }}</h3>
+        <h3 class="float-left">@lang('fi.events')</h3>
         <div class="float-right">
 
             <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-trash"><i
-                        class="fa fa-trash"></i> {{ trans('fi.bulk_event_trash') }}</a>
+                        class="fa fa-trash"></i> @lang('fi.bulk_event_trash')</a>
             <a href="{!! route('scheduler.tableeventcreate') !!}" class="btn btn-primary "><i
-                        class="fa fa-fw fa-plus"></i> {{ trans('fi.create_event') }}</a>
+                        class="fa fa-fw fa-plus"></i> @lang('fi.create_event')</a>
         </div>
 
         <div class="clearfix"></div>

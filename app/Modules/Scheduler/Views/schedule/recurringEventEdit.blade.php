@@ -12,7 +12,7 @@
                     <div class="card-header">
                         <h3 class="card-title"><i
                                     class="fa fa-edit fa-fw"></i> {{ trans('fi.'.$title) }}
-                                <a class="btn btn-warning float-right" href={!! url('/scheduler')  !!}><i class="fa fa-ban"></i> {{ trans('fi.cancel') }} </a>
+                                <a class="btn btn-warning float-right" href={!! url('/scheduler')  !!}><i class="fa fa-ban"></i> @lang('fi.cancel') </a>
                                 <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> {{ trans('fi.'.$title) }} </button>
                         </h3></div>
                     <div class="card-body">
@@ -82,7 +82,7 @@
                         <div class="form-group offset-2">
                             <div class="offset-2 col-sm-10">
                                 <button type="button" id="addReminderCreate"
-                                        class="btn btn-primary"><i class="fa fa-plus"></i> {{ trans('fi.add_reminder') }}
+                                        class="btn btn-primary"><i class="fa fa-plus"></i> @lang('fi.add_reminder')
                                 </button>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
         $(document).ready(function () {
             $("#addReminderCreate").click(function (event) {
                 event.preventDefault();
-                $("#addReminderCreate").html('<i class="fa fa-plus"></i> {{ trans('fi.add_another_reminder') }}');
+                $("#addReminderCreate").html('<i class="fa fa-plus"></i> @lang('fi.add_another_reminder')');
                 $("#addReminderShow").append($(".addReminderView").html());
             });
             //changed on focus to mousedown. was taking 2 clicks

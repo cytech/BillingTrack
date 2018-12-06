@@ -2,10 +2,10 @@
 
 @section('content')
     <section class="container-fluid mt-2">
-        <h1 class="float-left">{{ trans('fi.categories') }}</h1>
+        <h1 class="float-left">@lang('fi.categories')</h1>
         <div class="float-right">
             <a href="{!! route('scheduler.categories.create') !!}" class="btn btn-primary"><i
-                        class="fa fa-fw fa-plus"></i> {{ trans('fi.create_category') }}</a>
+                        class="fa fa-fw fa-plus"></i> @lang('fi.create_category')</a>
         </div>
         <div class="clearfix"></div>
     </section>

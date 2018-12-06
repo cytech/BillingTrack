@@ -6,7 +6,7 @@
 
     <section class="content p-3">
         <h3 class="float-left">
-            {{ trans('fi.map_fields_to_import') }}
+            @lang('fi.map_fields_to_import')
         </h3>
 
         <div class="float-right">

@@ -1,6 +1,6 @@
 <div class="btn-group">
     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-        {{ trans('fi.options') }}
+        @lang('fi.options')
     </button>
     <div class="dropdown-menu dropdown-menu-right" role="menu">
 
@@ -9,8 +9,8 @@
                         class="fa fa-edit"></i> @lang('fi.restore')</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href ="#" id="delete-client-{{ $id }}"
-               onclick="swalConfirm('{{ trans('fi.trash_deletesingle_warning') }}', '{{ route('utilities.delete_trash',
+               onclick="swalConfirm('@lang('fi.trash_deletesingle_warning')', '{{ route('utilities.delete_trash',
                                     [$model->id, 'entity' => get_class($model)]) }}');"><i
-                        class="btn-danger fa fa-trash-alt"></i> {{ trans('fi.delete') }}</a>
+                        class="btn-danger fa fa-trash-alt"></i> @lang('fi.delete')</a>
     </div>
 </div>
