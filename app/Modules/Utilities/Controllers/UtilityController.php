@@ -195,4 +195,9 @@ class UtilityController
         }
     }
 
+    public function saveTab()
+    {
+        session(['trashTabId' => request('trashTabId')]);
+    }
+
 }

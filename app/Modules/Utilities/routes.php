@@ -16,6 +16,7 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
     Route::get('utilities/{id}/delete_trash/{entity}', ['uses' => 'UtilityController@deleteTrash', 'as' => 'utilities.delete_trash']);
     Route::post('utilities/bulk/delete_trash', ['uses' => 'UtilityController@bulkDeleteTrash', 'as' => 'utilities.bulk.deletetrash']);
     Route::post('utilities/bulk/restore_trash', ['uses' => 'UtilityController@bulkRestoreTrash', 'as' => 'utilities.bulk.restoretrash']);
+    Route::post('utilities/save_tab', ['uses' => 'UtilityController@saveTab', 'as' => 'utilities.saveTab']);
 
     //batchprint pdf
     Route::any('batchprint', ['uses' => 'UtilityController@batchPrint', 'as' => 'utilities.batchprint']);

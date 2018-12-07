@@ -25,7 +25,7 @@
                 <div class="card m-2">
 
                     <div class="card-header d-flex p-0">
-                        <ul class="nav nav-tabs p-2">
+                        <ul class="nav nav-tabs p-2" id="trash-tabs">
                             <li class="nav-item"><a class="nav-link active show" data-toggle="tab"
                                                      href="#tab-clients">@lang('fi.clients')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
@@ -162,6 +162,13 @@
                     bulkConfirm('@lang('fi.bulk_delete_record_warning')', "{{ route('utilities.bulk.deletetrash') }}", ids);
                 }
             });
+
+            $('#trash-tabs a').click(function (e) {
+                const tabId = $(e.target).attr("href").substr(1);
+                $.post("{{ route('utilities.saveTab') }}", {trashTabId: tabId});
+            });
+
+            $('#trash-tabs a[href="#{{ session('trashTabId') }}"]').tab('show');
         });
     </script>
 @endpush

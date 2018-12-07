@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 4.1.1
 - add formatted_summary to truncate display
 - correct some datatables sorting
+- correct duplicate class btn-enter-payment
+- {{ trans() }} to @lang
+- save manage trash tab state
 
 ## 4.1.0
 - upgrade to laravel 5.7.*
