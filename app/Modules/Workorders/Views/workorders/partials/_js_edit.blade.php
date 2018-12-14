@@ -54,7 +54,8 @@
         $('#btn-workorder-to-invoice').click(function () {
             $('#modal-placeholder').load('{{ route('workorderToInvoice.create') }}', {
                 workorder_id: {{ $workorder->id }},
-                client_id: {{ $workorder->client_id }}
+                client_id: {{ $workorder->client_id }},
+                job_date: '{{ $workorder->formatted_job_date }}'
             });
         });
 

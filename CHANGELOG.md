@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - correct duplicate class btn-enter-payment
 - {{ trans() }} to @lang
 - save manage trash tab state
+- change workorder_to_invoice default date to job_date
 
 ## 4.1.0
 - upgrade to laravel 5.7.*

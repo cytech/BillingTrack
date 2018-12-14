@@ -16,14 +16,13 @@
                 <form>
 
                     <div class="form-group d-flex align-items-center">
-                        <label class="col-sm-4 text-right text">@lang('fi.date')</label>
+                        <label class="col-sm-4 text-right text">@lang('fi.invoice_date')</label>
 
                         <div class="col-sm-8">
                             {{--{!! Form::text('created_at', $created_at, ['id' => 'to_invoice_created_at', 'class' => 'form-control']) !!}--}}
-                            {!! Form::text('workorder_date', $workorder_date, ['id' => 'to_invoice_workorder_date', 'class' => 'form-control']) !!}
+                            {!! Form::text('workorder_date', $job_date, ['id' => 'to_invoice_workorder_date', 'class' => 'form-control']) !!}
                         </div>
                     </div>
-
                     <div class="form-group d-flex align-items-center">
                         <label class="col-sm-4 text-right text">@lang('fi.group')</label>
 
