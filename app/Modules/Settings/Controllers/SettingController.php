@@ -71,6 +71,7 @@ class SettingController extends Controller
                 'pdfDrivers'              => PDFFactory::getDrivers(),
                 'convertQuoteOptions'     => ['quote' => trans('fi.convert_quote_option1'), 'invoice' => trans('fi.convert_quote_option2')],
                 'convertWorkorderOptions' => ['workorder' => trans('fi.convert_workorder_option1'), 'invoice' => trans('fi.convert_workorder_option2')],
+                'convertWorkorderDate'    => ['jobdate' => trans('fi.convert_workorder_date1'), 'currentdate' => trans('fi.convert_workorder_date2')],
                 'clientUniqueNameOptions' => ['0' => trans('fi.client_unique_name_option_1'), '1' => trans('fi.client_unique_name_option_2')],
                 'dashboardWidgets'        => DashboardWidgets::listsByOrder(),
                 'colWidthArray'           => array_combine(range(1, 12), range(1, 12)),

@@ -38,6 +38,7 @@
 <div class="form-group">
     <label>@lang('fi.convert_workorder_setting'): </label>
     {!! Form::select('setting[convertWorkorderTerms]', $convertWorkorderOptions, config('fi.convertWorkorderTerms'), ['class' => 'form-control']) !!}
+    {!! Form::select('setting[convertWorkorderDate]', $convertWorkorderDate, config('fi.convertWorkorderDate'), ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">

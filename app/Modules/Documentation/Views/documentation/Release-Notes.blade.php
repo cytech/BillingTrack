@@ -7,6 +7,17 @@
         <h2>Release Notes</h2>
 
         <hr>
+        <h3>FusionInvoiceFOSS 4.1.1 (Dec 16, 2018)</h3>
+        <ul>
+            <li>- add formatted_summary to truncate display</li>
+            <li>- correct some datatables sorting</li>
+            <li>- correct duplicate class btn-enter-payment</li>
+            <li>- @{{ trans() }} to @@lang</li>
+            <li>- save manage trash tab state</li>
+            <li>- add workorder_to_invoice default date setting (job_date or current date)</li>
+        </ul>
+
+        <hr>
         <h3>FusionInvoiceFOSS 4.1.0 (Nov 29, 2018)</h3>
         <ul>
             <li>- upgrade to laravel 5.7.*</li>

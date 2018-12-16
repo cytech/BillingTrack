@@ -7,7 +7,7 @@ FusionInvoice 2018-8 after it was open sourced
 
 [Link to prerequisites](https://github.com/cytech/FusionInvoice-FOSS/wiki)
 
-**To Upgrade from v4.1.0 to v4.1.x**
+**To Upgrade from v4.1.x to v4.1.x**
 1. Git pull (if originally cloned) or download and overwrite existing installation.
 2. run composer update
 3. Start FusionInvoiceFOSS/setup

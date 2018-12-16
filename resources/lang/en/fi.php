@@ -171,6 +171,8 @@ return [
     'convert_quote_when_approved'             => 'Automatically Convert Quote to Invoice When Client Approves',
     'convert_workorder_option1'               => 'The invoice should retain the terms from the workorder',
     'convert_workorder_option2'               => 'The invoice should use the default invoice terms',
+    'convert_workorder_date1'                 => 'Set the invoice date to the job date',
+    'convert_workorder_date2'                 => 'Set the invoice date to the current date',
     'convert_workorder_setting'               => 'When a workorder is converted to an invoice',
     'convert_workorder_when_approved'         => 'Automatically Convert Workorder to Invoice When Client Approves',
     'converted'                               => 'Converted',
