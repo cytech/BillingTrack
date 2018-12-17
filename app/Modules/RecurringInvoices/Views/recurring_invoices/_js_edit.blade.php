@@ -2,8 +2,8 @@
 
     $(function () {
 
-        $("#next_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
-        $("#stop_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#next_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#stop_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#btn-add-lookup').click(function() {
             $('#modal-placeholder').load('{{ route( 'itemLookups.ajax.getItemLookup') }}');

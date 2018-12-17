@@ -87,7 +87,7 @@
 
     <script type="text/javascript">
         $(function () {
-            $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+            $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
         })
     </script>
 

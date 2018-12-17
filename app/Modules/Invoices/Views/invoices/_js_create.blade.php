@@ -14,7 +14,7 @@
             }).autocomplete("widget");
         });
 
-        $('#create_invoice_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $('#create_invoice_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#invoice-create-confirm').click(function () {
 

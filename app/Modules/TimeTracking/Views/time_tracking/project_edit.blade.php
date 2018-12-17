@@ -13,7 +13,7 @@
 
             const timers = [];
 
-            $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+            $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
 
             $('#btn-add-task').click(function () {
                 $('#modal-placeholder').load('{{ route('timeTracking.tasks.create') }}', {

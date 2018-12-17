@@ -14,7 +14,7 @@
             }).autocomplete("widget");
         });
 
-        $("#create_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#create_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#workorder-create-confirm').click(function () {
             $.post('{{ route('workorders.store') }}', {

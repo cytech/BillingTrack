@@ -11,9 +11,9 @@
 
     $(function () {
 
-        $("#workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
-        $("#expires_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
-        $("#job_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#expires_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#job_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $("#start_time").datetimepicker({
             datepicker: false,

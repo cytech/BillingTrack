@@ -7,7 +7,7 @@
             $("#client_name").focus();
         });
 
-        $("#copy_invoice_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#copy_invoice_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#copy_client_name').autocomplete({
             appendTo: '#modal-copy-invoice',

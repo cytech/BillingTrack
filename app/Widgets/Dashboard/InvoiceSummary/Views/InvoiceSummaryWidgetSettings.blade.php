@@ -2,8 +2,8 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#invoice-dashboard-total-setting-from-date').datetimepicker({format: 'Y-m-d', timepicker: false});
-        $('#invoice-dashboard-total-setting-to-date').datetimepicker({format: 'Y-m-d', timepicker: false});
+        $('#invoice-dashboard-total-setting-from-date').datetimepicker({format: 'Y-m-d', timepicker: false, scrollInput: false});
+        $('#invoice-dashboard-total-setting-to-date').datetimepicker({format: 'Y-m-d', timepicker: false, scrollInput: false});
 
         $('#invoice-dashboard-total-setting').change(function () {
             toggleWidgetInvoiceDashboardTotalsDateRange($('#invoice-dashboard-total-setting').val());

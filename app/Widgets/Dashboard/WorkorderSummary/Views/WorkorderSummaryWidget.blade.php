@@ -16,8 +16,8 @@
 
             });
 
-            $('#workorder-dashboard-total-setting-from-date').datetimepicker({format: 'Y-m-d', timepicker: false});
-            $('#workorder-dashboard-total-setting-to-date').datetimepicker({format: 'Y-m-d', timepicker: false});
+            $('#workorder-dashboard-total-setting-from-date').datetimepicker({format: 'Y-m-d', timepicker: false, scrollInput: false});
+            $('#workorder-dashboard-total-setting-to-date').datetimepicker({format: 'Y-m-d', timepicker: false, scrollInput: false});
         });
     </script>
         <div class="card">

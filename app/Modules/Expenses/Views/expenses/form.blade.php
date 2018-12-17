@@ -11,7 +11,7 @@
 @section('javascript')
     <script type="text/javascript">
         $(function () {
-            $('#expense_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+            $('#expense_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
         });
     </script>
 @stop

@@ -7,6 +7,12 @@
         <h2>Release Notes</h2>
 
         <hr>
+        <h3>FusionInvoiceFOSS 4.1.2 (Dec 17, 2018)</h3>
+        <ul>
+            <li>- disable scroll in datetimepicker inputs</li>
+        </ul>
+
+        <hr>
         <h3>FusionInvoiceFOSS 4.1.1 (Dec 16, 2018)</h3>
         <ul>
             <li>- add formatted_summary to truncate display</li>

@@ -4,7 +4,7 @@
         // Display the create quote modal
         $('#modal-quote-to-workorder').modal('show');
 
-        $("#to_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false});
+        $("#to_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
 
         // Creates the workorder
         $('#btn-quote-to-workorder-submit').click(function () {
