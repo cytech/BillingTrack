@@ -39,7 +39,7 @@
 
 @section('content')
 
-    <section class="container-fluid m-2">
+    <section class="content-header">
         <h1 class="float-left">@lang('fi.item_sales')</h1>
         <div class="float-right">
             <button class="btn btn-primary" id="btn-run-report">@lang('fi.run_report')</button>

@@ -2,8 +2,7 @@
 
 @section('content')
     @include('layouts._alerts')
-    <div class="container col-lg-12">
-        <br>
+    <section class="content-header">
         <nav class="navbar navbar-expand navbar-light border-bottom">   {{--bg-primary navbar-default--}}
             <div class="container-fluid">
 
@@ -37,7 +36,7 @@
                 </div>
             </div>
         </nav>
-        <div class="row col-lg-12">
+        <div class="row col-lg-12 pl-5">
             <div class="col-lg-4 col-md-4">
                 <div class="small-box bg-green">
                     <div class="inner">
@@ -78,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="row col-lg-12">
+        <div class="row col-lg-12 pl-5">
             <div class="col-lg-4 col-md-4">
                 <div class="small-box bg-green">
                     <div class="inner">
@@ -114,9 +113,8 @@
                     <div class="icon"><i class="fas fa-info-circle"></i></div>
                 </div>
             </div>
-
+        </div>
             {{--Reminder table --}}
-            {{--<div class="row col-lg-12" ng-app="event" ng-controller="eventDeleteController">--}}
             <div class="container-fluid">
                 <div class="card card-light">
                     <div class="card-header">
@@ -167,7 +165,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         <div class="container-fluid">
             <div class="card card-light">
                 <div class="card-header">
@@ -179,7 +177,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @stop
 @section('javascript')
     {{--@include('partials._js_datatables')--}}

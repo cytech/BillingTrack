@@ -1,5 +1,5 @@
 /*!
-* sweetalert2 v7.28.8
+* sweetalert2 v7.32.4
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -195,9 +195,9 @@ var toArray = function toArray(nodeList) {
   return Array.prototype.slice.call(nodeList);
 };
 /**
-* Converts `inputOptions` into an array of `[value, label]`s
-* @param inputOptions
-*/
+ * Converts `inputOptions` into an array of `[value, label]`s
+ * @param inputOptions
+ */
 
 var formatInputOptions = function formatInputOptions(inputOptions) {
   var result = [];
@@ -257,8 +257,8 @@ var warnOnce = function warnOnce(message) {
 var callIfFunction = function callIfFunction(arg) {
   return typeof arg === 'function' ? arg() : arg;
 };
-var isThenable = function isThenable(arg) {
-  return arg && _typeof(arg) === 'object' && typeof arg.then === 'function';
+var isPromise = function isPromise(arg) {
+  return arg && Promise.resolve(arg) === arg;
 };
 
 var DismissReason = Object.freeze({
@@ -320,7 +320,7 @@ var prefix = function prefix(items) {
 
   return result;
 };
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-text', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen']);
+var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'fade', 'show', 'hide', 'noanimation', 'close', 'title', 'header', 'content', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-text', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progresssteps', 'activeprogressstep', 'progresscircle', 'progressline', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl']);
 var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
 
 var states = {
@@ -384,6 +384,11 @@ var hide = function hide(elem) {
 
 var isVisible = function isVisible(elem) {
   return elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
+};
+var contains = function contains(haystack, needle) {
+  if (typeof haystack.contains === 'function') {
+    return haystack.contains(needle);
+  }
 };
 
 var getContainer = function getContainer() {
@@ -518,6 +523,11 @@ var init = function init(params) {
 
   if (!params.toast) {
     popup.setAttribute('aria-modal', 'true');
+  } // RTL
+
+
+  if (window.getComputedStyle(targetElement).direction === 'rtl') {
+    addClass(getContainer(), swalClasses.rtl);
   }
 
   var oldInputVal; // IE11 workaround, see #1109 for details
@@ -552,9 +562,12 @@ var init = function init(params) {
 var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
   if (!param) {
     return hide(target);
-  }
+  } // DOM element
 
-  if (_typeof(param) === 'object') {
+
+  if (param instanceof HTMLElement) {
+    target.appendChild(param); // JQuery element(s)
+  } else if (_typeof(param) === 'object') {
     target.innerHTML = '';
 
     if (0 in param) {
@@ -872,7 +885,7 @@ var undoIEfix = function undoIEfix() {
 var setAriaHidden = function setAriaHidden() {
   var bodyChildren = toArray(document.body.children);
   bodyChildren.forEach(function (el) {
-    if (el === getContainer() || el.contains(getContainer())) {
+    if (el === getContainer() || contains(el, getContainer())) {
       return;
     }
 
@@ -1353,12 +1366,54 @@ var showLoading = function showLoading() {
 };
 
 /**
- * If `timer` parameter is set, returns number os milliseconds of timer remained.
- * Otherwise, returns null.
+ * If `timer` parameter is set, returns number of milliseconds of timer remained.
+ * Otherwise, returns undefined.
  */
 
 var getTimerLeft = function getTimerLeft() {
   return globalState.timeout && globalState.timeout.getTimerLeft();
+};
+/**
+ * Stop timer. Returns number of milliseconds of timer remained.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var stopTimer = function stopTimer() {
+  return globalState.timeout && globalState.timeout.stop();
+};
+/**
+ * Resume timer. Returns number of milliseconds of timer remained.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var resumeTimer = function resumeTimer() {
+  return globalState.timeout && globalState.timeout.start();
+};
+/**
+ * Resume timer. Returns number of milliseconds of timer remained.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var toggleTimer = function toggleTimer() {
+  var timer = globalState.timeout;
+  return timer && (timer.running ? timer.stop() : timer.start());
+};
+/**
+ * Increase timer. Returns number of milliseconds of an updated timer.
+ * If `timer` parameter isn't set, returns undefined.
+ */
+
+var increaseTimer = function increaseTimer(n) {
+  return globalState.timeout && globalState.timeout.increase(n);
+};
+/**
+ * Check if timer is running. Returns true if timer is running
+ * or false if timer is paused or stopped.
+ * If `timer` parameter isn't set, returns undefined
+ */
+
+var isTimerRunning = function isTimerRunning() {
+  return globalState.timeout && globalState.timeout.isRunning();
 };
 
 
@@ -1398,7 +1453,12 @@ var staticMethods = Object.freeze({
 	deleteQueueStep: deleteQueueStep,
 	showLoading: showLoading,
 	enableLoading: showLoading,
-	getTimerLeft: getTimerLeft
+	getTimerLeft: getTimerLeft,
+	stopTimer: stopTimer,
+	resumeTimer: resumeTimer,
+	toggleTimer: toggleTimer,
+	increaseTimer: increaseTimer,
+	isTimerRunning: isTimerRunning
 });
 
 // https://github.com/Riim/symbol-polyfill/blob/master/index.js
@@ -1642,28 +1702,58 @@ function hideProgressSteps() {
 var Timer = function Timer(callback, delay) {
   _classCallCheck(this, Timer);
 
-  var id, started, running;
-  var remaining = delay;
+  var id,
+      started,
+      remaining = delay;
+  this.running = false;
 
   this.start = function () {
-    running = true;
-    started = new Date();
-    id = setTimeout(callback, remaining);
+    if (!this.running) {
+      this.running = true;
+      started = new Date();
+      id = setTimeout(callback, remaining);
+    }
+
+    return remaining;
   };
 
   this.stop = function () {
-    running = false;
-    clearTimeout(id);
-    remaining -= new Date() - started;
+    if (this.running) {
+      this.running = false;
+      clearTimeout(id);
+      remaining -= new Date() - started;
+    }
+
+    return remaining;
+  };
+
+  this.increase = function (n) {
+    var running = this.running;
+
+    if (running) {
+      this.stop();
+    }
+
+    remaining += n;
+
+    if (running) {
+      this.start();
+    }
+
+    return remaining;
   };
 
   this.getTimerLeft = function () {
-    if (running) {
+    if (this.running) {
       this.stop();
       this.start();
     }
 
     return remaining;
+  };
+
+  this.isRunning = function () {
+    return this.running;
   };
 
   this.start();
@@ -1674,8 +1764,8 @@ var defaultInputValidators = {
     return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.reject(extraParams && extraParams.validationMessage ? extraParams.validationMessage : 'Invalid email address');
   },
   url: function url(string, extraParams) {
-    // taken from https://stackoverflow.com/a/3809435
-    return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/.test(string) ? Promise.resolve() : Promise.reject(extraParams && extraParams.validationMessage ? extraParams.validationMessage : 'Invalid URL');
+    // taken from https://stackoverflow.com/a/3809435 with a small change from #1306
+    return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/.test(string) ? Promise.resolve() : Promise.reject(extraParams && extraParams.validationMessage ? extraParams.validationMessage : 'Invalid URL');
   }
 };
 
@@ -2089,6 +2179,10 @@ function _main(userParams) {
                     return errorWith(error$$1);
                   });
                 }
+              } else if (!_this.getInput().checkValidity()) {
+                _this.enableButtons();
+
+                _this.showValidationMessage(innerParams.validationMessage);
               } else {
                 confirm(inputValue);
               }
@@ -2249,6 +2343,7 @@ function _main(userParams) {
         } // ESC
 
       } else if ((e.key === 'Escape' || e.key === 'Esc') && callIfFunction(innerParams.allowEscapeKey) === true) {
+        e.preventDefault();
         dismissWith(constructor.DismissReason.esc);
       }
     };
@@ -2287,6 +2382,13 @@ function _main(userParams) {
 
 
     var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+
+    var setInputPlaceholder = function setInputPlaceholder(input) {
+      if (!input.placeholder || innerParams.inputPlaceholder) {
+        input.placeholder = innerParams.inputPlaceholder;
+      }
+    };
+
     var input;
 
     for (var _i3 = 0; _i3 < inputTypes.length; _i3++) {
@@ -2306,6 +2408,12 @@ function _main(userParams) {
         }
 
         for (var attr in innerParams.inputAttributes) {
+          // Do not set a placeholder for <input type="range">
+          // it'll crash Edge, #1298
+          if (inputTypes[_i3] === 'range' && attr === 'placeholder') {
+            continue;
+          }
+
           input.setAttribute(attr, innerParams.inputAttributes[attr]);
         }
       } // set class
@@ -2334,11 +2442,11 @@ function _main(userParams) {
 
           if (typeof innerParams.inputValue === 'string' || typeof innerParams.inputValue === 'number') {
             input.value = innerParams.inputValue;
-          } else {
-            warn("Unexpected type of inputValue! Expected \"string\" or \"number\", got \"".concat(_typeof(innerParams.inputValue), "\""));
+          } else if (!isPromise(innerParams.inputValue)) {
+            warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(_typeof(innerParams.inputValue), "\""));
           }
 
-          input.placeholder = innerParams.inputPlaceholder;
+          setInputPlaceholder(input);
           input.type = innerParams.input;
           show(input);
           break;
@@ -2347,7 +2455,7 @@ function _main(userParams) {
       case 'file':
         {
           input = getChildByClass(domCache.content, swalClasses.file);
-          input.placeholder = innerParams.inputPlaceholder;
+          setInputPlaceholder(input);
           input.type = innerParams.input;
           show(input);
           break;
@@ -2457,7 +2565,7 @@ function _main(userParams) {
         {
           var textarea = getChildByClass(domCache.content, swalClasses.textarea);
           textarea.value = innerParams.inputValue;
-          textarea.placeholder = innerParams.inputPlaceholder;
+          setInputPlaceholder(textarea);
           show(textarea);
           break;
         }
@@ -2477,7 +2585,7 @@ function _main(userParams) {
         return populateInputOptions(formatInputOptions(inputOptions));
       };
 
-      if (isThenable(innerParams.inputOptions)) {
+      if (isPromise(innerParams.inputOptions)) {
         constructor.showLoading();
         innerParams.inputOptions.then(function (inputOptions) {
           _this.hideLoading();
@@ -2489,7 +2597,7 @@ function _main(userParams) {
       } else {
         error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof(innerParams.inputOptions)));
       }
-    } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(innerParams.input) !== -1 && isThenable(innerParams.inputValue)) {
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(innerParams.input) !== -1 && isPromise(innerParams.inputValue)) {
       constructor.showLoading();
       hide(input);
       innerParams.inputValue.then(function (inputValue) {
@@ -2512,7 +2620,7 @@ function _main(userParams) {
 
     if (!innerParams.toast) {
       if (!callIfFunction(innerParams.allowEnterKey)) {
-        if (document.activeElement) {
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
           document.activeElement.blur();
         }
       } else if (innerParams.focusCancel && isVisible(domCache.cancelButton)) {
@@ -2569,16 +2677,12 @@ function SweetAlert() {
     error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
   }
 
+  currentInstance = this;
+
   for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
     args[_key] = arguments[_key];
   }
 
-  if (args.length === 0) {
-    error('At least 1 argument is expected!');
-    return false;
-  }
-
-  currentInstance = this;
   var outerParams = Object.freeze(this.constructor.argsToParams(args));
   Object.defineProperties(this, {
     params: {
@@ -2636,4 +2740,4 @@ Swal.default = Swal;
 return Swal;
 
 })));
-if (typeof window !== 'undefined' && window.Sweetalert2){  window.Sweetalert2.version = '7.28.8';  window.swal = window.sweetAlert = window.Swal = window.SweetAlert = window.Sweetalert2}
+if (typeof window !== 'undefined' && window.Sweetalert2){  window.Sweetalert2.version = '7.32.4';  window.swal = window.sweetAlert = window.Swal = window.SweetAlert = window.Sweetalert2}

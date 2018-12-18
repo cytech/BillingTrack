@@ -22,7 +22,7 @@
         {!! Form::open(['route' => 'companyProfiles.store', 'files' => true]) !!}
     @endif
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.company_profile_form')
         </h3>

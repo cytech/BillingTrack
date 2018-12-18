@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-    <section class="content mt-3 mb-3">
+    <section class="content-header">
         <h3 class="float-left">@lang('fi.mail_log')</h3>
         <div class="clearfix"></div>
 

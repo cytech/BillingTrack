@@ -41,7 +41,7 @@
 
 @section('content')
 
-    <section class="container-fluid m-2">
+    <section class="content-header">
         <h1 class="float-left">@lang('fi.tax_summary')</h1>
 
         <div class="float-right">

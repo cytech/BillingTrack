@@ -3,7 +3,7 @@
 @section('content')
     @include('layouts._alerts')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <div class="row" >
+    <section class="content-header">
 
         <div class="container-fluid m-2">
             {!! Form::model($schedule,['route' => ['scheduler.updateevent', $schedule->id],'id' => 'event', 'accept-charset' => 'utf-8']) !!}
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
 
     {!! Form::close() !!}

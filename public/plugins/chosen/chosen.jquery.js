@@ -149,7 +149,7 @@
 
     AbstractChosen.prototype.choice_label = function(item) {
       if (this.include_group_label_in_selected && (item.group_label != null)) {
-        return "<b class='group-name'>" + item.group_label + "</b>" + item.html;
+        return "<b class='group-name'>" + (this.escape_html(item.group_label)) + "</b>" + item.html;
       } else {
         return item.html;
       }
@@ -576,7 +576,7 @@
     };
 
     AbstractChosen.prototype.get_single_html = function() {
-      return "<a class=\"chosen-single chosen-default\">\n  <input class=\"chosen-focus-input\" type=\"text\" autocomplete=\"off\" />\n  <span>" + this.default_text + "</span>\n  <div><b></b></div>\n</a>\n<div class=\"chosen-drop\">\n  <div class=\"chosen-search\">\n    <input class=\"chosen-search-input\" type=\"text\" autocomplete=\"off\" />\n  </div>\n  <ul class=\"chosen-results\"></ul>\n</div>";
+      return "<a class=\"chosen-single chosen-default\">\n  <span>" + this.default_text + "</span>\n  <div><b></b></div>\n</a>\n<div class=\"chosen-drop\">\n  <div class=\"chosen-search\">\n    <input class=\"chosen-search-input\" type=\"text\" autocomplete=\"off\" />\n  </div>\n  <ul class=\"chosen-results\"></ul>\n</div>";
     };
 
     AbstractChosen.prototype.get_multi_html = function() {
@@ -669,8 +669,7 @@
       }
       this.form_field_jq.hide().after(this.container);
       this.dropdown = this.container.find('div.chosen-drop').first();
-      this.search_field = this.container.find('input.chosen-search-input');
-      this.focus_field = this.container.find('input.chosen-focus-input');
+      this.search_field = this.container.find('input').first();
       this.search_results = this.container.find('ul.chosen-results').first();
       this.search_field_scale();
       this.search_no_results = this.container.find('li.no-results').first();
@@ -693,7 +692,6 @@
     };
 
     Chosen.prototype.register_observers = function() {
-      var transfer_value;
       this.container.on('touchstart.chosen', (function(_this) {
         return function(evt) {
           _this.container_mousedown(evt);
@@ -816,49 +814,9 @@
           };
         })(this));
       } else {
-        this.container.on('click.chosen', function(evt) {
+        return this.container.on('click.chosen', function(evt) {
           evt.preventDefault();
         });
-        this.focus_field.on('blur.chosen', (function(_this) {
-          return function(evt) {
-            _this.input_blur(evt);
-          };
-        })(this));
-        this.focus_field.on('focus.chosen', (function(_this) {
-          return function(evt) {
-            _this.input_focus(evt);
-          };
-        })(this));
-        transfer_value = (function(_this) {
-          return function() {
-            _this.search_field.val(_this.focus_field.val());
-            return _this.focus_field.val('');
-          };
-        })(this);
-        this.focus_field.on('keyup.chosen', (function(_this) {
-          return function(evt) {
-            transfer_value();
-            _this.keyup_checker(evt);
-          };
-        })(this));
-        this.focus_field.on('keydown.chosen', (function(_this) {
-          return function(evt) {
-            transfer_value();
-            _this.keydown_checker(evt);
-          };
-        })(this));
-        this.focus_field.on('cut.chosen', (function(_this) {
-          return function(evt) {
-            setTimeout(transfer_value, 0);
-            _this.clipboard_event_checker(evt);
-          };
-        })(this));
-        return this.focus_field.on('paste.chosen', (function(_this) {
-          return function(evt) {
-            setTimeout(transfer_value, 0);
-            _this.clipboard_event_checker(evt);
-          };
-        })(this));
       }
     };
 
@@ -955,6 +913,7 @@
       }
       this.container.addClass("chosen-container-active");
       this.active_field = true;
+      this.search_field.val(this.search_field.val());
       return this.search_field.focus();
     };
 
@@ -978,11 +937,9 @@
         this.single_set_selected_text();
         if (this.disable_search || this.form_field.options.length <= this.disable_search_threshold) {
           this.search_field[0].readOnly = true;
-          this.focus_field[0].readOnly = true;
           this.container.addClass("chosen-container-single-nosearch");
         } else {
           this.search_field[0].readOnly = false;
-          this.focus_field[0].readOnly = false;
           this.container.removeClass("chosen-container-single-nosearch");
         }
       }
@@ -1045,11 +1002,6 @@
     Chosen.prototype.results_hide = function() {
       if (this.results_showing) {
         this.result_clear_highlight();
-        setTimeout(((function(_this) {
-          return function() {
-            return _this.focus_field.focus();
-          };
-        })(this)), 0);
         this.container.removeClass("chosen-with-drop");
         this.form_field_jq.trigger("chosen:hiding_dropdown", {
           chosen: this
@@ -1059,12 +1011,11 @@
     };
 
     Chosen.prototype.set_tab_index = function(el) {
-      var ref, ti;
+      var ti;
       if (this.form_field.tabIndex) {
         ti = this.form_field.tabIndex;
         this.form_field.tabIndex = -1;
-        this.search_field[0].tabIndex = ti;
-        return (ref = this.focus_field[0]) != null ? ref.tabIndex = ti : void 0;
+        return this.search_field[0].tabIndex = ti;
       }
     };
 

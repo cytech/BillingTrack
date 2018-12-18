@@ -4,18 +4,18 @@
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     @include('layouts._alerts')
 
-    <div class="container-fluid mt-2">
+    <section class="content-header">
         {!! Form::model($categories, array('route' => array('scheduler.categories.update', $categories->id),
                                'id'=>'categories_form','action'=>'#','method' => 'PUT', 'class'=>'form-horizontal')) !!}
         <div class="card card-light">
             <div class="card-header">
-                <h3 class="card-title">@lang('fi.edit_category')
-                    <div style="text-align:center" class="buttons">
-                        <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i
-                                    class="fa fa-ban"></i> @lang('fi.cancel') </a>
-                        <button type="submit" class="btn btn-primary float-right"><i
-                                    class="fa fa-save"></i> @lang('fi.update')</button>
-                    </div>
+                <h3 class="card-title"><i
+                            class="fa fa-edit fa-fw"></i>
+                    @lang('fi.edit_category')
+                    <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i
+                                class="fa fa-ban"></i> @lang('fi.cancel') </a>
+                    <button type="submit" class="btn btn-primary float-right"><i
+                                class="fa fa-save"></i> @lang('fi.update')</button>
                 </h3>
             </div>
             <div class="card-body">
@@ -52,16 +52,16 @@
             </div>
         </div>
 
-    </div>
+    </section>
     {!! Form::close() !!}
 
     <script>
         $('#cp1').colorpicker({format: 'hex'});
-        $('#cp1').on('colorpickerChange', function(event) {
+        $('#cp1').on('colorpickerChange', function (event) {
             $('.cp1icon').css('color', event.color.toString());
         });
         $('#cp2').colorpicker({format: 'hex'});
-        $('#cp2').on('colorpickerChange', function(event) {
+        $('#cp2').on('colorpickerChange', function (event) {
             $('.cp2icon').css('color', event.color.toString());
         });
     </script>

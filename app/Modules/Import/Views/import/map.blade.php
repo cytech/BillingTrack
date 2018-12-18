@@ -4,7 +4,7 @@
 
     {!! Form::open(['route' => ['import.map.submit', $importType], 'class' => 'form-horizontal']) !!}
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.map_fields_to_import')
         </h3>

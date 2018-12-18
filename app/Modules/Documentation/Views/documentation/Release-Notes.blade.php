@@ -7,6 +7,13 @@
         <h2>Release Notes</h2>
 
         <hr>
+        <h3>FusionInvoiceFOSS 4.1.3 (Jan 1, 2019)</h3>
+        <ul>
+            <li>- "fixed" top navbar</li>
+            <li>- added global "back to top" of page</li>
+        </ul>
+
+        <hr>
         <h3>FusionInvoiceFOSS 4.1.2 (Dec 17, 2018)</h3>
         <ul>
             <li>- disable scroll in datetimepicker inputs</li>

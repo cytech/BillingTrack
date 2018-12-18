@@ -14,7 +14,7 @@
         {!! Form::open(['route' => 'groups.store']) !!}
     @endif
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.group_form')
         </h3>

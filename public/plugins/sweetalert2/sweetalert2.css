@@ -788,6 +788,7 @@ body.swal2-no-backdrop .swal2-shown {
     transition: color 0.1s ease-out;
     border: none;
     border-radius: 0;
+    outline: initial;
     background: transparent;
     color: #cccccc;
     font-family: serif;
@@ -1106,7 +1107,7 @@ body.swal2-no-backdrop .swal2-shown {
     -webkit-animation: none;
             animation: none; }
 
-[dir='rtl'] .swal2-close {
+.swal2-rtl .swal2-close {
   right: auto;
   left: 0; }
 

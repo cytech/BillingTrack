@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="content p-3">
+    <section class="content-header">
         <h1 class="float-left">
             @lang('fi.currencies')
         </h1>

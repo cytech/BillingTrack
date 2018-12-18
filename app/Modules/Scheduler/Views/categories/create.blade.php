@@ -4,7 +4,7 @@
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     @include('layouts._alerts')
     <!--basic form starts-->
-    <div class="container-fluid mt-2">
+    <section class="content-header">
         {!! Form::open(['route' => 'scheduler.categories.store', 'class'=>'form-horizontal']) !!}
 
         <div class="card card-light">
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-    </div>
+    </section>
     {!! Form::close() !!}
     <script>
         $('#cp1').colorpicker({color: '#ffffff', format: 'hex'});

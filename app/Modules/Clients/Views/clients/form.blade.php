@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section class="content mt-3 mb-3">
+    <section class="content-header">
         @if ($editMode)
             {!! Form::model($client, ['route' => ['clients.update', $client->id]]) !!}
         @else

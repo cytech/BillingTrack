@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <section class="content mt-3 mb-3">
+    <section class="content-header">
         <h3 class="float-left">@lang('fi.quotes')</h3>
         <div class="float-right">
             <div class="btn-group bulk-actions">

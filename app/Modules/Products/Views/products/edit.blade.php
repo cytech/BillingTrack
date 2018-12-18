@@ -4,13 +4,14 @@
     <!--basic form starts-->
     {{--{!! Form::wobreadcrumbs() !!}--}}
     @include('layouts._alerts')
-    <div class="container-fluid mt-2">
+    <section class="content-header">
         {!! Form::model($products, array('route' => array('products.update', $products->id),
                                                        'id'=>'products_form','action'=>'#','method' => 'PUT', 'class'=>'form-horizontal')) !!}
 
         <div class="card card-light">
             <div class="card-header">
-                <h3 class="card-title">
+                <h3 class="card-title"><i
+                            class="fa fa-edit fa-fw"></i>
                     @lang('fi.edit_product')
                     <a class="btn btn-warning float-right" href={!! route('products.index')  !!}><i
                                 class="fa fa-ban"></i> @lang('fi.cancel')</a>
@@ -88,5 +89,5 @@
             </div>
         </div>
         {!! Form::close() !!}
-    </div>
+    </section>
 @stop

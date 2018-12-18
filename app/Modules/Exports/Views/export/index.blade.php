@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3>@lang('fi.export_data')</h3>
     </section>
 

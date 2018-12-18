@@ -4,12 +4,13 @@
     <!--basic form starts-->
     {{--{!! Form::wobreadcrumbs() !!}--}}
     @include('layouts._alerts')
-    <div class="container-fluid mt-2">
+    <section class="content-header">
         {!! Form::open(['route' => 'employees.store', 'class'=>'form-horizontal']) !!}
 
         <div class="card card-light">
             <div class="card-header">
-                <h3 class="card-title">
+                <h3 class="card-title"><i
+                            class="fa fa-edit fa-fw"></i>
                     @lang('fi.create_employee')
                     <a class="btn btn-warning float-right" href={!! route('employees.index')  !!}><i
                                 class="fa fa-ban"></i> @lang('fi.cancel')</a>
@@ -96,5 +97,5 @@
         </div>
 
         {!! Form::close() !!}
-    </div>
+    </section>
 @stop

@@ -54,7 +54,7 @@
 
 @section('content')
 
-    <section class="content p-3">
+    <section class="content-header">
         {!! Form::open(['route' => 'settings.update', 'files' => true, 'id' => 'form-settings']) !!}
 
         <h3 class="float-left">

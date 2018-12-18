@@ -14,7 +14,7 @@
         {!! Form::open(['route' => 'paymentMethods.store']) !!}
     @endif
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.payment_method_form')
         </h3>

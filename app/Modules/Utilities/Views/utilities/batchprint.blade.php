@@ -7,7 +7,7 @@
 @section('content')
     @include('layouts._alerts')
 
-    <section class="content mt-3 mb-3">
+    <section class="content-header">
         {!! Form::open(['route' => 'utilities.batchprint', 'class'=>'form-horizontal']) !!}
         <div class="card card-light">
             <div class="card-header">

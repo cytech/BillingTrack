@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="container-fluid p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.manage_trash')
         </h3>

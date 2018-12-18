@@ -4,7 +4,7 @@
 @section('content')
     @include('layouts._alerts')
     {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
-    <div class="row">
+    <section class="content-header">
 
         <div class="container-fluid m-2">
             {!! Form::model($schedule,['route' => ['scheduler.updaterecurringevent', $schedule->id],'id' => 'recurringevent', 'accept-charset' => 'utf-8']) !!}
@@ -97,7 +97,7 @@
             @include('partials._reminderdiv')
         </div>
 
-    </div>
+    </section>
 @stop
 @section('javascript')
     @include('partials._js_datetimepicker')

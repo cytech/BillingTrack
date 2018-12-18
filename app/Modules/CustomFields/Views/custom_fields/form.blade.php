@@ -14,7 +14,7 @@
         {!! Form::open(['route' => 'customFields.store']) !!}
     @endif
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.custom_field_form')
         </h3>

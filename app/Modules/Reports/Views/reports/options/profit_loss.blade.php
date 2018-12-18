@@ -40,7 +40,7 @@
 
 @section('content')
 
-    <section class="container-fluid m-2">
+    <section class="content-header">
         <h1 class="float-left">@lang('fi.profit_and_loss')</h1>
 
         <div class="float-right">

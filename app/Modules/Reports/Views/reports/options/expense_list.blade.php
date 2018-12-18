@@ -41,7 +41,7 @@
 
 @section('content')
 
-    <section class="container-fluid m-2">
+    <section class="content-header">
         <h3 class="float-left">@lang('fi.expense_list')</h3>
 
         <div class="float-right">

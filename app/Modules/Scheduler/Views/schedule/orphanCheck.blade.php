@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <section class="container-fluid">
+    <section class="content-header">
         <div>
         <h3 class="float-left">@lang('fi.orphan_check')</h3>
         </div>

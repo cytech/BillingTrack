@@ -36,7 +36,7 @@
 
 @section('content')
 
-    <section class="content mt-3 mb-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.time_tracking')
             <small>@lang('fi.projects')</small>

@@ -8,7 +8,7 @@
 
 @section('content')
 @include('layouts._alerts')
-    <div class="container col-lg-12 mt-2">
+    <section class="content-header">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card card-light">
@@ -110,7 +110,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @stop
 
 

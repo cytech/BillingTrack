@@ -40,7 +40,7 @@
 
 @section('content')
 
-    <section class="container-fluid m-2">
+    <section class="content-header">
         <h1 class="float-left">@lang('fi.payments_collected')</h1>
 
         <div class="float-right">

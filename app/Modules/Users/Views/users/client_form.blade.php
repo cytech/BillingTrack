@@ -23,9 +23,9 @@
         {!! Form::open(['route' => ['users.store', 'client']]) !!}
     @endif
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.client') . ' ' . trans('fi.user_form')
+            @lang('fi.client') @lang('fi.user_form')
         </h3>
         <a class="btn btn-warning float-right" href={!! route('users.index')  !!}><i
                     class="fa fa-ban"></i> @lang('fi.cancel')</a>

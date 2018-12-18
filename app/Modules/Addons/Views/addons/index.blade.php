@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="container-fluid p-3">
+    <section class="content-header">
         <h3>@lang('fi.addons')</h3>
         <div class="clearfix"></div>
     </section>

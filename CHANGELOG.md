@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.1.3
+- "fixed" top navbar
+- added global "back to top" of page
+- update resources
+- update to mix 4
+
 ## 4.1.2
 - disable scroll in datetimepicker inputs
 

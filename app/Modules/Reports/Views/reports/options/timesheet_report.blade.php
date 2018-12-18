@@ -45,7 +45,7 @@
 @section('content')
     @include('layouts._alerts')
 
-    <section class="container-fluid m-2">
+    <section class="content-header">
         {{--{!! Form::wobreadcrumbs() !!}--}}
         <h3 class="float-left">@lang('fi.timesheet')</h3>
 

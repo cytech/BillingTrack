@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-{{ $headClass }} bg-{{ $headBackground }} border-bottom">
+<nav class="main-header navbar fixed-top navbar-expand navbar-{{ $headClass }} bg-{{ $headBackground }} border-bottom">
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"

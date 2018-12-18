@@ -14,7 +14,7 @@
         {!! Form::open(['route' => 'taxRates.store']) !!}
     @endif
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.tax_rate_form')
         </h3>

@@ -4,7 +4,7 @@
 
     {!! Form::open(['route' => 'import.upload', 'files' => true]) !!}
 
-    <section class="content p-3">
+    <section class="content-header">
         <h3 class="float-left">
             @lang('fi.import_data')
         </h3>

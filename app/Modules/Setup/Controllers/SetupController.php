@@ -345,7 +345,7 @@ class SetupController extends Controller
         Setting::saveByKey('enabledModules', '63');
         Setting::saveByKey('skin','{"headBackground":"purple","headClass":"dark","sidebarBackground":"white","sidebarClass":"light"}');
         Setting::saveByKey('convertWorkorderDate', 'jobdate');
-        Setting::saveByKey('version', '4.1.1');
+        Setting::saveByKey('version', '4.1.3');
 
         config(['database.connections.'.$oldschema => null]);
 

@@ -20,7 +20,7 @@
 @stop
 
 @section('content')
-    <section class="content mt-3 mb-3">
+    <section class="content-header">
         <h3 class="float-left">@lang('fi.clients')</h3>
         <div class="float-right">
             <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i
