@@ -129,13 +129,18 @@
 
         <h4>Payments</h4>
 
-        <p>Required columns: date, invoice_number, amount, payment_method</p>
+        <p>Required columns: client_id, date, invoice_number, amount, payment_method</p>
 
         <p>Optional columns: note</p>
 
         <p>Notes</p>
 
         <ul>
+            <li>
+                The value in the client_id column must match an existing client already in the system. If it does
+                not,
+                the record will not be imported.
+            </li>
             <li>
                 The value in the invoice_number column must match an existing invoice already in the system. If it does
                 not,

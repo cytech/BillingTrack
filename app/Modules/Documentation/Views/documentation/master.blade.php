@@ -25,9 +25,11 @@
         <div class="col-lg-3">
             <div class="bs-sidebar">
                 <h4>Versions</h4>
-                <p style="padding-left: 15px; font-size: 1em;"><a href="#">FusionInvoiceFOSS v4.1.x</a>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements">FusionInvoiceFOSS v5.0.x</a>
                 </p>
-                <p style="padding-left: 15px; font-size: 1em;"><a href="#">FusionInvoiceFOSS v4.0.x</a></p>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements4">FusionInvoiceFOSS v4.1.x</a>
+                </p>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements4">FusionInvoiceFOSS v4.0.x</a></p>
                 <h4>About FusionInvoiceFOSS</h4>
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">

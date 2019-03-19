@@ -43,6 +43,7 @@ class Mollie extends MerchantDriverPayable
         if ($payment->isPaid())
         {
             $fiPayment = Payment::create([
+                'client_id'         => $invoice->client->id,
                 'invoice_id'        => $invoice->id,
                 'amount'            => $payment->amount,
                 'payment_method_id' => config('fi.onlinePaymentMethod'),

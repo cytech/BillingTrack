@@ -23,6 +23,6 @@ class Payments implements SourceInterface
             ->leftJoin('payment_methods', 'payment_methods.id', '=', 'payment_method_id')
             ->orderBy('invoices.number');
 
-        return $payment->get()->toArray();
+        return $payment->get()->makeHidden(['formatted_paid_at','formatted_amount'])->toArray();
     }
 }

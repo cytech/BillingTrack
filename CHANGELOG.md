@@ -4,9 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 4.1.3
+## 5.0.0
+- PHP requirement >=7.2 
+## 4.1.3 bump to 5.0.0
+- update to Laravel 5.8.*
+- update to sweetalert2 v8
+- fixed errors when saving online payments
+- fix filter in OrphanCheck
+- fix error in recurr Show Proposed recurrence
 - "fixed" top navbar
 - added global "back to top" of page
+- corrected numerous export errors
+- add client_id to payment importer
 - update resources
 - update to mix 4
 

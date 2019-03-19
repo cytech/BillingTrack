@@ -34,7 +34,7 @@
             });
 
             $(document).on('click', '.btn-delete-task', function () {
-                Swal({
+                Swal.fire({
                     title: '@lang('fi.confirm_trash_task')',
                     type: 'warning',
                     showCancelButton: true,
@@ -55,7 +55,7 @@
                     ids.push($(this).data('task-id'));
                 });
                 if (ids.length > 0) {
-                    Swal({
+                    Swal.fire({
                         title: '@lang('fi.confirm_trash_task')',
                         type: 'warning',
                         showCancelButton: true,

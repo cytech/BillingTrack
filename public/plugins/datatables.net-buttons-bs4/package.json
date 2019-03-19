@@ -1,29 +1,27 @@
 {
-  "_from": "datatables.net-buttons-bs4@^1.5.4",
-  "_id": "datatables.net-buttons-bs4@1.5.4",
+  "_from": "datatables.net-buttons-bs4@1.5.6",
+  "_id": "datatables.net-buttons-bs4@1.5.6",
   "_inBundle": false,
-  "_integrity": "sha512-guPOv3boxG9pBuz1cmoWCJcPbrUDjbgaXpG+CJ2Fqto2r5EFZHob1/xb+OteKuI7HLWhO2Iswvf52hiMTpd26A==",
+  "_integrity": "sha512-fzVedjWO/DXe6eEPKuL3FiYdmTwdTb7017QdRX5T3cnYe/1fgyJHrFmsx1/yL1KTvAudoWRZl+AbiSNI58ZxLQ==",
   "_location": "/datatables.net-buttons-bs4",
-  "_phantomChildren": {
-    "datatables.net": "1.10.19",
-    "jquery": "3.3.1"
-  },
+  "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "datatables.net-buttons-bs4@^1.5.4",
+    "raw": "datatables.net-buttons-bs4@1.5.6",
     "name": "datatables.net-buttons-bs4",
     "escapedName": "datatables.net-buttons-bs4",
-    "rawSpec": "^1.5.4",
+    "rawSpec": "1.5.6",
     "saveSpec": null,
-    "fetchSpec": "^1.5.4"
+    "fetchSpec": "1.5.6"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-buttons-bs4/-/datatables.net-buttons-bs4-1.5.4.tgz",
-  "_shasum": "d03baa5459b6e13a10752b88e1f82ea3b7819c1d",
-  "_spec": "datatables.net-buttons-bs4@^1.5.4",
+  "_resolved": "https://registry.npmjs.org/datatables.net-buttons-bs4/-/datatables.net-buttons-bs4-1.5.6.tgz",
+  "_shasum": "fb16e2d0eeb4169b38f3e237ba78d45f2ec9e503",
+  "_spec": "datatables.net-buttons-bs4@1.5.6",
   "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
   "author": {
     "name": "SpryMedia Ltd",
@@ -35,7 +33,7 @@
   "bundleDependencies": false,
   "dependencies": {
     "datatables.net-bs4": "^1.10.15",
-    "datatables.net-buttons": "1.5.4",
+    "datatables.net-buttons": "1.5.6",
     "jquery": ">=1.7"
   },
   "deprecated": false,
@@ -61,5 +59,5 @@
   "main": "js/buttons.bootstrap4.js",
   "name": "datatables.net-buttons-bs4",
   "style": "css/buttons.bootstrap4.css",
-  "version": "1.5.4"
+  "version": "1.5.6"
 }

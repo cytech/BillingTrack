@@ -104,6 +104,7 @@ class PayPal extends MerchantDriverPayable
             foreach ($payment->getTransactions() as $transaction)
             {
                 $fiPayment = FIPayment::create([
+                    'client_id'         => $invoice->client->id,
                     'invoice_id'        => $invoice->id,
                     'amount'            => $transaction->getAmount()->getTotal(),
                     'payment_method_id' => config('fi.onlinePaymentMethod'),

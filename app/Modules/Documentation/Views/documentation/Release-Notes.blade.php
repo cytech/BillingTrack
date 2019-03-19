@@ -7,10 +7,20 @@
         <h2>Release Notes</h2>
 
         <hr>
-        <h3>FusionInvoiceFOSS 4.1.3 (Jan 1, 2019)</h3>
+        <h3>FusionInvoiceFOSS 5.0.0 (Mar 19, 2019)</h3>
         <ul>
+            <li>- PHP requirement >=7.2</li>
+            <li>- update to Laravel 5.8.*</li>
+            <li>- update to sweetalert2 v8</li>
+            <li>- fixed errors when saving online payments</li>
+            <li>- fix filter in OrphanCheck</li>
+            <li>- fix error in recurr Show Proposed recurrence</li>
             <li>- "fixed" top navbar</li>
             <li>- added global "back to top" of page</li>
+            <li>- corrected numerous export errors</li>
+            <li>- add client_id to payment importer</li>
+            <li>- update resources</li>
+            <li>- update to mix 4</li>
         </ul>
 
         <hr>

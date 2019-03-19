@@ -11,8 +11,9 @@
 
 namespace FI\Modules\Exports\Support;
 
-use Exporter\Handler;
-use Exporter\Source\ArraySourceIterator;
+use Sonata\Exporter\Handler;
+use Sonata\Exporter\Source\ArraySourceIterator;
+
 
 class Export
 {
@@ -34,7 +35,7 @@ class Export
     public function writeFile()
     {
         $resultsClass = 'FI\Modules\Exports\Support\Results\\' . $this->exportType;
-        $writerClass  = 'Exporter\Writer\\' . $this->writerType;
+        $writerClass  = 'Sonata\Exporter\Writer\\' . $this->writerType;
 
         $fileExtension  = strtolower(str_replace('Writer', '', $this->writerType));
         $this->fileName = $this->exportType . 'Export.' . $fileExtension;

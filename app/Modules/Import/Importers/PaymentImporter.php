@@ -21,6 +21,7 @@ class PaymentImporter extends AbstractImporter
     public function getFields()
     {
         return [
+            'client_id'         => '* ' . trans('fi.client_id'),
             'paid_at'           => '* ' . trans('fi.date'),
             'invoice_id'        => '* ' . trans('fi.invoice_number'),
             'amount'            => '* ' . trans('fi.amount'),
@@ -32,6 +33,7 @@ class PaymentImporter extends AbstractImporter
     public function getMapRules()
     {
         return [
+            'client_id'         => 'required',
             'paid_at'           => 'required',
             'invoice_id'        => 'required',
             'amount'            => 'required',
@@ -42,6 +44,7 @@ class PaymentImporter extends AbstractImporter
     public function getValidator($input)
     {
         return Validator::make($input, [
+            'client_id'         => 'required',
             'paid_at'           => 'required',
             'invoice_id'        => 'required',
             'amount'            => 'required|numeric',

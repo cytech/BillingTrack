@@ -10,7 +10,7 @@
 
         $('.btn-delete-contact').click(function() {
 
-            Swal({
+            Swal.fire({
                 title: '@lang('fi.trash_record_warning')',
                 type: 'warning',
                 showCancelButton: true,

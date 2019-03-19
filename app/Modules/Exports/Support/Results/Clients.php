@@ -19,6 +19,6 @@ class Clients implements SourceInterface
     {
         $client = Client::orderBy('name');
 
-        return $client->get()->toArray();
+        return $client->get()->makeHidden('formatted_balance')->toArray();
     }
 }

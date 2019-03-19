@@ -83,8 +83,11 @@ class Schedule extends Model {
     }
 
     public function getRuleStartAttribute(){
-        $rule     = Rule::createFromString( $this->rrule);
-        return $rule->getStartDate()->format( 'Y-m-d H:i' );
+        if ($this->rrule) {
+            $rule = Rule::createFromString($this->rrule);
+            return $rule->getStartDate()->format('Y-m-d H:i');
+        }
+        return;
     }
 
     //below for form model binding

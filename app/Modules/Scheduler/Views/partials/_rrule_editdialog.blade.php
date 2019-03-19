@@ -213,7 +213,7 @@
                 cache: false,
                 success: function (data) {
                     if (data.type === 'success') {
-                        Swal({
+                        Swal.fire({
                             title: 'Proposed Occurrence',
                             text: 'Frequency to text is  ' + data.result,
                             type: 'info',

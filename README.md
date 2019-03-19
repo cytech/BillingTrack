@@ -1,6 +1,9 @@
 # FusionInvoice-FOSS
 _(FusionInvoice 2018-8 after it was open sourced)_
 
+**NOTE**
+**Minimum PHP requirement for v5.X.X is >=7.2**
+
 FusionInvoiceFOSS is a self hosted invoicing system for freelancers and small businesses.
 
 Host on your own server.

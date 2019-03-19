@@ -3,7 +3,7 @@
 use FI\Modules\Settings\Models\Setting;
 use Illuminate\Database\Migrations\Migration;
 
-class Version412 extends Migration
+class Version500 extends Migration
 {
 
     /**
@@ -17,7 +17,7 @@ class Version412 extends Migration
         deleteTempFiles();
         deleteViewCache();
 
-        Setting::saveByKey('version', '4.1.3');
+        Setting::saveByKey('version', '5.0.0');
 
     }
 

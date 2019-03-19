@@ -57,6 +57,7 @@ class Stripe extends MerchantDriver
             ]);
 
             $payment = Payment::create([
+                'client_id'         => $invoice->client->id,
                 'invoice_id'        => $invoice->id,
                 'amount'            => $charge->amount / 100,
                 'payment_method_id' => config('fi.onlinePaymentMethod'),

@@ -16,7 +16,7 @@
             stimer = 2000;
         }
 
-        Swal({
+        Swal.fire({
             title: message,
             type: type,
             showConfirmButton: sbutton,
@@ -25,7 +25,7 @@
     }
 
     function swalConfirm(message, link) {
-        swal({
+        Swal.fire({
             title: message,
             type: "warning",
             showCancelButton: true,
@@ -42,7 +42,7 @@
 
     function deleteConfirm(message, route, id, totalsRoute, entityID) {
 
-        Swal({
+        Swal.fire({
             title: message,
             type: 'warning',
             showCancelButton: true,
@@ -90,7 +90,7 @@
 
     function bulkConfirm(message, route, ids, status) {
 
-        Swal({
+        Swal.fire({
             title: message,
             type: 'warning',
             showCancelButton: true,

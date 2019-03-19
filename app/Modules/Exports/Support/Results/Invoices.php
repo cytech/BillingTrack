@@ -35,6 +35,6 @@ class Invoices implements SourceInterface
             ->join('company_profiles', 'company_profiles.id', '=', 'invoices.company_profile_id')
             ->orderBy('number');
 
-        return $invoice->get()->toArray();
+        return $invoice->get()->makeHidden(['formatted_invoice_date', 'formatted_due_at', 'formatted_summary'])->toArray();
     }
 }

@@ -28,6 +28,7 @@ class Expenses implements SourceInterface
             ->join('company_profiles', 'company_profiles.id', '=', 'expenses.company_profile_id')
             ->orderBy('invoices.number')
             ->get()
+            ->makeHidden(['formatted_description', 'formatted_expense_date', 'formatted_amount', 'is_billable', 'has_been_billed'])
             ->toArray();
     }
 }

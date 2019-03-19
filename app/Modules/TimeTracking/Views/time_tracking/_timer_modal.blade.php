@@ -21,7 +21,7 @@
         });
 
         $('#task-timer-list').on('click', '.btn-delete-timer', function () {
-            Swal({
+            Swal.fire({
                 title: '@lang('fi.trash_record_warning')',
                 type: 'warning',
                 showCancelButton: true,

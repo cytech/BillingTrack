@@ -18,7 +18,7 @@
 
     <ul>
         <li>A web server of some sort - Apache, nginx, etc.</li>
-        <li>PHP >= 7.2</li>
+        <li>PHP >= 7.1.3</li>
         <li>OpenSSL PHP Extension</li>
         <li>PDO PHP Extension</li>
         <li>Mbstring PHP Extension</li>

@@ -499,6 +499,12 @@ class SchedulerController extends Controller
 		//get human readable rule from dialog
 		//generate rrule
 		$allfields = $request->all();
+        $allfields['DTSTART'] = $allfields['start_date'];
+        $allfields['DTEND']   = $allfields['end_date'];
+        unset( $allfields['start_date'] );
+        unset( $allfields['end_date'] );
+//        isset($allfields['byday']) ? $allfields['byday'] = implode(',',$allfields['byday']) : null;
+//        isset($allfields['bymonth']) ? $allfields['bymonth'] = implode(',',$allfields['bymonth']) : null;
 		$allfields = array_change_key_case( $allfields, CASE_UPPER );
 		//clear all empty
 		$allfields = array_filter( $allfields );
@@ -520,7 +526,7 @@ class SchedulerController extends Controller
         $today = new Carbon();
         $employees = Employee::where('schedule', 1)->where('active', 1)->get(['id']);
         $empresources = WorkorderItem::whereHas('workorder', function ($q) use ($today) {
-            $q->whereDate('job_date', '>=', $today->subDay(1));
+            $q->whereDate('job_date', '>=', $today->subDay(1))->where('workorder_status_id', 3)->where('invoice_id', 0);
         })->with('workorder')->where('resource_table', 'employees')->whereNotIn('resource_id', $employees)->get();
 
         return view('schedule.orphanCheck')->with('empresources', $empresources);

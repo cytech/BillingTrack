@@ -2,7 +2,7 @@
     $(function () {
         $('.btn-delete-attachment').click(function () {
 
-            Swal({
+            Swal.fire({
                 title: '@lang('fi.trash_record_warning')',
                 type: 'warning',
                 showCancelButton: true,

@@ -34,6 +34,6 @@ class Quotes implements SourceInterface
             ->join('company_profiles', 'company_profiles.id', '=', 'quotes.company_profile_id')
             ->orderBy('number');
 
-        return $quote->get()->toArray();
+        return $quote->get()->makeHidden(['formatted_quote_date', 'formatted_expires_at','status_text', 'formatted_summary'])->toArray();
     }
 }
