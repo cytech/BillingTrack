@@ -32,7 +32,7 @@ class SettingsTableSeeder extends Seeder
             ,(13,\'displayClientUniqueName\',\'0\',NULL,NULL,NULL)
             ,(14,\'displayProfileImage\',\'1\',NULL,NULL,NULL)
             ,(15,\'exchangeRateMode\',\'automatic\',NULL,NULL,NULL)
-            ,(16,\'headerTitleText\',\'FusionInvoiceFOSS\',NULL,NULL,NULL)
+            ,(16,\'headerTitleText\',\'BillingTrack\',NULL,NULL,NULL)
             ,(17,\'invoiceEmailBody\',\'<p>To view your invoice from {{ $invoice->user->name }} for {{ $invoice->amount->formatted_total }}, click the link below:</p>\r\n\r\n<p><a href=\"{{ $invoice->public_url }}\">{{ $invoice->public_url }}</a></p>\',NULL,NULL,NULL)
             ,(18,\'invoiceEmailSubject\',\'Invoice #{{ $invoice->number }}\',NULL,NULL,NULL)
             ,(19,\'invoiceGroup\',\'1\',NULL,NULL,NULL)

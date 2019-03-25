@@ -12,9 +12,9 @@
         <p><a href="#troubleshooting-recurring-invoices">Why aren't my recurring invoices working?</a></p>
         <p><a href="#how-do-i-reset-my-password">I forgot my password - how can I reset it?</a></p>
         <p><a href="#dashboard-totals">Why do the totals on my dashboard all show zero?</a></p>
-        <p><a href="#supported-payment-gateways">Can FusionInvoiceFOSS work with XYZ payment gateway?</a></p>
+        <p><a href="#supported-payment-gateways">Can BillingTrack work with XYZ payment gateway?</a></p>
         <p><a href="#how-to-remove-index-php">How can I remove index.php from my URL?</a></p>
-        <p><a href="#how-to-force-https">How can I force my FusionInvoiceFOSS installation to be served over https?</a></p>
+        <p><a href="#how-to-force-https">How can I force my BillingTrack installation to be served over https?</a></p>
 
         <hr>
 
@@ -52,8 +52,8 @@
         <p>
             If the Next Date is today's date or prior to today's date but the recurring invoice hasn't been generated,
             then the
-            next step would be to visit http://YourFusionInvoiceURL/tasks/run (or
-            http://YourFusionInvoiceURL/index.php/tasks/run if
+            next step would be to visit http://YourBillingTrackURL/tasks/run (or
+            http://YourBillingTrackURL/index.php/tasks/run if
             you have to specify index.php in your URL).</p>
         <p>
             One of two things will happen when you visit this URL in your browser:
@@ -84,7 +84,7 @@
             <li>Upload the unzipped ResetPassword folder to the app/Modules folder on your server so that it becomes
                 app/Modules/ResetPassword.
             </li>
-            <li>Visit your FusionInvoiceURL/resetpassword to reset your password.</li>
+            <li>Visit your BillingTrackURL/resetpassword to reset your password.</li>
             <li>Once your password has been reset, <strong>delete the app/Modules/ResetPassword folder from your
                     server</strong>.
             </li>
@@ -103,19 +103,19 @@
         <hr>
 
         <span class="anchor" id="supported-payment-gateways"></span>
-        <h3>Can FusionInvoiceFOSS work with XYZ payment gateway?</h3>
+        <h3>Can BillingTrack work with XYZ payment gateway?</h3>
 
         <p>
-            FusionInvoiceFOSS uses the <a href="https://github.com/thephpleague/omnipay"
+            BillingTrack uses the <a href="https://github.com/thephpleague/omnipay"
                                       target="_blank">Omnipay</a> payment
             processing library which supports a large number of different
             <a href="https://github.com/thephpleague/omnipay#payment-gateways"
                target="_blank">payment gateways</a>. Even though
-            Omnipay supports a large number of gateways, FusionInvoiceFOSS implements support for those gateways upon
+            Omnipay supports a large number of gateways, BillingTrack implements support for those gateways upon
             popular
             request. If a gateway is on the list of Omnipay supported gateways that isn't yet implemented in
-            FusionInvoice,
-            please don't hesitate to ask! However, if Omnipay does not support a particular gateway, then FusionInvoice
+            BillingTrack,
+            please don't hesitate to ask! However, if Omnipay does not support a particular gateway, then BillingTrack
             will not
             support it either.
         </p>
@@ -129,9 +129,9 @@
 
         <ol>
             <li>
-                Verify that the .htaccess file distributed in the FusionInvoiceFOSS download file was actually uploaded to
+                Verify that the .htaccess file distributed in the BillingTrack download file was actually uploaded to
                 your
-                server. This file should exist in the root folder of your FusionInvoiceFOSS installation (in the same folder
+                server. This file should exist in the root folder of your BillingTrack installation (in the same folder
                 as the
                 index.php file). This file should work out of the box 99% of the time for Apache environments.
             </li>
@@ -148,7 +148,7 @@
 RewriteBase /</pre>
                 If RewriteBase / makes no difference, you can also try:
                 <pre>RewriteEngine On
-RewriteBase /TheNameOfYourFusionInvoiceFolder/</pre>
+RewriteBase /TheNameOfYourBillingTrackFolder/</pre>
             </li>
         </ol>
 
@@ -173,12 +173,12 @@ location / {
         <hr>
 
         <span class="anchor" id="how-to-force-https"></span>
-        <h3>How can I force my FusionInvoiceFOSS installation to be served over https?</h3>
+        <h3>How can I force my BillingTrack installation to be served over https?</h3>
 
         <p>
-            Version 2018-4 added an option to the General tab of System Settings which will force FusionInvoiceFOSS to be
+            Version 2018-4 added an option to the General tab of System Settings which will force BillingTrack to be
             served over https.
-            Prior to enabling this option, be sure your FusionInvoiceFOSS installation is functional via https. Failure to
+            Prior to enabling this option, be sure your BillingTrack installation is functional via https. Failure to
             do so may result in a
             non-functional (but fixable) installation.
         </p>
@@ -190,7 +190,7 @@ location / {
         </p>
 
         <p>If you're unable to access your installation after enabling the Force HTTPS option, run the following query
-            in your FusionInvoiceFOSS database to undo the change:</p>
+            in your BillingTrack database to undo the change:</p>
 
         <pre>
 update settings set setting_value = '0' where setting_key = 'forceHttps'

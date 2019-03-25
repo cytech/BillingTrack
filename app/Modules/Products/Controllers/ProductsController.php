@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of FusionInvoiceFOSS.
+ * This file is part of BillingTrack.
  *
  *
  * For the full copyright and license information, please view the LICENSE
@@ -25,7 +25,7 @@ class ProductController extends Controller
     public function index()
     {
 	    $products = Product::get();
-        
+
         return view('products.index')->with('products', $products);
     }
 
@@ -64,7 +64,7 @@ class ProductController extends Controller
             $this->forceLUTupdate($ret);
         }
 
-       
+
         return redirect()->route('products.index')->with('alertInfo', trans('fi.create_product_success'));
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of FusionInvoiceFOSS.
+ * This file is part of BillingTrack.
  *
  *
  * For the full copyright and license information, please view the LICENSE
@@ -25,7 +25,7 @@ class EmployeeController extends Controller
     public function index()
     {
 	    $employees = Employee::get();
-        
+
         return view('employees.index')->with('employees', $employees);
     }
 

@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     @include('layouts._alerts')
 
     <section class="content-header">

@@ -10,7 +10,7 @@
 
         <p><a href="#customizing-templates">How do I customize my invoice or quote templates?</a></p>
         <p><a href="#adding-custom-fields">How do I make custom fields appear on my invoices or quotes?</a></p>
-        <p><a href="#selling-custom-templates">Can I sell my custom templates to other FusionInvoiceFOSS users?</a></p>
+        <p><a href="#selling-custom-templates">Can I sell my custom templates to other BillingTrack users?</a></p>
         <p><a href="#changing-logo-display-size">How can I change the size of my logo on invoice and quote
                 templates?</a></p>
 
@@ -20,7 +20,7 @@
         <h3>How do I customize my invoice or quote templates?</h3>
 
         <p>
-            FusionInvoiceFOSS comes with a copy of the default template placed in the custom templates folder out of the
+            BillingTrack comes with a copy of the default template placed in the custom templates folder out of the
             box. This
             provides you with a convenient way to start customizing your invoice layout should you wish to. All custom
             templates
@@ -48,7 +48,7 @@
                 The custom folder is safe from being overwritten during updates as per the
                 <a href="Upgrade"> update documentation</a>.
             </li>
-            <li>FusionInvoiceFOSS uses Laravel's <a href="https://laravel.com/docs/5.1/blade"
+            <li>BillingTrack uses Laravel's <a href="https://laravel.com/docs/5.1/blade"
                                                 target="_blank">Blade templating
                     engine</a>.
             </li>

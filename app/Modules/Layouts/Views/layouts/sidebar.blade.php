@@ -1,8 +1,8 @@
 <aside class="main-sidebar sidebar-{{ $headClass }} elevation-2">
     <a href="/" class="brand-link bg-{{ $headBackground }} border-bottom">
-        <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+        <img src="/img/billingtrack_logo.svg" alt="BillingTrack Logo" class="brand-image img-circle elevation-3 img-sm"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">{{ config('app.name', 'FusionInvoiceFOSS') }}</span>
+        <span class="brand-text font-weight-light">{{ config('fi.headerTitleText', config('app.name','BillingTrack')) }}</span>
     </a>
 
     <div class="sidebar bg-{{ $sidebarBackground }}">

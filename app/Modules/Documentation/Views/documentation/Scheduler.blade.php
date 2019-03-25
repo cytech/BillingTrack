@@ -41,14 +41,14 @@
         <p>
             When enabled in settings, This will launch a dialog to populate for
             an automatic Workorder creation.  Customer will do a typeahead lookup
-            of the FusionInvoiceFOSS client database (same rules apply as workorder
-            creation in FusionInvoice). Only Available Employees and Resources
+            of the BillingTrack client database (same rules apply as workorder
+            creation in BillingTrack). Only Available Employees and Resources
             (un-scheduled) for the day are shown in the item selection. THIS ONLY
             TAKES INTO EFFECT SCHEDULED EMPLOYEES AND ITEMS FOR THE ENTIRE DAY.
             It does not look at time slots during the day. Resources are
             calculated against the number in inventory and the resources
             scheduled for the day. When all selections are made, select CREATE
-            WORKORDER and the information will be send to FusionInvoiceFOSS and
+            WORKORDER and the information will be send to BillingTrack and
             create an approved workorder containing all the information.
             Note: If a NEW client name is entered, you will be taken to the workorder
             after create to edit the client information.</p>

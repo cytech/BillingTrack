@@ -18,7 +18,7 @@
         <h3>What is the task scheduler?</h3>
 
         <p>The task scheduler is a crucial cron job responsible for all of the automatic processes from within
-            FusionInvoice.
+            BillingTrack.
             Some of these processes include:</p>
 
         <ul>
@@ -43,7 +43,7 @@
                 <code>crontab -e</code></li>
 
             <li>When in the crontab editor, enter the following command and save the file:<br>
-                <code>0 3 * * * curl http://YourFusionInvoiceURL/tasks/run >> /dev/null 2>&1</code>
+                <code>0 3 * * * curl http://YourBillingTrackURL/tasks/run >> /dev/null 2>&1</code>
         </ol>
 
         <p>

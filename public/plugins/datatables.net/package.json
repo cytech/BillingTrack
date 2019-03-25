@@ -18,13 +18,13 @@
   "_requiredBy": [
     "/",
     "/admin-lte",
-    "/datatables.net-buttons",
-    "/datatables.net-buttons-bs4/datatables.net-buttons"
+    "/datatables.net-bs4",
+    "/datatables.net-buttons"
   ],
   "_resolved": "https://registry.npmjs.org/datatables.net/-/datatables.net-1.10.19.tgz",
   "_shasum": "97a1ed41c85e62d61040603481b59790a172dd1f",
   "_spec": "datatables.net@^1.10.19",
-  "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
+  "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"

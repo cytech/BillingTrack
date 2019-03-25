@@ -9,7 +9,7 @@
     <hr>
 
     <p>
-        FusionInvoiceFOSS is web-based software, so to install and use it, you must have a server environment of
+        BillingTrack is web-based software, so to install and use it, you must have a server environment of
         some sort.
         Please review the minimum requirements below to determine whether or not you will be able to install and
         use the

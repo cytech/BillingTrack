@@ -63,7 +63,7 @@
             @lang('fi.select_workers_toworkorder')<br>
             <div id="ScrollCB1" style="height:200px;width:250px;overflow:auto">
                 <div id="wtable">
-                    {{--script to get selected worker checkboxes,format as uri, and open new fusioninvoice workorder--}}
+                    {{--script to get selected worker checkboxes,format as uri, and open new BillingTrack workorder--}}
                     <script>
                         wstr = '';
                         $('#create-workorder').on('click', '[id*=worker]', function () {

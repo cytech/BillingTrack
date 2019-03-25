@@ -19,15 +19,15 @@
 <body class="login-page">
         @if(!config('app.demo'))
             <div class="brand-link bg-purple ">
-                <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+                <img src="/img/billingtrack_logo.svg" alt="BillingTrack Logo" class="brand-image img-circle elevation-3 img-sm"
                      style="opacity: .8">
-                <span class="brand-text font-weight-light h2"> {{ config('app.name', 'FusionInvoiceFOSS') }}</span>
+                <span class="brand-text font-weight-light h2"> {{ config('fi.headerTitleText', config('app.name','BillingTrack')) }}</span>
             </div>
         @else
             <div class="brand-link bg-purple ">
-                <img src="/img/fi_logo2.png" alt="FusionInvoiceFOSS Logo" class="brand-image img-circle elevation-3 img-sm"
+                <img src="/img/billingtrack_logo.svg" alt="BillingTrack Logo" class="brand-image img-circle elevation-3 img-sm"
                      style="opacity: .8">
-                <span class="brand-text font-weight-light h2"> {{ config('app.name', 'FusionInvoiceFOSS') }} Live Demo</span>
+                <span class="brand-text font-weight-light h2"> {{ config('fi.headerTitleText', config('app.name','BillingTrack')) }} Live Demo</span>
             </div>
         @endif
 <div class="login-box">

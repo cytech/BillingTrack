@@ -20,7 +20,7 @@
         <h3>What are email templates?</h3>
 
         <p>
-            Email templates allow customization of email sent from FusionInvoice. The templates are located in System
+            Email templates allow customization of email sent from BillingTrack. The templates are located in System
             Settings
             on the Email tab and can contain HTML and a number of dynamic variables which will be replaced with the
             appropriate

@@ -555,6 +555,7 @@ body.swal2-no-backdrop .swal2-shown {
   right: auto;
   bottom: auto;
   left: auto;
+  max-width: calc(100% - 0.625em * 2);
   background-color: transparent; }
   body.swal2-no-backdrop .swal2-shown > .swal2-modal {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
@@ -606,7 +607,7 @@ body.swal2-no-backdrop .swal2-shown {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 0.625em;
   background-color: transparent;
   z-index: 1060;
   overflow-x: hidden;

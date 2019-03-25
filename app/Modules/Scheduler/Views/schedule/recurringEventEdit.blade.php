@@ -3,7 +3,6 @@
 
 @section('content')
     @include('layouts._alerts')
-    {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     <section class="content-header">
 
         <div class="container-fluid m-2">
@@ -88,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-            
+
         </div>
 
         {!! Form::close() !!}

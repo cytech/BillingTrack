@@ -4,7 +4,7 @@
 
     <div class="col-lg-9 documentation">
 
-        <h2>FusionInvoiceFOSS License Agreement</h2>
+        <h2>BillingTrack License Agreement</h2>
 
         <hr>
 

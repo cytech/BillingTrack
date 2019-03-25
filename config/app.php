@@ -3,7 +3,7 @@
 return [
 
     /**
-     * Replace ReplaceThisWithYourOwnLicenseKey below with your license key found in your FusionInvoice.com account panel.
+     * Replace ReplaceThisWithYourOwnLicenseKey below with your license key ("php artisan key:generate" ).
      */
     //moved to .env APP_KEY
     //'key' => 'ReplaceThisWithYourOwnLicenseKey',
@@ -11,7 +11,7 @@ return [
     'demo' => env('APP_DEMO', false),
 
     /**
-     * Values below here are not required to be changed to FusionInvoice to function.
+     * Values below here are not required to be changed for BillingTrack to function.
      */
 
     /*
@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'FusionInvoice'),
+    'name' => env('APP_NAME', 'BillingTrack'),
 
     /*
     |--------------------------------------------------------------------------

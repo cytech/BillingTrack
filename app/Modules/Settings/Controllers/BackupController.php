@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This file is part of FusionInvoiceFOSS.
+ * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -23,7 +23,7 @@ class BackupController extends Controller
         $dbname   = config('database.connections.' . $default . '.database');
         $username = config('database.connections.' . $default . '.username');
         $password = config('database.connections.' . $default . '.password');
-        $filename = storage_path('FusionInvoice_' . date('Y-m-d_H-i-s') . '.sql');
+        $filename = storage_path('BillingTrack_' . date('Y-m-d_H-i-s') . '.sql');
 
         $dump = new Mysqldump('mysql:host=' . $host . ';dbname=' . $dbname, $username, $password);
         $dump->start($filename);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of FusionInvoiceFOSS.
+ * This file is part of BillingTrack.
  *
  * 
  *

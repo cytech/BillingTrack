@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--@if(config('app.name') == 'FusionInvoice') {!! Form::breadcrumbs() !!} @endif--}}
     <section class="content-header">
         <h3 class="float-left">@lang('fi.recurring_events')</h3>
         <div class="float-right">

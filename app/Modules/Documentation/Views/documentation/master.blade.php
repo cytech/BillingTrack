@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>FusionInvoiceFOSS - Self hosted invoicing for freelancers and small businesses</title>
+    <title>BillingTrack - Self hosted invoicing for freelancers and small businesses</title>
     <link rel="stylesheet" href="/css/app.css">
     <script src="/js/app.js"></script>
 </head>
@@ -14,8 +14,9 @@
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand">
-                <img src="/img/fi_logo2.png" style="float: left; margin-top: -10px;">
-                <span style="padding-left: 10px;">FusionInvoiceFOSS Documentation</span>
+                <img src="/img/billingtrack_logo.svg" class="brand-image img-circle elevation-3 img-sm"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">BillingTrack Documentation</span>
             </a>
         </div>
     </div>
@@ -25,12 +26,12 @@
         <div class="col-lg-3">
             <div class="bs-sidebar">
                 <h4>Versions</h4>
-                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements">FusionInvoiceFOSS v5.0.x</a>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements">BillingTrack v5.0.x</a>
                 </p>
-                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements4">FusionInvoiceFOSS v4.1.x</a>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements4">BillingTrack v4.1.x</a>
                 </p>
-                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements4">FusionInvoiceFOSS v4.0.x</a></p>
-                <h4>About FusionInvoiceFOSS</h4>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements4">BillingTrack v4.0.x</a></p>
+                <h4>About BillingTrack</h4>
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <li class="nav-item"><a class="nav-link" href="Requirements">Requirements</a>

@@ -1,5 +1,5 @@
 /*!
-* sweetalert2 v8.5.0
+* sweetalert2 v8.6.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -899,9 +899,10 @@ var queue = function queue(steps) {
   var Swal = this;
   currentSteps = steps;
 
-  var resetQueue = function resetQueue() {
+  var resetAndResolve = function resetAndResolve(resolve, value) {
     currentSteps = [];
     document.body.removeAttribute('data-swal2-queue-step');
+    resolve(value);
   };
 
   var queueResult = [];
@@ -914,15 +915,13 @@ var queue = function queue(steps) {
             queueResult.push(result.value);
             step(i + 1, callback);
           } else {
-            resetQueue();
-            resolve({
+            resetAndResolve(resolve, {
               dismiss: result.dismiss
             });
           }
         });
       } else {
-        resetQueue();
-        resolve({
+        resetAndResolve(resolve, {
           value: queueResult
         });
       }
@@ -1481,27 +1480,14 @@ var triggerOnAfterClose = function triggerOnAfterClose(onAfterClose) {
   }
 };
 
-function enableButtons() {
-  var domCache = privateProps.domCache.get(this);
-  domCache.confirmButton.disabled = false;
-  domCache.cancelButton.disabled = false;
+function setButtonsDisabled(instance, buttons, disabled) {
+  var domCache = privateProps.domCache.get(instance);
+  buttons.forEach(function (button) {
+    domCache[button].disabled = disabled;
+  });
 }
-function disableButtons() {
-  var domCache = privateProps.domCache.get(this);
-  domCache.confirmButton.disabled = true;
-  domCache.cancelButton.disabled = true;
-}
-function enableConfirmButton() {
-  var domCache = privateProps.domCache.get(this);
-  domCache.confirmButton.disabled = false;
-}
-function disableConfirmButton() {
-  var domCache = privateProps.domCache.get(this);
-  domCache.confirmButton.disabled = true;
-}
-function enableInput() {
-  var input = this.getInput();
 
+function setInputDisabled(input, disabled) {
   if (!input) {
     return false;
   }
@@ -1511,29 +1497,30 @@ function enableInput() {
     var radios = radiosContainer.querySelectorAll('input');
 
     for (var i = 0; i < radios.length; i++) {
-      radios[i].disabled = false;
+      radios[i].disabled = disabled;
     }
   } else {
-    input.disabled = false;
+    input.disabled = disabled;
   }
 }
+
+function enableButtons() {
+  setButtonsDisabled(this, ['confirmButton', 'cancelButton'], false);
+}
+function disableButtons() {
+  setButtonsDisabled(this, ['confirmButton', 'cancelButton'], true);
+}
+function enableConfirmButton() {
+  setButtonsDisabled(this, ['confirmButton'], false);
+}
+function disableConfirmButton() {
+  setButtonsDisabled(this, ['confirmButton'], true);
+}
+function enableInput() {
+  return setInputDisabled(this.getInput(), false);
+}
 function disableInput() {
-  var input = this.getInput();
-
-  if (!input) {
-    return false;
-  }
-
-  if (input && input.type === 'radio') {
-    var radiosContainer = input.parentNode.parentNode;
-    var radios = radiosContainer.querySelectorAll('input');
-
-    for (var i = 0; i < radios.length; i++) {
-      radios[i].disabled = true;
-    }
-  } else {
-    input.disabled = true;
-  }
+  return setInputDisabled(this.getInput(), true);
 }
 
 function showValidationMessage(error) {
@@ -2615,7 +2602,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '8.5.0';
+SweetAlert.version = '8.6.0';
 
 var Swal = SweetAlert;
 Swal.default = Swal;

@@ -1,28 +1,27 @@
 {
-  "_from": "datatables.net-buttons-bs4@1.5.6",
+  "_from": "datatables.net-buttons-bs4@^1.5.6",
   "_id": "datatables.net-buttons-bs4@1.5.6",
   "_inBundle": false,
   "_integrity": "sha512-fzVedjWO/DXe6eEPKuL3FiYdmTwdTb7017QdRX5T3cnYe/1fgyJHrFmsx1/yL1KTvAudoWRZl+AbiSNI58ZxLQ==",
   "_location": "/datatables.net-buttons-bs4",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "datatables.net-buttons-bs4@1.5.6",
+    "raw": "datatables.net-buttons-bs4@^1.5.6",
     "name": "datatables.net-buttons-bs4",
     "escapedName": "datatables.net-buttons-bs4",
-    "rawSpec": "1.5.6",
+    "rawSpec": "^1.5.6",
     "saveSpec": null,
-    "fetchSpec": "1.5.6"
+    "fetchSpec": "^1.5.6"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/datatables.net-buttons-bs4/-/datatables.net-buttons-bs4-1.5.6.tgz",
   "_shasum": "fb16e2d0eeb4169b38f3e237ba78d45f2ec9e503",
-  "_spec": "datatables.net-buttons-bs4@1.5.6",
-  "_where": "/mnt/Program_Data_Local/Development/git/FusionInvoiceFOSS.git",
+  "_spec": "datatables.net-buttons-bs4@^1.5.6",
+  "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
   "author": {
     "name": "SpryMedia Ltd",
     "url": "http://datatables.net"

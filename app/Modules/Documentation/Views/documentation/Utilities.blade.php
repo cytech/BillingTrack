@@ -63,7 +63,7 @@
         <p>
             <b>Manage Trash</b></p>
         <p>
-            Most entities in FusionInvoiceFOSS can be trashed. Trash (as opposed to delete) removes the entity but keeps
+            Most entities in BillingTrack can be trashed. Trash (as opposed to delete) removes the entity but keeps
         a reference so that it may be recovered or permanently deleted .<br>
         Here you can manage any trashed entities by recovering or permanently deleteing.<br>
         Depending on the entity,  trashing will cascade any children to the selected entity.<br>

@@ -19,7 +19,7 @@
             <tr>
                 <td>Header Title Text</td>
                 <td>This text displays in the top left hand side of the window.</td>
-                <td>FusionInvoice</td>
+                <td>BillingTrack</td>
             </tr>
             <tr>
                 <td>Default Company Profile</td>
@@ -514,7 +514,7 @@
             </tr>
             <tr>
                 <td><span class="anchor" id="backup-database"></span>Download Database Backup</td>
-                <td>This button will create a full .sql file backup of your FusionInvoiceFOSS database for download.</td>
+                <td>This button will create a full .sql file backup of your BillingTrack database for download.</td>
                 <td></td>
             </tr>
         </table>

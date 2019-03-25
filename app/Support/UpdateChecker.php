@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of FusionInvoiceFOSS.
+ * This file is part of BillingTrack.
  *
  *
  *
@@ -17,10 +17,10 @@ class UpdateChecker
 
     public function __construct()
     {
-        $options = array('http' => array('user_agent' => 'FusionInvoice-FOSS'));
+        $options = array('http' => array('user_agent' => 'BillingTrack'));
         $context = stream_context_create($options);
 
-        $this->currentVersion = json_decode(file_get_contents('https://api.github.com/repos/cytech/FusionInvoice-FOSS/releases/latest', false, $context), true)['tag_name'];
+        $this->currentVersion = json_decode(file_get_contents('https://api.github.com/repos/cytech/BillingTrack/releases/latest', false, $context), true)['tag_name'];
 
     }
 
