@@ -1,10 +1,9 @@
-# FusionInvoice-FOSS
-_(FusionInvoice 2018-8 after it was open sourced)_
+# BillingTrack
 
 **NOTE**
 **Minimum PHP requirement for v5.X.X is >=7.2**
 
-FusionInvoiceFOSS is a self hosted invoicing system for freelancers and small businesses.
+BillingTrack is a self hosted billing system for freelancers and small businesses.
 
 Host on your own server.
 
@@ -14,11 +13,11 @@ Built with Laravel
 
 :+1: If you find this product useful, feel free to buy me a beer: https://paypal.me/cytecheng
 
-[Live Demo](http://fusioninvoicefoss-demo.cytech-eng.com)
+[Live Demo](http://billingtrack-demo.cytech-eng.com)
 
-[Prerequisites](https://github.com/cytech/FusionInvoice-FOSS/wiki/Prerequisites)
+[Prerequisites](https://github.com/cytech/BillingTrack/wiki/Prerequisites)
 
-[Installation](https://github.com/cytech/FusionInvoice-FOSS/wiki/Installation)
+[Installation](https://github.com/cytech/BillingTrack/wiki/Installation)
 
-[Upgrade](https://github.com/cytech/FusionInvoice-FOSS/wiki/Upgrade)
+[Upgrade](https://github.com/cytech/BillingTrack/wiki/Upgrade)
 
