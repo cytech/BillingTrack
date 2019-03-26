@@ -17,7 +17,7 @@ class Version501 extends Migration
         deleteTempFiles();
         deleteViewCache();
 
-        Setting::saveByKey('version', '5.0.0');
+        Setting::saveByKey('version', '5.0.1');
         Setting::saveByKey('headerTitleText', 'BillingTrack');
 
     }
