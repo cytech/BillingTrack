@@ -298,8 +298,8 @@ body.swal2-toast-column .swal2-toast {
   align-items: center;
   width: auto;
   padding: 0.625em;
-  box-shadow: 0 0 0.625em #d9d9d9;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  box-shadow: 0 0 0.625em #d9d9d9; }
   .swal2-popup.swal2-toast .swal2-header {
     flex-direction: row; }
   .swal2-popup.swal2-toast .swal2-title {
@@ -600,6 +600,7 @@ body.swal2-no-backdrop .swal2-shown {
 .swal2-container {
   display: flex;
   position: fixed;
+  z-index: 1060;
   top: 0;
   right: 0;
   bottom: 0;
@@ -608,9 +609,8 @@ body.swal2-no-backdrop .swal2-shown {
   align-items: center;
   justify-content: center;
   padding: 0.625em;
-  background-color: transparent;
-  z-index: 1060;
   overflow-x: hidden;
+  background-color: transparent;
   -webkit-overflow-scrolling: touch;
   /* stylelint-disable-line scss/no-duplicate-dollar-variables */
   /* stylelint-disable-line scss/no-duplicate-dollar-variables */
@@ -694,6 +694,7 @@ body.swal2-no-backdrop .swal2-shown {
 .swal2-popup {
   display: none;
   position: relative;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   width: 32em;
@@ -702,8 +703,7 @@ body.swal2-no-backdrop .swal2-shown {
   border-radius: 0.3125em;
   background: #fff;
   font-family: inherit;
-  font-size: 1rem;
-  box-sizing: border-box; }
+  font-size: 1rem; }
   .swal2-popup:focus {
     outline: none; }
   .swal2-popup.swal2-loading {
@@ -725,11 +725,11 @@ body.swal2-no-backdrop .swal2-shown {
     text-transform: none;
     word-wrap: break-word; }
   .swal2-popup .swal2-actions {
+    z-index: 1;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 1.25em auto 0;
-    z-index: 1; }
+    margin: 1.25em auto 0; }
     .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled] {
       opacity: .4; }
     .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover {
@@ -737,19 +737,19 @@ body.swal2-no-backdrop .swal2-shown {
     .swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:active {
       background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); }
     .swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm {
+      box-sizing: border-box;
       width: 2.5em;
       height: 2.5em;
       margin: .46875em;
       padding: 0;
+      -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+              animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
       border: .25em solid transparent;
       border-radius: 100%;
       border-color: transparent;
       background-color: transparent !important;
       color: transparent;
       cursor: default;
-      box-sizing: border-box;
-      -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
-              animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
       -webkit-user-select: none;
          -moz-user-select: none;
           -ms-user-select: none;
@@ -758,22 +758,22 @@ body.swal2-no-backdrop .swal2-shown {
       margin-right: 30px;
       margin-left: 30px; }
     .swal2-popup .swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after {
+      content: '';
       display: inline-block;
       width: 15px;
       height: 15px;
       margin-left: 5px;
+      -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+              animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
       border: 3px solid #999999;
       border-radius: 50%;
       border-right-color: transparent;
-      box-shadow: 1px 1px 1px #fff;
-      content: '';
-      -webkit-animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
-              animation: swal2-rotate-loading 1.5s linear 0s infinite normal; }
+      box-shadow: 1px 1px 1px #fff; }
   .swal2-popup .swal2-styled {
     margin: .3125em;
     padding: .625em 2em;
-    font-weight: 500;
-    box-shadow: none; }
+    box-shadow: none;
+    font-weight: 500; }
     .swal2-popup .swal2-styled:not([disabled]) {
       cursor: pointer; }
     .swal2-popup .swal2-styled.swal2-confirm {
@@ -813,6 +813,7 @@ body.swal2-no-backdrop .swal2-shown {
     width: 1.2em;
     height: 1.2em;
     padding: 0;
+    overflow: hidden;
     transition: color 0.1s ease-out;
     border: none;
     border-radius: 0;
@@ -822,8 +823,7 @@ body.swal2-no-backdrop .swal2-shown {
     font-family: serif;
     font-size: 2.5em;
     line-height: 1.2;
-    cursor: pointer;
-    overflow: hidden; }
+    cursor: pointer; }
     .swal2-popup .swal2-close:hover {
       -webkit-transform: none;
               transform: none;
@@ -836,6 +836,7 @@ body.swal2-no-backdrop .swal2-shown {
   .swal2-popup > .swal2-checkbox {
     display: none; }
   .swal2-popup .swal2-content {
+    z-index: 1;
     justify-content: center;
     margin: 0;
     padding: 0;
@@ -843,7 +844,6 @@ body.swal2-no-backdrop .swal2-shown {
     font-size: 1.125em;
     font-weight: 300;
     line-height: normal;
-    z-index: 1;
     word-wrap: break-word; }
   .swal2-popup #swal2-content {
     text-align: center; }
@@ -857,14 +857,14 @@ body.swal2-no-backdrop .swal2-shown {
   .swal2-popup .swal2-input,
   .swal2-popup .swal2-file,
   .swal2-popup .swal2-textarea {
+    box-sizing: border-box;
     width: 100%;
     transition: border-color .3s, box-shadow .3s;
     border: 1px solid #d9d9d9;
     border-radius: 0.1875em;
     background: inherit;
-    font-size: 1.125em;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);
-    box-sizing: border-box; }
+    font-size: 1.125em; }
     .swal2-popup .swal2-input.swal2-inputerror,
     .swal2-popup .swal2-file.swal2-inputerror,
     .swal2-popup .swal2-textarea.swal2-inputerror {
@@ -942,25 +942,25 @@ body.swal2-no-backdrop .swal2-shown {
     align-items: center;
     justify-content: center;
     padding: 0.625em;
+    overflow: hidden;
     background: #f0f0f0;
     color: #666666;
     font-size: 1em;
-    font-weight: 300;
-    overflow: hidden; }
+    font-weight: 300; }
     .swal2-popup .swal2-validation-message::before {
+      content: '!';
       display: inline-block;
       width: 1.5em;
       min-width: 1.5em;
       height: 1.5em;
       margin: 0 .625em;
+      zoom: normal;
       border-radius: 50%;
       background-color: #f27474;
       color: #fff;
       font-weight: 600;
       line-height: 1.5em;
-      text-align: center;
-      content: '!';
-      zoom: normal; }
+      text-align: center; }
 
 @supports (-ms-accelerator: true) {
   .swal2-range input {
@@ -980,20 +980,20 @@ body.swal2-no-backdrop .swal2-shown {
 
 .swal2-icon {
   position: relative;
+  box-sizing: content-box;
   justify-content: center;
   width: 5em;
   height: 5em;
   margin: 1.25em auto 1.875em;
+  zoom: normal;
   border: .25em solid transparent;
   border-radius: 50%;
   line-height: 5em;
   cursor: default;
-  box-sizing: content-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none;
-  zoom: normal; }
+          user-select: none; }
   .swal2-icon::before {
     display: flex;
     align-items: center;
@@ -1064,30 +1064,30 @@ body.swal2-no-backdrop .swal2-shown {
         border-radius: 0 7.5em 7.5em 0; }
     .swal2-icon.swal2-success .swal2-success-ring {
       position: absolute;
+      z-index: 2;
       top: -.25em;
       left: -.25em;
+      box-sizing: content-box;
       width: 100%;
       height: 100%;
       border: 0.25em solid rgba(165, 220, 134, 0.3);
-      border-radius: 50%;
-      z-index: 2;
-      box-sizing: content-box; }
+      border-radius: 50%; }
     .swal2-icon.swal2-success .swal2-success-fix {
       position: absolute;
+      z-index: 1;
       top: .5em;
       left: 1.625em;
       width: .4375em;
       height: 5.625em;
       -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
-      z-index: 1; }
+              transform: rotate(-45deg); }
     .swal2-icon.swal2-success [class^='swal2-success-line'] {
       display: block;
       position: absolute;
+      z-index: 2;
       height: .3125em;
       border-radius: .125em;
-      background-color: #a5dc86;
-      z-index: 2; }
+      background-color: #a5dc86; }
       .swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {
         top: 2.875em;
         left: .875em;
@@ -1111,14 +1111,14 @@ body.swal2-no-backdrop .swal2-shown {
     display: inline-block;
     position: relative; }
   .swal2-progress-steps .swal2-progress-step {
+    z-index: 20;
     width: 2em;
     height: 2em;
     border-radius: 2em;
     background: #3085d6;
     color: #fff;
     line-height: 2em;
-    text-align: center;
-    z-index: 20; }
+    text-align: center; }
     .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
       background: #3085d6; }
       .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
@@ -1127,11 +1127,11 @@ body.swal2-no-backdrop .swal2-shown {
       .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step-line {
         background: #add8e6; }
   .swal2-progress-steps .swal2-progress-step-line {
+    z-index: 10;
     width: 2.5em;
     height: .4em;
     margin: 0 -1px;
-    background: #3085d6;
-    z-index: 10; }
+    background: #3085d6; }
 
 [class^='swal2'] {
   -webkit-tap-highlight-color: transparent; }

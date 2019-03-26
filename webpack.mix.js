@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
+mix.copyDirectory('resources/public', 'public');
 mix.copyDirectory('resources/img', 'public/img');
 mix.copyDirectory('resources/css', 'public/css');
 mix.copyDirectory('node_modules/jquery-ui-built-themes', 'public/css/jquery-ui-themes');
