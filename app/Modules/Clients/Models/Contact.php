@@ -33,6 +33,16 @@ class Contact extends Model
         return $this->belongsTo('FI\Modules\Clients\Models\Client');
     }
 
+    public function title()
+    {
+        return $this->belongsTo('FI\Modules\Titles\Models\Title');
+    }
+
+    public function notes()
+    {
+        return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Accessors
@@ -57,5 +67,15 @@ class Contact extends Model
     public function getFormattedDefaultToAttribute()
     {
         return ($this->default_to) ? trans('fi.yes') : trans('fi.no');
+    }
+
+    public function getFormattedIsPrimaryAttribute()
+    {
+        return ($this->is_primary) ? trans('fi.yes') : trans('fi.no');
+    }
+
+    public function getFormattedOptinAttribute()
+    {
+        return ($this->optin) ? trans('fi.yes') : trans('fi.no');
     }
 }

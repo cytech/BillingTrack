@@ -167,6 +167,17 @@ class Client extends Model
         return $this->hasOne('FI\Modules\Users\Models\User');
     }
 
+    public function size()
+    {
+        return $this->belongsTo('FI\Modules\Sizes\Models\Size');
+    }
+
+    public function industry()
+    {
+        return $this->belongsTo('FI\Modules\Industries\Models\Industry');
+    }
+
+
     /*
     |--------------------------------------------------------------------------
     | Accessors
@@ -201,6 +212,11 @@ class Client extends Model
     public function getFormattedAddressAttribute()
     {
         return nl2br(formatAddress($this));
+    }
+
+    public function getFormattedAddress2Attribute()
+    {
+        return nl2br(formatAddress2($this));
     }
 
     public function getClientEmailAttribute()

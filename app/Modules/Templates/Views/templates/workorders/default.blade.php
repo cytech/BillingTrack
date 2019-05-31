@@ -12,7 +12,7 @@
         body {
             color: #001028;
             background: #FFFFFF;
-            font-family : DejaVu Sans, Helvetica, sans-serif;
+            font-family: DejaVu Sans, Helvetica, sans-serif;
             font-size: 12px;
             margin-bottom: 10px;
         }
@@ -84,19 +84,29 @@
     <tr>
         <td style="width: 50%;" valign="top">
             <h1>{{ mb_strtoupper(trans('fi.workorder')) }}</h1>
-                <span class="info">{{ mb_strtoupper(trans('fi.workorder')) }} #</span>{{ $workorder->number }}<br>
-                <span class="info">{{ mb_strtoupper(trans('fi.issued')) }}</span> {{ $workorder->formatted_workorder_date }}<br>
-                <span class="info">{{ mb_strtoupper(trans('fi.expires')) }}</span> {{ $workorder->formatted_expires_at }}<br><br>
-                <span class="info">{{ mb_strtoupper(trans('fi.bill_to')) }}</span><br>{{ $workorder->client->name }}<br>
-                @if ($workorder->client->address) {!! $workorder->client->formatted_address !!}<br>@endif
-                @if ($workorder->client->phone) {!! $workorder->client->phone !!}<br>@endif
+            <span class="info">{{ mb_strtoupper(trans('fi.workorder')) }} #</span>{{ $workorder->number }}<br>
+            <span class="info">{{ mb_strtoupper(trans('fi.issued')) }}</span> {{ $workorder->formatted_workorder_date }}
+            <br>
+            <span class="info">{{ mb_strtoupper(trans('fi.expires')) }}</span> {{ $workorder->formatted_expires_at }}
+            <br><br>
+            <span class="info">{{ mb_strtoupper(trans('fi.bill_to')) }}</span><br>{{ $workorder->client->name }}<br>
+            @if ($workorder->client->address) {!! $workorder->client->formatted_address !!}<br>@endif
+            @if ($workorder->client->phone) {!! $workorder->client->phone !!}<br>@endif
         </td>
+        @if ($workorder->client->address_2)
+            <td style="width: 50%;" valign="bottom">
+                <span class="info">{{ mb_strtoupper(trans('fi.ship_to')) }}</span><br>{{ $workorder->client->name }}<br>
+                {!! $workorder->client->formatted_address2 !!}<br>
+            </td>
+        @endif
+
         <td style="width: 50%; text-align: right;" valign="top">
             {!! $workorder->companyProfile->logo() !!}<br>
             {{ $workorder->companyProfile->company }}<br>
             {!! $workorder->companyProfile->formatted_address !!}<br>
             @if ($workorder->companyProfile->phone) {{ $workorder->user->phone }}<br>@endif
-            @if ($workorder->user->email) <a href="mailto:{{ $workorder->user->email }}">{{ $workorder->user->email }}</a><br>@endif
+            @if ($workorder->user->email) <a
+                    href="mailto:{{ $workorder->user->email }}">{{ $workorder->user->email }}</a><br>@endif
             <br>
             <span class="info">{{ 'Job Date: ' }}</span>{{ $workorder->formatted_job_date }}<br>
             <span class="info">{{ 'Start Time: ' }}</span>{{ $workorder->formatted_start_time }}<br>
@@ -138,9 +148,12 @@
         <tr>
             <td>{!! $item->name !!}</td>
             <td>{!! $item->formatted_description !!}</td>
-            <td nowrap class="amount">{{ $item->formatted_quantity <> '0.00' ? $item->formatted_quantity : "________" }}</td>
-            <td nowrap class="amount">{{ $item->formatted_numeric_price <> '0.00' ? $item->formatted_numeric_price : "________" }}</td>
-            <td nowrap class="amount">{{ $item->amount->formatted_subtotal <> '$0.00' ? $item->amount->formatted_subtotal : "________" }}</td>
+            <td nowrap
+                class="amount">{{ $item->formatted_quantity <> '0.00' ? $item->formatted_quantity : "________" }}</td>
+            <td nowrap
+                class="amount">{{ $item->formatted_numeric_price <> '0.00' ? $item->formatted_numeric_price : "________" }}</td>
+            <td nowrap
+                class="amount">{{ $item->amount->formatted_subtotal <> '$0.00' ? $item->amount->formatted_subtotal : "________" }}</td>
             {{--<td nowrap class="amount">{{ $item->quantity > 0 ? $item->quantity : "________" }}</td>--}}
             {{--<td nowrap class="amount">{{ $item->price > 0 ? $item->price : "________" }}</td>--}}
             {{--<td nowrap class="amount">{{ $item->amount->subtotal > 0 ? $item->amount->subtotal : "________" }}</td>--}}
@@ -174,7 +187,7 @@
 </table>
 
 @if ($workorder->terms)
-    <div class="section-header" >{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</div>
+    <div class="section-header">{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</div>
     <div class="terms">{!! $workorder->formatted_terms !!}</div>
     <br>
 @endif

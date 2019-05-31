@@ -28,3 +28,22 @@ function formatAddress($object)
 
     return '';
 }
+function formatAddress2($object)
+{
+    if ($object->address_2 or $object->city_2 or $object->state_2 or $object->zip_2 or $object->country_2)
+    {
+        $address = config('fi.addressFormat');
+
+        $address = str_replace('{{ address }}', $object->address_2, $address);
+        $address = str_replace('{{ city }}', $object->city_2, $address);
+        $address = str_replace('{{ state }}', $object->state_2, $address);
+        $address = str_replace('{{ zip }}', $object->zip_2, $address);
+        $address = str_replace('{{ zip_code }}', $object->zip_2,$address);
+        $address = str_replace('{{ postal_code }}', $object->zip_2, $address);
+        $address = str_replace('{{ country }}', $object->country_2, $address);
+
+        return $address;
+    }
+
+    return '';
+}

@@ -68,30 +68,38 @@
 
                                     <table class="table table-striped">
                                         <tr class="row">
-                                            <td class="col-md-2">@lang('fi.address')</td>
-                                            <td class="col-md-10">{!! $client->formatted_address !!}</td>
+                                            <td class="col-md-2">@lang('fi.billing_address')</td>
+                                            <td class="table-bordered col-md-4">{!! $client->formatted_address !!}</td>
+                                            <td class="col-md-2">@lang('fi.shipping_address')</td>
+                                            <td class="table-bordered col-md-4">{!! $client->formatted_address2 !!}</td>
                                         </tr>
                                         <tr class="row">
                                             <td class="col-md-2">@lang('fi.email')</td>
                                             <td class="col-md-10"><a href="mailto:{!! $client->email !!}">{!! $client->email !!}</a></td>
                                         </tr>
                                         <tr class="row">
-                                            <td class="col-md-2">@lang('fi.phone')</td>
-                                            <td class="col-md-10">{!! $client->phone !!}</td>
-                                        </tr>
-                                        <tr class="row">
-                                            <td class="col-md-2">@lang('fi.mobile')</td>
-                                            <td class="col-md-10">{!! $client->mobile !!}</td>
-                                        </tr>
-                                        <tr class="row">
-                                            <td class="col-md-2">@lang('fi.fax')</td>
-                                            <td class="col-md-10">{!! $client->fax !!}</td>
+                                            <td class="col-md-1">@lang('fi.phone')</td>
+                                            <td class="table-bordered col-md-3">{!! $client->phone !!}</td>
+
+
+                                            <td class="col-md-1">@lang('fi.mobile')</td>
+                                            <td class="table-bordered col-md-3">{!! $client->mobile !!}</td>
+
+
+                                            <td class="col-md-1">@lang('fi.fax')</td>
+                                            <td class="table-bordered col-md-3">{!! $client->fax !!}</td>
                                         </tr>
                                         <tr class="row">
                                             <td class="col-md-2">@lang('fi.web')</td>
                                             <td class="col-md-10"><a href="{!! $client->web !!}" target="_blank">{!! $client->web !!}</a></td>
                                         </tr>
-                                        @foreach ($customFields as $customField)
+                                        <tr class="row">
+                                            <td class="col-md-2">@lang('fi.industry')</td>
+                                            <td class="table-bordered col-md-4">{!! $client->industry->name !!}</td>
+                                            <td class="col-md-2">@lang('fi.size')</td>
+                                            <td class="table-bordered col-md-4">{!! $client->size->name !!}</td>
+                                        </tr>
+                                    @foreach ($customFields as $customField)
                                             <tr class="row">
                                                 <td class="col-md-2">{!! $customField->field_label !!}</td>
                                                 <td class="col-md-10">

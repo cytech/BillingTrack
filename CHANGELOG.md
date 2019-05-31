@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.1.0
+- Added client shipping address fields (address_2,city_2,etc) accessible in templates
+- Added client industry, size, id, and VAT fields
+- Added client contact firstname, lastname, title, phone, fax, mobile, primary , optin and note fields
+
 ## 5.0.1
 - Renamed project to BillingTrack
 

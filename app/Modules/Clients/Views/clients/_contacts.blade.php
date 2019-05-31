@@ -40,6 +40,8 @@
     });
 </script>
 
+@include('layouts._alerts')
+
 <div class="row">
     <div class="col-lg-12">
         <div class="float-right">
@@ -48,22 +50,38 @@
         <table class="table table-hover">
             <thead>
             <tr>
+                <th>@lang('fi.first_name')</th>
+                <th>@lang('fi.last_name')</th>
                 <th>@lang('fi.name')</th>
+                <th>@lang('fi.title')</th>
+                <th>@lang('fi.phone')</th>
+                <th>@lang('fi.fax')</th>
+                <th>@lang('fi.mobile')</th>
                 <th>@lang('fi.email')</th>
                 <th>@lang('fi.default_to')</th>
                 <th>@lang('fi.default_cc')</th>
                 <th>@lang('fi.default_bcc')</th>
+                <th>@lang('fi.is_primary')</th>
+                <th>@lang('fi.optin')</th>
                 <th>@lang('fi.options')</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($contacts as $contact)
             <tr>
+                <td>{{ $contact->first_name }}</td>
+                <td>{{ $contact->last_name }}</td>
                 <td>{{ $contact->name }}</td>
+                <td>{{ $contact->title->name }}</td>
+                <td>{{ $contact->phone }}</td>
+                <td>{{ $contact->fax }}</td>
+                <td>{{ $contact->mobile }}</td>
                 <td>{{ $contact->email }}</td>
                 <td><a href="javascript:void(0)" class="update-default" data-default="to" data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_to }}</a></td>
                 <td><a href="javascript:void(0)" class="update-default" data-default="cc" data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_cc }}</a></td>
                 <td><a href="javascript:void(0)" class="update-default" data-default="bcc" data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_bcc }}</a></td>
+                <td>{{ $contact->formatted_is_primary }}</td>
+                <td>{{ $contact->formatted_optin }}</td>
                 <td>
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">

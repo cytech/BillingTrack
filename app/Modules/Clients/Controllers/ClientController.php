@@ -20,6 +20,8 @@ use FI\Modules\CustomFields\Models\CustomField;
 use FI\Modules\Payments\Models\Payment;
 use FI\Support\Frequency;
 use FI\Traits\ReturnUrl;
+use FI\Modules\Industries\Models\Industry;
+use FI\Modules\Sizes\Models\Size;
 
 class ClientController extends Controller
 {
@@ -37,7 +39,10 @@ class ClientController extends Controller
 
     public function create()
     {
-        return view('clients.form')
+        $industries = Industry::pluck('name', 'id');
+        $sizes = Size::pluck('name', 'id');
+
+        return view('clients.form', compact('industries', 'sizes'))
             ->with('editMode', false)
             ->with('customFields', CustomField::forTable('clients')->get());
     }
@@ -96,8 +101,10 @@ class ClientController extends Controller
     public function edit($clientId)
     {
         $client = Client::getSelect()->with(['custom'])->find($clientId);
+        $industries = Industry::pluck('name','id');
+        $sizes = Size::pluck('name', 'id');
 
-        return view('clients.form')
+        return view('clients.form', compact('industries', 'sizes'))
             ->with('editMode', true)
             ->with('client', $client)
             ->with('customFields', CustomField::forTable('clients')->get())

@@ -10,30 +10,30 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.8.1",
+        "@fortawesome/fontawesome-free": "^5.8.2",
         "axios": "^0.18",
         "bootstrap": "^4.3",
         "cross-env": "^5.2",
-        "jquery": "^3.3",
-        "laravel-mix": "^4.0.15",
+        "jquery": "^3.4.1",
+        "laravel-mix": "^4.0.16",
         "lodash": "^4.17",
-        "popper.js": "^1.14.7",
-        "resolve-url-loader": "^3.0",
-        "sass": "^1.17.3",
+        "popper.js": "^1.15.0",
+        "resolve-url-loader": "^3.1.0",
+        "sass": "^1.20.1",
         "sass-loader": "^7.1",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
         "admin-lte": "^3.0.0-alpha.2",
-        "bootstrap-colorpicker": "^3.0.3",
-        "bootstrap-switch": "^3.3.4",
+        "bootstrap-colorpicker": "^3.1.2",
+        "bootstrap-switch": "^3.4.0",
         "chosen-js": "^1.8.7",
         "datatables.net": "^1.10.19",
         "datatables.net-bs4": "^1.10.19",
         "datatables.net-buttons": "^1.5.6",
         "datatables.net-buttons-bs4": "^1.5.6",
-        "daterangepicker": "^3.0.3",
+        "daterangepicker": "^3.0.5",
         "font-awesome": "4.7.0",
         "fullcalendar": "^3.10.0",
         "jquery-autosize": "^1.18.18",
@@ -45,7 +45,7 @@
         "morris-data": "^0.5.1",
         "morris.js.so": "^0.5.1",
         "raphael": "^2.2.8",
-        "sweetalert2": "^8.6.0",
+        "sweetalert2": "^8.11.6",
         "yuicompressor": "^2.4.8"
     }
 }

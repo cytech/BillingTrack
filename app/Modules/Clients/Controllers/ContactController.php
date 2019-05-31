@@ -14,12 +14,16 @@ namespace FI\Modules\Clients\Controllers;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Clients\Models\Contact;
 use FI\Modules\Clients\Requests\ContactRequest;
+use FI\Modules\Titles\Models\Title;
+use Session;
 
 class ContactController extends Controller
 {
     public function create($clientId)
     {
-        return view('clients._modal_contact')
+        $titles = Title::pluck('name', 'id');
+
+        return view('clients._modal_contact', compact('titles'))
             ->with('editMode', false)
             ->with('clientId', $clientId)
             ->with('submitRoute', route('clients.contacts.store', [$clientId]));
@@ -27,14 +31,25 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request, $clientId)
     {
+        $message = __('fi.record_successfully_created');
+
+        if($request->is_primary == 1 ) {
+            Contact::where('client_id', '=', $request->clientId)->update(['is_primary' => 0]);
+            $message = __('fi.record_successfully_created') . '<br>' . __('fi.primary_changed');
+        }
+
         Contact::create($request->all());
+
+        Session::now('alertInfo',$message);
 
         return $this->loadContacts($clientId);
     }
 
     public function edit($clientId, $id)
     {
-        return view('clients._modal_contact')
+        $titles = Title::pluck('name', 'id');
+
+        return view('clients._modal_contact', compact('titles'))
             ->with('editMode', true)
             ->with('clientId', $clientId)
             ->with('submitRoute', route('clients.contacts.update', [$clientId, $id]))
@@ -45,9 +60,19 @@ class ContactController extends Controller
     {
         $contact = Contact::find($id);
 
+        $message = __('fi.record_successfully_updated');
+
+        if($request->is_primary == 1 ) {
+            Contact::where('client_id', '=', $request->clientId)->where('id', '!=' , $id)->update(['is_primary' => 0]);
+            if ($contact->is_primary != 1)
+            $message = __('fi.record_successfully_updated') . '<br>' . __('fi.primary_changed');
+        }
+
         $contact->fill($request->all());
 
         $contact->save();
+
+        Session::now('alertInfo',$message);
 
         return $this->loadContacts($clientId);
     }
