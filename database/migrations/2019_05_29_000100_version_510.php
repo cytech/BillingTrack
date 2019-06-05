@@ -57,6 +57,7 @@ class Version510 extends Migration
             $table->string('country_2')->nullable()->default(null)->after('zip_2');
             $table->string('id_number')->nullable()->default(null)->after('language');
             $table->string('vat_number')->nullable()->default(null)->after('id_number');
+            $table->tinyInteger('is_company')->default(0)->after('active');
             $table->unsignedInteger('industry_id')->nullable()->default(1)->after('vat_number');
             $table->unsignedInteger('size_id')->nullable()->default(1)->after('industry_id');
 
@@ -94,7 +95,7 @@ class Version510 extends Migration
         deleteTempFiles();
         deleteViewCache();
 
-        Setting::saveByKey('version', '5.0.2');
+        Setting::saveByKey('version', '5.1.0');
 
     }
 
@@ -119,6 +120,7 @@ class Version510 extends Migration
             $table->dropColumn('country_2');
             $table->dropColumn('id_number');
             $table->dropColumn('vat_number');
+            $table->dropColumn('is_company');
             $table->dropForeign('clients_industry_id_foreign');
             $table->dropForeign('clients_size_id_foreign');
             $table->dropColumn('industry_id');

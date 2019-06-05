@@ -1,14 +1,14 @@
 <script type="text/javascript">
-    $(function() {
-        $('#btn-add-contact').click(function() {
+    $(function () {
+        $('#btn-add-contact').click(function () {
             $('#modal-placeholder').load('{{ route('clients.contacts.create', [$clientId]) }}');
         });
 
-        $('.btn-edit-contact').click(function() {
+        $('.btn-edit-contact').click(function () {
             $('#modal-placeholder').load($(this).data('url'));
         });
 
-        $('.btn-delete-contact').click(function() {
+        $('.btn-delete-contact').click(function () {
 
             Swal.fire({
                 title: '@lang('fi.trash_record_warning')',
@@ -20,7 +20,7 @@
                 if (result.value) {
                     $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {
                         id: $(this).data('contact-id')
-                    }).done(function(response) {
+                    }).done(function (response) {
                         $('#tab-contacts').html(response);
                     })
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
@@ -29,11 +29,11 @@
             });
         });
 
-        $('.update-default').click(function() {
+        $('.update-default').click(function () {
             $.post('{{ route('clients.contacts.updateDefault', [$clientId]) }}', {
                 id: $(this).data('contact-id'),
                 default: $(this).data('default')
-            }).done(function(response) {
+            }).done(function (response) {
                 $('#tab-contacts').html(response);
             });
         });
@@ -44,14 +44,13 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="float-right">
-            <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-add-contact"><i class="fa fa-plus"></i> @lang('fi.add_contact')</a>
+        <div class="float-right mb-3">
+            <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-add-contact"><i
+                        class="fa fa-plus"></i> @lang('fi.add_contact')</a>
         </div>
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>@lang('fi.first_name')</th>
-                <th>@lang('fi.last_name')</th>
                 <th>@lang('fi.name')</th>
                 <th>@lang('fi.title')</th>
                 <th>@lang('fi.phone')</th>
@@ -68,33 +67,39 @@
             </thead>
             <tbody>
             @foreach ($contacts as $contact)
-            <tr>
-                <td>{{ $contact->first_name }}</td>
-                <td>{{ $contact->last_name }}</td>
-                <td>{{ $contact->name }}</td>
-                <td>{{ $contact->title->name }}</td>
-                <td>{{ $contact->phone }}</td>
-                <td>{{ $contact->fax }}</td>
-                <td>{{ $contact->mobile }}</td>
-                <td>{{ $contact->email }}</td>
-                <td><a href="javascript:void(0)" class="update-default" data-default="to" data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_to }}</a></td>
-                <td><a href="javascript:void(0)" class="update-default" data-default="cc" data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_cc }}</a></td>
-                <td><a href="javascript:void(0)" class="update-default" data-default="bcc" data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_bcc }}</a></td>
-                <td>{{ $contact->formatted_is_primary }}</td>
-                <td>{{ $contact->formatted_optin }}</td>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                            @lang('fi.options')
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0)" class="btn-edit-contact dropdown-item" data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i class="fa fa-edit"></i> @lang('fi.edit')</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="javascript:void(0)" class="btn-delete-contact dropdown-item" data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> @lang('fi.trash')</a>
+                <tr>
+                    <td>{{ $contact->name }}</td>
+                    <td>{{ $contact->title->name }}</td>
+                    <td>{{ $contact->phone }}</td>
+                    <td>{{ $contact->fax }}</td>
+                    <td>{{ $contact->mobile }}</td>
+                    <td>{{ $contact->email }}</td>
+                    <td><a href="javascript:void(0)" class="update-default" data-default="to"
+                           data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_to }}</a></td>
+                    <td><a href="javascript:void(0)" class="update-default" data-default="cc"
+                           data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_cc }}</a></td>
+                    <td><a href="javascript:void(0)" class="update-default" data-default="bcc"
+                           data-contact-id="{{ $contact->id }}">{{ $contact->formatted_default_bcc }}</a></td>
+                    <td>{{ $contact->formatted_is_primary }}</td>
+                    <td>{{ $contact->formatted_optin }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
+                                    data-toggle="dropdown">
+                                @lang('fi.options')
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="javascript:void(0)" class="btn-edit-contact dropdown-item"
+                                   data-url="{{ route('clients.contacts.edit', [$clientId, $contact->id]) }}"><i
+                                            class="fa fa-edit"></i> @lang('fi.edit')</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="javascript:void(0)" class="btn-delete-contact dropdown-item"
+                                   data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> @lang('fi.trash')
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
             @endforeach
             </tbody>
         </table>

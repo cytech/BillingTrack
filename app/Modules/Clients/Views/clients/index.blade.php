@@ -32,6 +32,10 @@
                    class="btn btn-secondary @if ($status == 'inactive') active @endif">@lang('fi.inactive')</a>
                 <a href="{{ route('clients.index') }}"
                    class="btn btn-secondary @if ($status == 'all') active @endif">@lang('fi.all')</a>
+                <a href="{{ route('clients.index', ['status' => 'company']) }}"
+                   class="btn btn-secondary @if ($status == 'company') active @endif">@lang('fi.company')</a>
+                <a href="{{ route('clients.index', ['status' => 'individual']) }}"
+                   class="btn btn-secondary @if ($status == 'individual') active @endif">@lang('fi.individual')</a>
             </div>
             <a href="{{ route('clients.create') }}" class="btn btn-primary"><i
                         class="fa fa-plus"></i> @lang('fi.new')</a>

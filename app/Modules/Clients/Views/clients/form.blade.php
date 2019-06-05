@@ -31,10 +31,10 @@
                         {{--<div class="nav-tabs-custom">--}}
                         <ul class="nav nav-tabs p-2">
                             <li class="nav-item"><a class="nav-link active show" href="#tab-general"
-                                                     data-toggle="tab">@lang('fi.general')</a></li>
+                                                    data-toggle="tab">@lang('fi.general')</a></li>
                             @if ($editMode)
-                                <li class="nav-item"><a class="nav-link" href="#tab-contacts"
-                                                        data-toggle="tab">@lang('fi.contacts')</a></li>
+{{--                                <li class="nav-item"><a class="nav-link" href="#tab-contacts"--}}
+{{--                                                        data-toggle="tab">@lang('fi.contacts')</a></li>--}}
                                 <li class="nav-item"><a class="nav-link" href="#tab-attachments"
                                                         data-toggle="tab">@lang('fi.attachments')</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab-notes"
@@ -48,9 +48,9 @@
                                 @include('clients._form')
                             </div>
                             @if ($editMode)
-                                <div class="tab-pane" id="tab-contacts">
-                                    @include('clients._contacts', ['contacts' => $client->contacts()->orderBy('name')->get(), 'clientId' => $client->id])
-                                </div>
+{{--                                <div class="tab-pane" id="tab-contacts">--}}
+{{--                                    @include('clients._contacts', ['contacts' => $client->contacts()->orderBy('name')->get(), 'clientId' => $client->id])--}}
+{{--                                </div>--}}
                                 <div class="tab-pane" id="tab-attachments">
                                     @include('attachments._table', ['object' => $client, 'model' => 'FI\Modules\Clients\Models\Client'])
                                 </div>
@@ -60,8 +60,6 @@
                             @endif
                         </div>
                     </div>
-                    {{--</div>--}}
-
                 </div>
             </div>
 

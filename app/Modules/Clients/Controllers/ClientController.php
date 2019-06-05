@@ -53,7 +53,7 @@ class ClientController extends Controller
 
         $client->custom->update($request->get('custom', []));
 
-        return redirect()->route('clients.edit', [$client->id])
+        return redirect()->route('clients.show', [$client->id])
             ->with('alertInfo', trans('fi.record_successfully_created'));
     }
 
@@ -119,7 +119,7 @@ class ClientController extends Controller
 
         $client->custom->update($request->get('custom', []));
 
-        return redirect()->route('clients.edit', [$id])
+        return redirect()->route('clients.show', [$id])
             ->with('alertInfo', trans('fi.record_successfully_updated'));
     }
 

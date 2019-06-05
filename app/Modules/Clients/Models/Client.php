@@ -249,6 +249,14 @@ class Client extends Model
         {
             $query->where('active', 0);
         }
+        elseif ($status == 'company')
+        {
+            $query->where('is_company', 1);
+        }
+        elseif ($status == 'individual')
+        {
+            $query->where('is_company', 0);
+        }
 
         return $query;
     }

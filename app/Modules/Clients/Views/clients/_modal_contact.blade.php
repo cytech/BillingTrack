@@ -68,7 +68,7 @@
                         </div>
                         <script>
                             $("#contact_last_name").on('change',function () {
-                                var fullnameArray = [$("#contact_first_name").val(), $("#contact_last_name").val()];
+                                let fullnameArray = [$("#contact_first_name").val(), $("#contact_last_name").val()];
                                 if ( !$("#contact_name").val())
                                     $("#contact_name").val(fullnameArray.join(' '));
                             });
@@ -127,7 +127,9 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            @include('notes._notes_contact', ['object' => $contact, 'model' => 'FI\Modules\Clients\Models\Contact', 'hideHeader' => true])
+                            @if ($editMode)
+                                @include('notes._notes_contact', ['object' => $contact, 'model' => 'FI\Modules\Clients\Models\Contact', 'hideHeader' => true])
+                            @endif
                         </div>
 
                     </div>
