@@ -254,6 +254,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label>@lang('fi.payment_terms'): </label>
+                            {!! Form::select('paymentterm_id', $payment_terms, null, ['id' => 'paymentterm_id', 'class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label>@lang('fi.industry'): </label>
                             {!! Form::select('industry_id', $industries, null, ['id' => 'industry_id', 'class' => 'form-control']) !!}
                         </div>

@@ -27,7 +27,7 @@ class QuoteApprovedListener
             $this->quoteToInvoice->convert(
                 $event->quote,
                 date('Y-m-d'),
-                DateFormatter::incrementDateByDays(date('Y-m-d'), config('fi.invoicesDueAfter')),
+                DateFormatter::incrementDateByDays(date('Y-m-d'),  $event->quote->client->client_terms),
                 config('fi.invoiceGroup')
             );
         }

@@ -27,11 +27,11 @@ class WorkorderApprovedListener
             $this->workorderToInvoice->convert(
                 $event->workorder,
                 date('Y-m-d'),
-                DateFormatter::incrementDateByDays(date('Y-m-d'), config('fi.invoicesDueAfter')),
+                DateFormatter::incrementDateByDays(date('Y-m-d'),  $event->workorder->client->client_terms),
                 config('fi.invoiceGroup')
             );
         }
-        
+
         $parser = new Parser($event->workorder);
 
         $mail = $this->mailQueue->create($event->workorder, [

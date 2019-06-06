@@ -538,6 +538,7 @@ return [
     'payment_method_form'                     => 'Payment Method Form',
     'payment_methods'                         => 'Payment Methods',
     'payment_receipt_email_subject'           => 'Payment Receipt Email Subject',
+    'payment_terms'                           => 'Payment Terms',
     'payment'                                 => 'Payment',
     'payments'                                => 'Payments',
     'payments_collected'                      => 'Payments Collected',

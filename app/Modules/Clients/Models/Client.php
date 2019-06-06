@@ -177,6 +177,11 @@ class Client extends Model
         return $this->belongsTo('FI\Modules\Industries\Models\Industry');
     }
 
+    public function paymentterm()
+    {
+        return $this->belongsTo('FI\Modules\PaymentTerms\Models\Paymentterm');
+    }
+
 
     /*
     |--------------------------------------------------------------------------
@@ -223,6 +228,15 @@ class Client extends Model
     {
         return $this->email;
     }
+
+    public function getClientTermsAttribute()
+    {
+        if ($this->paymentterm->id != 1) {
+            return $this->paymentterm->num_days;
+        } else
+            return config('fi.invoicesDueAfter');
+    }
+
 
     /*
     |--------------------------------------------------------------------------

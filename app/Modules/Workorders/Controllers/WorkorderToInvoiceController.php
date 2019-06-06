@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
+
 namespace FI\Modules\Workorders\Controllers;
 
 use FI\Http\Controllers\Controller;
@@ -43,7 +43,7 @@ class WorkorderToInvoiceController extends Controller
         $invoice = $this->workorderToInvoice->convert(
             $workorder,
             DateFormatter::unformat($request->input('workorder_date')),
-            DateFormatter::incrementDateByDays(DateFormatter::unformat($request->input('workorder_date')), config('fi.invoicesDueAfter')),
+            DateFormatter::incrementDateByDays(DateFormatter::unformat($request->input('workorder_date')),  $workorder->client->client_terms),
 	        $request->input('group_id')
         );
 

@@ -37,7 +37,14 @@ class Version510 extends Migration
             $table->string('name', 255);
         });
 
-        //seed industries and sizes
+        Schema::create('payment_terms', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('num_days');
+            $table->string('name', 255);
+        });
+
+
+        //seed industries, sizes, titles and paymentterms
         Artisan::call('db:seed', [
             '--class' => IndustrySeeder::class
         ]);
@@ -46,6 +53,9 @@ class Version510 extends Migration
         ]);
         Artisan::call('db:seed', [
             '--class' => TitleSeeder::class
+        ]);
+        Artisan::call('db:seed', [
+            '--class' => PaymentTermsSeeder::class
         ]);
 
         //add more client fields
@@ -60,9 +70,12 @@ class Version510 extends Migration
             $table->tinyInteger('is_company')->default(0)->after('active');
             $table->unsignedInteger('industry_id')->nullable()->default(1)->after('vat_number');
             $table->unsignedInteger('size_id')->nullable()->default(1)->after('industry_id');
+            $table->unsignedInteger('paymentterm_id')->nullable()->default(1)->after('size_id');
 
             $table->foreign('industry_id')->references('id')->on('industries')->onDelete('no action')->onUpdate('no action');
             $table->foreign('size_id')->references('id')->on('sizes')->onDelete('no action')->onUpdate('no action');
+            $table->foreign('paymentterm_id')->references('id')->on('payment_terms')->onDelete('no action')->onUpdate('no action');
+
 
         });
 
@@ -75,7 +88,6 @@ class Version510 extends Migration
             $table->string('mobile')->nullable()->default(null)->after('fax');
             $table->tinyInteger('is_primary')->default(0)->after('default_bcc');
             $table->tinyInteger('optin')->default(1)->after('is_primary');
-
             $table->unsignedInteger('title_id')->nullable()->default(1)->after('mobile');
 
             $table->foreign('title_id')->references('id')->on('titles')->onDelete('no action')->onUpdate('no action');
@@ -111,6 +123,7 @@ class Version510 extends Migration
         Schema::drop('industries');
         Schema::drop('sizes');
         Schema::drop('titles');
+        Schema::drop('payment_terms');
 
         Schema::table('clients', function($table) {
             $table->dropColumn('address_2');
@@ -123,8 +136,10 @@ class Version510 extends Migration
             $table->dropColumn('is_company');
             $table->dropForeign('clients_industry_id_foreign');
             $table->dropForeign('clients_size_id_foreign');
+            $table->dropForeign('clients_paymentterm_id_foreign');
             $table->dropColumn('industry_id');
             $table->dropColumn('size_id');
+            $table->dropColumn('paymentterm_id');
 
         });
 

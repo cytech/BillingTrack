@@ -61,12 +61,17 @@
 
                                         <div class="float-left">
                                             <h2>{!! $client->name !!}</h2>
-                                                @if($client->is_company)
-                                                <span class="badge badge-primary">@lang('fi.company')
-                                                @else
-                                                        <span class="badge badge-green">@lang('fi.individual')
-                                                @endif
-                                            </span>
+                                            @if($client->is_company)
+                                                <span class="badge badge-primary">@lang('fi.company')</span>
+                                            @else
+                                                <span class="badge badge-green">@lang('fi.individual')</span>
+                                            @endif
+                                            &nbsp;&nbsp;&nbsp;@lang('fi.payment_terms'):&nbsp;&nbsp;
+                                            @if($client->paymentterm->id != 1)
+                                                {{$client->paymentterm->name}}
+                                            @else
+                                                @lang('fi.default_terms')
+                                            @endif
                                         </div>
 
                                         <div class="float-right" style="text-align: right;">

@@ -18,6 +18,7 @@ use FI\Modules\Clients\Requests\ClientStoreRequest;
 use FI\Modules\Clients\Requests\ClientUpdateRequest;
 use FI\Modules\CustomFields\Models\CustomField;
 use FI\Modules\Payments\Models\Payment;
+use FI\Modules\PaymentTerms\Models\PaymentTerm;
 use FI\Support\Frequency;
 use FI\Traits\ReturnUrl;
 use FI\Modules\Industries\Models\Industry;
@@ -41,8 +42,9 @@ class ClientController extends Controller
     {
         $industries = Industry::pluck('name', 'id');
         $sizes = Size::pluck('name', 'id');
+        $payment_terms = PaymentTerm::pluck('name', 'id');
 
-        return view('clients.form', compact('industries', 'sizes'))
+        return view('clients.form', compact('industries', 'sizes', 'payment_terms'))
             ->with('editMode', false)
             ->with('customFields', CustomField::forTable('clients')->get());
     }
@@ -103,8 +105,9 @@ class ClientController extends Controller
         $client = Client::getSelect()->with(['custom'])->find($clientId);
         $industries = Industry::pluck('name','id');
         $sizes = Size::pluck('name', 'id');
+        $payment_terms = PaymentTerm::pluck('name', 'id');
 
-        return view('clients.form', compact('industries', 'sizes'))
+        return view('clients.form', compact('industries', 'sizes', 'payment_terms'))
             ->with('editMode', true)
             ->with('client', $client)
             ->with('customFields', CustomField::forTable('clients')->get())
