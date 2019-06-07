@@ -3,7 +3,7 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,10 +12,6 @@
 namespace FI\Modules\CompanyProfiles\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\CompanyProfileCreated;
-use FI\Events\CompanyProfileCreating;
-use FI\Events\CompanyProfileDeleted;
-use FI\Events\CompanyProfileSaving;
 use FI\Modules\Expenses\Models\Expense;
 use FI\Modules\Invoices\Models\Invoice;
 use FI\Modules\Quotes\Models\Quote;
@@ -31,31 +27,6 @@ class CompanyProfile extends Model
     protected $softCascade = ['custom'];
 
     protected $guarded = ['id'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($companyProfile)
-        {
-            event(new CompanyProfileSaving($companyProfile));
-        });
-
-        static::creating(function ($companyProfile)
-        {
-            event(new CompanyProfileCreating($companyProfile));
-        });
-
-        static::created(function ($companyProfile)
-        {
-            event(new CompanyProfileCreated($companyProfile));
-        });
-
-        /*static::deleted(function ($companyProfile)
-        {
-            event(new CompanyProfileDeleted($companyProfile));
-        });*/
-    }
 
     public static function getList()
     {

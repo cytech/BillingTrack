@@ -12,8 +12,6 @@
 namespace FI\Modules\Users\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\UserCreated;
-use FI\Events\UserDeleted;
 use FI\Traits\Sortable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -40,17 +38,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $sortable = ['name', 'email'];
 
     protected $appends = ['user_type'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($user)
-        {
-            event(new UserCreated($user));
-        });
-
-    }
 
     /*
     |--------------------------------------------------------------------------

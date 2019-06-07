@@ -23,12 +23,7 @@ class NoteController extends Controller
 
         $object = $model::find(request('model_id'));
 
-        $note = $object->notes()->create(['note' => request('note'), 'user_id' => auth()->user()->id, 'private' => request('isPrivate')]);
-
-        if (auth()->user()->client_id)
-        {
-            event(new NoteCreated($note));
-        }
+        $object->notes()->create(['note' => request('note'), 'user_id' => auth()->user()->id, 'private' => request('isPrivate')]);
 
         return view('notes._notes_list')
             ->with('object', $object)

@@ -13,9 +13,6 @@ namespace FI\Modules\Payments\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use FI\Events\InvoiceModified;
-use FI\Events\PaymentCreated;
-use FI\Events\PaymentCreating;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 use FI\Support\FileNames;
@@ -42,49 +39,6 @@ class Payment extends Model
     protected $dates = ['paid_at','deleted_at'];
 
     protected $appends = ['formatted_paid_at','formatted_amount'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($payment)
-        {
-            event(new InvoiceModified($payment->invoice));
-            event(new PaymentCreated($payment));
-        });
-
-        static::creating(function ($payment)
-        {
-            event(new PaymentCreating($payment));
-        });
-
-        /*static::updated(function($payment)
-        {
-            event(new InvoiceModified($payment->invoice));
-        });*/
-
-        static::deleting(function ($payment)
-        {
-            foreach ($payment->mailQueue as $mailQueue)
-            {
-                ($payment->isForceDeleting()) ? $mailQueue->onlyTrashed()->forceDelete() : $mailQueue->delete();
-            }
-
-            foreach ($payment->notes as $note)
-            {
-                ($payment->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
-            }
-
-        });
-
-        static::deleted(function ($payment)
-        {
-            if ($payment->invoice)
-            {
-                event(new InvoiceModified($payment->invoice));
-            }
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

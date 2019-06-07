@@ -11,7 +11,6 @@
 
 namespace FI\Modules\Settings\Models;
 
-use FI\Events\SettingSaving;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
@@ -23,16 +22,6 @@ class Setting extends Model
      * @var array
      */
     protected $guarded = ['id'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function ($setting)
-        {
-            event(new SettingSaving($setting));
-        });
-    }
 
     public static $modules = [
         'quote' => 1,

@@ -11,8 +11,6 @@
 namespace FI\Modules\Workorders\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\WorkorderItemSaving;
-use FI\Events\WorkorderModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
@@ -27,29 +25,6 @@ class WorkorderItem extends Model
     protected $dates = ['deleted_at'];
 
     protected $guarded = ['id'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleted(function($workorderItem)
-        {
-            if ($workorderItem->workorder)
-            {
-                event(new WorkorderModified($workorderItem->workorder));
-            }
-        });
-
-        static::saving(function($workorderItem)
-        {
-            event(new WorkorderItemSaving($workorderItem));
-        });
-
-        static::saved(function($workorderItem)
-        {
-            event(new WorkorderModified($workorderItem->workorder));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

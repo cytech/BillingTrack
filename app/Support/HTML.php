@@ -3,17 +3,13 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 namespace FI\Support;
-
-use FI\Events\InvoiceHTMLCreating;
-use FI\Events\QuoteHTMLCreating;
-use FI\Events\WorkorderHTMLCreating;
 
 class HTML
 {
@@ -22,8 +18,6 @@ class HTML
         app()->setLocale($invoice->client->language);
 
         config(['fi.baseCurrency' => $invoice->currency_code]);
-
-        event(new InvoiceHTMLCreating($invoice));
 
         $template = str_replace('.blade.php', '', $invoice->template);
 
@@ -47,8 +41,6 @@ class HTML
 
         config(['fi.baseCurrency' => $quote->currency_code]);
 
-        event(new QuoteHTMLCreating($quote));
-
         $template = str_replace('.blade.php', '', $quote->template);
 
         if (view()->exists('quote_templates.' . $template))
@@ -70,8 +62,6 @@ class HTML
         app()->setLocale($workorder->client->language);
 
         config(['fi.baseCurrency' => $workorder->currency_code]);
-
-        event(new WorkorderHTMLCreating($workorder));
 
         $template = str_replace('.blade.php', '', $workorder->template);
 

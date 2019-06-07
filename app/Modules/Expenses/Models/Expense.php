@@ -13,9 +13,6 @@ namespace FI\Modules\Expenses\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use FI\Events\CheckAttachment;
-use FI\Events\ExpenseCreated;
-use FI\Events\ExpenseDeleted;
-use FI\Events\ExpenseSaving;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 use FI\Support\NumberFormatter;
@@ -37,31 +34,6 @@ class Expense extends Model
     protected $dates = ['deleted_at'];
 
     protected $appends = ['formatted_description', 'formatted_expense_date', 'formatted_amount', 'is_billable', 'has_been_billed'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::created(function ($expense)
-        {
-            event(new ExpenseCreated($expense));
-        });
-
-        static::saved(function ($expense)
-        {
-            event(new CheckAttachment($expense));
-        });
-
-        static::saving(function ($expense)
-        {
-            event(new ExpenseSaving($expense));
-        });
-
-        static::deleted(function ($expense)
-        {
-            event(new ExpenseDeleted($expense));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

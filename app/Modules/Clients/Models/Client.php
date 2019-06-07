@@ -12,10 +12,6 @@
 namespace FI\Modules\Clients\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\ClientCreated;
-use FI\Events\ClientCreating;
-use FI\Events\ClientDeleted;
-use FI\Events\ClientSaving;
 use FI\Support\CurrencyFormatter;
 use FI\Support\Statuses\InvoiceStatuses;
 use Illuminate\Database\Eloquent\Model;
@@ -38,31 +34,6 @@ class Client extends Model
     protected $hidden = ['password', 'remember_token'];
 
     protected $appends = ['formatted_balance'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($client)
-        {
-            event(new ClientCreating($client));
-        });
-
-        static::created(function ($client)
-        {
-            event(new ClientCreated($client));
-        });
-
-        static::saving(function ($client)
-        {
-            event(new ClientSaving($client));
-        });
-
-        static::deleted(function ($client)
-        {
-            event(new ClientDeleted($client));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

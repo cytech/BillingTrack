@@ -13,7 +13,6 @@ namespace FI\Modules\Tasks\Controllers;
 
 use Carbon\Carbon;
 use FI\Events\InvoiceCreatedRecurring;
-use FI\Events\OverdueNoticeEmailed;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CustomFields\Models\CustomField;
 use FI\Modules\Invoices\Models\Invoice;
@@ -138,7 +137,6 @@ class TaskController extends Controller
 
                         $this->mailQueue->send($mail->id);
 
-                        event(new OverdueNoticeEmailed($invoice, $mail));
                     }
                 }
                 else

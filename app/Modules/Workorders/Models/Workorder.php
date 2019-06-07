@@ -12,9 +12,6 @@ namespace FI\Modules\Workorders\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use FI\Events\WorkorderCreated;
-use FI\Events\WorkorderCreating;
-use FI\Events\WorkorderDeleted;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 use FI\Support\FileNames;
@@ -36,26 +33,6 @@ class Workorder extends Model
     protected $appends = ['formatted_workorder_date', 'formatted_expires_at', 'formatted_job_date', 'status_text', 'formatted_summary'];
 
     protected $dates = ['expires_at', 'workorder_date','job_date','deleted_at'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($workorder)
-        {
-            event(new WorkorderCreating($workorder));
-        });
-
-        static::created(function ($workorder)
-        {
-            event(new WorkorderCreated($workorder));
-        });
-
-        static::deleted(function($workorder)
-        {
-            event( new WorkorderDeleted( $workorder ) );
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

@@ -16,7 +16,6 @@ use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Event;
 
 class TimeTrackingTask extends Model
 {
@@ -31,23 +30,6 @@ class TimeTrackingTask extends Model
     protected $table = 'time_tracking_tasks';
 
     protected $guarded = ['id'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($task)
-        {
-            $maxDisplayOrder = self::where('time_tracking_project_id', $task->time_tracking_project_id)->max('display_order');
-
-            $task->display_order = $maxDisplayOrder + 1;
-        });
-
-       /* static::deleted(function ($task)
-        {
-            Event::fire('timeTracking.task.deleted', [$task]);
-        });*/
-    }
 
     /*
     |--------------------------------------------------------------------------

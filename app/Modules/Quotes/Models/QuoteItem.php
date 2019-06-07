@@ -3,7 +3,7 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,8 +12,6 @@
 namespace FI\Modules\Quotes\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\QuoteItemSaving;
-use FI\Events\QuoteModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
@@ -30,29 +28,6 @@ class QuoteItem extends Model
     protected $dates = ['deleted_at'];
 
     protected $guarded = ['id'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleted(function($quoteItem)
-        {
-            if ($quoteItem->quote)
-            {
-                event(new QuoteModified($quoteItem->quote));
-            }
-        });
-
-        static::saving(function($quoteItem)
-        {
-            event(new QuoteItemSaving($quoteItem));
-        });
-
-        static::saved(function($quoteItem)
-        {
-            event(new QuoteModified($quoteItem->quote));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

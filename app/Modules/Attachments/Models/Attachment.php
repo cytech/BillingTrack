@@ -3,7 +3,7 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,8 +11,6 @@
 
 namespace FI\Modules\Attachments\Models;
 
-use FI\Events\AttachmentCreating;
-use FI\Events\AttachmentDeleted;
 use FI\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,21 +24,6 @@ class Attachment extends Model
     protected $table = 'attachments';
 
     protected $guarded = ['id'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($attachment)
-        {
-            event(new AttachmentCreating($attachment));
-        });
-
-        static::deleted(function ($attachment)
-        {
-            event(new AttachmentDeleted($attachment));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

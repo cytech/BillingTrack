@@ -12,14 +12,12 @@
 namespace FI\Modules\TimeTracking\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\TimeTrackingProjectCreating;
 use FI\Support\Statuses\TimeTrackingProjectStatuses;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Event;
 
 class TimeTrackingProject extends Model
 {
@@ -36,21 +34,6 @@ class TimeTrackingProject extends Model
     protected $guarded = ['id'];
 
     protected $appends = ['status_text', 'formatted_created_at', 'formatted_due_at'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($project)
-        {
-            event(new TimeTrackingProjectCreating($project));
-        });
-
-       /* static::deleted(function ($project)
-        {
-            Event::fire('timeTracking.project.deleted', [$project]);
-        });*/
-    }
 
     public static function getList($status = null)
     {

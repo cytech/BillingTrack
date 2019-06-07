@@ -13,9 +13,6 @@ namespace FI\Modules\Quotes\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use FI\Events\QuoteCreated;
-use FI\Events\QuoteCreating;
-use FI\Events\QuoteDeleted;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 use FI\Support\FileNames;
@@ -39,26 +36,6 @@ class Quote extends Model
     protected $dates = ['expires_at', 'quote_date','deleted_at'];
 
     protected $appends = ['formatted_quote_date', 'formatted_expires_at','status_text', 'formatted_summary'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($quote)
-        {
-            event(new QuoteCreating($quote));
-        });
-
-        static::created(function ($quote)
-        {
-            event(new QuoteCreated($quote));
-        });
-
-        static::deleted(function ($quote)
-        {
-            event(new QuoteDeleted($quote));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

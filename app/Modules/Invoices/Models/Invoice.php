@@ -13,9 +13,6 @@ namespace FI\Modules\Invoices\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use FI\Events\InvoiceCreated;
-use FI\Events\InvoiceCreating;
-use FI\Events\InvoiceDeleted;
 use FI\Support\CurrencyFormatter;
 use FI\Support\DateFormatter;
 use FI\Support\FileNames;
@@ -39,26 +36,6 @@ class Invoice extends Model
     protected $dates = ['due_at', 'invoice_date', 'deleted_at'];
 
     protected $appends = ['formatted_invoice_date', 'formatted_due_at', 'formatted_summary'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($invoice)
-        {
-            event(new InvoiceCreating($invoice));
-        });
-
-        static::created(function ($invoice)
-        {
-            event(new InvoiceCreated($invoice));
-        });
-
-        static::deleted(function ($invoice)
-        {
-            event(new InvoiceDeleted($invoice));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

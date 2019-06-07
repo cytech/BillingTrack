@@ -11,7 +11,6 @@
 
 namespace FI\Modules\CustomFields\Models;
 
-use FI\Events\ClientCustomCreating;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -27,13 +26,5 @@ class ClientCustom extends Model
 
     protected $guarded = [];
 
-    public static function boot()
-    {
-        parent::boot();
 
-        static::creating(function ($clientCustom)
-        {
-            event(new ClientCustomCreating($clientCustom));
-        });
-    }
 }

@@ -12,9 +12,6 @@
 namespace FI\Modules\RecurringInvoices\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\RecurringInvoiceCreated;
-use FI\Events\RecurringInvoiceCreating;
-use FI\Events\RecurringInvoiceDeleted;
 use FI\Support\DateFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
@@ -34,26 +31,6 @@ class RecurringInvoice extends Model
     protected $guarded = ['id'];
 
     protected $appends = ['formatted_next_date', 'formatted_stop_date', 'formatted_summary'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($recurringInvoice)
-        {
-            event(new RecurringInvoiceCreating($recurringInvoice));
-        });
-
-        static::created(function ($recurringInvoice)
-        {
-            event(new RecurringInvoiceCreated($recurringInvoice));
-        });
-
-        static::deleted(function ($recurringInvoice)
-        {
-            event(new RecurringInvoiceDeleted($recurringInvoice));
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

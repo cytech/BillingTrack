@@ -12,8 +12,6 @@
 namespace FI\Modules\RecurringInvoices\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\RecurringInvoiceItemSaving;
-use FI\Events\RecurringInvoiceModified;
 use FI\Support\CurrencyFormatter;
 use FI\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
@@ -33,29 +31,6 @@ class RecurringInvoiceItem extends Model
      * @var array
      */
     protected $guarded = ['id'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::saving(function($recurringInvoiceItem)
-        {
-            event(new RecurringInvoiceItemSaving($recurringInvoiceItem));
-        });
-
-        static::saved(function($recurringInvoiceItem)
-        {
-            event(new RecurringInvoiceModified($recurringInvoiceItem->recurringInvoice));
-        });
-
-        static::deleted(function($recurringInvoiceItem)
-        {
-            if ($recurringInvoiceItem->recurringInvoice)
-            {
-                event(new RecurringInvoiceModified($recurringInvoiceItem->recurringInvoice));
-            }
-        });
-    }
 
     /*
     |--------------------------------------------------------------------------

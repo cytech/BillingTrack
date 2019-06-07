@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added client shipping address fields (address_2,city_2,etc) accessible in templates
 - Added client industry, size, id, and VAT fields
 - Added client contact firstname, lastname, title, phone, fax, mobile, primary , optin and note fields
-- Added individual Client payment terms and accessed by due_at (if not set defaults to invoice config value) 
+- Added individual Client payment terms and accessed by due_at (if not set defaults to invoice config value)
+- Converted many events/listeners to model observers 
 
 ## 5.0.1
 - Renamed project to BillingTrack
