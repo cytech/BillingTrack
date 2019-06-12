@@ -52,14 +52,10 @@
                         {!! Form::text('title',$employees->title,['id'=>'title', 'class'=>'form-control',
                         'list'=>'listid']) !!}
                         <datalist id='listid'>
-                            <option value='@lang('fi.worker')'>
-                            <option value='@lang('fi.manager')'>
-                            <option value='@lang('fi.director')'>
-                            <option value='@lang('fi.driver')'>
-                            <option value='@lang('fi.consultant')'>
-                            <option value='@lang('fi.accountant')'>
-                            <option value='@lang('fi.sales')'>
-                            <option value='@lang('fi.technician')'>
+                            @foreach($titles as $title)
+                                <option>{!! $title !!}</option>
+                            @endforeach
+
                         </datalist>
                     </div>
                 </div>

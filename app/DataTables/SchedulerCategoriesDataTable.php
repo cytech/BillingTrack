@@ -6,7 +6,7 @@ use FI\Modules\Scheduler\Models\Category;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class CategoriesDataTable extends DataTable
+class SchedulerCategoriesDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,7 +18,7 @@ class CategoriesDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'categories._actions')
+        return $dataTable->addColumn('action', 'schedulecategories._actions')
                 ->editColumn('text_color', function (Category $category) {
                     return $category->text_color . '   <i class="fa fa-square" style="color:'. $category->text_color .'"></i>';
                 })

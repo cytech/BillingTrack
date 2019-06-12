@@ -7,8 +7,8 @@ use FI\Modules\Clients\Models\Client;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\CustomFields\Models\ExpenseCustom;
 use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Expenses\Models\ExpenseCategory;
-use FI\Modules\Expenses\Models\ExpenseVendor;
+use FI\Modules\Categories\Models\Category;
+use FI\Modules\Vendors\Models\Vendor;
 
 class ExpenseObserver
 {
@@ -40,12 +40,12 @@ class ExpenseObserver
 
         if ($expense->category_name)
         {
-            $expense->category_id = ExpenseCategory::firstOrCreate(['name' => $expense->category_name])->id;
+            $expense->category_id = Category::firstOrCreate(['name' => $expense->category_name])->id;
         }
 
         if (isset($expense->vendor_name) and $expense->vendor_name)
         {
-            $expense->vendor_id = ExpenseVendor::firstOrCreate(['name' => $expense->vendor_name])->id;
+            $expense->vendor_id = Vendor::firstOrCreate(['name' => $expense->vendor_name])->id;
         }
         elseif (isset($expense->vendor_name))
         {

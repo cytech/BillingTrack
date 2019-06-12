@@ -11,8 +11,10 @@
 
 namespace database\factories;
 
+use Faker\Factory as Faker;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Clients\Models\Client;
+use FI\Modules\Clients\Models\Contact;
 use FI\Modules\Employees\Models\Employee;
 use FI\Modules\Products\Models\Product;
 
@@ -21,10 +23,29 @@ class TestController extends Controller
     public function test()
     {
         //clientfactory change between company and name, run twice
-        $client = factory(Client::class, 25)->create();
-        $employee = factory(Employee::class, 10)->create();
-        $product = factory(Product::class, 20)->create();
+//        $client = factory(Client::class, 25)->create();
+//        $employee = factory(Employee::class, 10)->create();
+//        $product = factory(Product::class, 20)->create();
 
+//        $companies = \FI\Modules\Clients\Models\Client::where('is_company', 1)->get();
+//
+//        foreach ($companies as $company){
+//            $contact = factory(Contact::class,1 )->create(['client_id' => $company->id]);
+//
+//        }
+
+
+        $faker = Faker::create();
+
+        $companies = \FI\Modules\Clients\Models\Client::where('is_company', 1)->get();
+
+        foreach ($companies as $company){
+            $company->address_2 = $faker->streetAddress;
+            $company->city_2 = $faker->city;
+            $company->state_2 = $faker->stateAbbr;
+            $company->zip_2 = $faker->postcode;
+            $company->save();
+        }
     }
 
 }

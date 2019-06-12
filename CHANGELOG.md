@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added client contact firstname, lastname, title, phone, fax, mobile, primary , optin and note fields
 - Added individual Client payment terms and accessed by due_at (if not set defaults to invoice config value)
 - Converted many events/listeners to model observers 
+- Expand vendor info
+- General categories and vendors for expenses and products
 
 ## 5.0.1
 - Renamed project to BillingTrack

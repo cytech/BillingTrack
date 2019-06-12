@@ -12,14 +12,14 @@
 namespace FI\Modules\Expenses\Controllers;
 
 use FI\Http\Controllers\Controller;
-use FI\Modules\Expenses\Models\ExpenseCategory;
-use FI\Modules\Expenses\Models\ExpenseVendor;
+use FI\Modules\Categories\Models\Category;
+use FI\Modules\Vendors\Models\Vendor;
 
 class ExpenseLookupController extends Controller
 {
     public function lookupCategory()
     {
-        $expenses = ExpenseCategory::select('name')
+        $expenses = Category::select('name')
             ->where('name', 'like', '%' . request('term') . '%')
             ->orderBy('name')
             ->get();
@@ -36,7 +36,7 @@ class ExpenseLookupController extends Controller
 
     public function lookupVendor()
     {
-        $expenses = ExpenseVendor::select('name')
+        $expenses = Vendor::select('name')
             ->where('name', 'like', '%' . request('term') . '%')
             ->orderBy('name')
             ->get();

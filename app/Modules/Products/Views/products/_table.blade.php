@@ -4,6 +4,7 @@
     <tr>
         <th>@lang('fi.product_id')</th>
         <th>@lang('fi.product_name')</th>
+        <th>@lang('fi.vendor')</th>
         <th>@lang('fi.product_active')</th>
         <th>@lang('fi.product_cost')</th>
         <th>@lang('fi.product_category')</th>
@@ -19,9 +20,10 @@
             <td><a href="{{ route('products.edit', [$product->id]) }}"
                    title="@lang('fi.edit')">{{ $product->id }}</a></td>
             <td>{{ $product->name }}</td>
+            <td>{{ (!empty($product->vendor->name)) ? $product->vendor->name :'' }}</td>
             <td>{{ $product->active }}</td>
             <td>{{ $product->cost }}</td>
-            <td>{{ $product->category }}</td>
+            <td>{{ (!empty($product->category->name)) ? $product->category->name : '' }}</td>
             <td>{{ $product->type }}</td>
             <td>{{ $product->numstock }}</td>
             <td> <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary btn-sm "><i

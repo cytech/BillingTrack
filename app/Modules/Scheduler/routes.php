@@ -31,14 +31,14 @@ Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'n
     Route::post('bulk/trash', ['uses' => 'SchedulerController@bulkTrash', 'as' => 'scheduler.bulk.trash']);
     //categories
     //laravel 5.3 changed route resource and prefix to something stupid..
-    //Route::resource( 'categories', 'CategoryController' );
-    Route::get('/categories', ['uses' => 'CategoryController@index', 'as' => 'scheduler.categories.index']);
-    Route::get('/categories/create', ['uses' => 'CategoryController@create', 'as' => 'scheduler.categories.create']);
-    Route::post('/categories/store', ['uses' => 'CategoryController@store', 'as' => 'scheduler.categories.store']);
-    Route::get('/categories/{id}', ['uses' => 'CategoryController@show', 'as' => 'scheduler.categories.show']);
-    Route::get('/categories/{id}/edit', ['uses' => 'CategoryController@edit', 'as' => 'scheduler.categories.edit']);
-    Route::put('/categories/{id}', ['uses' => 'CategoryController@update', 'as' => 'scheduler.categories.update']);
-    Route::get('categories/delete/{id}', ['uses' => 'CategoryController@delete', 'as' => 'scheduler.categories.delete']);
+    //Route::resource( 'categories', 'SchedulerCategoryController' );
+    Route::get('/categories', ['uses' => 'SchedulerCategoryController@index', 'as' => 'scheduler.categories.index']);
+    Route::get('/categories/create', ['uses' => 'SchedulerCategoryController@create', 'as' => 'scheduler.categories.create']);
+    Route::post('/categories/store', ['uses' => 'SchedulerCategoryController@store', 'as' => 'scheduler.categories.store']);
+    Route::get('/categories/{id}', ['uses' => 'SchedulerCategoryController@show', 'as' => 'scheduler.categories.show']);
+    Route::get('/categories/{id}/edit', ['uses' => 'SchedulerCategoryController@edit', 'as' => 'scheduler.categories.edit']);
+    Route::put('/categories/{id}', ['uses' => 'SchedulerCategoryController@update', 'as' => 'scheduler.categories.update']);
+    Route::get('categories/delete/{id}', ['uses' => 'SchedulerCategoryController@delete', 'as' => 'scheduler.categories.delete']);
     //utilities
     Route::get('/checkschedule', ['uses' => 'SchedulerController@checkSchedule', 'as' => 'scheduler.checkschedule']);
     Route::get('/getreplaceemployee/{item_id}/{name}/{date}', ['uses' => 'SchedulerController@getReplaceEmployee', 'as' => 'scheduler.getreplace.employee']);

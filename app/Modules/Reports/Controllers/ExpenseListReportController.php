@@ -12,8 +12,8 @@
 namespace FI\Modules\Reports\Controllers;
 
 use FI\Http\Controllers\Controller;
-use FI\Modules\Expenses\Models\ExpenseCategory;
-use FI\Modules\Expenses\Models\ExpenseVendor;
+use FI\Modules\Categories\Models\Category;
+use FI\Modules\Vendors\Models\Vendor;
 use FI\Modules\Reports\Reports\ExpenseListReport;
 use FI\Modules\Reports\Requests\DateRangeRequest;
 use FI\Support\PDF\PDFFactory;
@@ -30,8 +30,8 @@ class ExpenseListReportController extends Controller
     public function index()
     {
         return view('reports.options.expense_list')
-            ->with('categories', ['' => trans('fi.all_categories')] + ExpenseCategory::getList())
-            ->with('vendors', ['' => trans('fi.all_vendors')] + ExpenseVendor::getList());
+            ->with('categories', ['' => trans('fi.all_categories')] + Category::getList())
+            ->with('vendors', ['' => trans('fi.all_vendors')] + Vendor::getList());
     }
 
     public function validateOptions(DateRangeRequest $request)

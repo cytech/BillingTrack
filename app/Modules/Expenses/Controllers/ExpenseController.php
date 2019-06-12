@@ -15,8 +15,8 @@ use FI\DataTables\ExpensesDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\CompanyProfiles\Models\CompanyProfile;
 use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Expenses\Models\ExpenseCategory;
-use FI\Modules\Expenses\Models\ExpenseVendor;
+use FI\Modules\Categories\Models\Category;
+use FI\Modules\Vendors\Models\Vendor;
 use FI\Traits\ReturnUrl;
 
 class ExpenseController extends Controller
@@ -27,8 +27,8 @@ class ExpenseController extends Controller
     {
         $this->setReturnUrl();
         $status = request('status');
-        $categories = ['' => trans('fi.all_categories')] + ExpenseCategory::getList();
-        $vendors = ['' => trans('fi.all_vendors')] + ExpenseVendor::getList();
+        $categories = ['' => trans('fi.all_categories')] + Category::getList();
+        $vendors = ['' => trans('fi.all_vendors')] + Vendor::getList();
         $statuses = ['' => trans('fi.all_statuses'), 'billed' => trans('fi.billed'), 'not_billed' => trans('fi.not_billed'), 'not_billable' => trans('fi.not_billable')];
         $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
 

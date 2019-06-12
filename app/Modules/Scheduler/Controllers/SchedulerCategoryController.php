@@ -10,22 +10,22 @@
 
 namespace FI\Modules\Scheduler\Controllers;
 
-use FI\DataTables\CategoriesDataTable;
+use FI\DataTables\SchedulerCategoriesDataTable;
 use FI\Http\Controllers\Controller;
 use FI\Modules\Scheduler\Models\Category;
 use FI\Modules\Scheduler\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller {
+class SchedulerCategoryController extends Controller {
 
-    public function index(CategoriesDataTable $dataTable)
+    public function index(SchedulerCategoriesDataTable $dataTable)
     {
 
-        return $dataTable->render('categories.index');
+        return $dataTable->render('schedulecategories.index');
     }
 
 	public function create() {
-		return view( 'categories.create' );
+		return view( 'schedulecategories.create' );
 	}
 
 	public function store( CategoryRequest $request ) {
@@ -41,13 +41,13 @@ class CategoryController extends Controller {
 	public function show( $id ) {
 		$categories = Category::find( $id );
 
-		return view('schedule.categories.show', compact( 'categories' ) );
+		return view('schedule.schedulecategories.show', compact( 'categories' ) );
 	}
 
 	public function edit( $id ) {
 		$categories = Category::find( $id );
 
-		return view( 'categories.edit', compact( 'categories' ) );
+		return view( 'schedulecategories.edit', compact( 'categories' ) );
 	}
 
 	public function update( CategoryRequest $request, $id ) {

@@ -14,6 +14,7 @@ use FI\Modules\Employees\Models\Employee;
 use FI\Modules\Employees\Requests\EmployeeRequest;
 use FI\Http\Controllers\Controller;
 use FI\Modules\ItemLookups\Models\ItemLookup;
+use FI\Modules\Titles\Models\Title;
 
 class EmployeeController extends Controller
 {
@@ -36,7 +37,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('employees.create');
+        $titles = Title::pluck('name', 'id');
+
+        return view('employees.create', compact('titles'));
     }
 
     /**
@@ -92,9 +95,11 @@ class EmployeeController extends Controller
     {
         // get the employee
         $employees = Employee::find($id);
+        $titles = Title::pluck('name', 'id');
+
 
         // show the edit form and pass the resource
-        return view('employees.edit', compact('employees'));
+        return view('employees.edit', compact('employees','titles'));
     }
 
     /**

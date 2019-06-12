@@ -30,8 +30,12 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('employees.index') }}"><i
                             class="fa fa-users"></i> @lang('fi.employees')</a>
+                <a class="dropdown-item" href="{{ route('vendors.index') }}"><i
+                            class="fa fa-warehouse"></i> @lang('fi.vendors')</a>
                 <a class="dropdown-item" href="{{ route('products.index') }}"><i
                             class="fa fa-shopping-cart"></i> @lang('fi.products')</a>
+                <a class="dropdown-item" href="{{ route('categories.index') }}"><i
+                            class="fa fa-list"></i> @lang('fi.categories')</a>
                 <a class="dropdown-item" href="{{ route('itemLookups.index') }}"><i
                             class="fa fa-eye"></i> @lang('fi.item_lookups')</a>
                 <a class="dropdown-item" href="{{ route('mailLog.index') }}"><i

@@ -3,19 +3,19 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Expenses\Models;
+namespace FI\Modules\Categories\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExpenseVendor extends Model
+class Category extends Model
 {
-    protected $table = 'expense_vendors';
+    protected $table = 'categories';
 
     protected $guarded = ['id'];
 
@@ -29,7 +29,7 @@ class ExpenseVendor extends Model
     {
         return self::whereIn('id', function ($query)
         {
-            $query->select('vendor_id')->distinct()->from('expenses');
+            $query->select('category_id')->distinct()->from('expenses');
         })->orderBy('name')
             ->pluck('name', 'id')
             ->all();

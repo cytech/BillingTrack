@@ -67,7 +67,12 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>* @lang('fi.category'): </label>
-                                    {!! Form::text('category_name', null, ['id' => 'category_name', 'class' => 'form-control category-lookup']) !!}
+                                    {!! Form::text('category_name', null, ['id' => 'category_name', 'class' => 'form-control category-lookup','list'=>'catlistid']) !!}
+                                    <datalist id='catlistid'>
+                                        @foreach($categories as $category)
+                                            <option>{!! $category !!}</option>
+                                        @endforeach
+                                    </datalist>
                                 </div>
                             </div>
 
@@ -92,7 +97,12 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label> @lang('fi.vendor'): </label>
-                                    {!! Form::text('vendor_name', null, ['id' => 'vendor_name', 'class' => 'form-control vendor-lookup']) !!}
+                                    {!! Form::text('vendor_name', null, ['id' => 'vendor_name', 'class' => 'form-control vendor-lookup','list'=>'vendlistid']) !!}
+                                    <datalist id='vendlistid'>
+                                        @foreach($vendors as $vendor)
+                                            <option>{!! $vendor !!}</option>
+                                        @endforeach
+                                    </datalist>
                                 </div>
                             </div>
 

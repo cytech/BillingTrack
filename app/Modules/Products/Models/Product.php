@@ -23,6 +23,16 @@ class Product extends Model
 
 	protected $table = 'products';
 
+    public function vendor()
+    {
+        return $this->belongsTo('FI\Modules\Vendors\Models\Vendor');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('FI\Modules\Categories\Models\Category');
+    }
+
     public function quoteitem()
     {
         return $this->belongsTo('FI\Modules\Workorders\Models\QuoteItem','resource_id', 'id')

@@ -30,6 +30,19 @@
                         {!! Form::text('name',$products->name,['id'=>'name', 'class'=>'form-control']) !!}
                     </div>
                 </div>
+                <!-- Vendor input-->
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-2 text-right text"
+                           for="vendor">@lang('fi.vendor')</label>
+                    <div class="col-md-4">
+                        {!! Form::text('vendor',($products->vendor) ? $products->vendor->name : '',['id'=>'vendor', 'class'=>'form-control','list'=>'vendlistid']) !!}
+                        <datalist id='vendlistid'>
+                            @foreach($vendors as $vendor)
+                                <option>{!! $vendor !!}</option>
+                            @endforeach
+                        </datalist>
+                    </div>
+                </div>
                 <!-- Description input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
@@ -67,7 +80,12 @@
                     <label class="col-sm-2 text-right text"
                            for="category">@lang('fi.product_category')</label>
                     <div class="col-md-4">
-                        {!! Form::text('category',$products->category,['id'=>'category', 'class'=>'form-control']) !!}
+                        {!! Form::text('category',($products->category) ? $products->category->name : '',['id'=>'category', 'class'=>'form-control','list'=>'prodlistid' ]) !!}
+                        <datalist id='prodlistid'>
+                            @foreach($categories as $category)
+                                <option>{!! $category !!}</option>
+                            @endforeach
+                        </datalist>
                     </div>
                 </div>
                 <!-- Type input-->

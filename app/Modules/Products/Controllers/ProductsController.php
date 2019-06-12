@@ -10,10 +10,12 @@
 
 namespace FI\Modules\Products\Controllers;
 
+use FI\Modules\Categories\Models\Category;
 use FI\Modules\ItemLookups\Models\ItemLookup;
 use FI\Modules\Products\Models\Product;
 use FI\Modules\Products\Requests\ProductRequest;
 use FI\Http\Controllers\Controller;
+use FI\Modules\Vendors\Models\Vendor;
 
 class ProductController extends Controller
 {
@@ -26,7 +28,9 @@ class ProductController extends Controller
     {
 	    $products = Product::get();
 
-        return view('products.index')->with('products', $products);
+        return view('products.index')
+            ->with('products', $products)
+            ->with('categories', Category::pluck('name', 'id'));
     }
 
     /**
@@ -36,7 +40,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('products.create')
+            ->with('vendors', Vendor::pluck('name', 'id'))
+            ->with('categories', Category::pluck('name', 'id'));
     }
 
     /**
@@ -49,12 +55,19 @@ class ProductController extends Controller
     {
         // store
         $products = new Product;
+
+        if ($request->category) {
+            $products->category_id = Category::firstOrCreate(['name' => $request->category])->id;
+        }
+        if ($request->vendor) {
+            $products->vendor_id = Vendor::firstOrCreate(['name' => $request->vendor])->id;
+        }
+
         $products->name = $request->name;
         $products->description = $request->description;
         $products->serialnum = $request->serialnum;
         $products->active = is_null($request->active) ? 0 : $request->active;
         $products->cost = $request->cost?:0;
-        $products->category = $request->category;
         $products->type = $request->type;
         $products->numstock = $request->numstock?:0;
         $products->save();
@@ -91,7 +104,9 @@ class ProductController extends Controller
         $products = Product::find($id);
 
         // show the edit form and pass the product
-        return view('products.edit', compact('products'));
+        return view('products.edit', compact('products'))
+            ->with('vendors', Vendor::pluck('name', 'id'))
+            ->with('categories', Category::pluck('name', 'id'));
     }
 
     /**
@@ -105,12 +120,19 @@ class ProductController extends Controller
     {
         // update
         $products = Product::find($id);
+
+        if ($request->category) {
+            $products->category_id = Category::firstOrCreate(['name' => $request->category])->id;
+        }
+        if ($request->vendor) {
+            $products->vendor_id = Vendor::firstOrCreate(['name' => $request->vendor])->id;
+        }
+
         $products->name = $request->name;
         $products->description = $request->description;
         $products->serialnum = $request->serialnum;
         $products->active = is_null($request->active) ? 0 : $request->active;
         $products->cost = $request->cost;
-        $products->category = $request->category;
         $products->type = $request->type;
         $products->numstock = $request->numstock;
         $products->save();

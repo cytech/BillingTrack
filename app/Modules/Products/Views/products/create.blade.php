@@ -6,7 +6,7 @@
     @include('layouts._alerts')
     <section class="content-header">
         {!! Form::open(['route' => 'products.store', 'class'=>'form-horizontal']) !!}
-        
+
         <div class="card card-light">
             <div class="card-header">
                 <h3 class="card-title"><i
@@ -34,6 +34,19 @@
                            for="description">@lang('fi.product_description')</label>
                     <div class="col-md-4">
                         {!! Form::text('description',old('description'),['id'=>'description','class'=>'form-control']) !!}
+                    </div>
+                </div>
+                <!-- Vendor input-->
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-md-2 text-right text"
+                           for="vendor">@lang('fi.vendor')</label>
+                    <div class="col-md-4">
+                        {!! Form::text('vendor',old('vendor'),['id'=>'vendor','class'=>'form-control','list'=>'vendlistid']) !!}
+                        <datalist id='vendlistid'>
+                            @foreach($vendors as $vendor)
+                                <option>{!! $vendor !!}</option>
+                            @endforeach
+                        </datalist>
                     </div>
                 </div>
                 <!-- Serial Number input-->
@@ -65,7 +78,12 @@
                     <label class="col-md-2 text-right text"
                            for="category">@lang('fi.product_category')</label>
                     <div class="col-md-4">
-                        {!! Form::text('category',old('category'),['id'=>'category','class'=>'form-control']) !!}
+                        {!! Form::text('category',old('category'),['id'=>'category','class'=>'form-control','list'=>'prodlistid']) !!}
+                        <datalist id='prodlistid'>
+                            @foreach($categories as $category)
+                                <option>{!! $category !!}</option>
+                            @endforeach
+                        </datalist>
                     </div>
                 </div>
                 <!-- Type input-->
@@ -86,7 +104,7 @@
                 </div>
             </div>
         </div>
-     
+
         {!! Form::close() !!}
     </section>
 @stop

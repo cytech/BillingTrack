@@ -48,7 +48,7 @@ class Expense extends Model
 
     public function category()
     {
-        return $this->belongsTo('FI\Modules\Expenses\Models\ExpenseCategory');
+        return $this->belongsTo('FI\Modules\Categories\Models\Category');
     }
 
     public function client()
@@ -73,7 +73,7 @@ class Expense extends Model
 
     public function vendor()
     {
-        return $this->belongsTo('FI\Modules\Expenses\Models\ExpenseVendor');
+        return $this->belongsTo('FI\Modules\Vendors\Models\Vendor');
     }
 
     /*
@@ -173,10 +173,10 @@ class Expense extends Model
 
     public function scopeDefaultQuery($query)
     {
-        return $query->select('expenses.*', 'expense_categories.name AS category_name',
-            'expense_vendors.name AS vendor_name', 'clients.unique_name AS client_name')
-            ->join('expense_categories', 'expense_categories.id', '=', 'expenses.category_id')
-            ->leftJoin('expense_vendors', 'expense_vendors.id', '=', 'expenses.vendor_id')
+        return $query->select('expenses.*', 'categories.name AS category_name',
+            'vendors.name AS vendor_name', 'clients.unique_name AS client_name')
+            ->join('categories', 'categories.id', '=', 'expenses.category_id')
+            ->leftJoin('vendors', 'vendors.id', '=', 'expenses.vendor_id')
             ->leftJoin('clients', 'clients.id', '=', 'expenses.client_id');
     }
 
@@ -188,9 +188,9 @@ class Expense extends Model
 
             $query->where('expenses.expense_date', 'like', '%' . $keywords . '%')
                 ->orWhere('expenses.description', 'like', '%' . $keywords . '%')
-                ->orWhere('expense_vendors.name', 'like', '%' . $keywords . '%')
+                ->orWhere('vendors.name', 'like', '%' . $keywords . '%')
                 ->orWhere('clients.name', 'like', '%' . $keywords . '%')
-                ->orWhere('expense_categories.name', 'like', '%' . $keywords . '%');
+                ->orWhere('categories.name', 'like', '%' . $keywords . '%');
         }
 
         return $query;
