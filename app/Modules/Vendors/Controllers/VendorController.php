@@ -49,7 +49,8 @@ class VendorController extends Controller
 
         return view('vendors.form', compact('payment_terms'))
             ->with('editMode', false)
-            ->with('customFields', CustomField::forTable('vendors')->get());
+            ->with('customFields', CustomField::forTable('vendors')->get())
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     /**
@@ -77,13 +78,12 @@ class VendorController extends Controller
      */
     public function show($vendorId)
     {
-        $this->setReturnUrl();
-
         $vendor = Vendor::getSelect()->find($vendorId);
 
         return view('vendors.view')
             ->with('vendor', $vendor)
-            ->with('customFields', CustomField::forTable('vendors')->get());
+            ->with('customFields', CustomField::forTable('vendors')->get())
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     /**

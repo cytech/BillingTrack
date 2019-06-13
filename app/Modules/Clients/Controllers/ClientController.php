@@ -46,7 +46,8 @@ class ClientController extends Controller
 
         return view('clients.form', compact('industries', 'sizes', 'payment_terms'))
             ->with('editMode', false)
-            ->with('customFields', CustomField::forTable('clients')->get());
+            ->with('customFields', CustomField::forTable('clients')->get())
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     public function store(ClientStoreRequest $request)
@@ -61,7 +62,7 @@ class ClientController extends Controller
 
     public function show($clientId)
     {
-        $this->setReturnUrl();
+        //$this->setReturnUrl();
 
         $client = Client::getSelect()->find($clientId);
 
@@ -97,7 +98,8 @@ class ClientController extends Controller
             ->with('payments', Payment::clientId($clientId)->orderBy('paid_at', 'desc')->get())
             ->with('recurringInvoices', $recurringInvoices)
             ->with('customFields', CustomField::forTable('clients')->get())
-            ->with('frequencies', Frequency::lists());
+            ->with('frequencies', Frequency::lists())
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     public function edit($clientId)

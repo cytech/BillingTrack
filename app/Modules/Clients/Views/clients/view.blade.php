@@ -13,6 +13,7 @@
                data-unique-name="{{ $client->unique_name }}">@lang('fi.create_workorder')</a>
             <a href="javascript:void(0)" class="btn btn-secondary create-invoice"
                data-unique-name="{{ $client->unique_name }}">@lang('fi.create_invoice')</a>
+            <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('fi.back')</a>
             <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-secondary">@lang('fi.edit')</a>
             <a class="btn btn-secondary" href="#"
                onclick="swalConfirm('@lang('fi.trash_client_warning')', '{{ route('clients.delete', [$client->id]) }}');"><i

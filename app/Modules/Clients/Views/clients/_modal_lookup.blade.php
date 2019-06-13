@@ -29,8 +29,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
-                <button type="button" id="btn-submit-change-client" class="btn btn-primary">@lang('fi.save')
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle"></i> @lang('fi.cancel')</button>
+                <button type="button" id="btn-submit-change-client" class="btn btn-primary"><i class="fa fa-save"></i> @lang('fi.save')
                 </button>
             </div>
         </div>

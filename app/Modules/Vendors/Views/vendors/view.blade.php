@@ -7,6 +7,7 @@
             @lang('fi.view_vendor')
         </h3>
         <div class="float-right">
+            <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('fi.back')</a>
             <a href="{{ route('vendors.edit', [$vendor->id]) }}" class="btn btn-secondary">@lang('fi.edit')</a>
             <a class="btn btn-secondary" href="#"
                onclick="swalConfirm('@lang('fi.trash_vendor_warning')', '{{ route('vendors.delete', [$vendor->id]) }}');"><i
