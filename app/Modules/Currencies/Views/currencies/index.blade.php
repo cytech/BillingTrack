@@ -4,11 +4,11 @@
 
     <section class="content-header">
         <h1 class="float-left">
-            @lang('fi.currencies')
+            @lang('bt.currencies')
         </h1>
 
         <div class="float-right">
-            <a href="{{ route('currencies.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('fi.new')</a>
+            <a href="{{ route('currencies.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('bt.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -24,13 +24,13 @@
 
                             <thead>
                             <tr>
-                                <th>{!! Sortable::link('name', trans('fi.name')) !!}</th>
-                                <th>{!! Sortable::link('code', trans('fi.code')) !!}</th>
-                                <th>{!! Sortable::link('symbol', trans('fi.symbol')) !!}</th>
-                                <th>{!! Sortable::link('placement', trans('fi.symbol_placement')) !!}</th>
-                                <th>{!! Sortable::link('decimal', trans('fi.decimal_point')) !!}</th>
-                                <th>{!! Sortable::link('thousands', trans('fi.thousands_separator')) !!}</th>
-                                <th>@lang('fi.options')</th>
+                                <th>{!! Sortable::link('name', trans('bt.name')) !!}</th>
+                                <th>{!! Sortable::link('code', trans('bt.code')) !!}</th>
+                                <th>{!! Sortable::link('symbol', trans('bt.symbol')) !!}</th>
+                                <th>{!! Sortable::link('placement', trans('bt.symbol_placement')) !!}</th>
+                                <th>{!! Sortable::link('decimal', trans('bt.decimal_point')) !!}</th>
+                                <th>{!! Sortable::link('thousands', trans('bt.thousands_separator')) !!}</th>
+                                <th>@lang('bt.options')</th>
                             </tr>
                             </thead>
 
@@ -46,13 +46,13 @@
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                @lang('fi.options')
+                                                @lang('bt.options')
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="{{ route('currencies.edit', [$currency->id]) }}"><i class="fa fa-edit"></i> @lang('fi.edit')</a>
+                                                <a class="dropdown-item" href="{{ route('currencies.edit', [$currency->id]) }}"><i class="fa fa-edit"></i> @lang('bt.edit')</a>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="#"
-                                                       onclick="swalConfirm('@lang('fi.delete_record_warning')', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
+                                                       onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
                                             </div>
                                         </div>
                                     </td>

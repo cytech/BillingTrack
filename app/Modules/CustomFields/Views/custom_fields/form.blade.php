@@ -16,12 +16,12 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.custom_field_form')
+            @lang('bt.custom_field_form')
         </h3>
         <a class="btn btn-warning float-right" href={!! route('customFields.index')  !!}><i
-                    class="fa fa-ban"></i> @lang('fi.cancel')</a>
+                    class="fa fa-ban"></i> @lang('bt.cancel')</a>
         <button type="submit" class="btn btn-primary float-right"><i
-                    class="fa fa-save"></i> @lang('fi.save') </button>
+                    class="fa fa-save"></i> @lang('bt.save') </button>
         <div class="clearfix"></div>
     </section>
 
@@ -33,7 +33,7 @@
         <div class=" card card-light">
             <div class="card-body">
                 <div class="form-group">
-                    <label>@lang('fi.table_name'): </label>
+                    <label>@lang('bt.table_name'): </label>
                     @if ($editMode == true)
                         {!! Form::text('tbl_name', $tableNames[$customField->tbl_name], ['id' => 'tbl_name', 'readonly' => 'readonly', 'class' => 'form-control']) !!}
                     @else
@@ -42,19 +42,19 @@
                 </div>
 
                 <div class="form-group">
-                    <label>@lang('fi.field_label'): </label>
+                    <label>@lang('bt.field_label'): </label>
                     {!! Form::text('field_label', null, ['id' => 'field_label', 'class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <label>@lang('fi.field_type'): </label>
+                    <label>@lang('bt.field_type'): </label>
                     {!! Form::select('field_type', $fieldTypes, null, ['id' => 'field_type', 'class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <label>@lang('fi.field_meta'): </label>
+                    <label>@lang('bt.field_meta'): </label>
                     {!! Form::text('field_meta', null, ['id' => 'field_meta', 'class' => 'form-control']) !!}
-                    <span class="form-text text-muted">@lang('fi.field_meta_description')</span>
+                    <span class="form-text text-muted">@lang('bt.field_meta_description')</span>
                 </div>
 
             </div>

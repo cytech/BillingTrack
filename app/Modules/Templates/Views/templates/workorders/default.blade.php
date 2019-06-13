@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>@lang('fi.workorder') #{{ $workorder->number }}</title>
+    <title>@lang('bt.workorder') #{{ $workorder->number }}</title>
 
     <style>
         @page {
@@ -83,19 +83,19 @@
 <table>
     <tr>
         <td style="width: 50%;" valign="top">
-            <h1>{{ mb_strtoupper(trans('fi.workorder')) }}</h1>
-            <span class="info">{{ mb_strtoupper(trans('fi.workorder')) }} #</span>{{ $workorder->number }}<br>
-            <span class="info">{{ mb_strtoupper(trans('fi.issued')) }}</span> {{ $workorder->formatted_workorder_date }}
+            <h1>{{ mb_strtoupper(trans('bt.workorder')) }}</h1>
+            <span class="info">{{ mb_strtoupper(trans('bt.workorder')) }} #</span>{{ $workorder->number }}<br>
+            <span class="info">{{ mb_strtoupper(trans('bt.issued')) }}</span> {{ $workorder->formatted_workorder_date }}
             <br>
-            <span class="info">{{ mb_strtoupper(trans('fi.expires')) }}</span> {{ $workorder->formatted_expires_at }}
+            <span class="info">{{ mb_strtoupper(trans('bt.expires')) }}</span> {{ $workorder->formatted_expires_at }}
             <br><br>
-            <span class="info">{{ mb_strtoupper(trans('fi.bill_to')) }}</span><br>{{ $workorder->client->name }}<br>
+            <span class="info">{{ mb_strtoupper(trans('bt.bill_to')) }}</span><br>{{ $workorder->client->name }}<br>
             @if ($workorder->client->address) {!! $workorder->client->formatted_address !!}<br>@endif
             @if ($workorder->client->phone) {!! $workorder->client->phone !!}<br>@endif
         </td>
         @if ($workorder->client->address_2)
             <td style="width: 50%;" valign="bottom">
-                <span class="info">{{ mb_strtoupper(trans('fi.ship_to')) }}</span><br>{{ $workorder->client->name }}<br>
+                <span class="info">{{ mb_strtoupper(trans('bt.ship_to')) }}</span><br>{{ $workorder->client->name }}<br>
                 {!! $workorder->client->formatted_address2 !!}<br>
             </td>
         @endif
@@ -136,11 +136,11 @@
 <table class="alternate">
     <thead>
     <tr>
-        <th style="width:25%; text-align: left;">{{ mb_strtoupper(trans('fi.item')) }}</th>
-        <th style="text-align: left;">{{ mb_strtoupper(trans('fi.description' )) }}</th>
-        <th class="amount" width="10%">{{ mb_strtoupper(trans('fi.qty')) }}</th>
-        <th class="amount" width="10%">{{ mb_strtoupper(trans('fi.price')) }}</th>
-        <th class="amount" width="10%">{{ mb_strtoupper(trans('fi.total')) }}</th>
+        <th style="width:25%; text-align: left;">{{ mb_strtoupper(trans('bt.item')) }}</th>
+        <th style="text-align: left;">{{ mb_strtoupper(trans('bt.description' )) }}</th>
+        <th class="amount" width="10%">{{ mb_strtoupper(trans('bt.qty')) }}</th>
+        <th class="amount" width="10%">{{ mb_strtoupper(trans('bt.price')) }}</th>
+        <th class="amount" width="10%">{{ mb_strtoupper(trans('bt.total')) }}</th>
     </tr>
     </thead>
     <tbody>
@@ -161,13 +161,13 @@
     @endforeach
 
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.subtotal')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.subtotal')) }}</td>
         <td class="amount">__________</td>
     </tr>
 
     @if ($workorder->discount > 0)
         <tr>
-            <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.discount')) }}</td>
+            <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.discount')) }}</td>
             <td class="amount">{{ $workorder->amount->formatted_discount }}</td>
         </tr>
     @endif
@@ -180,14 +180,14 @@
     @endforeach
 
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.total')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.total')) }}</td>
         <td class="amount">__________</td>
     </tr>
     </tbody>
 </table>
 
 @if ($workorder->terms)
-    <div class="section-header">{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</div>
+    <div class="section-header">{{ mb_strtoupper(trans('bt.terms_and_conditions')) }}</div>
     <div class="terms">{!! $workorder->formatted_terms !!}</div>
     <br>
 @endif

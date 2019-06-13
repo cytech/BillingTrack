@@ -7,8 +7,8 @@
             $("#client_name").focus();
         });
 
-        $('#copy_next_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
-        $('#copy_stop_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $('#copy_next_date').datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
+        $('#copy_stop_date').datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#copy_client_name').autocomplete({
             appendTo: '#modal-copy-recurring-invoice',
@@ -34,7 +34,7 @@
                 if (response.status == 400) {
                     showErrors($.parseJSON(response.responseText).errors, '#modal-status-placeholder');
                 } else {
-                    notify('@lang('fi.unknown_error')','error');
+                    notify('@lang('bt.unknown_error')','error');
                 }
             });
         });

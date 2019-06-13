@@ -15,21 +15,21 @@ class FileNames
 {
     public static function invoice($invoice)
     {
-        return trans('fi.invoice') . '_' . str_replace('/', '-', $invoice->number) . '.pdf';
+        return trans('bt.invoice') . '_' . str_replace('/', '-', $invoice->number) . '.pdf';
     }
 
     public static function quote($quote)
     {
-        return trans('fi.quote') . '_' . str_replace('/', '-', $quote->number) . '.pdf';
+        return trans('bt.quote') . '_' . str_replace('/', '-', $quote->number) . '.pdf';
     }
 
     public static function workorder($workorder)
     {
-        return trans('fi.workorder') . '_' . str_replace('/', '-', $workorder->number) . '.pdf';
+        return trans('bt.workorder') . '_' . str_replace('/', '-', $workorder->number) . '.pdf';
     }
 
     public static function batchprint()
     {
-        return trans('fi.batchprint') . '_' . 'batchprint' . '.pdf';
+        return trans('bt.batchprint') . '_' . 'batchprint' . '.pdf';
     }
 }

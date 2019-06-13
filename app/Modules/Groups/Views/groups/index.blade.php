@@ -4,11 +4,11 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.groups')
+            @lang('bt.groups')
         </h3>
         <div class="float-right">
             <a href="{{ route('groups.create') }}" class="btn btn-primary"><i
-                        class="fa fa-plus"></i> @lang('fi.new')</a>
+                        class="fa fa-plus"></i> @lang('bt.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -21,12 +21,12 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>{!! Sortable::link('name', trans('fi.name')) !!}</th>
-                        <th>{!! Sortable::link('format', trans('fi.format')) !!}</th>
-                        <th>{!! Sortable::link('next_id', trans('fi.next_number')) !!}</th>
-                        <th>{!! Sortable::link('left_pad', trans('fi.left_pad')) !!}</th>
-                        <th>{!! Sortable::link('reset_number', trans('fi.reset_number')) !!}</th>
-                        <th>@lang('fi.options')</th>
+                        <th>{!! Sortable::link('name', trans('bt.name')) !!}</th>
+                        <th>{!! Sortable::link('format', trans('bt.format')) !!}</th>
+                        <th>{!! Sortable::link('next_id', trans('bt.next_number')) !!}</th>
+                        <th>{!! Sortable::link('left_pad', trans('bt.left_pad')) !!}</th>
+                        <th>{!! Sortable::link('reset_number', trans('bt.reset_number')) !!}</th>
+                        <th>@lang('bt.options')</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,15 +41,15 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        @lang('fi.options')
+                                        @lang('bt.options')
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="{{ route('groups.edit', [$group->id]) }}"><i
-                                                        class="fa fa-edit"></i> @lang('fi.edit')</a>
+                                                        class="fa fa-edit"></i> @lang('bt.edit')</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#"
-                                               onclick="swalConfirm('@lang('fi.delete_record_warning')', '{{ route('groups.delete', [$group->id]) }}');"><i
-                                                        class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
+                                               onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('groups.delete', [$group->id]) }}');"><i
+                                                        class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
                                     </div>
                                 </div>
                             </td>

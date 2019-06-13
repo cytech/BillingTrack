@@ -1,7 +1,7 @@
 <script type="text/javascript">
 
     $(function () {
-        $("#paid_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#paid_at").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
     });
 
 </script>

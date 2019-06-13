@@ -17,7 +17,7 @@ class PDFFactory
 {
     public static function create()
     {
-        $class = 'BT\Support\PDF\Drivers\\' . config('fi.pdfDriver');
+        $class = 'BT\Support\PDF\Drivers\\' . config('bt.pdfDriver');
 
         return new $class;
     }

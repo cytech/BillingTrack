@@ -50,7 +50,7 @@ class CompanyProfile extends Model
             return true;
         }
 
-        if (config('fi.defaultCompanyProfile') == $id)
+        if (config('bt.defaultCompanyProfile') == $id)
         {
             return true;
         }

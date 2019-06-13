@@ -23,7 +23,7 @@ class WorkorderSummaryWidgetComposer
             ->whereHas('workorder', function ($q) {
                 $q->draft();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetWorkorderSummaryDashboardTotals')) {
+                switch (config('bt.widgetWorkorderSummaryDashboardTotals')) {
                     case 'year_to_date':
                         $q->yearToDate();
                         break;
@@ -31,7 +31,7 @@ class WorkorderSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetWorkorderSummaryDashboardTotalsFromDate'), config('fi.widgetWorkorderSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetWorkorderSummaryDashboardTotalsFromDate'), config('bt.widgetWorkorderSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -43,7 +43,7 @@ class WorkorderSummaryWidgetComposer
             ->whereHas('workorder', function ($q) {
                 $q->sent();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetWorkorderSummaryDashboardTotals')) {
+                switch (config('bt.widgetWorkorderSummaryDashboardTotals')) {
                     case 'year_to_date':
                         $q->yearToDate();
                         break;
@@ -51,7 +51,7 @@ class WorkorderSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetWorkorderSummaryDashboardTotalsFromDate'), config('fi.widgetWorkorderSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetWorkorderSummaryDashboardTotalsFromDate'), config('bt.widgetWorkorderSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -63,7 +63,7 @@ class WorkorderSummaryWidgetComposer
             ->whereHas('workorder', function ($q) {
                 $q->approved();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetWorkorderSummaryDashboardTotals')) {
+                switch (config('bt.widgetWorkorderSummaryDashboardTotals')) {
                     case 'year_to_date':
                         $q->yearToDate();
                         break;
@@ -71,7 +71,7 @@ class WorkorderSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetWorkorderSummaryDashboardTotalsFromDate'), config('fi.widgetWorkorderSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetWorkorderSummaryDashboardTotalsFromDate'), config('bt.widgetWorkorderSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -83,7 +83,7 @@ class WorkorderSummaryWidgetComposer
             ->whereHas('workorder', function ($q) {
                 $q->rejected();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetWorkorderSummaryDashboardTotals')) {
+                switch (config('bt.widgetWorkorderSummaryDashboardTotals')) {
                     case 'year_to_date':
                         $q->yearToDate();
                         break;
@@ -91,7 +91,7 @@ class WorkorderSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetWorkorderSummaryDashboardTotalsFromDate'), config('fi.widgetWorkorderSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetWorkorderSummaryDashboardTotalsFromDate'), config('bt.widgetWorkorderSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));

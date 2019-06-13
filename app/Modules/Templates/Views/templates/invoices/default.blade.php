@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>@lang('fi.invoice') #{{ $invoice->number }}</title>
+    <title>@lang('bt.invoice') #{{ $invoice->number }}</title>
 
     <style>
         @page {
@@ -83,11 +83,11 @@
 <table>
     <tr>
         <td style="width: 50%;" valign="top">
-            <h1>{{ mb_strtoupper(trans('fi.invoice')) }}</h1>
-            <span class="info">{{ mb_strtoupper(trans('fi.invoice')) }} #</span>{{ $invoice->number }}<br>
-            <span class="info">{{ mb_strtoupper(trans('fi.issued')) }}</span> {{ $invoice->formatted_created_at }}<br>
-            <span class="info">{{ mb_strtoupper(trans('fi.due_date')) }}</span> {{ $invoice->formatted_due_at }}<br><br>
-            <span class="info">{{ mb_strtoupper(trans('fi.bill_to')) }}</span><br>{{ $invoice->client->name }}<br>
+            <h1>{{ mb_strtoupper(trans('bt.invoice')) }}</h1>
+            <span class="info">{{ mb_strtoupper(trans('bt.invoice')) }} #</span>{{ $invoice->number }}<br>
+            <span class="info">{{ mb_strtoupper(trans('bt.issued')) }}</span> {{ $invoice->formatted_created_at }}<br>
+            <span class="info">{{ mb_strtoupper(trans('bt.due_date')) }}</span> {{ $invoice->formatted_due_at }}<br><br>
+            <span class="info">{{ mb_strtoupper(trans('bt.bill_to')) }}</span><br>{{ $invoice->client->name }}<br>
             @if ($invoice->client->address) {!! $invoice->client->formatted_address !!}<br>@endif
         </td>
         <td style="width: 50%; text-align: right;" valign="top">
@@ -103,11 +103,11 @@
 <table class="alternate">
     <thead>
     <tr>
-        <th>{{ mb_strtoupper(trans('fi.product')) }}</th>
-        <th>{{ mb_strtoupper(trans('fi.description')) }}</th>
-        <th class="amount">{{ mb_strtoupper(trans('fi.quantity')) }}</th>
-        <th class="amount">{{ mb_strtoupper(trans('fi.price')) }}</th>
-        <th class="amount">{{ mb_strtoupper(trans('fi.total')) }}</th>
+        <th>{{ mb_strtoupper(trans('bt.product')) }}</th>
+        <th>{{ mb_strtoupper(trans('bt.description')) }}</th>
+        <th class="amount">{{ mb_strtoupper(trans('bt.quantity')) }}</th>
+        <th class="amount">{{ mb_strtoupper(trans('bt.price')) }}</th>
+        <th class="amount">{{ mb_strtoupper(trans('bt.total')) }}</th>
     </tr>
     </thead>
     <tbody>
@@ -122,13 +122,13 @@
     @endforeach
 
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.subtotal')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.subtotal')) }}</td>
         <td class="amount">{{ $invoice->amount->formatted_subtotal }}</td>
     </tr>
 
     @if ($invoice->discount > 0)
         <tr>
-            <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.discount')) }}</td>
+            <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.discount')) }}</td>
             <td class="amount">{{ $invoice->amount->formatted_discount }}</td>
         </tr>
     @endif
@@ -141,22 +141,22 @@
     @endforeach
 
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.total')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.total')) }}</td>
         <td class="amount">{{ $invoice->amount->formatted_total }}</td>
     </tr>
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.paid')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.paid')) }}</td>
         <td class="amount">{{ $invoice->amount->formatted_paid }}</td>
     </tr>
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.balance')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.balance')) }}</td>
         <td class="amount">{{ $invoice->amount->formatted_balance }}</td>
     </tr>
     </tbody>
 </table>
 
 @if ($invoice->terms)
-    <div class="section-header">{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</div>
+    <div class="section-header">{{ mb_strtoupper(trans('bt.terms_and_conditions')) }}</div>
     <div class="terms">{!! $invoice->formatted_terms !!}</div>
     <br>
 @endif

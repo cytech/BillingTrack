@@ -85,42 +85,42 @@ class PaymentsTrashDataTable extends DataTable
                     'class'      => 'bulk-record',
                 ],
             'paid_at' => [
-                'title' => trans('fi.payment_date'),
+                'title' => trans('bt.payment_date'),
                 'data' => 'formatted_paid_at',
                 'searchable' => false,
             ],
             'invoice_number' => [
-                    'title' => trans('fi.invoice'),
+                    'title' => trans('bt.invoice'),
                     'data'       => 'invoice.number',
                 ],
             'invoice_date' => [
                 'name' => 'invoice.invoice_date',
-                'title' => trans('fi.invoice_date'),
+                'title' => trans('bt.invoice_date'),
                 'data'       => 'invoice.formatted_invoice_date',
                 'orderable'  => true,
                 'searchable' => false,
             ],
             'client_name'   => [
-                'title' => trans('fi.client'),
+                'title' => trans('bt.client'),
                 'data'       => 'client.name',
             ],
             'invoice_summary'   => [
-                'title' => trans('fi.summary'),
+                'title' => trans('bt.summary'),
                 'data'       => 'invoice.summary',
             ],
             'amount'   => [
-                'title' => trans('fi.amount'),
+                'title' => trans('bt.amount'),
                 'data'       => 'formatted_amount',
                 'searchable' => false,
             ],
             'payment_method'  => [
-                'title' => trans('fi.payment_method'),
+                'title' => trans('bt.payment_method'),
                 'name' => 'paymentMethod.name',
                 'data' => 'payment_method.name',
                 'searchable' => false,
             ],
             'note'    => [
-                'title' => trans('fi.note'),
+                'title' => trans('bt.note'),
                 'data'       => 'note',
             ],
 

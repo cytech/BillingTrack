@@ -11,7 +11,7 @@
 @section('javascript')
     <script type="text/javascript">
         $(function () {
-            $('#expense_date').datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+            $('#expense_date').datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
         });
     </script>
 @stop
@@ -28,10 +28,10 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.expense_form')
+            @lang('bt.expense_form')
         </h3>
         <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('fi.save')</button>
+            <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('bt.save')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -52,21 +52,21 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>* @lang('fi.company_profile'): </label>
-                                    {!! Form::select('company_profile_id', $companyProfiles, (($editMode) ? $expense->company_profile_id : config('fi.defaultCompanyProfile')), ['id' => 'company_profile_id', 'class' => 'form-control']) !!}
+                                    <label>* @lang('bt.company_profile'): </label>
+                                    {!! Form::select('company_profile_id', $companyProfiles, (($editMode) ? $expense->company_profile_id : config('bt.defaultCompanyProfile')), ['id' => 'company_profile_id', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>* @lang('fi.date'): </label>
+                                    <label>* @lang('bt.date'): </label>
                                     {!! Form::text('expense_date', (($editMode) ? $expense->formatted_expense_date : $currentDate), ['id' => 'expense_date', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>* @lang('fi.category'): </label>
+                                    <label>* @lang('bt.category'): </label>
                                     {!! Form::text('category_name', null, ['id' => 'category_name', 'class' => 'form-control category-lookup','list'=>'catlistid']) !!}
                                     <datalist id='catlistid'>
                                         @foreach($categories as $category)
@@ -82,21 +82,21 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>* @lang('fi.amount'): </label>
+                                    <label>* @lang('bt.amount'): </label>
                                     {!! Form::text('amount', (($editMode) ? $expense->formatted_numeric_amount : null), ['id' => 'amount', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>@lang('fi.tax'): </label>
+                                    <label>@lang('bt.tax'): </label>
                                     {!! Form::text('tax', (($editMode) ? $expense->formatted_numeric_tax : null), ['id' => 'amount', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label> @lang('fi.vendor'): </label>
+                                    <label> @lang('bt.vendor'): </label>
                                     {!! Form::text('vendor_name', null, ['id' => 'vendor_name', 'class' => 'form-control vendor-lookup','list'=>'vendlistid']) !!}
                                     <datalist id='vendlistid'>
                                         @foreach($vendors as $vendor)
@@ -108,7 +108,7 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label> @lang('fi.client'): </label>
+                                    <label> @lang('bt.client'): </label>
                                     {!! Form::text('client_name', null, ['id' => 'client_name', 'class' => 'form-control client-lookup', 'autocomplete' => 'off']) !!}
                                 </div>
                                 <script>
@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>@lang('fi.description'): </label>
+                            <label>@lang('bt.description'): </label>
                             {!! Form::textarea('description', null, ['id' => 'description', 'rows' => '5', 'class' => 'form-control']) !!}
                         </div>
 
@@ -133,7 +133,7 @@
                         @if (!$editMode)
                             @if (!config('app.demo'))
                                 <div class="form-group">
-                                    <label>@lang('fi.attach_files'): </label>
+                                    <label>@lang('bt.attach_files'): </label>
                                     {!! Form::file('attachments[]', ['id' => 'attachments', 'class' => 'form-control', 'multiple' => 'multiple']) !!}
                                 </div>
                             @endif

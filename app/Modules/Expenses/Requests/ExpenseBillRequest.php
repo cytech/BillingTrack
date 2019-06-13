@@ -23,8 +23,8 @@ class ExpenseBillRequest extends FormRequest
     public function attributes()
     {
         return [
-            'invoice_id' => trans('fi.invoice'),
-            'item_name'  => trans('fi.item'),
+            'invoice_id' => trans('bt.invoice'),
+            'item_name'  => trans('bt.item'),
         ];
     }
 

@@ -24,12 +24,12 @@
             });
             $("#addReminderCreate").click(function (event) {
                 event.preventDefault();
-                $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_another_reminder')');
+                $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('bt.add_another_reminder')');
                 $("#addReminderShow").append($(".addReminderView").html());
             });
             $("#updateReminderCreate").click(function (event) {
                 event.preventDefault();
-                $("#updateReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_another_reminder')');
+                $("#updateReminderCreate").html('<i class="fa fa-plus"></i>@lang('bt.add_another_reminder')');
                 $("#updateReminderShow").append($(".addReminderView").html());
             });
 
@@ -40,17 +40,17 @@
             /*fullcalendar event dialog datetimepicker (create,update,reminders)*/
             $(".from").datetimepicker({
                 format: 'Y-m-d H:i',
-                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+                formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                 defaultTime: '08:00',
-                step: {!! config('fi.schedulerTimestep') !!},//15
+                step: {!! config('bt.schedulerTimestep') !!},//15
                 onClose: function (selectedDate) {
                     $(".to").datetimepicker({minDate: selectedDate});
                 }
             });
             $('.to').datetimepicker({
                 format: 'Y-m-d H:i',
-                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
-                step: {!! config('fi.schedulerTimestep') !!},
+                formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+                step: {!! config('bt.schedulerTimestep') !!},
                 onClose: function (selectedDate) {
                     $(".from").datetimepicker({maxDate: selectedDate});
                 }
@@ -59,9 +59,9 @@
             $(".start_time").datetimepicker({
                 datepicker: false,
                 format: 'H:i',
-                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+                formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                 defaultTime: '08:00',
-                step: {!! config('fi.schedulerTimestep') !!},//15
+                step: {!! config('bt.schedulerTimestep') !!},//15
                 onClose: function (selectedTime) {
                     $(".end_time").datetimepicker({minTime: selectedTime});
                 }
@@ -70,8 +70,8 @@
             $('.end_time').datetimepicker({
                 datepicker: false,
                 format: 'H:i',
-                formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
-                step: {!! config('fi.schedulerTimestep') !!},
+                formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+                step: {!! config('bt.schedulerTimestep') !!},
                 onClose: function (selectedTime) {
                     $(".start_time").datetimepicker({maxTime: selectedTime});
                 }
@@ -80,9 +80,9 @@
             $(document).on('mousedown', '.reminder_date', function () {
                 $(this).datetimepicker({
                     format: 'Y-m-d H:i',
-                    formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+                    formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                     defaultDate: '+1970/01/08', //plus 1 week
-                    step: {!! config('fi.schedulerTimestep') !!}
+                    step: {!! config('bt.schedulerTimestep') !!}
                 });
             });
 
@@ -91,7 +91,7 @@
             });
 
             $('#calendar').fullCalendar({
-                themeSystem: '{!! config('fi.schedulerFcThemeSystem') !!}', //'jquery-ui' 'bootstrap4' 'standard'
+                themeSystem: '{!! config('bt.schedulerFcThemeSystem') !!}', //'jquery-ui' 'bootstrap4' 'standard'
                 header: {
                     left: 'prev,next today',
                     center: 'title',
@@ -105,16 +105,16 @@
                     listWeek: 'Week List',
                     listDay: 'Day List'
                 },
-                aspectRatio: '{!! config('fi.schedulerFcAspectRatio') !!}',//1.35 default
+                aspectRatio: '{!! config('bt.schedulerFcAspectRatio') !!}',//1.35 default
                 //displayEventTime: false,  //show starttime in event title
                 eventOrder: "category,start",
                 // add createworkorder button to day cell header
-                @if(config('fi.schedulerCreateWorkorder'))
+                @if(config('bt.schedulerCreateWorkorder'))
                 viewRender: function (view, element) {
                     // Add the "button" to the day headers
                     const $headers = $('.fc-day-top');
                     $headers.css('position', 'relative');
-                    $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='@lang('fi.create_workorder')'><i class='createwobutton far fa-file-alt' ></i></button> </div>");
+                    $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='@lang('bt.create_workorder')'><i class='createwobutton far fa-file-alt' ></i></button> </div>");
                 },
                 @endif
                 defaultDate: "{!! date('Y-m-d') !!}",
@@ -212,15 +212,15 @@
                             closeOnEscape: true,
                             modal: true,
                             buttons: {
-                                "@lang('fi.create_workorder')": function () {
+                                "@lang('bt.create_workorder')": function () {
                                     $('form#create-workorderform').submit();//send to validate
                                 },
-                                "@lang('fi.cancel')": function () {
+                                "@lang('bt.cancel')": function () {
                                     $(this).dialog("close");
                                 },
 
                             },
-                            title: "@lang('fi.create_workorder') for @lang('fi.job_date') " + date.format('dddd MMMM DD, YYYY') ,
+                            title: "@lang('bt.create_workorder') for @lang('bt.job_date') " + date.format('dddd MMMM DD, YYYY') ,
                             open: function () {
                                 $("#job_date").val(date.format('YYYY-MM-DD'));
                                 $("#start_time").val('08:00');
@@ -242,7 +242,7 @@
                             position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
                             closeOnEscape: true,
                             modal: true,
-                            title: '@lang('fi.create_event_calendar')',
+                            title: '@lang('bt.create_event_calendar')',
                             open: function () {
                                 $("#title").autocomplete({
                                     appendTo: "#calEventDialog",
@@ -259,18 +259,18 @@
                             },
                             buttons: [
                                 {
-                                    text: '@lang('fi.create')',
+                                    text: '@lang('bt.create')',
                                     click: function(){ $(this).dialog().find('form').submit();},
                                     type: 'submit',
                                     form: 'saveCalendarEvent' // <-- Make the association
                                 },
                                 {
-                                    text: '@lang('fi.cancel')',
+                                    text: '@lang('bt.cancel')',
                                     click: function() { $( this ).dialog( "close" );}
                                 }
                             ],
                             close: function () {
-                                $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_reminder')');
+                                $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('bt.add_reminder')');
                             }
                         });
 
@@ -298,22 +298,22 @@
                                 '<hr class="col-sm-10 hr-clr-green"/>' +
                                 '<span class="col-sm-1 float-right reminder-cross delete_reminder" style="cursor: pointer"><i class="fa fa-times-circle"></i></span>' +
                                 '</div><div class="form-group d-flex align-items-center">' +
-                                '<label for="reminder_date" class="col-sm-4 text-right text">@lang('fi.reminder_date')</label>' +
+                                '<label for="reminder_date" class="col-sm-4 text-right text">@lang('bt.reminder_date')</label>' +
                                 '<div class="col-sm-8">' +
                                 '<input type="text" name="reminder_date[]" class="form-control reminder_date " style="cursor: pointer" readonly value="' + event.reminder[key].reminder_date + '">' +
                                 '<input type="hidden" name="reminder_id[]"  value="' + event.reminder[key].reminder_id + '">' +
                                 '</div></div><div class="form-group d-flex align-items-center">' +
-                                '<label for="reminder_location" class="col-sm-4 text-right text">@lang('fi.reminder_location')</label>' +
+                                '<label for="reminder_location" class="col-sm-4 text-right text">@lang('bt.reminder_location')</label>' +
                                 '<div class="col-sm-8">' +
                                 '<input type="text" name="reminder_location[]" class="form-control" value="' + event.reminder[key].reminder_location + '">' +
                                 '</div></div><div class="form-group d-flex align-items-center">' +
-                                '<label for="reminder_text" class="col-sm-4 text-right text">@lang('fi.reminder_text')</label>' +
+                                '<label for="reminder_text" class="col-sm-4 text-right text">@lang('bt.reminder_text')</label>' +
                                 '<div class="col-sm-8">' +
                                 '<textarea name="reminder_text[]" class="form-control" >' + event.reminder[key].reminder_text + '</textarea>' +
                                 '</div></div></div>'
                         }
                         $("#addReminderShow").html(reminderHtml);
-                        $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_another_reminder')');
+                        $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('bt.add_another_reminder')');
                     }
 
                     $('#calEventDialog').dialog({
@@ -322,7 +322,7 @@
                         position: {my: 'center top', at: 'center top', of: '.fc-view-container', collision: 'none'},
                         closeOnEscape: true,
                         modal: true,
-                        title: '@lang('fi.update_event_calendar')',
+                        title: '@lang('bt.update_event_calendar')',
                         open: function () {
                             $("#title").autocomplete({
                                 appendTo: "#calEventDialog",
@@ -340,18 +340,18 @@
                         },
                         buttons: [
                             {
-                                text: '@lang('fi.update')',
+                                text: '@lang('bt.update')',
                                 click: function(){ $(this).dialog().find('form').submit();},
                                 type: 'submit',
                                 form: 'saveCalendarEvent' // <-- Make the association
                             },
                             {
-                                text: '@lang('fi.cancel')',
+                                text: '@lang('bt.cancel')',
                                 click: function() { $( this ).dialog( "close" );}
                             }
                         ],
                         close: function () {
-                            $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('fi.add_reminder')');
+                            $("#addReminderCreate").html('<i class="fa fa-plus"></i>@lang('bt.add_reminder')');
                         }
                     });
 
@@ -363,9 +363,9 @@
                     let rstr = "";
                     let tooltip = "";
                     if (event.type === 'Workorder') {
-                        let wrstr = "@lang('fi.employees'): ";
+                        let wrstr = "@lang('bt.employees'): ";
                         if (event.willcall === '1') {
-                            wrstr = "<span style='color:magenta'>@lang('fi.employees'): </span>";
+                            wrstr = "<span style='color:magenta'>@lang('bt.employees'): </span>";
                         }
                         let erstr = "Resources: ";
                         if (event.hasOwnProperty("resource")) {
@@ -379,7 +379,7 @@
                                 }
                             });
                         }
-                        if ((wrstr === "@lang('fi.employees'): ") || (wrstr === "<span style='color:magenta'>@lang('fi.employees'): </span>")) {
+                        if ((wrstr === "@lang('bt.employees'): ") || (wrstr === "<span style='color:magenta'>@lang('bt.employees'): </span>")) {
                             wrstr = "";
                         }
                         if (erstr === "Resources: ") {
@@ -411,7 +411,7 @@
                     $('.tooltipevent').remove();
                 },
 
-                eventLimit: parseInt({!! config('fi.schedulerEventLimit') !!}), // allows "more" link when too many events
+                eventLimit: parseInt({!! config('bt.schedulerEventLimit') !!}), // allows "more" link when too many events
 
                 events: [
                         @foreach($events as $event)

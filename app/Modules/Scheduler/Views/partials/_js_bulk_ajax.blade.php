@@ -37,7 +37,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('fi.bulk_event_trash_warning')', '{{ route('scheduler.bulk.trash') }}', ids);
+                bulkConfirm('@lang('bt.bulk_event_trash_warning')', '{{ route('scheduler.bulk.trash') }}', ids);
             }
         });
     });

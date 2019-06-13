@@ -19,7 +19,7 @@ class InvoicesTrashDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        $statuses = InvoiceStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')];
+        $statuses = InvoiceStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
 
 
         return $dataTable->addColumn('action', 'utilities._actions')
@@ -29,11 +29,11 @@ class InvoicesTrashDataTable extends DataTable
             ->editColumn('invoice_status_id', function (Invoice $invoice) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$invoice->status_text]) . '">
-                    '. trans('fi.' . strtolower($statuses[$invoice->status_text])) . '</span>';
+                    '. trans('bt.' . strtolower($statuses[$invoice->status_text])) . '</span>';
                 if ($invoice->viewed)
-                    $ret .= '<span class="badge badge-success">' . trans('fi.viewed') . '</span>';
+                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else
-                    $ret .= '<span class="badge badge-secondary">' . trans('fi.not_viewed') . '</span>';
+                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
                 $ret .= '</td>';
 
                 return $ret;
@@ -97,39 +97,39 @@ class InvoicesTrashDataTable extends DataTable
                     'class'      => 'bulk-record',
                 ],
             'invoice_status_id'  => [
-                'title' => trans('fi.status'),
+                'title' => trans('bt.status'),
                 'data' => 'invoice_status_id',
             ],
             'number' => [
-                'title' => trans('fi.invoice'),
+                'title' => trans('bt.invoice'),
                 'data' => 'number',
             ],
             'invoice_date'    => [
-                'title' => trans('fi.date'),
+                'title' => trans('bt.date'),
                 'data'       => 'formatted_invoice_date',
                 'searchable' => false,
             ],
             'due_at'     => [
-                'title' => trans('fi.due'),
+                'title' => trans('bt.due'),
                 'data'       => 'formatted_due_at',
                 'searchable' => false,
             ],
             'client_name'  => [
-                'title' => trans('fi.client'),
+                'title' => trans('bt.client'),
                 'data' => 'client.name',
             ],
             'summary' => [
-                'title' => trans('fi.summary'),
+                'title' => trans('bt.summary'),
                 'data' => 'summary',
             ],
             /*'total'   => [
-                'title' => trans('fi.total'),
+                'title' => trans('bt.total'),
                 'data'       => 'amount.formatted_total',
                 'orderable'  => false,
                 'searchable' => false,
             ],
             'balance' => [
-                'title' => trans('fi.balance'),
+                'title' => trans('bt.balance'),
                 'data'       => 'amount.formatted_balance',
                 'orderable'  => false,
                 'searchable' => false,

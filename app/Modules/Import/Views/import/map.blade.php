@@ -6,11 +6,11 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.map_fields_to_import')
+            @lang('bt.map_fields_to_import')
         </h3>
 
         <div class="float-right">
-            {!! Form::submit(trans('fi.submit'), ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit(trans('bt.submit'), ['class' => 'btn btn-primary']) !!}
         </div>
         <div class="clearfix"></div>
     </section>

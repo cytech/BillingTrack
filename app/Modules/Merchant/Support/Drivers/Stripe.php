@@ -53,14 +53,14 @@ class Stripe extends MerchantDriver
                 'customer'    => $customer->id,
                 'amount'      => $invoice->amount->balance * 100,
                 'currency'    => $invoice->currency_code,
-                'description' => trans('fi.invoice') . ' #' . $invoice->number,
+                'description' => trans('bt.invoice') . ' #' . $invoice->number,
             ]);
 
             $payment = Payment::create([
                 'client_id'         => $invoice->client->id,
                 'invoice_id'        => $invoice->id,
                 'amount'            => $charge->amount / 100,
-                'payment_method_id' => config('fi.onlinePaymentMethod'),
+                'payment_method_id' => config('bt.onlinePaymentMethod'),
             ]);
 
             MerchantPayment::saveByKey($this->getName(), $payment->id, 'id', $charge->id);

@@ -50,6 +50,6 @@ class ExpenseCreateController extends Controller
         $expense->custom->update(request('custom', []));
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 }

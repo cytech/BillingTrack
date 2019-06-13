@@ -74,19 +74,19 @@ class SchedulerCategoriesDataTable extends DataTable
 
                 ],
             'name' => [
-                'title' => trans('fi.name'),
+                'title' => trans('bt.name'),
                 'data' => 'name',
                 'orderable'  => true,
                 'searchable' => true,
             ],
             'text_color' => [
-                    'title' => trans('fi.category_text_color'),
+                    'title' => trans('bt.category_text_color'),
                     'data'       => 'text_color',
                     'orderable'  => true,
                     'searchable' => false,
                 ],
             'bg_color' => [
-                'title' => trans('fi.category_bg_color'),
+                'title' => trans('bt.category_bg_color'),
                 'data'       => 'bg_color',
                 'orderable'  => true,
                 'searchable' => false,

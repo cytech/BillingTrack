@@ -22,13 +22,13 @@ class WorkorderApprovedListener
         $event->workorder->activities()->create(['activity' => 'public.approved']);
 
         // If applicable, convert the workorder to an invoice when workorder is approved
-        if (config('fi.convertWorkorderWhenApproved'))
+        if (config('bt.convertWorkorderWhenApproved'))
         {
             $this->workorderToInvoice->convert(
                 $event->workorder,
                 date('Y-m-d'),
                 DateFormatter::incrementDateByDays(date('Y-m-d'),  $event->workorder->client->client_terms),
-                config('fi.invoiceGroup')
+                config('bt.invoiceGroup')
             );
         }
 
@@ -36,11 +36,11 @@ class WorkorderApprovedListener
 
         $mail = $this->mailQueue->create($event->workorder, [
             'to'         => [$event->workorder->user->email],
-            'cc'         => [config('fi.mailDefaultCc')],
-            'bcc'        => [config('fi.mailDefaultBcc')],
-            'subject'    => trans('fi.workorder_status_change_notification'),
+            'cc'         => [config('bt.mailDefaultCc')],
+            'bcc'        => [config('bt.mailDefaultBcc')],
+            'subject'    => trans('bt.workorder_status_change_notification'),
             'body'       => $parser->parse('workorderApprovedEmailBody'),
-            'attach_pdf' => config('fi.attachPdf')
+            'attach_pdf' => config('bt.attachPdf')
         ]);
 
         $this->mailQueue->send($mail->id);

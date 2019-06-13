@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
 
         if (!$this->app->environment('testing') and $this->app->config->get('app.key') == 'ReplaceThisWithYourOwnLicenseKey')
         {
-            session()->flash('error', '<strong>' . trans('fi.error') . '</strong> - ' . 'Please enter your license key in config/app.php.');
+            session()->flash('error', '<strong>' . trans('bt.error') . '</strong> - ' . 'Please enter your license key in config/app.php.');
         }
 
         $this->app->view->addLocation(base_path('custom/overrides'));

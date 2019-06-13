@@ -22,7 +22,7 @@ class CompanyProfileStoreRequest extends FormRequest
 
     public function attributes()
     {
-        return ['company' => trans('fi.company')];
+        return ['company' => trans('bt.company')];
     }
 
     public function rules()

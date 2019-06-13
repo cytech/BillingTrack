@@ -29,8 +29,8 @@ class ProjectController extends Controller
     public function index(ProjectsDataTable $dataTable)
     {
         $this->setReturnUrl();
-        $statuses = ['' => trans('fi.all_statuses')] + TimeTrackingProjectStatuses::lists();
-        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+        $statuses = ['' => trans('bt.all_statuses')] + TimeTrackingProjectStatuses::lists();
+        $companyProfiles = ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList();
         $keyedStatuses = collect(TimeTrackingProjectStatuses::lists());
 
         return $dataTable->render('time_tracking.project_index', compact('keyedStatuses','statuses', 'companyProfiles'));
@@ -85,7 +85,7 @@ class ProjectController extends Controller
             ->save();
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -93,7 +93,7 @@ class ProjectController extends Controller
         TimeTrackingProject::destroy($id);
 
         return redirect()->route('timeTracking.projects.index')
-            ->with('alert', trans('fi.record_successfully_trashed'));
+            ->with('alert', trans('bt.record_successfully_trashed'));
     }
 
     public function bulkDelete()

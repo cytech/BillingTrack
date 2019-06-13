@@ -33,7 +33,7 @@ class WorkorderToInvoiceController extends Controller
             ->with('client_id', request('client_id'))
             ->with('groups', Group::getList())
             ->with('user_id', auth()->user()->id)
-            ->with('workorder_date', config('fi.convertWorkorderDate') == 'jobdate' ? request('job_date') : DateFormatter::format());
+            ->with('workorder_date', config('bt.convertWorkorderDate') == 'jobdate' ? request('job_date') : DateFormatter::format());
     }
 
     public function store(WorkorderToInvoiceRequest $request)

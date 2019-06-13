@@ -31,7 +31,7 @@ class QuoteController extends Controller
         $status = request('status', 'all_statuses');
         $statuses = QuoteStatuses::listsAllFlat();
         $keyedStatuses = collect(QuoteStatuses::lists());//->except(3);
-        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+        $companyProfiles = ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList();
 
         return $dataTable->render('quotes.index', compact('status','statuses', 'keyedStatuses','companyProfiles'));
     }
@@ -41,20 +41,20 @@ class QuoteController extends Controller
         Quote::destroy($id);
 
         return redirect()->route('quotes.index')
-            ->with('alert', trans('fi.record_successfully_trashed'));
+            ->with('alert', trans('bt.record_successfully_trashed'));
     }
 
     public function bulkDelete()
     {
         Quote::destroy(request('ids'));
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
     }
 
     public function bulkStatus()
     {
         Quote::whereIn('id', request('ids'))->update(['quote_status_id' => request('status')]);
 
-        return response()->json(['success' => trans('fi.status_successfully_updated')], 200);
+        return response()->json(['success' => trans('bt.status_successfully_updated')], 200);
     }
 
     public function pdf($id)

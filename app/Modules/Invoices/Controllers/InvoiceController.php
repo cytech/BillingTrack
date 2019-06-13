@@ -29,9 +29,9 @@ class InvoiceController extends Controller
         $this->setReturnUrl();
 
         $status = request('status', 'all_statuses');
-        $statuses = InvoiceStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')];
+        $statuses = InvoiceStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
         $keyedStatuses = collect(InvoiceStatuses::lists())->except(3);
-        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+        $companyProfiles = ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList();
 
         return $dataTable->render('invoices.index', compact('status','statuses', 'keyedStatuses','companyProfiles'));
     }
@@ -41,13 +41,13 @@ class InvoiceController extends Controller
         Invoice::destroy($id);
 
         return redirect()->route('invoices.index')
-            ->with('alert', trans('fi.record_successfully_trashed'));
+            ->with('alert', trans('bt.record_successfully_trashed'));
     }
 
     public function bulkDelete()
     {
         Invoice::destroy(request('ids'));
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
     }
 
     public function bulkStatus()
@@ -55,7 +55,7 @@ class InvoiceController extends Controller
         Invoice::whereIn('id', request('ids'))
             ->where('invoice_status_id', '<>', InvoiceStatuses::getStatusId('paid'))
             ->update(['invoice_status_id' => request('status')]);
-        return response()->json(['success' => trans('fi.status_successfully_updated')], 200);
+        return response()->json(['success' => trans('bt.status_successfully_updated')], 200);
     }
 
     public function pdf($id)

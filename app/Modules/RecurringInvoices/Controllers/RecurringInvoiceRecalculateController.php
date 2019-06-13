@@ -3,7 +3,7 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -34,6 +34,6 @@ class RecurringInvoiceRecalculateController extends Controller
             return response()->json(['success' => false, 'message' => $e->getMessage()], 400);
         }
 
-        return response()->json(['success' => true, 'message' => trans('fi.recalculation_complete')], 200);
+        return response()->json(['success' => true, 'message' => trans('bt.recalculation_complete')], 200);
     }
 }

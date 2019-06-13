@@ -31,7 +31,7 @@ class QuoteToWorkorder
             'number'             => Group::generateNumber($groupId),
             'user_id'            => $quote->user_id,
             'workorder_status_id'  => WorkorderStatuses::getStatusId('draft'),
-            'terms'              => ((config('fi.convertQuoteTerms') == 'quote') ? $quote->terms : config('fi.workorderTerms')),
+            'terms'              => ((config('bt.convertQuoteTerms') == 'quote') ? $quote->terms : config('bt.workorderTerms')),
             'footer'             => $quote->footer,
             'currency_code'      => $quote->currency_code,
             'exchange_rate'      => $quote->exchange_rate,

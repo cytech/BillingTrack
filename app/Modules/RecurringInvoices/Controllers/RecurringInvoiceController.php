@@ -27,8 +27,8 @@ class RecurringInvoiceController extends Controller
         $this->setReturnUrl();
 
         $status = request('status', 'all_statuses');
-        $statuses = ['all_statuses' => trans('fi.all_statuses'), 'active' => trans('fi.active'), 'inactive' => trans('fi.inactive')];
-        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+        $statuses = ['all_statuses' => trans('bt.all_statuses'), 'active' => trans('bt.active'), 'inactive' => trans('bt.inactive')];
+        $companyProfiles = ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList();
         $frequencies = Frequency::lists();
 
         return $dataTable->render('recurring_invoices.index', compact('status','statuses', 'frequencies', 'companyProfiles'));
@@ -37,7 +37,7 @@ class RecurringInvoiceController extends Controller
     public function bulkDelete()
     {
         RecurringInvoice::destroy(request('ids'));
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
     }
 
     public function delete($id)
@@ -45,6 +45,6 @@ class RecurringInvoiceController extends Controller
         RecurringInvoice::destroy($id);
 
         return redirect()->route('recurringInvoices.index')
-            ->with('alert', trans('fi.record_successfully_trashed'));
+            ->with('alert', trans('bt.record_successfully_trashed'));
     }
 }

@@ -2,14 +2,14 @@
     <section class="content">
         <div class="card ">
             <div class="card-header">
-                <h5 class="text-bold mb-0">@lang('fi.recent_client_activity')</h5>
+                <h5 class="text-bold mb-0">@lang('bt.recent_client_activity')</h5>
             </div>
             <div class="card-body p-0">
                 <table class="table table-striped">
                     <tbody>
                     <tr>
-                        <th>@lang('fi.date')</th>
-                        <th>@lang('fi.activity')</th>
+                        <th>@lang('bt.date')</th>
+                        <th>@lang('bt.activity')</th>
                     </tr>
                     @foreach ($recentClientActivity as $activity)
                         <tr>

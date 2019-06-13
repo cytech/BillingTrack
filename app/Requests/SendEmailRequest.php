@@ -24,7 +24,7 @@ class SendEmailRequest extends FormRequest
     public function attributes()
     {
         return [
-            'email' => trans('fi.email'),
+            'email' => trans('bt.email'),
         ];
     }
 
@@ -45,7 +45,7 @@ class SendEmailRequest extends FormRequest
             }
 
             return true;
-        }, trans('fi.multiple_email_validation'));
+        }, trans('bt.multiple_email_validation'));
 
         $rules = [
             'subject' => 'required',

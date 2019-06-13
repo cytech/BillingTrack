@@ -76,17 +76,17 @@ class WorkorderObserver
 
         if (!$workorder->expires_at)
         {
-            $workorder->expires_at = DateFormatter::incrementDateByDays($workorder->workorder_date->format('Y-m-d'), config('fi.workordersExpireAfter'));
+            $workorder->expires_at = DateFormatter::incrementDateByDays($workorder->workorder_date->format('Y-m-d'), config('bt.workordersExpireAfter'));
         }
 
         if (!$workorder->company_profile_id)
         {
-            $workorder->company_profile_id = config('fi.defaultCompanyProfile');
+            $workorder->company_profile_id = config('bt.defaultCompanyProfile');
         }
 
         if (!$workorder->group_id)
         {
-            $workorder->group_id = config('fi.workorderGroup');
+            $workorder->group_id = config('bt.workorderGroup');
         }
 
         if (!$workorder->number)
@@ -96,12 +96,12 @@ class WorkorderObserver
 
         if (!isset($workorder->terms))
         {
-            $workorder->terms = config('fi.workorderTerms');
+            $workorder->terms = config('bt.workorderTerms');
         }
 
         if (!isset($workorder->footer))
         {
-            $workorder->footer = config('fi.workorderFooter');
+            $workorder->footer = config('bt.workorderFooter');
         }
 
         if (!$workorder->workorder_status_id)
@@ -116,17 +116,17 @@ class WorkorderObserver
 
         if (!$workorder->template)
         {
-            $workorder->template = config('fi.workorderTemplate');
+            $workorder->template = config('bt.workorderTemplate');
         }
 
-        if ($workorder->currency_code == config('fi.baseCurrency'))
+        if ($workorder->currency_code == config('bt.baseCurrency'))
         {
             $workorder->exchange_rate = 1;
         }
         elseif (!$workorder->exchange_rate)
         {
             $currencyConverter    = CurrencyConverterFactory::create();
-            $workorder->exchange_rate = $currencyConverter->convert(config('fi.baseCurrency'), $workorder->currency_code);
+            $workorder->exchange_rate = $currencyConverter->convert(config('bt.baseCurrency'), $workorder->currency_code);
         }
 
         $workorder->url_key = str_random(32);

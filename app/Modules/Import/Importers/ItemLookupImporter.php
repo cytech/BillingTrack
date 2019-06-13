@@ -20,11 +20,11 @@ class ItemLookupImporter extends AbstractImporter
     public function getFields()
     {
         return [
-            'name'          => '* ' . trans('fi.name'),
-            'description'   => '* ' . trans('fi.description'),
-            'price'         => '* ' . trans('fi.price'),
-            'tax_rate_id'   => trans('fi.tax_1'),
-            'tax_rate_2_id' => trans('fi.tax_2'),
+            'name'          => '* ' . trans('bt.name'),
+            'description'   => '* ' . trans('bt.description'),
+            'price'         => '* ' . trans('bt.price'),
+            'tax_rate_id'   => trans('bt.tax_1'),
+            'tax_rate_2_id' => trans('bt.tax_2'),
         ];
     }
 

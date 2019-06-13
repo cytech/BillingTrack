@@ -69,12 +69,12 @@ class TaskBillController extends Controller
         {
             InvoiceItem::create([
                 'invoice_id'    => $invoice->id,
-                'name'          => trans('fi.hourly_charge'),
+                'name'          => trans('bt.hourly_charge'),
                 'description'   => $task->name,
                 'quantity'      => $task->hours,
                 'price'         => $project->hourly_rate,
-                'tax_rate_id'   => config('fi.itemTaxRate'),
-                'tax_rate_2_id' => config('fi.itemTax2Rate'),
+                'tax_rate_id'   => config('bt.itemTaxRate'),
+                'tax_rate_2_id' => config('bt.itemTax2Rate'),
             ]);
 
             $task->billed     = 1;

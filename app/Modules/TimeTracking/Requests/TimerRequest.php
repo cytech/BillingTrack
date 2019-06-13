@@ -23,8 +23,8 @@ class TimerRequest extends FormRequest
     public function attributes()
     {
         return [
-            'start_at' => trans('fi.start_at'),
-            'end_at'   => trans('fi.end_at'),
+            'start_at' => trans('bt.start_at'),
+            'end_at'   => trans('bt.end_at'),
         ];
     }
 

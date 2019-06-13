@@ -111,7 +111,7 @@ class SchedulerController extends Controller
         $data['status'] = (request('status')) ?: 'now';
 
         $data['events'] = Schedule::withOccurrences()->with('resources','reminders')->whereDate('start_date', '>=',
-                            Carbon::now()->subDays(config('fi.schedulerPastdays')))->get();
+                            Carbon::now()->subDays(config('bt.schedulerPastdays')))->get();
         $data['categories'] = Category::pluck('name','id');
         $data['catbglist'] = Category::pluck('bg_color','id');
 	    $data['cattxlist'] = Category::pluck('text_color','id');
@@ -123,14 +123,14 @@ class SchedulerController extends Controller
 
         $coredata = [
             //quote sent or approved,based on displayinvoiced setting, with client
-            'quote' => (config('fi.schedulerDisplayInvoiced') == 1) ?
+            'quote' => (config('bt.schedulerDisplayInvoiced') == 1) ?
                 Quote::where(function ($query) {$query->sentorapproved();})
                  ->with('client'):
                 Quote::where('invoice_id', '0')
                     ->where(function ($query) {$query->sentorapproved();})
                     ->with('client'),
             //workorder sent or approved, based on displayinvoiced setting, with client
-            'workorder' => (config('fi.schedulerDisplayInvoiced') == 1) ?
+            'workorder' => (config('bt.schedulerDisplayInvoiced') == 1) ?
                 Workorder::where(function ($query) {$query->sentorapproved();})
                  ->with('client', 'workorderItems.employees') :
                 Workorder::where('invoice_id', '0')
@@ -146,7 +146,7 @@ class SchedulerController extends Controller
         foreach ($coredata as $type => $source) {
             if (!count($filter) || in_array($type, $filter)) {
                 $source->where(function ($query) {
-                    $start = Carbon::now()->subDays(config('fi.schedulerPastdays'));
+                    $start = Carbon::now()->subDays(config('bt.schedulerPastdays'));
                     $end = Carbon::now()->addCentury();//really.....
                     return $query->dateRange($start, $end);
                 });
@@ -274,7 +274,7 @@ class SchedulerController extends Controller
             return Response::json($response);
 
         }else{ //request from eventtable create/update
-            $msg = $request->id ? trans('fi.record_successfully_updated') : trans('fi.record_successfully_created');
+            $msg = $request->id ? trans('bt.record_successfully_updated') : trans('bt.record_successfully_created');
             return redirect()->route('scheduler.tableevent')->with('alertSuccess', $msg);
         }
 
@@ -369,7 +369,7 @@ class SchedulerController extends Controller
 		//clear all empty
 		$allfields = array_filter( $allfields );
 
-		$timezone = config('fi.timezone');
+		$timezone = config('bt.timezone');
 
 		$rule            = Recurr\Rule::createFromArray( $allfields );
 		$transformer     = new Recurr\Transformer\ArrayTransformer();
@@ -449,7 +449,7 @@ class SchedulerController extends Controller
 		return Response::json( $response );
 
         } else { //request from eventtable create/update
-            $msg = $request->id ? trans('fi.record_successfully_updated') : trans('fi.record_successfully_created');
+            $msg = $request->id ? trans('bt.record_successfully_updated') : trans('bt.record_successfully_created');
             return redirect()->route('scheduler.tablerecurringevent')->with('alertSuccess', $msg);
         }
 
@@ -467,15 +467,15 @@ class SchedulerController extends Controller
         $event = Schedule::find( $id );
         $event->delete();
 
-        //return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
-        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
+        //return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
+        return back()->with('alertSuccess', trans('bt.record_successfully_trashed'));
     }
 
     public function trashReminder( Request $request ) {
         $event = ScheduleReminder::find( $request->id );
         $event->delete();
 
-        return back()->with('alertSuccess', trans('fi.record_successfully_trashed'));
+        return back()->with('alertSuccess', trans('bt.record_successfully_trashed'));
     }
 
     public function bulkTrash()
@@ -485,7 +485,7 @@ class SchedulerController extends Controller
             $delschedule->delete();
 
         }
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
 
     }
 
@@ -509,7 +509,7 @@ class SchedulerController extends Controller
 		//clear all empty
 		$allfields = array_filter( $allfields );
 
-        $timezone = config('fi.timezone');
+        $timezone = config('bt.timezone');
 
 		$rule            = Recurr\Rule::createFromArray( $allfields );
 		$textTransformer = new Recurr\Transformer\TextTransformer();
@@ -544,7 +544,7 @@ class SchedulerController extends Controller
                 $available_employees[$key] = str_replace('___D','',$value);
             }
 	    }else{
-	        $available_employees[0] = trans('fi.no_emp_available');
+	        $available_employees[0] = trans('bt.no_emp_available');
         }
 
 	    return view('schedule.modal_replace_employee')
@@ -560,7 +560,7 @@ class SchedulerController extends Controller
         $item->description = substr_replace($item->description, $request->resource_id,strpos($item->description, "-")+1);
         $item->save();
 
-        return response()->json(['success' => trans('fi.employee_successfully_replaced')], 200);
+        return response()->json(['success' => trans('bt.employee_successfully_replaced')], 200);
     }
 
     public function getResourceStatus($date){

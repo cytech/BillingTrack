@@ -20,7 +20,7 @@ abstract class MerchantDriver
 
     public function getSetting($setting)
     {
-        return config('fi.' . $this->getSettingKey($setting));
+        return config('bt.' . $this->getSettingKey($setting));
     }
 
     public function getSettingKey($setting)

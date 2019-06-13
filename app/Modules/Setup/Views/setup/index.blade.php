@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>@lang('fi.license_agreement')</h1>
+        <h1>@lang('bt.license_agreement')</h1>
     </section>
 
     <section class="content">
@@ -23,10 +23,10 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::checkbox('accept', 1) !!} @lang('fi.license_agreement_accept')
+                            {!! Form::checkbox('accept', 1) !!} @lang('bt.license_agreement_accept')
                         </div>
 
-                        {!! Form::submit(trans('fi.i_accept'), ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit(trans('bt.i_accept'), ['class' => 'btn btn-primary']) !!}
 
                     </div>
 

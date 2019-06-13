@@ -25,45 +25,45 @@ class BeforeMiddleware
             DB::enableQueryLog();
         }
 
-        // Set the application specific settings under fi. prefix (fi.settingName)
+        // Set the application specific settings under bt. prefix (bt.settingName)
         if (Setting::setAll())
         {
-            if (config('fi.forceHttps') and !$request->secure())
+            if (config('bt.forceHttps') and !$request->secure())
             {
                 return redirect()->secure($request->getRequestUri());
             }
 
             // This one needs a little special attention
             $dateFormats = DateFormatter::formats();
-            config(['fi.datepickerFormat' => $dateFormats[config('fi.dateFormat')]['datepicker']]);
+            config(['bt.datepickerFormat' => $dateFormats[config('bt.dateFormat')]['datepicker']]);
 
             // Set the environment timezone to the application specific timezone, if available, otherwise UTC
-            date_default_timezone_set((config('fi.timezone') ?: config('app.timezone')));
+            date_default_timezone_set((config('bt.timezone') ?: config('app.timezone')));
 
             $mailPassword = '';
 
             try
             {
-                $mailPassword = (config('fi.mailPassword')) ? Crypt::decrypt(config('fi.mailPassword')) : '';
+                $mailPassword = (config('bt.mailPassword')) ? Crypt::decrypt(config('bt.mailPassword')) : '';
             }
             catch (\Exception $e)
             {
-                if (config('fi.mailDriver') == 'smtp')
+                if (config('bt.mailDriver') == 'smtp')
                 {
-                    session()->flash('error', '<strong>' . trans('fi.error') . '</strong> - ' . trans('fi.mail_hash_error'));
+                    session()->flash('error', '<strong>' . trans('bt.error') . '</strong> - ' . trans('bt.mail_hash_error'));
                 }
             }
 
             // Override the framework mail configuration with the values provided by the application
-            config(['mail.driver' => (config('fi.mailDriver')) ? config('fi.mailDriver') : 'smtp']);
-            config(['mail.host' => config('fi.mailHost')]);
-            config(['mail.port' => config('fi.mailPort')]);
-            config(['mail.encryption' => config('fi.mailEncryption')]);
-            config(['mail.username' => config('fi.mailUsername')]);
+            config(['mail.driver' => (config('bt.mailDriver')) ? config('bt.mailDriver') : 'smtp']);
+            config(['mail.host' => config('bt.mailHost')]);
+            config(['mail.port' => config('bt.mailPort')]);
+            config(['mail.encryption' => config('bt.mailEncryption')]);
+            config(['mail.username' => config('bt.mailUsername')]);
             config(['mail.password' => $mailPassword]);
-            config(['mail.sendmail' => config('fi.mailSendmail')]);
+            config(['mail.sendmail' => config('bt.mailSendmail')]);
 
-            if (config('fi.mailAllowSelfSignedCertificate'))
+            if (config('bt.mailAllowSelfSignedCertificate'))
             {
                 config([
                     'mail.stream.ssl' => [
@@ -78,23 +78,23 @@ class BeforeMiddleware
             (new \Illuminate\Mail\MailServiceProvider(app()))->register();
 
             // Set the base currency to a config value
-            config(['fi.currency' => Currency::where('code', config('fi.baseCurrency'))->first()]);
+            config(['bt.currency' => Currency::where('code', config('bt.baseCurrency'))->first()]);
         }
 
-        config(['fi.clientCenterRequest' => (($request->segment(1) == 'client_center') ? true : false)]);
+        config(['bt.clientCenterRequest' => (($request->segment(1) == 'client_center') ? true : false)]);
 
-        if (!config('fi.clientCenterRequest'))
+        if (!config('bt.clientCenterRequest'))
         {
-            app()->setLocale((config('fi.language')) ?: 'en');
+            app()->setLocale((config('bt.language')) ?: 'en');
         }
-        elseif (config('fi.clientCenterRequest') and auth()->check() and auth()->user()->client_id)
+        elseif (config('bt.clientCenterRequest') and auth()->check() and auth()->user()->client_id)
         {
             app()->setLocale(auth()->user()->client->language);
         }
 
-        config(['fi.mailConfigured' => (config('fi.mailDriver') ? true : false)]);
+        config(['bt.mailConfigured' => (config('bt.mailDriver') ? true : false)]);
 
-        config(['fi.merchant' => json_decode(config('fi.merchant'), true)]);
+        config(['bt.merchant' => json_decode(config('bt.merchant'), true)]);
 
         return $next($request);
     }

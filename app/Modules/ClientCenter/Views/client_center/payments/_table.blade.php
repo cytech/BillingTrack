@@ -1,11 +1,11 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>@lang('fi.date')</th>
-        <th>@lang('fi.invoice')</th>
-        <th>@lang('fi.summary')</th>
-        <th>@lang('fi.amount')</th>
-        <th>@lang('fi.payment_method')</th>
+        <th>@lang('bt.date')</th>
+        <th>@lang('bt.invoice')</th>
+        <th>@lang('bt.summary')</th>
+        <th>@lang('bt.amount')</th>
+        <th>@lang('bt.payment_method')</th>
     </tr>
     </thead>
     <tbody>

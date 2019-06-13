@@ -13,7 +13,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('fi.bulk_trash_record_warning')', "{{ route('invoices.bulk.delete') }}", ids)
+                bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('invoices.bulk.delete') }}", ids)
             }
         });
 
@@ -25,7 +25,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('fi.bulk_invoice_change_status_warning')', "{{ route('invoices.bulk.status') }}",
+                bulkConfirm('@lang('bt.bulk_invoice_change_status_warning')', "{{ route('invoices.bulk.status') }}",
                             ids, $(this).data('status'))
             }
         });

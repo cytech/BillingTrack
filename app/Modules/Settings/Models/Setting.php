@@ -152,7 +152,7 @@ class Setting extends Model
 
         $setting->save();
 
-        config(['fi.' . $key => $value]);
+        config(['bt.' . $key => $value]);
     }
 
     public static function setAll()
@@ -163,7 +163,7 @@ class Setting extends Model
 
             foreach ($settings as $setting)
             {
-                config(['fi.' . $setting->setting_key => $setting->setting_value]);
+                config(['bt.' . $setting->setting_key => $setting->setting_value]);
             }
 
             return true;

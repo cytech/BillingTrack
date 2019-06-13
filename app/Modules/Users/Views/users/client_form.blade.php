@@ -25,12 +25,12 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.client') @lang('fi.user_form')
+            @lang('bt.client') @lang('bt.user_form')
         </h3>
         <a class="btn btn-warning float-right" href={!! route('users.index')  !!}><i
-                    class="fa fa-ban"></i> @lang('fi.cancel')</a>
+                    class="fa fa-ban"></i> @lang('bt.cancel')</a>
         <button type="submit" class="btn btn-primary float-right"><i
-                    class="fa fa-save"></i> @lang('fi.save') </button>
+                    class="fa fa-save"></i> @lang('bt.save') </button>
         <div class="clearfix"></div>
     </section>
 
@@ -42,20 +42,20 @@
             <div class="card-body">
                 @if (!$editMode)
                     <div class="form-group">
-                        <label>@lang('fi.client'):</label>
+                        <label>@lang('bt.client'):</label>
                         {!! Form::select('client_id', ['' => ''] + $clients, null, ['class' => 'form-control', 'id' => 'client_id']) !!}
                     </div>
                 @endif
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>@lang('fi.name'): </label>
+                            <label>@lang('bt.name'): </label>
                             {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>@lang('fi.email'): </label>
+                            <label>@lang('bt.email'): </label>
                             {!! Form::text('email', null, ['id' => 'email', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
                         </div>
                     </div>
@@ -64,13 +64,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>@lang('fi.password'): </label>
+                                <label>@lang('bt.password'): </label>
                                 {!! Form::password('password', ['id' => 'password', 'class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>@lang('fi.password_confirmation'): </label>
+                                <label>@lang('bt.password_confirmation'): </label>
                                 {!! Form::password('password_confirmation', ['id' => 'password_confirmation',
                                 'class' => 'form-control']) !!}
                             </div>
@@ -82,7 +82,7 @@
         @if ($customFields->count())
             <div class=" card card-light">
                 <div class="box-header">
-                    <h3 class="box-title">@lang('fi.custom_fields')</h3>
+                    <h3 class="box-title">@lang('bt.custom_fields')</h3>
                 </div>
                 <div class="card-body">
                     @include('custom_fields._custom_fields')

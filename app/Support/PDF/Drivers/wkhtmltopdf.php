@@ -22,7 +22,7 @@ class wkhtmltopdf extends PDFAbstract
 
     private function getPdf()
     {
-        $pdf = new Pdf(config('fi.pdfBinaryPath'));
+        $pdf = new Pdf(config('bt.pdfBinaryPath'));
         $pdf->setOption('orientation', $this->paperOrientation);
         $pdf->setOption('page-size', $this->paperSize);
         $pdf->setOption('viewport-size', '1024x768');
@@ -33,7 +33,7 @@ class wkhtmltopdf extends PDFAbstract
     public function download($html, $filename)
     {
         header('Content-Type: application/pdf');
-        header('Content-Disposition: '.config('fi.pdfDisposition').'; filename="' . $filename . '"');
+        header('Content-Disposition: '.config('bt.pdfDisposition').'; filename="' . $filename . '"');
 
         echo $this->getOutput($html);
     }

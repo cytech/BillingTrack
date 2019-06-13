@@ -12,11 +12,11 @@
             <div class="card-header">
                 <h3 class="card-title"><i
                             class="fa fa-edit fa-fw"></i>
-                    @lang('fi.edit_category')
+                    @lang('bt.edit_category')
                     <a class="btn btn-warning float-right" href={!! route('categories.index')  !!}><i
-                                class="fa fa-ban"></i> @lang('fi.cancel')</a>
+                                class="fa fa-ban"></i> @lang('bt.cancel')</a>
                     <button type="submit" class="btn btn-primary float-right"><i
-                                class="fa fa-save"></i> @lang('fi.save') </button>
+                                class="fa fa-save"></i> @lang('bt.save') </button>
                 </h3>
 
             </div>
@@ -25,7 +25,7 @@
                 <!-- Name input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="name">@lang('fi.category_name')</label>
+                           for="name">@lang('bt.category_name')</label>
                     <div class="col-md-4">
                         {!! Form::text('name',$categories->name,['id'=>'name', 'class'=>'form-control']) !!}
                     </div>

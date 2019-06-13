@@ -22,11 +22,11 @@ class NoteObserver
         if (auth()->user()->client_id) {
             $mail = $this->mailQueue->create($note->notable, [
                 'to'         => [$note->notable->user->email],
-                'cc'         => [config('fi.mailDefaultCc')],
-                'bcc'        => [config('fi.mailDefaultBcc')],
-                'subject'    => trans('fi.note_notification'),
+                'cc'         => [config('bt.mailDefaultCc')],
+                'bcc'        => [config('bt.mailDefaultBcc')],
+                'subject'    => trans('bt.note_notification'),
                 'body'       => $note->formatted_note,
-                'attach_pdf' => config('fi.attachPdf'),
+                'attach_pdf' => config('bt.attachPdf'),
             ]);
 
             $this->mailQueue->send($mail->id);

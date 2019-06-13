@@ -14,7 +14,7 @@
 
 @section('content')
     <section class="content-header">
-        <h3 class="float-left">@lang('fi.mail_log')</h3>
+        <h3 class="float-left">@lang('bt.mail_log')</h3>
         <div class="clearfix"></div>
 
     </section>
@@ -25,14 +25,14 @@
                 <table id="dt-maillogtable" class="table dataTable no-footer">
                     <thead>
                     <tr>
-                        <th>@lang('fi.date')</th>
-                        <th>@lang('fi.from')</th>
-                        <th>@lang('fi.to')</th>
-                        <th>@lang('fi.cc')</th>
-                        <th>@lang('fi.bcc')</th>
-                        <th>@lang('fi.subject')</th>
-                        <th>@lang('fi.sent')</th>
-                        <th>@lang('fi.options')</th>
+                        <th>@lang('bt.date')</th>
+                        <th>@lang('bt.from')</th>
+                        <th>@lang('bt.to')</th>
+                        <th>@lang('bt.cc')</th>
+                        <th>@lang('bt.bcc')</th>
+                        <th>@lang('bt.subject')</th>
+                        <th>@lang('bt.sent')</th>
+                        <th>@lang('bt.options')</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -50,12 +50,12 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        @lang('fi.options')
+                                        @lang('bt.options')
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="#"
-                                               onclick="swalConfirm('@lang('fi.delete_record_warning')', '{{ route('mailLog.delete', [$mail->id]) }}');"><i
-                                                        class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
+                                               onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('mailLog.delete', [$mail->id]) }}');"><i
+                                                        class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
                                     </div>
                                 </div>
                             </td>

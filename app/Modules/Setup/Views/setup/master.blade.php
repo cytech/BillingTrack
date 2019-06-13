@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('fi.headerTitleText') }}</title>
+    <title>{{ config('bt.headerTitleText') }}</title>
 
     <link rel="stylesheet" href="/css/app.css">
 
@@ -29,7 +29,7 @@
         <a href="#" class="brand-link bg-light border-bottom">
             <img src="/img/billingtrack_logo.svg" alt="BillingTrack Logo" class="brand-image img-circle elevation-3 img-sm"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">{{ config('fi.headerTitleText', config('app.name','BillingTrack')) }}</span>
+            <span class="brand-text font-weight-light">{{ config('bt.headerTitleText', config('app.name','BillingTrack')) }}</span>
         </a>
 
             @yield('header')

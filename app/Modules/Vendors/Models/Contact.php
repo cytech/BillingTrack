@@ -58,26 +58,26 @@ class Contact extends Model
 
     public function getFormattedDefaultBccAttribute()
     {
-        return ($this->default_bcc) ? trans('fi.yes') : trans('fi.no');
+        return ($this->default_bcc) ? trans('bt.yes') : trans('bt.no');
     }
 
     public function getFormattedDefaultCcAttribute()
     {
-        return ($this->default_cc) ? trans('fi.yes') : trans('fi.no');
+        return ($this->default_cc) ? trans('bt.yes') : trans('bt.no');
     }
 
     public function getFormattedDefaultToAttribute()
     {
-        return ($this->default_to) ? trans('fi.yes') : trans('fi.no');
+        return ($this->default_to) ? trans('bt.yes') : trans('bt.no');
     }
 
     public function getFormattedIsPrimaryAttribute()
     {
-        return ($this->is_primary) ? trans('fi.yes') : trans('fi.no');
+        return ($this->is_primary) ? trans('bt.yes') : trans('bt.no');
     }
 
     public function getFormattedOptinAttribute()
     {
-        return ($this->optin) ? trans('fi.yes') : trans('fi.no');
+        return ($this->optin) ? trans('bt.yes') : trans('bt.no');
     }
 }

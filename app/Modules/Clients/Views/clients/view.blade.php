@@ -4,20 +4,20 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.view_client')
+            @lang('bt.view_client')
         </h3>
         <div class="float-right">
             <a href="javascript:void(0)" class="btn btn-secondary create-quote"
-               data-unique-name="{{ $client->unique_name }}">@lang('fi.create_quote')</a>
+               data-unique-name="{{ $client->unique_name }}">@lang('bt.create_quote')</a>
             <a href="javascript:void(0)" class="btn btn-secondary create-workorder"
-               data-unique-name="{{ $client->unique_name }}">@lang('fi.create_workorder')</a>
+               data-unique-name="{{ $client->unique_name }}">@lang('bt.create_workorder')</a>
             <a href="javascript:void(0)" class="btn btn-secondary create-invoice"
-               data-unique-name="{{ $client->unique_name }}">@lang('fi.create_invoice')</a>
-            <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('fi.back')</a>
-            <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-secondary">@lang('fi.edit')</a>
+               data-unique-name="{{ $client->unique_name }}">@lang('bt.create_invoice')</a>
+            <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('bt.back')</a>
+            <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-secondary">@lang('bt.edit')</a>
             <a class="btn btn-secondary" href="#"
-               onclick="swalConfirm('@lang('fi.trash_client_warning')', '{{ route('clients.delete', [$client->id]) }}');"><i
-                        class="fa fa-trash"></i> @lang('fi.trash')</a>
+               onclick="swalConfirm('@lang('bt.trash_client_warning')', '{{ route('clients.delete', [$client->id]) }}');"><i
+                        class="fa fa-trash"></i> @lang('bt.trash')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -33,22 +33,22 @@
                     <div class="card-header d-flex p-0">
                         <ul class="nav nav-tabs p-2">
                             <li class="nav-item "><a class="nav-link active show" data-toggle="tab"
-                                                     href="#tab-details">@lang('fi.details')</a></li>
+                                                     href="#tab-details">@lang('bt.details')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-quotes">@lang('fi.quotes')</a></li>
+                                                     href="#tab-quotes">@lang('bt.quotes')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-workorders">@lang('fi.workorders')</a></li>
+                                                     href="#tab-workorders">@lang('bt.workorders')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-invoices">@lang('fi.invoices')</a></li>
+                                                     href="#tab-invoices">@lang('bt.invoices')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-recurring-invoices">@lang('fi.recurring_invoices')</a>
+                                                     href="#tab-recurring-invoices">@lang('bt.recurring_invoices')</a>
                             </li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-payments">@lang('fi.payments')</a></li>
+                                                     href="#tab-payments">@lang('bt.payments')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-attachments">@lang('fi.attachments')</a></li>
+                                                     href="#tab-attachments">@lang('bt.attachments')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-notes">@lang('fi.notes')</a></li>
+                                                     href="#tab-notes">@lang('bt.notes')</a></li>
                         </ul>
                     </div>
                     <div class="card-body">
@@ -63,25 +63,25 @@
                                         <div class="float-left">
                                             <h2>{!! $client->name !!}</h2>
                                             @if($client->is_company)
-                                                <span class="badge badge-primary">@lang('fi.company')</span>
+                                                <span class="badge badge-primary">@lang('bt.company')</span>
                                             @else
-                                                <span class="badge badge-green">@lang('fi.individual')</span>
+                                                <span class="badge badge-green">@lang('bt.individual')</span>
                                             @endif
-                                            &nbsp;&nbsp;&nbsp;@lang('fi.payment_terms'):&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;@lang('bt.payment_terms'):&nbsp;&nbsp;
                                             @if($client->paymentterm->id != 1)
                                                 {{$client->paymentterm->name}}
                                             @else
-                                                @lang('fi.default_terms')
+                                                @lang('bt.default_terms')
                                             @endif
                                         </div>
 
                                         <div class="float-right" style="text-align: right;">
                                             <p>
-                                                <strong>@lang('fi.total_billed')
+                                                <strong>@lang('bt.total_billed')
                                                     :</strong> {{ $client->formatted_total }}<br/>
-                                                <strong>@lang('fi.total_paid'):</strong> {{ $client->formatted_paid }}
+                                                <strong>@lang('bt.total_paid'):</strong> {{ $client->formatted_paid }}
                                                 <br/>
-                                                <strong>@lang('fi.total_balance')
+                                                <strong>@lang('bt.total_balance')
                                                     :</strong> {{ $client->formatted_balance }}
                                             </p>
                                         </div>
@@ -96,38 +96,38 @@
 
                                         <table class="table table-striped">
                                             <tr class="row">
-                                                <td class="col-md-2">@lang('fi.billing_address')</td>
+                                                <td class="col-md-2">@lang('bt.billing_address')</td>
                                                 <td class="table-bordered col-md-4">{!! $client->formatted_address !!}</td>
-                                                <td class="col-md-2">@lang('fi.shipping_address')</td>
+                                                <td class="col-md-2">@lang('bt.shipping_address')</td>
                                                 <td class="table-bordered col-md-4">{!! $client->formatted_address2 !!}</td>
                                             </tr>
                                             <tr class="row">
-                                                <td class="col-md-2">@lang('fi.email')</td>
+                                                <td class="col-md-2">@lang('bt.email')</td>
                                                 <td class="col-md-10"><a
                                                             href="mailto:{!! $client->email !!}">{!! $client->email !!}</a>
                                                 </td>
                                             </tr>
                                             <tr class="row">
-                                                <td class="col-md-1">@lang('fi.phone')</td>
+                                                <td class="col-md-1">@lang('bt.phone')</td>
                                                 <td class="table-bordered col-md-3">{!! $client->phone !!}</td>
 
 
-                                                <td class="col-md-1">@lang('fi.mobile')</td>
+                                                <td class="col-md-1">@lang('bt.mobile')</td>
                                                 <td class="table-bordered col-md-3">{!! $client->mobile !!}</td>
 
 
-                                                <td class="col-md-1">@lang('fi.fax')</td>
+                                                <td class="col-md-1">@lang('bt.fax')</td>
                                                 <td class="table-bordered col-md-3">{!! $client->fax !!}</td>
                                             </tr>
                                             <tr class="row">
-                                                <td class="col-md-2">@lang('fi.web')</td>
+                                                <td class="col-md-2">@lang('bt.web')</td>
                                                 <td class="col-md-10"><a href="{!! $client->web !!}"
                                                                          target="_blank">{!! $client->web !!}</a></td>
                                             </tr>
                                             <tr class="row">
-                                                <td class="col-md-2">@lang('fi.industry')</td>
+                                                <td class="col-md-2">@lang('bt.industry')</td>
                                                 <td class="table-bordered col-md-4">{!! $client->industry->name !!}</td>
-                                                <td class="col-md-2">@lang('fi.size')</td>
+                                                <td class="col-md-2">@lang('bt.size')</td>
                                                 <td class="table-bordered col-md-4">{!! $client->size->name !!}</td>
                                             </tr>
                                             @foreach ($customFields as $customField)
@@ -148,7 +148,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="float-left">
-                                            <h2>@lang('fi.contacts')</h2>
+                                            <h2>@lang('bt.contacts')</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@
                                 <div class="card">
                                     @include('quotes._table')
                                     <div class="card-footer"><p class="text-center"><strong><a
-                                                        href="{{ route('quotes.index') }}?client={{ $client->id }}">@lang('fi.view_all')</a></strong>
+                                                        href="{{ route('quotes.index') }}?client={{ $client->id }}">@lang('bt.view_all')</a></strong>
                                         </p></div>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@
                                 <div class="card">
                                     @include('workorders.partials._table')
                                     <div class="card-footer"><p class="text-center"><strong><a
-                                                        href="{{ route('workorders.index') }}?client={{ $client->id }}">@lang('fi.view_all')</a></strong>
+                                                        href="{{ route('workorders.index') }}?client={{ $client->id }}">@lang('bt.view_all')</a></strong>
                                         </p></div>
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                 <div class="card">
                                     @include('invoices._table')
                                     <div class="card-footer"><p class="text-center"><strong><a
-                                                        href="{{ route('invoices.index') }}?client={{ $client->id }}">@lang('fi.view_all')</a></strong>
+                                                        href="{{ route('invoices.index') }}?client={{ $client->id }}">@lang('bt.view_all')</a></strong>
                                         </p></div>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                                 <div class="card">
                                     @include('recurring_invoices._table')
                                     <div class="card-footer"><p class="text-center"><strong><a
-                                                        href="{{ route('recurringInvoices.index') }}?client={{ $client->id }}">@lang('fi.view_all')</a></strong>
+                                                        href="{{ route('recurringInvoices.index') }}?client={{ $client->id }}">@lang('bt.view_all')</a></strong>
                                         </p></div>
                                 </div>
                             </div>
@@ -197,7 +197,7 @@
                                 <div class="card">
                                     @include('payments._table')
                                     <div class="card-footer"><p class="text-center"><strong><a
-                                                        href="{{ route('payments.index') }}?client={{ $client->id }}">@lang('fi.view_all')</a></strong>
+                                                        href="{{ route('payments.index') }}?client={{ $client->id }}">@lang('bt.view_all')</a></strong>
                                         </p></div>
                                 </div>
                             </div>

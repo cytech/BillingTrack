@@ -44,9 +44,9 @@ class EmployeeRequest extends FormRequest
 	public function messages()
 	{
 		return [
-			'number.required' => trans('fi.emp_number_required'),
-			'number.integer' => trans('fi.emp_number_integer'),
-			'number.unique' => trans('fi.emp_number_unique'),
+			'number.required' => trans('bt.emp_number_required'),
+			'number.integer' => trans('bt.emp_number_integer'),
+			'number.unique' => trans('bt.emp_number_unique'),
 		];
 	}
 

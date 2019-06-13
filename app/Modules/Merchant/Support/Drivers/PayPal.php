@@ -24,7 +24,7 @@ class PayPal extends MerchantDriverPayable
 
     public function getSettings()
     {
-        return ['clientId', 'clientSecret', 'mode' => ['sandbox' => trans('fi.sandbox'), 'live' => trans('fi.live')]];
+        return ['clientId', 'clientSecret', 'mode' => ['sandbox' => trans('bt.sandbox'), 'live' => trans('bt.live')]];
     }
 
     public function pay(Invoice $invoice)
@@ -35,7 +35,7 @@ class PayPal extends MerchantDriverPayable
         $payer->setPaymentMethod('paypal');
 
         $item = new Item();
-        $item->setName(trans('fi.invoice') . ' #' . $invoice->number)
+        $item->setName(trans('bt.invoice') . ' #' . $invoice->number)
             ->setCurrency($invoice->currency_code)
             ->setQuantity(1)
             ->setPrice($invoice->amount->balance + 0);
@@ -49,7 +49,7 @@ class PayPal extends MerchantDriverPayable
 
         $transaction = new Transaction();
         $transaction->setAmount($amount)
-            ->setDescription(trans('fi.invoice') . ' #' . $invoice->number)
+            ->setDescription(trans('bt.invoice') . ' #' . $invoice->number)
             ->setInvoiceNumber(uniqid())
             ->setItemList($itemList);
 
@@ -107,7 +107,7 @@ class PayPal extends MerchantDriverPayable
                     'client_id'         => $invoice->client->id,
                     'invoice_id'        => $invoice->id,
                     'amount'            => $transaction->getAmount()->getTotal(),
-                    'payment_method_id' => config('fi.onlinePaymentMethod'),
+                    'payment_method_id' => config('bt.onlinePaymentMethod'),
                 ]);
 
                 MerchantPayment::saveByKey($this->getName(), $fiPayment->id, 'id', $payment->getId());

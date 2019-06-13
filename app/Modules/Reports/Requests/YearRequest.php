@@ -23,7 +23,7 @@ class YearRequest extends FormRequest
     public function attributes()
     {
         return [
-            'year' => trans('fi.year'),
+            'year' => trans('bt.year'),
         ];
     }
 

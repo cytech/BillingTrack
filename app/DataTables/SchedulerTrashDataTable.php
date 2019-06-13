@@ -94,25 +94,25 @@ class SchedulerTrashDataTable extends DataTable
                 'data'  => 'deleted_at'
             ],
             'description'      => [
-                'title' => trans('fi.description'),
+                'title' => trans('bt.description'),
                 'data'  => 'description',
             ],
             'start_date'      => [
-                'title' => trans('fi.start_date'),
+                'title' => trans('bt.start_date'),
                 'name'  => 'latestOccurrence.formatted_start_date',
                 'data'  => 'latest_occurrence.formatted_start_date',
                 'orderable'  => false,
                 'searchable' => false,
             ],
             'end_date'    => [
-                'title'      => trans('fi.end_date'),
+                'title'      => trans('bt.end_date'),
                 'name'  => 'latestOccurrence.formatted_end_date',
                 'data'  => 'latest_occurrence.formatted_end_date',
                 'orderable'  => false,
                 'searchable' => false,
             ],
             'category_name'     => [
-                'title' => trans('fi.category'),
+                'title' => trans('bt.category'),
                 'data'  => 'category.name',
             ],
         ];

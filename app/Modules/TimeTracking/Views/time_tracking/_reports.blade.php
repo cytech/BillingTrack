@@ -1,1 +1,1 @@
-<li><a href="{{ route('timeTracking.reports.timesheet') }}"><i class="fa fa-caret-right"></i> @lang('fi.timesheet')</a></li>
+<li><a href="{{ route('timeTracking.reports.timesheet') }}"><i class="fa fa-caret-right"></i> @lang('bt.timesheet')</a></li>

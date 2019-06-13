@@ -20,7 +20,7 @@ class MailLogController extends Controller
     {
         $mails = MailQueue::sortable(['created_at' => 'desc'])
             ->keywords(request('search'))
-            ->paginate(config('fi.resultsPerPage'));
+            ->paginate(config('bt.resultsPerPage'));
 
         return view('mail_log.index')
             ->with('mails', $mails)
@@ -42,6 +42,6 @@ class MailLogController extends Controller
         MailQueue::destroy($id);
 
         return redirect()->route('mailLog.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('bt.record_successfully_deleted'));
     }
 }

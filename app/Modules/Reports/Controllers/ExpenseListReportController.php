@@ -30,8 +30,8 @@ class ExpenseListReportController extends Controller
     public function index()
     {
         return view('reports.options.expense_list')
-            ->with('categories', ['' => trans('fi.all_categories')] + Category::getList())
-            ->with('vendors', ['' => trans('fi.all_vendors')] + Vendor::getList());
+            ->with('categories', ['' => trans('bt.all_categories')] + Category::getList())
+            ->with('vendors', ['' => trans('bt.all_vendors')] + Vendor::getList());
     }
 
     public function validateOptions(DateRangeRequest $request)
@@ -69,6 +69,6 @@ class ExpenseListReportController extends Controller
         $html = view('reports.output.expense_list')
             ->with('results', $results)->render();
 
-        $pdf->download($html, trans('fi.expense_list') . '.pdf');
+        $pdf->download($html, trans('bt.expense_list') . '.pdf');
     }
 }

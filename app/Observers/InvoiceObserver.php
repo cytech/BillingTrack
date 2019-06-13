@@ -68,12 +68,12 @@ class InvoiceObserver
 
         if (!$invoice->company_profile_id)
         {
-            $invoice->company_profile_id = config('fi.defaultCompanyProfile');
+            $invoice->company_profile_id = config('bt.defaultCompanyProfile');
         }
 
         if (!$invoice->group_id)
         {
-            $invoice->group_id = config('fi.invoiceGroup');
+            $invoice->group_id = config('bt.invoiceGroup');
         }
 
         if (!$invoice->number)
@@ -83,12 +83,12 @@ class InvoiceObserver
 
         if (!isset($invoice->terms))
         {
-            $invoice->terms = config('fi.invoiceTerms');
+            $invoice->terms = config('bt.invoiceTerms');
         }
 
         if (!isset($invoice->footer))
         {
-            $invoice->footer = config('fi.invoiceFooter');
+            $invoice->footer = config('bt.invoiceFooter');
         }
 
         if (!$invoice->invoice_status_id)
@@ -106,14 +106,14 @@ class InvoiceObserver
             $invoice->template = $invoice->companyProfile->invoice_template;
         }
 
-        if ($invoice->currency_code == config('fi.baseCurrency'))
+        if ($invoice->currency_code == config('bt.baseCurrency'))
         {
             $invoice->exchange_rate = 1;
         }
         elseif (!$invoice->exchange_rate)
         {
             $currencyConverter      = CurrencyConverterFactory::create();
-            $invoice->exchange_rate = $currencyConverter->convert(config('fi.baseCurrency'), $invoice->currency_code);
+            $invoice->exchange_rate = $currencyConverter->convert(config('bt.baseCurrency'), $invoice->currency_code);
         }
 
         $invoice->url_key = str_random(32);

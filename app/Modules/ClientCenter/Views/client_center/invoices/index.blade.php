@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>@lang('fi.invoices')</h1>
+        <h1>@lang('bt.invoices')</h1>
     </section>
 
     <section class="content">

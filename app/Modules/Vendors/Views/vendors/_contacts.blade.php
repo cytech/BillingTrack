@@ -11,11 +11,11 @@
         $('.btn-delete-contact').click(function () {
 
             Swal.fire({
-                title: '@lang('fi.trash_record_warning')',
+                title: '@lang('bt.trash_record_warning')',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
-                confirmButtonText: '@lang('fi.yes_sure')'
+                confirmButtonText: '@lang('bt.yes_sure')'
             }).then((result) => {
                 if (result.value) {
                     $.post('{{ route('vendors.contacts.delete', [$vendorId]) }}', {
@@ -46,23 +46,23 @@
     <div class="col-lg-12">
         <div class="float-right mb-3">
             <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-add-contact"><i
-                        class="fa fa-plus"></i> @lang('fi.add_contact')</a>
+                        class="fa fa-plus"></i> @lang('bt.add_contact')</a>
         </div>
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>@lang('fi.name')</th>
-                <th>@lang('fi.title')</th>
-                <th>@lang('fi.phone')</th>
-                <th>@lang('fi.fax')</th>
-                <th>@lang('fi.mobile')</th>
-                <th>@lang('fi.email')</th>
-                <th>@lang('fi.default_to')</th>
-                <th>@lang('fi.default_cc')</th>
-                <th>@lang('fi.default_bcc')</th>
-                <th>@lang('fi.is_primary')</th>
-                <th>@lang('fi.optin')</th>
-                <th>@lang('fi.options')</th>
+                <th>@lang('bt.name')</th>
+                <th>@lang('bt.title')</th>
+                <th>@lang('bt.phone')</th>
+                <th>@lang('bt.fax')</th>
+                <th>@lang('bt.mobile')</th>
+                <th>@lang('bt.email')</th>
+                <th>@lang('bt.default_to')</th>
+                <th>@lang('bt.default_cc')</th>
+                <th>@lang('bt.default_bcc')</th>
+                <th>@lang('bt.is_primary')</th>
+                <th>@lang('bt.optin')</th>
+                <th>@lang('bt.options')</th>
             </tr>
             </thead>
             <tbody>
@@ -86,15 +86,15 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                     data-toggle="dropdown">
-                                @lang('fi.options')
+                                @lang('bt.options')
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="javascript:void(0)" class="btn-edit-contact dropdown-item"
                                    data-url="{{ route('vendors.contacts.edit', [$vendorId, $contact->id]) }}"><i
-                                            class="fa fa-edit"></i> @lang('fi.edit')</a>
+                                            class="fa fa-edit"></i> @lang('bt.edit')</a>
                                 <div class="dropdown-divider"></div>
                                 <a href="javascript:void(0)" class="btn-delete-contact dropdown-item"
-                                   data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> @lang('fi.trash')
+                                   data-contact-id={{ $contact->id }}><i class="fa fa-trash-alt"></i> @lang('bt.trash')
                                 </a>
                             </div>
                         </div>

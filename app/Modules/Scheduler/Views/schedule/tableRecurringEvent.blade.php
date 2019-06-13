@@ -2,14 +2,14 @@
 
 @section('content')
     <section class="content-header">
-        <h3 class="float-left">@lang('fi.recurring_events')</h3>
+        <h3 class="float-left">@lang('bt.recurring_events')</h3>
         <div class="float-right">
 
             <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-trash"><i
-                        class="fa fa-trash"></i> @lang('fi.bulk_event_trash')</a>
+                        class="fa fa-trash"></i> @lang('bt.bulk_event_trash')</a>
 
             <a href="{!! route('scheduler.createrecurringevent') !!}" class="btn btn-primary "><i
-                        class="fa fa-fw fa-plus"></i> @lang('fi.create_recurring_event')</a>
+                        class="fa fa-fw fa-plus"></i> @lang('bt.create_recurring_event')</a>
         </div>
 
         <div class="clearfix"></div>

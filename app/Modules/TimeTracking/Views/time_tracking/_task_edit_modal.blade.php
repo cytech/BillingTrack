@@ -23,7 +23,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">@lang('fi.edit_task')</h4>
+                <h4 class="modal-title">@lang('bt.edit_task')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
@@ -31,14 +31,14 @@
                 <div id="modal-status-placeholder"></div>
 
                     <div class="form-group">
-                        <label class="col-form-label">@lang('fi.task'):</label>
+                        <label class="col-form-label">@lang('bt.task'):</label>
                         {!! Form::text('name', $task->name, ['id' => 'edit_task_name', 'class' => 'form-control']) !!}
                     </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
-                <button type="button" class="btn btn-primary" id="btn-submit-task">@lang('fi.submit')</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('bt.cancel')</button>
+                <button type="button" class="btn btn-primary" id="btn-submit-task">@lang('bt.submit')</button>
             </div>
         </div>
     </div>

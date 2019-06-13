@@ -24,12 +24,12 @@ class ClientObserver
 
         if (!$client->currency_code)
         {
-            $client->currency_code = config('fi.baseCurrency');
+            $client->currency_code = config('bt.baseCurrency');
         }
 
         if (!$client->language)
         {
-            $client->language = config('fi.language');
+            $client->language = config('bt.language');
         }
     }
     /**

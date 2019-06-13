@@ -93,7 +93,7 @@ class UtilityController
 
         $entity::onlyTrashed()->find($id)->restore();
 
-        return back()->with('alertSuccess', trans('fi.record_successfully_restored'));
+        return back()->with('alertSuccess', trans('bt.record_successfully_restored'));
     }
 
     /**
@@ -105,7 +105,7 @@ class UtilityController
     {
         $entity::onlyTrashed()->find($id)->forceDelete();
 
-        return back()->with('alertSuccess', trans('fi.record_successfully_deleted'));
+        return back()->with('alertSuccess', trans('bt.record_successfully_deleted'));
     }
 
     public function bulkRestoreTrash()
@@ -125,7 +125,7 @@ class UtilityController
                 $instance::onlyTrashed()->find($id)->restore();
             }
         }
-        return response()->json(['success' => trans('fi.record_successfully_restored')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_restored')], 200);
     }
 
     public function bulkDeleteTrash()
@@ -145,7 +145,7 @@ class UtilityController
                 $instance::onlyTrashed()->find($id)->forceDelete();
             }
         }
-        return response()->json(['success' => trans('fi.record_successfully_deleted')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_deleted')], 200);
     }
 
     public function batchPrint(Request $request)
@@ -177,7 +177,7 @@ class UtilityController
 
             if (!count($batchtypes)) {
                 return redirect()->route('utilities.batchprint')
-                    ->with('alert', trans('fi.batch_nodata_alert'));
+                    ->with('alert', trans('bt.batch_nodata_alert'));
             }
 
             $pdf = PDFFactory::create();

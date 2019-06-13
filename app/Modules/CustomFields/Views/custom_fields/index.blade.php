@@ -4,12 +4,12 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.custom_fields')
+            @lang('bt.custom_fields')
         </h3>
 
         <div class="float-right">
             <a href="{{ route('customFields.create') }}" class="btn btn-primary"><i
-                        class="fa fa-plus"></i> @lang('fi.new')</a>
+                        class="fa fa-plus"></i> @lang('bt.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -25,11 +25,11 @@
 
                     <thead>
                     <tr>
-                        <th>{!! Sortable::link('tbl_name', trans('fi.table_name')) !!}</th>
-                        <th>{!! Sortable::link('column_name', trans('fi.column_name')) !!}</th>
-                        <th>{!! Sortable::link('field_label', trans('fi.field_label')) !!}</th>
-                        <th>{!! Sortable::link('field_type', trans('fi.field_type')) !!}</th>
-                        <th>@lang('fi.options')</th>
+                        <th>{!! Sortable::link('tbl_name', trans('bt.table_name')) !!}</th>
+                        <th>{!! Sortable::link('column_name', trans('bt.column_name')) !!}</th>
+                        <th>{!! Sortable::link('field_label', trans('bt.field_label')) !!}</th>
+                        <th>{!! Sortable::link('field_type', trans('bt.field_type')) !!}</th>
+                        <th>@lang('bt.options')</th>
                     </tr>
                     </thead>
 
@@ -44,15 +44,15 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
                                             data-toggle="dropdown">
-                                        @lang('fi.options')
+                                        @lang('bt.options')
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="{{ route('customFields.edit', [$customField->id]) }}"><i
-                                                        class="fa fa-edit"></i> @lang('fi.edit')</a>
+                                                        class="fa fa-edit"></i> @lang('bt.edit')</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#"
-                                               onclick="swalConfirm('@lang('fi.delete_record_warning')', '{{ route('customFields.delete', [$customField->id]) }}');"><i
-                                                        class="fa fa-trash-alt"></i> @lang('fi.delete')</a>
+                                               onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('customFields.delete', [$customField->id]) }}');"><i
+                                                        class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
                                     </div>
                                 </div>
                             </td>

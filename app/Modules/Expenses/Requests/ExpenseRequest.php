@@ -24,12 +24,12 @@ class ExpenseRequest extends FormRequest
     public function attributes()
     {
         return [
-            'user_id'            => trans('fi.user'),
-            'company_profile_id' => trans('fi.company_profile'),
-            'expense_date'       => trans('fi.date'),
-            'category_name'      => trans('fi.category'),
-            'description'        => trans('fi.description'),
-            'amount'             => trans('fi.amount'),
+            'user_id'            => trans('bt.user'),
+            'company_profile_id' => trans('bt.company_profile'),
+            'expense_date'       => trans('bt.date'),
+            'category_name'      => trans('bt.category'),
+            'description'        => trans('bt.description'),
+            'amount'             => trans('bt.amount'),
         ];
     }
 

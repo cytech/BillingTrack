@@ -21,16 +21,16 @@ class CustomFields
     public static function tableNames()
     {
         return [
-            'clients'            => trans('fi.clients'),
-            'vendors'            => trans('fi.vendors'),
-            'company_profiles'   => trans('fi.company_profiles'),
-            'expenses'           => trans('fi.expenses'),
-            'invoices'           => trans('fi.invoices'),
-            'workorders'         => trans('fi.workorders'),
-            'quotes'             => trans('fi.quotes'),
-            'recurring_invoices' => trans('fi.recurring_invoices'),
-            'payments'           => trans('fi.payments'),
-            'users'              => trans('fi.users'),
+            'clients'            => trans('bt.clients'),
+            'vendors'            => trans('bt.vendors'),
+            'company_profiles'   => trans('bt.company_profiles'),
+            'expenses'           => trans('bt.expenses'),
+            'invoices'           => trans('bt.invoices'),
+            'workorders'         => trans('bt.workorders'),
+            'quotes'             => trans('bt.quotes'),
+            'recurring_invoices' => trans('bt.recurring_invoices'),
+            'payments'           => trans('bt.payments'),
+            'users'              => trans('bt.users'),
         ];
     }
 
@@ -42,9 +42,9 @@ class CustomFields
     public static function fieldTypes()
     {
         return [
-            'text'     => trans('fi.text'),
-            'dropdown' => trans('fi.dropdown'),
-            'textarea' => trans('fi.textarea'),
+            'text'     => trans('bt.text'),
+            'dropdown' => trans('bt.dropdown'),
+            'textarea' => trans('bt.textarea'),
         ];
     }
 }

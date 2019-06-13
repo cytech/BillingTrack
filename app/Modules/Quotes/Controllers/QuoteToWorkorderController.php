@@ -44,7 +44,7 @@ class QuoteToWorkorderController extends Controller
         $workorder = $this->quoteToWorkorder->convert(
             $quote,
             DateFormatter::unformat($request->input('workorder_date')),
-            DateFormatter::incrementDateByDays(DateFormatter::unformat($request->input('workorder_date')), config('fi.workordersExpireAfter')),
+            DateFormatter::incrementDateByDays(DateFormatter::unformat($request->input('workorder_date')), config('bt.workordersExpireAfter')),
             $request->input('group_id')
         );
 

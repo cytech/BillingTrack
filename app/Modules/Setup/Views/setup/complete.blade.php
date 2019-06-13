@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="content-header">
-        <h1>@lang('fi.installation_complete')</h1>
+        <h1>@lang('bt.installation_complete')</h1>
     </section>
 
     <section class="content">
@@ -16,9 +16,9 @@
 
                     <div class="card-body">
 
-                        <p>@lang('fi.you_may_now_sign_in')</p>
+                        <p>@lang('bt.you_may_now_sign_in')</p>
 
-                        <a href="{{ route('session.login') }}" class="btn btn-primary">@lang('fi.sign_in')</a>
+                        <a href="{{ route('session.login') }}" class="btn btn-primary">@lang('bt.sign_in')</a>
 
                     </div>
 

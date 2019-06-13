@@ -3,12 +3,12 @@
 @section('content')
     <section class="content-header">
         <div>
-        <h3 class="float-left">@lang('fi.orphan_check')</h3>
+        <h3 class="float-left">@lang('bt.orphan_check')</h3>
         </div>
         <br>
         <br>
         <div>
-        <h4 class="float-left">@lang('fi.orphan_list')</h4>
+        <h4 class="float-left">@lang('bt.orphan_list')</h4>
         </div>
         <div class="clearfix"></div>
 
@@ -23,12 +23,12 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>@lang('fi.name')</th>
-                                <th>@lang('fi.workorder_number') </th>
-                                <th>@lang('fi.job_date')</th>
-                                <th>@lang('fi.description')</th>
-                                <th>@lang('fi.client')</th>
-                                <th>@lang('fi.options')</th>
+                                <th>@lang('bt.name')</th>
+                                <th>@lang('bt.workorder_number') </th>
+                                <th>@lang('bt.job_date')</th>
+                                <th>@lang('bt.description')</th>
+                                <th>@lang('bt.client')</th>
+                                <th>@lang('bt.options')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -42,14 +42,14 @@
                                     <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                @lang('fi.options')
+                                                @lang('bt.options')
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="btn replace-employee dropdown-item" href="javascript:void(0)"
                                                        data-item-id="{{ $resource->id }}"
                                                        data-route="{{ route('scheduler.getreplace.employee',[ 'item_id' => $resource->id,'name' => $resource->name, 'date' => $resource->workorder->job_date]) }}">
-                                                       <i class="fa fa-sync"></i> @lang('fi.replace_employee')</a>
-                                                <a class="dropdown-item" href="{{ route('workorders.edit', [$resource->workorder->id]) }}"><i class="fa fa-edit"></i> @lang('fi.edit_workorder')</a>
+                                                       <i class="fa fa-sync"></i> @lang('bt.replace_employee')</a>
+                                                <a class="dropdown-item" href="{{ route('workorders.edit', [$resource->workorder->id]) }}"><i class="fa fa-edit"></i> @lang('bt.edit_workorder')</a>
                                             </div>
                                         </div>
                                     </td>

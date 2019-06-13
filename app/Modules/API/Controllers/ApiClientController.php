@@ -27,7 +27,7 @@ class ApiClientController extends ApiController
     {
         $clients = Client::getSelect()
             ->orderBy('name')
-            ->paginate(config('fi.resultsPerPage'));
+            ->paginate(config('bt.resultsPerPage'));
 
         return response()->json($clients);
     }
@@ -39,7 +39,7 @@ class ApiClientController extends ApiController
             return response()->json($client);
         }
 
-        return response()->json([trans('fi.record_not_found')], 400);
+        return response()->json([trans('bt.record_not_found')], 400);
 
     }
 
@@ -59,7 +59,7 @@ class ApiClientController extends ApiController
             return response()->json($client);
         }
 
-        return response()->json([trans('fi.record_not_found')], 400);
+        return response()->json([trans('bt.record_not_found')], 400);
 
     }
 
@@ -79,6 +79,6 @@ class ApiClientController extends ApiController
             return response(200);
         }
 
-        return response()->json([trans('fi.record_not_found')], 400);
+        return response()->json([trans('bt.record_not_found')], 400);
     }
 }

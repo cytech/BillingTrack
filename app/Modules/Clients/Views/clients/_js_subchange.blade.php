@@ -22,7 +22,7 @@
                 if (response.status == 400) {
                     showErrors($.parseJSON(response.responseText).errors, '#modal-status-placeholder');
                 } else {
-                    notify('@lang('fi.unknown_error')','error');
+                    notify('@lang('bt.unknown_error')','error');
                 }
             });
         });

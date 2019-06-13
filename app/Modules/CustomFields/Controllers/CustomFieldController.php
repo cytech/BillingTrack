@@ -26,7 +26,7 @@ class CustomFieldController extends Controller
     {
         $this->setReturnUrl();
 
-        $customFields = CustomField::sortable(['tbl_name' => 'asc', 'field_label' => 'asc'])->paginate(config('fi.resultsPerPage'));
+        $customFields = CustomField::sortable(['tbl_name' => 'asc', 'field_label' => 'asc'])->paginate(config('bt.resultsPerPage'));
 
         return view('custom_fields.index')
             ->with('customFields', $customFields)
@@ -52,7 +52,7 @@ class CustomFieldController extends Controller
         CustomField::createCustomColumn($input['tbl_name'], $input['column_name'], $input['field_type']);
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id)
@@ -75,7 +75,7 @@ class CustomFieldController extends Controller
         $customField->save();
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -87,6 +87,6 @@ class CustomFieldController extends Controller
         CustomField::destroy($id);
 
         return redirect()->route('customFields.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('bt.record_successfully_deleted'));
     }
 }

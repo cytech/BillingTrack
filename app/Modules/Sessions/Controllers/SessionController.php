@@ -30,7 +30,7 @@ class SessionController extends Controller
 
         if (!auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $rememberMe))
         {
-            return redirect()->route('session.login')->with('error', trans('fi.invalid_credentials'));
+            return redirect()->route('session.login')->with('error', trans('bt.invalid_credentials'));
         }
 
         if (!auth()->user()->client_id)

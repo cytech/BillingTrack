@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 style="margin-bottom: 0;">@lang('fi.time_tracking')</h1>
+    <h1 style="margin-bottom: 0;">@lang('bt.time_tracking')</h1>
     <h3 style="margin: 0;">{{ $results['company_profile'] }}</h3>
     <h3 style="margin-top: 0;">{{ $results['from_date'] }} - {{ $results['to_date'] }}</h3>
     <br>
@@ -12,11 +12,11 @@
         <table class="alternate">
             <thead>
             <tr>
-                <th>@lang('fi.task')</th>
-                <th>@lang('fi.start_time')</th>
-                <th>@lang('fi.stop_time')</th>
-                <th class="amount">@lang('fi.unbilled_hours')</th>
-                <th class="amount">@lang('fi.billed_hours')</th>
+                <th>@lang('bt.task')</th>
+                <th>@lang('bt.start_time')</th>
+                <th>@lang('bt.stop_time')</th>
+                <th class="amount">@lang('bt.unbilled_hours')</th>
+                <th class="amount">@lang('bt.billed_hours')</th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
                 @endforeach
             @endforeach
             <tr>
-                <td colspan="3" class="total">@lang('fi.total'):</td>
+                <td colspan="3" class="total">@lang('bt.total'):</td>
                 <td class="total">{{ $project['hours_unbilled'] }}</td>
                 <td class="total">{{ $project['hours_billed'] }}</td>
             </tr>

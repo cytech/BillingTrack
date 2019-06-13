@@ -74,6 +74,6 @@ class RevenueByClientReportController extends Controller
             ->with('months', $months)
             ->render();
 
-        $pdf->download($html, trans('fi.revenue_by_client') . '.pdf');
+        $pdf->download($html, trans('bt.revenue_by_client') . '.pdf');
     }
 }

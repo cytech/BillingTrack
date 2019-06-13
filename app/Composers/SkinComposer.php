@@ -17,7 +17,7 @@ class SkinComposer
     {
         $defaultSkin = json_decode('{"headBackground":"purple","headClass":"Light","sidebarBackground":"white","sidebarClass":"Light"}',true);
 
-        $skin = (config('fi.skin') ? json_decode(config('fi.skin'),true) : $defaultSkin);
+        $skin = (config('bt.skin') ? json_decode(config('bt.skin'),true) : $defaultSkin);
 
         $view->with('headClass', $skin['headClass']);
         $view->with('headBackground', $skin['headBackground']);

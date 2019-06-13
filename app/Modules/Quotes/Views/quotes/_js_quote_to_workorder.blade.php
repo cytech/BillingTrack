@@ -4,7 +4,7 @@
         // Display the create quote modal
         $('#modal-quote-to-workorder').modal('show');
 
-        $("#to_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#to_workorder_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
         // Creates the workorder
         $('#btn-quote-to-workorder-submit').click(function () {
@@ -23,7 +23,7 @@
                 if (response.status == 400) {
                     showErrors($.parseJSON(response.responseText).errors, '#modal-status-placeholder');
                 } else {
-                    notify('@lang('fi.unknown_error')','error');
+                    notify('@lang('bt.unknown_error')','error');
                 }
             });
         });

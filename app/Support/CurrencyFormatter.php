@@ -23,8 +23,8 @@ class CurrencyFormatter extends NumberFormatter
      */
     public static function format($amount, $currency = null, $decimalPlaces = null)
     {
-        $currency      = ($currency) ?: config('fi.currency');
-        $decimalPlaces = ($decimalPlaces) ?: config('fi.amountDecimals');
+        $currency      = ($currency) ?: config('bt.currency');
+        $decimalPlaces = ($decimalPlaces) ?: config('bt.amountDecimals');
 
         $amount = parent::format($amount, $currency, $decimalPlaces);
 

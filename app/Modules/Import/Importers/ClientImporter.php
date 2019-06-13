@@ -20,18 +20,18 @@ class ClientImporter extends AbstractImporter
     public function getFields()
     {
         $fields = [
-            'name'        => '* ' . trans('fi.name'),
-            'unique_name' => trans('fi.unique_name'),
-            'address'     => trans('fi.address'),
-            'city'        => trans('fi.city'),
-            'state'       => trans('fi.state'),
-            'zip'         => trans('fi.postal_code'),
-            'country'     => trans('fi.country'),
-            'phone'       => trans('fi.phone'),
-            'fax'         => trans('fi.fax'),
-            'mobile'      => trans('fi.mobile'),
-            'email'       => trans('fi.email'),
-            'web'         => trans('fi.web'),
+            'name'        => '* ' . trans('bt.name'),
+            'unique_name' => trans('bt.unique_name'),
+            'address'     => trans('bt.address'),
+            'city'        => trans('bt.city'),
+            'state'       => trans('bt.state'),
+            'zip'         => trans('bt.postal_code'),
+            'country'     => trans('bt.country'),
+            'phone'       => trans('bt.phone'),
+            'fax'         => trans('bt.fax'),
+            'mobile'      => trans('bt.mobile'),
+            'email'       => trans('bt.email'),
+            'web'         => trans('bt.web'),
         ];
 
         foreach (CustomField::forTable('clients')->get() as $customField)
@@ -52,7 +52,7 @@ class ClientImporter extends AbstractImporter
         return Validator::make($input, [
             'name'  => 'required',
             'email' => 'email',
-        ])->setAttributeNames(['name' => trans('fi.name')]);
+        ])->setAttributeNames(['name' => trans('bt.name')]);
     }
 
     public function importData($input)

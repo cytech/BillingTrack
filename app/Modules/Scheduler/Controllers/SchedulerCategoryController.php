@@ -67,14 +67,14 @@ class SchedulerCategoryController extends Controller {
         if ($category->in_use)
         {
             return redirect()->route('scheduler.categories.index')
-                ->with('alert', trans('fi.cannot_delete_record_in_use'));
+                ->with('alert', trans('bt.cannot_delete_record_in_use'));
         }
         else
         {
             Category::destroy($id);
 
             return redirect()->route('scheduler.categories.index')
-                ->with('alert', trans('fi.record_successfully_deleted'));
+                ->with('alert', trans('bt.record_successfully_deleted'));
 
         }
 

@@ -26,7 +26,7 @@
                         <br><br><br>
                         {!! Form::text('olddbname') !!}
                         <br><br><br>
-                        {!! Form::submit(trans('fi.continue'), ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit(trans('bt.continue'), ['class' => 'btn btn-primary']) !!}
                     </div>
 
                 </div>

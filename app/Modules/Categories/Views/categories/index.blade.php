@@ -3,11 +3,11 @@
 @section('content')
     {{--{!! Form::wobreadcrumbs() !!}--}}
     <section class="content-header">
-        <h3 class="float-left">@lang('fi.categories')</h3>
+        <h3 class="float-left">@lang('bt.categories')</h3>
 
         <div class="float-right">
             <a href="{{ route('categories.create') }}" class="btn btn-primary "><i
-                        class="fa fa-plus"></i> @lang('fi.create_category')</a>
+                        class="fa fa-plus"></i> @lang('bt.create_category')</a>
         </div>
         <div class="clearfix"></div>
     </section>

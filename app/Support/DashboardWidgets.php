@@ -26,7 +26,7 @@ class DashboardWidgets
 
         foreach ($widgets as $widget)
         {
-            if (!$displayOrder = config('fi.widgetDisplayOrder' . $widget))
+            if (!$displayOrder = config('bt.widgetDisplayOrder' . $widget))
             {
                 $displayOrder = $unassigned;
                 $unassigned++;

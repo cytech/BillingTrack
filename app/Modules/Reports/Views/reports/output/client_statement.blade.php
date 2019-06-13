@@ -5,7 +5,7 @@
         <tr>
             <td style="width: 50%;" valign="top">
                 @if( isset($results['client_name']))
-                    <span style="font-weight: bold">{{ mb_strtoupper(trans('fi.bill_to')) }}</span><br>{{ $results['client_name'] }}<br>
+                    <span style="font-weight: bold">{{ mb_strtoupper(trans('bt.bill_to')) }}</span><br>{{ $results['client_name'] }}<br>
                     @if ($results['client_address']) {!! $results['client_address'] !!}<br>@endif
                     @if ($results['client_city']) {!! $results['client_city'] !!}@endif
                     @if ($results['client_state']) {!! $results['client_state'] !!}@endif
@@ -26,22 +26,22 @@
             </td>
         </tr>
     </table>
-    <h1 style="margin-bottom: 0;">@lang('fi.client_statement')</h1>
+    <h1 style="margin-bottom: 0;">@lang('bt.client_statement')</h1>
     <h3 style="margin-top: 0; margin-bottom: 0;">{{ $results['client_name'] }}</h3>
     <h3 style="margin-top: 0;">{{ $results['from_date'] }} - {{ $results['to_date'] }}</h3>
     <br>
     <table class="alternate">
         <thead>
         <tr>
-            <th>@lang('fi.date')</th>
-            <th>@lang('fi.invoice')</th>
-            <th>@lang('fi.summary')</th>
-            <th class="amount">@lang('fi.subtotal')</th>
-            <th class="amount">@lang('fi.discount')</th>
-            <th class="amount">@lang('fi.tax')</th>
-            <th class="amount">@lang('fi.total')</th>
-            <th class="amount">@lang('fi.paid')</th>
-            <th class="amount">@lang('fi.balance')</th>
+            <th>@lang('bt.date')</th>
+            <th>@lang('bt.invoice')</th>
+            <th>@lang('bt.summary')</th>
+            <th class="amount">@lang('bt.subtotal')</th>
+            <th class="amount">@lang('bt.discount')</th>
+            <th class="amount">@lang('bt.tax')</th>
+            <th class="amount">@lang('bt.total')</th>
+            <th class="amount">@lang('bt.paid')</th>
+            <th class="amount">@lang('bt.balance')</th>
         </tr>
         </thead>
         <tbody>

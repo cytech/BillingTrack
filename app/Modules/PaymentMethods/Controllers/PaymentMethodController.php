@@ -24,7 +24,7 @@ class PaymentMethodController extends Controller
     {
         $this->setReturnUrl();
 
-        $paymentMethods = PaymentMethod::sortable(['name' => 'asc'])->paginate(config('fi.resultsPerPage'));
+        $paymentMethods = PaymentMethod::sortable(['name' => 'asc'])->paginate(config('bt.resultsPerPage'));
 
         return view('payment_methods.index')
             ->with('paymentMethods', $paymentMethods);
@@ -41,7 +41,7 @@ class PaymentMethodController extends Controller
         PaymentMethod::create($request->all());
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class PaymentMethodController extends Controller
         $paymentMethod->save();
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -69,6 +69,6 @@ class PaymentMethodController extends Controller
         PaymentMethod::destroy($id);
 
         return redirect()->route('paymentMethods.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('bt.record_successfully_deleted'));
     }
 }

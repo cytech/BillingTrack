@@ -9,7 +9,7 @@
 
     <script src="/js/app.js"></script>
 
-    <title>{{ config('fi.headerTitleText') }}</title>
+    <title>{{ config('bt.headerTitleText') }}</title>
 
     @include('layouts._head')
 
@@ -29,7 +29,7 @@
         <a href="{{ auth()->check() ? route('dashboard.index') : '#' }}" class="brand-link bg-{{ $headBackground }} border-bottom ">
             <img src="/img/billingtrack_logo.svg" alt="BillingTrack Logo" class="brand-image img-circle elevation-3 img-sm"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">{{ config('fi.headerTitleText', config('app.name','BillingTrack')) }}</span>
+            <span class="brand-text font-weight-light">{{ config('bt.headerTitleText', config('app.name','BillingTrack')) }}</span>
         </a>
 
         @yield('header')

@@ -23,9 +23,9 @@ class ClientStatementReportRequest extends FormRequest
     public function attributes()
     {
         return [
-            'from_date'   => trans('fi.from_date'),
-            'to_date'     => trans('fi.to_date'),
-            'client_name' => trans('fi.client'),
+            'from_date'   => trans('bt.from_date'),
+            'to_date'     => trans('bt.to_date'),
+            'client_name' => trans('bt.client'),
         ];
     }
 

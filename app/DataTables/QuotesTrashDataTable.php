@@ -19,7 +19,7 @@ class QuotesTrashDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        $statuses = QuoteStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')];
+        $statuses = QuoteStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
 
 
         return $dataTable->addColumn('action', 'utilities._actions')
@@ -29,11 +29,11 @@ class QuotesTrashDataTable extends DataTable
             ->editColumn('quote_status_id', function (Quote $quote) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$quote->status_text]) . '">
-                    '. trans('fi.' . strtolower($statuses[$quote->status_text])) . '</span>';
+                    '. trans('bt.' . strtolower($statuses[$quote->status_text])) . '</span>';
                 if ($quote->viewed)
-                    $ret .= '<span class="badge badge-success">' . trans('fi.viewed') . '</span>';
+                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else
-                    $ret .= '<span class="badge badge-secondary">' . trans('fi.not_viewed') . '</span>';
+                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
                 $ret .= '</td>';
 
                 return $ret;
@@ -41,11 +41,11 @@ class QuotesTrashDataTable extends DataTable
             ->editColumn('invoice_id', function (Quote $quote) {
                 $ret = '<td class="hidden-xs">';
                 if ($quote->invoice_id)
-                    $ret .=  '<a href="'. route('invoices.edit', [$quote->invoice_id]) .'">'. trans('fi.invoice') .'</a>';
+                    $ret .=  '<a href="'. route('invoices.edit', [$quote->invoice_id]) .'">'. trans('bt.invoice') .'</a>';
                 elseif ($quote->workorder_id)
-                    $ret .=  '<a href="'. route('workorders.edit', [$quote->workorder_id]) .'">'. trans('fi.workorder') .'</a>';
+                    $ret .=  '<a href="'. route('workorders.edit', [$quote->workorder_id]) .'">'. trans('bt.workorder') .'</a>';
                 else
-                    $ret .= trans('fi.no');
+                    $ret .= trans('bt.no');
                 $ret .= '</td>';
 
                 return $ret;
@@ -109,39 +109,39 @@ class QuotesTrashDataTable extends DataTable
                     'class'      => 'bulk-record',
                 ],
             'quote_status_id'  => [
-                'title' => trans('fi.status'),
+                'title' => trans('bt.status'),
                 'data' => 'quote_status_id',
             ],
             'number' => [
-                'title' => trans('fi.quote'),
+                'title' => trans('bt.quote'),
                 'data' => 'number',
             ],
             'quote_date'    => [
-                'title' => trans('fi.date'),
+                'title' => trans('bt.date'),
                 'data'       => 'formatted_quote_date',
                 'searchable' => false,
             ],
             'expires_at'     => [
-                'title' => trans('fi.due'),
+                'title' => trans('bt.due'),
                 'data'       => 'formatted_expires_at',
                 'searchable' => false,
             ],
             'client_name'  => [
-                'title' => trans('fi.client'),
+                'title' => trans('bt.client'),
                 'data' => 'client.name',
             ],
             'summary' => [
-                'title' => trans('fi.summary'),
+                'title' => trans('bt.summary'),
                 'data' => 'summary',
             ],
            /* 'amount'   => [
-                'title' => trans('fi.total'),
+                'title' => trans('bt.total'),
                 'data'       => 'amount.formatted_total',
                 'orderable'  => false,
                 'searchable' => false,
             ],*/
             'invoice_id' => [
-                'title' => trans('fi.converted'),
+                'title' => trans('bt.converted'),
                 'data'       => 'invoice_id',
                 'orderable'  => false,
                 'searchable' => false,

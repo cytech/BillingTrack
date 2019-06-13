@@ -30,7 +30,7 @@ class UserController extends Controller
         $this->setReturnUrl();
 
         return $dataTable->render('users.index',
-            ['userTypes'=> ['' => trans('fi.all_accounts'), 'admin' => trans('fi.admin_accounts'), 'client' => trans('fi.client_accounts')]]);
+            ['userTypes'=> ['' => trans('bt.all_accounts'), 'admin' => trans('bt.admin_accounts'), 'client' => trans('bt.client_accounts')]]);
 
     }
 
@@ -66,7 +66,7 @@ class UserController extends Controller
         $user->custom->update($request->input('custom', []));
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id, $userType)
@@ -89,7 +89,7 @@ class UserController extends Controller
         $user->custom->update($request->input('custom', []));
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -97,7 +97,7 @@ class UserController extends Controller
         User::destroy($id);
 
         return redirect()->route('users.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('bt.record_successfully_deleted'));
     }
 
     public function getClientInfo()

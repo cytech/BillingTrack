@@ -38,7 +38,7 @@ class WorkorderRecalculateController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => trans('fi.recalculation_complete')
+            'message' => trans('bt.recalculation_complete')
         ], 200);
     }
 }

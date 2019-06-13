@@ -3,13 +3,13 @@
 <div class="form-group">
     {!! Form::model($rrule) !!}
     <div class="form-group d-flex align-items-center">
-        {!! Form::label('frequency',trans('fi.frequency_string'),['class'=>'col-sm-2 text-right text ']) !!}
+        {!! Form::label('frequency',trans('bt.frequency_string'),['class'=>'col-sm-2 text-right text ']) !!}
         <div class="col-sm-6 ">
             {!! Form::text('frequency',null,['class'=>'form-control ','placeholder'=>'Frequency','readonly']) !!}
         </div>
     </div>
     <div class="form-group d-flex align-items-center">
-        {!! Form::label('freqtext',trans('fi.frequency_text'),['class'=>'col-sm-2 text-right text']) !!}
+        {!! Form::label('freqtext',trans('bt.frequency_text'),['class'=>'col-sm-2 text-right text']) !!}
         <div class="col-sm-6">
             {!! Form::text('freqtext',null,['class'=>'form-control','placeholder'=>'Frequency to Text','readonly']) !!}
         </div>

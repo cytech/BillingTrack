@@ -31,7 +31,7 @@ class UpdateChecker
      */
     public function updateAvailable()
     {
-        if (str_replace('v', '', $this->currentVersion) > config('fi.version'))
+        if (str_replace('v', '', $this->currentVersion) > config('bt.version'))
         {
             return true;
         }

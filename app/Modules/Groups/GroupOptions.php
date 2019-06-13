@@ -7,10 +7,10 @@ class GroupOptions
     public function resetNumberOptions()
     {
         return [
-            '0' => trans('fi.never'),
-            '1' => trans('fi.yearly'),
-            '2' => trans('fi.monthly'),
-            '3' => trans('fi.weekly'),
+            '0' => trans('bt.never'),
+            '1' => trans('bt.yearly'),
+            '2' => trans('bt.monthly'),
+            '3' => trans('bt.weekly'),
         ];
     }
 }

@@ -56,7 +56,7 @@ class ExpenseObserver
         {
             if (!CompanyProfile::where('company', $expense->company_profile)->count())
             {
-                $expense->company_profile_id = config('fi.defaultCompanyProfile');
+                $expense->company_profile_id = config('bt.defaultCompanyProfile');
             }
         }
 

@@ -60,17 +60,17 @@ class QuoteObserver
 
         if (!$quote->expires_at)
         {
-            $quote->expires_at = DateFormatter::incrementDateByDays($quote->quote_date->format('Y-m-d'), config('fi.quotesExpireAfter'));
+            $quote->expires_at = DateFormatter::incrementDateByDays($quote->quote_date->format('Y-m-d'), config('bt.quotesExpireAfter'));
         }
 
         if (!$quote->company_profile_id)
         {
-            $quote->company_profile_id = config('fi.defaultCompanyProfile');
+            $quote->company_profile_id = config('bt.defaultCompanyProfile');
         }
 
         if (!$quote->group_id)
         {
-            $quote->group_id = config('fi.quoteGroup');
+            $quote->group_id = config('bt.quoteGroup');
         }
 
         if (!$quote->number)
@@ -80,12 +80,12 @@ class QuoteObserver
 
         if (!isset($quote->terms))
         {
-            $quote->terms = config('fi.quoteTerms');
+            $quote->terms = config('bt.quoteTerms');
         }
 
         if (!isset($quote->footer))
         {
-            $quote->footer = config('fi.quoteFooter');
+            $quote->footer = config('bt.quoteFooter');
         }
 
         if (!$quote->quote_status_id)
@@ -103,14 +103,14 @@ class QuoteObserver
             $quote->template = $quote->companyProfile->quote_template;
         }
 
-        if ($quote->currency_code == config('fi.baseCurrency'))
+        if ($quote->currency_code == config('bt.baseCurrency'))
         {
             $quote->exchange_rate = 1;
         }
         elseif (!$quote->exchange_rate)
         {
             $currencyConverter    = CurrencyConverterFactory::create();
-            $quote->exchange_rate = $currencyConverter->convert(config('fi.baseCurrency'), $quote->currency_code);
+            $quote->exchange_rate = $currencyConverter->convert(config('bt.baseCurrency'), $quote->currency_code);
         }
 
         $quote->url_key = str_random(32);

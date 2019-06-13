@@ -162,9 +162,9 @@ class Invoice extends Model
     public function getAttachmentPermissionOptionsAttribute()
     {
         return [
-            '0' => trans('fi.not_visible'),
-            '1' => trans('fi.visible'),
-            '2' => trans('fi.visible_after_payment'),
+            '0' => trans('bt.not_visible'),
+            '1' => trans('bt.visible'),
+            '2' => trans('bt.visible_after_payment'),
         ];
     }
 
@@ -221,7 +221,7 @@ class Invoice extends Model
 
     public function getIsForeignCurrencyAttribute()
     {
-        if ($this->attributes['currency_code'] == config('fi.baseCurrency'))
+        if ($this->attributes['currency_code'] == config('bt.baseCurrency'))
         {
             return false;
         }

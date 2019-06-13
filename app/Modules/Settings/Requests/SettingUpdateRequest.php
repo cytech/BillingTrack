@@ -24,10 +24,10 @@ class SettingUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'setting.invoicesDueAfter'  => trans('fi.invoices_due_after'),
-            'setting.quotesExpireAfter' => trans('fi.quotes_expire_after'),
-            'setting.workordersExpireAfter' => trans('fi.workorders_expire_after'),
-            'setting.pdfBinaryPath'     => trans('fi.binary_path'),
+            'setting.invoicesDueAfter'  => trans('bt.invoices_due_after'),
+            'setting.quotesExpireAfter' => trans('bt.quotes_expire_after'),
+            'setting.workordersExpireAfter' => trans('bt.workorders_expire_after'),
+            'setting.pdfBinaryPath'     => trans('bt.binary_path'),
         ];
     }
 
@@ -40,7 +40,7 @@ class SettingUpdateRequest extends FormRequest
             'setting.pdfBinaryPath'     => ['required_if:setting.pdfDriver,wkhtmltopdf', new ValidFile],
         ];
 
-        foreach (config('fi.settingValidationRules') as $settingValidationRules)
+        foreach (config('bt.settingValidationRules') as $settingValidationRules)
         {
             $rules = array_merge($rules, $settingValidationRules['rules']);
         }

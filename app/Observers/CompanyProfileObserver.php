@@ -22,12 +22,12 @@ class CompanyProfileObserver
     {
         if (!$companyProfile->invoice_template)
         {
-            $companyProfile->invoice_template = config('fi.invoiceTemplate');
+            $companyProfile->invoice_template = config('bt.invoiceTemplate');
         }
 
         if (!$companyProfile->quote_template)
         {
-            $companyProfile->quote_template = config('fi.quoteTemplate');
+            $companyProfile->quote_template = config('bt.quoteTemplate');
         }    }
 
     public function saving(CompanyProfile $companyProfile): void

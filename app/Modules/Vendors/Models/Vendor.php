@@ -78,7 +78,7 @@ class Vendor extends Model
 
     public function getAttachmentPermissionOptionsAttribute()
     {
-        return ['0' => trans('fi.not_visible')];
+        return ['0' => trans('bt.not_visible')];
     }
 
     public function getFormattedBalanceAttribute()
@@ -116,7 +116,7 @@ class Vendor extends Model
         if ($this->paymentterm->id != 1) {
             return $this->paymentterm->num_days;
         } else
-            return config('fi.invoicesDueAfter');
+            return config('bt.invoicesDueAfter');
     }
 
     /*

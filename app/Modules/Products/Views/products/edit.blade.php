@@ -12,11 +12,11 @@
             <div class="card-header">
                 <h3 class="card-title"><i
                             class="fa fa-edit fa-fw"></i>
-                    @lang('fi.edit_product')
+                    @lang('bt.edit_product')
                     <a class="btn btn-warning float-right" href={!! route('products.index')  !!}><i
-                                class="fa fa-ban"></i> @lang('fi.cancel')</a>
+                                class="fa fa-ban"></i> @lang('bt.cancel')</a>
                     <button type="submit" class="btn btn-primary float-right"><i
-                                class="fa fa-save"></i> @lang('fi.save') </button>
+                                class="fa fa-save"></i> @lang('bt.save') </button>
                 </h3>
 
             </div>
@@ -25,7 +25,7 @@
                 <!-- Name input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="name">@lang('fi.product_name')</label>
+                           for="name">@lang('bt.product_name')</label>
                     <div class="col-md-4">
                         {!! Form::text('name',$products->name,['id'=>'name', 'class'=>'form-control']) !!}
                     </div>
@@ -34,7 +34,7 @@
                 <!-- Description input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="description">@lang('fi.product_description')</label>
+                           for="description">@lang('bt.product_description')</label>
                     <div class="col-md-4">
                         {!! Form::text('description',$products->description,['id'=>'description', 'class'=>'form-control']) !!}
                     </div>
@@ -42,7 +42,7 @@
                 <!-- Serial Number input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="serialnum">@lang('fi.product_partnum')</label>
+                           for="serialnum">@lang('bt.product_partnum')</label>
                     <div class="col-md-4">
                         {!! Form::text('serialnum',$products->serialnum,['id'=>'serialnum', 'class'=>'form-control']) !!}
                     </div>
@@ -50,7 +50,7 @@
                 <!-- Sales Price input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="price">@lang('fi.price_sales')</label>
+                           for="price">@lang('bt.price_sales')</label>
                     <div class="col-md-4">
                         {!! Form::text('price',$products->price,['id'=>'price', 'class'=>'form-control']) !!}
                     </div>
@@ -58,7 +58,7 @@
                 <!-- Active Checkbox-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="active">@lang('fi.product_active')</label>
+                           for="active">@lang('bt.product_active')</label>
                     <div class="col-md-4">
                         {!! Form::checkbox('active',1,$products->active,['id'=>'active', 'class'=>'checkbox']) !!}
                     </div>
@@ -66,7 +66,7 @@
                 <!-- Preferred Vendor input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="vendor">@lang('fi.vendor_preferred')</label>
+                           for="vendor">@lang('bt.vendor_preferred')</label>
                     <div class="col-md-4">
                         {!! Form::text('vendor',($products->vendor) ? $products->vendor->name : '',['id'=>'vendor', 'class'=>'form-control','list'=>'vendlistid']) !!}
                         <datalist id='vendlistid'>
@@ -79,7 +79,7 @@
                 <!-- Cost input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="cost">@lang('fi.product_cost')</label>
+                           for="cost">@lang('bt.product_cost')</label>
                     <div class="col-md-4">
                         {!! Form::text('cost',$products->cost,['id'=>'cost', 'class'=>'form-control']) !!}
                     </div>
@@ -87,7 +87,7 @@
                 <!-- Category input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="category">@lang('fi.product_category')</label>
+                           for="category">@lang('bt.product_category')</label>
                     <div class="col-md-4">
                         {!! Form::text('category',($products->category) ? $products->category->name : '',['id'=>'category', 'class'=>'form-control','list'=>'prodlistid' ]) !!}
                         <datalist id='prodlistid'>
@@ -100,7 +100,7 @@
                 <!-- Type input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="type">@lang('fi.product_type')</label>
+                           for="type">@lang('bt.product_type')</label>
                     <div class="col-md-4">
                         {!! Form::text('type',$products->type,['id'=>'type', 'class'=>'form-control']) !!}
                     </div>
@@ -108,7 +108,7 @@
                 <!-- Numstock input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-sm-2 text-right text"
-                           for="numstock">@lang('fi.product_numstock')</label>
+                           for="numstock">@lang('bt.product_numstock')</label>
                     <div class="col-md-4">
                         {!! Form::text('numstock',$products->numstock,['id'=>'numstock', 'class'=>'form-control']) !!}
                     </div>

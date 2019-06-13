@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label>@lang('fi.enabled_modules')</label>
+            <label>@lang('bt.enabled_modules')</label>
             <div class="col-lg-8 col-sm-8">
                 @foreach (\BT\Modules\Settings\Models\Setting::$modules as $entityType => $value)
                     <div class="form-check">
                         <label for="enabledModules{{ $value}}">
                             <input name="enabledModules[]" id="enabledModules{{ $value}}" type="checkbox"
-                                   {{ (new \BT\Modules\Settings\Models\Setting())->isModuleEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}"> {{ trans("fi.{$entityType}") }}
+                                   {{ (new \BT\Modules\Settings\Models\Setting())->isModuleEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}"> {{ trans("bt.{$entityType}") }}
                         </label>
                     </div>
                 @endforeach
@@ -16,10 +16,10 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label>@lang('fi.jqui_theme')</label>
-            <p class="form-text text-muted font-italic">@lang('fi.jqui_themenote')</p>
+            <label>@lang('bt.jqui_theme')</label>
+            <p class="form-text text-muted font-italic">@lang('bt.jqui_themenote')</p>
             <div class="form-group col-md-6">
-                {!! Form::select('setting[jquiTheme]', $jquiTheme, config('fi.jquiTheme'), ['class' => 'form-control'] ) !!}
+                {!! Form::select('setting[jquiTheme]', $jquiTheme, config('bt.jquiTheme'), ['class' => 'form-control'] ) !!}
             </div>
         </div>
     </div>

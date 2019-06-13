@@ -22,14 +22,14 @@ class QuoteImporter extends AbstractImporter
     public function getFields()
     {
         return [
-            'quote_date'      => '* ' . trans('fi.date'),
-            'company_profile' => '* ' . trans('fi.company_profile'),
-            'client_name'     => '* ' . trans('fi.client_name'),
-            'number'          => '* ' . trans('fi.quote_number'),
-            'group_id'        => trans('fi.group'),
-            'expires_at'      => trans('fi.expires'),
-            'summary'         => trans('fi.summary'),
-            'terms'           => trans('fi.terms_and_conditions'),
+            'quote_date'      => '* ' . trans('bt.date'),
+            'company_profile' => '* ' . trans('bt.company_profile'),
+            'client_name'     => '* ' . trans('bt.client_name'),
+            'number'          => '* ' . trans('bt.quote_number'),
+            'group_id'        => trans('bt.group'),
+            'expires_at'      => trans('bt.expires'),
+            'summary'         => trans('bt.summary'),
+            'terms'           => trans('bt.terms_and_conditions'),
         ];
     }
 

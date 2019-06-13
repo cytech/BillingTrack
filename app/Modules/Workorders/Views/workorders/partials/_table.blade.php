@@ -3,15 +3,15 @@
     <thead>
     <tr>
         <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
-        <th>@lang('fi.status')</th>
-        <th>@lang('fi.workorder')</th>
-        <th>@lang('fi.date')</th>
-        <th>@lang('fi.job_date')</th>
-        <th>@lang('fi.client_name')</th>
-        <th>@lang('fi.summary')</th>
-        <th style="text-align: right; padding-right: 25px;">@lang('fi.total')</th>
-        <th>@lang('fi.invoiced')</th>
-        <th>@lang('fi.options')</th>
+        <th>@lang('bt.status')</th>
+        <th>@lang('bt.workorder')</th>
+        <th>@lang('bt.date')</th>
+        <th>@lang('bt.job_date')</th>
+        <th>@lang('bt.client_name')</th>
+        <th>@lang('bt.summary')</th>
+        <th style="text-align: right; padding-right: 25px;">@lang('bt.total')</th>
+        <th>@lang('bt.invoiced')</th>
+        <th>@lang('bt.options')</th>
     </tr>
     </thead>
 
@@ -20,41 +20,41 @@
         <tr id="{!! $workorder->id !!}">
             <td><input type="checkbox" class="bulk-record" data-id="{{ $workorder->id }}"></td>
             <td>
-                <span class="badge badge-{{ $statuses[$workorder->workorder_status_id] }}">{{ trans('fi.' . $statuses[$workorder->workorder_status_id]) }}</span>
+                <span class="badge badge-{{ $statuses[$workorder->workorder_status_id] }}">{{ trans('bt.' . $statuses[$workorder->workorder_status_id]) }}</span>
                 @if ($workorder->viewed)
-                    <span class="badge badge-success">@lang('fi.viewed')</span>
+                    <span class="badge badge-success">@lang('bt.viewed')</span>
                 @else
-                    <span class="badge badge-secondary">@lang('fi.not_viewed')</span>
+                    <span class="badge badge-secondary">@lang('bt.not_viewed')</span>
                 @endif
             </td>
             <td><a href="{{ route('workorders.edit', [$workorder->id]) }}"
-                   title="@lang('fi.edit')">{{ $workorder->number }}</a></td>
+                   title="@lang('bt.edit')">{{ $workorder->number }}</a></td>
             <td>{{ $workorder->formatted_workorder_date }}</td>
             <td>{{ $workorder->formatted_job_date }}</td>
             <td><a href="{{ route('clients.show', [$workorder->client->id]) }}"
-                   title="@lang('fi.view_client')">{{ $workorder->client->unique_name }}</a></td>
+                   title="@lang('bt.view_client')">{{ $workorder->client->unique_name }}</a></td>
             <td>{{ mb_strimwidth($workorder->summary,0,100,'...') }}</td>
             <td style="text-align: right; padding-right: 25px;">{{ $workorder->amount->formatted_total }}</td>
             <td>
                 @if ($workorder->invoice)
-                    <a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}">@lang('fi.yes')</a>
+                    <a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}">@lang('bt.yes')</a>
                 @else
-                    @lang('fi.no')
+                    @lang('bt.no')
                 @endif
             </td>
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
-                        @lang('fi.options')
+                        @lang('bt.options')
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" role="menu">
                         <a class="dropdown-item" href="{{ route('workorders.edit', [$workorder->id]) }}"><i
-                                        class="fa fa-edit"></i> @lang('fi.edit')</a>
+                                        class="fa fa-edit"></i> @lang('bt.edit')</a>
                         <a class="dropdown-item" href="{{ route('workorders.pdf', [$workorder->id]) }}" target="_blank" id="btn-pdf-workorder"><i
-                                        class="fa fa-print"></i> @lang('fi.pdf')</a>
+                                        class="fa fa-print"></i> @lang('bt.pdf')</a>
                         <a class="dropdown-item" href="#"
-                               onclick="swalConfirm('@lang('fi.trash_record_warning')','{{ route('workorders.delete', [$workorder->id]) }}');"><i
-                                        class="fa fa-trash-alt"></i> @lang('fi.trash')</a>
+                               onclick="swalConfirm('@lang('bt.trash_record_warning')','{{ route('workorders.delete', [$workorder->id]) }}');"><i
+                                        class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
                     </div>
                 </div>
             </td>

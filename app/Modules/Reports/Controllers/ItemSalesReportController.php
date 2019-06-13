@@ -60,6 +60,6 @@ class ItemSalesReportController extends Controller
         $html = view('reports.output.item_sales')
             ->with('results', $results)->render();
 
-        $pdf->download($html, trans('fi.item_sales') . '.pdf');
+        $pdf->download($html, trans('bt.item_sales') . '.pdf');
     }
 }

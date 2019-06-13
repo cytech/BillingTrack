@@ -38,7 +38,7 @@ class Currency extends Model
 
     public function getInUseAttribute()
     {
-        if ($this->code == config('fi.baseCurrency'))
+        if ($this->code == config('bt.baseCurrency'))
         {
             return true;
         }
@@ -63,6 +63,6 @@ class Currency extends Model
 
     public function getFormattedPlacementAttribute()
     {
-        return ($this->placement == 'before') ? trans('fi.before_amount') : trans('fi.after_amount');
+        return ($this->placement == 'before') ? trans('bt.before_amount') : trans('bt.after_amount');
     }
 }

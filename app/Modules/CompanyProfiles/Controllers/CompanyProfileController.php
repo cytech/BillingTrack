@@ -30,7 +30,7 @@ class CompanyProfileController extends Controller
         $this->setReturnUrl();
 
         return view('company_profiles.index')
-            ->with('companyProfiles', CompanyProfile::orderBy('company')->paginate(config('fi.resultsPerPage')));
+            ->with('companyProfiles', CompanyProfile::orderBy('company')->paginate(config('bt.resultsPerPage')));
     }
 
     public function create()
@@ -60,7 +60,7 @@ class CompanyProfileController extends Controller
         $companyProfile->custom->update($request->input('custom', []));
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id)
@@ -96,20 +96,20 @@ class CompanyProfileController extends Controller
         $companyProfile->custom->update($request->input('custom', []));
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
     {
         if (CompanyProfile::inUse($id))
         {
-            $alert = trans('fi.cannot_delete_record_in_use');
+            $alert = trans('bt.cannot_delete_record_in_use');
         }
         else
         {
             CompanyProfile::destroy($id);
 
-            $alert = trans('fi.record_successfully_deleted');
+            $alert = trans('bt.record_successfully_deleted');
         }
 
         return redirect()->route('companyProfiles.index')

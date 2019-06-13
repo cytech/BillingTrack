@@ -29,7 +29,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">@lang('fi.add_task')</h4>
+                <h4 class="modal-title">@lang('bt.add_task')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
@@ -37,15 +37,15 @@
                 <div id="modal-status-placeholder"></div>
 
                     <div class="form-group">
-                        <label class="col-form-label">@lang('fi.task'):</label>
+                        <label class="col-form-label">@lang('bt.task'):</label>
                         {!! Form::text('name', null, ['id' => 'add_task_name', 'class' => 'form-control']) !!}
                     </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
-                <button type="button" class="btn btn-primary btn-submit-task" id="btn-submit-task-add-another">@lang('fi.submit_and_add_another_task')</button>
-                <button type="button" class="btn btn-primary btn-submit-task" data-dismiss="modal">@lang('fi.submit_and_close')</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('bt.cancel')</button>
+                <button type="button" class="btn btn-primary btn-submit-task" id="btn-submit-task-add-another">@lang('bt.submit_and_add_another_task')</button>
+                <button type="button" class="btn btn-primary btn-submit-task" data-dismiss="modal">@lang('bt.submit_and_close')</button>
             </div>
         </div>
     </div>

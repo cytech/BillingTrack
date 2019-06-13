@@ -24,7 +24,7 @@ class Mollie extends MerchantDriverPayable
 
         $payment = $mollie->payments->create([
             'amount'      => $invoice->amount->balance,
-            'description' => trans('fi.invoice') . ' #' . $invoice->number,
+            'description' => trans('bt.invoice') . ' #' . $invoice->number,
             'redirectUrl' => route('clientCenter.public.invoice.show', [$invoice->url_key]),
             'webhookUrl'  => route('merchant.webhookUrl', [$this->getName(), $invoice->url_key]),
         ]);
@@ -46,7 +46,7 @@ class Mollie extends MerchantDriverPayable
                 'client_id'         => $invoice->client->id,
                 'invoice_id'        => $invoice->id,
                 'amount'            => $payment->amount,
-                'payment_method_id' => config('fi.onlinePaymentMethod'),
+                'payment_method_id' => config('bt.onlinePaymentMethod'),
             ]);
 
             MerchantPayment::saveByKey($this->getName(), $fiPayment->id, 'id', $payment->id);

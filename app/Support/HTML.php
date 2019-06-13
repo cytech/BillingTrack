@@ -17,7 +17,7 @@ class HTML
     {
         app()->setLocale($invoice->client->language);
 
-        config(['fi.baseCurrency' => $invoice->currency_code]);
+        config(['bt.baseCurrency' => $invoice->currency_code]);
 
         $template = str_replace('.blade.php', '', $invoice->template);
 
@@ -39,7 +39,7 @@ class HTML
     {
         app()->setLocale($quote->client->language);
 
-        config(['fi.baseCurrency' => $quote->currency_code]);
+        config(['bt.baseCurrency' => $quote->currency_code]);
 
         $template = str_replace('.blade.php', '', $quote->template);
 
@@ -61,7 +61,7 @@ class HTML
     {
         app()->setLocale($workorder->client->language);
 
-        config(['fi.baseCurrency' => $workorder->currency_code]);
+        config(['bt.baseCurrency' => $workorder->currency_code]);
 
         $template = str_replace('.blade.php', '', $workorder->template);
 

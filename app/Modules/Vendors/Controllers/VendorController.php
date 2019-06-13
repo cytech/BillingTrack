@@ -67,7 +67,7 @@ class VendorController extends Controller
         $vendor->custom->update($request->get('custom', []));
 
         return redirect()->route('vendors.show', [$vendor->id])
-            ->with('alertInfo', trans('fi.record_successfully_created'));
+            ->with('alertInfo', trans('bt.record_successfully_created'));
     }
 
     /**
@@ -121,7 +121,7 @@ class VendorController extends Controller
         $vendor->custom->update($request->get('custom', []));
 
         return redirect()->route('vendors.show', [$id])
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     /**

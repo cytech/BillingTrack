@@ -65,7 +65,7 @@ class domPDF extends PDFAbstract
         $response = response($this->getOutput($html));
 
         $response->header('Content-Type', 'application/pdf');
-        $response->header('Content-Disposition', ''.config('fi.pdfDisposition').'; filename="' . $filename . '"');
+        $response->header('Content-Disposition', ''.config('bt.pdfDisposition').'; filename="' . $filename . '"');
 
         return $response->send();
     }

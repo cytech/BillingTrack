@@ -14,7 +14,7 @@
             }).autocomplete("widget");
         });
 
-        $("#create_quote_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#create_quote_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#quote-create-confirm').click(function () {
 

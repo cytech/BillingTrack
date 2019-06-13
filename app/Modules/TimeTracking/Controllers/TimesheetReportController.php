@@ -33,8 +33,8 @@ class TimesheetReportController extends Controller
     {
 
         return view('time_tracking.reports.options.timesheet')
-            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList())
-            ->with('statuses', ['' => trans('fi.all_statuses')] + TimeTrackingProjectStatuses::lists());
+            ->with('companyProfiles', ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList())
+            ->with('statuses', ['' => trans('bt.all_statuses')] + TimeTrackingProjectStatuses::lists());
     }
 
     public function ajaxValidate()
@@ -70,6 +70,6 @@ class TimesheetReportController extends Controller
         $html = view('time_tracking.reports.output.timesheet')
             ->with('results', $results)->render();
 
-        $pdf->download($html, trans('fi.time_tracking') . '.pdf');
+        $pdf->download($html, trans('bt.time_tracking') . '.pdf');
     }
 }

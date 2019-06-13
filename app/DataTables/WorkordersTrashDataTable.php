@@ -19,7 +19,7 @@ class WorkordersTrashDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        $statuses = WorkorderStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')];
+        $statuses = WorkorderStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
 
 
         return $dataTable->addColumn('action', 'utilities._actions')
@@ -29,11 +29,11 @@ class WorkordersTrashDataTable extends DataTable
             ->editColumn('workorder_status_id', function (Workorder $workorder) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$workorder->status_text]) . '">
-                    '. trans('fi.' . strtolower($statuses[$workorder->status_text])) . '</span>';
+                    '. trans('bt.' . strtolower($statuses[$workorder->status_text])) . '</span>';
                 if ($workorder->viewed)
-                    $ret .= '<span class="badge badge-success">' . trans('fi.viewed') . '</span>';
+                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else
-                    $ret .= '<span class="badge badge-secondary">' . trans('fi.not_viewed') . '</span>';
+                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
                 $ret .= '</td>';
 
                 return $ret;
@@ -41,9 +41,9 @@ class WorkordersTrashDataTable extends DataTable
             ->editColumn('invoice_id', function (Workorder $workorder) {
                 $ret = '<td class="hidden-xs">';
                 if ($workorder->invoice_id)
-                    $ret .=  '<a href="'. route('invoices.edit', [$workorder->invoice_id]) .'">'. trans('fi.yes') .'</a>';
+                    $ret .=  '<a href="'. route('invoices.edit', [$workorder->invoice_id]) .'">'. trans('bt.yes') .'</a>';
                 else
-                    $ret .= trans('fi.no');
+                    $ret .= trans('bt.no');
                 $ret .= '</td>';
 
                 return $ret;
@@ -107,39 +107,39 @@ class WorkordersTrashDataTable extends DataTable
                     'class'      => 'bulk-record',
                 ],
             'workorder_status_id'  => [
-                'title' => trans('fi.status'),
+                'title' => trans('bt.status'),
                 'data' => 'workorder_status_id',
             ],
             'number' => [
-                'title' => trans('fi.workorder'),
+                'title' => trans('bt.workorder'),
                 'data' => 'number',
             ],
             'workorder_date'    => [
-                'title' => trans('fi.date'),
+                'title' => trans('bt.date'),
                 'data'       => 'formatted_workorder_date',
                 'searchable' => false,
             ],
             'expires_at'     => [
-                'title' => trans('fi.due'),
+                'title' => trans('bt.due'),
                 'data'       => 'formatted_expires_at',
                 'searchable' => false,
             ],
             'client_name'  => [
-                'title' => trans('fi.client'),
+                'title' => trans('bt.client'),
                 'data' => 'client.name',
             ],
             'summary' => [
-                'title' => trans('fi.summary'),
+                'title' => trans('bt.summary'),
                 'data' => 'summary',
             ],
            /* 'amount'   => [
-                'title' => trans('fi.total'),
+                'title' => trans('bt.total'),
                 'data'       => 'amount.formatted_total',
                 'orderable'  => false,
                 'searchable' => false,
             ],*/
             'invoice_id' => [
-                'title' => trans('fi.invoiced'),
+                'title' => trans('bt.invoiced'),
                 'data'       => 'invoice_id',
                 'orderable'  => false,
                 'searchable' => false,

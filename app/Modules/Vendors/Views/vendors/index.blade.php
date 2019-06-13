@@ -12,7 +12,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('fi.trash_vendors_warning')', "{{ route('vendors.bulk.delete') }}", ids)
+                    bulkConfirm('@lang('bt.trash_vendors_warning')', "{{ route('vendors.bulk.delete') }}", ids)
                 }
             });
         });
@@ -21,24 +21,24 @@
 
 @section('content')
     <section class="content-header">
-        <h3 class="float-left">@lang('fi.vendors')</h3>
+        <h3 class="float-left">@lang('bt.vendors')</h3>
         <div class="float-right">
             <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i
-                        class="fa fa-trash"></i> @lang('fi.trash')</a>
+                        class="fa fa-trash"></i> @lang('bt.trash')</a>
             <div class="btn-group">
                 <a href="{{ route('vendors.index', ['status' => 'active']) }}"
-                   class="btn btn-secondary @if ($status == 'active') active @endif">@lang('fi.active')</a>
+                   class="btn btn-secondary @if ($status == 'active') active @endif">@lang('bt.active')</a>
                 <a href="{{ route('vendors.index', ['status' => 'inactive']) }}"
-                   class="btn btn-secondary @if ($status == 'inactive') active @endif">@lang('fi.inactive')</a>
+                   class="btn btn-secondary @if ($status == 'inactive') active @endif">@lang('bt.inactive')</a>
                 <a href="{{ route('vendors.index') }}"
-                   class="btn btn-secondary @if ($status == 'all') active @endif">@lang('fi.all')</a>
+                   class="btn btn-secondary @if ($status == 'all') active @endif">@lang('bt.all')</a>
 {{--                <a href="{{ route('vendors.index', ['status' => 'company']) }}"--}}
-{{--                   class="btn btn-secondary @if ($status == 'company') active @endif">@lang('fi.company')</a>--}}
+{{--                   class="btn btn-secondary @if ($status == 'company') active @endif">@lang('bt.company')</a>--}}
 {{--                <a href="{{ route('vendors.index', ['status' => 'individual']) }}"--}}
-{{--                   class="btn btn-secondary @if ($status == 'individual') active @endif">@lang('fi.individual')</a>--}}
+{{--                   class="btn btn-secondary @if ($status == 'individual') active @endif">@lang('bt.individual')</a>--}}
             </div>
             <a href="{{ route('vendors.create') }}" class="btn btn-primary"><i
-                        class="fa fa-plus"></i> @lang('fi.new')</a>
+                        class="fa fa-plus"></i> @lang('bt.new')</a>
         </div>
         <div class="clearfix"></div>
     </section>

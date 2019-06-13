@@ -29,7 +29,7 @@ class ClientStatementReportController extends Controller
     public function index()
     {
         return view('reports.options.client_statement')
-            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
+            ->with('companyProfiles', ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList());
     }
 
     public function validateOptions(ClientStatementReportRequest $request)
@@ -63,6 +63,6 @@ class ClientStatementReportController extends Controller
         $html = view('reports.output.client_statement')
             ->with('results', $results)->render();
 
-        $pdf->download($html, trans('fi.client_statement') . '.pdf');
+        $pdf->download($html, trans('bt.client_statement') . '.pdf');
     }
 }

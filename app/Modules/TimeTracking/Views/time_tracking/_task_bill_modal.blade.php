@@ -47,21 +47,21 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">@lang('fi.how_to_bill')</h4>
+                <h4 class="modal-title">@lang('bt.how_to_bill')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
 
                 <div class="form-group">
-                    {!! Form::select('how_to_bill', ['new' => trans('fi.bill_to_new_invoice'), 'existing' => trans('fi.bill_to_existing_invoice')], null, ['id' => 'how_to_bill', 'class' => 'form-control']) !!}
+                    {!! Form::select('how_to_bill', ['new' => trans('bt.bill_to_new_invoice'), 'existing' => trans('bt.bill_to_existing_invoice')], null, ['id' => 'how_to_bill', 'class' => 'form-control']) !!}
                 </div>
 
                 <div id="div-bill-new" style="display: none;">
 
                     <div class="form-group">
 
-                        <label>@lang('fi.group'):</label>
-                            {!! Form::select('group_id', $groups, config('fi.invoiceGroup'),
+                        <label>@lang('bt.group'):</label>
+                            {!! Form::select('group_id', $groups, config('bt.invoiceGroup'),
                             ['id' => 'group_id', 'class' => 'form-control']) !!}
                         </div>
 
@@ -70,7 +70,7 @@
                 <div id="div-bill-existing" style="display: none;">
 
                     <div class="form-group">
-                        <label>@lang('fi.choose_invoice_to_bill'):</label>
+                        <label>@lang('bt.choose_invoice_to_bill'):</label>
                         {!! Form::select('invoice_id', $invoices, null, ['class' => 'form-control', 'id' => 'invoice_id']) !!}
                     </div>
 
@@ -78,8 +78,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
-                <button type="button" class="btn btn-primary" id="btn-submit-bill">@lang('fi.submit')</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('bt.cancel')</button>
+                <button type="button" class="btn btn-primary" id="btn-submit-bill">@lang('bt.submit')</button>
             </div>
         </div>
     </div>

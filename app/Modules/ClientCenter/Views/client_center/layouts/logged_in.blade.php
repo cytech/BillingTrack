@@ -6,12 +6,12 @@
         <a href="/" class="brand-link bg-purple border-bottom">
             <img src="/img/billingtrack_logo.svg" alt="BillingTrack Logo" class="brand-image img-circle elevation-3 img-sm"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">{{ config('fi.headerTitleText', config('app.name','BillingTrack')) }}</span>
+            <span class="brand-text font-weight-light">{{ config('bt.headerTitleText', config('app.name','BillingTrack')) }}</span>
         </a>
 
         <div class="sidebar bg-light">
 
-            @if (config('fi.displayProfileImage'))
+            @if (config('bt.displayProfileImage'))
                 <div class="user-panel">
                     <div class="float-left image">
                         <img src="{{ profileImageUrl(auth()->user()) }}" alt="User Image"/>
@@ -30,27 +30,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.dashboard') }}">
                             <i class="fa fa-tachometer-alt"></i>
-                            <p>@lang('fi.dashboard')</p>
+                            <p>@lang('bt.dashboard')</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.quotes') }}">
-                            <i class="far fa-file-alt"></i> <span>@lang('fi.quotes')</span>
+                            <i class="far fa-file-alt"></i> <span>@lang('bt.quotes')</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.workorders') }}">
-                            <i class="far fa-file-alt"></i> <span>@lang('fi.workorders')</span>
+                            <i class="far fa-file-alt"></i> <span>@lang('bt.workorders')</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.invoices') }}">
-                            <i class="far fa-file-alt"></i> <span>@lang('fi.invoices')</span>
+                            <i class="far fa-file-alt"></i> <span>@lang('bt.invoices')</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('clientCenter.payments') }}">
-                            <i class="fa fa-credit-card"></i> <span>@lang('fi.payments')</span>
+                            <i class="fa fa-credit-card"></i> <span>@lang('bt.payments')</span>
                         </a>
                     </li>
                 </ul>

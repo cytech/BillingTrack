@@ -5,7 +5,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">@lang('fi.edit_client')</h4>
+                <h4 class="modal-title">@lang('bt.edit_client')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
@@ -16,8 +16,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.cancel')</button>
-                <input type="submit" id="btn-edit-client-submit" class="btn btn-primary" value="@lang('fi.save')">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('bt.cancel')</button>
+                <input type="submit" id="btn-edit-client-submit" class="btn btn-primary" value="@lang('bt.save')">
             </div>
         </div>
     </div>

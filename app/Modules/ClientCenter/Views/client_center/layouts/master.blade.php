@@ -9,7 +9,7 @@
 
     <script src="/js/app.js"></script>
 
-    <title>{{ config('fi.headerTitleText') }}</title>
+    <title>{{ config('bt.headerTitleText') }}</title>
 
     @include('layouts._head')
 

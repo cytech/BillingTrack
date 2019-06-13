@@ -40,7 +40,7 @@ class ItemLookupController extends Controller
         ItemLookup::create($request->all());
 
         return redirect()->route('itemLookups.index')
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id)
@@ -62,7 +62,7 @@ class ItemLookupController extends Controller
         $itemLookup->save();
 
         return redirect()->route('itemLookups.index')
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -70,7 +70,7 @@ class ItemLookupController extends Controller
         ItemLookup::destroy($id);
 
         return redirect()->route('itemLookups.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('bt.record_successfully_deleted'));
     }
 
     public function getItemLookup()

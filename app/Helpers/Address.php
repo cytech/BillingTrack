@@ -13,7 +13,7 @@ function formatAddress($object)
 {
     if ($object->address or $object->city or $object->state or $object->zip or $object->country)
     {
-        $address = config('fi.addressFormat');
+        $address = config('bt.addressFormat');
 
         $address = str_replace('{{ address }}', $object->address, $address);
         $address = str_replace('{{ city }}', $object->city, $address);
@@ -32,7 +32,7 @@ function formatAddress2($object)
 {
     if ($object->address_2 or $object->city_2 or $object->state_2 or $object->zip_2 or $object->country_2)
     {
-        $address = config('fi.addressFormat');
+        $address = config('bt.addressFormat');
 
         $address = str_replace('{{ address }}', $object->address_2, $address);
         $address = str_replace('{{ city }}', $object->city_2, $address);

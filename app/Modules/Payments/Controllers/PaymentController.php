@@ -69,7 +69,7 @@ class PaymentController extends Controller
 
         $payment->custom->update($request->input('custom', []));
 
-        return response()->json(['success' => trans('fi.record_successfully_created')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_created')], 200);
     }
 
     public function edit($id)
@@ -97,7 +97,7 @@ class PaymentController extends Controller
         $payment->custom->update($request->input('custom', []));
 
         return redirect()->route('payments.index')
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -105,12 +105,12 @@ class PaymentController extends Controller
         Payment::destroy($id);
 
         return redirect()->route('payments.index')
-            ->with('alert', trans('fi.record_successfully_trashed'));
+            ->with('alert', trans('bt.record_successfully_trashed'));
     }
 
     public function bulkDelete()
     {
         Payment::destroy(request('ids'));
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
     }
 }

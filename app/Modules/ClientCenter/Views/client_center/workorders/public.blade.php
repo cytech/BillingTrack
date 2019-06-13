@@ -24,20 +24,20 @@
 
             <div style="margin-bottom: 15px;">
                 <a href="{{ route('clientCenter.public.workorder.pdf', [$workorder->url_key]) }}" target="_blank"
-                   class="btn btn-primary"><i class="fa fa-print"></i> <span>@lang('fi.pdf')</span>
+                   class="btn btn-primary"><i class="fa fa-print"></i> <span>@lang('bt.pdf')</span>
                 </a>
                 @if (auth()->check())
                     <a href="javascript:void(0)" id="btn-notes" data-button-toggle="btn-notes-back" class="btn btn-primary btn-notes">
-                        <i class="fa fa-comments"></i> @lang('fi.notes')
+                        <i class="fa fa-comments"></i> @lang('bt.notes')
                     </a>
                     <a href="javascript:void(0)" id="btn-notes-back" data-button-toggle="btn-notes" class="btn btn-primary btn-notes" style="display: none;">
-                        <i class="fa fa-backward"></i> @lang('fi.back_to_workorder')
+                        <i class="fa fa-backward"></i> @lang('bt.back_to_workorder')
                     </a>
                 @endif
                 @if (count($attachments))
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-files-o"></i> @lang('fi.attachments')
+                            <i class="fa fa-files-o"></i> @lang('bt.attachments')
                         </button>
                         <ul class="dropdown-menu">
                             @foreach ($attachments as $attachment)
@@ -48,12 +48,12 @@
                 @endif
                 @if (in_array($workorder->status_text, ['draft', 'sent']))
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('@lang('fi.confirm_approve_workorder')', '{{ route('clientCenter.public.workorder.approve', [$workorder->url_key]) }}');">
-                        <i class="fa fa-thumbs-up"></i> @lang('fi.approve')
+                       onclick="swalConfirm('@lang('bt.confirm_approve_workorder')', '{{ route('clientCenter.public.workorder.approve', [$workorder->url_key]) }}');">
+                        <i class="fa fa-thumbs-up"></i> @lang('bt.approve')
                     </a>
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('@lang('fi.confirm_reject_workorder')', '{{ route('clientCenter.public.workorder.reject', [$workorder->url_key]) }}');">
-                        <i class="fa fa-thumbs-down"></i> @lang('fi.reject')
+                       onclick="swalConfirm('@lang('bt.confirm_reject_workorder')', '{{ route('clientCenter.public.workorder.reject', [$workorder->url_key]) }}');">
+                        <i class="fa fa-thumbs-down"></i> @lang('bt.reject')
                     </a>
                 @endif
             </div>

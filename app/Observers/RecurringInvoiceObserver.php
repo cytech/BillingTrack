@@ -46,22 +46,22 @@ class RecurringInvoiceObserver
 
         if (!$recurringInvoice->company_profile_id)
         {
-            $recurringInvoice->company_profile_id = config('fi.defaultCompanyProfile');
+            $recurringInvoice->company_profile_id = config('bt.defaultCompanyProfile');
         }
 
         if (!$recurringInvoice->group_id)
         {
-            $recurringInvoice->group_id = config('fi.invoiceGroup');
+            $recurringInvoice->group_id = config('bt.invoiceGroup');
         }
 
         if (!isset($recurringInvoice->terms))
         {
-            $recurringInvoice->terms = config('fi.invoiceTerms');
+            $recurringInvoice->terms = config('bt.invoiceTerms');
         }
 
         if (!isset($recurringInvoice->footer))
         {
-            $recurringInvoice->footer = config('fi.invoiceFooter');
+            $recurringInvoice->footer = config('bt.invoiceFooter');
         }
 
         if (!$recurringInvoice->template)
@@ -74,14 +74,14 @@ class RecurringInvoiceObserver
             $recurringInvoice->currency_code = $recurringInvoice->client->currency_code;
         }
 
-        if ($recurringInvoice->currency_code == config('fi.baseCurrency'))
+        if ($recurringInvoice->currency_code == config('bt.baseCurrency'))
         {
             $recurringInvoice->exchange_rate = 1;
         }
         elseif (!$recurringInvoice->exchange_rate)
         {
             $currencyConverter               = CurrencyConverterFactory::create();
-            $recurringInvoice->exchange_rate = $currencyConverter->convert(config('fi.baseCurrency'), $recurringInvoice->currency_code);
+            $recurringInvoice->exchange_rate = $currencyConverter->convert(config('bt.baseCurrency'), $recurringInvoice->currency_code);
         }
 
     }

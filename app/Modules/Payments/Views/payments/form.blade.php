@@ -21,12 +21,12 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.payment_form')
+            @lang('bt.payment_form')
         </h3>
 
         <div class="float-right">
             <a href="{{ route('payments.index') }}" class="btn btn-secondary">Cancel</a>
-            {!! Form::submit(trans('fi.save'), ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit(trans('bt.save'), ['class' => 'btn btn-primary']) !!}
         </div>
         <div class="clearfix"></div>
     </section>
@@ -44,25 +44,25 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label>@lang('fi.amount'): </label>
+                            <label>@lang('bt.amount'): </label>
                             {!! Form::text('amount', $payment->formatted_numeric_amount, ['id' => 'amount',
                             'class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>@lang('fi.payment_date'): </label>
+                            <label>@lang('bt.payment_date'): </label>
                             {!! Form::text('paid_at', $payment->formatted_paid_at, ['id' => 'paid_at', 'class'
                             => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>@lang('fi.payment_method')</label>
+                            <label>@lang('bt.payment_method')</label>
                             {!! Form::select('payment_method_id', $paymentMethods, null, ['id' =>
                             'payment_method_id', 'class' => 'form-control']) !!}
                         </div>
 
                         <div class="form-group">
-                            <label>@lang('fi.note')</label>
+                            <label>@lang('bt.note')</label>
                             {!! Form::textarea('note', null, ['id' => 'note', 'rows' => '2', 'class' => 'form-control ']) !!}
                         </div>
 

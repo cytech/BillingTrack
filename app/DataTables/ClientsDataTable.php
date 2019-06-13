@@ -78,26 +78,26 @@ class ClientsDataTable extends DataTable
                  'class'=>'bulk-record',
             ],
             'name' => [
-                'title' => trans('fi.client_name'),
+                'title' => trans('bt.client_name'),
                 'data' => 'unique_name',
             ],
             'email' => [
-                'title' => trans('fi.email_address'),
+                'title' => trans('bt.email_address'),
                 'data' => 'email',
             ],
             'phone' => [
-                'title' => trans('fi.phone_number'),
+                'title' => trans('bt.phone_number'),
                 'data' => 'phone',
             ],
             'balance' => [
                 'name' => 'balance',
-                'title' => trans('fi.balance'),
+                'title' => trans('bt.balance'),
                 'data' => 'formatted_balance',
                 'orderable' => true,
                 'searchable' => false,
             ],
             'active' => [
-                'title' => trans('fi.active'),
+                'title' => trans('bt.active'),
                 'data' => 'active',
             ],
         ];

@@ -72,13 +72,13 @@ class ProductController extends Controller
         $products->numstock = $request->numstock?:0;
         $products->save();
 
-        if (config('fi.restolup')==1){
+        if (config('bt.restolup')==1){
             $ret=1;
             $this->forceLUTupdate($ret);
         }
 
 
-        return redirect()->route('products.index')->with('alertInfo', trans('fi.create_product_success'));
+        return redirect()->route('products.index')->with('alertInfo', trans('bt.create_product_success'));
     }
 
     /**
@@ -138,13 +138,13 @@ class ProductController extends Controller
         $products->numstock = $request->numstock;
         $products->save();
 
-        if (config('fi.restolup')==1){
+        if (config('bt.restolup')==1){
             $ret=1;
             $this->forceLUTupdate($ret);
         }
 
         // redirect
-        return redirect()->route('products.index')->with('alertInfo', trans('fi.edit_product_success'));
+        return redirect()->route('products.index')->with('alertInfo', trans('bt.edit_product_success'));
     }
 
     /**
@@ -175,6 +175,6 @@ class ProductController extends Controller
         }
 
         if ($ret == 0){return redirect()->route('settings.index')
-            ->with('alertInfo', trans('fi.lut_updated'));}
+            ->with('alertInfo', trans('bt.lut_updated'));}
     }
 }

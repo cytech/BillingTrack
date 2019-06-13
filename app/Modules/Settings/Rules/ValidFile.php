@@ -22,6 +22,6 @@ class ValidFile implements Rule
 
     public function message()
     {
-        return trans('fi.pdf_driver_wkhtmltopdf');
+        return trans('bt.pdf_driver_wkhtmltopdf');
     }
 }

@@ -47,10 +47,10 @@
 
     <section class="content-header">
         {{--{!! Form::wobreadcrumbs() !!}--}}
-        <h3 class="float-left">@lang('fi.timesheet')</h3>
+        <h3 class="float-left">@lang('bt.timesheet')</h3>
 
         <div class="float-right">
-            <button class="btn btn-primary" id="btn-run-report">@lang('fi.run_report')</button>
+            <button class="btn btn-primary" id="btn-run-report">@lang('bt.run_report')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -62,7 +62,7 @@
         <div class="card card-light">
             <div class="card-header">
                 <h3 class="card-title">
-                    @lang('fi.criteria_timesheet')
+                    @lang('bt.criteria_timesheet')
                 </h3>
             </div>
 
@@ -70,7 +70,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>@lang('fi.company_profile'):</label>
+                            <label>@lang('bt.company_profile'):</label>
                             {!! Form::select('company_profile_id', $companyProfiles, null, ['id' => 'company_profile_id', 'class' => 'form-control'])  !!}
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>@lang('fi.date_range'):</label>
+                            <label>@lang('bt.date_range'):</label>
                             {!! Form::hidden('from_date', null, ['id' => 'from_date']) !!}
                             {!! Form::hidden('to_date', null, ['id' => 'to_date']) !!}
                             {!! Form::text('date_range', null, ['id' => 'date_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
@@ -91,20 +91,20 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <label>@lang('fi.output_type')</label>
+                        <label>@lang('bt.output_type')</label>
                         <div class="form-check form-check-inline">
 
                             <label class="form-check-label ">
                                 <input class="form-check-input ml-3" type="radio" name="output_type" value="preview"
-                                       checked="checked"> @lang('fi.preview')
+                                       checked="checked"> @lang('bt.preview')
                             </label>
                             <label class="form-check-label ml-3">
                                 <input class="form-check-input" type="radio" name="output_type"
-                                       value="pdf"> @lang('fi.pdf')
+                                       value="pdf"> @lang('bt.pdf')
                             </label>
                             <label class="form-check-label ml-3">
                                 <input class="form-check-input" type="radio" name="output_type"
-                                       value="iif"> @lang('fi.export_to_timer')
+                                       value="iif"> @lang('bt.export_to_timer')
                             </label>
                         </div>
                     </div>

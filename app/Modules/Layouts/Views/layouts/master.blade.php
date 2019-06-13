@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('fi.headerTitleText') }}</title>
+    <title>{{ config('bt.headerTitleText') }}</title>
 
     <link rel="stylesheet" href="/css/app.css">
 

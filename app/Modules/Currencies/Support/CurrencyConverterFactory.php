@@ -15,7 +15,7 @@ class CurrencyConverterFactory
 {
     public static function create()
     {
-        $class = 'BT\Modules\Currencies\Support\Drivers\\' . config('fi.currencyConversionDriver');
+        $class = 'BT\Modules\Currencies\Support\Drivers\\' . config('bt.currencyConversionDriver');
 
         return new $class;
     }

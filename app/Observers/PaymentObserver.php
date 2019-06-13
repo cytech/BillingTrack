@@ -30,7 +30,7 @@ class PaymentObserver
         }
 
         if (request('email_payment_receipt') == 'true'
-            or (!request()->exists('email_payment_receipt') and config('fi.automaticEmailPaymentReceipts') and $payment->invoice->client->email)
+            or (!request()->exists('email_payment_receipt') and config('bt.automaticEmailPaymentReceipts') and $payment->invoice->client->email)
         )
         {
             $parser = new Parser($payment);
@@ -43,7 +43,7 @@ class PaymentObserver
                 'bcc'        => $contacts->getSelectedContactsBcc(),
                 'subject'    => $parser->parse('paymentReceiptEmailSubject'),
                 'body'       => $parser->parse('paymentReceiptBody'),
-                'attach_pdf' => config('fi.attachPdf'),
+                'attach_pdf' => config('bt.attachPdf'),
             ]);
 
             $payment->mailQueue->send($mail->id);

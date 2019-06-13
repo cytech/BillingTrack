@@ -110,8 +110,8 @@ class TimeSheetReport {
 			$invoices->where( 'company_profile_id', $companyProfileId );
 		} else {
 			$results['companyProfile_company'] = 'All Billing';
-			$results['TSCompanyCreate'] = config('fi.tsCompanyCreate');
-			$results['TSCompanyName'] = config('fi.tsCompanyName');
+			$results['TSCompanyCreate'] = config('bt.tsCompanyCreate');
+			$results['TSCompanyName'] = config('bt.tsCompanyName');
 		}
 
 		$invoices = $invoices->get();

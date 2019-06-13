@@ -60,7 +60,7 @@ class ClientStatementReport
             $invoices->where('company_profile_id', $companyProfileId);
         }
         else{
-            $results['companyProfile_company'] = trans('fi.all_billing');
+            $results['companyProfile_company'] = trans('bt.all_billing');
             $results['companyProfile_address'] = '';
             $results['companyProfile_city'] = '';
             $results['companyProfile_state'] = '';

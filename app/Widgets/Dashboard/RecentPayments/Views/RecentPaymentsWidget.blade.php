@@ -2,17 +2,17 @@
     <section class="content">
         <div class="card">
             <div class="card-header">
-                <h5 class="text-bold mb-0">@lang('fi.recent_payments')</h5>
+                <h5 class="text-bold mb-0">@lang('bt.recent_payments')</h5>
             </div>
             <div class="card-body">
                 <table class="table table-striped">
                     <tbody>
                     <tr>
-                        <th>@lang('fi.client')</th>
-                        <th>@lang('fi.date')</th>
-                        <th>@lang('fi.invoice')</th>
-                        <th>@lang('fi.payment_method')</th>
-                        <th>@lang('fi.amount')</th>
+                        <th>@lang('bt.client')</th>
+                        <th>@lang('bt.date')</th>
+                        <th>@lang('bt.invoice')</th>
+                        <th>@lang('bt.payment_method')</th>
+                        <th>@lang('bt.amount')</th>
                     </tr>
                     @foreach ($recentPayments as $payment)
                         <tr>

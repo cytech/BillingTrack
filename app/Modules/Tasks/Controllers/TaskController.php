@@ -44,7 +44,7 @@ class TaskController extends Controller
 
     private function queueUpcomingInvoices()
     {
-        $days = config('fi.upcomingPaymentNoticeFrequency');
+        $days = config('bt.upcomingPaymentNoticeFrequency');
 
         if ($days)
         {
@@ -76,11 +76,11 @@ class TaskController extends Controller
 
                         $mail = $this->mailQueue->create($invoice, [
                             'to'         => [$invoice->client->email],
-                            'cc'         => [config('fi.mailDefaultCc')],
-                            'bcc'        => [config('fi.mailDefaultBcc')],
+                            'cc'         => [config('bt.mailDefaultCc')],
+                            'bcc'        => [config('bt.mailDefaultBcc')],
                             'subject'    => $parser->parse('upcomingPaymentNoticeEmailSubject'),
                             'body'       => $parser->parse('upcomingPaymentNoticeEmailBody'),
-                            'attach_pdf' => config('fi.attachPdf'),
+                            'attach_pdf' => config('bt.attachPdf'),
                         ]);
 
                         $this->mailQueue->send($mail->id);
@@ -96,7 +96,7 @@ class TaskController extends Controller
 
     private function queueOverdueInvoices()
     {
-        $days = config('fi.overdueInvoiceReminderFrequency');
+        $days = config('bt.overdueInvoiceReminderFrequency');
 
         if ($days)
         {
@@ -128,11 +128,11 @@ class TaskController extends Controller
 
                         $mail = $this->mailQueue->create($invoice, [
                             'to'         => [$invoice->client->email],
-                            'cc'         => [config('fi.mailDefaultCc')],
-                            'bcc'        => [config('fi.mailDefaultBcc')],
+                            'cc'         => [config('bt.mailDefaultCc')],
+                            'bcc'        => [config('bt.mailDefaultBcc')],
                             'subject'    => $parser->parse('overdueInvoiceEmailSubject'),
                             'body'       => $parser->parse('overdueInvoiceEmailBody'),
-                            'attach_pdf' => config('fi.attachPdf'),
+                            'attach_pdf' => config('bt.attachPdf'),
                         ]);
 
                         $this->mailQueue->send($mail->id);

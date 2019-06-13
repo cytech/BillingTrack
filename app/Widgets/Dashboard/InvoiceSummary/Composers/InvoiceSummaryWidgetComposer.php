@@ -24,7 +24,7 @@ class InvoiceSummaryWidgetComposer
             ->whereHas('invoice', function ($q)
             {
                 $q->draft();
-                switch (config('fi.widgetInvoiceSummaryDashboardTotals'))
+                switch (config('bt.widgetInvoiceSummaryDashboardTotals'))
                 {
                     case 'year_to_date':
                         $q->yearToDate();
@@ -33,7 +33,7 @@ class InvoiceSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetInvoiceSummaryDashboardTotalsFromDate'), config('fi.widgetInvoiceSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetInvoiceSummaryDashboardTotalsFromDate'), config('bt.widgetInvoiceSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('balance / exchange_rate')));
@@ -45,7 +45,7 @@ class InvoiceSummaryWidgetComposer
             ->whereHas('invoice', function ($q)
             {
                 $q->sent();
-                switch (config('fi.widgetInvoiceSummaryDashboardTotals'))
+                switch (config('bt.widgetInvoiceSummaryDashboardTotals'))
                 {
                     case 'year_to_date':
                         $q->yearToDate();
@@ -54,7 +54,7 @@ class InvoiceSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetInvoiceSummaryDashboardTotalsFromDate'), config('fi.widgetInvoiceSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetInvoiceSummaryDashboardTotalsFromDate'), config('bt.widgetInvoiceSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('balance / exchange_rate')));
@@ -64,7 +64,7 @@ class InvoiceSummaryWidgetComposer
     {
         $payments = Payment::join('invoices', 'invoices.id', '=', 'payments.invoice_id');
 
-        switch (config('fi.widgetInvoiceSummaryDashboardTotals'))
+        switch (config('bt.widgetInvoiceSummaryDashboardTotals'))
         {
             case 'year_to_date':
                 $payments->yearToDate();
@@ -73,7 +73,7 @@ class InvoiceSummaryWidgetComposer
                 $payments->thisQuarter();
                 break;
             case 'custom_date_range':
-                $payments->dateRange(config('fi.widgetInvoiceSummaryDashboardTotalsFromDate'), config('fi.widgetInvoiceSummaryDashboardTotalsToDate'));
+                $payments->dateRange(config('bt.widgetInvoiceSummaryDashboardTotalsFromDate'), config('bt.widgetInvoiceSummaryDashboardTotalsToDate'));
                 break;
         }
 
@@ -86,7 +86,7 @@ class InvoiceSummaryWidgetComposer
             ->whereHas('invoice', function ($q)
             {
                 $q->overdue();
-                switch (config('fi.widgetInvoiceSummaryDashboardTotals'))
+                switch (config('bt.widgetInvoiceSummaryDashboardTotals'))
                 {
                     case 'year_to_date':
                         $q->yearToDate();
@@ -95,7 +95,7 @@ class InvoiceSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetInvoiceSummaryDashboardTotalsFromDate'), config('fi.widgetInvoiceSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetInvoiceSummaryDashboardTotalsFromDate'), config('bt.widgetInvoiceSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('balance / exchange_rate')));

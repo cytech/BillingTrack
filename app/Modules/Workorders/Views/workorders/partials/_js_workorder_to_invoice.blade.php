@@ -4,7 +4,7 @@
         // Display the create workorder modal
         $('#modal-workorder-to-invoice').modal('show');
 
-        $("#to_invoice_workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#to_invoice_workorder_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
         // Creates the invoice
         $('#btn-workorder-to-invoice-submit').click(function () {
@@ -23,7 +23,7 @@
                 if (response.status == 400) {
                     showErrors($.parseJSON(response.responseText).errors, '#modal-status-placeholder');
                 } else {
-                    alert('@lang('fi.unknown_error')');
+                    alert('@lang('bt.unknown_error')');
                 }
             });
         });

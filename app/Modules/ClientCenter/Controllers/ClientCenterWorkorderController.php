@@ -32,7 +32,7 @@ class ClientCenterWorkorderController extends Controller
             ->orderBy('created_at', 'DESC')
             ->orderBy(DB::raw('length(number)'), 'DESC')
             ->orderBy('number', 'DESC')
-            ->paginate(config('fi.resultsPerPage'));
+            ->paginate(config('bt.resultsPerPage'));
 
         return view('client_center.workorders.index')
             ->with('workorders', $workorders)

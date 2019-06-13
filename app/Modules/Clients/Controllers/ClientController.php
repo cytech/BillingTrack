@@ -57,7 +57,7 @@ class ClientController extends Controller
         $client->custom->update($request->get('custom', []));
 
         return redirect()->route('clients.show', [$client->id])
-            ->with('alertInfo', trans('fi.record_successfully_created'));
+            ->with('alertInfo', trans('bt.record_successfully_created'));
     }
 
     public function show($clientId)
@@ -70,25 +70,25 @@ class ClientController extends Controller
             ->with(['client', 'activities', 'amount.invoice.currency'])
             ->orderBy('created_at', 'desc')
             ->orderBy('id', 'desc')
-            ->take(config('fi.resultsPerPage'))->get();
+            ->take(config('bt.resultsPerPage'))->get();
 
         $quotes = $client->quotes()
             ->with(['client', 'activities', 'amount.quote.currency'])
             ->orderBy('created_at', 'desc')
             ->orderBy('id', 'desc')
-            ->take(config('fi.resultsPerPage'))->get();
+            ->take(config('bt.resultsPerPage'))->get();
 
         $workorders = $client->workorders()
             ->with(['client', 'activities', 'amount.workorder.currency'])
             ->orderBy('created_at', 'desc')
             ->orderBy('id', 'desc')
-            ->take(config('fi.resultsPerPage'))->get();
+            ->take(config('bt.resultsPerPage'))->get();
 
         $recurringInvoices = $client->recurringInvoices()
             ->with(['client', 'amount.recurringInvoice.currency'])
             ->orderBy('next_date', 'desc')
             ->orderBy('id', 'desc')
-            ->take(config('fi.resultsPerPage'))->get();
+            ->take(config('bt.resultsPerPage'))->get();
 
         return view('clients.view')
             ->with('client', $client)
@@ -125,7 +125,7 @@ class ClientController extends Controller
         $client->custom->update($request->get('custom', []));
 
         return redirect()->route('clients.show', [$id])
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($clientId)
@@ -133,13 +133,13 @@ class ClientController extends Controller
         Client::destroy($clientId);
 
         return redirect()->route('clients.index')
-            ->with('alert', trans('fi.record_successfully_trashed'));
+            ->with('alert', trans('bt.record_successfully_trashed'));
     }
 
     public function bulkDelete()
     {
         Client::destroy(request('ids'));
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
     }
 
     public function ajaxLookup()
@@ -200,7 +200,7 @@ class ClientController extends Controller
 
         return response()->json([
             'success' => false,
-            'errors'  => ['messages' => [trans('fi.client_not_found')]],
+            'errors'  => ['messages' => [trans('bt.client_not_found')]],
         ], 400);
     }
 

@@ -78,28 +78,28 @@ class RecurringEventsDataTable extends DataTable
                     'class'      => 'bulk-record',
                 ],
             'title'  => [
-                'title' => trans('fi.title'),
+                'title' => trans('bt.title'),
                 'data' => 'title',
             ],
             'description'  => [
-                'title' => trans('fi.description'),
+                'title' => trans('bt.description'),
                 'data' => 'description',
             ],
             'start_date' => [
-                'title' => trans('fi.start_date'),
+                'title' => trans('bt.start_date'),
                 //'name' => 'firstOccurrence.start_date',
                 'data' => 'rule_start',
                 'orderable'  => false,
                 'searchable' => false,
             ],
             'frequency'    => [
-                'title' => trans('fi.frequency'),
+                'title' => trans('bt.frequency'),
                 'data'       => 'text_trans',
                 'orderable'  => false,
                 'searchable' => false,
             ],
             'category'     => [
-                'title' => trans('fi.category'),
+                'title' => trans('bt.category'),
                 'data'       => 'category.name',
             ],
 

@@ -12,9 +12,9 @@ class AddonServiceProvider extends ServiceProvider
     {
         if ($request->segment(1) !== 'setup' and (!app()->runningInConsole() or $this->app->environment('testing')))
         {
-            config(['fi.menus.navigation' => []]);
-            config(['fi.menus.system' => []]);
-            config(['fi.menus.reports' => []]);
+            config(['bt.menus.navigation' => []]);
+            config(['bt.menus.system' => []]);
+            config(['bt.menus.reports' => []]);
 
             // Get the enabled addons.
             $addons = Addon::where('enabled', 1)->orderBy('name')->get();
@@ -24,17 +24,17 @@ class AddonServiceProvider extends ServiceProvider
             {
                 if (isset($addon->navigation_menu) and $addon->navigation_menu)
                 {
-                    config(['fi.menus.navigation.' . $addon->id => $addon->navigation_menu]);
+                    config(['bt.menus.navigation.' . $addon->id => $addon->navigation_menu]);
                 }
 
                 if (isset($addon->navigation_reports) and $addon->navigation_reports)
                 {
-                    config(['fi.menus.reports.' . $addon->id => $addon->navigation_reports]);
+                    config(['bt.menus.reports.' . $addon->id => $addon->navigation_reports]);
                 }
 
                 if (isset($addon->system_menu) and $addon->system_menu)
                 {
-                    config(['fi.menus.system.' . $addon->id => $addon->system_menu]);
+                    config(['bt.menus.system.' . $addon->id => $addon->system_menu]);
                 }
 
                 // Scan addon directories for routes, views and language files.

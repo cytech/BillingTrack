@@ -54,12 +54,12 @@ class SetupController extends Controller
 
         if (version_compare(phpversion(), $versionRequired, '<'))
         {
-            $errors[] = sprintf(trans('fi.php_version_error'), $versionRequired);
+            $errors[] = sprintf(trans('bt.php_version_error'), $versionRequired);
         }
 
         if (!$dbConfig['host'] or !$dbConfig['database'] or !$dbConfig['username'] or !$dbConfig['password'])
         {
-            $errors[] = trans('fi.database_not_configured');
+            $errors[] = trans('bt.database_not_configured');
         }
 
         if (!$errors)

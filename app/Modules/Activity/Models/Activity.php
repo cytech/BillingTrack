@@ -41,15 +41,15 @@ class Activity extends Model
                     switch ($this->activity)
                     {
                         case 'public.viewed':
-                            return trans('fi.activity_quote_viewed', ['number' => $this->audit->number, 'link' => route('quotes.edit', [$this->audit->id])]);
+                            return trans('bt.activity_quote_viewed', ['number' => $this->audit->number, 'link' => route('quotes.edit', [$this->audit->id])]);
                             break;
 
                         case 'public.approved':
-                            return trans('fi.activity_quote_approved', ['number' => $this->audit->number, 'link' => route('quotes.edit', [$this->audit->id])]);
+                            return trans('bt.activity_quote_approved', ['number' => $this->audit->number, 'link' => route('quotes.edit', [$this->audit->id])]);
                             break;
 
                         case 'public.rejected':
-                            return trans('fi.activity_quote_rejected', ['number' => $this->audit->number, 'link' => route('quotes.edit', [$this->audit->id])]);
+                            return trans('bt.activity_quote_rejected', ['number' => $this->audit->number, 'link' => route('quotes.edit', [$this->audit->id])]);
                             break;
                     }
 
@@ -60,15 +60,15 @@ class Activity extends Model
                     switch ($this->activity)
                     {
                         case 'public.viewed':
-                            return trans('fi.activity_workorder_viewed', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
+                            return trans('bt.activity_workorder_viewed', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
                             break;
 
                         case 'public.approved':
-                            return trans('fi.activity_workorder_approved', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
+                            return trans('bt.activity_workorder_approved', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
                             break;
 
                         case 'public.rejected':
-                            return trans('fi.activity_workorder_rejected', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
+                            return trans('bt.activity_workorder_rejected', ['number' => $this->audit->number, 'link' => route('workorders.edit', [$this->audit->id])]);
                             break;
                     }
 
@@ -79,10 +79,10 @@ class Activity extends Model
                     switch ($this->activity)
                     {
                         case 'public.viewed':
-                            return trans('fi.activity_invoice_viewed', ['number' => $this->audit->number, 'link' => route('invoices.edit', [$this->audit->id])]);
+                            return trans('bt.activity_invoice_viewed', ['number' => $this->audit->number, 'link' => route('invoices.edit', [$this->audit->id])]);
                             break;
                         case 'public.paid':
-                            return trans('fi.activity_invoice_paid', ['number' => $this->audit->number, 'link' => route('invoices.edit', [$this->audit->id])]);
+                            return trans('bt.activity_invoice_paid', ['number' => $this->audit->number, 'link' => route('invoices.edit', [$this->audit->id])]);
                             break;
                     }
 

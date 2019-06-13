@@ -27,10 +27,10 @@ class ExpenseController extends Controller
     {
         $this->setReturnUrl();
         $status = request('status');
-        $categories = ['' => trans('fi.all_categories')] + Category::getList();
-        $vendors = ['' => trans('fi.all_vendors')] + Vendor::getList();
-        $statuses = ['' => trans('fi.all_statuses'), 'billed' => trans('fi.billed'), 'not_billed' => trans('fi.not_billed'), 'not_billable' => trans('fi.not_billable')];
-        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+        $categories = ['' => trans('bt.all_categories')] + Category::getList();
+        $vendors = ['' => trans('bt.all_vendors')] + Vendor::getList();
+        $statuses = ['' => trans('bt.all_statuses'), 'billed' => trans('bt.billed'), 'not_billed' => trans('bt.not_billed'), 'not_billable' => trans('bt.not_billable')];
+        $companyProfiles = ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList();
 
         return $dataTable->render('expenses.index', compact('status', 'categories', 'vendors', 'statuses', 'companyProfiles'));
 
@@ -41,7 +41,7 @@ class ExpenseController extends Controller
         Expense::destroy($id);
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_deleted'));
+            ->with('alertInfo', trans('bt.record_successfully_deleted'));
     }
 
     public function bulkDelete()

@@ -32,7 +32,7 @@ class GroupController extends Controller
     {
         $this->setReturnUrl();
 
-        $groups = Group::sortable(['name' => 'asc'])->paginate(config('fi.resultsPerPage'));
+        $groups = Group::sortable(['name' => 'asc'])->paginate(config('bt.resultsPerPage'));
 
         return view('groups.index')
             ->with('groups', $groups)
@@ -51,7 +51,7 @@ class GroupController extends Controller
         Group::create($request->all());
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id)
@@ -73,7 +73,7 @@ class GroupController extends Controller
         $group->save();
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -81,6 +81,6 @@ class GroupController extends Controller
         Group::destroy($id);
 
         return redirect()->route('groups.index')
-            ->with('alert', trans('fi.record_successfully_deleted'));
+            ->with('alert', trans('bt.record_successfully_deleted'));
     }
 }

@@ -2,8 +2,8 @@
 
     $(function () {
 
-        $("#invoice_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
-        $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#invoice_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#due_at").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#btn-add-lookup').click(function() {
             $('#modal-placeholder').load('{{ route( 'itemLookups.ajax.getItemLookup') }}');
@@ -35,7 +35,7 @@
 
         $('.btn-delete-invoice-item').click(function () {
             const id = $(this).data('item-id');
-            deleteConfirm('@lang('fi.trash_record_warning')', '{{ route('invoiceItem.delete') }}', id,
+            deleteConfirm('@lang('bt.trash_record_warning')', '{{ route('invoiceItem.delete') }}', id,
                 '{{ route('invoiceEdit.refreshTotals') }}', '{{ $invoice->id }}' );
         });
 
@@ -91,7 +91,7 @@
                 discount: $('#discount').val()
             }).done(function () {
                 $('#div-invoice-edit').load('{{ route('invoiceEdit.refreshEdit', [$invoice->id]) }}', function () {
-                    notify('@lang('fi.record_successfully_updated')', 'success');
+                    notify('@lang('bt.record_successfully_updated')', 'success');
                 });
             }).fail(function (response) {
                 if (response.status == 422) {
@@ -101,7 +101,7 @@
                     });
                     notify(msg, 'error');
                 } else {
-                    notify('@lang('fi.unknown_error')', 'danger');
+                    notify('@lang('bt.unknown_error')', 'danger');
                 }
             });
         });

@@ -4,13 +4,13 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.manage_trash')
+            @lang('bt.manage_trash')
         </h3>
         <div class="float-right">
             <a href="javascript:void(0)" class="btn btn-warning bulk-actions" id="btn-bulk-restore"><i
-                        class="fa fa-edit"></i> @lang('fi.trash_restoreselected')</a>
+                        class="fa fa-edit"></i> @lang('bt.trash_restoreselected')</a>
             <a href="javascript:void(0)" class="btn btn-danger bulk-actions" id="btn-bulk-delete"><i
-                        class="fa fa-trash"></i> @lang('fi.trash_deleteselected')</a>
+                        class="fa fa-trash"></i> @lang('bt.trash_deleteselected')</a>
         </div>
 
         <div class="clearfix"></div>
@@ -27,24 +27,24 @@
                     <div class="card-header d-flex p-0">
                         <ul class="nav nav-tabs p-2" id="trash-tabs">
                             <li class="nav-item"><a class="nav-link active show" data-toggle="tab"
-                                                     href="#tab-clients">@lang('fi.clients')</a></li>
+                                                     href="#tab-clients">@lang('bt.clients')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-quotes">@lang('fi.quotes')</a></li>
+                                                     href="#tab-quotes">@lang('bt.quotes')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-workorders">@lang('fi.workorders')</a></li>
+                                                     href="#tab-workorders">@lang('bt.workorders')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-invoices">@lang('fi.invoices')</a></li>
+                                                     href="#tab-invoices">@lang('bt.invoices')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-recurring_invoices">@lang('fi.recurring_invoices')</a>
+                                                     href="#tab-recurring_invoices">@lang('bt.recurring_invoices')</a>
                             </li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-payments">@lang('fi.payments')</a></li>
+                                                     href="#tab-payments">@lang('bt.payments')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-expenses">@lang('fi.expenses')</a></li>
+                                                     href="#tab-expenses">@lang('bt.expenses')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-projects">@lang('fi.projects')</a></li>
+                                                     href="#tab-projects">@lang('bt.projects')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                     href="#tab-schedule">@lang('fi.scheduler')</a></li>
+                                                     href="#tab-schedule">@lang('bt.scheduler')</a></li>
                         </ul>
                     </div>
                     <div class="tab-content m-2">
@@ -146,7 +146,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('fi.trash_restoreselected_warning')', "{{ route('utilities.bulk.restoretrash') }}", ids);
+                    bulkConfirm('@lang('bt.trash_restoreselected_warning')', "{{ route('utilities.bulk.restoretrash') }}", ids);
                 }
             });
             $('#btn-bulk-delete').click(function () {
@@ -159,7 +159,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('fi.bulk_delete_record_warning')', "{{ route('utilities.bulk.deletetrash') }}", ids);
+                    bulkConfirm('@lang('bt.bulk_delete_record_warning')', "{{ route('utilities.bulk.deletetrash') }}", ids);
                 }
             });
 

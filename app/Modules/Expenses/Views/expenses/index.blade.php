@@ -23,7 +23,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('fi.bulk_trash_record_warning')', "{{ route('expenses.bulk.delete') }}", ids)
+                    bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('expenses.bulk.delete') }}", ids)
                 }
             });
         });
@@ -34,12 +34,12 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.expenses')
+            @lang('bt.expenses')
         </h3>
 
         <div class="float-right">
 
-            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> @lang('fi.trash')</a>
+            <a href="javascript:void(0)" class="btn btn-secondary bulk-actions" id="btn-bulk-delete"><i class="fa fa-trash"></i> @lang('bt.trash')</a>
 
             <div class="btn-group">
                 {!! Form::open(['method' => 'GET', 'id' => 'filter', 'class'=>"form-inline"]) !!}
@@ -49,7 +49,7 @@
                 {!! Form::select('vendor', $vendors, request('vendor'), ['class' => 'expense_filter_options form-control ']) !!}
                 {!! Form::close() !!}
             </div>
-            <a href="{{ route('expenses.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('fi.new')</a>
+            <a href="{{ route('expenses.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('bt.new')</a>
         </div>
 
         <div class="clearfix"></div>

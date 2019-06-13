@@ -34,9 +34,9 @@
             <div class="modal-header">
                 <h4 class="modal-title">
                     @if ($editMode)
-                        @lang('fi.edit_contact')
+                        @lang('bt.edit_contact')
                     @else
-                        @lang('fi.add_contact')
+                        @lang('bt.add_contact')
                     @endif
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -49,20 +49,20 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>@lang('fi.first_name'):</label>
+                                <label>@lang('bt.first_name'):</label>
                                 {!! Form::text('contact_first_name', ($editMode) ? $contact->first_name : null, ['class' => 'form-control', 'id' => 'contact_first_name']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>@lang('fi.last_name'):</label>
+                                <label>@lang('bt.last_name'):</label>
                                 {!! Form::text('contact_last_name', ($editMode) ? $contact->last_name : null, ['class' => 'form-control', 'id' => 'contact_last_name']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
 
-                                <label>@lang('fi.name'):</label>
+                                <label>@lang('bt.name'):</label>
                                 {!! Form::text('contact_name', ($editMode) ? $contact->name : null, ['class' => 'form-control', 'id' => 'contact_name']) !!}
                             </div>
                         </div>
@@ -78,20 +78,20 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>@lang('fi.title'):</label>
+                                <label>@lang('bt.title'):</label>
                                 {!! Form::select('contact_title_id', $titles, ($editMode) ? $contact->title_id : 1 , ['id' => 'contact_title_id', 'class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>@lang('fi.is_primary'):</label>
-                                {!! Form::select('contact_is_primary', ['0' => __('fi.no'), '1' => __('fi.yes')], ($editMode) ? $contact->is_primary : 0 , ['id' => 'contact_is_primary', 'class' => 'form-control']) !!}
+                                <label>@lang('bt.is_primary'):</label>
+                                {!! Form::select('contact_is_primary', ['0' => __('bt.no'), '1' => __('bt.yes')], ($editMode) ? $contact->is_primary : 0 , ['id' => 'contact_is_primary', 'class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>@lang('fi.optin'):</label>
-                                {!! Form::select('contact_optin', ['0' => __('fi.no'), '1' => __('fi.yes')], ($editMode) ? $contact->optin : 1, ['id' => 'contact_optin', 'class' => 'form-control']) !!}
+                                <label>@lang('bt.optin'):</label>
+                                {!! Form::select('contact_optin', ['0' => __('bt.no'), '1' => __('bt.yes')], ($editMode) ? $contact->optin : 1, ['id' => 'contact_optin', 'class' => 'form-control']) !!}
                             </div>
                         </div>
                     </div>
@@ -99,27 +99,27 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>@lang('fi.phone_number'): </label>
+                                <label>@lang('bt.phone_number'): </label>
                                 {!! Form::text('contact_phone', ($editMode) ? $contact->phone : null, ['id' => 'contact_phone', 'class' => 'form-control']) !!}
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>@lang('fi.fax_number'): </label>
+                                <label>@lang('bt.fax_number'): </label>
                                 {!! Form::text('contact_fax', ($editMode) ? $contact->fax : null, ['id' => 'contact_fax', 'class' => 'form-control']) !!}
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>@lang('fi.mobile_number'): </label>
+                                <label>@lang('bt.mobile_number'): </label>
                                 {!! Form::text('contact_mobile', ($editMode) ? $contact->mobile : null, ['id' => 'contact_mobile', 'class' => 'form-control']) !!}
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>@lang('fi.email'):</label>
+                                <label>@lang('bt.email'):</label>
                                 {!! Form::text('contact_email', ($editMode) ? $contact->email : null, ['class' => 'form-control', 'id' => 'contact_email']) !!}
                             </div>
                         </div>
@@ -138,8 +138,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle"></i> @lang('fi.cancel')</button>
-                <button type="button" id="btn-contact-submit" class="btn btn-primary"><i class="fa fa-save"></i> @lang('fi.save')</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times-circle"></i> @lang('bt.cancel')</button>
+                <button type="button" id="btn-contact-submit" class="btn btn-primary"><i class="fa fa-save"></i> @lang('bt.save')</button>
             </div>
         </div>
     </div>

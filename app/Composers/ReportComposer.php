@@ -8,6 +8,6 @@ class ReportComposer
 {
     public function compose($view)
     {
-        $view->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
+        $view->with('companyProfiles', ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList());
     }
 }

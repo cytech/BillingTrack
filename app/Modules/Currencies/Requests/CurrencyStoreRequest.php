@@ -23,10 +23,10 @@ class CurrencyStoreRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name'      => trans('fi.name'),
-            'code'      => trans('fi.code'),
-            'symbol'    => trans('fi.symbol'),
-            'placement' => trans('fi.symbol_placement'),
+            'name'      => trans('bt.name'),
+            'code'      => trans('bt.code'),
+            'symbol'    => trans('bt.symbol'),
+            'placement' => trans('bt.symbol_placement'),
         ];
     }
 

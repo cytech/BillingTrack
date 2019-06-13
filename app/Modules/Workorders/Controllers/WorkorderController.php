@@ -32,7 +32,7 @@ class WorkorderController extends Controller
         $status = request('status', 'all_statuses');
         $statuses = WorkorderStatuses::listsAllFlat();
         $keyedStatuses = collect(WorkorderStatuses::lists())->except(3);
-        $companyProfiles = ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList();
+        $companyProfiles = ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList();
 
         return $dataTable->render('workorders.index', compact('status','statuses', 'keyedStatuses','companyProfiles'));
     }
@@ -42,13 +42,13 @@ class WorkorderController extends Controller
         Workorder::destroy($id);
 
         return redirect()->route('workorders.index')
-            ->with('alert', trans('fi.record_successfully_trashed'));
+            ->with('alert', trans('bt.record_successfully_trashed'));
     }
 
     public function bulkDelete()
     {
         Workorder::destroy(request('ids'));
-        return response()->json(['success' => trans('fi.record_successfully_trashed')], 200);
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
     }
 
     public function bulkStatus()
@@ -59,7 +59,7 @@ class WorkorderController extends Controller
 		    $workorder = Workorder::findOrFail($cid);
 	    	event(new WorkorderModified($workorder));
 	    }
-        return response()->json(['success' => trans('fi.status_successfully_updated')], 200);
+        return response()->json(['success' => trans('bt.status_successfully_updated')], 200);
 
     }
 

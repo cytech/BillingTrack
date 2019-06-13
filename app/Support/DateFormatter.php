@@ -96,10 +96,10 @@ class DateFormatter
 
         if (!$includeTime)
         {
-            return $date->format(config('fi.dateFormat'));
+            return $date->format(config('bt.dateFormat'));
         }
 
-        return $date->format(config('fi.dateFormat') . (!config('fi.use24HourTimeFormat') ? ' g:i A' : ' H:i'));
+        return $date->format(config('bt.dateFormat') . (!config('bt.use24HourTimeFormat') ? ' g:i A' : ' H:i'));
     }
 
     /**
@@ -112,7 +112,7 @@ class DateFormatter
     {
         if ($userDate)
         {
-            $date = DateTime::createFromFormat(config('fi.dateFormat'), $userDate);
+            $date = DateTime::createFromFormat(config('bt.dateFormat'), $userDate);
 
             return $date->format('Y-m-d');
         }
@@ -218,6 +218,6 @@ class DateFormatter
     {
         $formats = self::formats();
 
-        return $formats[config('fi.dateFormat')]['datepicker'];
+        return $formats[config('bt.dateFormat')]['datepicker'];
     }
 }

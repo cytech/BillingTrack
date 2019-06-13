@@ -42,7 +42,7 @@ class TimesheetReport
         }
         else
         {
-            $results['company_profile'] = trans('fi.all_company_profiles');
+            $results['company_profile'] = trans('bt.all_company_profiles');
         }
 
         $projects = TimeTrackingProject::with('client')

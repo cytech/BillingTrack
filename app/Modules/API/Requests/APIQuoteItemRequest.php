@@ -24,9 +24,9 @@ class APIQuoteItemRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name'     => trans('fi.name'),
-            'quantity' => trans('fi.quantity'),
-            'price'    => trans('fi.price'),
+            'name'     => trans('bt.name'),
+            'quantity' => trans('bt.quantity'),
+            'price'    => trans('bt.price'),
         ];
     }
 

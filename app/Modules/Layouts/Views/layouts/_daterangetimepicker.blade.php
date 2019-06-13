@@ -13,38 +13,38 @@
                 autoApply: true,
                 startDate: startDate,
                 endDate: endDate,
-                @if (config('fi.use24HourTimeFormat'))
+                @if (config('bt.use24HourTimeFormat'))
                 timePicker24Hour: true,
                 @endif
                 locale: {
-                    @if (config('fi.use24HourTimeFormat'))
-                    format: "{{ strtoupper(config('fi.datepickerFormat')) }} H:mm",
+                    @if (config('bt.use24HourTimeFormat'))
+                    format: "{{ strtoupper(config('bt.datepickerFormat')) }} H:mm",
                     @else
-                    format: "{{ strtoupper(config('fi.datepickerFormat')) }} h:mm A",
+                    format: "{{ strtoupper(config('bt.datepickerFormat')) }} h:mm A",
                     @endif
-                    customRangeLabel: "@lang('fi.custom')",
+                    customRangeLabel: "@lang('bt.custom')",
                     daysOfWeek: [
-                        "@lang('fi.day_short_sunday')",
-                        "@lang('fi.day_short_monday')",
-                        "@lang('fi.day_short_tuesday')",
-                        "@lang('fi.day_short_wednesday')",
-                        "@lang('fi.day_short_thursday')",
-                        "@lang('fi.day_short_friday')",
-                        "@lang('fi.day_short_saturday')"
+                        "@lang('bt.day_short_sunday')",
+                        "@lang('bt.day_short_monday')",
+                        "@lang('bt.day_short_tuesday')",
+                        "@lang('bt.day_short_wednesday')",
+                        "@lang('bt.day_short_thursday')",
+                        "@lang('bt.day_short_friday')",
+                        "@lang('bt.day_short_saturday')"
                     ],
                     monthNames: [
-                        "@lang('fi.month_january')",
-                        "@lang('fi.month_february')",
-                        "@lang('fi.month_march')",
-                        "@lang('fi.month_april')",
-                        "@lang('fi.month_may')",
-                        "@lang('fi.month_june')",
-                        "@lang('fi.month_july')",
-                        "@lang('fi.month_august')",
-                        "@lang('fi.month_september')",
-                        "@lang('fi.month_october')",
-                        "@lang('fi.month_november')",
-                        "@lang('fi.month_december')"
+                        "@lang('bt.month_january')",
+                        "@lang('bt.month_february')",
+                        "@lang('bt.month_march')",
+                        "@lang('bt.month_april')",
+                        "@lang('bt.month_may')",
+                        "@lang('bt.month_june')",
+                        "@lang('bt.month_july')",
+                        "@lang('bt.month_august')",
+                        "@lang('bt.month_september')",
+                        "@lang('bt.month_october')",
+                        "@lang('bt.month_november')",
+                        "@lang('bt.month_december')"
                     ],
                     firstDay: 1
                 }

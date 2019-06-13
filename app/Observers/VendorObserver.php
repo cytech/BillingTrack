@@ -22,12 +22,12 @@ class VendorObserver
     {
         if (!$vendor->currency_code)
         {
-            $vendor->currency_code = config('fi.baseCurrency');
+            $vendor->currency_code = config('bt.baseCurrency');
         }
 
         if (!$vendor->language)
         {
-            $vendor->language = config('fi.language');
+            $vendor->language = config('bt.language');
         }
     }
     /**

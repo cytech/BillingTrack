@@ -22,11 +22,11 @@
 
         $('#task-timer-list').on('click', '.btn-delete-timer', function () {
             Swal.fire({
-                title: '@lang('fi.trash_record_warning')',
+                title: '@lang('bt.trash_record_warning')',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
-                confirmButtonText: '@lang('fi.yes_sure')'
+                confirmButtonText: '@lang('bt.yes_sure')'
             }).then((result) => {
                 if (result.value) {
                     $.post('{{ route('timeTracking.timers.delete') }}', {
@@ -58,7 +58,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">@lang('fi.timers')</h4>
+                <h4 class="modal-title">@lang('bt.timers')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
@@ -67,7 +67,7 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label>@lang('fi.add_timer')</label>
+                        <label>@lang('bt.add_timer')</label>
                         <div class="input-group">
                             {!! Form::text('date_time_range', null, ['id' => 'date_time_range', 'class' => 'form-control', 'readonly' => 'readonly']) !!}
                             <div class="input-group-append">
@@ -87,7 +87,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('fi.close')</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('bt.close')</button>
             </div>
         </div>
     </div>

@@ -2,16 +2,16 @@
 
 @section('content')
 
-    <h1 style="text-align: center;">@lang('fi.revenue_by_client')</h1>
+    <h1 style="text-align: center;">@lang('bt.revenue_by_client')</h1>
 
     <table class="alternate">
         <thead>
         <tr>
-            <th>@lang('fi.client')</th>
+            <th>@lang('bt.client')</th>
             @foreach ($months as $month)
                 <th class="amount">{{ $month }}</th>
             @endforeach
-            <th class="amount">@lang('fi.total')</th>
+            <th class="amount">@lang('bt.total')</th>
         </tr>
         </thead>
         <tbody>

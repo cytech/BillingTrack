@@ -41,7 +41,7 @@ class SettingController extends Controller
     {
         try
         {
-            Crypt::decrypt(config('fi.mailPassword'));
+            Crypt::decrypt(config('bt.mailPassword'));
             session()->forget('error');
         }
         catch (\Exception $e)
@@ -61,34 +61,34 @@ class SettingController extends Controller
                 'paymentMethods'          => PaymentMethod::getList(),
                 'emailSendMethods'        => MailSettings::listSendMethods(),
                 'emailEncryptions'        => MailSettings::listEncryptions(),
-                'yesNoArray'              => ['0' => trans('fi.no'), '1' => trans('fi.yes')],
+                'yesNoArray'              => ['0' => trans('bt.no'), '1' => trans('bt.yes')],
                 'timezones'               => array_combine(timezone_identifiers_list(), timezone_identifiers_list()),
-                'paperSizes'              => ['letter' => trans('fi.letter'), 'A4' => trans('fi.a4'), 'legal' => trans('fi.legal')],
-                'paperOrientations'       => ['portrait' => trans('fi.portrait'), 'landscape' => trans('fi.landscape')],
+                'paperSizes'              => ['letter' => trans('bt.letter'), 'A4' => trans('bt.a4'), 'legal' => trans('bt.legal')],
+                'paperOrientations'       => ['portrait' => trans('bt.portrait'), 'landscape' => trans('bt.landscape')],
                 'currencies'              => Currency::getList(),
-                'exchangeRateModes'       => ['automatic' => trans('fi.automatic'), 'manual' => trans('fi.manual')],
-                'pdfDisposition'          => ['inline' => trans('fi.inline'), 'attachment' => trans('fi.attachment')],
+                'exchangeRateModes'       => ['automatic' => trans('bt.automatic'), 'manual' => trans('bt.manual')],
+                'pdfDisposition'          => ['inline' => trans('bt.inline'), 'attachment' => trans('bt.attachment')],
                 'pdfDrivers'              => PDFFactory::getDrivers(),
-                'convertQuoteOptions'     => ['quote' => trans('fi.convert_quote_option1'), 'invoice' => trans('fi.convert_quote_option2')],
-                'convertWorkorderOptions' => ['workorder' => trans('fi.convert_workorder_option1'), 'invoice' => trans('fi.convert_workorder_option2')],
-                'convertWorkorderDate'    => ['jobdate' => trans('fi.convert_workorder_date1'), 'currentdate' => trans('fi.convert_workorder_date2')],
-                'clientUniqueNameOptions' => ['0' => trans('fi.client_unique_name_option_1'), '1' => trans('fi.client_unique_name_option_2')],
+                'convertQuoteOptions'     => ['quote' => trans('bt.convert_quote_option1'), 'invoice' => trans('bt.convert_quote_option2')],
+                'convertWorkorderOptions' => ['workorder' => trans('bt.convert_workorder_option1'), 'invoice' => trans('bt.convert_workorder_option2')],
+                'convertWorkorderDate'    => ['jobdate' => trans('bt.convert_workorder_date1'), 'currentdate' => trans('bt.convert_workorder_date2')],
+                'clientUniqueNameOptions' => ['0' => trans('bt.client_unique_name_option_1'), '1' => trans('bt.client_unique_name_option_2')],
                 'dashboardWidgets'        => DashboardWidgets::listsByOrder(),
                 'colWidthArray'           => array_combine(range(1, 12), range(1, 12)),
                 'displayOrderArray'       => array_combine(range(1, 24), range(1, 24)),
-                'merchant'                => config('fi.merchant'),
+                'merchant'                => config('bt.merchant'),
                 'skins'                   => Skins::lists(),
                 'resultsPerPage'          => array_combine([10,25,50,100], [10,25,50,100]),
                 'amountDecimalOptions'    => ['0' => '0', '2' => '2', '3' => '3', '4' => '4'],
                 'roundTaxDecimalOptions'  => ['2' => '2', '3' => '3', '4' => '4'],
                 'companyProfiles'         => CompanyProfile::getList(),
                 'merchantDrivers'         => MerchantFactory::getDrivers(),
-                'invoiceStatuses'         => InvoiceStatuses::listsAllFlat() + ['overdue' => trans('fi.overdue')],
+                'invoiceStatuses'         => InvoiceStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')],
                 'workorderStatuses'       => WorkorderStatuses::listsAllFlat(),
                 'quoteStatuses'           => QuoteStatuses::listsAllFlat(),
-                'invoiceWhenDraftOptions' => [0 => trans('fi.keep_invoice_date_as_is'), 1 => trans('fi.change_invoice_date_to_todays_date')],
-                'workorderWhenDraftOptions' => [0 => trans('fi.keep_workorder_date_as_is'), 1 => trans('fi.change_workorder_date_to_todays_date')],
-                'quoteWhenDraftOptions'   => [0 => trans('fi.keep_quote_date_as_is'), 1 => trans('fi.change_quote_date_to_todays_date')],
+                'invoiceWhenDraftOptions' => [0 => trans('bt.keep_invoice_date_as_is'), 1 => trans('bt.change_invoice_date_to_todays_date')],
+                'workorderWhenDraftOptions' => [0 => trans('bt.keep_workorder_date_as_is'), 1 => trans('bt.change_workorder_date_to_todays_date')],
+                'quoteWhenDraftOptions'   => [0 => trans('bt.keep_quote_date_as_is'), 1 => trans('bt.change_quote_date_to_todays_date')],
                 'jquiTheme'               => Setting::jquiThemes(),
             ]);
     }
@@ -138,7 +138,7 @@ class SettingController extends Controller
         Setting::writeEmailTemplates();
 
         return redirect()->route('settings.index')
-            ->with('alertSuccess', trans('fi.settings_successfully_saved'));
+            ->with('alertSuccess', trans('bt.settings_successfully_saved'));
     }
 
     public function updateCheck()
@@ -150,11 +150,11 @@ class SettingController extends Controller
 
         if ($updateAvailable)
         {
-            $message = trans('fi.update_available', ['version' => $currentVersion]);
+            $message = trans('bt.update_available', ['version' => $currentVersion]);
         }
         else
         {
-            $message = trans('fi.update_not_available');
+            $message = trans('bt.update_not_available');
         }
 
         return response()->json(

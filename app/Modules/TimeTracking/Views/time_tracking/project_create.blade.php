@@ -18,10 +18,10 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.create_project')
+            @lang('bt.create_project')
         </h3>
         <div class="float-right">
-            <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('fi.save')</button>
+            <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('bt.save')</button>
         </div>
         <div class="clearfix"></div>
     </section>
@@ -39,18 +39,18 @@
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label>* @lang('fi.project_name'): </label>
+                            <label>* @lang('bt.project_name'): </label>
                             {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
                         </div>
 
                         <div class="row">
                             <div class="col-md-4">
-                                <label>* @lang('fi.company_profile'):</label>
-                                {!! Form::select('company_profile_id', $companyProfiles, config('fi.defaultCompanyProfile'),
+                                <label>* @lang('bt.company_profile'):</label>
+                                {!! Form::select('company_profile_id', $companyProfiles, config('bt.defaultCompanyProfile'),
                                 ['id' => 'company_profile_id', 'class' => 'form-control']) !!}
                             </div>
                             <div class="col-md-4">
-                                <label>* @lang('fi.client'):</label>
+                                <label>* @lang('bt.client'):</label>
                                 {!! Form::text('client_name', null, ['id' => 'client_name', 'class' =>
                                 'form-control client-lookup', 'autocomplete' => 'off']) !!}
                                 <script>
@@ -61,14 +61,14 @@
                                 </script>
                             </div>
                             <div class="col-md-4">
-                                <label>* @lang('fi.due_date'):</label>
+                                <label>* @lang('bt.due_date'):</label>
                                 {!! Form::text('due_at', null, ['id' => 'due_at', 'class' => 'date-picker form-control', 'autocomplete' => 'off']) !!}
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-4">
-                                <label>* @lang('fi.hourly_rate'):</label>
+                                <label>* @lang('bt.hourly_rate'):</label>
                                 {!! Form::text('hourly_rate', null, ['id' => 'hourly_rate', 'class' => 'form-control']) !!}
                             </div>
                         </div>
@@ -87,7 +87,7 @@
 
     <script type="text/javascript">
         $(function () {
-            $("#due_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+            $("#due_at").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
         })
     </script>
 

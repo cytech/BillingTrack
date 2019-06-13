@@ -26,11 +26,11 @@ class ExpensesDataTable extends DataTable
                $ret = $expense->formatted_amount ;
                     if ($expense->is_billable)
                         if ($expense->has_been_billed)
-                            $ret .= '<br><a href="'. route('invoices.edit', [$expense->invoice_id]) .'"><span class="badge badge-success">'. trans('fi.billed') .'</span></a>';
+                            $ret .= '<br><a href="'. route('invoices.edit', [$expense->invoice_id]) .'"><span class="badge badge-success">'. trans('bt.billed') .'</span></a>';
                          else
-                            $ret .= '<br><span class="badge badge-danger">'. trans('fi.not_billed') .'</span>';
+                            $ret .= '<br><span class="badge badge-danger">'. trans('bt.not_billed') .'</span>';
                     else
-                            $ret .= '<br><span class="badge badge-secondary">'. trans('fi.not_billable') .'</span>';
+                            $ret .= '<br><span class="badge badge-secondary">'. trans('bt.not_billable') .'</span>';
 
                 return $ret;
 
@@ -105,29 +105,29 @@ class ExpensesDataTable extends DataTable
                     'class'      => 'bulk-record',
                 ],
             'expense_date' => [
-                'title' => trans('fi.date'),
+                'title' => trans('bt.date'),
                 'data' => 'formatted_expense_date',
                 'searchable' => false,
             ],
             'category' => [
-                    'title' => trans('fi.category'),
+                    'title' => trans('bt.category'),
                     'data'       => 'category_name',
                     'searchable' => false,
                 ],
             'description' => [
-                'title' => trans('fi.description'),
+                'title' => trans('bt.description'),
                 'data'       => 'formatted_description',
                 'searchable' => false,
             ],
             'amount'   => [
                 'name' => 'amount',
-                'title' => trans('fi.amount'),
+                'title' => trans('bt.amount'),
                 'data'       => 'formatted_amount',
                 'orderable' => true,
                 'searchable' => false,
             ],
             'attachments'   => [
-                'title' => trans('fi.attachments'),
+                'title' => trans('bt.attachments'),
                 'data'       => 'expense.attachments',
                 'orderable' => false,
                 'searchable' => false,

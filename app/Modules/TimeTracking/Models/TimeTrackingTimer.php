@@ -33,7 +33,7 @@ class TimeTrackingTimer extends Model
 
     public function getFormattedBilledAttribute()
     {
-        return ($this->attributes['billed']) ? trans('fi.yes') : trans('fi.no');
+        return ($this->attributes['billed']) ? trans('bt.yes') : trans('bt.no');
     }
 
     public function getFormattedEndAtAttribute()

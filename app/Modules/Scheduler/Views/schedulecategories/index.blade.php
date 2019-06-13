@@ -2,10 +2,10 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="float-left">@lang('fi.categories')</h1>
+        <h1 class="float-left">@lang('bt.categories')</h1>
         <div class="float-right">
             <a href="{!! route('scheduler.categories.create') !!}" class="btn btn-primary"><i
-                        class="fa fa-fw fa-plus"></i> @lang('fi.create_category')</a>
+                        class="fa fa-fw fa-plus"></i> @lang('bt.create_category')</a>
         </div>
         <div class="clearfix"></div>
     </section>

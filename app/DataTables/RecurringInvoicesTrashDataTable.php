@@ -96,31 +96,31 @@ class RecurringInvoicesTrashDataTable extends DataTable
                     'width'      => '5%',
                 ],
             'client'  => [
-                'title' => trans('fi.client'),
+                'title' => trans('bt.client'),
                 'data' => 'client.id',
             ],
             'summary' => [
-                'title' => trans('fi.summary'),
+                'title' => trans('bt.summary'),
                 'data' => 'summary',
             ],
             'next_date'    => [
-                'title' => trans('fi.next_date'),
+                'title' => trans('bt.next_date'),
                 'data'       => 'formatted_next_date',
                 'searchable' => false,
             ],
             'stop_date'    => [
-                'title' => trans('fi.stop_date'),
+                'title' => trans('bt.stop_date'),
                 'data'       => 'formatted_stop_date',
                 'searchable' => false,
             ],
             'every' => [
-                'title' => trans('fi.every'),
+                'title' => trans('bt.every'),
                 'data'       => 'recurring_frequency',
                 'orderable'  => false,
                 'searchable' => false,
             ],
             /*'total'   => [
-                'title' => trans('fi.total'),
+                'title' => trans('bt.total'),
                 'data'       => 'amount.formatted_total',
                 'orderable'  => false,
                 'searchable' => false,

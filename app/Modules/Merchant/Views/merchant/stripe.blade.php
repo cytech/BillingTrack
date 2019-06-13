@@ -14,7 +14,7 @@
 
     handler.open({
         name: '{!! $invoice->companyProfile->company !!}',
-        description: '@lang('fi.invoice') #{{ $invoice->number }}',
+        description: '@lang('bt.invoice') #{{ $invoice->number }}',
         email: '{{ $invoice->client->email }}',
         billingAddress: true,
         zipCode: true,

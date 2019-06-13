@@ -31,11 +31,11 @@ class ContactController extends Controller
 
     public function store(ContactRequest $request, $clientId)
     {
-        $message = __('fi.record_successfully_created');
+        $message = __('bt.record_successfully_created');
 
         if($request->is_primary == 1 ) {
             Contact::where('client_id', '=', $request->clientId)->update(['is_primary' => 0]);
-            $message = __('fi.record_successfully_created') . '<br>' . __('fi.primary_changed');
+            $message = __('bt.record_successfully_created') . '<br>' . __('bt.primary_changed');
         }
 
         Contact::create($request->all());
@@ -60,12 +60,12 @@ class ContactController extends Controller
     {
         $contact = Contact::find($id);
 
-        $message = __('fi.record_successfully_updated');
+        $message = __('bt.record_successfully_updated');
 
         if($request->is_primary == 1 ) {
             Contact::where('client_id', '=', $request->clientId)->where('id', '!=' , $id)->update(['is_primary' => 0]);
             if ($contact->is_primary != 1)
-            $message = __('fi.record_successfully_updated') . '<br>' . __('fi.primary_changed');
+            $message = __('bt.record_successfully_updated') . '<br>' . __('bt.primary_changed');
         }
 
         $contact->fill($request->all());

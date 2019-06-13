@@ -14,7 +14,7 @@
 
     <section class="content-header">
         <h3 class="float-left">
-            @lang('fi.users')
+            @lang('bt.users')
         </h3>
         @if (!config('app.demo'))
         <div class="float-right">
@@ -27,11 +27,11 @@
             <div class="btn-group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                         aria-expanded="false">
-                    @lang('fi.new')
+                    @lang('bt.new')
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="{{ route('users.create', ['admin']) }}">@lang('fi.admin_account')</a>
-                    <a class="dropdown-item" href="{{ route('users.create', ['client']) }}">@lang('fi.client_account')</a>
+                    <a class="dropdown-item" href="{{ route('users.create', ['admin']) }}">@lang('bt.admin_account')</a>
+                    <a class="dropdown-item" href="{{ route('users.create', ['client']) }}">@lang('bt.client_account')</a>
                 </div>
             </div>
         </div>

@@ -23,11 +23,11 @@ class ProjectRequest extends FormRequest
     public function attributes()
     {
         return [
-            'company_profile_id' => trans('fi.company_profile'),
-            'client_name'        => trans('fi.client'),
-            'name'               => trans('fi.project_name'),
-            'hourly_rate'        => trans('fi.hourly_rate'),
-            'due_at'             => trans('fi.due_date'),
+            'company_profile_id' => trans('bt.company_profile'),
+            'client_name'        => trans('bt.client'),
+            'name'               => trans('bt.project_name'),
+            'hourly_rate'        => trans('bt.hourly_rate'),
+            'due_at'             => trans('bt.due_date'),
         ];
     }
 

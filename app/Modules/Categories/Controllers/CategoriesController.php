@@ -52,7 +52,7 @@ class CategoriesController extends Controller
         $categories->save();
 
 
-        return redirect()->route('categories.index')->with('alertInfo', trans('fi.record_successfully_created'));
+        return redirect()->route('categories.index')->with('alertInfo', trans('bt.record_successfully_created'));
     }
 
     /**
@@ -96,7 +96,7 @@ class CategoriesController extends Controller
         $categories->save();
 
         // redirect
-        return redirect()->route('categories.index')->with('alertInfo', trans('fi.record_successfully_updated'));
+        return redirect()->route('categories.index')->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     /**

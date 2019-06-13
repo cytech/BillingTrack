@@ -15,7 +15,7 @@ class ProfileImageFactory
 {
     public static function create()
     {
-        $class = 'BT\Support\ProfileImage\Drivers\\' . config('fi.profileImageDriver');
+        $class = 'BT\Support\ProfileImage\Drivers\\' . config('bt.profileImageDriver');
 
         return new $class;
     }

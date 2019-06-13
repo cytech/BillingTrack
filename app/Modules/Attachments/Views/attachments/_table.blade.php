@@ -3,11 +3,11 @@
         $('.btn-delete-attachment').click(function () {
 
             Swal.fire({
-                title: '@lang('fi.trash_record_warning')',
+                title: '@lang('bt.trash_record_warning')',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
-                confirmButtonText: '@lang('fi.yes_sure')'
+                confirmButtonText: '@lang('bt.yes_sure')'
             }).then((result) => {
                 if (result.value) {
                     $.post("{{ route('attachments.ajax.delete') }}", {
@@ -45,7 +45,7 @@
 <div id="attachments-list">
 
     @if (!config('app.demo'))
-        <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-attach-files">@lang('fi.attach_files')</a>
+        <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btn-attach-files">@lang('bt.attach_files')</a>
     @else
         <a href="javascript:void(0)" class="btn btn-primary btn-sm">File attachments are disabled in the demo</a>
     @endif
@@ -53,8 +53,8 @@
     <table class="table table-sm">
         <thead>
         <tr>
-            <th>@lang('fi.attachment')</th>
-            <th>@lang('fi.client_visibility')</th>
+            <th>@lang('bt.attachment')</th>
+            <th>@lang('bt.client_visibility')</th>
         </tr>
         </thead>
         <tbody>
@@ -70,7 +70,7 @@
                 </td>
                 <td>
                     <a class="btn btn-sm btn-secondary btn-delete-attachment" href="javascript:void(0);"
-                       title="@lang('fi.trash')" data-attachment-id="{{ $attachment->id }}">
+                       title="@lang('bt.trash')" data-attachment-id="{{ $attachment->id }}">
                         <i class="fa fa-times"></i>
                     </a>
                 </td>

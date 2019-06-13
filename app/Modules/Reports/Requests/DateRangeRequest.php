@@ -23,8 +23,8 @@ class DateRangeRequest extends FormRequest
     public function attributes()
     {
         return [
-            'from_date' => trans('fi.from_date'),
-            'to_date'   => trans('fi.to_date'),
+            'from_date' => trans('bt.from_date'),
+            'to_date'   => trans('bt.to_date'),
         ];
     }
 

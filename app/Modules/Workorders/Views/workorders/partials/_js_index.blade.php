@@ -12,7 +12,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('fi.bulk_trash_record_warning')', "{{ route('workorders.bulk.delete') }}", ids)
+                bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('workorders.bulk.delete') }}", ids)
             }
         });
 
@@ -24,7 +24,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('fi.bulk_workorder_change_status_warning')', "{{ route('workorders.bulk.status') }}",
+                bulkConfirm('@lang('bt.bulk_workorder_change_status_warning')', "{{ route('workorders.bulk.status') }}",
                             ids, $(this).data('status'))
             }
         });

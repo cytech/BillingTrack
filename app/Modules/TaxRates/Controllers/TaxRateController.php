@@ -24,7 +24,7 @@ class TaxRateController extends Controller
     {
         $this->setReturnUrl();
 
-        $taxRates = TaxRate::sortable(['name' => 'asc'])->paginate(config('fi.resultsPerPage'));
+        $taxRates = TaxRate::sortable(['name' => 'asc'])->paginate(config('bt.resultsPerPage'));
 
         return view('tax_rates.index')
             ->with('taxRates', $taxRates);
@@ -41,7 +41,7 @@ class TaxRateController extends Controller
         TaxRate::create($request->all());
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id)
@@ -62,7 +62,7 @@ class TaxRateController extends Controller
         $taxRate->save();
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -71,13 +71,13 @@ class TaxRateController extends Controller
 
         if ($taxRate->in_use)
         {
-            $alert = trans('fi.cannot_delete_record_in_use');
+            $alert = trans('bt.cannot_delete_record_in_use');
         }
         else
         {
             $taxRate->delete();
 
-            $alert = trans('fi.record_successfully_deleted');
+            $alert = trans('bt.record_successfully_deleted');
         }
 
         return redirect()->route('taxRates.index')

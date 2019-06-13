@@ -17,7 +17,7 @@ class calendarEventPresenter
             case 'quote':
                 $data->id = ucfirst($type) . ': ' . $entity->number;
                 $data->url = url("/quotes/{$entity->id}/edit");
-                $data->title = trans("fi.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name;
+                $data->title = trans("bt.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name;
                 $data->description = mb_strimwidth(addslashes($entity->summary), 0, 30, '...');
                 $data->start = $entity->expires_at ?: $entity->quote_date;
                 $data->category_id = 4;
@@ -25,7 +25,7 @@ class calendarEventPresenter
             case 'workorder':
                 $data->id = ucfirst($type) . ': ' . $entity->number;
                 $data->url = url("/workorders/{$entity->id}/edit");
-                $data->title = trans("fi.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name;
+                $data->title = trans("bt.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name;
                 $data->description = $entity->client->phone . '<br>'
                     . str_replace(array("\r\n", "\r", "\n"), "", $entity->client->address)
                     . '<br>' . $entity->client->city . '<br>' . mb_strimwidth(addslashes($entity->summary), 0, 30, '...');
@@ -47,7 +47,7 @@ class calendarEventPresenter
             case 'invoice':
                 $data->id = ucfirst($type) . ': ' . $entity->number;
                 $data->url = url("/invoices/{$entity->id}/edit");
-                $data->title = trans("fi.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name ;
+                $data->title = trans("bt.{$type}") . ' ' . $entity->number . ' for ' . $entity->client->name ;
                 $data->description = mb_strimwidth(addslashes($entity->summary), 0, 30, '...');
                 $data->start = $entity->due_at ?: $entity->invoice_date;
                 $data->category_id =  6;
@@ -55,7 +55,7 @@ class calendarEventPresenter
             case 'payment':
                 $data->id = ucfirst($type) . ': ' . $entity->id;
                 $data->url = url("/payments/{$entity->id}");
-                $data->title = trans("fi.{$type}") . ' for Invoice ' . $entity->invoice_id ;
+                $data->title = trans("bt.{$type}") . ' for Invoice ' . $entity->invoice_id ;
                 $data->description = $entity->paymentMethod->name;
                 $data->start = $entity->paid_at;
                 $data->category_id =  7;
@@ -63,7 +63,7 @@ class calendarEventPresenter
             case 'expense':
                 $data->id = ucfirst($type) . ': ' . $entity->id;
                 $data->url = url("/expenses/{$entity->id}/edit");
-                $data->title = trans("fi.{$type}") . ' for Category ' . $entity->category->name ;
+                $data->title = trans("bt.{$type}") . ' for Category ' . $entity->category->name ;
                 $data->description = $entity->description;
                 $data->start = $entity->expense_date;
                 $data->category_id =  8;
@@ -71,7 +71,7 @@ class calendarEventPresenter
             case 'project':
                 $data->id = ucfirst($type) . ': ' . $entity->id;
                 $data->url = url("/time_tracking/projects/{$entity->id}/edit");
-                $data->title = trans("fi.{$type}") . ' for Client ' . $entity->client->name ;
+                $data->title = trans("bt.{$type}") . ' for Client ' . $entity->client->name ;
                 $data->description = '';
                 $data->start = $entity->due_at;
                 $data->category_id =  9;
@@ -79,7 +79,7 @@ class calendarEventPresenter
             case 'task':
                 $data->id = ucfirst($type) . ': ' . $entity->id;
                 $data->url = url("/time_tracking/projects/{$entity->time_tracking_project_id}/edit");
-                $data->title = trans("fi.{$type}") . ' ' . $entity->name . ' for Project ' . $entity->project->name ;
+                $data->title = trans("bt.{$type}") . ' ' . $entity->name . ' for Project ' . $entity->project->name ;
                 $data->description = '';
                 $data->start = $entity->timers->first()->start_at;
                 $data->category_id =  10;

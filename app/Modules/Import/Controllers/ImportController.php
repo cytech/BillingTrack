@@ -20,14 +20,14 @@ class ImportController extends Controller
     public function index()
     {
         $importTypes = [
-            'clients'      => trans('fi.clients'),
-            'quotes'       => trans('fi.quotes'),
-            'quoteItems'   => trans('fi.quote_items'),
-            'invoices'     => trans('fi.invoices'),
-            'invoiceItems' => trans('fi.invoice_items'),
-            'payments'     => trans('fi.payments'),
-            'expenses'     => trans('fi.expenses'),
-            'itemLookups'  => trans('fi.item_lookups'),
+            'clients'      => trans('bt.clients'),
+            'quotes'       => trans('bt.quotes'),
+            'quoteItems'   => trans('bt.quote_items'),
+            'invoices'     => trans('bt.invoices'),
+            'invoiceItems' => trans('bt.invoice_items'),
+            'payments'     => trans('bt.payments'),
+            'expenses'     => trans('bt.expenses'),
+            'itemLookups'  => trans('bt.item_lookups'),
         ];
 
         return view('import.index')
@@ -69,6 +69,6 @@ class ImportController extends Controller
         }
 
         return redirect()->route('import.index')
-            ->with('alertInfo', trans('fi.records_imported_successfully'));
+            ->with('alertInfo', trans('bt.records_imported_successfully'));
     }
 }

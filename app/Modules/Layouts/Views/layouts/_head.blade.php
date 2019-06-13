@@ -3,7 +3,7 @@
 {{--make sure to use from the BUILD directory...--}}
 {!! Html::style('plugins/jquery-datetimepicker/jquery.datetimepicker.min.css') !!}
 <link href="{{ asset('plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css"/>
-{!! Html::style('css/jquery-ui-themes/'.config('fi.jquiTheme').'/jquery-ui.min.css') !!}
+{!! Html::style('css/jquery-ui-themes/'.config('bt.jquiTheme').'/jquery-ui.min.css') !!}
 
 @if (file_exists(base_path('custom/custom.css')))
     <link href="{{ asset('custom/custom.css') }}" rel="stylesheet" type="text/css"/>

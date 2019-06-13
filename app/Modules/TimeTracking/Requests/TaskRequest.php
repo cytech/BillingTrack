@@ -23,7 +23,7 @@ class TaskRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('fi.task'),
+            'name' => trans('bt.task'),
         ];
     }
 

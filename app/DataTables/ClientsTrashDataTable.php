@@ -83,22 +83,22 @@ class ClientsTrashDataTable extends DataTable
                 'data'  => 'deleted_at'
             ],
             'email'      => [
-                'title' => trans('fi.email_address'),
+                'title' => trans('bt.email_address'),
                 'data'  => 'email',
             ],
             'phone'      => [
-                'title' => trans('fi.phone_number'),
+                'title' => trans('bt.phone_number'),
                 'data'  => 'phone',
             ],
             'balance'    => [
                 'name' => 'balance',
-                'title'      => trans('fi.balance'),
+                'title'      => trans('bt.balance'),
                 'data'       => 'formatted_balance',
                 'orderable'  => true,
                 'searchable' => false,
             ],
             'active'     => [
-                'title' => trans('fi.active'),
+                'title' => trans('bt.active'),
                 'data'  => 'active',
             ],
         ];

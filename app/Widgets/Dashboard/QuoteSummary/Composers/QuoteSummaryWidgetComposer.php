@@ -24,7 +24,7 @@ class QuoteSummaryWidgetComposer
             {
                 $q->draft();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetQuoteSummaryDashboardTotals'))
+                switch (config('bt.widgetQuoteSummaryDashboardTotals'))
                 {
                     case 'year_to_date':
                         $q->yearToDate();
@@ -33,7 +33,7 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetQuoteSummaryDashboardTotalsFromDate'), config('bt.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -46,7 +46,7 @@ class QuoteSummaryWidgetComposer
             {
                 $q->sent();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetQuoteSummaryDashboardTotals'))
+                switch (config('bt.widgetQuoteSummaryDashboardTotals'))
                 {
                     case 'year_to_date':
                         $q->yearToDate();
@@ -55,7 +55,7 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetQuoteSummaryDashboardTotalsFromDate'), config('bt.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -68,7 +68,7 @@ class QuoteSummaryWidgetComposer
             {
                 $q->approved();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetQuoteSummaryDashboardTotals'))
+                switch (config('bt.widgetQuoteSummaryDashboardTotals'))
                 {
                     case 'year_to_date':
                         $q->yearToDate();
@@ -77,7 +77,7 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetQuoteSummaryDashboardTotalsFromDate'), config('bt.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -90,7 +90,7 @@ class QuoteSummaryWidgetComposer
             {
                 $q->rejected();
                 $q->where('invoice_id', 0);
-                switch (config('fi.widgetQuoteSummaryDashboardTotals'))
+                switch (config('bt.widgetQuoteSummaryDashboardTotals'))
                 {
                     case 'year_to_date':
                         $q->yearToDate();
@@ -99,7 +99,7 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('bt.widgetQuoteSummaryDashboardTotalsFromDate'), config('bt.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));

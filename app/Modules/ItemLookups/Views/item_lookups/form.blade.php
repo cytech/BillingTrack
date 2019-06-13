@@ -20,32 +20,32 @@
             <div class="card-header">
                 <h3 class="card-title"><i
                             class="fa fa-edit fa-fw"></i>
-                    @lang('fi.item_lookup_form')
+                    @lang('bt.item_lookup_form')
                     <a class="btn btn-warning float-right" href={!! route('itemLookups.index')  !!}><i
-                                class="fa fa-ban"></i> @lang('fi.cancel')</a>
+                                class="fa fa-ban"></i> @lang('bt.cancel')</a>
                     <button type="submit" class="btn btn-primary float-right"><i
-                                class="fa fa-save"></i> @lang('fi.save') </button>
+                                class="fa fa-save"></i> @lang('bt.save') </button>
                 </h3>
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label class="">@lang('fi.name'): </label>
+                    <label class="">@lang('bt.name'): </label>
                     {!! Form::text('name', null, ['id' => 'name', 'class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    <label class="">@lang('fi.description'): </label>
+                    <label class="">@lang('bt.description'): </label>
                     {!! Form::textarea('description', null, ['id' => 'description', 'rows' => '2', 'class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    <label class="">@lang('fi.price'): </label>
+                    <label class="">@lang('bt.price'): </label>
                     {!! Form::text('price', (($editMode) ? $itemLookup->formatted_numeric_price: null), ['id' => 'price', 'class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    <label class="">@lang('fi.tax_1'): </label>
+                    <label class="">@lang('bt.tax_1'): </label>
                     {!! Form::select('tax_rate_id', $taxRates, null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
-                    <label class="">@lang('fi.tax_2'): </label>
+                    <label class="">@lang('bt.tax_2'): </label>
                     {!! Form::select('tax_rate_2_id', $taxRates, null, ['class' => 'form-control']) !!}
                 </div>
             </div>

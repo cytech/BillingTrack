@@ -64,7 +64,7 @@
             stopHideUniqueName = true;
         });
 
-        @if (config('fi.displayClientUniqueName'))
+        @if (config('bt.displayClientUniqueName'))
         showUniqueName();
         @else
         checkClientNameIsDuplicate($('#name').val());

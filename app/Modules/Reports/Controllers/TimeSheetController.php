@@ -38,7 +38,7 @@ class TimeSheetController extends Controller
 	        'toDate'   => $week_end,
 	        'title'      => 'TimeSheet'
         ])
-            ->with('companyProfiles', ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList());
+            ->with('companyProfiles', ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList());
     }
 
     public function ajaxValidate(TimeSheetReportRequest $request)
@@ -71,7 +71,7 @@ class TimeSheetController extends Controller
         $html = view('reports.output.timesheet_report')
             ->with('results', $results)->render();
 
-        $pdf->download($html, trans('fi.timesheet') .Date('Y-m-d'). '.pdf');
+        $pdf->download($html, trans('bt.timesheet') .Date('Y-m-d'). '.pdf');
     }
 
 	public function iif()
@@ -83,7 +83,7 @@ class TimeSheetController extends Controller
 
 		if ( ! count( $results['records'] ) ) {
 			return redirect()->back()
-			                 ->with( 'alert', trans('fi.timesheet_nodata_alert') );
+			                 ->with( 'alert', trans('bt.timesheet_nodata_alert') );
 		}
 
 		// output as an attachment

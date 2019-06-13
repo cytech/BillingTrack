@@ -23,21 +23,21 @@ class QuoteStoreRequest extends FormRequest
     public function attributes()
     {
         return [
-            'company_profile_id' => trans('fi.company_profile'),
-            'client_name'        => trans('fi.client'),
-            'client_id'          => trans('fi.client'),
-            'user_id'            => trans('fi.user'),
-            'summary'            => trans('fi.summary'),
-            'quote_date'         => trans('fi.date'),
-            'due_at'             => trans('fi.due'),
-            'number'             => trans('fi.invoice_number'),
-            'quote_status_id'    => trans('fi.status'),
-            'exchange_rate'      => trans('fi.exchange_rate'),
-            'template'           => trans('fi.template'),
-            'group_id'           => trans('fi.group'),
-            'items.*.name'       => trans('fi.name'),
-            'items.*.quantity'   => trans('fi.quantity'),
-            'items.*.price'      => trans('fi.price'),
+            'company_profile_id' => trans('bt.company_profile'),
+            'client_name'        => trans('bt.client'),
+            'client_id'          => trans('bt.client'),
+            'user_id'            => trans('bt.user'),
+            'summary'            => trans('bt.summary'),
+            'quote_date'         => trans('bt.date'),
+            'due_at'             => trans('bt.due'),
+            'number'             => trans('bt.invoice_number'),
+            'quote_status_id'    => trans('bt.status'),
+            'exchange_rate'      => trans('bt.exchange_rate'),
+            'template'           => trans('bt.template'),
+            'group_id'           => trans('bt.group'),
+            'items.*.name'       => trans('bt.name'),
+            'items.*.quantity'   => trans('bt.quantity'),
+            'items.*.price'      => trans('bt.price'),
         ];
     }
 

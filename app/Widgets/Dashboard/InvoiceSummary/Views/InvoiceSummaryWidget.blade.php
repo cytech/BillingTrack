@@ -22,12 +22,12 @@
     </script>
         <div class="card">
             <div class="card-header">
-                <h5 class="text-bold mb-0">@lang('fi.invoice_summary')</h5>
+                <h5 class="text-bold mb-0">@lang('bt.invoice_summary')</h5>
                 <div class="card-tools pull-right">
                     <div class="btn-group">
                         <div class="dropdown">
                         <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-calendar"></i> {{ $invoiceDashboardTotalOptions[config('fi.widgetInvoiceSummaryDashboardTotals')] }}
+                            <i class="fa fa-calendar"></i> {{ $invoiceDashboardTotalOptions[config('bt.widgetInvoiceSummaryDashboardTotals')] }}
                         </button>
                         <div class="dropdown-menu" role="menu">
                             @foreach ($invoiceDashboardTotalOptions as $key => $option)
@@ -42,7 +42,7 @@
                         </div>
                         </div>
                     </div>
-                    <button class="btn btn-sm create-invoice"><i class="fa fa-plus"></i> @lang('fi.create_invoice')</button>
+                    <button class="btn btn-sm create-invoice"><i class="fa fa-plus"></i> @lang('bt.create_invoice')</button>
                 </div>
             </div>
             <div class="card-body">
@@ -52,13 +52,13 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalDraft }}</h4>
 
-                                <p>@lang('fi.draft_invoices')</p>
+                                <p>@lang('bt.draft_invoices')</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-pencil-alt"></i>
                             </div>
                             <a href="{{ route('invoices.index') }}?status=draft" class="small-box-footer">
-                                @lang('fi.view_draft_invoices') <i class="fa fa-arrow-circle-right"></i>
+                                @lang('bt.view_draft_invoices') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -67,13 +67,13 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalSent }}</h4>
 
-                                <p>@lang('fi.sent_invoices')</p>
+                                <p>@lang('bt.sent_invoices')</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-share-square"></i>
                             </div>
                             <a class="small-box-footer" href="{{ route('invoices.index') }}?status=sent">
-                                @lang('fi.view_sent_invoices') <i class="fa fa-arrow-circle-right"></i>
+                                @lang('bt.view_sent_invoices') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -83,11 +83,11 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalOverdue }}</h4>
 
-                                <p>@lang('fi.overdue_invoices')</p>
+                                <p>@lang('bt.overdue_invoices')</p>
                             </div>
                             <div class="icon"><i class="fa fa-exclamation"></i></div>
                             <a class="small-box-footer" href="{{ route('invoices.index') }}?status=overdue">
-                                @lang('fi.view_overdue_invoices') <i class="fa fa-arrow-circle-right"></i>
+                                @lang('bt.view_overdue_invoices') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -96,11 +96,11 @@
                             <div class="inner">
                                 <h4 class="text-bold">{{ $invoicesTotalPaid }}</h4>
 
-                                <p>@lang('fi.payments_collected')</p>
+                                <p>@lang('bt.payments_collected')</p>
                             </div>
                             <div class="icon"><i class="fa fa-heart"></i></div>
                             <a class="small-box-footer" href="{{ route('payments.index') }}">
-                                @lang('fi.view_payments') <i class="fa fa-arrow-circle-right"></i>
+                                @lang('bt.view_payments') <i class="fa fa-arrow-circle-right"></i>
                             </a>
                         </div>
                     </div>
@@ -113,25 +113,25 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">@lang('fi.custom_date_range')</h4>                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                    <h4 class="modal-title" id="myModalLabel">@lang('bt.custom_date_range')</h4>                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label>@lang('fi.from_date') (yyyy-mm-dd):</label>
-                        {!! Form::text('setting_widgetInvoiceSummaryDashboardTotalsFromDate', config('fi.widgetInvoiceSummaryDashboardTotalsFromDate'), ['class' => 'form-control', 'id' => 'invoice-dashboard-total-setting-from-date']) !!}
+                        <label>@lang('bt.from_date') (yyyy-mm-dd):</label>
+                        {!! Form::text('setting_widgetInvoiceSummaryDashboardTotalsFromDate', config('bt.widgetInvoiceSummaryDashboardTotalsFromDate'), ['class' => 'form-control', 'id' => 'invoice-dashboard-total-setting-from-date']) !!}
                     </div>
 
                     <div class="form-group">
-                        <label>@lang('fi.to_date') (yyyy-mm-dd):</label>
-                        {!! Form::text('setting_widgetInvoiceSummaryDashboardTotalsToDate', config('fi.widgetInvoiceSummaryDashboardTotalsToDate'), ['class' => 'form-control', 'id' => 'invoice-dashboard-total-setting-to-date']) !!}
+                        <label>@lang('bt.to_date') (yyyy-mm-dd):</label>
+                        {!! Form::text('setting_widgetInvoiceSummaryDashboardTotalsToDate', config('bt.widgetInvoiceSummaryDashboardTotalsToDate'), ['class' => 'form-control', 'id' => 'invoice-dashboard-total-setting-to-date']) !!}
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('fi.cancel')</button>
-                    <button type="button" class="btn btn-primary invoice-dashboard-total-change-option" data-id="custom_date_range" data-dismiss="modal">@lang('fi.save')</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('bt.cancel')</button>
+                    <button type="button" class="btn btn-primary invoice-dashboard-total-change-option" data-id="custom_date_range" data-dismiss="modal">@lang('bt.save')</button>
                 </div>
             </div>
         </div>

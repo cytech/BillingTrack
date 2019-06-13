@@ -26,7 +26,7 @@ class ApiQuoteController extends ApiController
             ->with(['items.amount', 'client', 'amount', 'currency'])
             ->status(request('status'))
             //->sortable(['quote_date' => 'desc', 'LENGTH(number)' => 'desc', 'number' => 'desc'])
-            ->paginate(config('fi.resultsPerPage'));
+            ->paginate(config('bt.resultsPerPage'));
 
         return response()->json($quotes);
     }
@@ -72,6 +72,6 @@ class ApiQuoteController extends ApiController
             return response(200);
         }
 
-        return response()->json([trans('fi.record_not_found')], 400);
+        return response()->json([trans('bt.record_not_found')], 400);
     }
 }

@@ -13,7 +13,7 @@
                 $.post("{{ route('invoices.recalculate') }}").done(function (response) {
                     notify(response.message, 'info');
                 }).fail(function (response) {
-                    notify('@lang('fi.error'): ' + $.parseJSON(response.responseText).message, 'error');
+                    notify('@lang('bt.error'): ' + $.parseJSON(response.responseText).message, 'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -24,7 +24,7 @@
                 $.post("{{ route('workorders.recalculate') }}").done(function (response) {
                     notify(response.message, 'info');
                 }).fail(function (response) {
-                    notify('@lang('fi.error'): ' + $.parseJSON(response.responseText).message, 'error');
+                    notify('@lang('bt.error'): ' + $.parseJSON(response.responseText).message, 'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -35,7 +35,7 @@
                 $.post("{{ route('quotes.recalculate') }}").done(function (response) {
                     notify(response.message, 'info');
                 }).fail(function (response) {
-                    notify('@lang('fi.error'): ' + $.parseJSON(response.responseText).message, 'error');
+                    notify('@lang('bt.error'): ' + $.parseJSON(response.responseText).message, 'error');
                 }).always(function () {
                     $btn.button('reset');
                 });
@@ -58,13 +58,13 @@
         {!! Form::open(['route' => 'settings.update', 'files' => true, 'id' => 'form-settings']) !!}
 
         <h3 class="float-left">
-            @lang('fi.system_settings')
+            @lang('bt.system_settings')
         </h3>
         <a class="btn btn-warning float-right" href={!! route('dashboard.index')  !!}><i
-                    class="fa fa-ban"></i> @lang('fi.cancel')</a>
+                    class="fa fa-ban"></i> @lang('bt.cancel')</a>
         @if (!config('app.demo'))
         <button type="submit" class="btn btn-primary float-right"><i
-                    class="fa fa-save"></i> @lang('fi.save') </button>
+                    class="fa fa-save"></i> @lang('bt.save') </button>
         @else
             <p  class="btn btn-primary float-right " disabled><i
                         class="fa fa-save"></i> Save disabled in demo. </p>
@@ -85,30 +85,30 @@
                     <div class="card-header d-flex p-0">
                         <ul class="nav nav-tabs" id="setting-tabs">
                             <li class="nav-item"><a class="nav-link active show" data-toggle="tab"
-                                                    href="#tab-general">@lang('fi.general')</a></li>
+                                                    href="#tab-general">@lang('bt.general')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-dashboard">@lang('fi.dashboard')</a></li>
+                                                    href="#tab-dashboard">@lang('bt.dashboard')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-quotes">@lang('fi.quotes')</a></li>
+                                                    href="#tab-quotes">@lang('bt.quotes')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-workorders">@lang('fi.workorders')</a></li>
+                                                    href="#tab-workorders">@lang('bt.workorders')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-invoices">@lang('fi.invoices')</a></li>
+                                                    href="#tab-invoices">@lang('bt.invoices')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-taxes">@lang('fi.taxes')</a></li>
+                                                    href="#tab-taxes">@lang('bt.taxes')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-email">@lang('fi.email')</a></li>
+                                                    href="#tab-email">@lang('bt.email')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-pdf">@lang('fi.pdf')</a></li>
+                                                    href="#tab-pdf">@lang('bt.pdf')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-online-payments">@lang('fi.online_payments')</a>
+                                                    href="#tab-online-payments">@lang('bt.online_payments')</a>
                             </li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-scheduler">@lang('fi.scheduler')</a></li>
+                                                    href="#tab-scheduler">@lang('bt.scheduler')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-backup">@lang('fi.backup')</a></li>
+                                                    href="#tab-backup">@lang('bt.backup')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-system">@lang('fi.system')</a></li>
+                                                    href="#tab-system">@lang('bt.system')</a></li>
                         </ul>
                     </div>
                     <div class="tab-content m-2">

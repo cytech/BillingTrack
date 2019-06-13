@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>{{ trans('fi.quote') }} #{{ $quote->number }}</title>
+    <title>{{ trans('bt.quote') }} #{{ $quote->number }}</title>
 
     <style>
         @page {
@@ -82,11 +82,11 @@
 <table>
     <tr>
         <td style="width: 50%;" valign="top">
-            <h1>{{ mb_strtoupper(trans('fi.quote')) }}</h1>
-            <span class="info">{{ mb_strtoupper(trans('fi.quote')) }} #</span>{{ $quote->number }}<br>
-            <span class="info">{{ mb_strtoupper(trans('fi.issued')) }}</span> {{ $quote->formatted_created_at }}<br>
-            <span class="info">{{ mb_strtoupper(trans('fi.expires')) }}</span> {{ $quote->formatted_expires_at }}<br><br>
-            <span class="info">{{ mb_strtoupper(trans('fi.bill_to')) }}</span><br>{{ $quote->client->name }}<br>
+            <h1>{{ mb_strtoupper(trans('bt.quote')) }}</h1>
+            <span class="info">{{ mb_strtoupper(trans('bt.quote')) }} #</span>{{ $quote->number }}<br>
+            <span class="info">{{ mb_strtoupper(trans('bt.issued')) }}</span> {{ $quote->formatted_created_at }}<br>
+            <span class="info">{{ mb_strtoupper(trans('bt.expires')) }}</span> {{ $quote->formatted_expires_at }}<br><br>
+            <span class="info">{{ mb_strtoupper(trans('bt.bill_to')) }}</span><br>{{ $quote->client->name }}<br>
             @if ($quote->client->address) {!! $quote->client->formatted_address !!}<br>@endif
         </td>
         <td style="width: 50%; text-align: right;" valign="top">
@@ -102,11 +102,11 @@
 <table class="alternate">
     <thead>
     <tr>
-        <th>{{ mb_strtoupper(trans('fi.product')) }}</th>
-        <th>{{ mb_strtoupper(trans('fi.description')) }}</th>
-        <th class="amount">{{ mb_strtoupper(trans('fi.quantity')) }}</th>
-        <th class="amount">{{ mb_strtoupper(trans('fi.price')) }}</th>
-        <th class="amount">{{ mb_strtoupper(trans('fi.total')) }}</th>
+        <th>{{ mb_strtoupper(trans('bt.product')) }}</th>
+        <th>{{ mb_strtoupper(trans('bt.description')) }}</th>
+        <th class="amount">{{ mb_strtoupper(trans('bt.quantity')) }}</th>
+        <th class="amount">{{ mb_strtoupper(trans('bt.price')) }}</th>
+        <th class="amount">{{ mb_strtoupper(trans('bt.total')) }}</th>
     </tr>
     </thead>
     <tbody>
@@ -121,13 +121,13 @@
     @endforeach
 
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.subtotal')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.subtotal')) }}</td>
         <td class="amount">{{ $quote->amount->formatted_subtotal }}</td>
     </tr>
 
     @if ($quote->discount > 0)
         <tr>
-            <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.discount')) }}</td>
+            <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.discount')) }}</td>
             <td class="amount">{{ $quote->amount->formatted_discount }}</td>
         </tr>
     @endif
@@ -140,14 +140,14 @@
     @endforeach
 
     <tr>
-        <td colspan="4" class="amount">{{ mb_strtoupper(trans('fi.total')) }}</td>
+        <td colspan="4" class="amount">{{ mb_strtoupper(trans('bt.total')) }}</td>
         <td class="amount">{{ $quote->amount->formatted_total }}</td>
     </tr>
     </tbody>
 </table>
 
 @if ($quote->terms)
-    <div class="section-header">{{ mb_strtoupper(trans('fi.terms_and_conditions')) }}</div>
+    <div class="section-header">{{ mb_strtoupper(trans('bt.terms_and_conditions')) }}</div>
     <div class="terms">{!! $quote->formatted_terms !!}</div>
 @endif
 

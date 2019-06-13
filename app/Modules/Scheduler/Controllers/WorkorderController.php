@@ -71,7 +71,7 @@ class WorkorderController extends Controller
         if (!$workorder->client->address) {
             return redirect()->route('workorders.edit', ['id' => $workorder->id]);
         } else {
-            return back()->with('alertSuccess', trans('fi.record_successfully_created'));
+            return back()->with('alertSuccess', trans('bt.record_successfully_created'));
         }
     }
 }

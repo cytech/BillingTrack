@@ -11,18 +11,18 @@
 
     $(function () {
 
-        $("#workorder_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
-        $("#expires_at").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
-        $("#job_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#workorder_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#expires_at").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#job_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $("#start_time").datetimepicker({
             datepicker: false,
             format: 'H:i',
             // format: 'm/d/Y g:i a',
             //validateOnBlur: false
-            formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+            formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
             defaultTime: '08:00',
-            step: {!! config('fi.schedulerTimestep') !!},//15
+            step: {!! config('bt.schedulerTimestep') !!},//15
             // onClose: function (selectedTime) {
             //     $("#end_time").datetimepicker({minTime: selectedTime});
             // }
@@ -31,8 +31,8 @@
         $('#end_time').datetimepicker({
             datepicker: false,
             format: 'H:i',
-            formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
-            step: {!! config('fi.schedulerTimestep') !!},
+            formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+            step: {!! config('bt.schedulerTimestep') !!},
             // onClose: function (selectedTime) {
             //     $("#start_time").datetimepicker({maxTime: selectedTime});
             // }
@@ -77,7 +77,7 @@
 
         $('.btn-delete-workorder-item').click(function () {
             const id = $(this).data('item-id');
-            deleteConfirm('@lang('fi.trash_record_warning')', '{{ route('workorderItem.delete') }}', id,
+            deleteConfirm('@lang('bt.trash_record_warning')', '{{ route('workorderItem.delete') }}', id,
                 '{{ route('workorderEdit.refreshTotals') }}', '{{ $workorder->id }}' );
         });
 
@@ -142,7 +142,7 @@
                 will_call: willcall
             }).done(function () {
                 $('#div-workorder-edit').load('{{ route('workorderEdit.refreshEdit', [$workorder->id]) }}', function() {
-                    notify('@lang('fi.workorder_successfully_updated')', 'success');
+                    notify('@lang('bt.workorder_successfully_updated')', 'success');
                 });
             }).fail(function (response) {
                 if (response.status == 422) {
@@ -152,7 +152,7 @@
                     });
                     notify(msg, 'error');
                 } else {
-                    notify('@lang('fi.unknown_error')', 'error');
+                    notify('@lang('bt.unknown_error')', 'error');
                 }
             });
         });

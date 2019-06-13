@@ -66,12 +66,12 @@ class EmployeeController extends Controller
         $employees->driver = $request->driver?$request->driver:0;
         $employees->save();
 
-        if (config('fi.emptolup')==1){
+        if (config('bt.emptolup')==1){
             $ret=1;
             $this->forceLUTupdate($ret);
         }
 
-        return redirect()->route('employees.index' )->with('alertInfo', trans('fi.create_employee_success'));
+        return redirect()->route('employees.index' )->with('alertInfo', trans('bt.create_employee_success'));
     }
 
     /**
@@ -127,13 +127,13 @@ class EmployeeController extends Controller
         $employees->driver = $request->driver ? $request->driver : 0;
         $employees->save();
 
-        if (config('fi.emptolup')==1){
+        if (config('bt.emptolup')==1){
             $ret=1;
             $this->forceLUTupdate($ret);
         }
 
         // redirect
-        return redirect()->route('employees.index')->with('alertInfo', trans('fi.edit_employee_success'));
+        return redirect()->route('employees.index')->with('alertInfo', trans('bt.edit_employee_success'));
     }
 
 
@@ -166,6 +166,6 @@ class EmployeeController extends Controller
         }
 
         if ($ret == 0){return redirect()->route('settings.index')
-            ->with('alertSuccess', trans('fi.lut_updated'));}
+            ->with('alertSuccess', trans('bt.lut_updated'));}
     }
 }

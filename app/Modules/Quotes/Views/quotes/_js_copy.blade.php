@@ -7,7 +7,7 @@
             $("#client_name").focus();
         });
 
-        $("#copy_quote_date").datetimepicker({format: '{{ config('fi.dateFormat') }}', timepicker: false, scrollInput: false});
+        $("#copy_quote_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
         $('#copy_client_name').autocomplete({
             appendTo: '#modal-copy-quote',

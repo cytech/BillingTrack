@@ -6,19 +6,19 @@
     </div>
     <br>
     <div class="form-group">
-        {!! Form::label('reminder_date',trans('fi.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 col-form-label']) !!}
+        {!! Form::label('reminder_date',trans('bt.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 col-form-label']) !!}
         <div class="col-sm-10">
             {!! Form::input('text','reminder_date[]',null, ['class'=>'form-control datepicker reminder_date ','style'=>'cursor: pointer','readonly']) !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('reminder_location',trans('fi.reminder_location'),['class'=>'col-sm-2 col-form-label']) !!}
+        {!! Form::label('reminder_location',trans('bt.reminder_location'),['class'=>'col-sm-2 col-form-label']) !!}
         <div class="col-sm-10">
             {!! Form::text('reminder_location[]',null ,['class'=>'form-control','placeholder'=>'Reminder Location']) !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('reminder_text',trans('fi.reminder_text'),['class'=>'col-sm-2 col-form-label']) !!}
+        {!! Form::label('reminder_text',trans('bt.reminder_text'),['class'=>'col-sm-2 col-form-label']) !!}
         <div class="col-sm-10">
             {!! Form::text('reminder_text[]',null,['class'=>'form-control','placeholder'=>'Reminder Text']) !!}
         </div>

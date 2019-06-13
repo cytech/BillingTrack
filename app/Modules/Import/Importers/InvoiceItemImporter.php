@@ -21,13 +21,13 @@ class InvoiceItemImporter extends AbstractImporter
     public function getFields()
     {
         return [
-            'invoice_id'    => '* ' . trans('fi.invoice_number'),
-            'name'          => '* ' . trans('fi.product'),
-            'quantity'      => '* ' . trans('fi.quantity'),
-            'price'         => '* ' . trans('fi.price'),
-            'description'   => trans('fi.description'),
-            'tax_rate_id'   => trans('fi.tax_1'),
-            'tax_rate_2_id' => trans('fi.tax_2'),
+            'invoice_id'    => '* ' . trans('bt.invoice_number'),
+            'name'          => '* ' . trans('bt.product'),
+            'quantity'      => '* ' . trans('bt.quantity'),
+            'price'         => '* ' . trans('bt.price'),
+            'description'   => trans('bt.description'),
+            'tax_rate_id'   => trans('bt.tax_1'),
+            'tax_rate_2_id' => trans('bt.tax_2'),
         ];
     }
 

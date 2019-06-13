@@ -26,11 +26,11 @@ class CurrencyController extends Controller
     {
         $this->setReturnUrl();
 
-        $currencies = Currency::sortable(['name' => 'asc'])->paginate(config('fi.resultsPerPage'));
+        $currencies = Currency::sortable(['name' => 'asc'])->paginate(config('bt.resultsPerPage'));
 
         return view('currencies.index')
             ->with('currencies', $currencies)
-            ->with('baseCurrency', config('fi.baseCurrency'));
+            ->with('baseCurrency', config('bt.baseCurrency'));
     }
 
     public function create()
@@ -44,7 +44,7 @@ class CurrencyController extends Controller
         Currency::create($request->all());
 
         return redirect($this->getReturnUrl())
-            ->with('alertSuccess', trans('fi.record_successfully_created'));
+            ->with('alertSuccess', trans('bt.record_successfully_created'));
     }
 
     public function edit($id)
@@ -63,7 +63,7 @@ class CurrencyController extends Controller
         $currency->save();
 
         return redirect($this->getReturnUrl())
-            ->with('alertInfo', trans('fi.record_successfully_updated'));
+            ->with('alertInfo', trans('bt.record_successfully_updated'));
     }
 
     public function delete($id)
@@ -72,13 +72,13 @@ class CurrencyController extends Controller
 
         if ($currency->in_use)
         {
-            $alert = trans('fi.cannot_delete_record_in_use');
+            $alert = trans('bt.cannot_delete_record_in_use');
         }
         else
         {
             Currency::destroy($id);
 
-            $alert = trans('fi.record_successfully_deleted');
+            $alert = trans('bt.record_successfully_deleted');
         }
 
         return redirect()->route('currencies.index')
@@ -89,6 +89,6 @@ class CurrencyController extends Controller
     {
         $currencyConverter = CurrencyConverterFactory::create();
 
-        return $currencyConverter->convert(config('fi.baseCurrency'), request('currency_code'));
+        return $currencyConverter->convert(config('bt.baseCurrency'), request('currency_code'));
     }
 }

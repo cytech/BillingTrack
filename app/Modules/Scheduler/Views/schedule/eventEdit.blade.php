@@ -9,16 +9,16 @@
             <div class="card card-light">
                 <div class="card-header">
                     <h3 class="card-title"><i
-                                class="fa fa-edit fa-fw"></i> {{ trans('fi.'.$title) }}
-                        <a class="btn btn-warning float-right" href={!! url('/scheduler')  !!}><i class="fa fa-ban"></i> @lang('fi.cancel')</a>
-                        <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> {{ trans('fi.'.$title) }} </button>
+                                class="fa fa-edit fa-fw"></i> {{ trans('bt.'.$title) }}
+                        <a class="btn btn-warning float-right" href={!! url('/scheduler')  !!}><i class="fa fa-ban"></i> @lang('bt.cancel')</a>
+                        <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> {{ trans('bt.'.$title) }} </button>
                     </h3></div>
                 <div class="card-body">
                     {!! Form::hidden('id') !!}
                     {!! Form::hidden('oid') !!}
                     {{--{!! Form::hidden('public_id') !!}--}}
                     <div class="form-group">
-                        {!! Form::label('title',trans('fi.title'),['class'=>'col-sm-2 col-form-label']) !!}
+                        {!! Form::label('title',trans('bt.title'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-6">
                             {!! Form::text('title',null,['class'=>'form-control']) !!}
                         </div>
@@ -31,7 +31,7 @@
                         </script>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('description',trans('fi.description'),['class'=>'col-sm-2 col-form-label']) !!}
+                        {!! Form::label('description',trans('bt.description'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-6">
                             {!! Form::text('description',null,['class'=>'form-control']) !!}
                         </div>
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('category_id',trans('fi.category'),['class'=>'col-sm-2 col-form-label']) !!}
+                        {!! Form::label('category_id',trans('bt.category'),['class'=>'col-sm-2 col-form-label']) !!}
                         <div class="col-sm-3">
                             {!! Form::select('category_id',$categories,null, ['id' => 'category_id','class'=>'form-control']) !!}
                         </div>
@@ -66,19 +66,19 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    {!! Form::label('reminder_date',trans('fi.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 col-form-label']) !!}
+                                    {!! Form::label('reminder_date',trans('bt.reminder_date'),['for'=>'reminder_date', 'class'=>'col-sm-2 col-form-label']) !!}
                                     <div class="col-sm-10">
                                         {!! Form::input('text','reminder_date[]',$reminder->reminder_date, ['class'=>'form-control datepicker reminder_date ','style'=>'cursor: pointer','readonly']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    {!! Form::label('reminder_location',trans('fi.reminder_location'),['class'=>'col-sm-2 col-form-label']) !!}
+                                    {!! Form::label('reminder_location',trans('bt.reminder_location'),['class'=>'col-sm-2 col-form-label']) !!}
                                     <div class="col-sm-10">
                                         {!! Form::text('reminder_location[]',$reminder->reminder_location ,['class'=>'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    {!! Form::label('reminder_text',trans('fi.reminder_text'),['class'=>'col-sm-2 col-form-label']) !!}
+                                    {!! Form::label('reminder_text',trans('bt.reminder_text'),['class'=>'col-sm-2 col-form-label']) !!}
                                     <div class="col-sm-10">
                                         {!! Form::text('reminder_text[]',$reminder->reminder_text,['class'=>'form-control']) !!}
                                     </div>
@@ -92,7 +92,7 @@
                     <div class="form-group">
                         <div class="offset-2 col-sm-10">
                             <button type="button" id="addReminderCreate"
-                                    class="btn btn-primary"><i class="fa fa-plus"></i> @lang('fi.add_reminder')
+                                    class="btn btn-primary"><i class="fa fa-plus"></i> @lang('bt.add_reminder')
                             </button>
                         </div>
                     </div>
@@ -114,14 +114,14 @@
         $(document).ready(function () {
             $("#addReminderCreate").click(function (event) {
                 event.preventDefault();
-                $("#addReminderCreate").html('<i class="fa fa-plus"></i> @lang('fi.add_another_reminder')');
+                $("#addReminderCreate").html('<i class="fa fa-plus"></i> @lang('bt.add_another_reminder')');
                 $("#addReminderShow").append($(".addReminderView").html());
             });
             //changed on focus to mousedown. was taking 2 clicks
             $(document).on('mousedown', '.reminder_date', function () {
                 $(this).datetimepicker({
                     format: 'Y-m-d H:i',
-                    formatTime: '{{ config('fi.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+                    formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
                     defaultDate: '+1970/01/08' //plus 1 week
                 });
             });
