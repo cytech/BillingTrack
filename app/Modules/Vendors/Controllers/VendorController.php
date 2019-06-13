@@ -10,22 +10,32 @@
 
 namespace FI\Modules\Vendors\Controllers;
 
+use FI\DataTables\VendorsDataTable;
+use FI\Modules\CustomFields\Models\CustomField;
+use FI\Modules\PaymentTerms\Models\PaymentTerm;
 use FI\Modules\Vendors\Models\Vendor;
 use FI\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use FI\Modules\Vendors\Requests\VendorStoreRequest;
+use FI\Modules\Vendors\Requests\VendorUpdateRequest;
+use FI\Traits\ReturnUrl;
+
 
 class VendorController extends Controller
 {
+    use ReturnUrl;
+
     /**
      * Display a listing of the product.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(VendorsDataTable $dataTable)
     {
-	    $vendors = Vendor::get();
+        $this->setReturnUrl();
 
-        return view('vendors.index')->with('vendors', $vendors);
+        $status = (request('status')) ?: 'all';
+
+        return $dataTable->render('vendors.index',['status' => $status]);
     }
 
     /**
@@ -35,7 +45,11 @@ class VendorController extends Controller
      */
     public function create()
     {
-        return view('vendors.create');
+        $payment_terms = PaymentTerm::pluck('name', 'id');
+
+        return view('vendors.form', compact('payment_terms'))
+            ->with('editMode', false)
+            ->with('customFields', CustomField::forTable('vendors')->get());
     }
 
     /**
@@ -44,15 +58,15 @@ class VendorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VendorStoreRequest $request)
     {
         // store
-        $vendors = new Vendor;
-        $vendors->name = $request->name;
-        $vendors->save();
+        $vendor = Vendor::create($request->except('custom'));
 
+        $vendor->custom->update($request->get('custom', []));
 
-        return redirect()->route('vendors.index')->with('alertInfo', trans('fi.record_successfully_created'));
+        return redirect()->route('vendors.show', [$vendor->id])
+            ->with('alertInfo', trans('fi.record_successfully_created'));
     }
 
     /**
@@ -61,9 +75,15 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($vendorId)
     {
-        //
+        $this->setReturnUrl();
+
+        $vendor = Vendor::getSelect()->find($vendorId);
+
+        return view('vendors.view')
+            ->with('vendor', $vendor)
+            ->with('customFields', CustomField::forTable('vendors')->get());
     }
 
     /**
@@ -72,13 +92,16 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($vendorId)
     {
-        // get the product
-        $vendors = Vendor::find($id);
+        $vendor = Vendor::getSelect()->with(['custom'])->find($vendorId);
+        $payment_terms = PaymentTerm::pluck('name', 'id');
 
-        // show the edit form and pass the product
-        return view('vendors.edit', compact('vendors'));
+        return view('vendors.form', compact('payment_terms'))
+            ->with('editMode', true)
+            ->with('vendor', $vendor)
+            ->with('customFields', CustomField::forTable('vendors')->get())
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     /**
@@ -88,15 +111,17 @@ class VendorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VendorUpdateRequest $request, $id)
     {
-        // update
-        $vendors = Vendor::find($id);
-        $vendors->name = $request->name;
-        $vendors->save();
+//        // update
+        $vendor = Vendor::find($id);
+        $vendor->fill($request->except('custom'));
+        $vendor->save();
 
-        // redirect
-        return redirect()->route('vendors.index')->with('alertInfo', trans('fi.record_successfully_updated'));
+        $vendor->custom->update($request->get('custom', []));
+
+        return redirect()->route('vendors.show', [$id])
+            ->with('alertInfo', trans('fi.record_successfully_updated'));
     }
 
     /**

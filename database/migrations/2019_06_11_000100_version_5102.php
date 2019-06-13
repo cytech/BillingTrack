@@ -1,7 +1,9 @@
 <?php
 
 use FI\Modules\Categories\Models\Category;
+use FI\Modules\CustomFields\Models\VendorCustom;
 use FI\Modules\Products\Models\Product;
+use FI\Modules\Vendors\Models\Vendor;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -115,6 +117,36 @@ class Version5102 extends Migration
             $table->foreign('title_id')->references('id')->on('titles')->onDelete('no action')->onUpdate('no action');
 
         });
+
+        Schema::create('vendors_custom', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('vendor_id');
+            $table->softDeletes();
+            $table->nullableTimestamps();
+
+
+            $table->foreign('vendor_id', 'vendors_custom_vendor_id')
+                ->references('id')->on('vendors')
+                ->onDelete('cascade')
+                ->onUpdate('restrict');
+        });
+
+        //create existing vendor custom default record
+        $vendors = Vendor::all();
+
+        foreach ($vendors as $vendor){
+            $vendor->custom()->save(new VendorCustom());
+        }
+
+        //copy product cost to price
+        $products = Product::all();
+
+        foreach ($products as $product){
+            if (!$product->price || empty($product->price) || is_null($product->price)){
+                $product->price = $product->cost;
+                $product->save();
+            }
+        }
 
         Schema::enableForeignKeyConstraints();
     }

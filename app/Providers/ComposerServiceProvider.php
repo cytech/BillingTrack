@@ -16,6 +16,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('layouts.master', 'FI\Composers\LayoutComposer');
         view()->composer(['client_center.layouts.master', 'client_center.layouts.public', 'layouts.master', 'setup.master'], 'FI\Composers\SkinComposer');
         view()->composer('clients._form', 'FI\Composers\ClientFormComposer');
+        view()->composer('vendors._form', 'FI\Composers\VendorFormComposer');
         view()->composer('invoices._table', 'FI\Composers\InvoiceTableComposer');
         view()->composer('quotes._table', 'FI\Composers\QuoteTableComposer');
         view()->composer('workorders.partials._table', 'FI\Composers\WorkorderTableComposer');

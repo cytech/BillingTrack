@@ -22,6 +22,7 @@ class CustomFields
     {
         return [
             'clients'            => trans('fi.clients'),
+            'vendors'            => trans('fi.vendors'),
             'company_profiles'   => trans('fi.company_profiles'),
             'expenses'           => trans('fi.expenses'),
             'invoices'           => trans('fi.invoices'),

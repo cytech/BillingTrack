@@ -17,6 +17,7 @@ use FI\Modules\Settings\Models\Setting;
 use FI\Modules\TimeTracking\Models\TimeTrackingProject;
 use FI\Modules\TimeTracking\Models\TimeTrackingTask;
 use FI\Modules\Users\Models\User;
+use FI\Modules\Vendors\Models\Vendor;
 use FI\Modules\Workorders\Models\Workorder;
 use FI\Modules\Workorders\Models\WorkorderItem;
 use FI\Observers\AttachmentObserver;
@@ -36,6 +37,7 @@ use FI\Observers\SettingObserver;
 use FI\Observers\TimeTrackingProjectObserver;
 use FI\Observers\TimeTrackingTaskObserver;
 use FI\Observers\UserObserver;
+use FI\Observers\VendorObserver;
 use FI\Observers\WorkorderItemObserver;
 use FI\Observers\WorkorderObserver;
 use Illuminate\Support\ServiceProvider;
@@ -77,5 +79,6 @@ class ObserverServiceProvider extends ServiceProvider
         RecurringInvoiceItem::observe(RecurringInvoiceItemObserver::class);
         WorkorderItem::observe(WorkorderItemObserver::class);
         TimeTrackingTask::observe(TimeTrackingTaskObserver::class);
+        Vendor::observe(VendorObserver::class);
     }
 }

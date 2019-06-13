@@ -5,7 +5,7 @@
     {{--{!! Form::wobreadcrumbs() !!}--}}
     @include('layouts._alerts')
     <section class="content-header">
-        {!! Form::open(['route' => 'products.store', 'class'=>'form-horizontal']) !!}
+        {!! Form::open(['route' => 'products.store', 'class'=>'form-horizontal', 'autocomplete'=>'off']) !!}
 
         <div class="card card-light">
             <div class="card-header">
@@ -36,25 +36,20 @@
                         {!! Form::text('description',old('description'),['id'=>'description','class'=>'form-control']) !!}
                     </div>
                 </div>
-                <!-- Vendor input-->
-                <div class="form-group d-flex align-items-center">
-                    <label class="col-md-2 text-right text"
-                           for="vendor">@lang('fi.vendor')</label>
-                    <div class="col-md-4">
-                        {!! Form::text('vendor',old('vendor'),['id'=>'vendor','class'=>'form-control','list'=>'vendlistid']) !!}
-                        <datalist id='vendlistid'>
-                            @foreach($vendors as $vendor)
-                                <option>{!! $vendor !!}</option>
-                            @endforeach
-                        </datalist>
-                    </div>
-                </div>
                 <!-- Serial Number input-->
                 <div class="form-group d-flex align-items-center">
                     <label class="col-md-2 text-right text"
-                           for="serialnum">@lang('fi.product_serialnum')</label>
+                           for="serialnum">@lang('fi.product_partnum')</label>
                     <div class="col-md-4">
                         {!! Form::text('serialnum',old('serialnum'),['id'=>'serialnum', 'class'=>'form-control']) !!}
+                    </div>
+                </div>
+                <!-- Sales Price input-->
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-sm-2 text-right text"
+                           for="price">@lang('fi.price_sales')</label>
+                    <div class="col-md-4">
+                        {!! Form::text('price',old('price'),['id'=>'price', 'class'=>'form-control']) !!}
                     </div>
                 </div>
                 <!-- Active Checkbox-->
@@ -63,6 +58,19 @@
                            for="active">@lang('fi.product_active')</label>
                     <div class="col-md-4">
                         {!! Form::checkbox('active',1,old('active'),['id'=>'active', 'class'=>'checkbox']) !!}
+                    </div>
+                </div>
+                <!-- Vendor input-->
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-md-2 text-right text"
+                           for="vendor">@lang('fi.vendor_preferred')</label>
+                    <div class="col-md-4">
+                        {!! Form::text('vendor',old('vendor'),['id'=>'vendor','class'=>'form-control','list'=>'vendlistid']) !!}
+                        <datalist id='vendlistid'>
+                            @foreach($vendors as $vendor)
+                                <option>{!! $vendor !!}</option>
+                            @endforeach
+                        </datalist>
                     </div>
                 </div>
                 <!-- Cost input-->

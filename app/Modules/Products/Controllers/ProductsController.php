@@ -131,6 +131,7 @@ class ProductController extends Controller
         $products->name = $request->name;
         $products->description = $request->description;
         $products->serialnum = $request->serialnum;
+        $products->price = $request->price;
         $products->active = is_null($request->active) ? 0 : $request->active;
         $products->cost = $request->cost;
         $products->type = $request->type;

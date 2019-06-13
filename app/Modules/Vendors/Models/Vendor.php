@@ -14,6 +14,7 @@ namespace FI\Modules\Vendors\Models;
 use FI\Support\CurrencyFormatter;
 use FI\Support\Statuses\InvoiceStatuses;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Vendor extends Model
 {
@@ -126,10 +127,10 @@ class Vendor extends Model
 
     public function scopeGetSelect()
     {
-        return self::select('vendors.*',
-            DB::raw('(' . $this->getBalanceSql() . ') as balance'),
-            DB::raw('(' . $this->getPaidSql() . ') AS paid'),
-            DB::raw('(' . $this->getTotalSql() . ') AS total')
+        return self::select('vendors.*'//,
+//            DB::raw('(' . $this->getBalanceSql() . ') as balance'),
+//            DB::raw('(' . $this->getPaidSql() . ') AS paid'),
+//            DB::raw('(' . $this->getTotalSql() . ') AS total')
         );
     }
 
@@ -181,32 +182,32 @@ class Vendor extends Model
     |--------------------------------------------------------------------------
     */
 
-    private function getBalanceSql()
-    {
-        return DB::table('invoice_amounts')->select(DB::raw('sum(balance)'))->whereIn('invoice_id', function ($q)
-        {
-            $q->select('id')
-                ->from('invoices')
-                ->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'))
-                ->where('invoices.invoice_status_id', '<>', DB::raw(InvoiceStatuses::getStatusId('canceled')));
-        })->toSql();
-    }
-
-    private function getPaidSql()
-    {
-        return DB::table('invoice_amounts')->select(DB::raw('sum(paid)'))->whereIn('invoice_id', function ($q)
-        {
-            $q->select('id')->from('invoices')->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'));
-        })->toSql();
-    }
-
-    private function getTotalSql()
-    {
-        return DB::table('invoice_amounts')->select(DB::raw('sum(total)'))->whereIn('invoice_id', function ($q)
-        {
-            $q->select('id')->from('invoices')->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'));
-        })->toSql();
-    }
+//    private function getBalanceSql()
+//    {
+//        return DB::table('invoice_amounts')->select(DB::raw('sum(balance)'))->whereIn('invoice_id', function ($q)
+//        {
+//            $q->select('id')
+//                ->from('invoices')
+//                ->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'))
+//                ->where('invoices.invoice_status_id', '<>', DB::raw(InvoiceStatuses::getStatusId('canceled')));
+//        })->toSql();
+//    }
+//
+//    private function getPaidSql()
+//    {
+//        return DB::table('invoice_amounts')->select(DB::raw('sum(paid)'))->whereIn('invoice_id', function ($q)
+//        {
+//            $q->select('id')->from('invoices')->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'));
+//        })->toSql();
+//    }
+//
+//    private function getTotalSql()
+//    {
+//        return DB::table('invoice_amounts')->select(DB::raw('sum(total)'))->whereIn('invoice_id', function ($q)
+//        {
+//            $q->select('id')->from('invoices')->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'));
+//        })->toSql();
+//    }
 
 
     /*
