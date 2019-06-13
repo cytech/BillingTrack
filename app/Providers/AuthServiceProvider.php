@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Providers;
+namespace BT\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'FI\Model' => 'FI\Policies\ModelPolicy',
+        'BT\Model' => 'BT\Policies\ModelPolicy',
     ];
 
     /**

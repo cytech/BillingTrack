@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Events\WorkorderModified;
-use FI\Modules\Workorders\Models\WorkorderItem;
+use BT\Events\WorkorderModified;
+use BT\Modules\Workorders\Models\WorkorderItem;
 
 class WorkorderItemObserver
 {
     /**
      * Handle the workorder item "saving" event.
      *
-     * @param  \FI\Modules\Workorders\Models\WorkorderItem  $workorderItem
+     * @param  \BT\Modules\Workorders\Models\WorkorderItem  $workorderItem
      * @return void
      */
     public function saving(WorkorderItem $workorderItem): void
@@ -52,7 +52,7 @@ class WorkorderItemObserver
     /**
      * Handle the workorder item "saved" event.
      *
-     * @param  \FI\Modules\Workorders\Models\WorkorderItem  $workorderItem
+     * @param  \BT\Modules\Workorders\Models\WorkorderItem  $workorderItem
      * @return void
      */
     public function saved(WorkorderItem $workorderItem): void
@@ -64,7 +64,7 @@ class WorkorderItemObserver
     /**
      * Handle the workorder item "deleted" event.
      *
-     * @param  \FI\Modules\Workorders\Models\WorkorderItem  $workorderItem
+     * @param  \BT\Modules\Workorders\Models\WorkorderItem  $workorderItem
      * @return void
      */
     public function deleted(WorkorderItem $workorderItem): void

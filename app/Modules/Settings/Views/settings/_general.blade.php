@@ -226,7 +226,7 @@
     <div class="col-md-4">
         <div class="form-group">
             @if (!config('app.demo'))
-            <a href="{{action('FI\Modules\Products\Controllers\ProductController@forceLUTupdate',['ret' => 0])}}"
+            <a href="{{action('BT\Modules\Products\Controllers\ProductController@forceLUTupdate',['ret' => 0])}}"
                class="btn btn-warning">@lang('fi.force_product_update')</a>
             @else
                 Force updates are disabled in the demo.
@@ -236,7 +236,7 @@
     <div class="col-md-4">
         <div class="form-group">
             @if (!config('app.demo'))
-            <a href="{{action('FI\Modules\Employees\Controllers\EmployeeController@forceLUTupdate',['ret' => 0])}}"
+            <a href="{{action('BT\Modules\Employees\Controllers\EmployeeController@forceLUTupdate',['ret' => 0])}}"
                class="btn btn-warning">@lang('fi.force_employee_update')</a>
             @else
                 Force updates are disabled in the demo.

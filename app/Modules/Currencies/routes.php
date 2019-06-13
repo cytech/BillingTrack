@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Currencies\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Currencies\Controllers'], function ()
 {
     Route::get('currencies', ['uses' => 'CurrencyController@index', 'as' => 'currencies.index']);
     Route::get('currencies/create', ['uses' => 'CurrencyController@create', 'as' => 'currencies.create']);

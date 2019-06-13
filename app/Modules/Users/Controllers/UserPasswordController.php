@@ -3,18 +3,18 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Users\Controllers;
+namespace BT\Modules\Users\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Users\Models\User;
-use FI\Modules\Users\Requests\UpdatePasswordRequest;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Users\Models\User;
+use BT\Modules\Users\Requests\UpdatePasswordRequest;
+use BT\Traits\ReturnUrl;
 
 class UserPasswordController extends Controller
 {

@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\PaymentMethods\Controllers;
+namespace BT\Modules\PaymentMethods\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\PaymentMethods\Models\PaymentMethod;
-use FI\Modules\PaymentMethods\Requests\PaymentMethodRequest;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\PaymentMethods\Models\PaymentMethod;
+use BT\Modules\PaymentMethods\Requests\PaymentMethodRequest;
+use BT\Traits\ReturnUrl;
 
 class PaymentMethodController extends Controller
 {

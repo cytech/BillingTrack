@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Controllers;
+namespace BT\Modules\Invoices\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Requests\InvoiceStoreRequest;
-use FI\Support\DateFormatter;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Requests\InvoiceStoreRequest;
+use BT\Support\DateFormatter;
 
 class InvoiceCreateController extends Controller
 {

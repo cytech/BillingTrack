@@ -3,22 +3,22 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Controllers;
+namespace BT\Modules\Quotes\Controllers;
 
-use FI\Events\QuoteEmailed;
-use FI\Events\QuoteEmailing;
-use FI\Http\Controllers\Controller;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Requests\SendEmailRequest;
-use FI\Support\Contacts;
-use FI\Support\Parser;
+use BT\Events\QuoteEmailed;
+use BT\Events\QuoteEmailing;
+use BT\Http\Controllers\Controller;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Requests\SendEmailRequest;
+use BT\Support\Contacts;
+use BT\Support\Parser;
 
 class QuoteMailController extends Controller
 {

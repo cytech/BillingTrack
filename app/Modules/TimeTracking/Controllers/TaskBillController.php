@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Controllers;
+namespace BT\Modules\TimeTracking\Controllers;
 
-use FI\Modules\TimeTracking\Models\TimeTrackingProject;
-use FI\Modules\TimeTracking\Models\TimeTrackingTask;
-use FI\Events\InvoiceModified;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Models\InvoiceItem;
+use BT\Modules\TimeTracking\Models\TimeTrackingProject;
+use BT\Modules\TimeTracking\Models\TimeTrackingTask;
+use BT\Events\InvoiceModified;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\InvoiceItem;
 
 class TaskBillController extends Controller
 {

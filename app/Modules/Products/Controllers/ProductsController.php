@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Products\Controllers;
+namespace BT\Modules\Products\Controllers;
 
-use FI\Modules\Categories\Models\Category;
-use FI\Modules\ItemLookups\Models\ItemLookup;
-use FI\Modules\Products\Models\Product;
-use FI\Modules\Products\Requests\ProductRequest;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Vendors\Models\Vendor;
+use BT\Modules\Categories\Models\Category;
+use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\Products\Models\Product;
+use BT\Modules\Products\Requests\ProductRequest;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Vendors\Models\Vendor;
 
 class ProductController extends Controller
 {

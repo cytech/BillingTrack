@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Support;
+namespace BT\Modules\Workorders\Support;
 
-use FI\Support\Calculators\Calculator;
+use BT\Support\Calculators\Calculator;
 
 class WorkorderCalculator extends Calculator
 {

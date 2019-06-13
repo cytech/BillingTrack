@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\CompanyProfiles\Controllers;
+namespace BT\Modules\CompanyProfiles\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\CompanyProfiles\Requests\CompanyProfileStoreRequest;
-use FI\Modules\CompanyProfiles\Requests\CompanyProfileUpdateRequest;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Invoices\Support\InvoiceTemplates;
-use FI\Modules\Quotes\Support\QuoteTemplates;
-use FI\Modules\Workorders\Support\WorkorderTemplates;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\CompanyProfiles\Requests\CompanyProfileStoreRequest;
+use BT\Modules\CompanyProfiles\Requests\CompanyProfileUpdateRequest;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Invoices\Support\InvoiceTemplates;
+use BT\Modules\Quotes\Support\QuoteTemplates;
+use BT\Modules\Workorders\Support\WorkorderTemplates;
+use BT\Traits\ReturnUrl;
 
 class CompanyProfileController extends Controller
 {

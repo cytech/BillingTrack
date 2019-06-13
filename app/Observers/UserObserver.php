@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\CustomFields\Models\UserCustom;
-use FI\Modules\Users\Models\User;
+use BT\Modules\CustomFields\Models\UserCustom;
+use BT\Modules\Users\Models\User;
 
 class UserObserver
 {
     /**
      * Handle the user "created" event.
      *
-     * @param  \FI\Modules\Users\Models\User  $user
+     * @param  \BT\Modules\Users\Models\User  $user
      * @return void
      */
     public function created(User $user): void

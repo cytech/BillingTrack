@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Settings\Requests;
+namespace BT\Modules\Settings\Requests;
 
-use FI\Modules\Settings\Rules\ValidFile;
+use BT\Modules\Settings\Rules\ValidFile;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SettingUpdateRequest extends FormRequest

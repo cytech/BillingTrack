@@ -3,19 +3,19 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Reports;
+namespace BT\Modules\Reports\Reports;
 
-use FI\Modules\Invoices\Models\InvoiceItem;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\NumberFormatter;
+use BT\Support\Statuses\InvoiceStatuses;
 
 class ItemSalesReport
 {

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Controllers;
+namespace BT\Modules\Quotes\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Quotes\Models\QuoteItem;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Quotes\Models\QuoteItem;
 
 class QuoteItemController extends Controller
 {

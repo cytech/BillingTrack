@@ -14,7 +14,7 @@ use Faker\Provider\Base;
 |
 */
 
-$factory->define(\FI\Modules\Products\Models\Product::class, function (Faker $faker) {
+$factory->define(\BT\Modules\Products\Models\Product::class, function (Faker $faker) {
 
 
     return [

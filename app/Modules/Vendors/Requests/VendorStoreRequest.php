@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Vendors\Requests;
+namespace BT\Modules\Vendors\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

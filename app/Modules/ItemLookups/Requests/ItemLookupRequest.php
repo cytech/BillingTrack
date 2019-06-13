@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ItemLookups\Requests;
+namespace BT\Modules\ItemLookups\Requests;
 
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ItemLookupRequest extends FormRequest

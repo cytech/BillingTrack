@@ -130,11 +130,11 @@
 
 
                             <div class="tab-pane" id="tab-attachments">
-                                @include('attachments._table', ['object' => $vendor, 'model' => 'FI\Modules\Vendors\Models\Vendor'])
+                                @include('attachments._table', ['object' => $vendor, 'model' => 'BT\Modules\Vendors\Models\Vendor'])
                             </div>
 
                             <div id="tab-notes" class="tab-pane">
-                                @include('notes._notes', ['object' => $vendor, 'model' => 'FI\Modules\Vendors\Models\Vendor', 'hideHeader' => true])
+                                @include('notes._notes', ['object' => $vendor, 'model' => 'BT\Modules\Vendors\Models\Vendor', 'hideHeader' => true])
                             </div>
                         </div>
                     </div>

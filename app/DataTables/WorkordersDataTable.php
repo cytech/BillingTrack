@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\DataTables;
+namespace BT\DataTables;
 
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Support\Statuses\WorkorderStatuses;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Support\Statuses\WorkorderStatuses;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -63,7 +63,7 @@ class WorkordersDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \FI\User $model
+     * @param \BT\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Workorder $model)

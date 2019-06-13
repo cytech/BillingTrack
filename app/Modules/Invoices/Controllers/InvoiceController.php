@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Controllers;
+namespace BT\Modules\Invoices\Controllers;
 
-use FI\DataTables\InvoicesDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Support\FileNames;
-use FI\Support\PDF\PDFFactory;
-use FI\Support\Statuses\InvoiceStatuses;
-use FI\Traits\ReturnUrl;
+use BT\DataTables\InvoicesDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Support\FileNames;
+use BT\Support\PDF\PDFFactory;
+use BT\Support\Statuses\InvoiceStatuses;
+use BT\Traits\ReturnUrl;
 
 class InvoiceController extends Controller
 {

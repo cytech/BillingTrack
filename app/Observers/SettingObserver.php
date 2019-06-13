@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Settings\Models\Setting;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Settings\Models\Setting;
 
 class SettingObserver
 {
     /**
      * Handle the setting "saving" event.
      *
-     * @param  \FI\Modules\Settings\Models\Setting  $setting
+     * @param  \BT\Modules\Settings\Models\Setting  $setting
      * @return void
      */
     public function saving(Setting $setting): void

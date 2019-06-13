@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Utilities\Controllers;
+namespace BT\Modules\Utilities\Controllers;
 
-use FI\DataTables\ClientsTrashDataTable;
-use FI\DataTables\ExpensesTrashDataTable;
-use FI\DataTables\InvoicesTrashDataTable;
-use FI\DataTables\PaymentsTrashDataTable;
-use FI\DataTables\ProjectsTrashDataTable;
-use FI\DataTables\QuotesTrashDataTable;
-use FI\DataTables\RecurringInvoicesTrashDataTable;
-use FI\DataTables\SchedulerTrashDataTable;
-use FI\DataTables\WorkordersTrashDataTable;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Support\FileNames;
-use FI\Support\PDF\PDFFactory;
+use BT\DataTables\ClientsTrashDataTable;
+use BT\DataTables\ExpensesTrashDataTable;
+use BT\DataTables\InvoicesTrashDataTable;
+use BT\DataTables\PaymentsTrashDataTable;
+use BT\DataTables\ProjectsTrashDataTable;
+use BT\DataTables\QuotesTrashDataTable;
+use BT\DataTables\RecurringInvoicesTrashDataTable;
+use BT\DataTables\SchedulerTrashDataTable;
+use BT\DataTables\WorkordersTrashDataTable;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Support\FileNames;
+use BT\Support\PDF\PDFFactory;
 use Illuminate\Http\Request;
 
 class UtilityController
@@ -115,11 +115,11 @@ class UtilityController
         foreach ($request as $arr) {
             foreach ($arr as $entity => $id) {
                 if ($entity == 'Schedule') {
-                    $instance = 'FI\\Modules\\Scheduler\\Models\\' . $entity;
+                    $instance = 'BT\\Modules\\Scheduler\\Models\\' . $entity;
                 }elseif  ($entity == 'TimeTrackingProject'){
-                    $instance = 'FI\\Modules\\TimeTracking\\Models\\' . $entity;
+                    $instance = 'BT\\Modules\\TimeTracking\\Models\\' . $entity;
                 }else {
-                    $instance = 'FI\\Modules\\' . $entity . 's\\Models\\' . $entity;
+                    $instance = 'BT\\Modules\\' . $entity . 's\\Models\\' . $entity;
                 }
 
                 $instance::onlyTrashed()->find($id)->restore();
@@ -135,11 +135,11 @@ class UtilityController
         foreach ($request as $arr) {
             foreach ($arr as $entity => $id) {
                 if ($entity == 'Schedule') {
-                    $instance = 'FI\\Modules\\Scheduler\\Models\\' . $entity;
+                    $instance = 'BT\\Modules\\Scheduler\\Models\\' . $entity;
                 }elseif  ($entity == 'TimeTrackingProject'){
-                    $instance = 'FI\\Modules\\TimeTracking\\Models\\' . $entity;
+                    $instance = 'BT\\Modules\\TimeTracking\\Models\\' . $entity;
                 } else {
-                    $instance = 'FI\\Modules\\' . $entity . 's\\Models\\' . $entity;
+                    $instance = 'BT\\Modules\\' . $entity . 's\\Models\\' . $entity;
                 }
 
                 $instance::onlyTrashed()->find($id)->forceDelete();

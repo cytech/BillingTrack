@@ -1,11 +1,11 @@
 <?php
 
-namespace FI\Modules\Merchant\Support\Drivers;
+namespace BT\Modules\Merchant\Support\Drivers;
 
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Merchant\Models\MerchantPayment;
-use FI\Modules\Merchant\Support\MerchantDriverPayable;
-use FI\Modules\Payments\Models\Payment;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Merchant\Models\MerchantPayment;
+use BT\Modules\Merchant\Support\MerchantDriverPayable;
+use BT\Modules\Payments\Models\Payment;
 
 class Mollie extends MerchantDriverPayable
 {

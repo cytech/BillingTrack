@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Controllers;
+namespace BT\Modules\Reports\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Categories\Models\Category;
-use FI\Modules\Vendors\Models\Vendor;
-use FI\Modules\Reports\Reports\ExpenseListReport;
-use FI\Modules\Reports\Requests\DateRangeRequest;
-use FI\Support\PDF\PDFFactory;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Categories\Models\Category;
+use BT\Modules\Vendors\Models\Vendor;
+use BT\Modules\Reports\Reports\ExpenseListReport;
+use BT\Modules\Reports\Requests\DateRangeRequest;
+use BT\Support\PDF\PDFFactory;
 
 class ExpenseListReportController extends Controller
 {

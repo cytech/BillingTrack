@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\FI\Modules\Employees\Models\Employee::class, function (Faker $faker) {
+$factory->define(\BT\Modules\Employees\Models\Employee::class, function (Faker $faker) {
     return [
         'number' => $faker->unique()->randomNumber(3),
         'first_name' => $faker->firstName,

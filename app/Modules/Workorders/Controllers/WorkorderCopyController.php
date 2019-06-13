@@ -7,17 +7,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
-namespace FI\Modules\Workorders\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Modules\Workorders\Models\WorkorderItem;
-use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
-use FI\Support\DateFormatter;
+namespace BT\Modules\Workorders\Controllers;
+
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Models\WorkorderItem;
+use BT\Modules\Workorders\Requests\WorkorderStoreRequest;
+use BT\Support\DateFormatter;
 
 class WorkorderCopyController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-use FI\Modules\Settings\Models\Setting;
+use BT\Modules\Settings\Models\Setting;
 use Illuminate\Database\Migrations\Migration;
 
 class Version401 extends Migration

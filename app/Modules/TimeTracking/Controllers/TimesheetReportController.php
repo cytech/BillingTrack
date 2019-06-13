@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Controllers;
+namespace BT\Modules\TimeTracking\Controllers;
 
-use FI\Support\Statuses\TimeTrackingProjectStatuses;
-use FI\Modules\TimeTracking\Reports\TimesheetReport;
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Support\PDF\PDFFactory;
+use BT\Support\Statuses\TimeTrackingProjectStatuses;
+use BT\Modules\TimeTracking\Reports\TimesheetReport;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Support\PDF\PDFFactory;
 
 class TimesheetReportController extends Controller
 {

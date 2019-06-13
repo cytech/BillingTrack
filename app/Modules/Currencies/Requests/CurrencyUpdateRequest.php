@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Currencies\Requests;
+namespace BT\Modules\Currencies\Requests;
 
 class CurrencyUpdateRequest extends CurrencyStoreRequest
 {

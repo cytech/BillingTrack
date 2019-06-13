@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Settings\Models;
+namespace BT\Modules\Settings\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;

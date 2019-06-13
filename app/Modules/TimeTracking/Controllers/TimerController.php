@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Controllers;
+namespace BT\Modules\TimeTracking\Controllers;
 
-use FI\Modules\TimeTracking\Models\TimeTrackingTask;
-use FI\Modules\TimeTracking\Models\TimeTrackingTimer;
-use FI\Modules\TimeTracking\Requests\TimerRequest;
+use BT\Modules\TimeTracking\Models\TimeTrackingTask;
+use BT\Modules\TimeTracking\Models\TimeTrackingTimer;
+use BT\Modules\TimeTracking\Requests\TimerRequest;
 use Carbon\Carbon;
-use FI\Http\Controllers\Controller;
+use BT\Http\Controllers\Controller;
 
 class TimerController extends Controller
 {

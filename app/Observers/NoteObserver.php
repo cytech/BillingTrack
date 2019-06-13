@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Modules\Notes\Models\Note;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Modules\Notes\Models\Note;
 
 class NoteObserver
 {
@@ -14,7 +14,7 @@ class NoteObserver
     /**
      * Handle the note "created" event.
      *
-     * @param  \FI\Modules\Notes\Models\Note  $note
+     * @param  \BT\Modules\Notes\Models\Note  $note
      * @return void
      */
     public function created(Note $note): void

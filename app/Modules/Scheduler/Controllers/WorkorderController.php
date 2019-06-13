@@ -9,18 +9,18 @@
  */
 
 
-namespace FI\Modules\Scheduler\Controllers;
+namespace BT\Modules\Scheduler\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Events\WorkorderModified;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Workorders\Models\WorkorderItem;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
-use FI\Support\DateFormatter;
-use FI\Modules\Employees\Models\Employee;
-use FI\Modules\Products\Models\Product;
-use FI\Support\Statuses\WorkorderStatuses;
+use BT\Http\Controllers\Controller;
+use BT\Events\WorkorderModified;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\Workorders\Models\WorkorderItem;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Requests\WorkorderStoreRequest;
+use BT\Support\DateFormatter;
+use BT\Modules\Employees\Models\Employee;
+use BT\Modules\Products\Models\Product;
+use BT\Support\Statuses\WorkorderStatuses;
 
 class WorkorderController extends Controller
 {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\CustomFields\Requests;
+namespace BT\Modules\CustomFields\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\Currencies\Support\CurrencyConverterFactory;
-use FI\Modules\CustomFields\Models\InvoiceCustom;
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Support\InvoiceCalculate;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Support\DateFormatter;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Modules\Currencies\Support\CurrencyConverterFactory;
+use BT\Modules\CustomFields\Models\InvoiceCustom;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Support\InvoiceCalculate;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Support\DateFormatter;
+use BT\Support\Statuses\InvoiceStatuses;
 
 class InvoiceObserver
 {
@@ -23,7 +23,7 @@ class InvoiceObserver
     /**
      * Handle the invoice "created" event.
      *
-     * @param  \FI\Modules\Invoices\Models\Invoice  $invoice
+     * @param  \BT\Modules\Invoices\Models\Invoice  $invoice
      * @return void
      */
     public function created(Invoice $invoice): void
@@ -41,7 +41,7 @@ class InvoiceObserver
     /**
      * Handle the invoice "creating" event.
      *
-     * @param  \FI\Modules\Invoices\Models\Invoice  $invoice
+     * @param  \BT\Modules\Invoices\Models\Invoice  $invoice
      * @return void
      */
     public function creating(Invoice $invoice): void
@@ -122,7 +122,7 @@ class InvoiceObserver
     /**
      * Handle the invoice "deleted" event.
      *
-     * @param  \FI\Modules\Invoices\Models\Invoice  $invoice
+     * @param  \BT\Modules\Invoices\Models\Invoice  $invoice
      * @return void
      */
     public function deleteing(Invoice $invoice): void

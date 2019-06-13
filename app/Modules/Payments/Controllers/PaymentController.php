@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Payments\Controllers;
+namespace BT\Modules\Payments\Controllers;
 
-use FI\DataTables\PaymentsDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Http\Resources\PaymentResource;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\PaymentMethods\Models\PaymentMethod;
-use FI\Modules\Payments\Models\Payment;
-use FI\Modules\Payments\Requests\PaymentRequest;
-use FI\Support\DateFormatter;
+use BT\DataTables\PaymentsDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Http\Resources\PaymentResource;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\PaymentMethods\Models\PaymentMethod;
+use BT\Modules\Payments\Models\Payment;
+use BT\Modules\Payments\Requests\PaymentRequest;
+use BT\Support\DateFormatter;
 
 class PaymentController extends Controller
 {

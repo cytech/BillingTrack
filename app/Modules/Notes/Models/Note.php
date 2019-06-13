@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Notes\Models;
+namespace BT\Modules\Notes\Models;
 
-use FI\Support\DateFormatter;
+use BT\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -38,7 +38,7 @@ class Note extends Model
 
     public function user()
     {
-        return $this->belongsTo('FI\Modules\Users\Models\User');
+        return $this->belongsTo('BT\Modules\Users\Models\User');
     }
 
     /*

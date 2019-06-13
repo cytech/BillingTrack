@@ -1,20 +1,20 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
 
-use FI\Events\InvoiceModified;
-use FI\Modules\CustomFields\Models\PaymentCustom;
-use FI\Modules\Payments\Models\Payment;
-use FI\Support\Contacts;
-use FI\Support\Parser;
+use BT\Events\InvoiceModified;
+use BT\Modules\CustomFields\Models\PaymentCustom;
+use BT\Modules\Payments\Models\Payment;
+use BT\Support\Contacts;
+use BT\Support\Parser;
 
 class PaymentObserver
 {
     /**
      * Handle the payment "created" event.
      *
-     * @param  \FI\Modules\Payments\Models\Payment  $payment
+     * @param  \BT\Modules\Payments\Models\Payment  $payment
      * @return void
      */
     public function created(Payment $payment): void

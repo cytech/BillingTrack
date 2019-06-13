@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use FI\Modules\PaymentTerms\Models\Paymentterm;
+use BT\Modules\PaymentTerms\Models\Paymentterm;
 
 class PaymentTermsSeeder extends Seeder
 {

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Importers;
+namespace BT\Modules\Import\Importers;
 
-use FI\Modules\ItemLookups\Models\ItemLookup;
-use FI\Modules\TaxRates\Models\TaxRate;
+use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\TaxRates\Models\TaxRate;
 use Illuminate\Support\Facades\Validator;
 
 class ItemLookupImporter extends AbstractImporter

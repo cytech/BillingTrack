@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Expenses\Controllers;
+namespace BT\Modules\Expenses\Controllers;
 
-use FI\DataTables\ExpensesDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Categories\Models\Category;
-use FI\Modules\Vendors\Models\Vendor;
-use FI\Traits\ReturnUrl;
+use BT\DataTables\ExpensesDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Categories\Models\Category;
+use BT\Modules\Vendors\Models\Vendor;
+use BT\Traits\ReturnUrl;
 
 class ExpenseController extends Controller
 {

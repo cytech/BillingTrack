@@ -268,14 +268,14 @@
                             <div class="tab-pane" id="tab-notes">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        @include('notes._notes', ['object' => $workorder, 'model' => 'FI\Modules\Workorders\Models\Workorder', 'showPrivateCheckbox' => true, 'hideHeader' => true])
+                                        @include('notes._notes', ['object' => $workorder, 'model' => 'BT\Modules\Workorders\Models\Workorder', 'showPrivateCheckbox' => true, 'hideHeader' => true])
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab-attachments">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        @include('attachments._table', ['object' => $workorder, 'model' => 'FI\Modules\Workorders\Models\Workorder'])
+                                        @include('attachments._table', ['object' => $workorder, 'model' => 'BT\Modules\Workorders\Models\Workorder'])
                                     </div>
                                 </div>
                             </div>

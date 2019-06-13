@@ -9,7 +9,7 @@
  */
 
 
-Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Scheduler\Controllers'], function () {
+Route::group(['prefix' => 'scheduler', 'middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Scheduler\Controllers'], function () {
     Route::get('/', ['uses' => 'SchedulerController@index', 'as' => 'scheduler.index']);
     Route::get('/fullcalendar', ['uses' => 'SchedulerController@calendar', 'as' => 'scheduler.fullcalendar']);
     Route::get('/create_event', ['uses' => 'SchedulerController@editEvent', 'as' => 'scheduler.create']);

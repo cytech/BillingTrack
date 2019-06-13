@@ -3,11 +3,11 @@
         <div class="form-group">
             <label>@lang('fi.enabled_modules')</label>
             <div class="col-lg-8 col-sm-8">
-                @foreach (\FI\Modules\Settings\Models\Setting::$modules as $entityType => $value)
+                @foreach (\BT\Modules\Settings\Models\Setting::$modules as $entityType => $value)
                     <div class="form-check">
                         <label for="enabledModules{{ $value}}">
                             <input name="enabledModules[]" id="enabledModules{{ $value}}" type="checkbox"
-                                   {{ (new \FI\Modules\Settings\Models\Setting())->isModuleEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}"> {{ trans("fi.{$entityType}") }}
+                                   {{ (new \BT\Modules\Settings\Models\Setting())->isModuleEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}"> {{ trans("fi.{$entityType}") }}
                         </label>
                     </div>
                 @endforeach

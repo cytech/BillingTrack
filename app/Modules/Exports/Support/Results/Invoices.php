@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Exports\Support\Results;
+namespace BT\Modules\Exports\Support\Results;
 
-use FI\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\Invoice;
 
 class Invoices implements SourceInterface
 {

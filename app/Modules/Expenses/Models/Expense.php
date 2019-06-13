@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Expenses\Models;
+namespace BT\Modules\Expenses\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Events\CheckAttachment;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
+use BT\Events\CheckAttachment;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -43,37 +43,37 @@ class Expense extends Model
 
     public function attachments()
     {
-        return $this->morphMany('FI\Modules\Attachments\Models\Attachment', 'attachable');
+        return $this->morphMany('BT\Modules\Attachments\Models\Attachment', 'attachable');
     }
 
     public function category()
     {
-        return $this->belongsTo('FI\Modules\Categories\Models\Category');
+        return $this->belongsTo('BT\Modules\Categories\Models\Category');
     }
 
     public function client()
     {
-        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+        return $this->belongsTo('BT\Modules\Clients\Models\Client');
     }
 
     public function companyProfile()
     {
-        return $this->belongsTo('FI\Modules\CompanyProfiles\Models\CompanyProfile');
+        return $this->belongsTo('BT\Modules\CompanyProfiles\Models\CompanyProfile');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\ExpenseCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\ExpenseCustom');
     }
 
     public function invoice()
     {
-        return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
+        return $this->belongsTo('BT\Modules\Invoices\Models\Invoice');
     }
 
     public function vendor()
     {
-        return $this->belongsTo('FI\Modules\Vendors\Models\Vendor');
+        return $this->belongsTo('BT\Modules\Vendors\Models\Vendor');
     }
 
     /*

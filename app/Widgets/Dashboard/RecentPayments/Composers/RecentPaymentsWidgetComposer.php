@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Widgets\Dashboard\RecentPayments\Composers;
+namespace BT\Widgets\Dashboard\RecentPayments\Composers;
 
-use FI\Modules\Payments\Models\Payment;
+use BT\Modules\Payments\Models\Payment;
 
 class RecentPaymentsWidgetComposer
 {

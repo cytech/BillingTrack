@@ -1,10 +1,10 @@
 <?php
 
-namespace FI\Widgets\Dashboard\WorkorderSummary\Composers;
+namespace BT\Widgets\Dashboard\WorkorderSummary\Composers;
 
 use Illuminate\Support\Facades\DB;
-use FI\Modules\Workorders\Models\WorkorderAmount;
-use FI\Support\CurrencyFormatter;
+use BT\Modules\Workorders\Models\WorkorderAmount;
+use BT\Support\CurrencyFormatter;
 
 class WorkorderSummaryWidgetComposer
 {

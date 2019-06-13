@@ -1,10 +1,10 @@
 <?php
 
-namespace FI\Events\Listeners;
+namespace BT\Events\Listeners;
 
-use FI\Events\WorkorderRejected;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Support\Parser;
+use BT\Events\WorkorderRejected;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Support\Parser;
 
 class WorkorderRejectedListener
 {

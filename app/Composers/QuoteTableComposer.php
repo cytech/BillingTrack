@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Composers;
+namespace BT\Composers;
 
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Support\Statuses\QuoteStatuses;
 
 class QuoteTableComposer
 {

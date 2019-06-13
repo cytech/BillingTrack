@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Utilities\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Utilities\Controllers'], function ()
 {
     Route::get('utilities/manage_trash', ['uses' => 'UtilityController@manageTrash', 'as' => 'utilities.manage_trash']);
     Route::get('utilities/{id}/restore_trash/{entity}', ['uses' => 'UtilityController@restoreTrash', 'as' => 'utilities.restore_trash']);

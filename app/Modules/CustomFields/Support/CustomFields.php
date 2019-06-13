@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\CustomFields\Support;
+namespace BT\Modules\CustomFields\Support;
 
 class CustomFields
 {

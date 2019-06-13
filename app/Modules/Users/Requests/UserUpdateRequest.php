@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Users\Requests;
+namespace BT\Modules\Users\Requests;
 
 class UserUpdateRequest extends UserStoreRequest
 {

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Exports\Support\Results;
+namespace BT\Modules\Exports\Support\Results;
 
-use FI\Modules\Clients\Models\Client;
+use BT\Modules\Clients\Models\Client;
 
 class Clients implements SourceInterface
 {

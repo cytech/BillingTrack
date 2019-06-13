@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use FI\Modules\Sizes\Models\Size;
+use BT\Modules\Sizes\Models\Size;
 
 class SizeSeeder extends Seeder
 {

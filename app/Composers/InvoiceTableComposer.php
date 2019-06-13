@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Composers;
+namespace BT\Composers;
 
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Support\Statuses\InvoiceStatuses;
 
 class InvoiceTableComposer
 {

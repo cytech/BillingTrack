@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Settings\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Settings\Controllers'], function ()
 {
     Route::get('settings', ['uses' => 'SettingController@index', 'as' => 'settings.index']);
     Route::post('settings', ['uses' => 'SettingController@update', 'as' => 'settings.update']);

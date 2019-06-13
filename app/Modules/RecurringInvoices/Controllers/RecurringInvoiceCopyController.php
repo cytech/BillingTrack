@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Controllers;
+namespace BT\Modules\RecurringInvoices\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
-use FI\Modules\RecurringInvoices\Requests\RecurringInvoiceStoreRequest;
-use FI\Support\DateFormatter;
-use FI\Support\Frequency;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
+use BT\Modules\RecurringInvoices\Requests\RecurringInvoiceStoreRequest;
+use BT\Support\DateFormatter;
+use BT\Support\Frequency;
 
 class RecurringInvoiceCopyController extends Controller
 {

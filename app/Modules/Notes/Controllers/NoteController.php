@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Notes\Controllers;
+namespace BT\Modules\Notes\Controllers;
 
-use FI\Events\NoteCreated;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Notes\Models\Note;
+use BT\Events\NoteCreated;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Notes\Models\Note;
 
 class NoteController extends Controller
 {

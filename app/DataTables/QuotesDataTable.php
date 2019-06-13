@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\DataTables;
+namespace BT\DataTables;
 
-use FI\Modules\Quotes\Models\Quote;
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Support\Statuses\QuoteStatuses;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -65,7 +65,7 @@ class QuotesDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \FI\User $model
+     * @param \BT\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Quote $model)

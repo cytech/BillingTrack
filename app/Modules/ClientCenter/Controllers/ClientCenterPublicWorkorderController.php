@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ClientCenter\Controllers;
+namespace BT\Modules\ClientCenter\Controllers;
 
-use FI\Events\WorkorderApproved;
-use FI\Events\WorkorderRejected;
-use FI\Events\WorkorderViewed;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Support\FileNames;
-use FI\Support\PDF\PDFFactory;
-use FI\Support\Statuses\WorkorderStatuses;
+use BT\Events\WorkorderApproved;
+use BT\Events\WorkorderRejected;
+use BT\Events\WorkorderViewed;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Support\FileNames;
+use BT\Support\PDF\PDFFactory;
+use BT\Support\Statuses\WorkorderStatuses;
 
 class ClientCenterPublicWorkorderController extends Controller
 {

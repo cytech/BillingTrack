@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Employees\Models;
+namespace BT\Modules\Employees\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,7 +24,7 @@ class Employee extends Model
 
     public function workorderitem()
     {
-        return $this->belongsTo('FI\Modules\Workorders\Models\WorkorderItem','resource_id', 'id')
+        return $this->belongsTo('BT\Modules\Workorders\Models\WorkorderItem','resource_id', 'id')
             ->where('resource_table','=','employees');
     }
 

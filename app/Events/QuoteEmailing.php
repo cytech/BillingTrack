@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Events;
+namespace BT\Events;
 
-use FI\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Models\Quote;
 use Illuminate\Queue\SerializesModels;
 
 class QuoteEmailing extends Event

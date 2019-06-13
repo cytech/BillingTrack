@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Support;
+namespace BT\Modules\Invoices\Support;
 
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Models\InvoiceAmount;
-use FI\Modules\Invoices\Models\InvoiceItem;
-use FI\Modules\Invoices\Models\InvoiceItemAmount;
-use FI\Modules\Payments\Models\Payment;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\InvoiceAmount;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Modules\Invoices\Models\InvoiceItemAmount;
+use BT\Modules\Payments\Models\Payment;
+use BT\Support\Statuses\InvoiceStatuses;
 
 class InvoiceCalculate
 {

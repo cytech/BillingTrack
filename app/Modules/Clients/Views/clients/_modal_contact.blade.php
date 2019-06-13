@@ -128,7 +128,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             @if ($editMode)
-                                @include('notes._notes_contact', ['object' => $contact, 'model' => 'FI\Modules\Clients\Models\Contact', 'hideHeader' => true])
+                                @include('notes._notes_contact', ['object' => $contact, 'model' => 'BT\Modules\Clients\Models\Contact', 'hideHeader' => true])
                             @endif
                         </div>
 

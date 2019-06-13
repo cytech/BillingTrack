@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Models;
+namespace BT\Modules\Invoices\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
-use FI\Support\FileNames;
-use FI\Support\HTML;
-use FI\Support\NumberFormatter;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\FileNames;
+use BT\Support\HTML;
+use BT\Support\NumberFormatter;
+use BT\Support\Statuses\InvoiceStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
@@ -45,27 +45,27 @@ class Invoice extends Model
 
     public function activities()
     {
-        return $this->morphMany('FI\Modules\Activity\Models\Activity', 'audit');
+        return $this->morphMany('BT\Modules\Activity\Models\Activity', 'audit');
     }
 
     public function amount()
     {
-        return $this->hasOne('FI\Modules\Invoices\Models\InvoiceAmount');
+        return $this->hasOne('BT\Modules\Invoices\Models\InvoiceAmount');
     }
 
     public function attachments()
     {
-        return $this->morphMany('FI\Modules\Attachments\Models\Attachment', 'attachable');
+        return $this->morphMany('BT\Modules\Attachments\Models\Attachment', 'attachable');
     }
 
     public function client()
     {
-        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+        return $this->belongsTo('BT\Modules\Clients\Models\Client');
     }
 
     public function clientAttachments()
     {
-        $relationship = $this->morphMany('FI\Modules\Attachments\Models\Attachment', 'attachable');
+        $relationship = $this->morphMany('BT\Modules\Attachments\Models\Attachment', 'attachable');
 
         if ($this->status_text == 'paid')
         {
@@ -81,27 +81,27 @@ class Invoice extends Model
 
     public function companyProfile()
     {
-        return $this->belongsTo('FI\Modules\CompanyProfiles\Models\CompanyProfile');
+        return $this->belongsTo('BT\Modules\CompanyProfiles\Models\CompanyProfile');
     }
 
     public function currency()
     {
-        return $this->belongsTo('FI\Modules\Currencies\Models\Currency', 'currency_code', 'code');
+        return $this->belongsTo('BT\Modules\Currencies\Models\Currency', 'currency_code', 'code');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\InvoiceCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\InvoiceCustom');
     }
 
     public function group()
     {
-        return $this->belongsTo('FI\Modules\Groups\Models\Group');
+        return $this->belongsTo('BT\Modules\Groups\Models\Group');
     }
 
     public function items()
     {
-        return $this->hasMany('FI\Modules\Invoices\Models\InvoiceItem')
+        return $this->hasMany('BT\Modules\Invoices\Models\InvoiceItem')
             ->orderBy('display_order');
     }
 
@@ -109,43 +109,43 @@ class Invoice extends Model
     // and the fact that Laravel has a protected items property.
     public function invoiceItems()
     {
-        return $this->hasMany('FI\Modules\Invoices\Models\InvoiceItem')
+        return $this->hasMany('BT\Modules\Invoices\Models\InvoiceItem')
             ->orderBy('display_order');
     }
 
     public function mailQueue()
     {
-        return $this->morphMany('FI\Modules\MailQueue\Models\MailQueue', 'mailable');
+        return $this->morphMany('BT\Modules\MailQueue\Models\MailQueue', 'mailable');
     }
 
     public function notes()
     {
-        return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+        return $this->morphMany('BT\Modules\Notes\Models\Note', 'notable');
     }
 
     public function payments()
     {
-        return $this->hasMany('FI\Modules\Payments\Models\Payment');
+        return $this->hasMany('BT\Modules\Payments\Models\Payment');
     }
 
     public function quote()
     {
-        return $this->hasOne('FI\Modules\Quotes\Models\Quote');
+        return $this->hasOne('BT\Modules\Quotes\Models\Quote');
     }
 
     public function workorder()
     {
-        return $this->hasOne('FI\Modules\Workorders\Models\Workorder');
+        return $this->hasOne('BT\Modules\Workorders\Models\Workorder');
     }
 
     public function transactions()
     {
-        return $this->hasMany('FI\Modules\Merchant\Models\InvoiceTransaction');
+        return $this->hasMany('BT\Modules\Merchant\Models\InvoiceTransaction');
     }
 
     public function user()
     {
-        return $this->belongsTo('FI\Modules\Users\Models\User');
+        return $this->belongsTo('BT\Modules\Users\Models\User');
     }
 
     /*

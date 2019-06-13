@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\PDF;
+namespace BT\Support\PDF;
 
 abstract class PDFAbstract implements PDFInterface
 {

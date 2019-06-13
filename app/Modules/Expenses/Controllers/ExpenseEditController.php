@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Expenses\Controllers;
+namespace BT\Modules\Expenses\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Categories\Models\Category;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Expenses\Requests\ExpenseRequest;
-use FI\Modules\Vendors\Models\Vendor;
-use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Categories\Models\Category;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Expenses\Requests\ExpenseRequest;
+use BT\Modules\Vendors\Models\Vendor;
+use BT\Support\DateFormatter;
+use BT\Support\NumberFormatter;
+use BT\Traits\ReturnUrl;
 
 class ExpenseEditController extends Controller
 {

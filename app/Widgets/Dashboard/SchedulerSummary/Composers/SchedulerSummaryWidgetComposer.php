@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Widgets\Dashboard\SchedulerSummary\Composers;
+namespace BT\Widgets\Dashboard\SchedulerSummary\Composers;
 
 use Illuminate\Support\Facades\DB;
-use FI\Modules\Scheduler\Models\ScheduleReminder;
-use FI\Modules\Scheduler\Models\ScheduleOccurrence;
+use BT\Modules\Scheduler\Models\ScheduleReminder;
+use BT\Modules\Scheduler\Models\ScheduleOccurrence;
 use Carbon\Carbon;
 
 class SchedulerSummaryWidgetComposer

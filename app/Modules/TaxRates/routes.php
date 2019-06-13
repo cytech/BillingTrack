@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\TaxRates\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\TaxRates\Controllers'], function ()
 {
     Route::get('tax_rates', ['uses' => 'TaxRateController@index', 'as' => 'taxRates.index']);
     Route::get('tax_rates/create', ['uses' => 'TaxRateController@create', 'as' => 'taxRates.create']);

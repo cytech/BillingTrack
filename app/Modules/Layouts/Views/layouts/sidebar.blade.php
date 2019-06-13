@@ -46,7 +46,7 @@
                         <p>@lang('fi.clients')</p>
                     </a>
                 </li>
-                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('quote'))
+                @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('quote'))
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('quotes.index', ['status' => config('fi.quoteStatusFilter')]) }}">
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 @endif
-                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('workorder'))
+                @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('workorder'))
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ route('workorders.index', ['status' => config('fi.workorderStatusFilter')]) }}">
@@ -71,7 +71,7 @@
                         <p>@lang('fi.invoices')</p>
                     </a>
                 </li>
-                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('recurring_invoice'))
+                @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('recurring_invoice'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('recurringInvoices.index') }}">
                         <i class="nav-icon fas fa-sync-alt"></i>
@@ -85,7 +85,7 @@
                         <p>@lang('fi.payments')</p>
                     </a>
                 </li>
-                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('expense'))
+                @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('expense'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('expenses.index') }}">
                         <i class="nav-icon fas fa-dollar-sign"></i>
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 @endif
-                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('time_tracking'))
+                @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('time_tracking'))
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('timeTracking.projects.index', ['status' => 1]) }}">
                         <i class="nav-icon far fa-clock"></i>
@@ -101,7 +101,7 @@
                     </a>
                 </li>
                 @endif
-                @if(\FI\Modules\Settings\Models\Setting::isModuleEnabled('scheduler'))
+                @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('scheduler'))
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="nav-icon fa fa-calendar"></i>

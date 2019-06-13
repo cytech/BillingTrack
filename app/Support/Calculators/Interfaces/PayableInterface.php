@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\Calculators\Interfaces;
+namespace BT\Support\Calculators\Interfaces;
 
 interface PayableInterface
 {

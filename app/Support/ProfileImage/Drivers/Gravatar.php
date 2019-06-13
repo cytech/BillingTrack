@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\ProfileImage\Drivers;
+namespace BT\Support\ProfileImage\Drivers;
 
-use FI\Modules\Users\Models\User;
-use FI\Support\ProfileImage\ProfileImageInterface;
+use BT\Modules\Users\Models\User;
+use BT\Support\ProfileImage\ProfileImageInterface;
 
 class Gravatar implements ProfileImageInterface
 {

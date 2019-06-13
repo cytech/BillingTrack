@@ -1,11 +1,11 @@
 <?php
 
-namespace FI\Modules\Merchant\Support\Drivers;
+namespace BT\Modules\Merchant\Support\Drivers;
 
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Merchant\Models\MerchantPayment;
-use FI\Modules\Merchant\Support\MerchantDriverPayable;
-use FI\Modules\Payments\Models\Payment as FIPayment;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Merchant\Models\MerchantPayment;
+use BT\Modules\Merchant\Support\MerchantDriverPayable;
+use BT\Modules\Payments\Models\Payment as BTPayment;
 use PayPal\Api\Amount;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
@@ -103,7 +103,7 @@ class PayPal extends MerchantDriverPayable
         {
             foreach ($payment->getTransactions() as $transaction)
             {
-                $fiPayment = FIPayment::create([
+                $fiPayment = BTPayment::create([
                     'client_id'         => $invoice->client->id,
                     'invoice_id'        => $invoice->id,
                     'amount'            => $transaction->getAmount()->getTotal(),

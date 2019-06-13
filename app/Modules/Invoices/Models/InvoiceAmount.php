@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Models;
+namespace BT\Modules\Invoices\Models;
 
-use FI\Support\CurrencyFormatter;
-use FI\Support\NumberFormatter;
+use BT\Support\CurrencyFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -38,7 +38,7 @@ class InvoiceAmount extends Model
 
     public function invoice()
     {
-        return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
+        return $this->belongsTo('BT\Modules\Invoices\Models\Invoice');
     }
 
     /*

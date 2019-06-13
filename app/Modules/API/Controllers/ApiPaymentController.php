@@ -3,17 +3,17 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Controllers;
+namespace BT\Modules\API\Controllers;
 
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Payments\Models\Payment;
-use FI\Modules\Payments\Requests\PaymentRequest;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Payments\Models\Payment;
+use BT\Modules\Payments\Requests\PaymentRequest;
 
 class ApiPaymentController extends ApiController
 {

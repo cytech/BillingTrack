@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-//Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Vendors\Controllers'], function () {
+//Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Vendors\Controllers'], function () {
 //		//vendors
 //	    Route::group(['prefix' => 'vendors'], function () {
 //		    Route::get('/', ['uses' => 'VendorController@index', 'as' => 'vendors.index']);
@@ -30,7 +30,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'vendors', 'namespace' => 'FI\Modules\Vendors\Controllers'], function () {
+Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'vendors', 'namespace' => 'BT\Modules\Vendors\Controllers'], function () {
     Route::get('/', ['uses' => 'VendorController@index', 'as' => 'vendors.index']);
     Route::get('create', ['uses' => 'VendorController@create', 'as' => 'vendors.create']);
     Route::get('{id}/edit', ['uses' => 'VendorController@edit', 'as' => 'vendors.edit']);

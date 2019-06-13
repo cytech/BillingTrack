@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Expenses\Controllers;
+namespace BT\Modules\Expenses\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Expenses\Requests\ExpenseBillRequest;
-use FI\Modules\Invoices\Models\InvoiceItem;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Expenses\Requests\ExpenseBillRequest;
+use BT\Modules\Invoices\Models\InvoiceItem;
 
 class ExpenseBillController extends Controller
 {

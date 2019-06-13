@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Clients\Models;
+namespace BT\Modules\Clients\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Support\CurrencyFormatter;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Support\CurrencyFormatter;
+use BT\Support\Statuses\InvoiceStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
@@ -65,92 +65,92 @@ class Client extends Model
 
     public function attachments()
     {
-        return $this->morphMany('FI\Modules\Attachments\Models\Attachment', 'attachable');
+        return $this->morphMany('BT\Modules\Attachments\Models\Attachment', 'attachable');
     }
 
     public function contacts()
     {
-        return $this->hasMany('FI\Modules\Clients\Models\Contact');
+        return $this->hasMany('BT\Modules\Clients\Models\Contact');
     }
 
     public function currency()
     {
-        return $this->belongsTo('FI\Modules\Currencies\Models\Currency', 'currency_code', 'code');
+        return $this->belongsTo('BT\Modules\Currencies\Models\Currency', 'currency_code', 'code');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\ClientCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\ClientCustom');
     }
 
     public function expenses()
     {
-        return $this->hasMany('FI\Modules\Expenses\Models\Expense');
+        return $this->hasMany('BT\Modules\Expenses\Models\Expense');
     }
 
     public function invoices()
     {
-        return $this->hasMany('FI\Modules\Invoices\Models\Invoice');
+        return $this->hasMany('BT\Modules\Invoices\Models\Invoice');
     }
 
     public function payments()
     {
-        return $this->hasMany('FI\Modules\Payments\Models\Payment');
+        return $this->hasMany('BT\Modules\Payments\Models\Payment');
     }
 
     public function merchant()
     {
-        return $this->hasOne('FI\Modules\Merchant\Models\MerchantClient');
+        return $this->hasOne('BT\Modules\Merchant\Models\MerchantClient');
     }
 
     public function notes()
     {
-        return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+        return $this->morphMany('BT\Modules\Notes\Models\Note', 'notable');
     }
 
     /*public function payments()
     {
-        return $this->hasManyThrough('FI\Modules\Payments\Models\Payment', 'FI\Modules\Invoices\Models\Invoice');
+        return $this->hasManyThrough('BT\Modules\Payments\Models\Payment', 'BT\Modules\Invoices\Models\Invoice');
     }*/
 
     public function projects()
     {
-        return $this->hasMany('FI\Modules\TimeTracking\Models\TimeTrackingProject');
+        return $this->hasMany('BT\Modules\TimeTracking\Models\TimeTrackingProject');
     }
 
     public function quotes()
     {
-        return $this->hasMany('FI\Modules\Quotes\Models\Quote');
+        return $this->hasMany('BT\Modules\Quotes\Models\Quote');
     }
 
     public function workorders()
     {
-        return $this->hasMany('FI\Modules\Workorders\Models\Workorder');
+        return $this->hasMany('BT\Modules\Workorders\Models\Workorder');
     }
 
     public function recurringInvoices()
     {
-        return $this->hasMany('FI\Modules\RecurringInvoices\Models\RecurringInvoice');
+        return $this->hasMany('BT\Modules\RecurringInvoices\Models\RecurringInvoice');
     }
 
     public function user()
     {
-        return $this->hasOne('FI\Modules\Users\Models\User');
+        return $this->hasOne('BT\Modules\Users\Models\User');
     }
 
     public function size()
     {
-        return $this->belongsTo('FI\Modules\Sizes\Models\Size');
+        return $this->belongsTo('BT\Modules\Sizes\Models\Size');
     }
 
     public function industry()
     {
-        return $this->belongsTo('FI\Modules\Industries\Models\Industry');
+        return $this->belongsTo('BT\Modules\Industries\Models\Industry');
     }
 
     public function paymentterm()
     {
-        return $this->belongsTo('FI\Modules\PaymentTerms\Models\Paymentterm');
+        return $this->belongsTo('BT\Modules\PaymentTerms\Models\Paymentterm');
     }
 
 

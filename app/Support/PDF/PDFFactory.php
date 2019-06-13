@@ -3,21 +3,21 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\PDF;
+namespace BT\Support\PDF;
 
-use FI\Support\Directory;
+use BT\Support\Directory;
 
 class PDFFactory
 {
     public static function create()
     {
-        $class = 'FI\Support\PDF\Drivers\\' . config('fi.pdfDriver');
+        $class = 'BT\Support\PDF\Drivers\\' . config('fi.pdfDriver');
 
         return new $class;
     }

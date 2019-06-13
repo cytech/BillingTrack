@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\CustomFields\Models;
+namespace BT\Modules\CustomFields\Models;
 
-use FI\Traits\Sortable;
+use BT\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 

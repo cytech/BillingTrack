@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Composers;
+namespace BT\Composers;
 
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
 
 class ReportComposer
 {

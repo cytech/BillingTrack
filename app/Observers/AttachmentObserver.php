@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\Attachments\Models\Attachment;
+use BT\Modules\Attachments\Models\Attachment;
 
 class AttachmentObserver
 {

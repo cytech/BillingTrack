@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\ProfileImage;
+namespace BT\Support\ProfileImage;
 
-use FI\Modules\Users\Models\User;
+use BT\Modules\Users\Models\User;
 
 interface ProfileImageInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Providers;
+namespace BT\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -12,80 +12,80 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'FI\Events\CheckAttachment' => [
-            'FI\Events\Listeners\CheckAttachmentListener',
+        'BT\Events\CheckAttachment' => [
+            'BT\Events\Listeners\CheckAttachmentListener',
         ],
 
-        'FI\Events\InvoiceCreatedRecurring' => [
-            'FI\Events\Listeners\InvoiceCreatedRecurringListener',
+        'BT\Events\InvoiceCreatedRecurring' => [
+            'BT\Events\Listeners\InvoiceCreatedRecurringListener',
         ],
 
-        'FI\Events\InvoiceEmailing' => [
-            'FI\Events\Listeners\InvoiceEmailingListener',
+        'BT\Events\InvoiceEmailing' => [
+            'BT\Events\Listeners\InvoiceEmailingListener',
         ],
 
-        'FI\Events\InvoiceEmailed' => [
-            'FI\Events\Listeners\InvoiceEmailedListener',
+        'BT\Events\InvoiceEmailed' => [
+            'BT\Events\Listeners\InvoiceEmailedListener',
         ],
 
-        'FI\Events\InvoiceModified' => [
-            'FI\Events\Listeners\InvoiceModifiedListener',
+        'BT\Events\InvoiceModified' => [
+            'BT\Events\Listeners\InvoiceModifiedListener',
         ],
 
-        'FI\Events\InvoiceViewed' => [
-            'FI\Events\Listeners\InvoiceViewedListener',
+        'BT\Events\InvoiceViewed' => [
+            'BT\Events\Listeners\InvoiceViewedListener',
         ],
 
-        'FI\Events\QuoteModified' => [
-            'FI\Events\Listeners\QuoteModifiedListener',
+        'BT\Events\QuoteModified' => [
+            'BT\Events\Listeners\QuoteModifiedListener',
         ],
 
-        'FI\Events\QuoteEmailed' => [
-            'FI\Events\Listeners\QuoteEmailedListener',
+        'BT\Events\QuoteEmailed' => [
+            'BT\Events\Listeners\QuoteEmailedListener',
         ],
 
-        'FI\Events\QuoteEmailing' => [
-            'FI\Events\Listeners\QuoteEmailingListener',
+        'BT\Events\QuoteEmailing' => [
+            'BT\Events\Listeners\QuoteEmailingListener',
         ],
 
-        'FI\Events\QuoteApproved' => [
-            'FI\Events\Listeners\QuoteApprovedListener',
+        'BT\Events\QuoteApproved' => [
+            'BT\Events\Listeners\QuoteApprovedListener',
         ],
 
-        'FI\Events\QuoteRejected' => [
-            'FI\Events\Listeners\QuoteRejectedListener',
+        'BT\Events\QuoteRejected' => [
+            'BT\Events\Listeners\QuoteRejectedListener',
         ],
 
-        'FI\Events\QuoteViewed' => [
-            'FI\Events\Listeners\QuoteViewedListener',
+        'BT\Events\QuoteViewed' => [
+            'BT\Events\Listeners\QuoteViewedListener',
         ],
 
-        'FI\Events\RecurringInvoiceModified' => [
-            'FI\Events\Listeners\RecurringInvoiceModifiedListener',
+        'BT\Events\RecurringInvoiceModified' => [
+            'BT\Events\Listeners\RecurringInvoiceModifiedListener',
         ],
 
-        'FI\Events\WorkorderModified' => [
-            'FI\Events\Listeners\WorkorderModifiedListener',
+        'BT\Events\WorkorderModified' => [
+            'BT\Events\Listeners\WorkorderModifiedListener',
         ],
 
-        'FI\Events\WorkorderEmailed' => [
-            'FI\Events\Listeners\WorkorderEmailedListener',
+        'BT\Events\WorkorderEmailed' => [
+            'BT\Events\Listeners\WorkorderEmailedListener',
         ],
 
-        'FI\Events\WorkorderEmailing' => [
-            'FI\Events\Listeners\WorkorderEmailingListener',
+        'BT\Events\WorkorderEmailing' => [
+            'BT\Events\Listeners\WorkorderEmailingListener',
         ],
 
-        'FI\Events\WorkorderApproved' => [
-            'FI\Events\Listeners\WorkorderApprovedListener',
+        'BT\Events\WorkorderApproved' => [
+            'BT\Events\Listeners\WorkorderApprovedListener',
         ],
 
-        'FI\Events\WorkorderRejected' => [
-            'FI\Events\Listeners\WorkorderRejectedListener',
+        'BT\Events\WorkorderRejected' => [
+            'BT\Events\Listeners\WorkorderRejectedListener',
         ],
 
-        'FI\Events\WorkorderViewed' => [
-            'FI\Events\Listeners\WorkorderViewedListener',
+        'BT\Events\WorkorderViewed' => [
+            'BT\Events\Listeners\WorkorderViewedListener',
         ],
 
     ];

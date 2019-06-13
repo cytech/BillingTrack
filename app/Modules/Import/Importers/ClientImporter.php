@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Importers;
+namespace BT\Modules\Import\Importers;
 
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CustomFields\Models\CustomField;
 use Illuminate\Support\Facades\Validator;
 
 class ClientImporter extends AbstractImporter

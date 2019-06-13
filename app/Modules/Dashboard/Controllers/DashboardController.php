@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Dashboard\Controllers;
+namespace BT\Modules\Dashboard\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Support\DashboardWidgets;
+use BT\Http\Controllers\Controller;
+use BT\Support\DashboardWidgets;
 
 class DashboardController extends Controller
 {

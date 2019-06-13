@@ -1,9 +1,9 @@
 <?php
 
-use FI\Modules\Categories\Models\Category;
-use FI\Modules\CustomFields\Models\VendorCustom;
-use FI\Modules\Products\Models\Product;
-use FI\Modules\Vendors\Models\Vendor;
+use BT\Modules\Categories\Models\Category;
+use BT\Modules\CustomFields\Models\VendorCustom;
+use BT\Modules\Products\Models\Product;
+use BT\Modules\Vendors\Models\Vendor;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

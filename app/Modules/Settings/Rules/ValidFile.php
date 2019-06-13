@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Settings\Rules;
+namespace BT\Modules\Settings\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Products\Models;
+namespace BT\Modules\Products\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,35 +25,35 @@ class Product extends Model
 
     public function vendor()
     {
-        return $this->belongsTo('FI\Modules\Vendors\Models\Vendor');
+        return $this->belongsTo('BT\Modules\Vendors\Models\Vendor');
     }
 
     public function category()
     {
-        return $this->belongsTo('FI\Modules\Categories\Models\Category');
+        return $this->belongsTo('BT\Modules\Categories\Models\Category');
     }
 
     public function quoteitem()
     {
-        return $this->belongsTo('FI\Modules\Workorders\Models\QuoteItem','resource_id', 'id')
+        return $this->belongsTo('BT\Modules\Workorders\Models\QuoteItem','resource_id', 'id')
             ->where('resource_table','=','products');
     }
 
     public function workorderitem()
     {
-        return $this->belongsTo('FI\Modules\Workorders\Models\WorkorderItem','resource_id', 'id')
+        return $this->belongsTo('BT\Modules\Workorders\Models\WorkorderItem','resource_id', 'id')
             ->where('resource_table','=','products');
     }
 
     public function invoiceitem()
     {
-        return $this->belongsTo('FI\Modules\Workorders\Models\InvoiceItem','resource_id', 'id')
+        return $this->belongsTo('BT\Modules\Workorders\Models\InvoiceItem','resource_id', 'id')
             ->where('resource_table','=','products');
     }
 
     public function recurringinvoiceitem()
     {
-        return $this->belongsTo('FI\Modules\Workorders\Models\RecurringInvoiceItem','resource_id', 'id')
+        return $this->belongsTo('BT\Modules\Workorders\Models\RecurringInvoiceItem','resource_id', 'id')
             ->where('resource_table','=','products');
     }
 }

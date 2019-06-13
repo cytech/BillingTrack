@@ -10,7 +10,7 @@
  *
  */
 
-namespace FI\Modules\Scheduler\Requests;
+namespace BT\Modules\Scheduler\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\CustomFields\Models;
+namespace BT\Modules\CustomFields\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

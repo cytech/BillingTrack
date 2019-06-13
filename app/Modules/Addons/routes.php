@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'addons', 'namespace' => 'FI\Modules\Addons\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'addons', 'namespace' => 'BT\Modules\Addons\Controllers'], function ()
 {
     Route::get('/', ['uses' => 'AddonController@index', 'as' => 'addons.index']);
 

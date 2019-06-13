@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Modules\Sizes\Models;
+namespace BT\Modules\Sizes\Models;
 
 use Eloquent;
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Events\InvoiceModified;
-use FI\Modules\Invoices\Models\InvoiceItem;
+use BT\Events\InvoiceModified;
+use BT\Modules\Invoices\Models\InvoiceItem;
 
 class InvoiceItemObserver
 {
     /**
      * Handle the invoice item "saving" event.
      *
-     * @param  \FI\Modules\Invoices\Models\InvoiceItem  $invoiceItem
+     * @param  \BT\Modules\Invoices\Models\InvoiceItem  $invoiceItem
      * @return void
      */
     public function saving(InvoiceItem $invoiceItem): void
@@ -53,7 +53,7 @@ class InvoiceItemObserver
     /**
      * Handle the invoice item "saved" event.
      *
-     * @param  \FI\Modules\Invoices\Models\InvoiceItem  $invoiceItem
+     * @param  \BT\Modules\Invoices\Models\InvoiceItem  $invoiceItem
      * @return void
      */
     public function saved(InvoiceItem $invoiceItem): void
@@ -65,7 +65,7 @@ class InvoiceItemObserver
     /**
      * Handle the invoice item "deleted" event.
      *
-     * @param  \FI\Modules\Invoices\Models\InvoiceItem  $invoiceItem
+     * @param  \BT\Modules\Invoices\Models\InvoiceItem  $invoiceItem
      * @return void
      */
     public function deleted(InvoiceItem $invoiceItem): void

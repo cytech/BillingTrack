@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Activity\Models;
+namespace BT\Modules\Activity\Models;
 
-use FI\Support\DateFormatter;
+use BT\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -36,7 +36,7 @@ class Activity extends Model
         {
             switch ($this->audit_type)
             {
-                case 'FI\Modules\Quotes\Models\Quote':
+                case 'BT\Modules\Quotes\Models\Quote':
 
                     switch ($this->activity)
                     {
@@ -55,7 +55,7 @@ class Activity extends Model
 
                     break;
 
-                case 'FI\Modules\Workorders\Models\Workorder':
+                case 'BT\Modules\Workorders\Models\Workorder':
 
                     switch ($this->activity)
                     {
@@ -74,7 +74,7 @@ class Activity extends Model
 
                     break;
 
-                case 'FI\Modules\Invoices\Models\Invoice':
+                case 'BT\Modules\Invoices\Models\Invoice':
 
                     switch ($this->activity)
                     {

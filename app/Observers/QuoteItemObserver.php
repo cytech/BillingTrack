@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Events\QuoteModified;
-use FI\Modules\Quotes\Models\QuoteItem;
+use BT\Events\QuoteModified;
+use BT\Modules\Quotes\Models\QuoteItem;
 
 class QuoteItemObserver
 {
     /**
      * Handle the quote item "saving" event.
      *
-     * @param  \FI\Modules\Quotes\Models\QuoteItem  $quoteItem
+     * @param  \BT\Modules\Quotes\Models\QuoteItem  $quoteItem
      * @return void
      */
     public function saving(QuoteItem $quoteItem): void
@@ -42,7 +42,7 @@ class QuoteItemObserver
     /**
      * Handle the quote item "saved" event.
      *
-     * @param  \FI\Modules\Quotes\Models\QuoteItem  $quoteItem
+     * @param  \BT\Modules\Quotes\Models\QuoteItem  $quoteItem
      * @return void
      */
     public function saved(QuoteItem $quoteItem): void
@@ -54,7 +54,7 @@ class QuoteItemObserver
     /**
      * Handle the quote item "deleted" event.
      *
-     * @param  \FI\Modules\Quotes\Models\QuoteItem  $quoteItem
+     * @param  \BT\Modules\Quotes\Models\QuoteItem  $quoteItem
      * @return void
      */
     public function deleted(QuoteItem $quoteItem): void

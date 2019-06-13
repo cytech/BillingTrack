@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Controllers;
+namespace BT\Modules\Reports\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Reports\Reports\ClientStatementReport;
-use FI\Modules\Reports\Requests\ClientStatementReportRequest;
-use FI\Support\PDF\PDFFactory;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Reports\Reports\ClientStatementReport;
+use BT\Modules\Reports\Requests\ClientStatementReportRequest;
+use BT\Support\PDF\PDFFactory;
 
 class ClientStatementReportController extends Controller
 {

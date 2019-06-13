@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Widgets\Dashboard\TodaysWorkorders\Composers;
+namespace BT\Widgets\Dashboard\TodaysWorkorders\Composers;
 
 use Carbon\Carbon;
-use FI\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Models\Workorder;
 
 class TodaysWorkordersWidgetComposer
 {

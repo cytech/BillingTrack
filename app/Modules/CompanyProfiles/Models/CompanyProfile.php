@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\CompanyProfiles\Models;
+namespace BT\Modules\CompanyProfiles\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Quotes\Models\Quote;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Quotes\Models\Quote;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -66,7 +66,7 @@ class CompanyProfile extends Model
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\CompanyProfileCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\CompanyProfileCustom');
     }
 
     /*

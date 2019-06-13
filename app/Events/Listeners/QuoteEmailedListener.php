@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Events\Listeners;
+namespace BT\Events\Listeners;
 
-use FI\Events\QuoteEmailed;
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Events\QuoteEmailed;
+use BT\Support\Statuses\QuoteStatuses;
 
 class QuoteEmailedListener
 {

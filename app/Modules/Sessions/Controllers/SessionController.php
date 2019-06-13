@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Sessions\Controllers;
+namespace BT\Modules\Sessions\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Sessions\Requests\SessionRequest;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Sessions\Requests\SessionRequest;
 
 class SessionController extends Controller
 {

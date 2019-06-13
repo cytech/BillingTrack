@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Reports;
+namespace BT\Modules\Reports\Reports;
 
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\NumberFormatter;
+use BT\Support\Statuses\InvoiceStatuses;
 
 class TaxSummaryReport
 {

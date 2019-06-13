@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Expenses\Requests;
+namespace BT\Modules\Expenses\Requests;
 
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ExpenseRequest extends FormRequest

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Models;
+namespace BT\Modules\RecurringInvoices\Models;
 
-use FI\Support\CurrencyFormatter;
+use BT\Support\CurrencyFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -36,7 +36,7 @@ class RecurringInvoiceAmount extends Model
 
     public function recurringInvoice()
     {
-        return $this->belongsTo('FI\Modules\RecurringInvoices\Models\RecurringInvoice');
+        return $this->belongsTo('BT\Modules\RecurringInvoices\Models\RecurringInvoice');
     }
 
     /*

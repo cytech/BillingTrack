@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Categories\Models;
+namespace BT\Modules\Categories\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

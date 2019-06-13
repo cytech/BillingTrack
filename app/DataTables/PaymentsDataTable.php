@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\DataTables;
+namespace BT\DataTables;
 
-use FI\Modules\Payments\Models\Payment;
+use BT\Modules\Payments\Models\Payment;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -37,7 +37,7 @@ class PaymentsDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \FI\User $model
+     * @param \BT\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Payment $model)

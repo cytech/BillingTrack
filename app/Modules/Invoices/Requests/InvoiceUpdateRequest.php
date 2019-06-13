@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Requests;
+namespace BT\Modules\Invoices\Requests;
 
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 
 class InvoiceUpdateRequest extends InvoiceStoreRequest
 {

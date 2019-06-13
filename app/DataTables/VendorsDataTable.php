@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\DataTables;
+namespace BT\DataTables;
 
-use FI\Modules\Vendors\Models\Vendor;
+use BT\Modules\Vendors\Models\Vendor;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -31,7 +31,7 @@ class VendorsDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \FI\User $model
+     * @param \BT\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Vendor $model)

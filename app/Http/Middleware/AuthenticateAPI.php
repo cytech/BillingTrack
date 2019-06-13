@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Http\Middleware;
+namespace BT\Http\Middleware;
 
 use Closure;
-use FI\Modules\Users\Models\User;
+use BT\Modules\Users\Models\User;
 
 class AuthenticateAPI
 {

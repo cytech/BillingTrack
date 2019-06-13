@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Exports\Support\Results;
+namespace BT\Modules\Exports\Support\Results;
 
-use FI\Modules\Quotes\Models\QuoteItem;
+use BT\Modules\Quotes\Models\QuoteItem;
 
 class QuoteItems implements SourceInterface
 {

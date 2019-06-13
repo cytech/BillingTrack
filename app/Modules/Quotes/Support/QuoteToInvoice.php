@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Support;
+namespace BT\Modules\Quotes\Support;
 
-use FI\Events\InvoiceModified;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Models\InvoiceItem;
-use FI\Support\Statuses\InvoiceStatuses;
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Events\InvoiceModified;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Support\Statuses\InvoiceStatuses;
+use BT\Support\Statuses\QuoteStatuses;
 
 class QuoteToInvoice
 {

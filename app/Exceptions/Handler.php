@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Exceptions;
+namespace BT\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

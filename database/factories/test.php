@@ -12,11 +12,11 @@
 namespace database\factories;
 
 use Faker\Factory as Faker;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Clients\Models\Contact;
-use FI\Modules\Employees\Models\Employee;
-use FI\Modules\Products\Models\Product;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\Clients\Models\Contact;
+use BT\Modules\Employees\Models\Employee;
+use BT\Modules\Products\Models\Product;
 
 class TestController extends Controller
 {
@@ -27,7 +27,7 @@ class TestController extends Controller
 //        $employee = factory(Employee::class, 10)->create();
 //        $product = factory(Product::class, 20)->create();
 
-//        $companies = \FI\Modules\Clients\Models\Client::where('is_company', 1)->get();
+//        $companies = \BT\Modules\Clients\Models\Client::where('is_company', 1)->get();
 //
 //        foreach ($companies as $company){
 //            $contact = factory(Contact::class,1 )->create(['client_id' => $company->id]);
@@ -37,7 +37,7 @@ class TestController extends Controller
 
         $faker = Faker::create();
 
-        $companies = \FI\Modules\Clients\Models\Client::where('is_company', 1)->get();
+        $companies = \BT\Modules\Clients\Models\Client::where('is_company', 1)->get();
 
         foreach ($companies as $company){
             $company->address_2 = $faker->streetAddress;

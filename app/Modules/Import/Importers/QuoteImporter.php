@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Importers;
+namespace BT\Modules\Import\Importers;
 
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Quotes\Models\Quote;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Quotes\Models\Quote;
 use Illuminate\Support\Facades\Validator;
 
 class QuoteImporter extends AbstractImporter

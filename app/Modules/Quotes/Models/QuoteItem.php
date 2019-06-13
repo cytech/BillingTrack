@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Models;
+namespace BT\Modules\Quotes\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Support\CurrencyFormatter;
-use FI\Support\NumberFormatter;
+use BT\Support\CurrencyFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -37,33 +37,33 @@ class QuoteItem extends Model
 
     public function amount()
     {
-        return $this->hasOne('FI\Modules\Quotes\Models\QuoteItemAmount', 'item_id');
+        return $this->hasOne('BT\Modules\Quotes\Models\QuoteItemAmount', 'item_id');
     }
 
     public function quote()
     {
-        return $this->belongsTo('FI\Modules\Quotes\Models\Quote');
+        return $this->belongsTo('BT\Modules\Quotes\Models\Quote');
     }
 
     public function taxRate()
     {
-        return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate');
     }
 
     public function taxRate2()
     {
-        return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
     }
 
     public function products()
     {
-        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
+        return $this->hasMany('BT\Modules\Products\Models\Product', 'resource_id')
             ->where('resource_table','=','products');
     }
 
     public function employees()
     {
-        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
+        return $this->hasMany('BT\Modules\Employees\Models\Employee', 'resource_id')
             ->where('resource_table','=','employees');
     }
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\DataTables;
+namespace BT\DataTables;
 
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Support\Frequency;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Support\Frequency;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -40,7 +40,7 @@ class RecurringInvoicesTrashDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \FI\User $model
+     * @param \BT\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(RecurringInvoice $model)

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Payments\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Payments\Controllers'], function ()
 {
     Route::get('payments', ['uses' => 'PaymentController@index', 'as' => 'payments.index']);
     Route::post('payments/create', ['uses' => 'PaymentController@create', 'as' => 'payments.create']);

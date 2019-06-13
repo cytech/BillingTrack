@@ -1,11 +1,11 @@
 <?php
 
-namespace FI\Composers;
+namespace BT\Composers;
 
-use FI\Modules\Currencies\Models\Currency;
-//use FI\Modules\Invoices\Support\InvoiceTemplates;
-//use FI\Modules\Quotes\Support\QuoteTemplates;
-use FI\Support\Languages;
+use BT\Modules\Currencies\Models\Currency;
+//use BT\Modules\Invoices\Support\InvoiceTemplates;
+//use BT\Modules\Quotes\Support\QuoteTemplates;
+use BT\Support\Languages;
 
 class VendorFormComposer
 {

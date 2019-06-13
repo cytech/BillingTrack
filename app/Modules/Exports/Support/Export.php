@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Exports\Support;
+namespace BT\Modules\Exports\Support;
 
 use Sonata\Exporter\Handler;
 use Sonata\Exporter\Source\ArraySourceIterator;
@@ -34,7 +34,7 @@ class Export
 
     public function writeFile()
     {
-        $resultsClass = 'FI\Modules\Exports\Support\Results\\' . $this->exportType;
+        $resultsClass = 'BT\Modules\Exports\Support\Results\\' . $this->exportType;
         $writerClass  = 'Sonata\Exporter\Writer\\' . $this->writerType;
 
         $fileExtension  = strtolower(str_replace('Writer', '', $this->writerType));

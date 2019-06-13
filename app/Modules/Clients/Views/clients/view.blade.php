@@ -202,11 +202,11 @@
                             </div>
 
                             <div class="tab-pane" id="tab-attachments">
-                                @include('attachments._table', ['object' => $client, 'model' => 'FI\Modules\Clients\Models\Client'])
+                                @include('attachments._table', ['object' => $client, 'model' => 'BT\Modules\Clients\Models\Client'])
                             </div>
 
                             <div id="tab-notes" class="tab-pane">
-                                @include('notes._notes', ['object' => $client, 'model' => 'FI\Modules\Clients\Models\Client', 'hideHeader' => true])
+                                @include('notes._notes', ['object' => $client, 'model' => 'BT\Modules\Clients\Models\Client', 'hideHeader' => true])
                             </div>
                         </div>
                     </div>

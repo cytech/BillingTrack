@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Controllers;
+namespace BT\Modules\Quotes\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Quotes\Support\QuoteToInvoice;
-use FI\Modules\Quotes\Requests\QuoteToInvoiceRequest;
-use FI\Support\DateFormatter;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Support\QuoteToInvoice;
+use BT\Modules\Quotes\Requests\QuoteToInvoiceRequest;
+use BT\Support\DateFormatter;
 
 class QuoteToInvoiceController extends Controller
 {

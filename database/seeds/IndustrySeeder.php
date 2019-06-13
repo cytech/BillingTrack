@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use FI\Modules\Industries\Models\Industry;
+use BT\Modules\Industries\Models\Industry;
 
 class IndustrySeeder extends Seeder
 {

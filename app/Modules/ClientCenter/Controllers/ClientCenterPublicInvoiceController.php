@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ClientCenter\Controllers;
+namespace BT\Modules\ClientCenter\Controllers;
 
-use FI\Events\InvoiceViewed;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Merchant\Support\MerchantFactory;
-use FI\Support\FileNames;
-use FI\Support\PDF\PDFFactory;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Events\InvoiceViewed;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Merchant\Support\MerchantFactory;
+use BT\Support\FileNames;
+use BT\Support\PDF\PDFFactory;
+use BT\Support\Statuses\InvoiceStatuses;
 
 class ClientCenterPublicInvoiceController extends Controller
 {

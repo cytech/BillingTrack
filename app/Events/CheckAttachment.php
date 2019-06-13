@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Events;
+namespace BT\Events;
 
 use Illuminate\Queue\SerializesModels;
 

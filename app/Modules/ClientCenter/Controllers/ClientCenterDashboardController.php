@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ClientCenter\Controllers;
+namespace BT\Modules\ClientCenter\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Payments\Models\Payment;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Support\Statuses\InvoiceStatuses;
-use FI\Support\Statuses\QuoteStatuses;
-use FI\Support\Statuses\WorkorderStatuses;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Payments\Models\Payment;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Support\Statuses\InvoiceStatuses;
+use BT\Support\Statuses\QuoteStatuses;
+use BT\Support\Statuses\WorkorderStatuses;
 use Illuminate\Support\Facades\DB;
 
 class ClientCenterDashboardController extends Controller

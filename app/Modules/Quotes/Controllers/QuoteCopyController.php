@@ -3,22 +3,22 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Controllers;
+namespace BT\Modules\Quotes\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Quotes\Models\QuoteItem;
-use FI\Modules\Quotes\Requests\QuoteStoreRequest;
-use FI\Support\DateFormatter;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Models\QuoteItem;
+use BT\Modules\Quotes\Requests\QuoteStoreRequest;
+use BT\Support\DateFormatter;
 
 class QuoteCopyController extends Controller
 {

@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Requests;
+namespace BT\Modules\Workorders\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

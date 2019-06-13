@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Tasks\Controllers;
+namespace BT\Modules\Tasks\Controllers;
 
 use Carbon\Carbon;
-use FI\Events\InvoiceCreatedRecurring;
-use FI\Http\Controllers\Controller;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Models\InvoiceItem;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Support\DateFormatter;
-use FI\Support\Parser;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Events\InvoiceCreatedRecurring;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Support\DateFormatter;
+use BT\Support\Parser;
+use BT\Support\Statuses\InvoiceStatuses;
 use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
@@ -68,7 +68,7 @@ class TaskController extends Controller
                         ->where('due_at', $date)
                         ->get();
 
-                    Log::info('FI::MailQueue - Invoices found due ' . $daysFromNow . ' days from now on ' . $date . ': ' . $invoices->count());
+                    Log::info('BT::MailQueue - Invoices found due ' . $daysFromNow . ' days from now on ' . $date . ': ' . $invoices->count());
 
                     foreach ($invoices as $invoice)
                     {
@@ -88,7 +88,7 @@ class TaskController extends Controller
                 }
                 else
                 {
-                    Log::info('FI::MailQueue - Upcoming payment due indicator: ' . $daysFromNow);
+                    Log::info('BT::MailQueue - Upcoming payment due indicator: ' . $daysFromNow);
                 }
             }
         }
@@ -120,7 +120,7 @@ class TaskController extends Controller
                         ->where('due_at', $date)
                         ->get();
 
-                    Log::info('FI::MailQueue - Invoices found due ' . $daysAgo . ' days ago on ' . $date . ': ' . $invoices->count());
+                    Log::info('BT::MailQueue - Invoices found due ' . $daysAgo . ' days ago on ' . $date . ': ' . $invoices->count());
 
                     foreach ($invoices as $invoice)
                     {
@@ -141,7 +141,7 @@ class TaskController extends Controller
                 }
                 else
                 {
-                    Log::info('FI::MailQueue - Invalid overdue indicator: ' . $daysAgo);
+                    Log::info('BT::MailQueue - Invalid overdue indicator: ' . $daysAgo);
                 }
             }
         }

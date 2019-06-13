@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Support;
+namespace BT\Modules\RecurringInvoices\Support;
 
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoiceAmount;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoiceItemAmount;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoiceAmount;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoiceItemAmount;
 
 class RecurringInvoiceCalculate
 {

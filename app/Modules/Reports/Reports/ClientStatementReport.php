@@ -3,18 +3,18 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Reports;
+namespace BT\Modules\Reports\Reports;
 
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
 
 class ClientStatementReport
 {

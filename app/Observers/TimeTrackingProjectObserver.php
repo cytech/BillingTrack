@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
 
-use FI\Modules\TimeTracking\Models\TimeTrackingProject;
+use BT\Modules\TimeTracking\Models\TimeTrackingProject;
 
 class TimeTrackingProjectObserver
 {
     /**
      * Handle the time tracking project "created" event.
      *
-     * @param  \FI\Modules\TimeTracking\Models\TimeTrackingProject  $timeTrackingProject
+     * @param  \BT\Modules\TimeTracking\Models\TimeTrackingProject  $timeTrackingProject
      * @return void
      */
     public function creating(TimeTrackingProject $timeTrackingProject): void

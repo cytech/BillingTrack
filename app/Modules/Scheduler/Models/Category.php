@@ -9,7 +9,7 @@
  */
 
 
-namespace FI\Modules\Scheduler\Models;
+namespace BT\Modules\Scheduler\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

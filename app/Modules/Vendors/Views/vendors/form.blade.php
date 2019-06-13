@@ -52,10 +52,10 @@
 {{--                                    @include('vendors._contacts', ['contacts' => $vendor->contacts()->orderBy('name')->get(), 'vendorId' => $vendor->id])--}}
 {{--                                </div>--}}
                                 <div class="tab-pane" id="tab-attachments">
-                                    @include('attachments._table', ['object' => $vendor, 'model' => 'FI\Modules\Vendors\Models\Vendor'])
+                                    @include('attachments._table', ['object' => $vendor, 'model' => 'BT\Modules\Vendors\Models\Vendor'])
                                 </div>
                                 <div class="tab-pane" id="tab-notes">
-                                    @include('notes._notes', ['object' => $vendor, 'model' => 'FI\Modules\Vendors\Models\Vendor', 'hideHeader' => true])
+                                    @include('notes._notes', ['object' => $vendor, 'model' => 'BT\Modules\Vendors\Models\Vendor', 'hideHeader' => true])
                                 </div>
                             @endif
                         </div>

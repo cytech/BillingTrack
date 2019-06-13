@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Setup\Controllers;
+namespace BT\Modules\Setup\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Scheduler\Models\Category;
-use FI\Modules\Scheduler\Models\Schedule;
-use FI\Modules\Settings\Models\Setting;
-use FI\Modules\Setup\Requests\LicenseRequest;
-use FI\Modules\Setup\Requests\ProfileRequest;
-use FI\Modules\Users\Models\User;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Support\Migrations;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Scheduler\Models\Category;
+use BT\Modules\Scheduler\Models\Schedule;
+use BT\Modules\Settings\Models\Setting;
+use BT\Modules\Setup\Requests\LicenseRequest;
+use BT\Modules\Setup\Requests\ProfileRequest;
+use BT\Modules\Users\Models\User;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Support\Migrations;
 use DB;
 use Illuminate\Http\Request;
 use Schema;

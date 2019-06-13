@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Employees\Controllers;
+namespace BT\Modules\Employees\Controllers;
 
-use FI\Modules\Employees\Models\Employee;
-use FI\Modules\Employees\Requests\EmployeeRequest;
-use FI\Http\Controllers\Controller;
-use FI\Modules\ItemLookups\Models\ItemLookup;
-use FI\Modules\Titles\Models\Title;
+use BT\Modules\Employees\Models\Employee;
+use BT\Modules\Employees\Requests\EmployeeRequest;
+use BT\Http\Controllers\Controller;
+use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\Titles\Models\Title;
 
 class EmployeeController extends Controller
 {

@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Widgets\Dashboard\SchedulerSummary\Controllers;
+namespace BT\Widgets\Dashboard\SchedulerSummary\Controllers;
 
-use FI\Http\Controllers\Controller;
+use BT\Http\Controllers\Controller;
 
 
 class WidgetController extends Controller

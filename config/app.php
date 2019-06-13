@@ -181,7 +181,7 @@ return [
         /*
          * Application Service Providers...
          */
-        FI\Providers\AppServiceProvider::class,
+        BT\Providers\AppServiceProvider::class,
 
     ],
 

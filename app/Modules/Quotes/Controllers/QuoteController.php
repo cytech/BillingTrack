@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Controllers;
+namespace BT\Modules\Quotes\Controllers;
 
-use FI\DataTables\QuotesDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Support\FileNames;
-use FI\Support\PDF\PDFFactory;
-use FI\Support\Statuses\QuoteStatuses;
-use FI\Traits\ReturnUrl;
+use BT\DataTables\QuotesDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Support\FileNames;
+use BT\Support\PDF\PDFFactory;
+use BT\Support\Statuses\QuoteStatuses;
+use BT\Traits\ReturnUrl;
 
 class QuoteController extends Controller
 {

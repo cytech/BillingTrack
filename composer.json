@@ -37,7 +37,7 @@
             "database/factories"
         ],
         "psr-4": {
-            "FI\\": "app/",
+            "BT\\": "app/",
             "Addons\\": "custom/addons/"
         },
         "files": [

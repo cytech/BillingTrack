@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Vendors\Controllers;
+namespace BT\Modules\Vendors\Controllers;
 
-use FI\DataTables\VendorsDataTable;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\PaymentTerms\Models\PaymentTerm;
-use FI\Modules\Vendors\Models\Vendor;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Vendors\Requests\VendorStoreRequest;
-use FI\Modules\Vendors\Requests\VendorUpdateRequest;
-use FI\Traits\ReturnUrl;
+use BT\DataTables\VendorsDataTable;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\PaymentTerms\Models\PaymentTerm;
+use BT\Modules\Vendors\Models\Vendor;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Vendors\Requests\VendorStoreRequest;
+use BT\Modules\Vendors\Requests\VendorUpdateRequest;
+use BT\Traits\ReturnUrl;
 
 
 class VendorController extends Controller

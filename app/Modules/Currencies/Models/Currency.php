@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Currencies\Models;
+namespace BT\Modules\Currencies\Models;
 
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Traits\Sortable;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 
 class Currency extends Model

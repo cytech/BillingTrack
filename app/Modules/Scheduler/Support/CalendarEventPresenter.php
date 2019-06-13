@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Modules\Scheduler\Support;
+namespace BT\Modules\Scheduler\Support;
 
 use stdClass;
 

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\MailQueue\Support;
+namespace BT\Modules\MailQueue\Support;
 
-use FI\Support\PDF\PDFFactory;
+use BT\Support\PDF\PDFFactory;
 use Illuminate\Support\Facades\Mail;
 
 class MailQueue
@@ -34,7 +34,7 @@ class MailQueue
 
     public function send($id)
     {
-        $mail = \FI\Modules\MailQueue\Models\MailQueue::find($id);
+        $mail = \BT\Modules\MailQueue\Models\MailQueue::find($id);
 
         if ($this->sendMail(
             $mail->from,

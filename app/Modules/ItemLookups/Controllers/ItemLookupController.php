@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ItemLookups\Controllers;
+namespace BT\Modules\ItemLookups\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\ItemLookups\Models\ItemLookup;
-use FI\Modules\ItemLookups\Requests\ItemLookupRequest;
-use FI\Modules\TaxRates\Models\TaxRate;
-use FI\Support\NumberFormatter;
+use BT\Http\Controllers\Controller;
+use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\ItemLookups\Requests\ItemLookupRequest;
+use BT\Modules\TaxRates\Models\TaxRate;
+use BT\Support\NumberFormatter;
 
 class ItemLookupController extends Controller
 {

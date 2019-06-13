@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Exports\Support\Results;
+namespace BT\Modules\Exports\Support\Results;
 
-use FI\Modules\Payments\Models\Payment;
+use BT\Modules\Payments\Models\Payment;
 
 class Payments implements SourceInterface
 {

@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Support;
+namespace BT\Modules\Quotes\Support;
 
-use FI\Events\WorkorderModified;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Modules\Workorders\Models\WorkorderItem;
-use FI\Support\Statuses\WorkorderStatuses;
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Events\WorkorderModified;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Models\WorkorderItem;
+use BT\Support\Statuses\WorkorderStatuses;
+use BT\Support\Statuses\QuoteStatuses;
 
 class QuoteToWorkorder
 {

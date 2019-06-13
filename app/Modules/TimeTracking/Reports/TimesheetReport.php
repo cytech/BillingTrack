@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Reports;
+namespace BT\Modules\TimeTracking\Reports;
 
-use FI\Modules\TimeTracking\Models\TimeTrackingProject;
-use FI\Support\Statuses\TimeTrackingProjectStatuses;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
+use BT\Modules\TimeTracking\Models\TimeTrackingProject;
+use BT\Support\Statuses\TimeTrackingProjectStatuses;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\NumberFormatter;
 
 class TimesheetReport
 {

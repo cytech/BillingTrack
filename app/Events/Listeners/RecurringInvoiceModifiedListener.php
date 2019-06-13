@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Events\Listeners;
+namespace BT\Events\Listeners;
 
-use FI\Events\RecurringInvoiceModified;
-use FI\Modules\RecurringInvoices\Support\RecurringInvoiceCalculate;
+use BT\Events\RecurringInvoiceModified;
+use BT\Modules\RecurringInvoices\Support\RecurringInvoiceCalculate;
 
 class RecurringInvoiceModifiedListener
 {

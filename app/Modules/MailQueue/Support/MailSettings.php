@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\MailQueue\Support;
+namespace BT\Modules\MailQueue\Support;
 
 class MailSettings
 {

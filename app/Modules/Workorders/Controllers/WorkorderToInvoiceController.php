@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Controllers;
+namespace BT\Modules\Workorders\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Modules\Workorders\Support\WorkorderToInvoice;
-use FI\Modules\Workorders\Requests\WorkorderToInvoiceRequest;
-use FI\Support\DateFormatter;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Support\WorkorderToInvoice;
+use BT\Modules\Workorders\Requests\WorkorderToInvoiceRequest;
+use BT\Support\DateFormatter;
 
 class WorkorderToInvoiceController extends Controller
 {

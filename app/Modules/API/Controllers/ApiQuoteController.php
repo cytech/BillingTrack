@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Controllers;
+namespace BT\Modules\API\Controllers;
 
-use FI\Modules\API\Requests\APIQuoteItemRequest;
-use FI\Modules\API\Requests\APIQuoteStoreRequest;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Quotes\Models\QuoteItem;
-use FI\Modules\Users\Models\User;
+use BT\Modules\API\Requests\APIQuoteItemRequest;
+use BT\Modules\API\Requests\APIQuoteStoreRequest;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Models\QuoteItem;
+use BT\Modules\Users\Models\User;
 
 class ApiQuoteController extends ApiController
 {

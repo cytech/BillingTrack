@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\PDF\Drivers;
+namespace BT\Support\PDF\Drivers;
 
-use FI\Support\PDF\PDFAbstract;
+use BT\Support\PDF\PDFAbstract;
 use Knp\Snappy\Pdf;
 
 class wkhtmltopdf extends PDFAbstract

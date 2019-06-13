@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Requests;
+namespace BT\Modules\RecurringInvoices\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

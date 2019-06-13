@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\MailQueue\Controllers;
+namespace BT\Modules\MailQueue\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\MailQueue\Models\MailQueue;
+use BT\Http\Controllers\Controller;
+use BT\Modules\MailQueue\Models\MailQueue;
 
 class MailLogController extends Controller
 {

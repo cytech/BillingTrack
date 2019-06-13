@@ -1,6 +1,6 @@
 <?php
 
-use FI\Modules\Settings\Models\Setting;
+use BT\Modules\Settings\Models\Setting;
 use Illuminate\Database\Seeder;
 
 class SettingsTableSeeder extends Seeder

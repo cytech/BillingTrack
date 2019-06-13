@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use FI\Modules\Titles\Models\Title;
+use BT\Modules\Titles\Models\Title;
 
 class TitleSeeder extends Seeder
 {

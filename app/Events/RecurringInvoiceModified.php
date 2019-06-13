@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Events;
+namespace BT\Events;
 
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
 use Illuminate\Queue\SerializesModels;
 
 class RecurringInvoiceModified extends Event

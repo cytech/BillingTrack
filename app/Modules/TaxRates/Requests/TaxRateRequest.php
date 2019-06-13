@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TaxRates\Requests;
+namespace BT\Modules\TaxRates\Requests;
 
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TaxRateRequest extends FormRequest

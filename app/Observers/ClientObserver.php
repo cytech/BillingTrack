@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CustomFields\Models\ClientCustom;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CustomFields\Models\ClientCustom;
 
 class ClientObserver
 {

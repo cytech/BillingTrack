@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Widgets\Dashboard\WorkorderSummary\Composers;
+namespace BT\Widgets\Dashboard\WorkorderSummary\Composers;
 
 class WorkorderSummarySettingComposer
 {

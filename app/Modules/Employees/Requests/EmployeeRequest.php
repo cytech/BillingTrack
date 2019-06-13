@@ -10,7 +10,7 @@
  *
  */
 
-namespace FI\Modules\Employees\Requests;
+namespace BT\Modules\Employees\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Controllers;
+namespace BT\Modules\RecurringInvoices\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\RecurringInvoices\Support\RecurringInvoiceCalculate;
+use BT\Http\Controllers\Controller;
+use BT\Modules\RecurringInvoices\Support\RecurringInvoiceCalculate;
 
 class RecurringInvoiceRecalculateController extends Controller
 {

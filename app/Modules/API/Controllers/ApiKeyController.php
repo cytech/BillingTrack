@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Controllers;
+namespace BT\Modules\API\Controllers;
 
 class ApiKeyController extends ApiController
 {

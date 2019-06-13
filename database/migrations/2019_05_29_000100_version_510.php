@@ -1,7 +1,7 @@
 <?php
 
-use FI\Modules\Settings\Models\Setting;
-use FI\Modules\Clients\Models\Contact;
+use BT\Modules\Settings\Models\Setting;
+use BT\Modules\Clients\Models\Contact;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

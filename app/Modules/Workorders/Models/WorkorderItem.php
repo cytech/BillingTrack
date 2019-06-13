@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Models;
+namespace BT\Modules\Workorders\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Support\CurrencyFormatter;
-use FI\Support\NumberFormatter;
+use BT\Support\CurrencyFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -34,32 +34,32 @@ class WorkorderItem extends Model
 
     public function amount()
     {
-        return $this->hasOne('FI\Modules\Workorders\Models\WorkorderItemAmount', 'item_id');
+        return $this->hasOne('BT\Modules\Workorders\Models\WorkorderItemAmount', 'item_id');
     }
 
     public function workorder()
     {
-        return $this->belongsTo('FI\Modules\Workorders\Models\Workorder');
+        return $this->belongsTo('BT\Modules\Workorders\Models\Workorder');
     }
 
     public function taxRate()
     {
-        return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate');
     }
 
     public function taxRate2()
     {
-        return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
     }
 
     public function products()
     {
-        return $this->hasMany('FI\Modules\Products\Models\Product', 'id', 'resource_id');
+        return $this->hasMany('BT\Modules\Products\Models\Product', 'id', 'resource_id');
     }
 
     public function employees()
     {
-        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'id', 'resource_id');
+        return $this->hasMany('BT\Modules\Employees\Models\Employee', 'id', 'resource_id');
     }
 
 

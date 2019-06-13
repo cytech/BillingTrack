@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'time_tracking', 'namespace' => 'FI\Modules\TimeTracking\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'time_tracking', 'namespace' => 'BT\Modules\TimeTracking\Controllers'], function ()
 {
     Route::group(['prefix' => 'projects'], function ()
     {

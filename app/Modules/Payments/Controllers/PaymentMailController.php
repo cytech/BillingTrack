@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Payments\Controllers;
+namespace BT\Modules\Payments\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Modules\Payments\Models\Payment;
-use FI\Requests\SendEmailRequest;
-use FI\Support\Contacts;
-use FI\Support\Parser;
+use BT\Http\Controllers\Controller;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Modules\Payments\Models\Payment;
+use BT\Requests\SendEmailRequest;
+use BT\Support\Contacts;
+use BT\Support\Parser;
 
 class PaymentMailController extends Controller
 {

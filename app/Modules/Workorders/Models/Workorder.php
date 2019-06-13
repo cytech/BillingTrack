@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Models;
+namespace BT\Modules\Workorders\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
-use FI\Support\FileNames;
-use FI\Support\HTML;
-use FI\Support\NumberFormatter;
-use FI\Support\Statuses\WorkorderStatuses;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\FileNames;
+use BT\Support\HTML;
+use BT\Support\NumberFormatter;
+use BT\Support\Statuses\WorkorderStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -42,27 +42,27 @@ class Workorder extends Model
 
     public function activities()
     {
-        return $this->morphMany('FI\Modules\Activity\Models\Activity', 'audit');
+        return $this->morphMany('BT\Modules\Activity\Models\Activity', 'audit');
     }
 
     public function amount()
     {
-        return $this->hasOne('FI\Modules\Workorders\Models\WorkorderAmount');
+        return $this->hasOne('BT\Modules\Workorders\Models\WorkorderAmount');
     }
 
     public function attachments()
     {
-        return $this->morphMany('FI\Modules\Attachments\Models\Attachment', 'attachable');
+        return $this->morphMany('BT\Modules\Attachments\Models\Attachment', 'attachable');
     }
 
     public function client()
     {
-        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+        return $this->belongsTo('BT\Modules\Clients\Models\Client');
     }
 
     public function clientAttachments()
     {
-        $relationship = $this->morphMany('FI\Modules\Attachments\Models\Attachment', 'attachable');
+        $relationship = $this->morphMany('BT\Modules\Attachments\Models\Attachment', 'attachable');
 
         $relationship->where('client_visibility', 1);
 
@@ -71,61 +71,61 @@ class Workorder extends Model
 
     public function companyProfile()
     {
-        return $this->belongsTo('FI\Modules\CompanyProfiles\Models\CompanyProfile');
+        return $this->belongsTo('BT\Modules\CompanyProfiles\Models\CompanyProfile');
     }
 
     public function currency()
     {
-        return $this->belongsTo('FI\Modules\Currencies\Models\Currency', 'currency_code', 'code');
+        return $this->belongsTo('BT\Modules\Currencies\Models\Currency', 'currency_code', 'code');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\WorkorderCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\WorkorderCustom');
     }
 
     public function group()
     {
-        return $this->hasOne('FI\Modules\Groups\Models\Group');
+        return $this->hasOne('BT\Modules\Groups\Models\Group');
     }
 
     public function invoice()
     {
-        return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
+        return $this->belongsTo('BT\Modules\Invoices\Models\Invoice');
     }
 
     public function quote()
     {
-        return $this->hasOne('FI\Modules\Quotes\Models\Quote');
+        return $this->hasOne('BT\Modules\Quotes\Models\Quote');
     }
 
     public function mailQueue()
     {
-        return $this->morphMany('FI\Modules\MailQueue\Models\MailQueue', 'mailable');
+        return $this->morphMany('BT\Modules\MailQueue\Models\MailQueue', 'mailable');
     }
 
     public function items()
     {
-        return $this->hasMany('FI\Modules\Workorders\Models\WorkorderItem')
+        return $this->hasMany('BT\Modules\Workorders\Models\WorkorderItem')
             ->orderBy('display_order');
     }
 
     public function notes()
     {
-        return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+        return $this->morphMany('BT\Modules\Notes\Models\Note', 'notable');
     }
 
     // This and items() are the exact same. This is added to appease the IDE gods
     // and the fact that Laravel has a protected items property.
     public function workorderItems()
     {
-        return $this->hasMany('FI\Modules\Workorders\Models\WorkorderItem')
+        return $this->hasMany('BT\Modules\Workorders\Models\WorkorderItem')
             ->orderBy('display_order');
     }
 
     public function user()
     {
-        return $this->belongsTo('FI\Modules\Users\Models\User');
+        return $this->belongsTo('BT\Modules\Users\Models\User');
     }
 
     /*

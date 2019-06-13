@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Requests;
+namespace BT\Modules\Workorders\Requests;
 
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 
 class WorkorderUpdateRequest extends WorkorderStoreRequest
 {

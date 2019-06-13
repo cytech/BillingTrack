@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Traits;
+namespace BT\Traits;
 
 use Illuminate\Support\Facades\DB;
 

@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Controllers;
+namespace BT\Modules\TimeTracking\Controllers;
 
-use FI\DataTables\ProjectsDataTable;
-use FI\Modules\TimeTracking\Models\TimeTrackingProject;
-use FI\Modules\TimeTracking\Models\TimeTrackingTask;
-use FI\Modules\TimeTracking\Requests\ProjectRequest;
-use FI\Support\Statuses\TimeTrackingProjectStatuses;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Traits\ReturnUrl;
-use FI\Support\DateFormatter;
+use BT\DataTables\ProjectsDataTable;
+use BT\Modules\TimeTracking\Models\TimeTrackingProject;
+use BT\Modules\TimeTracking\Models\TimeTrackingTask;
+use BT\Modules\TimeTracking\Requests\ProjectRequest;
+use BT\Support\Statuses\TimeTrackingProjectStatuses;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Traits\ReturnUrl;
+use BT\Support\DateFormatter;
 
 class ProjectController extends Controller
 {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\Statuses;
+namespace BT\Support\Statuses;
 
 class QuoteStatuses extends AbstractStatuses
 {

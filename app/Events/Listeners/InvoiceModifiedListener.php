@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Events\Listeners;
+namespace BT\Events\Listeners;
 
-use FI\Events\InvoiceModified;
-use FI\Modules\Invoices\Support\InvoiceCalculate;
+use BT\Events\InvoiceModified;
+use BT\Modules\Invoices\Support\InvoiceCalculate;
 
 class InvoiceModifiedListener
 {

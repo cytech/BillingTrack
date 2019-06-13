@@ -9,9 +9,9 @@
  */
 
 
-namespace FI\Modules\Workorders\Support;
+namespace BT\Modules\Workorders\Support;
 
-use FI\Support\Directory;
+use BT\Support\Directory;
 
 class WorkorderTemplates
 {

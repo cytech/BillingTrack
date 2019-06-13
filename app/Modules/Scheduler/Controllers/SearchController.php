@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Scheduler\Controllers;
+namespace BT\Modules\Scheduler\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Employees\Models\Employee;
-use FI\Modules\Clients\Models\Client;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Employees\Models\Employee;
+use BT\Modules\Clients\Models\Client;
 
 class SearchController extends Controller {
 

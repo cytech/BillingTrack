@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Support;
+namespace BT\Modules\Invoices\Support;
 
-use FI\Support\Directory;
+use BT\Support\Directory;
 
 class InvoiceTemplates
 {

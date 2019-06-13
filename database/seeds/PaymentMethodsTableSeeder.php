@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use FI\Modules\PaymentMethods\Models\PaymentMethod;
+use BT\Modules\PaymentMethods\Models\PaymentMethod;
 
 class PaymentMethodsTableSeeder extends Seeder
 {

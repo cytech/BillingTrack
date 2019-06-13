@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ClientCenter\Controllers;
+namespace BT\Modules\ClientCenter\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Support\Statuses\InvoiceStatuses;
 use Illuminate\Support\Facades\DB;
 
 class ClientCenterInvoiceController extends Controller

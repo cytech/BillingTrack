@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['namespace' => 'FI\Modules\Sessions\Controllers', 'middleware' => 'web'], function ()
+Route::group(['namespace' => 'BT\Modules\Sessions\Controllers', 'middleware' => 'web'], function ()
 {
     Route::get('login', ['uses' => 'SessionController@login', 'as' => 'session.login']);
     Route::post('login', ['uses' => 'SessionController@attempt', 'as' => 'session.attempt']);

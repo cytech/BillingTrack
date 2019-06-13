@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Controllers;
+namespace BT\Modules\API\Controllers;
 
-use FI\Modules\API\Requests\APIClientUpdateRequest;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Clients\Requests\ClientStoreRequest;
+use BT\Modules\API\Requests\APIClientUpdateRequest;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\Clients\Requests\ClientStoreRequest;
 use Illuminate\Http\Request;
 
 class ApiClientController extends ApiController

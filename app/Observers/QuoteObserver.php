@@ -1,14 +1,14 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\Currencies\Support\CurrencyConverterFactory;
-use FI\Modules\CustomFields\Models\QuoteCustom;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Quotes\Support\QuoteCalculate;
-use FI\Support\DateFormatter;
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Modules\Currencies\Support\CurrencyConverterFactory;
+use BT\Modules\CustomFields\Models\QuoteCustom;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Support\QuoteCalculate;
+use BT\Support\DateFormatter;
+use BT\Support\Statuses\QuoteStatuses;
 
 class QuoteObserver
 {
@@ -20,7 +20,7 @@ class QuoteObserver
     /**
      * Handle the quote "created" event.
      *
-     * @param  \FI\Modules\Quotes\Models\Quote  $quote
+     * @param  \BT\Modules\Quotes\Models\Quote  $quote
      * @return void
      */
     public function created(Quote $quote): void
@@ -38,7 +38,7 @@ class QuoteObserver
     /**
      * Handle the quote "created" event.
      *
-     * @param  \FI\Modules\Quotes\Models\Quote  $quote
+     * @param  \BT\Modules\Quotes\Models\Quote  $quote
      * @return void
      */
     public function creating(Quote $quote): void
@@ -120,7 +120,7 @@ class QuoteObserver
     /**
      * Handle the quote "deleted" event.
      *
-     * @param  \FI\Modules\Quotes\Models\Quote  $quote
+     * @param  \BT\Modules\Quotes\Models\Quote  $quote
      * @return void
      */
     public function deleteing(Quote $quote): void

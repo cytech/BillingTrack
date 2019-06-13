@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Models;
+namespace BT\Modules\TimeTracking\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
@@ -39,22 +39,22 @@ class TimeTrackingTask extends Model
 
     public function activeTimer()
     {
-        return $this->hasOne('FI\Modules\TimeTracking\Models\TimeTrackingTimer')->where('time_tracking_timers.end_at', null);
+        return $this->hasOne('BT\Modules\TimeTracking\Models\TimeTrackingTimer')->where('time_tracking_timers.end_at', null);
     }
 
     public function invoice()
     {
-        return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
+        return $this->belongsTo('BT\Modules\Invoices\Models\Invoice');
     }
 
     public function project()
     {
-        return $this->belongsTo('FI\Modules\TimeTracking\Models\TimeTrackingProject', 'time_tracking_project_id');
+        return $this->belongsTo('BT\Modules\TimeTracking\Models\TimeTrackingProject', 'time_tracking_project_id');
     }
 
     public function timers()
     {
-        return $this->hasMany('FI\Modules\TimeTracking\Models\TimeTrackingTimer');
+        return $this->hasMany('BT\Modules\TimeTracking\Models\TimeTrackingTimer');
     }
 
     /*

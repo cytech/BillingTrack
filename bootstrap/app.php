@@ -11,7 +11,7 @@
 |
 */
 
-$app = new FI\Application(
+$app = new BT\Application(
     realpath(__DIR__.'/../')
 );
 
@@ -28,17 +28,17 @@ $app = new FI\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    FI\Http\Kernel::class
+    BT\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    FI\Console\Kernel::class
+    BT\Console\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    FI\Exceptions\Handler::class
+    BT\Exceptions\Handler::class
 );
 
 /*

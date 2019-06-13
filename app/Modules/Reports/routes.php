@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['prefix' => 'report', 'middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Reports\Controllers'], function ()
+Route::group(['prefix' => 'report', 'middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Reports\Controllers'], function ()
 {
     Route::get('client_statement', ['uses' => 'ClientStatementReportController@index', 'as' => 'reports.clientStatement']);
     Route::post('client_statement/validate', ['uses' => 'ClientStatementReportController@validateOptions', 'as' => 'reports.clientStatement.validate']);

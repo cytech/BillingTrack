@@ -1,15 +1,15 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\TimeTracking\Models\TimeTrackingTask;
+use BT\Modules\TimeTracking\Models\TimeTrackingTask;
 
 class TimeTrackingTaskObserver
 {
     /**
      * Handle the time tracking task "creating" event.
      *
-     * @param  \FI\Modules\TimeTracking\Models\TimeTrackingTask  $timeTrackingTask
+     * @param  \BT\Modules\TimeTracking\Models\TimeTrackingTask  $timeTrackingTask
      * @return void
      */
     public function creating(TimeTrackingTask $timeTrackingTask): void

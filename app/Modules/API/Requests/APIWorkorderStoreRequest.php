@@ -11,9 +11,9 @@
  *
  */
 
-namespace FI\Modules\API\Requests;
+namespace BT\Modules\API\Requests;
 
-use FI\Modules\Workorders\Requests\WorkorderStoreRequest;
+use BT\Modules\Workorders\Requests\WorkorderStoreRequest;
 
 class APIWorkorderStoreRequest extends WorkorderStoreRequest
 {

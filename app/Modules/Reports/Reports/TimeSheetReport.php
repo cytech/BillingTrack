@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Reports;
+namespace BT\Modules\Reports\Reports;
 
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Support\DateFormatter;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Support\DateFormatter;
 use DB;
 
 class TimeSheetReport {

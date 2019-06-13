@@ -1,4 +1,4 @@
-<?php namespace FI\Providers;
+<?php namespace BT\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

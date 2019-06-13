@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Requests;
+namespace BT\Modules\API\Requests;
 
-use FI\Modules\Clients\Requests\ClientUpdateRequest;
+use BT\Modules\Clients\Requests\ClientUpdateRequest;
 
 class APIClientUpdateRequest extends ClientUpdateRequest
 {

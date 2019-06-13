@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Controllers;
+namespace BT\Modules\Quotes\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Currencies\Models\Currency;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\ItemLookups\Models\ItemLookup;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Quotes\Models\QuoteItem;
-use FI\Modules\Quotes\Support\QuoteTemplates;
-use FI\Modules\Quotes\Requests\QuoteUpdateRequest;
-use FI\Modules\TaxRates\Models\TaxRate;
-use FI\Support\DateFormatter;
-use FI\Support\Statuses\QuoteStatuses;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Currencies\Models\Currency;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Models\QuoteItem;
+use BT\Modules\Quotes\Support\QuoteTemplates;
+use BT\Modules\Quotes\Requests\QuoteUpdateRequest;
+use BT\Modules\TaxRates\Models\TaxRate;
+use BT\Support\DateFormatter;
+use BT\Support\Statuses\QuoteStatuses;
+use BT\Traits\ReturnUrl;
 
 class QuoteEditController extends Controller
 {

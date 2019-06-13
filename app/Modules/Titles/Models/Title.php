@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Modules\Titles\Models;
+namespace BT\Modules\Titles\Models;
 
 use Eloquent;
 

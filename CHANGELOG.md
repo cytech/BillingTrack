@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Converted many events/listeners to model observers 
 - Expand vendor info
 - General categories and vendors for expenses and products
+- App name/namespace to BT
 
 ## 5.0.1
 - Renamed project to BillingTrack

@@ -1,15 +1,15 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
 
-use FI\Modules\Currencies\Support\CurrencyConverterFactory;
-use FI\Modules\CustomFields\Models\WorkorderCustom;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Modules\Workorders\Support\WorkorderCalculate;
-use FI\Support\DateFormatter;
-use FI\Support\Statuses\WorkorderStatuses;
+use BT\Modules\Currencies\Support\CurrencyConverterFactory;
+use BT\Modules\CustomFields\Models\WorkorderCustom;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Support\WorkorderCalculate;
+use BT\Support\DateFormatter;
+use BT\Support\Statuses\WorkorderStatuses;
 
 class WorkorderObserver
 {
@@ -21,7 +21,7 @@ class WorkorderObserver
     /**
      * Handle the workorder "created" event.
      *
-     * @param  \FI\Modules\Workorders\Models\Workorder  $workorder
+     * @param  \BT\Modules\Workorders\Models\Workorder  $workorder
      * @return void
      */
     public function created(Workorder $workorder): void
@@ -39,7 +39,7 @@ class WorkorderObserver
     /**
      * Handle the workorder "creating" event.
      *
-     * @param  \FI\Modules\Workorders\Models\Workorder  $workorder
+     * @param  \BT\Modules\Workorders\Models\Workorder  $workorder
      * @return void
      */
     public function creating(Workorder $workorder): void
@@ -137,7 +137,7 @@ class WorkorderObserver
     /**
      * Handle the workorder "deleted" event.
      *
-     * @param  \FI\Modules\Workorders\Models\Workorder  $workorder
+     * @param  \BT\Modules\Workorders\Models\Workorder  $workorder
      * @return void
      */
     public function deleteing(Workorder $workorder): void

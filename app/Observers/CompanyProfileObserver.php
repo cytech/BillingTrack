@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\CustomFields\Models\CompanyProfileCustom;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\CustomFields\Models\CompanyProfileCustom;
 
 class CompanyProfileObserver
 {
     /**
      * Handle the company profile "created" event.
      *
-     * @param  \FI\Modules\CompanyProfiles\Models\CompanyProfile  $companyProfile
+     * @param  \BT\Modules\CompanyProfiles\Models\CompanyProfile  $companyProfile
      * @return void
      */
     public function created(CompanyProfile $companyProfile): void

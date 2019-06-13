@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TaxRates\Controllers;
+namespace BT\Modules\TaxRates\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\TaxRates\Models\TaxRate;
-use FI\Modules\TaxRates\Requests\TaxRateRequest;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\TaxRates\Models\TaxRate;
+use BT\Modules\TaxRates\Requests\TaxRateRequest;
+use BT\Traits\ReturnUrl;
 
 class TaxRateController extends Controller
 {

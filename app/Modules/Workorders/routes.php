@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Workorders\Controllers'], function () {
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Workorders\Controllers'], function () {
     Route::group(['prefix' => 'workorders'], function () {
     	//workorders
         Route::get('/', ['uses' => 'WorkorderController@index', 'as' => 'workorders.index']);
@@ -54,6 +54,6 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
 });
 Route::group(['middleware' => ['web', 'auth.admin']], function () {
 //resource and employee force update
-Route::get('/forceProductUpdate/{ret}', 'FI\Modules\Products\Controllers\ProductController@forceLUTupdate');
-Route::get('/forceEmployeeUpdate/{ret}', 'FI\Modules\Employees\Controllers\EmployeeController@forceLUTupdate');
+Route::get('/forceProductUpdate/{ret}', 'BT\Modules\Products\Controllers\ProductController@forceLUTupdate');
+Route::get('/forceEmployeeUpdate/{ret}', 'BT\Modules\Employees\Controllers\EmployeeController@forceLUTupdate');
 });

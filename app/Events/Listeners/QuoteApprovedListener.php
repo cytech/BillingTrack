@@ -1,12 +1,12 @@
 <?php
 
-namespace FI\Events\Listeners;
+namespace BT\Events\Listeners;
 
-use FI\Events\QuoteApproved;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Modules\Quotes\Support\QuoteToInvoice;
-use FI\Support\DateFormatter;
-use FI\Support\Parser;
+use BT\Events\QuoteApproved;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Modules\Quotes\Support\QuoteToInvoice;
+use BT\Support\DateFormatter;
+use BT\Support\Parser;
 
 class QuoteApprovedListener
 {

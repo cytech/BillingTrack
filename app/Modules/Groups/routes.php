@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Groups\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Groups\Controllers'], function ()
 {
     Route::get('groups', ['uses' => 'GroupController@index', 'as' => 'groups.index']);
     Route::get('groups/create', ['uses' => 'GroupController@create', 'as' => 'groups.create']);

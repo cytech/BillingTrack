@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Vendors\Models;
+namespace BT\Modules\Vendors\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -32,17 +32,17 @@ class Contact extends Model
 
     public function vendor()
     {
-        return $this->belongsTo('FI\Modules\Vendors\Models\Vendor');
+        return $this->belongsTo('BT\Modules\Vendors\Models\Vendor');
     }
 
     public function title()
     {
-        return $this->belongsTo('FI\Modules\Titles\Models\Title');
+        return $this->belongsTo('BT\Modules\Titles\Models\Title');
     }
 
     public function notes()
     {
-        return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+        return $this->morphMany('BT\Modules\Notes\Models\Note', 'notable');
     }
 
     /*

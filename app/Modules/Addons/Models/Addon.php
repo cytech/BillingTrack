@@ -3,15 +3,15 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Addons\Models;
+namespace BT\Modules\Addons\Models;
 
-use FI\Support\Migrations;
+use BT\Support\Migrations;
 use Illuminate\Database\Eloquent\Model;
 
 class Addon extends Model

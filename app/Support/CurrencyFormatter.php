@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support;
+namespace BT\Support;
 
 class CurrencyFormatter extends NumberFormatter
 {
     /**
-     * Formats currency according to FI config.
+     * Formats currency according to BT config.
      *
      * @param  float $amount
      * @param  object $currency

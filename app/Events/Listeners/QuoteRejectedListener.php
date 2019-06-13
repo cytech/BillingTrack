@@ -1,10 +1,10 @@
 <?php
 
-namespace FI\Events\Listeners;
+namespace BT\Events\Listeners;
 
-use FI\Events\QuoteRejected;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Support\Parser;
+use BT\Events\QuoteRejected;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Support\Parser;
 
 class QuoteRejectedListener
 {

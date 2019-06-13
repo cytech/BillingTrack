@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Support;
+namespace BT\Modules\Quotes\Support;
 
-use FI\Support\Directory;
+use BT\Support\Directory;
 
 class QuoteTemplates
 {

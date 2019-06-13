@@ -45,10 +45,10 @@
         <div class="form-group">
             <label>@lang('fi.coreeventslist')</label>
             <div class="col-lg-8 col-sm-8">
-                @foreach (\FI\Modules\Settings\Models\Setting::$coreevents as $entityType => $value)
+                @foreach (\BT\Modules\Settings\Models\Setting::$coreevents as $entityType => $value)
                     <div class="form-check">
                         <label for="enabledCoreEvents{{ $value}}">
-                            <input name="enabledCoreEvents[]" id="enabledCoreEvents{{ $value}}" type="checkbox" {{ (new \FI\Modules\Settings\Models\Setting())->isCoreeventEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}">{{ trans("fi.{$entityType}") }}</label>
+                            <input name="enabledCoreEvents[]" id="enabledCoreEvents{{ $value}}" type="checkbox" {{ (new \BT\Modules\Settings\Models\Setting())->isCoreeventEnabled($entityType) ? 'checked="checked"' : '' }} value="{{ $value }}">{{ trans("fi.{$entityType}") }}</label>
                     </div>
                 @endforeach
             </div>

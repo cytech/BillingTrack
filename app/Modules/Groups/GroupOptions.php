@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Modules\Groups;
+namespace BT\Modules\Groups;
 
 class GroupOptions
 {

@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Categories\Controllers;
+namespace BT\Modules\Categories\Controllers;
 
-use FI\Modules\Categories\Models\Category;
-use FI\Http\Controllers\Controller;
+use BT\Modules\Categories\Models\Category;
+use BT\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller

@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Clients\Controllers;
+namespace BT\Modules\Clients\Controllers;
 
-use FI\DataTables\ClientsDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Clients\Requests\ClientStoreRequest;
-use FI\Modules\Clients\Requests\ClientUpdateRequest;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Payments\Models\Payment;
-use FI\Modules\PaymentTerms\Models\PaymentTerm;
-use FI\Support\Frequency;
-use FI\Traits\ReturnUrl;
-use FI\Modules\Industries\Models\Industry;
-use FI\Modules\Sizes\Models\Size;
+use BT\DataTables\ClientsDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\Clients\Requests\ClientStoreRequest;
+use BT\Modules\Clients\Requests\ClientUpdateRequest;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Payments\Models\Payment;
+use BT\Modules\PaymentTerms\Models\PaymentTerm;
+use BT\Support\Frequency;
+use BT\Traits\ReturnUrl;
+use BT\Modules\Industries\Models\Industry;
+use BT\Modules\Sizes\Models\Size;
 
 class ClientController extends Controller
 {

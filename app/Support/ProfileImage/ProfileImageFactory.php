@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support\ProfileImage;
+namespace BT\Support\ProfileImage;
 
 class ProfileImageFactory
 {
     public static function create()
     {
-        $class = 'FI\Support\ProfileImage\Drivers\\' . config('fi.profileImageDriver');
+        $class = 'BT\Support\ProfileImage\Drivers\\' . config('fi.profileImageDriver');
 
         return new $class;
     }

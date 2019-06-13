@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Models;
+namespace BT\Modules\TimeTracking\Models;
 
-use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

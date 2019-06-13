@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Support;
+namespace BT\Modules\Quotes\Support;
 
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Quotes\Models\QuoteAmount;
-use FI\Modules\Quotes\Models\QuoteItem;
-use FI\Modules\Quotes\Models\QuoteItemAmount;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Models\QuoteAmount;
+use BT\Modules\Quotes\Models\QuoteItem;
+use BT\Modules\Quotes\Models\QuoteItemAmount;
 
 class QuoteCalculate
 {

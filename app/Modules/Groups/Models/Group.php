@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Groups\Models;
+namespace BT\Modules\Groups\Models;
 
-use FI\Traits\Sortable;
+use BT\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model

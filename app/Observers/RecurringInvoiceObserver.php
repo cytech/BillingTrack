@@ -1,11 +1,11 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\Currencies\Support\CurrencyConverterFactory;
-use FI\Modules\CustomFields\Models\RecurringInvoiceCustom;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Modules\RecurringInvoices\Support\RecurringInvoiceCalculate;
+use BT\Modules\Currencies\Support\CurrencyConverterFactory;
+use BT\Modules\CustomFields\Models\RecurringInvoiceCustom;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Modules\RecurringInvoices\Support\RecurringInvoiceCalculate;
 
 class RecurringInvoiceObserver
 {
@@ -19,7 +19,7 @@ class RecurringInvoiceObserver
     /**
      * Handle the recurring invoice "created" event.
      *
-     * @param  \FI\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
+     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
      * @return void
      */
     public function created(RecurringInvoice $recurringInvoice): void
@@ -34,7 +34,7 @@ class RecurringInvoiceObserver
     /**
      * Handle the recurring invoice "creating" event.
      *
-     * @param  \FI\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
+     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
      * @return void
      */
     public function creating(RecurringInvoice $recurringInvoice): void
@@ -89,7 +89,7 @@ class RecurringInvoiceObserver
     /**
      * Handle the recurring invoice "deleted" event.
      *
-     * @param  \FI\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
+     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
      * @return void
      */
     public function deleteing(RecurringInvoice $recurringInvoice): void

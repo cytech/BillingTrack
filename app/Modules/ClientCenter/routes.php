@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['prefix' => 'client_center', 'middleware' => 'web', 'namespace' => 'FI\Modules\ClientCenter\Controllers'], function ()
+Route::group(['prefix' => 'client_center', 'middleware' => 'web', 'namespace' => 'BT\Modules\ClientCenter\Controllers'], function ()
 {
     Route::get('/', ['uses' => 'ClientCenterDashboardController@redirectToLogin']);
     Route::get('invoice/{invoiceKey}', ['uses' => 'ClientCenterPublicInvoiceController@show', 'as' => 'clientCenter.public.invoice.show']);

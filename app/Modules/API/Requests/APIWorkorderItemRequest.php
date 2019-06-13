@@ -11,9 +11,9 @@
  *
  */
 
-namespace FI\Modules\API\Requests;
+namespace BT\Modules\API\Requests;
 
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Foundation\Http\FormRequest;
 
 class APIWorkorderItemRequest extends FormRequest

@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Modules\Industries\Models;
+namespace BT\Modules\Industries\Models;
 
 use Eloquent;
 

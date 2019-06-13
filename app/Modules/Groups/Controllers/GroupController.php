@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Groups\Controllers;
+namespace BT\Modules\Groups\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Groups\GroupOptions;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Groups\Requests\GroupRequest;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Groups\GroupOptions;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Groups\Requests\GroupRequest;
+use BT\Traits\ReturnUrl;
 
 class GroupController extends Controller
 {

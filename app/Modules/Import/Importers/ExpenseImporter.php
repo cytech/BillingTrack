@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Importers;
+namespace BT\Modules\Import\Importers;
 
-use FI\Modules\Expenses\Models\Expense;
+use BT\Modules\Expenses\Models\Expense;
 use Illuminate\Support\Facades\Validator;
 
 class ExpenseImporter extends AbstractImporter

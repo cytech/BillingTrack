@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Models;
+namespace BT\Modules\RecurringInvoices\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Support\DateFormatter;
-use FI\Support\NumberFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
@@ -40,42 +40,42 @@ class RecurringInvoice extends Model
 
     public function activities()
     {
-        return $this->morphMany('FI\Modules\Activity\Models\Activity', 'audit');
+        return $this->morphMany('BT\Modules\Activity\Models\Activity', 'audit');
     }
 
     public function amount()
     {
-        return $this->hasOne('FI\Modules\RecurringInvoices\Models\RecurringInvoiceAmount');
+        return $this->hasOne('BT\Modules\RecurringInvoices\Models\RecurringInvoiceAmount');
     }
 
     public function client()
     {
-        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+        return $this->belongsTo('BT\Modules\Clients\Models\Client');
     }
 
     public function companyProfile()
     {
-        return $this->belongsTo('FI\Modules\CompanyProfiles\Models\CompanyProfile');
+        return $this->belongsTo('BT\Modules\CompanyProfiles\Models\CompanyProfile');
     }
 
     public function currency()
     {
-        return $this->belongsTo('FI\Modules\Currencies\Models\Currency', 'currency_code', 'code');
+        return $this->belongsTo('BT\Modules\Currencies\Models\Currency', 'currency_code', 'code');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\RecurringInvoiceCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\RecurringInvoiceCustom');
     }
 
     public function group()
     {
-        return $this->belongsTo('FI\Modules\Groups\Models\Group');
+        return $this->belongsTo('BT\Modules\Groups\Models\Group');
     }
 
     public function items()
     {
-        return $this->hasMany('FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem')
+        return $this->hasMany('BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem')
             ->orderBy('display_order');
     }
 
@@ -83,13 +83,13 @@ class RecurringInvoice extends Model
     // and the fact that Laravel has a protected items property.
     public function recurringInvoiceItems()
     {
-        return $this->hasMany('FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem')
+        return $this->hasMany('BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem')
             ->orderBy('display_order');
     }
 
     public function user()
     {
-        return $this->belongsTo('FI\Modules\Users\Models\User');
+        return $this->belongsTo('BT\Modules\Users\Models\User');
     }
 
     /*

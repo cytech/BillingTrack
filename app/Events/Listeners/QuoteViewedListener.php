@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Events\Listeners;
+namespace BT\Events\Listeners;
 
-use FI\Events\QuoteViewed;
+use BT\Events\QuoteViewed;
 
 class QuoteViewedListener
 {

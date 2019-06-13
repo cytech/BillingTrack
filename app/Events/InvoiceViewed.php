@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Events;
+namespace BT\Events;
 
-use FI\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\Invoice;
 use Illuminate\Queue\SerializesModels;
 
 class InvoiceViewed extends Event

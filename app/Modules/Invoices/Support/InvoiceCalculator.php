@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Support;
+namespace BT\Modules\Invoices\Support;
 
-use FI\Support\Calculators\Calculator;
-use FI\Support\Calculators\Interfaces\PayableInterface;
+use BT\Support\Calculators\Calculator;
+use BT\Support\Calculators\Interfaces\PayableInterface;
 
 class InvoiceCalculator extends Calculator implements PayableInterface
 {

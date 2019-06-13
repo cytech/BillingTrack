@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Exports\Support\Results;
+namespace BT\Modules\Exports\Support\Results;
 
-use FI\Modules\Expenses\Models\Expense;
+use BT\Modules\Expenses\Models\Expense;
 
 class Expenses implements SourceInterface
 {

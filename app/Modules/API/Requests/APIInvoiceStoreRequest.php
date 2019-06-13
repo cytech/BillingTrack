@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Requests;
+namespace BT\Modules\API\Requests;
 
-use FI\Modules\Invoices\Requests\InvoiceStoreRequest;
+use BT\Modules\Invoices\Requests\InvoiceStoreRequest;
 
 class APIInvoiceStoreRequest extends InvoiceStoreRequest
 {

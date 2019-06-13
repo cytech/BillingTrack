@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'employees', 'namespace' => 'FI\Modules\Employees\Controllers'], function () {
+Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'employees', 'namespace' => 'BT\Modules\Employees\Controllers'], function () {
 //employees
 
     Route::get('/', ['uses' => 'EmployeeController@index', 'as' => 'employees.index']);

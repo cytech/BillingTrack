@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\CompanyProfiles\Requests;
+namespace BT\Modules\CompanyProfiles\Requests;
 
 class CompanyProfileUpdateRequest extends CompanyProfileStoreRequest
 {

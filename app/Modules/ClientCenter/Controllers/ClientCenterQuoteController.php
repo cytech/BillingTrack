@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ClientCenter\Controllers;
+namespace BT\Modules\ClientCenter\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Support\Statuses\QuoteStatuses;
 use Illuminate\Support\Facades\DB;
 
 class ClientCenterQuoteController extends Controller

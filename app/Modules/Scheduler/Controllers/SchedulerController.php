@@ -9,21 +9,21 @@
  */
 
 
-namespace FI\Modules\Scheduler\Controllers;
+namespace BT\Modules\Scheduler\Controllers;
 
-use FI\DataTables\EventsDataTable;
-use FI\DataTables\RecurringEventsDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Scheduler\Requests\ReplaceRequest;
-use FI\Modules\Employees\Models\Employee;
-use FI\Modules\Products\Models\Product;
-use FI\Modules\Scheduler\Models\Schedule;
-use FI\Modules\Scheduler\Models\ScheduleReminder;
-use FI\Modules\Scheduler\Models\ScheduleOccurrence;
-use FI\Modules\Scheduler\Models\ScheduleResource;
-use FI\Modules\Scheduler\Models\Category;
-use FI\Modules\Settings\Models\Setting;
-use FI\Modules\Workorders\Models\WorkorderItem;
+use BT\DataTables\EventsDataTable;
+use BT\DataTables\RecurringEventsDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Scheduler\Requests\ReplaceRequest;
+use BT\Modules\Employees\Models\Employee;
+use BT\Modules\Products\Models\Product;
+use BT\Modules\Scheduler\Models\Schedule;
+use BT\Modules\Scheduler\Models\ScheduleReminder;
+use BT\Modules\Scheduler\Models\ScheduleOccurrence;
+use BT\Modules\Scheduler\Models\ScheduleResource;
+use BT\Modules\Scheduler\Models\Category;
+use BT\Modules\Settings\Models\Setting;
+use BT\Modules\Workorders\Models\WorkorderItem;
 use Recurr;
 use Recurr\Transformer;
 use Recurr\Exception;
@@ -32,17 +32,17 @@ use DB;
 use Auth;
 use Response;
 use Illuminate\Http\Request;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Scheduler\Requests\EventRequest;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Scheduler\Requests\EventRequest;
 //for coreevnts
-use FI\Modules\Scheduler\Support\CalendarEventPresenter;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Payments\Models\Payment;
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\TimeTracking\Models\TimeTrackingProject;
-use FI\Modules\TimeTracking\Models\TimeTrackingTask;
+use BT\Modules\Scheduler\Support\CalendarEventPresenter;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Payments\Models\Payment;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\TimeTracking\Models\TimeTrackingProject;
+use BT\Modules\TimeTracking\Models\TimeTrackingTask;
 
 
 

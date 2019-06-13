@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Payments\Models;
+namespace BT\Modules\Payments\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Carbon\Carbon;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
-use FI\Support\FileNames;
-use FI\Support\HTML;
-use FI\Support\NumberFormatter;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
+use BT\Support\FileNames;
+use BT\Support\HTML;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
@@ -48,32 +48,32 @@ class Payment extends Model
 
     public function client()
     {
-        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+        return $this->belongsTo('BT\Modules\Clients\Models\Client');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\PaymentCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\PaymentCustom');
     }
 
     public function invoice()
     {
-        return $this->belongsTo('FI\Modules\Invoices\Models\Invoice');
+        return $this->belongsTo('BT\Modules\Invoices\Models\Invoice');
     }
 
     public function mailQueue()
     {
-        return $this->morphMany('FI\Modules\MailQueue\Models\MailQueue', 'mailable');
+        return $this->morphMany('BT\Modules\MailQueue\Models\MailQueue', 'mailable');
     }
 
     public function notes()
     {
-        return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+        return $this->morphMany('BT\Modules\Notes\Models\Note', 'notable');
     }
 
     public function paymentMethod()
     {
-        return $this->belongsTo('FI\Modules\PaymentMethods\Models\PaymentMethod');
+        return $this->belongsTo('BT\Modules\PaymentMethods\Models\PaymentMethod');
     }
 
     /*

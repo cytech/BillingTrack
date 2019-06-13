@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Controllers;
+namespace BT\Modules\Reports\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Reports\Reports\RevenueByClientReport;
-use FI\Modules\Reports\Requests\YearRequest;
-use FI\Support\DateFormatter;
-use FI\Support\PDF\PDFFactory;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Reports\Reports\RevenueByClientReport;
+use BT\Modules\Reports\Requests\YearRequest;
+use BT\Support\DateFormatter;
+use BT\Support\PDF\PDFFactory;
 
 class RevenueByClientReportController extends Controller
 {

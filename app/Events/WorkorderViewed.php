@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Events;
+namespace BT\Events;
 
-use FI\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Models\Workorder;
 
 use Illuminate\Queue\SerializesModels;
 

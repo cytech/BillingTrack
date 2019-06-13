@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Controllers;
+namespace BT\Modules\Invoices\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Invoices\Support\InvoiceCalculate;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Invoices\Support\InvoiceCalculate;
 
 class InvoiceRecalculateController extends Controller
 {

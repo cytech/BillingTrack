@@ -9,12 +9,12 @@
  */
 
 
-namespace FI\Modules\Workorders\Support;
+namespace BT\Modules\Workorders\Support;
 
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Modules\Workorders\Models\WorkorderAmount;
-use FI\Modules\Workorders\Models\WorkorderItem;
-use FI\Modules\Workorders\Models\WorkorderItemAmount;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Modules\Workorders\Models\WorkorderAmount;
+use BT\Modules\Workorders\Models\WorkorderItem;
+use BT\Modules\Workorders\Models\WorkorderItemAmount;
 
 class WorkorderCalculate
 {

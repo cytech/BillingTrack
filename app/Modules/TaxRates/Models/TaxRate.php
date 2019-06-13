@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TaxRates\Models;
+namespace BT\Modules\TaxRates\Models;
 
-use FI\Modules\Invoices\Models\InvoiceItem;
-use FI\Modules\Quotes\Models\QuoteItem;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
-use FI\Support\NumberFormatter;
-use FI\Traits\Sortable;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Modules\Quotes\Models\QuoteItem;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
+use BT\Support\NumberFormatter;
+use BT\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 
 class TaxRate extends Model

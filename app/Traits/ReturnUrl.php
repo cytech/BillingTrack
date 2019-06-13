@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Traits;
+namespace BT\Traits;
 
 trait ReturnUrl
 {

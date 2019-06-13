@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Controllers;
+namespace BT\Modules\Invoices\Controllers;
 
-use FI\Events\InvoiceEmailed;
-use FI\Events\InvoiceEmailing;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Requests\SendEmailRequest;
-use FI\Support\Contacts;
-use FI\Support\Parser;
+use BT\Events\InvoiceEmailed;
+use BT\Events\InvoiceEmailing;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Requests\SendEmailRequest;
+use BT\Support\Contacts;
+use BT\Support\Parser;
 
 class InvoiceMailController extends Controller
 {

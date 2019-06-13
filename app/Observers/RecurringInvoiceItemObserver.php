@@ -1,16 +1,16 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Events\RecurringInvoiceModified;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
+use BT\Events\RecurringInvoiceModified;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
 
 class RecurringInvoiceItemObserver
 {
     /**
      * Handle the recurring invoice item "saving" event.
      *
-     * @param  \FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem
+     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem
      * @return void
      */
     public function saving(RecurringInvoiceItem $recurringInvoiceItem): void
@@ -42,7 +42,7 @@ class RecurringInvoiceItemObserver
     /**
      * Handle the recurring invoice item "saved" event.
      *
-     * @param  \FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem
+     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem
      * @return void
      */
     public function saved(RecurringInvoiceItem $recurringInvoiceItem): void
@@ -54,7 +54,7 @@ class RecurringInvoiceItemObserver
     /**
      * Handle the recurring invoice item "deleted" event.
      *
-     * @param  \FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem
+     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem
      * @return void
      */
     public function deleted(RecurringInvoiceItem $recurringInvoiceItem): void

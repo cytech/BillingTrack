@@ -83,6 +83,6 @@
     {!! Form::close() !!}
 
     <section class="container-fluid">
-        @include('notes._notes', ['object' => $payment, 'model' => 'FI\Modules\Payments\Models\Payment', 'showPrivateCheckbox' => true])
+        @include('notes._notes', ['object' => $payment, 'model' => 'BT\Modules\Payments\Models\Payment', 'showPrivateCheckbox' => true])
     </section>
 @stop

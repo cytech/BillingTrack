@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Modules\Merchant\Support;
+namespace BT\Modules\Merchant\Support;
 
-use FI\Support\Directory;
+use BT\Support\Directory;
 
 class MerchantFactory
 {
@@ -11,7 +11,7 @@ class MerchantFactory
      */
     public static function create($driver)
     {
-        $driver = 'FI\\Modules\\Merchant\\Support\\Drivers\\' . $driver;
+        $driver = 'BT\\Modules\\Merchant\\Support\\Drivers\\' . $driver;
 
         return new $driver;
     }

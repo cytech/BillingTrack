@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Modules\Setup\Controllers;
+namespace BT\Modules\Setup\Controllers;
 
 use Config;
 use DB;

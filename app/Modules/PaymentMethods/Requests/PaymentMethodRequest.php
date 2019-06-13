@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\PaymentMethods\Requests;
+namespace BT\Modules\PaymentMethods\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

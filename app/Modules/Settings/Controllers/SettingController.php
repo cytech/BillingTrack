@@ -9,30 +9,30 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Settings\Controllers;
+namespace BT\Modules\Settings\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\Currencies\Models\Currency;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Invoices\Support\InvoiceTemplates;
-use FI\Modules\MailQueue\Support\MailSettings;
-use FI\Modules\Merchant\Support\MerchantFactory;
-use FI\Modules\PaymentMethods\Models\PaymentMethod;
-use FI\Modules\Quotes\Support\QuoteTemplates;
-use FI\Modules\Settings\Models\Setting;
-use FI\Modules\Settings\Requests\SettingUpdateRequest;
-use FI\Modules\TaxRates\Models\TaxRate;
-use FI\Modules\Workorders\Support\WorkorderTemplates;
-use FI\Support\DashboardWidgets;
-use FI\Support\DateFormatter;
-use FI\Support\Languages;
-use FI\Support\PDF\PDFFactory;
-use FI\Support\Skins;
-use FI\Support\Statuses\InvoiceStatuses;
-use FI\Support\Statuses\QuoteStatuses;
-use FI\Support\Statuses\WorkorderStatuses;
-use FI\Support\UpdateChecker;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\Currencies\Models\Currency;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Invoices\Support\InvoiceTemplates;
+use BT\Modules\MailQueue\Support\MailSettings;
+use BT\Modules\Merchant\Support\MerchantFactory;
+use BT\Modules\PaymentMethods\Models\PaymentMethod;
+use BT\Modules\Quotes\Support\QuoteTemplates;
+use BT\Modules\Settings\Models\Setting;
+use BT\Modules\Settings\Requests\SettingUpdateRequest;
+use BT\Modules\TaxRates\Models\TaxRate;
+use BT\Modules\Workorders\Support\WorkorderTemplates;
+use BT\Support\DashboardWidgets;
+use BT\Support\DateFormatter;
+use BT\Support\Languages;
+use BT\Support\PDF\PDFFactory;
+use BT\Support\Skins;
+use BT\Support\Statuses\InvoiceStatuses;
+use BT\Support\Statuses\QuoteStatuses;
+use BT\Support\Statuses\WorkorderStatuses;
+use BT\Support\UpdateChecker;
 use Illuminate\Support\Facades\Crypt;
 
 class SettingController extends Controller

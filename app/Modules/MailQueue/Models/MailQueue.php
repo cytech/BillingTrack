@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\MailQueue\Models;
+namespace BT\Modules\MailQueue\Models;
 
-use FI\Support\DateFormatter;
-use FI\Traits\Sortable;
+use BT\Support\DateFormatter;
+use BT\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Vendors\Models;
+namespace BT\Modules\Vendors\Models;
 
-use FI\Support\CurrencyFormatter;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Support\CurrencyFormatter;
+use BT\Support\Statuses\InvoiceStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -32,37 +32,37 @@ class Vendor extends Model
 
     public function attachments()
     {
-        return $this->morphMany('FI\Modules\Attachments\Models\Attachment', 'attachable');
+        return $this->morphMany('BT\Modules\Attachments\Models\Attachment', 'attachable');
     }
 
     public function contacts()
     {
-        return $this->hasMany('FI\Modules\Vendors\Models\Contact');
+        return $this->hasMany('BT\Modules\Vendors\Models\Contact');
     }
 
     public function currency()
     {
-        return $this->belongsTo('FI\Modules\Currencies\Models\Currency', 'currency_code', 'code');
+        return $this->belongsTo('BT\Modules\Currencies\Models\Currency', 'currency_code', 'code');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\VendorCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\VendorCustom');
     }
 
     public function notes()
     {
-        return $this->morphMany('FI\Modules\Notes\Models\Note', 'notable');
+        return $this->morphMany('BT\Modules\Notes\Models\Note', 'notable');
     }
 
     public function user()
     {
-        return $this->hasOne('FI\Modules\Users\Models\User');
+        return $this->hasOne('BT\Modules\Users\Models\User');
     }
 
     public function paymentterm()
     {
-        return $this->belongsTo('FI\Modules\PaymentTerms\Models\Paymentterm');
+        return $this->belongsTo('BT\Modules\PaymentTerms\Models\Paymentterm');
     }
 
     /*

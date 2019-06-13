@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Currencies\Support;
+namespace BT\Modules\Currencies\Support;
 
 class CurrencyConverterFactory
 {
     public static function create()
     {
-        $class = 'FI\Modules\Currencies\Support\Drivers\\' . config('fi.currencyConversionDriver');
+        $class = 'BT\Modules\Currencies\Support\Drivers\\' . config('fi.currencyConversionDriver');
 
         return new $class;
     }

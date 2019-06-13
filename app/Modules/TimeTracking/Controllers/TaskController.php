@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Controllers;
+namespace BT\Modules\TimeTracking\Controllers;
 
-use FI\Modules\TimeTracking\Models\TimeTrackingProject;
-use FI\Modules\TimeTracking\Models\TimeTrackingTask;
-use FI\Modules\TimeTracking\Requests\TaskRequest;
-use FI\Http\Controllers\Controller;
+use BT\Modules\TimeTracking\Models\TimeTrackingProject;
+use BT\Modules\TimeTracking\Models\TimeTrackingTask;
+use BT\Modules\TimeTracking\Requests\TaskRequest;
+use BT\Http\Controllers\Controller;
 
 class TaskController extends Controller
 {

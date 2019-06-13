@@ -3,17 +3,17 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Importers;
+namespace BT\Modules\Import\Importers;
 
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\PaymentMethods\Models\PaymentMethod;
-use FI\Modules\Payments\Models\Payment;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\PaymentMethods\Models\PaymentMethod;
+use BT\Modules\Payments\Models\Payment;
 use Illuminate\Support\Facades\Validator;
 
 class PaymentImporter extends AbstractImporter

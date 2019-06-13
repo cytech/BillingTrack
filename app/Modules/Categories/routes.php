@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Categories\Controllers'], function () {
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Categories\Controllers'], function () {
 		//categories
 	    Route::group(['prefix' => 'categories'], function () {
 		    Route::get('/', ['uses' => 'CategoriesController@index', 'as' => 'categories.index']);

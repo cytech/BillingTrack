@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Scheduler\Controllers;
+namespace BT\Modules\Scheduler\Controllers;
 
-use FI\DataTables\SchedulerCategoriesDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Scheduler\Models\Category;
-use FI\Modules\Scheduler\Requests\CategoryRequest;
+use BT\DataTables\SchedulerCategoriesDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Scheduler\Models\Category;
+use BT\Modules\Scheduler\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 
 class SchedulerCategoryController extends Controller {

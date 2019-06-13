@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['prefix' => 'api', 'middleware' => 'web', 'namespace' => 'FI\Modules\API\Controllers'], function ()
+Route::group(['prefix' => 'api', 'middleware' => 'web', 'namespace' => 'BT\Modules\API\Controllers'], function ()
 {
     Route::group(['middleware' => 'auth.admin'], function ()
     {

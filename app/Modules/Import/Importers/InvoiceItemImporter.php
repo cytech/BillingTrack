@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Importers;
+namespace BT\Modules\Import\Importers;
 
-use FI\Events\InvoiceModified;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\TaxRates\Models\TaxRate;
+use BT\Events\InvoiceModified;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\TaxRates\Models\TaxRate;
 use Illuminate\Support\Facades\Validator;
 
 class InvoiceItemImporter extends AbstractImporter

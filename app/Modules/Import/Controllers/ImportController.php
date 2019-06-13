@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Controllers;
+namespace BT\Modules\Import\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Import\Importers\ImportFactory;
-use FI\Modules\Import\Requests\ImportRequest;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Import\Importers\ImportFactory;
+use BT\Modules\Import\Requests\ImportRequest;
 
 class ImportController extends Controller
 {

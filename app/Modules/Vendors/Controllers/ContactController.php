@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Vendors\Controllers;
+namespace BT\Modules\Vendors\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Vendors\Models\Contact;
-use FI\Modules\Vendors\Requests\ContactRequest;
-use FI\Modules\Titles\Models\Title;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Vendors\Models\Contact;
+use BT\Modules\Vendors\Requests\ContactRequest;
+use BT\Modules\Titles\Models\Title;
 use Session;
 
 class ContactController extends Controller

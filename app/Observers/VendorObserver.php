@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Modules\Vendors\Models\Vendor;
-use FI\Modules\CustomFields\Models\VendorCustom;
+use BT\Modules\Vendors\Models\Vendor;
+use BT\Modules\CustomFields\Models\VendorCustom;
 
 class VendorObserver
 {

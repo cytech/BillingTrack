@@ -9,7 +9,7 @@
  */
 
 
-namespace FI\Modules\Scheduler\Models;
+namespace BT\Modules\Scheduler\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -33,6 +33,6 @@ class ScheduleReminder extends Model
 
     public function schedule()
     {
-        return $this->belongsTo('FI\Modules\Scheduler\Models\Schedule', 'schedule_id', 'id');
+        return $this->belongsTo('BT\Modules\Scheduler\Models\Schedule', 'schedule_id', 'id');
     }
 }

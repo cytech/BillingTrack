@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Invoices\Controllers;
+namespace BT\Modules\Invoices\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Currencies\Models\Currency;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Models\InvoiceItem;
-use FI\Modules\Invoices\Support\InvoiceTemplates;
-use FI\Modules\Invoices\Requests\InvoiceUpdateRequest;
-use FI\Modules\ItemLookups\Models\ItemLookup;
-use FI\Modules\TaxRates\Models\TaxRate;
-use FI\Support\DateFormatter;
-use FI\Support\Statuses\InvoiceStatuses;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Currencies\Models\Currency;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Modules\Invoices\Support\InvoiceTemplates;
+use BT\Modules\Invoices\Requests\InvoiceUpdateRequest;
+use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\TaxRates\Models\TaxRate;
+use BT\Support\DateFormatter;
+use BT\Support\Statuses\InvoiceStatuses;
+use BT\Traits\ReturnUrl;
 
 class InvoiceEditController extends Controller
 {

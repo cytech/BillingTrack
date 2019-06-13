@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\FI\Modules\Clients\Models\Client::class, function (Faker $faker) {
+$factory->define(\BT\Modules\Clients\Models\Client::class, function (Faker $faker) {
     return [
         //for company
         'name' => $faker->company,

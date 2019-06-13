@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Controllers;
+namespace BT\Modules\API\Controllers;
 
-use FI\Modules\API\Requests\APIInvoiceStoreRequest;
-use FI\Modules\API\Requests\APIInvoiceItemRequest;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Modules\Invoices\Models\InvoiceItem;
-use FI\Modules\Users\Models\User;
+use BT\Modules\API\Requests\APIInvoiceStoreRequest;
+use BT\Modules\API\Requests\APIInvoiceItemRequest;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Modules\Users\Models\User;
 
 class ApiInvoiceController extends ApiController
 {

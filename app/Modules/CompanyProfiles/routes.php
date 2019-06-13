@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\CompanyProfiles\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\CompanyProfiles\Controllers'], function ()
 {
     Route::get('company_profiles', ['uses' => 'CompanyProfileController@index', 'as' => 'companyProfiles.index']);
     Route::get('company_profiles/create', ['uses' => 'CompanyProfileController@create', 'as' => 'companyProfiles.create']);
@@ -23,4 +23,4 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\
     Route::post('company_profiles/ajax/modal_lookup', ['uses' => 'CompanyProfileController@ajaxModalLookup', 'as' => 'companyProfiles.ajax.modalLookup']);
 });
 
-Route::get('company_profiles/{id}/logo', ['uses' => 'FI\Modules\CompanyProfiles\Controllers\LogoController@logo', 'as' => 'companyProfiles.logo']);
+Route::get('company_profiles/{id}/logo', ['uses' => 'BT\Modules\CompanyProfiles\Controllers\LogoController@logo', 'as' => 'companyProfiles.logo']);

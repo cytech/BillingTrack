@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Modules\PaymentTerms\Models;
+namespace BT\Modules\PaymentTerms\Models;
 
 
 use Eloquent;

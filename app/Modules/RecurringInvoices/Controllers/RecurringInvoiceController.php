@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Controllers;
+namespace BT\Modules\RecurringInvoices\Controllers;
 
-use FI\DataTables\RecurringInvoicesDataTable;
-use FI\Http\Controllers\Controller;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Support\Frequency;
-use FI\Traits\ReturnUrl;
+use BT\DataTables\RecurringInvoicesDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Support\Frequency;
+use BT\Traits\ReturnUrl;
 
 class RecurringInvoiceController extends Controller
 {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support;
+namespace BT\Support;
 
 use DateInterval;
 use DateTime;

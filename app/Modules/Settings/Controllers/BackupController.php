@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Settings\Controllers;
+namespace BT\Modules\Settings\Controllers;
 
-use FI\Http\Controllers\Controller;
+use BT\Http\Controllers\Controller;
 use Ifsnop\Mysqldump\Mysqldump;
 
 class BackupController extends Controller

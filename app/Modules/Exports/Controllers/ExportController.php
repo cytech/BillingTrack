@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Exports\Controllers;
+namespace BT\Modules\Exports\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Exports\Support\Export;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Exports\Support\Export;
 
 class ExportController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Support;
+namespace BT\Support;
 
 use Illuminate\Support\Facades\File;
 

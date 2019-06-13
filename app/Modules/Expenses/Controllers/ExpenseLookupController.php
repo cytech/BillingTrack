@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Expenses\Controllers;
+namespace BT\Modules\Expenses\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Categories\Models\Category;
-use FI\Modules\Vendors\Models\Vendor;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Categories\Models\Category;
+use BT\Modules\Vendors\Models\Vendor;
 
 class ExpenseLookupController extends Controller
 {

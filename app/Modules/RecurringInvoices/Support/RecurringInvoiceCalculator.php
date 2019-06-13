@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Support;
+namespace BT\Modules\RecurringInvoices\Support;
 
-use FI\Support\Calculators\Calculator;
+use BT\Support\Calculators\Calculator;
 
 class RecurringInvoiceCalculator extends Calculator
 {

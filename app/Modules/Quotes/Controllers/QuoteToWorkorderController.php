@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Controllers;
+namespace BT\Modules\Quotes\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\Quotes\Support\QuoteToWorkorder;
-use FI\Modules\Quotes\Requests\QuoteToWorkorderRequest;
-use FI\Support\DateFormatter;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\Quotes\Support\QuoteToWorkorder;
+use BT\Modules\Quotes\Requests\QuoteToWorkorderRequest;
+use BT\Support\DateFormatter;
 
 class QuoteToWorkorderController extends Controller
 {

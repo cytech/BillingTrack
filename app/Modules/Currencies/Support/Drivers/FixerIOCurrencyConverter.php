@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Currencies\Support\Drivers;
+namespace BT\Modules\Currencies\Support\Drivers;
 
 class FixerIOCurrencyConverter
 {

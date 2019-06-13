@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Requests;
+namespace BT\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Validator;

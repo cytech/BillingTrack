@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\RecurringInvoices\Controllers;
+namespace BT\Modules\RecurringInvoices\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Currencies\Models\Currency;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Groups\Models\Group;
-use FI\Modules\Invoices\Support\InvoiceTemplates;
-use FI\Modules\ItemLookups\Models\ItemLookup;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoice;
-use FI\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
-use FI\Modules\RecurringInvoices\Requests\RecurringInvoiceUpdateRequest;
-use FI\Modules\TaxRates\Models\TaxRate;
-use FI\Support\DateFormatter;
-use FI\Support\Frequency;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Currencies\Models\Currency;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Groups\Models\Group;
+use BT\Modules\Invoices\Support\InvoiceTemplates;
+use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
+use BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
+use BT\Modules\RecurringInvoices\Requests\RecurringInvoiceUpdateRequest;
+use BT\Modules\TaxRates\Models\TaxRate;
+use BT\Support\DateFormatter;
+use BT\Support\Frequency;
+use BT\Traits\ReturnUrl;
 
 class RecurringInvoiceEditController extends Controller
 {

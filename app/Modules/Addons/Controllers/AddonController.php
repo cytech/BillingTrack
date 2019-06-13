@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Addons\Controllers;
+namespace BT\Modules\Addons\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Addons\Models\Addon;
-use FI\Support\Directory;
-use FI\Support\Migrations;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Addons\Models\Addon;
+use BT\Support\Directory;
+use BT\Support\Migrations;
 
 class AddonController extends Controller
 {

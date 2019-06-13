@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\Dashboard\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Dashboard\Controllers'], function ()
 {
     Route::get('/', 'DashboardController@index');
     Route::get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard.index']);

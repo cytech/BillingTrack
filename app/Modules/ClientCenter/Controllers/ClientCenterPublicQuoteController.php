@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ClientCenter\Controllers;
+namespace BT\Modules\ClientCenter\Controllers;
 
-use FI\Events\QuoteApproved;
-use FI\Events\QuoteRejected;
-use FI\Events\QuoteViewed;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Support\FileNames;
-use FI\Support\PDF\PDFFactory;
-use FI\Support\Statuses\QuoteStatuses;
+use BT\Events\QuoteApproved;
+use BT\Events\QuoteRejected;
+use BT\Events\QuoteViewed;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Support\FileNames;
+use BT\Support\PDF\PDFFactory;
+use BT\Support\Statuses\QuoteStatuses;
 
 class ClientCenterPublicQuoteController extends Controller
 {

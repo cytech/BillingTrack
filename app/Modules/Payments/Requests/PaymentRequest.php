@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Payments\Requests;
+namespace BT\Modules\Payments\Requests;
 
-use FI\Support\NumberFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PaymentRequest extends FormRequest

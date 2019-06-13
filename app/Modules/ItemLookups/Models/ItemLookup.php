@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\ItemLookups\Models;
+namespace BT\Modules\ItemLookups\Models;
 
-use FI\Modules\Employees\Models\Employee;
-use FI\Support\CurrencyFormatter;
-use FI\Support\NumberFormatter;
+use BT\Modules\Employees\Models\Employee;
+use BT\Support\CurrencyFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -35,23 +35,23 @@ class ItemLookup extends Model
 
     public function taxRate()
     {
-        return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate');
     }
 
     public function taxRate2()
     {
-        return $this->belongsTo('FI\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
     }
 
     public function products()
     {
-        return $this->hasMany('FI\Modules\Products\Models\Product', 'resource_id')
+        return $this->hasMany('BT\Modules\Products\Models\Product', 'resource_id')
             ->where('resource_table','=','products');
     }
 
     public function employees()
     {
-        return $this->hasMany('FI\Modules\Employees\Models\Employee', 'resource_id')
+        return $this->hasMany('BT\Modules\Employees\Models\Employee', 'resource_id')
             ->where('resource_table','=','employees');
     }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Providers;
+namespace BT\Providers;
 
-use FI\Support\Directory;
+use BT\Support\Directory;
 use Illuminate\Support\ServiceProvider;
 
 class DashboardWidgetServiceProvider extends ServiceProvider
@@ -19,7 +19,7 @@ class DashboardWidgetServiceProvider extends ServiceProvider
             // Load the widget service provider if it exists.
             if (file_exists($providerPath))
             {
-                app()->register('FI\Widgets\Dashboard\\' . $widget . '\Providers\WidgetServiceProvider');
+                app()->register('BT\Widgets\Dashboard\\' . $widget . '\Providers\WidgetServiceProvider');
             }
 
             // Register the widget setting validation rules if they exist.

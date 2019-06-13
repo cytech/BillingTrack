@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Workorders\Controllers;
+namespace BT\Modules\Workorders\Controllers;
 
-use FI\Events\WorkorderEmailed;
-use FI\Events\WorkorderEmailing;
-use FI\Http\Controllers\Controller;
-use FI\Modules\MailQueue\Support\MailQueue;
-use FI\Modules\Workorders\Models\Workorder;
-use FI\Requests\SendEmailRequest;
-use FI\Support\Contacts;
-use FI\Support\Parser;
+use BT\Events\WorkorderEmailed;
+use BT\Events\WorkorderEmailing;
+use BT\Http\Controllers\Controller;
+use BT\Modules\MailQueue\Support\MailQueue;
+use BT\Modules\Workorders\Models\Workorder;
+use BT\Requests\SendEmailRequest;
+use BT\Support\Contacts;
+use BT\Support\Parser;
 
 class WorkorderMailController extends Controller
 {

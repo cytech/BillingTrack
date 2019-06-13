@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Users\Models;
+namespace BT\Modules\Users\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Traits\Sortable;
+use BT\Traits\Sortable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -47,27 +47,27 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function client()
     {
-        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+        return $this->belongsTo('BT\Modules\Clients\Models\Client');
     }
 
     public function custom()
     {
-        return $this->hasOne('FI\Modules\CustomFields\Models\UserCustom');
+        return $this->hasOne('BT\Modules\CustomFields\Models\UserCustom');
     }
 
     public function expenses()
     {
-        return $this->hasMany('FI\Modules\Expenses\Models\Expense');
+        return $this->hasMany('BT\Modules\Expenses\Models\Expense');
     }
 
     public function invoices()
     {
-        return $this->hasMany('FI\Modules\Invoices\Models\Invoice');
+        return $this->hasMany('BT\Modules\Invoices\Models\Invoice');
     }
 
     public function quotes()
     {
-        return $this->hasMany('FI\Modules\Quotes\Models\Quote');
+        return $this->hasMany('BT\Modules\Quotes\Models\Quote');
     }
 
     /*

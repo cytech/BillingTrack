@@ -1,14 +1,14 @@
 <?php
 
-namespace FI\Observers;
+namespace BT\Observers;
 
-use FI\Events\CheckAttachment;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Modules\CustomFields\Models\ExpenseCustom;
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Categories\Models\Category;
-use FI\Modules\Vendors\Models\Vendor;
+use BT\Events\CheckAttachment;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Modules\CustomFields\Models\ExpenseCustom;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Categories\Models\Category;
+use BT\Modules\Vendors\Models\Vendor;
 
 class ExpenseObserver
 {

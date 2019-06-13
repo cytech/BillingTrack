@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Models;
+namespace BT\Modules\TimeTracking\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use FI\Support\Statuses\TimeTrackingProjectStatuses;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
+use BT\Support\Statuses\TimeTrackingProjectStatuses;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
@@ -48,22 +48,22 @@ class TimeTrackingProject extends Model
 
     public function client()
     {
-        return $this->belongsTo('FI\Modules\Clients\Models\Client');
+        return $this->belongsTo('BT\Modules\Clients\Models\Client');
     }
 
     public function companyProfile()
     {
-        return $this->belongsTo('FI\Modules\CompanyProfiles\Models\CompanyProfile');
+        return $this->belongsTo('BT\Modules\CompanyProfiles\Models\CompanyProfile');
     }
 
     public function tasks()
     {
-        return $this->hasMany('FI\Modules\TimeTracking\Models\TimeTrackingTask');
+        return $this->hasMany('BT\Modules\TimeTracking\Models\TimeTrackingTask');
     }
 
     public function user()
     {
-        return $this->belongsTo('FI\Modules\Users\Models\User');
+        return $this->belongsTo('BT\Modules\Users\Models\User');
     }
 
     /*

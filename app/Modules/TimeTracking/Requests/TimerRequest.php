@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\TimeTracking\Requests;
+namespace BT\Modules\TimeTracking\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

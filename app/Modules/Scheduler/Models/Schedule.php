@@ -9,7 +9,7 @@
  */
 
 
-namespace FI\Modules\Scheduler\Models;
+namespace BT\Modules\Scheduler\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use Collective\Html\Eloquent\FormAccessible;
@@ -39,17 +39,17 @@ class Schedule extends Model {
 
     public function category()
     {
-        return $this->hasOne('FI\Modules\Scheduler\Models\Category', 'id', 'category_id');
+        return $this->hasOne('BT\Modules\Scheduler\Models\Category', 'id', 'category_id');
     }
 
     public function occurrences()
     {
-        return $this->hasMany('FI\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id');
+        return $this->hasMany('BT\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id');
     }
 
     public function occurrence()
     {
-        return $this->hasOne('FI\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id');
+        return $this->hasOne('BT\Modules\Scheduler\Models\ScheduleOccurrence', 'schedule_id', 'id');
     }
 
     public function latestOccurrence()
@@ -64,12 +64,12 @@ class Schedule extends Model {
 
     public function reminders()
     {
-        return $this->hasMany('FI\Modules\Scheduler\Models\ScheduleReminder', 'schedule_id', 'id');
+        return $this->hasMany('BT\Modules\Scheduler\Models\ScheduleReminder', 'schedule_id', 'id');
     }
 
     public function resources()
     {
-        return $this->hasMany('FI\Modules\Scheduler\Models\ScheduleResource','schedule_id', 'id');
+        return $this->hasMany('BT\Modules\Scheduler\Models\ScheduleResource','schedule_id', 'id');
     }
 
     //getters

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\API\Requests;
+namespace BT\Modules\API\Requests;
 
-use FI\Modules\Quotes\Requests\QuoteStoreRequest;
+use BT\Modules\Quotes\Requests\QuoteStoreRequest;
 
 class APIQuoteStoreRequest extends QuoteStoreRequest
 {

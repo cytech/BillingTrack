@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Import\Importers;
+namespace BT\Modules\Import\Importers;
 
-use FI\Events\QuoteModified;
-use FI\Modules\Quotes\Models\Quote;
-use FI\Modules\TaxRates\Models\TaxRate;
+use BT\Events\QuoteModified;
+use BT\Modules\Quotes\Models\Quote;
+use BT\Modules\TaxRates\Models\TaxRate;
 use Illuminate\Support\Facades\Validator;
 
 class QuoteItemImporter extends AbstractImporter

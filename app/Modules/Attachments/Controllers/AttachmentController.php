@@ -3,17 +3,17 @@
 /**
  * This file is part of BillingTrack.
  *
- * 
+ *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Attachments\Controllers;
+namespace BT\Modules\Attachments\Controllers;
 
-use FI\Events\CheckAttachment;
-use FI\Http\Controllers\Controller;
-use FI\Modules\Attachments\Models\Attachment;
+use BT\Events\CheckAttachment;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Attachments\Models\Attachment;
 
 class AttachmentController extends Controller
 {

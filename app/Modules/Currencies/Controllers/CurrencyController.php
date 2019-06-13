@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Currencies\Controllers;
+namespace BT\Modules\Currencies\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Currencies\Models\Currency;
-use FI\Modules\Currencies\Support\CurrencyConverterFactory;
-use FI\Modules\Currencies\Requests\CurrencyStoreRequest;
-use FI\Modules\Currencies\Requests\CurrencyUpdateRequest;
-use FI\Traits\ReturnUrl;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Currencies\Models\Currency;
+use BT\Modules\Currencies\Support\CurrencyConverterFactory;
+use BT\Modules\Currencies\Requests\CurrencyStoreRequest;
+use BT\Modules\Currencies\Requests\CurrencyUpdateRequest;
+use BT\Traits\ReturnUrl;
 
 class CurrencyController extends Controller
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace FI\DataTables;
+namespace BT\DataTables;
 
-use FI\Modules\Invoices\Models\Invoice;
-use FI\Support\Statuses\InvoiceStatuses;
+use BT\Modules\Invoices\Models\Invoice;
+use BT\Support\Statuses\InvoiceStatuses;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -50,7 +50,7 @@ class InvoicesTrashDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \FI\User $model
+     * @param \BT\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Invoice $model)

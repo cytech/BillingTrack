@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Providers;
+namespace BT\Providers;
 
-use FI\Modules\Addons\Models\Addon;
+use BT\Modules\Addons\Models\Addon;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 

@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Users\Controllers;
+namespace BT\Modules\Users\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Clients\Models\Client;
-use FI\Modules\CustomFields\Models\CustomField;
-use FI\Modules\Users\Models\User;
-use FI\Modules\Users\Requests\UserStoreRequest;
-use FI\Modules\Users\Requests\UserUpdateRequest;
-use FI\Traits\ReturnUrl;
-use FI\DataTables\UsersDataTable;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Clients\Models\Client;
+use BT\Modules\CustomFields\Models\CustomField;
+use BT\Modules\Users\Models\User;
+use BT\Modules\Users\Requests\UserStoreRequest;
+use BT\Modules\Users\Requests\UserUpdateRequest;
+use BT\Traits\ReturnUrl;
+use BT\DataTables\UsersDataTable;
 
 class UserController extends Controller
 {

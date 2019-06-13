@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Reports;
+namespace BT\Modules\Reports\Reports;
 
-use FI\Modules\Expenses\Models\Expense;
-use FI\Modules\Payments\Models\Payment;
-use FI\Support\CurrencyFormatter;
-use FI\Support\DateFormatter;
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Payments\Models\Payment;
+use BT\Support\CurrencyFormatter;
+use BT\Support\DateFormatter;
 
 class ProfitLossReport
 {

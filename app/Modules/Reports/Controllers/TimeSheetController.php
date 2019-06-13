@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Reports\Controllers;
+namespace BT\Modules\Reports\Controllers;
 
-use FI\Http\Controllers\Controller;
-use FI\Modules\Reports\Reports\TimeSheetReport;
-use FI\Modules\Reports\Requests\TimeSheetReportRequest;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
-use FI\Support\PDF\PDFFactory;
+use BT\Http\Controllers\Controller;
+use BT\Modules\Reports\Reports\TimeSheetReport;
+use BT\Modules\Reports\Requests\TimeSheetReportRequest;
+use BT\Modules\CompanyProfiles\Models\CompanyProfile;
+use BT\Support\PDF\PDFFactory;
 use Carbon\Carbon;
 
 class TimeSheetController extends Controller

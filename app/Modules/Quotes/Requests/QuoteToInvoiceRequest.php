@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Requests;
+namespace BT\Modules\Quotes\Requests;
 
 class QuoteToInvoiceRequest extends QuoteStoreRequest
 {

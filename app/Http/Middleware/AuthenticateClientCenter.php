@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Http\Middleware;
+namespace BT\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

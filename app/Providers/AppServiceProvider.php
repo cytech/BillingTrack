@@ -1,8 +1,8 @@
 <?php
 
-namespace FI\Providers;
+namespace BT\Providers;
 
-use FI\Support\Directory;
+use BT\Support\Directory;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
@@ -54,12 +54,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->view->addLocation(base_path('custom/templates'));
         $this->app->view->addLocation(storage_path());
 
-        $this->app->register('FI\Providers\AddonServiceProvider');
-        $this->app->register('FI\Providers\ComposerServiceProvider');
-        $this->app->register('FI\Providers\ConfigServiceProvider');
-        $this->app->register('FI\Providers\DashboardWidgetServiceProvider');
-        $this->app->register('FI\Providers\EventServiceProvider');
-        $this->app->register('FI\Providers\ObserverServiceProvider');
+        $this->app->register('BT\Providers\AddonServiceProvider');
+        $this->app->register('BT\Providers\ComposerServiceProvider');
+        $this->app->register('BT\Providers\ConfigServiceProvider');
+        $this->app->register('BT\Providers\DashboardWidgetServiceProvider');
+        $this->app->register('BT\Providers\EventServiceProvider');
+        $this->app->register('BT\Providers\ObserverServiceProvider');
 
         // $this->app->register('Collective\Html\HtmlServiceProvider');
     }
@@ -74,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->booting(function()
         {
            $loader = AliasLoader::getInstance();
-           $loader->alias('Sortable', 'FI\Traits\Sortable');
+           $loader->alias('Sortable', 'BT\Traits\Sortable');
         });
     }
 }

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Support;
+namespace BT\Support;
 
 use Collective\Html\FormFacade;
-use FI\Modules\Clients\Models\Client;
+use BT\Modules\Clients\Models\Client;
 
 class Contacts
 {

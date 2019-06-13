@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'FI\Modules\RecurringInvoices\Controllers'], function ()
+Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\RecurringInvoices\Controllers'], function ()
 {
     Route::group(['prefix' => 'recurring_invoices'], function ()
     {

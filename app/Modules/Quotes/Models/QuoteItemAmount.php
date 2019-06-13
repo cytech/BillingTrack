@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace FI\Modules\Quotes\Models;
+namespace BT\Modules\Quotes\Models;
 
-use FI\Support\CurrencyFormatter;
+use BT\Support\CurrencyFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -29,7 +29,7 @@ class QuoteItemAmount extends Model
 
     public function item()
     {
-        return $this->belongsTo('FI\Modules\Quotes\Models\QuoteItem');
+        return $this->belongsTo('BT\Modules\Quotes\Models\QuoteItem');
     }
 
     /*

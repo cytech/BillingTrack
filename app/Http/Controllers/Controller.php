@@ -1,6 +1,6 @@
 <?php
 
-namespace FI\Http\Controllers;
+namespace BT\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
  
-namespace FI\Modules\Workorders\Models;
+namespace BT\Modules\Workorders\Models;
 
-use FI\Support\CurrencyFormatter;
+use BT\Support\CurrencyFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -36,7 +36,7 @@ class WorkorderAmount extends Model
 
     public function workorder()
     {
-        return $this->belongsTo('FI\Modules\Workorders\Models\Workorder');
+        return $this->belongsTo('BT\Modules\Workorders\Models\Workorder');
     }
 
     /*
