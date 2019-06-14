@@ -32,6 +32,6 @@ class CompanyProfileObserver
 
     public function saving(CompanyProfile $companyProfile): void
     {
-        $companyProfile->custom()->save(new CompanyProfileCustom());
+        $companyProfile->address = strip_tags($companyProfile->address);
     }
 }

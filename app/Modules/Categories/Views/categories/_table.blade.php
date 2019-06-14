@@ -27,7 +27,7 @@
     $(function () {
         {{--for categories DT--}}
         $('#dt-categoriestable').DataTable({
-            paging: false,
+            paging: true,
             order: [[0, "asc"]],//order on id
             "columnDefs": [
                 {"orderable": false, "targets": 2}

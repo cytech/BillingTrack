@@ -39,7 +39,7 @@
     $(function () {
         {{--for employees DT--}}
         $('#dt-employeestable').DataTable({
-            paging: false,
+            paging: true,
             order: [[0, "asc"]],//order on id
             "columnDefs": [
                 {"orderable": false, "targets": 8}

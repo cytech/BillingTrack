@@ -26,7 +26,7 @@
         <div class="col-lg-3">
             <div class="bs-sidebar">
                 <h4>Versions</h4>
-                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements">BillingTrack v5.0.x</a>
+                <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements">BillingTrack v5.x.x</a>
                 </p>
                 <p style="padding-left: 15px; font-size: 1em;"><a href="Requirements4">BillingTrack v4.1.x</a>
                 </p>

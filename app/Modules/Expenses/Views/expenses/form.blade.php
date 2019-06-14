@@ -31,6 +31,8 @@
             @lang('bt.expense_form')
         </h3>
         <div class="float-right">
+            <a class="btn btn-warning float-right" href={!! route('expenses.index')  !!}><i
+                        class="fa fa-ban"></i> @lang('bt.cancel')</a>
             <button class="btn btn-primary"><i class="fa fa-save"></i> @lang('bt.save')</button>
         </div>
         <div class="clearfix"></div>

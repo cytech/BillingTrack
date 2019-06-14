@@ -95,12 +95,14 @@ class SetupController extends Controller
         return view('setup.neworxfer');
     }
 
+    //needs to be upgraded, no longer works with current bt database or FI newer than 2018-8
     public function xferaccount()
     {
             return view('setup.xferaccount');
 
     }
 
+    //needs to be upgraded, no longer works with current bt database or FI newer than 2018-8
     public function postXferAccount(Request $request)
     {
         $maxtime =  ini_get('max_execution_time');

@@ -21,8 +21,8 @@ Route::group(['middleware' => 'web', 'namespace' => 'BT\Modules\Setup\Controller
 
     Route::get('setup/neworxfer', ['uses' => 'SetupController@neworxfer', 'as' => 'setup.neworxfer']);
 
-    Route::get('setup/xferaccount', ['uses' => 'SetupController@xferaccount', 'as' => 'setup.xferaccount']);
-    Route::post('setup/xferaccount', ['uses' => 'SetupController@postXferAccount', 'as' => 'setup.postXferAccount']);
+//    Route::get('setup/xferaccount', ['uses' => 'SetupController@xferaccount', 'as' => 'setup.xferaccount']);
+//    Route::post('setup/xferaccount', ['uses' => 'SetupController@postXferAccount', 'as' => 'setup.postXferAccount']);
 
 
     Route::get('setup/newaccount', ['uses' => 'SetupController@account', 'as' => 'setup.newaccount']);

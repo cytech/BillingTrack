@@ -17,11 +17,11 @@
         <h3>How to Upgrade BillingTrack</h3>
         <ul>
             <li>Git pull (if originally cloned) or download and overwrite existing installation.
-                (if downloading and extracting zip, delete the contents of "YourBillingTrack/public"
+                (if downloading and extracting zip, delete the contents of "YOUR_BILLINGTRACK_WEBSITE/public" and "YOUR_BILLINGTRACK_WEBSITE/app"
                 directory prior to extracting.)
             </li>
             <li>Run composer update</li>
-            <li>Start BillingTrack/setup</li>
+            <li>Start YOUR_BILLINGTRACK_WEBSITE/setup</li>
             <li>After migration completes, signin.</li>
         </ul>
 

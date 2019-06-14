@@ -17,8 +17,8 @@
                     <div class="card-body">
 
                         <a href="{{ route('setup.newaccount') }}" class="btn btn-primary" id="btn-run-newaccount">@lang('bt.new_account')</a>
-                        <br><br><br>
-                        <a href="{{ route('setup.xferaccount') }}" class="btn btn-primary" id="btn-run-xferaccount">@lang('bt.transfer_existing')</a>
+{{--                        <br><br><br>--}}
+{{--                        <a href="{{ route('setup.xferaccount') }}" class="btn btn-primary" id="btn-run-xferaccount">@lang('bt.transfer_existing')</a>--}}
 
                     </div>
 

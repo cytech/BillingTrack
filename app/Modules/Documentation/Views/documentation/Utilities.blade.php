@@ -20,6 +20,19 @@
             Create a new employee.</p>
 
         </ul>
+        <b>Vendors</b></p>
+        <p>
+            Allows for creation of Vendors that may be assigned to expenses.
+            The list may be sorted by the available header fields. To edit an
+            Vendor, select the Vendor # in the list.</p>
+
+        <ul>
+            <b>New</b>
+
+            <p>
+                Create a new vendor.</p>
+
+        </ul>
         <p><b>Products</b></p>
         <p>
             Allows for creation of Products (inventory or standard job items)
@@ -37,6 +50,20 @@
             Note: Both Employees and Products can be "pushed" to the Item Lookup Table.
             Settings (or force function) can be found in System Settings-General tab.
         </p>
+        <p><b>Categories</b></p>
+        <p>
+            Allows for creation of Categories
+            that may be assigned to products or expenses. The list may be sorted by the
+            available header fields. To edit a Category, select the Category # in
+            the list.</p>
+
+        <ul>
+            <b>New</b>
+
+            <p>
+                Create a new Category.</p>
+        </ul>
+
 
 
         <p>

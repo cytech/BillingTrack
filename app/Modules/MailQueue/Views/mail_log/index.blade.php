@@ -70,7 +70,7 @@
         $(function () {
             {{--for employees DT--}}
             $('#dt-maillogtable').DataTable({
-                paging: false,
+                paging: true,
                 order: [[0, "asc"]],//order on id
                 "columnDefs": [
                     {"orderable": false, "targets": 7}

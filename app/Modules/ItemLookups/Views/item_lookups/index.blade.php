@@ -64,7 +64,7 @@
         $(function () {
             {{--for itemlookups DT--}}
             $('#dt-itemlookupstable').DataTable({
-                paging: false,
+                paging: true,
                 order: [[6, "asc"], [0, "asc"]],//order on hidden resource table then name
                 "columnDefs": [
                     {"orderable": false, "targets": 5}

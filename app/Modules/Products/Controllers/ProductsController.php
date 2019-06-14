@@ -66,6 +66,7 @@ class ProductController extends Controller
         $products->name = $request->name;
         $products->description = $request->description;
         $products->serialnum = $request->serialnum;
+        $products->price = $request->price?:0;
         $products->active = is_null($request->active) ? 0 : $request->active;
         $products->cost = $request->cost?:0;
         $products->type = $request->type;
@@ -162,12 +163,12 @@ class ProductController extends Controller
     public function  forceLUTupdate($ret)
     {
         ItemLookup::where('resource_table', 'products')->delete();
-        $products = Product::where('active', 1)->get(['name', 'description', 'cost', 'id']);
+        $products = Product::where('active', 1)->get(['name', 'description', 'price', 'id']);
         foreach ($products as $product){
             $itemlookup = new ItemLookup();
             $itemlookup->name = $product->name;
             $itemlookup->description = $product->description;
-            $itemlookup->price = $product->cost;
+            $itemlookup->price = $product->price;
             $itemlookup->resource_table = 'products';
             $itemlookup->resource_id = $product->id;
 

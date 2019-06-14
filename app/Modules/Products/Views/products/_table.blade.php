@@ -41,10 +41,10 @@
     $(function () {
         {{--for products DT--}}
         $('#dt-productstable').DataTable({
-            paging: false,
+            paging: true,
             order: [[0, "asc"]],//order on id
             "columnDefs": [
-                {"orderable": false, "targets": 7}
+                {"orderable": false, "targets": 9}
             ]
         });
     });

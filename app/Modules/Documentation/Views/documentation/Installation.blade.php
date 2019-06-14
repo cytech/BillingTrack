@@ -23,7 +23,7 @@
 
             <li>3. create a NEW BillingTrack database.</li>
 
-            (You will be presented with an option to transfer an existing FusionInvoice 2018-8 database during setup.)
+{{--            (You will be presented with an option to transfer an existing FusionInvoice 2018-8 database during setup.)--}}
 
             <li>4. Copy .env.example to .env</li>
 
@@ -52,36 +52,36 @@
                 <li>Save .env file and exit.</li>
             </ul>
 
-            <li>**FOR UPGRADE FROM 2018-8:**</li>
-            <ul>
-                <li>Add your existing FusionInvoice 2018-8 app key to (APP_KEY= xxxxxxxxxxxxxxxxxxxxxx)</li>
-            </ul>
-            <li>Save .env file and exit.</li>
+{{--            <li>**FOR UPGRADE FROM 2018-8:**</li>--}}
+{{--            <ul>--}}
+{{--                <li>Add your existing FusionInvoice 2018-8 app key to (APP_KEY= xxxxxxxxxxxxxxxxxxxxxx)</li>--}}
+{{--            </ul>--}}
+{{--            <li>Save .env file and exit.</li>--}}
 
             <li>7. Set permissions for your site.</li>
 
-            <li>8. Start BillingTrack/setup</li>
+            <li>8. Start YOUR_BILLINGTRACK_WEBSITE/setup</li>
 
-            <li>9. after database configuration finishes, you will be presented with 2 choices:</li>
+            <li>9. after database configuration finishes (this may take a couple of minutes):</li>
 
             <li>**Create new account** -> creates fresh installation with account</li>
 
-            <li>**Transfer existing 2018-8 database** -> enter EXACT existing 2018-8 database name and data will be
-                transfered to new database and structure.
-            </li>
+{{--            <li>**Transfer existing 2018-8 database** -> enter EXACT existing 2018-8 database name and data will be--}}
+{{--                transfered to new database and structure.--}}
+{{--            </li>--}}
 
-            <li>Note: This can take a long time on a large database (i.e. 30 MiB = ~ 10 minutes). This function will
-                transfer **only** existing FusionInvoice 2018-8. If you have an older version it will need to be
-                upgraded to 2018-8.
-                2018-8 is available in the release section of this repository.
-                This will also transfer the cytech/workorders addon, cytech/scheduler addon and
-                fusioninvoice/TimeTracking addon if they exist.
-                Any other addons will have to be reinstalled and data manually transferred.
-                Also, there is a limit of 10 custom fields columns transferred per _module_custom_ table. If you have
-                more than 10 custom fields columns defined in any _module_custom_ table you will need to edit the code
-                in SetupController.php line 201 and increase the
-                value from 10 to the maximum number of your custom field columns.
-            </li>
+{{--            <li>Note: This can take a long time on a large database (i.e. 30 MiB = ~ 10 minutes). This function will--}}
+{{--                transfer **only** existing FusionInvoice 2018-8. If you have an older version it will need to be--}}
+{{--                upgraded to 2018-8.--}}
+{{--                2018-8 is available in the release section of this repository.--}}
+{{--                This will also transfer the cytech/workorders addon, cytech/scheduler addon and--}}
+{{--                fusioninvoice/TimeTracking addon if they exist.--}}
+{{--                Any other addons will have to be reinstalled and data manually transferred.--}}
+{{--                Also, there is a limit of 10 custom fields columns transferred per _module_custom_ table. If you have--}}
+{{--                more than 10 custom fields columns defined in any _module_custom_ table you will need to edit the code--}}
+{{--                in SetupController.php line 201 and increase the--}}
+{{--                value from 10 to the maximum number of your custom field columns.--}}
+{{--            </li>--}}
 
             <li>10. sign in</li>
         </ul>
