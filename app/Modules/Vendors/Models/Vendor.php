@@ -25,6 +25,29 @@ class Vendor extends Model
     protected $guarded = ['id'];
 
     /*
+    |--------------------------------------------------------------------------
+    | Static Methods
+    |--------------------------------------------------------------------------
+    */
+
+    public static function firstOrCreateByName($name)
+    {
+        $vendor = self::firstOrNew([
+            'name' => $name,
+        ]);
+
+        if (!$vendor->id)
+        {
+            $vendor->name = $name;
+            $vendor->save();
+            return self::find($vendor->id);
+        }
+
+        return $vendor;
+    }
+
+
+    /*
    |--------------------------------------------------------------------------
    | Relationships
    |--------------------------------------------------------------------------

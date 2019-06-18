@@ -101,6 +101,15 @@
                     </a>
                 </li>
                 @endif
+                @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('purchaseorder'))
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{{ route('purchaseorders.index', ['status' => config('bt.invoiceStatusFilter')]) }}">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>@lang('bt.purchaseorders')</p>
+                    </a>
+                </li>
+                @endif
                 @if(\BT\Modules\Settings\Models\Setting::isModuleEnabled('scheduler'))
                 <li class="nav-item">
                     <a class="nav-link" href="#">

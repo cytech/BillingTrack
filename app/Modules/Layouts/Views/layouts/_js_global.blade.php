@@ -155,6 +155,11 @@
             $('#modal-placeholder').load('{{ route('invoices.create') }}');
         });
 
+        $(document).on('click','.create-purchaseorder',function () {
+            vendorName = $(this).data('name');
+            $('#modal-placeholder').load('{{ route('purchaseorders.create') }}');
+        });
+
         $(document).on('click','.create-recurring-invoice',function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('recurringInvoices.create') }}');
@@ -174,6 +179,17 @@
         $(document).on('click', '.email-invoice', function () {
             $('#modal-placeholder').load('{{ route('invoiceMail.create') }}', {
                 invoice_id: $(this).data('invoice-id'),
+                redirectTo: $(this).data('redirect-to')
+            }, function (response, status, xhr) {
+                if (status == 'error') {
+                    notify('@lang('bt.problem_with_email_template')','error');
+                }
+            });
+        });
+
+        $(document).on('click', '.email-purchaseorder', function () {
+            $('#modal-placeholder').load('{{ route('purchaseorderMail.create') }}', {
+                purchaseorder_id: $(this).data('purchaseorder-id'),
                 redirectTo: $(this).data('redirect-to')
             }, function (response, status, xhr) {
                 if (status == 'error') {

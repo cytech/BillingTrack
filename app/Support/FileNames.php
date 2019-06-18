@@ -28,6 +28,11 @@ class FileNames
         return trans('bt.workorder') . '_' . str_replace('/', '-', $workorder->number) . '.pdf';
     }
 
+    public static function purchaseorder($purchaseorder)
+    {
+        return trans('bt.purchaseorder') . '_' . str_replace('/', '-', $purchaseorder->number) . '.pdf';
+    }
+
     public static function batchprint()
     {
         return trans('bt.batchprint') . '_' . 'batchprint' . '.pdf';

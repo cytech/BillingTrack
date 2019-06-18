@@ -135,5 +135,68 @@ class VendorController extends Controller
         //
     }
 
+    public function ajaxLookup()
+    {
+        $vendors = Vendor::select('name')
+            ->where('active', 1)
+            ->where('name', 'like', '%' . request('term') . '%')
+            ->orderBy('name')
+            ->get();
+
+        $list = [];
+
+        foreach ($vendors as $vendor)
+        {
+            $list[]['value'] = $vendor->name;
+        }
+
+        return json_encode($list);
+    }
+
+    public function ajaxModalLookup()
+    {
+        return view('vendors._modal_lookup')
+            ->with('updateVendorIdRoute', request('update_vendor_id_route'))
+            ->with('refreshToRoute', request('refresh_to_route'))
+            ->with('id', request('id'));
+    }
+
+    public function ajaxCheckName()
+    {
+        $vendor = Vendor::select('id')->where('name', request('vendor_name'))->first();
+
+        if ($vendor)
+        {
+            return response()->json(['success' => true, 'vendor_id' => $vendor->id], 200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'errors'  => ['messages' => [trans('bt.vendor_not_found')]],
+        ], 400);
+    }
+
+    public function ajaxModalEdit()
+    {
+        return view('vendors._modal_edit')
+            ->with('editMode', true)
+            ->with('vendor', Vendor::getSelect()->with(['custom'])->find(request('vendor_id')))
+            ->with('refreshToRoute', request('refresh_to_route'))
+            ->with('id', request('id'))
+            ->with('customFields', CustomField::forTable('vendors')->get())
+            ->with('payment_terms', PaymentTerm::pluck('name', 'id'));
+    }
+
+    public function ajaxModalUpdate(VendorUpdateRequest $request, $id)
+    {
+        $vendor = Vendor::find($id);
+        $vendor->fill($request->except('custom'));
+        $vendor->save();
+
+        $vendor->custom->update($request->get('custom', []));
+
+        return response()->json(['success' => true], 200);
+    }
+
 
 }

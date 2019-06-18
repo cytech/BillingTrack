@@ -11,6 +11,8 @@
 
 namespace BT\Modules\Products\Models;
 
+use BT\Support\CurrencyFormatter;
+use BT\Support\NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -55,5 +57,20 @@ class Product extends Model
     {
         return $this->belongsTo('BT\Modules\Workorders\Models\RecurringInvoiceItem','resource_id', 'id')
             ->where('resource_table','=','products');
+    }
+
+    public function getFormattedPriceAttribute()
+    {
+        return CurrencyFormatter::format($this->attributes['price']);
+    }
+
+    public function getFormattedCostAttribute()
+    {
+        return CurrencyFormatter::format($this->attributes['cost']);
+    }
+
+    public function getFormattedNumericPriceAttribute()
+    {
+        return NumberFormatter::format($this->attributes['price']);
     }
 }

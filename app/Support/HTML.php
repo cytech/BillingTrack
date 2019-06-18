@@ -78,4 +78,26 @@ class HTML
             ->with('workorder', $workorder)
             ->with('logo', $workorder->companyProfile->logo())->render();
     }
+
+    public static function purchaseorder($purchaseorder)
+    {
+        app()->setLocale($purchaseorder->vendor->language);
+
+        config(['bt.baseCurrency' => $purchaseorder->currency_code]);
+
+        $template = str_replace('.blade.php', '', $purchaseorder->template);
+
+        if (view()->exists('purchaseorder_templates.' . $template))
+        {
+            $template = 'purchaseorder_templates.' . $template;
+        }
+        else
+        {
+            $template = 'templates.purchaseorders.default';
+        }
+
+        return view($template)
+            ->with('purchaseorder', $purchaseorder)
+            ->with('logo', $purchaseorder->companyProfile->logo())->render();
+    }
 }

@@ -16,6 +16,7 @@ use BT\Modules\Products\Models\Product;
 use BT\Modules\Products\Requests\ProductRequest;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Vendors\Models\Vendor;
+use BT\Support\NumberFormatter;
 
 class ProductController extends Controller
 {
@@ -177,5 +178,44 @@ class ProductController extends Controller
 
         if ($ret == 0){return redirect()->route('settings.index')
             ->with('alertInfo', trans('bt.lut_updated'));}
+    }
+
+    public function getProduct($vendorId)
+    {
+        $products = Product::orderby('name','ASC')->get();
+
+        return view('products.modal_products')
+            ->with('products',$products)
+            ->with('vendorId', $vendorId);
+
+    }
+
+    public function processProduct(){
+
+        $items = Product::whereIn('id', request('product_ids'))->get();
+
+        echo json_encode($items);
+    }
+
+    public function ajaxProduct()
+    {
+
+        $items = Product::orderBy('name')->where('name', 'like', '%' . request('term') . '%')->get();
+
+        $list = [];
+
+        foreach ($items as $item)
+        {
+            $list[] = [
+                'value'         => $item->name, //for autocomplete
+                'name'          => $item->name,
+                'description'   => $item->description,
+                'price'         => NumberFormatter::format($item->price),
+                'tax_rate_id'   => $item->tax_rate_id,
+                'tax_rate_2_id' => $item->tax_rate_2_id,
+            ];
+        }
+
+        return json_encode($list);
     }
 }

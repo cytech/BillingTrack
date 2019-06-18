@@ -30,6 +30,7 @@ class Setting extends Model
         'expense' => 8,
         'time_tracking' => 16,
         'scheduler' => 32,
+        'purchaseorder' => 64,
     ];
 
 
@@ -65,6 +66,7 @@ class Setting extends Model
             'expense',
             'time_tracking',
             'scheduler',
+            'purchaseorder',
         ])) {
             return true;
         }
@@ -195,6 +197,8 @@ class Setting extends Model
             'overdueInvoiceEmailSubject',
             'upcomingPaymentNoticeEmailSubject',
             'paymentReceiptEmailSubject',
+            'purchaseorderEmailSubject',
+            'purchaseorderEmailBody',
         ];
 
         foreach ($emailTemplates as $template)

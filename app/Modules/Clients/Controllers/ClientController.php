@@ -167,7 +167,10 @@ class ClientController extends Controller
             ->with('client', Client::getSelect()->with(['custom'])->find(request('client_id')))
             ->with('refreshToRoute', request('refresh_to_route'))
             ->with('id', request('id'))
-            ->with('customFields', CustomField::forTable('clients')->get());
+            ->with('customFields', CustomField::forTable('clients')->get())
+            ->with('payment_terms', PaymentTerm::pluck('name', 'id'))
+            ->with('industries', Industry::pluck('name', 'id'))
+            ->with('sizes', Size::pluck('name', 'id'));
     }
 
     public function ajaxModalUpdate(ClientUpdateRequest $request, $id)

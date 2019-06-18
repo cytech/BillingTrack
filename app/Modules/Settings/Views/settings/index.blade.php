@@ -41,6 +41,17 @@
                 });
             });
 
+            $('#btn-recalculate-purchaseorders').click(function () {
+                const $btn = $(this).button('loading');
+                $.post("{{ route('purchaseorders.recalculate') }}").done(function (response) {
+                    notify(response.message, 'info');
+                }).fail(function (response) {
+                    notify('@lang('bt.error'): ' + $.parseJSON(response.responseText).message, 'error');
+                }).always(function () {
+                    $btn.button('reset');
+                });
+            });
+
             $('#setting-tabs a').click(function (e) {
                 const tabId = $(e.target).attr("href").substr(1);
                 $.post("{{ route('settings.saveTab') }}", {settingTabId: tabId});
@@ -95,6 +106,8 @@
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                                     href="#tab-invoices">@lang('bt.invoices')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-purchaseorders">@lang('bt.purchaseorders')</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                                     href="#tab-taxes">@lang('bt.taxes')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                                     href="#tab-email">@lang('bt.email')</a></li>
@@ -120,6 +133,9 @@
                         </div>
                         <div id="tab-invoices" class="tab-pane">
                             @include('settings._invoices')
+                        </div>
+                        <div id="tab-purchaseorders" class="tab-pane">
+                            @include('settings._purchaseorders')
                         </div>
                         <div id="tab-workorders" class="tab-pane">
                             @include('settings._workorders')

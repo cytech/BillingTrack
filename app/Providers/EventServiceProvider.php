@@ -32,6 +32,18 @@ class EventServiceProvider extends ServiceProvider
             'BT\Events\Listeners\InvoiceModifiedListener',
         ],
 
+        'BT\Events\PurchaseorderModified' => [
+            'BT\Events\Listeners\PurchaseorderModifiedListener',
+        ],
+
+        'BT\Events\PurchaseorderEmailing' => [
+            'BT\Events\Listeners\PurchaseorderEmailingListener',
+        ],
+
+        'BT\Events\PurchaseorderEmailed' => [
+            'BT\Events\Listeners\PurchaseorderEmailedListener',
+        ],
+
         'BT\Events\InvoiceViewed' => [
             'BT\Events\Listeners\InvoiceViewedListener',
         ],

@@ -9,6 +9,8 @@ use BT\Modules\Invoices\Models\Invoice;
 use BT\Modules\Invoices\Models\InvoiceItem;
 use BT\Modules\Notes\Models\Note;
 use BT\Modules\Payments\Models\Payment;
+use BT\Modules\Purchaseorders\Models\Purchaseorder;
+use BT\Modules\Purchaseorders\Models\PurchaseorderItem;
 use BT\Modules\Quotes\Models\Quote;
 use BT\Modules\Quotes\Models\QuoteItem;
 use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
@@ -29,6 +31,8 @@ use BT\Observers\InvoiceItemObserver;
 use BT\Observers\InvoiceObserver;
 use BT\Observers\NoteObserver;
 use BT\Observers\PaymentObserver;
+use BT\Observers\PurchaseorderItemObserver;
+use BT\Observers\PurchaseorderObserver;
 use BT\Observers\QuoteItemObserver;
 use BT\Observers\QuoteObserver;
 use BT\Observers\RecurringInvoiceItemObserver;
@@ -80,5 +84,9 @@ class ObserverServiceProvider extends ServiceProvider
         WorkorderItem::observe(WorkorderItemObserver::class);
         TimeTrackingTask::observe(TimeTrackingTaskObserver::class);
         Vendor::observe(VendorObserver::class);
+        Purchaseorder::observe(PurchaseorderObserver::class);
+        PurchaseorderItem::observe(PurchaseorderItemObserver::class);
+
+
     }
 }

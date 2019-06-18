@@ -241,6 +241,70 @@
 
         <hr>
 
+        <span class="anchor" id="purchaseorder-email-template"></span>
+        <h3>Purchaseorder Email Template</h3>
+
+        <p>The variables listed below can be used in the following fields in Purchase Order email settings:</p>
+
+        <ul>
+            <li><strong>Purchaseorder Email Subject</strong></li>
+            <li><strong>Default Purchaseorder Email Body</strong></li>
+        </ul>
+
+        <ul>
+            <li><strong>Purchaseorder Information</strong>
+                <ul>
+                    <li>Issue Date: @{{ $purchaseorder->formatted_created_at }}</li>
+                    <li>Expiration Date: @{{ $purchaseorder->formatted_due_at }}</li>
+                    <li>Number: @{{ $purchaseorder->number }}</li>
+                    <li>Status: @{{ $purchaseorder->status_text }}</li>
+                    <li>Summary: @{{ $purchaseorder->summary }}</li>
+                    <li>Terms: @{{ $purchaseorder->formatted_terms }}</li>
+                    <li>Footer: @{{ $purchaseorder->formatted_footer }}</li>
+                    <li>Total Amount: @{{ $purchaseorder->amount->formatted_total }}</li>
+                </ul>
+            </li>
+            <li><strong>Company Information</strong>
+                <ul>
+                    <li>Company: @{{ $purchaseorder->companyProfile->company }}</li>
+                    <li>Address: @{{ $purchaseorder->companyProfile->formatted_address }}</li>
+                    <li>Phone: @{{ $purchaseorder->companyProfile->phone }}</li>
+                    <li>Fax: @{{ $purchaseorder->companyProfile->fax }}</li>
+                    <li>Mobile: @{{ $purchaseorder->companyProfile->mobile }}</li>
+                    <li>Email: @{{ $purchaseorder->user->email }}</li>
+                    <li>Website: @{{ $purchaseorder->companyProfile->web }}</li>
+                </ul>
+            </li>
+            <li><strong>User Account Information</strong>
+                <ul>
+
+                    <li>Name: @{{ $purchaseorder->user->name }}</li>
+                    <li>Company: @{{ $purchaseorder->companyProfile->company }}</li>
+                    <li>Address: @{{ $purchaseorder->user->formatted_address }}</li>
+                    <li>Phone: @{{ $purchaseorder->user->phone }}</li>
+                    <li>Fax: @{{ $purchaseorder->user->fax }}</li>
+                    <li>Mobile: @{{ $purchaseorder->user->mobile }}</li>
+                    <li>Website: @{{ $purchaseorder->user->web }}</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>Example Subject:</p>
+
+        <div class="card card-body bg-light">
+            Purchaseorder #@{{ $purchaseorder-&gt;number }}</div>
+
+        <br>
+
+        <p>Example Body:</p>
+
+        <div class="card card-body bg-light">
+            &lt;p&gt;Please find the atached Purchase Order from @{{ $purchaseorder-&gt;companyProfile-&gt;company }}
+            for @{{ $purchaseorder-&gt;amount-&gt;formatted_total }}
+        </div>
+
+        <hr>
+
         <span class="anchor" id="payment-receipt-email-template"></span>
         <h3>Payment Receipt Email Template</h3>
 

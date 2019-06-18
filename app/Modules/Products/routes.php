@@ -16,5 +16,9 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\
 		    Route::put('{id}/edit', ['uses' => 'ProductController@update', 'as' => 'products.update']);
 		    Route::get('create', ['uses' => 'ProductController@create', 'as' => 'products.create']);
 		    Route::post('create', ['uses' => 'ProductController@store', 'as' => 'products.store']);
-	    });
+
+            Route::get('products/ajax/get_product/{vendorId}', ['uses' => 'ProductController@getProduct', 'as' => 'products.ajax.getProduct']);
+            Route::post('products/ajax/process_product', ['uses' => 'ProductController@processProduct', 'as' => 'products.ajax.processProduct']);
+            Route::get('products/ajax/product', ['uses' => 'ProductController@ajaxProduct', 'as' => 'products.ajax.product']);
+        });
 });
