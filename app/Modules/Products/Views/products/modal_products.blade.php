@@ -9,7 +9,7 @@
             </div>
             <div class="modal-header">
                 <label>
-                    <input type="checkbox" name="pref_vendor" id="pref_vendor"> @lang('bt.vendor_preferred_only')
+                    <input type="checkbox" checked name="pref_vendor" id="pref_vendor"> @lang('bt.vendor_preferred_only', ['vname' => $vname])
                 </label>
             </div>
             <div class="modal-body">

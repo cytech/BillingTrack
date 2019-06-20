@@ -21,11 +21,11 @@
             <td><input type="checkbox" class="bulk-record" data-id="{{ $purchaseorder->id }}"></td>
             <td>
                 <span class="badge badge-{{ $statuses[$purchaseorder->purchaseorder_status_id] }}">{{ trans('bt.' . $statuses[$purchaseorder->purchaseorder_status_id]) }}</span>
-                @if ($purchaseorder->viewed)
-                    <span class="badge badge-success">@lang('bt.viewed')</span>
-                @else
-                    <span class="badge badge-secondary">@lang('bt.not_viewed')</span>
-                @endif
+{{--                @if ($purchaseorder->viewed)--}}
+{{--                    <span class="badge badge-success">@lang('bt.viewed')</span>--}}
+{{--                @else--}}
+{{--                    <span class="badge badge-secondary">@lang('bt.not_viewed')</span>--}}
+{{--                @endif--}}
             </td>
             <td><a href="{{ route('purchaseorders.edit', [$purchaseorder->id]) }}"
                    title="@lang('bt.edit')">{{ $purchaseorder->number }}</a></td>

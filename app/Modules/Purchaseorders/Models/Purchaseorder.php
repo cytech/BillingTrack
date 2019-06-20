@@ -335,6 +335,11 @@ class Purchaseorder extends Model
         return $query->where('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('sent'));
     }
 
+    public function scopeReceived($query)
+    {
+        return $query->where('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('received'));
+    }
+
     public function scopePaid($query)
     {
         return $query->where('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('paid'));
@@ -381,6 +386,9 @@ class Purchaseorder extends Model
                 break;
             case 'sent':
                 $query->sent();
+                break;
+            case 'received':
+                $query->received();
                 break;
             case 'viewed':
                 $query->viewed();

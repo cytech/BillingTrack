@@ -18,6 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('clients._form', 'BT\Composers\ClientFormComposer');
         view()->composer('vendors._form', 'BT\Composers\VendorFormComposer');
         view()->composer('invoices._table', 'BT\Composers\InvoiceTableComposer');
+        view()->composer('purchaseorders._table', 'BT\Composers\PurchaseorderTableComposer');
         view()->composer('quotes._table', 'BT\Composers\QuoteTableComposer');
         view()->composer('workorders.partials._table', 'BT\Composers\WorkorderTableComposer');
         view()->composer('reports.options.*', 'BT\Composers\ReportComposer');

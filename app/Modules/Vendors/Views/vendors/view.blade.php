@@ -29,6 +29,8 @@
                             <li class="nav-item "><a class="nav-link active show" data-toggle="tab"
                                                      href="#tab-details">@lang('bt.details')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
+                                                     href="#tab-purchaseorders">@lang('bt.purchaseorders')</a></li>
+                            <li class="nav-item "><a class="nav-link" data-toggle="tab"
                                                      href="#tab-attachments">@lang('bt.attachments')</a></li>
                             <li class="nav-item "><a class="nav-link" data-toggle="tab"
                                                      href="#tab-notes">@lang('bt.notes')</a></li>
@@ -128,7 +130,14 @@
                                 @include('vendors._contacts', ['contacts' => $vendor->contacts()->orderBy('name')->get(), 'vendorId' => $vendor->id])
                                 </div>
                             </div>
-
+                            <div id="tab-purchaseorders" class="tab-pane">
+                                <div class="card">
+                                    @include('purchaseorders._table')
+                                    <div class="card-footer"><p class="text-center"><strong><a
+                                                        href="{{ route('purchaseorders.index') }}?vendor={{ $vendor->id }}">@lang('bt.view_all')</a></strong>
+                                        </p></div>
+                                </div>
+                            </div>
 
                             <div class="tab-pane" id="tab-attachments">
                                 @include('attachments._table', ['object' => $vendor, 'model' => 'BT\Modules\Vendors\Models\Vendor'])

@@ -69,6 +69,11 @@ class CompanyProfile extends Model
         return $this->hasOne('BT\Modules\CustomFields\Models\CompanyProfileCustom');
     }
 
+    public function currency()
+    {
+        return $this->belongsTo('BT\Modules\Currencies\Models\Currency', 'currency_code', 'code');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Accessors
@@ -78,6 +83,11 @@ class CompanyProfile extends Model
     public function getFormattedAddressAttribute()
     {
         return nl2br(formatAddress($this));
+    }
+
+    public function getFormattedAddress2Attribute()
+    {
+        return nl2br(formatAddress2($this));
     }
 
     public function getLogoUrlAttribute()

@@ -60,7 +60,7 @@ class WorkorderController extends Controller
                 $item['name'] = $lookupItem->name;
                 $item['description'] = $lookupItem->description;
                 $item['quantity'] = $input['quantity'][$val];
-                $item['price'] = $lookupItem->cost;
+                $item['price'] = $lookupItem->price;
 
                 WorkorderItem::create($item);
             }

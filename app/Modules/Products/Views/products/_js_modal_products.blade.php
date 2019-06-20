@@ -43,6 +43,11 @@
         // Display the create invoice modal
         $('#modal-choose-items').modal('show');
         //show only preferred vendor checkbox
+        if ($("#pref_vendor").is(":checked")) {
+            $("#product-table tr").filter(function () {
+                $(this).toggle($(this).data('vendor_id') === $(this).data('purch_vendor_id'))
+            });
+        }
         $("#pref_vendor").on("change", function() {
             if ($(this).is(":checked")) {
                 $("#product-table tr").filter(function () {

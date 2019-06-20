@@ -17,7 +17,8 @@ use Illuminate\Foundation\Http\FormRequest;
 class ProductRequest extends FormRequest
 {
 	protected $rules = [
-		'cost' => 'numeric',
+        'price' => 'numeric',
+        'cost' => 'numeric',
 		'numstock' => 'integer',
 	];
 

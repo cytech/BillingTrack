@@ -183,10 +183,12 @@ class ProductController extends Controller
     public function getProduct($vendorId)
     {
         $products = Product::orderby('name','ASC')->get();
+        $vendor =  Vendor::where('id', $vendorId)->first();
 
         return view('products.modal_products')
             ->with('products',$products)
-            ->with('vendorId', $vendorId);
+            ->with('vendorId', $vendorId)
+            ->with('vname', $vendor->name);
 
     }
 

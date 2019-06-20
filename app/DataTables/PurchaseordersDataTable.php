@@ -33,11 +33,11 @@ class PurchaseordersDataTable extends DataTable
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$purchaseorder->status_text]) . '">
                     '. trans('bt.' . strtolower($statuses[$purchaseorder->status_text])) . '</span>';
-                if ($purchaseorder->viewed)
-                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
-                else
-                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
-                $ret .= '</td>';
+//                if ($purchaseorder->viewed)
+//                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
+//                else
+//                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
+//                $ret .= '</td>';
 
                 return $ret;
             })

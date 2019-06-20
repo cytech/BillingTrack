@@ -13,6 +13,7 @@ namespace BT\Modules\Vendors\Models;
 
 use BT\Support\CurrencyFormatter;
 use BT\Support\Statuses\InvoiceStatuses;
+use BT\Support\Statuses\PurchaseorderStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -88,6 +89,11 @@ class Vendor extends Model
         return $this->belongsTo('BT\Modules\PaymentTerms\Models\Paymentterm');
     }
 
+    public function purchaseorders()
+    {
+        return $this->hasMany('BT\Modules\Purchaseorders\Models\Purchaseorder');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Accessors
@@ -150,10 +156,10 @@ class Vendor extends Model
 
     public function scopeGetSelect()
     {
-        return self::select('vendors.*'//,
-//            DB::raw('(' . $this->getBalanceSql() . ') as balance'),
+        return self::select('vendors.*',
+            DB::raw('(' . $this->getBalanceSql() . ') as balance'),
 //            DB::raw('(' . $this->getPaidSql() . ') AS paid'),
-//            DB::raw('(' . $this->getTotalSql() . ') AS total')
+            DB::raw('(' . $this->getTotalSql() . ') AS total')
         );
     }
 
@@ -205,16 +211,16 @@ class Vendor extends Model
     |--------------------------------------------------------------------------
     */
 
-//    private function getBalanceSql()
-//    {
-//        return DB::table('invoice_amounts')->select(DB::raw('sum(balance)'))->whereIn('invoice_id', function ($q)
-//        {
-//            $q->select('id')
-//                ->from('invoices')
-//                ->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'))
-//                ->where('invoices.invoice_status_id', '<>', DB::raw(InvoiceStatuses::getStatusId('canceled')));
-//        })->toSql();
-//    }
+    private function getBalanceSql()
+    {
+        return DB::table('purchaseorder_amounts')->select(DB::raw('sum(balance)'))->whereIn('purchaseorder_id', function ($q)
+        {
+            $q->select('id')
+                ->from('purchaseorders')
+                ->where('purchaseorders.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'purchaseorders.id'))
+                ->where('purchaseorders.purchaseorder_status_id', '<>', DB::raw(PurchaseorderStatuses::getStatusId('canceled')));
+        })->toSql();
+    }
 //
 //    private function getPaidSql()
 //    {
@@ -224,13 +230,13 @@ class Vendor extends Model
 //        })->toSql();
 //    }
 //
-//    private function getTotalSql()
-//    {
-//        return DB::table('invoice_amounts')->select(DB::raw('sum(total)'))->whereIn('invoice_id', function ($q)
-//        {
-//            $q->select('id')->from('invoices')->where('invoices.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'));
-//        })->toSql();
-//    }
+    private function getTotalSql()
+    {
+        return DB::table('purchaseorder_amounts')->select(DB::raw('sum(total)'))->whereIn('purchaseorder_id', function ($q)
+        {
+            $q->select('id')->from('purchaseorders')->where('purchaseorders.vendor_id', '=', DB::raw(DB::getTablePrefix() . 'vendors.id'));
+        })->toSql();
+    }
 
 
     /*

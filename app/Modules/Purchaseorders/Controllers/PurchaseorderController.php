@@ -30,7 +30,7 @@ class PurchaseorderController extends Controller
 
         $status = request('status', 'all_statuses');
         $statuses = PurchaseorderStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
-        $keyedStatuses = collect(PurchaseorderStatuses::lists())->except(3);
+        $keyedStatuses = collect(PurchaseorderStatuses::lists());
         $companyProfiles = ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList();
 
         return $dataTable->render('purchaseorders.index', compact('status','statuses', 'keyedStatuses','companyProfiles'));

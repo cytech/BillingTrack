@@ -17,7 +17,8 @@ class PurchaseorderStatuses extends AbstractStatuses
         '0' => 'all_statuses',
         '1' => 'draft',
         '2' => 'sent',
-        '3' => 'paid',
-        '4' => 'canceled'
+        '3' => 'received',
+        '4' => 'paid',
+        '5' => 'canceled'
     ];
 }

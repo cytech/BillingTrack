@@ -85,16 +85,19 @@
             <div id="form-status-placeholder"></div>
 
             <div class="row">
-
-                <div class="col-sm-6" id="col-from">
+                <div class="col-sm-4" id="col-from">
 
                     @include('purchaseorders._edit_from')
 
                 </div>
-
-                <div class="col-sm-6" id="col-to">
+                <div class="col-sm-4" id="col-to">
 
                     @include('purchaseorders._edit_to')
+
+                </div>
+                <div class="col-sm-4" id="col-shipto">
+
+                    @include('purchaseorders._edit_shipto')
 
                 </div>
 

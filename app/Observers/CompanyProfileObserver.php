@@ -28,7 +28,18 @@ class CompanyProfileObserver
         if (!$companyProfile->quote_template)
         {
             $companyProfile->quote_template = config('bt.quoteTemplate');
-        }    }
+        }
+
+        if (!$companyProfile->currency_code)
+        {
+            $companyProfile->currency_code = config('bt.baseCurrency');
+        }
+
+        if (!$companyProfile->language)
+        {
+            $companyProfile->language = config('bt.language');
+        }
+    }
 
     public function saving(CompanyProfile $companyProfile): void
     {

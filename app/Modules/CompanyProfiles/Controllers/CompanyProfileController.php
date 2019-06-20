@@ -15,10 +15,12 @@ use BT\Http\Controllers\Controller;
 use BT\Modules\CompanyProfiles\Models\CompanyProfile;
 use BT\Modules\CompanyProfiles\Requests\CompanyProfileStoreRequest;
 use BT\Modules\CompanyProfiles\Requests\CompanyProfileUpdateRequest;
+use BT\Modules\Currencies\Models\Currency;
 use BT\Modules\CustomFields\Models\CustomField;
 use BT\Modules\Invoices\Support\InvoiceTemplates;
 use BT\Modules\Quotes\Support\QuoteTemplates;
 use BT\Modules\Workorders\Support\WorkorderTemplates;
+use BT\Support\Languages;
 use BT\Traits\ReturnUrl;
 
 class CompanyProfileController extends Controller
@@ -40,6 +42,8 @@ class CompanyProfileController extends Controller
             ->with('invoiceTemplates', InvoiceTemplates::lists())
             ->with('quoteTemplates', QuoteTemplates::lists())
             ->with('workorderTemplates', WorkorderTemplates::lists())
+            ->with('currencies', Currency::getList())
+            ->with('languages', Languages::listLanguages())
             ->with('customFields', CustomField::forTable('company_profiles')->get());
     }
 
@@ -74,12 +78,14 @@ class CompanyProfileController extends Controller
             ->with('invoiceTemplates', InvoiceTemplates::lists())
             ->with('quoteTemplates', QuoteTemplates::lists())
             ->with('workorderTemplates', WorkorderTemplates::lists())
+            ->with('currencies', Currency::getList())
+            ->with('languages', Languages::listLanguages())
             ->with('customFields', CustomField::forTable('company_profiles')->get());
     }
 
     public function update(CompanyProfileUpdateRequest $request, $id)
     {
-        $input = $request->except('custom');
+        $input = $request->except('custom', 'fill_shipping');
 
         if ($request->hasFile('logo'))
         {

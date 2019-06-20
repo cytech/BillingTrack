@@ -12,7 +12,7 @@
         body {
             color: #001028;
             background: #FFFFFF;
-            font-family : DejaVu Sans, Helvetica, sans-serif;
+            font-family: DejaVu Sans, Helvetica, sans-serif;
             font-size: 12px;
             margin-bottom: 10px;
         }
@@ -85,9 +85,11 @@
         <td style="width: 50%;" valign="top">
             <h1>{{ mb_strtoupper(trans('bt.purchaseorder')) }}</h1>
             <span class="info">{{ mb_strtoupper(trans('bt.purchaseorder')) }} #</span>{{ $purchaseorder->number }}<br>
-            <span class="info">{{ mb_strtoupper(trans('bt.issued')) }}</span> {{ $purchaseorder->formatted_created_at }}<br>
-            <span class="info">{{ mb_strtoupper(trans('bt.due_date')) }}</span> {{ $purchaseorder->formatted_due_at }}<br><br>
-            <span class="info">{{ mb_strtoupper(trans('bt.bill_to')) }}</span><br>{{ $purchaseorder->vendor->name }}<br>
+            <span class="info">{{ mb_strtoupper(trans('bt.issued')) }}</span> {{ $purchaseorder->formatted_created_at }}
+            <br>
+            <span class="info">{{ mb_strtoupper(trans('bt.due_date')) }}</span> {{ $purchaseorder->formatted_due_at }}
+            <br><br>
+            <span class="info">{{ mb_strtoupper(trans('bt.to')) }}</span><br>{{ $purchaseorder->vendor->name }}<br>
             @if ($purchaseorder->vendor->address) {!! $purchaseorder->vendor->formatted_address !!}<br>@endif
         </td>
         <td style="width: 50%; text-align: right;" valign="top">
@@ -95,7 +97,15 @@
             {{ $purchaseorder->companyProfile->company }}<br>
             {!! $purchaseorder->companyProfile->formatted_address !!}<br>
             @if ($purchaseorder->companyProfile->phone) {{ $purchaseorder->companyProfile->phone }}<br>@endif
-            @if ($purchaseorder->user->email) <a href="mailto:{{ $purchaseorder->user->email }}">{{ $purchaseorder->user->email }}</a>@endif
+            @if ($purchaseorder->user->email) <a
+                    href="mailto:{{ $purchaseorder->user->email }}">{{ $purchaseorder->user->email }}</a>@endif
+            <br><br><br>
+            @if ($purchaseorder->companyProfile->address_2)
+                <span class="info">{{ mb_strtoupper(trans('bt.ship_to')) }}</span><br>
+                {{ $purchaseorder->companyProfile->company }}<br>
+                {!! $purchaseorder->companyProfile->formatted_address2 !!}<br>
+            @endif
+
         </td>
     </tr>
 </table>
@@ -114,7 +124,7 @@
     @foreach ($purchaseorder->items as $item)
         <tr>
             <td>{!! $item->name !!}</td>
-            <td>{!! $item->formatted_description !!}</td>`
+            <td>{!! $item->formatted_description !!}</td>
             <td nowrap class="amount">{{ $item->formatted_quantity }}</td>
             <td nowrap class="amount">{{ $item->formatted_cost }}</td>
             <td nowrap class="amount">{{ $item->amount->formatted_subtotal }}</td>
