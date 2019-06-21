@@ -33,10 +33,15 @@ class PurchaseorderCalculate
             ->get();
 
         //$totalPaid = Payment::where('purchaseorder_id', $purchaseorder->id)->sum('amount');
+        if ($purchaseorder->status_text == 'paid'){
+            $totalPaid = $purchaseorder->amount->total;
+        }else{
+            $totalPaid = 0;
+        }
 
         $calculator = new PurchaseorderCalculator;
         $calculator->setId($purchaseorder->id);
-        //$calculator->setTotalPaid($totalPaid);
+        $calculator->setTotalPaid($totalPaid);
         $calculator->setDiscount($purchaseorder->discount);
 
         if ($purchaseorder->status_text == 'canceled')
@@ -74,14 +79,14 @@ class PurchaseorderCalculate
         $purchaseorderAmount->save();
 
         // Check to see if the purchaseorder should be marked as paid.
-        if ($calculatedAmount['total'] > 0 /*and $calculatedAmount['balance'] <= 0*/ and $purchaseorder->status_text != 'canceled')
+        if ($calculatedAmount['total'] > 0 and $calculatedAmount['balance'] <= 0 and $purchaseorder->status_text != 'canceled')
         {
             $purchaseorder->purchaseorder_status_id = PurchaseorderStatuses::getStatusId('paid');
             $purchaseorder->save();
         }
 
         // Check to see if the purchaseorder was marked as paid but should no longer be.
-        if ($calculatedAmount['total'] > 0 /*and $calculatedAmount['balance'] > 0*/ and $purchaseorder->purchaseorder_status_id == PurchaseorderStatuses::getStatusId('paid'))
+        if ($calculatedAmount['total'] > 0 and $calculatedAmount['balance'] > 0 and $purchaseorder->purchaseorder_status_id == PurchaseorderStatuses::getStatusId('paid'))
         {
             $purchaseorder->purchaseorder_status_id = PurchaseorderStatuses::getStatusId('sent');
             $purchaseorder->save();

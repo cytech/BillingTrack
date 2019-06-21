@@ -14,8 +14,8 @@
                 <form>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-form-label">@lang('bt.company_profile')</label>
-                        <div class="col-sm-9">
+                        <label class="col-sm-4 col-form-label">@lang('bt.company_profile')</label>
+                        <div class="col-sm-8">
                             {!! Form::select('change_company_profile_id', $companyProfiles, null, ['id' => 'change_company_profile_id', 'class' => 'form-control']) !!}
                         </div>
                     </div>

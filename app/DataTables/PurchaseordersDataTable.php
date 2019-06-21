@@ -132,20 +132,20 @@ class PurchaseordersDataTable extends DataTable
                 'title' => trans('bt.summary'),
                 'data' => 'formatted_summary',
             ],
-//            'total'   => [
-//                'name' => 'amount.total',
-//                'title' => trans('bt.total'),
-//                'data'       => 'amount.formatted_total',
-//                'orderable'  => true,
-//                'searchable' => false,
-//            ],
-//            'balance' => [
-//                'name' => 'amount.balance',
-//                'title' => trans('bt.balance'),
-//                'data'       => 'amount.formatted_balance',
-//                'orderable'  => true,
-//                'searchable' => false,
-//            ],
+            'total'   => [
+                'name' => 'amount.total',
+                'title' => trans('bt.total'),
+                'data'       => 'amount.formatted_total',
+                'orderable'  => true,
+                'searchable' => false,
+            ],
+            'balance' => [
+                'name' => 'amount.balance',
+                'title' => trans('bt.balance'),
+                'data'       => 'amount.formatted_balance',
+                'orderable'  => true,
+                'searchable' => false,
+            ],
         ];
     }
 

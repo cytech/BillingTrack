@@ -22,7 +22,7 @@ class PurchaseorderCalculator extends Calculator implements PayableInterface
     public function calculate()
     {
         $this->calculateItems();
-        //$this->calculatePayments();
+        $this->calculatePayments();
     }
 
     /**

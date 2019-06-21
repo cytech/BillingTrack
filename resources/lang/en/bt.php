@@ -620,6 +620,7 @@ return [
     'recalculate_workorders'                  => 'Recalculate Workorders',
     'recalculating_wait'                      => 'Recalculating, please wait...',
     'recalculation_complete'                  => 'Recalculation Complete',
+    'receive'                                 => 'Receive',
     'received'                                => 'Received',
     'recent_client_activity'                  => 'Recent Client Activity',
     'recent_invoices'                         => 'Recent Invoices',

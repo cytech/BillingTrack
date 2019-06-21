@@ -93,6 +93,7 @@
             @if ($purchaseorder->vendor->address) {!! $purchaseorder->vendor->formatted_address !!}<br>@endif
         </td>
         <td style="width: 50%; text-align: right;" valign="top">
+            <span class="info">{{ mb_strtoupper(trans('bt.bill_to')) }}</span>
             {!! $purchaseorder->companyProfile->logo() !!}<br>
             {{ $purchaseorder->companyProfile->company }}<br>
             {!! $purchaseorder->companyProfile->formatted_address !!}<br>
