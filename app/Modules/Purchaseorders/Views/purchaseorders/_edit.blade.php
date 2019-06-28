@@ -133,7 +133,13 @@
                                     <td>{!! Form::select('tax_rate_id', $taxRates, config('bt.itemTaxRate'), ['class' => 'form-control']) !!}</td>
                                     <td>{!! Form::select('tax_rate_2_id', $taxRates, config('bt.itemTax2Rate'), ['class' => 'form-control']) !!}</td>
                                     <td></td>
-                                    <td></td>
+                                    <td>
+                                        <a class="btn btn-sm btn-secondary btn-delete-new-item"
+                                           href="javascript:void(0);"
+                                           title="@lang('bt.trash')" >
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 @foreach ($purchaseorder->items as $item)
                                     <tr class="item" id="tr-item-{{ $item->id }}">

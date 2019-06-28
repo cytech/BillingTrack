@@ -569,7 +569,7 @@ class SchedulerController extends Controller
         $drivers =  Employee::where('active','=','1')->where('driver','=', 1)->pluck('id','short_name')->toArray();
         //active, scheduleable employees
         $active_employees = Employee::where('active','=','1')->where('schedule', '=', '1')->pluck('short_name','id')->toArray();
-        $active_resources = Product::where('active','=','1')->orderBy('category')->orderBy('name')->get(['id','name','numstock'])->toArray();
+        $active_resources = Product::where('active','=','1')->orderBy('category_id')->orderBy('name')->get(['id','name','numstock'])->toArray();
 
         $scheduled_clients   = [];
         $scheduled_employees = [];

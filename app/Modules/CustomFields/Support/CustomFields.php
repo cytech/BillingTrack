@@ -30,6 +30,7 @@ class CustomFields
             'quotes'             => trans('bt.quotes'),
             'recurring_invoices' => trans('bt.recurring_invoices'),
             'payments'           => trans('bt.payments'),
+            'purchaseorders'     => trans('bt.purchaseorders'),
             'users'              => trans('bt.users'),
         ];
     }

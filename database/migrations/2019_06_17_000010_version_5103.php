@@ -26,6 +26,14 @@ class Version5103 extends Migration
             ]
         );
 
+        Schema::table('products' , function (Blueprint $table){
+           $table->decimal( 'numstock', 20, 4)->change();
+        });
+
+        Schema::table('schedule_resources' , function (Blueprint $table){
+            $table->decimal( 'qty', 20, 4)->change();
+        });
+
         Schema::table('company_profiles', function (Blueprint $table) {
             $table->text('address_2')->nullable()->default(null)->after('country');
             $table->string('city_2')->nullable()->default(null)->after('address_2');

@@ -39,6 +39,10 @@
                 '{{ route('purchaseorderEdit.refreshTotals') }}', '{{ $purchaseorder->id }}' );
         });
 
+        $('table').on('click', ".btn-delete-new-item", (function () {
+            $(this).closest("tr").remove();
+        }));
+
         $('.btn-save-purchaseorder').click(function () {
             const items = [];
             let display_order = 1;

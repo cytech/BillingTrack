@@ -21,6 +21,9 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\
         Route::get('{id}/delete', ['uses' => 'PurchaseorderController@delete', 'as' => 'purchaseorders.delete']);
         Route::get('{id}/pdf', ['uses' => 'PurchaseorderController@pdf', 'as' => 'purchaseorders.pdf']);
         Route::get('ajaxLookup/{name}', ['uses' => 'PurchaseorderController@ajaxLookup', 'as' => 'purchaseorders.ajaxLookup']);
+        Route::post('receive', ['uses' => 'PurchaseorderController@receive', 'as' => 'purchaseorders.receive']);
+        Route::post('receive_items', ['uses' => 'PurchaseorderController@receiveItems', 'as' => 'purchaseorders.receive_items']);
+
 
         Route::get('{id}/edit/refresh', ['uses' => 'PurchaseorderEditController@refreshEdit', 'as' => 'purchaseorderEdit.refreshEdit']);
         Route::post('edit/refresh_to', ['uses' => 'PurchaseorderEditController@refreshTo', 'as' => 'purchaseorderEdit.refreshTo']);

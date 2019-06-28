@@ -45,7 +45,17 @@ btn-margin-left {
   background-color: #999999;
 }
 
+.badge-open {
+  color: #FFF;
+  background-color: #999999;
+}
+
 .badge-sent {
+  color: #FFF;
+  background-color: #3A87AD;
+}
+
+.badge-partial {
   color: #FFF;
   background-color: #3A87AD;
 }
@@ -70,9 +80,19 @@ btn-margin-left {
   background-color: #B94A48;
 }
 
+.badge-extra, .badge-overdue {
+  color: #FFF;
+  background-color: #B94A48;
+}
+
 .badge-canceled {
   color: #FFF;
   background-color: #333333;
+}
+
+.badge-unprocessed {
+  color: #FFF;
+  background-color: #363875;
 }
 
 .content-wrapper-public {

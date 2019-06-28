@@ -32,8 +32,10 @@ class CreatePurchaseorderItemsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->decimal('quantity', 20, 4)->default('0.0000');
-            $table->integer('display_order')->default('0');
             $table->decimal('cost', 20, 4)->default('0.0000');
+            $table->decimal('rec_qty', 20, 4)->default('0.0000');
+            $table->integer('rec_status_id');
+            $table->integer('display_order')->default('0');
 
             $table->index(["display_order"], 'purchaseorder_items_display_order_index');
 

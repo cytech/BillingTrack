@@ -11,15 +11,14 @@
 
 namespace BT\Support\Statuses;
 
-class PurchaseorderStatuses extends AbstractStatuses
+class PurchaseorderItemStatuses extends AbstractStatuses
 {
     protected static $statuses = [
-        '0' => 'all_statuses',
-        '1' => 'draft',
-        '2' => 'sent',
-        '3' => 'received',
-        '4' => 'partial',
-        '5' => 'paid',
-        '6' => 'canceled'
+        '0' => 'unprocessed',
+        '1' => 'open',
+        '2' => 'received',
+        '3' => 'partial',
+        '4' => 'canceled',
+        '5' => 'extra'
     ];
 }

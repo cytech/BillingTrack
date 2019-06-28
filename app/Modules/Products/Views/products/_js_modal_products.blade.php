@@ -80,8 +80,8 @@
                         $('#new-item').clone().appendTo('#item-table').removeAttr('id').addClass('item').show();
                     }
                     //added for resource info
-                    //$('#item-table tr:last input[name=resource_table]').val(items[key].resource_table);
-                    //$('#item-table tr:last input[name=resource_id]').val(items[key].resource_id);
+                    $('#item-table tr:last input[name=resource_table]').val(items[key].resource_table);
+                    $('#item-table tr:last input[name=resource_id]').val(items[key].resource_id);
                     $('#item-table tr:last input[name=name]').val(items[key].name);
                     $('#item-table tr:last textarea[name=description]').val(items[key].description);
                     $('#item-table tr:last input[name=cost]').val(items[key].cost);

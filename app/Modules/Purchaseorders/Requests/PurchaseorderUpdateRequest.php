@@ -41,9 +41,15 @@ class PurchaseorderUpdateRequest extends PurchaseorderStoreRequest
             'purchaseorder_status_id' => 'required',
             'exchange_rate'     => 'required|numeric',
             'template'          => 'required',
-            'items.*.name'      => 'required_with:items.*.cost,items.*.quantity',
+            'items.*.name'      => 'required_with:items.*.cost,items.*.quantity|distinct',
             'items.*.quantity'  => 'required_with:items.*.cost,items.*.name|numeric',
             'items.*.cost'     => 'required_with:items.*.name,items.*.quantity|numeric',
+        ];
+    }
+
+    public function messages(){
+        return [
+            'items.*.name.distinct' => 'Duplicate items detected. Please combine'
         ];
     }
 }

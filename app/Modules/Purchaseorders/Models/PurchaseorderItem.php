@@ -14,6 +14,7 @@ namespace BT\Modules\Purchaseorders\Models;
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
 use BT\Support\CurrencyFormatter;
 use BT\Support\NumberFormatter;
+use BT\Support\Statuses\PurchaseorderItemStatuses;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -103,11 +104,67 @@ class PurchaseorderItem extends Model
         return nl2br($this->attributes['description']);
     }
 
+    public function getStatusTextAttribute()
+    {
+        $statuses = PurchaseorderItemStatuses::statuses();
+
+        return $statuses[$this->attributes['rec_status_id']];
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Scopes
     |--------------------------------------------------------------------------
     */
+
+    public function scopeOpen($query)
+    {
+        return $query->where('rec_status_id', '=', PurchaseorderItemStatuses::getStatusId('open'));
+    }
+
+    public function scopeReceived($query)
+    {
+        return $query->where('purchaseorder_status_id', '=', PurchaseorderItemStatuses::getStatusId('received'));
+    }
+
+    public function scopePartial($query)
+    {
+        return $query->where('purchaseorder_status_id', '=', PurchaseorderItemStatuses::getStatusId('partial'));
+    }
+
+    public function scopeCanceled($query)
+    {
+        return $query->where('purchaseorder_status_id', '=', PurchaseorderItemStatuses::getStatusId('canceled'));
+    }
+
+    public function scopeExtra($query)
+    {
+        return $query->where('purchaseorder_status_id', '=', PurchaseorderItemStatuses::getStatusId('extra'));
+    }
+
+    public function scopeStatus($query, $status = null)
+    {
+        switch ($status)
+        {
+            case 'open':
+                $query->draft();
+                break;
+            case 'received':
+                $query->sent();
+                break;
+            case 'partial':
+                $query->received();
+                break;
+            case 'canceled':
+                $query->viewed();
+                break;
+            case 'extra':
+                $query->paid();
+                break;
+        }
+
+        return $query;
+    }
 
     public function scopeByDateRange($query, $from, $to)
     {

@@ -6,6 +6,10 @@
     <div class="dropdown-menu dropdown-menu-right" role="menu">
         <a class="dropdown-item" href ="{{ route('purchaseorders.edit', [$id]) }}"><i
                         class="fa fa-edit"></i> @lang('bt.edit')</a>
+        @if($model->status_text != 'received')
+        <a class="dropdown-item receive-purchaseorder" href="javascript:void(0)" data-purchaseorder-id="{{ $id }}" ><i
+                    class="fa fa-arrow-alt-circle-right" ></i> @lang('bt.receive')</a>
+        @endif
         <a class="dropdown-item" href ="{{ route('purchaseorders.pdf', [$id]) }}" target="_blank"
                id="btn-pdf-purchaseorder"><i class="fa fa-print"></i> @lang('bt.pdf')</a>
         @if (config('bt.mailConfigured'))

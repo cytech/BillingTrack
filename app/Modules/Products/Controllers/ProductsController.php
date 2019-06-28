@@ -196,6 +196,11 @@ class ProductController extends Controller
 
         $items = Product::whereIn('id', request('product_ids'))->get();
 
+        foreach ($items as $item){
+            $item->resource_table = 'products';
+            $item->resource_id = $item->id;
+        }
+
         echo json_encode($items);
     }
 

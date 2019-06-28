@@ -160,6 +160,14 @@
             $('#modal-placeholder').load('{{ route('purchaseorders.create') }}');
         });
 
+        $(document).on('click','.receive-purchaseorder',function () {
+            $('#modal-placeholder').load('{{ route('purchaseorders.receive') }} ', {
+                purchaseorder_id: $(this).data('purchaseorder-id')
+                //redirectTo: $(this).data('redirect-to')
+            });
+        });
+
+
         $(document).on('click','.create-recurring-invoice',function () {
             clientName = $(this).data('unique-name');
             $('#modal-placeholder').load('{{ route('recurringInvoices.create') }}');
