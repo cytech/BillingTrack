@@ -41,7 +41,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="form-group">
             <label>@lang('bt.coreeventslist')</label>
             <div class="col-lg-8 col-sm-8">
@@ -54,13 +54,13 @@
             </div>
         </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
         <div class="form-group">
             <label>@lang('bt.show_invoiced')</label>
             {!! Form::select('setting[schedulerDisplayInvoiced]', ['0' => 'No', '1' => 'Yes'], config('bt.schedulerDisplayInvoiced'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-5">
         <br>
         <span class="form-text text-muted">Display Defaults:</span><br>
         <span class="form-text text-muted">Quotes: if expires_at, else quote_date</span><br>

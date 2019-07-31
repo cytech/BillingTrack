@@ -43,6 +43,7 @@ class Setting extends Model
         'expense' => 16,
         'project' => 32,
         'task' => 64,
+        'purchaseorder' => 128,
     ];
 
     public static function jquiThemes(){
@@ -88,6 +89,7 @@ class Setting extends Model
             'expense',
             'project',
             'task',
+            'purchaseorder',
         ])) {
             return true;
         }

@@ -822,6 +822,7 @@ return [
     'update_event_calendar'                   => 'Update an Event from Calendar',
     'update_exchange_rate'                    => 'Update Exchange Rate',
     'update_not_available'                    => 'There are currently no updates available.',
+    'update_products'                         => 'Update Product Table Quantity and Cost?',
     'update_recurring_event'                  => 'Update Recurring Event',
     'upload_progress'                         => 'Upload Progress',
     'use_24_hour_time_format'                 => 'Use 24 Hour Time Format',

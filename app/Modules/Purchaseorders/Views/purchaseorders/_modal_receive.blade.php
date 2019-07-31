@@ -43,8 +43,8 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ Form::label('itemrec', 'Update Product table numstock and cost?') }}
-                    {{ Form::checkbox('itemrec') }}
+                    {{ Form::label('itemrec', trans('bt.update_products')) }}
+                    {{ Form::checkbox('itemrec', 1, config('bt.updateProductsDefault', ['id' => 'itemrec', 'class' => 'checkbox'])) }}
                 </div>
 
                 </form>

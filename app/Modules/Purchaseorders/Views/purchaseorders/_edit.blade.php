@@ -2,10 +2,10 @@
 
 <section class="content-header">
     <h3 class="float-left">@lang('bt.purchaseorder') #{{ $purchaseorder->number }}</h3>
-    @if ($purchaseorder->viewed)
-        <span style="margin-left: 10px;" class="badge badge-success">@lang('bt.viewed')</span>
-    @else
-        <span style="margin-left: 10px;" class="badge badge-secondary">@lang('bt.not_viewed')</span>
+    @if ($purchaseorder->status_text)
+        <span style="margin-left: 10px;" class="badge badge-{{strtolower($purchaseorder->status_text)}}">@lang('bt.'.$purchaseorder->status_text)</span>
+{{--    @else--}}
+{{--        <span style="margin-left: 10px;" class="badge badge-secondary">@lang('bt.not_viewed')</span>--}}
     @endif
 
     {{--    @if ($purchaseorder->quote()->count())--}}
@@ -36,6 +36,10 @@
                 {{--                           data-redirect-to="{{ route('purchaseorders.edit', [$purchaseorder->id]) }}"><i--}}
                 {{--                                class="fa fa-credit-card"></i> @lang('bt.enter_payment')</a>--}}
                 {{--                @endif--}}
+                @if($purchaseorder->status_text != 'received')
+                    <a class="dropdown-item receive-purchaseorder" href="javascript:void(0)" data-purchaseorder-id="{{ $purchaseorder->id }}" ><i
+                                class="fa fa-arrow-alt-circle-right" ></i> @lang('bt.receive')</a>
+                @endif
                 <a class="dropdown-item" href="javascript:void(0)" id="btn-copy-purchaseorder"><i
                             class="fa fa-copy"></i> @lang('bt.copy')</a>
                 {{--                <a class="dropdown-item" href="{{ route('vendorCenter.public.purchaseorder.show', [$purchaseorder->url_key]) }}" target="_blank"><i--}}

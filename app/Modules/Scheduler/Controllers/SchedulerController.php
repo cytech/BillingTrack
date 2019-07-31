@@ -14,6 +14,7 @@ namespace BT\Modules\Scheduler\Controllers;
 use BT\DataTables\EventsDataTable;
 use BT\DataTables\RecurringEventsDataTable;
 use BT\Http\Controllers\Controller;
+use BT\Modules\Purchaseorders\Models\Purchaseorder;
 use BT\Modules\Scheduler\Requests\ReplaceRequest;
 use BT\Modules\Employees\Models\Employee;
 use BT\Modules\Products\Models\Product;
@@ -141,6 +142,7 @@ class SchedulerController extends Controller
             'expense' => Expense::status('not_billed')->with(['category']),
             'project' => TimeTrackingProject::statusid('1'),
             'task'    => TimeTrackingTask::unbilled()->with(['project', 'timers']),
+            'purchaseorder' => Purchaseorder::sentorpartial()->with(['vendor']),
         ];
 
         foreach ($coredata as $type => $source) {

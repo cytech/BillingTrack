@@ -10,22 +10,22 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.8.2",
-        "axios": "^0.18",
+        "@fortawesome/fontawesome-free": "^5.10.0",
+        "axios": "^0.18.1",
         "bootstrap": "^4.3",
         "cross-env": "^5.2",
         "jquery": "^3.4.1",
-        "laravel-mix": "^4.0.16",
-        "lodash": "^4.17",
+        "laravel-mix": "^4.1.2",
+        "lodash": "^4.17.15",
         "popper.js": "^1.15.0",
         "resolve-url-loader": "^3.1.0",
-        "sass": "^1.20.1",
+        "sass": "^1.22.9",
         "sass-loader": "^7.1",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "admin-lte": "^3.0.0-alpha.2",
+        "admin-lte": "^3.0.0-beta.2",
         "bootstrap-colorpicker": "^3.1.2",
         "bootstrap-switch": "3.3.4",
         "chosen-js": "^1.8.7",
@@ -40,12 +40,12 @@
         "jquery-datetimepicker": "^2.5.21",
         "jquery-ui": "^1.12.1",
         "jquery-ui-built-themes": "^1.12.1",
-        "jquery-validation": "^1.19.0",
+        "jquery-validation": "^1.19.1",
         "moment": "^2.24.0",
         "morris-data": "^0.5.1",
         "morris.js.so": "^0.5.1",
         "raphael": "^2.2.8",
-        "sweetalert2": "^8.11.6",
+        "sweetalert2": "^8.14.0",
         "yuicompressor": "^2.4.8"
     }
 }

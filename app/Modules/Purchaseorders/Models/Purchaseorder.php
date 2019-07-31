@@ -340,6 +340,17 @@ class Purchaseorder extends Model
         return $query->where('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('received'));
     }
 
+    public function scopePartial($query)
+    {
+        return $query->where('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('partial'));
+    }
+
+    public function scopeSentOrPartial($query)
+    {
+        return $query->where('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('sent'))
+            ->orWhere('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('partial'));
+    }
+
     public function scopePaid($query)
     {
         return $query->where('purchaseorder_status_id', '=', PurchaseorderStatuses::getStatusId('paid'));
@@ -389,6 +400,9 @@ class Purchaseorder extends Model
                 break;
             case 'received':
                 $query->received();
+                break;
+            case 'partial':
+                $query->partial();
                 break;
             case 'viewed':
                 $query->viewed();

@@ -1,5 +1,5 @@
 /*!
-* sweetalert2 v8.11.6
+* sweetalert2 v8.14.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -525,7 +525,7 @@ var isNodeEnv = function isNodeEnv() {
   return typeof window === 'undefined' || typeof document === 'undefined';
 };
 
-var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\">\n       <span class=\"swal2-x-mark\"><span class=\"swal2-x-mark-line-left\"></span><span class=\"swal2-x-mark-line-right\"></span></span>\n     </div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\">\n       <div class=\"swal2-success-circular-line-left\"></div>\n       <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n       <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n       <div class=\"swal2-success-circular-line-right\"></div>\n     </div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\">&times;</button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\">\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\">\n       <span class=\"swal2-x-mark\"><span class=\"swal2-x-mark-line-left\"></span><span class=\"swal2-x-mark-line-right\"></span></span>\n     </div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\">\n       <div class=\"swal2-success-circular-line-left\"></div>\n       <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n       <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n       <div class=\"swal2-success-circular-line-right\"></div>\n     </div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\">\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
 var resetOldContainer = function resetOldContainer() {
   var oldContainer = getContainer();
@@ -651,13 +651,13 @@ var animationEndEvent = function () {
 
   var testEl = document.createElement('div');
   var transEndEventNames = {
-    'WebkitAnimation': 'webkitAnimationEnd',
-    'OAnimation': 'oAnimationEnd oanimationend',
-    'animation': 'animationend'
+    WebkitAnimation: 'webkitAnimationEnd',
+    OAnimation: 'oAnimationEnd oanimationend',
+    animation: 'animationend'
   };
 
   for (var i in transEndEventNames) {
-    if (transEndEventNames.hasOwnProperty(i) && typeof testEl.style[i] !== 'undefined') {
+    if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
       return transEndEventNames[i];
     }
   }
@@ -806,34 +806,36 @@ var privateProps = {
   domCache: new WeakMap()
 };
 
+var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
 var renderInput = function renderInput(instance, params) {
+  var content = getContent();
   var innerParams = privateProps.innerParams.get(instance);
   var rerender = !innerParams || params.input !== innerParams.input;
-  var content = getContent();
-  var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
-
-  for (var i = 0; i < inputTypes.length; i++) {
-    var inputClass = swalClasses[inputTypes[i]];
+  inputTypes.forEach(function (inputType) {
+    var inputClass = swalClasses[inputType];
     var inputContainer = getChildByClass(content, inputClass); // set attributes
 
-    setAttributes(inputTypes[i], params.inputAttributes); // set class
+    setAttributes(inputType, params.inputAttributes); // set class
 
     setClass(inputContainer, inputClass, params);
-    rerender && hide(inputContainer);
-  }
 
-  if (!params.input) {
-    return;
-  }
+    if (rerender) {
+      hide(inputContainer);
+    }
+  });
 
+  if (params.input && rerender) {
+    showInput(params);
+  }
+};
+
+var showInput = function showInput(params) {
   if (!renderInputType[params.input]) {
     return error("Unexpected type of input! Expected \"text\", \"email\", \"password\", \"number\", \"tel\", \"select\", \"radio\", \"checkbox\", \"textarea\", \"file\" or \"url\", got \"".concat(params.input, "\""));
   }
 
-  if (rerender) {
-    var input = renderInputType[params.input](params);
-    show(input);
-  }
+  var input = renderInputType[params.input](params);
+  show(input);
 };
 
 var removeAttributes = function removeAttributes(input) {
@@ -989,7 +991,8 @@ var renderFooter = function renderFooter(instance, params) {
 };
 
 var renderCloseButton = function renderCloseButton(instance, params) {
-  var closeButton = getCloseButton(); // Custom class
+  var closeButton = getCloseButton();
+  closeButton.innerHTML = params.closeButtonHtml; // Custom class
 
   applyCustomClass(closeButton, params.customClass, 'closeButton');
   toggle(closeButton, params.showCloseButton);
@@ -1470,6 +1473,7 @@ var defaultParams = {
   focusConfirm: true,
   focusCancel: false,
   showCloseButton: false,
+  closeButtonHtml: '&times;',
   closeButtonAriaLabel: 'Close this dialog',
   showLoaderOnConfirm: false,
   imageUrl: null,
@@ -1516,7 +1520,7 @@ var toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop',
  */
 
 var isValidParameter = function isValidParameter(paramName) {
-  return defaultParams.hasOwnProperty(paramName);
+  return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
 };
 /**
  * Is valid parameter for Swal.update() method
@@ -1639,6 +1643,11 @@ function hideLoading() {
 function getInput$1(instance) {
   var innerParams = privateProps.innerParams.get(instance || this);
   var domCache = privateProps.domCache.get(instance || this);
+
+  if (!domCache) {
+    return null;
+  }
+
   return getInput(domCache.content, innerParams.input);
 }
 
@@ -1681,7 +1690,8 @@ var lockBodyScroll = function lockBodyScroll() {
   var preventTouchMove;
 
   container.ontouchstart = function (e) {
-    preventTouchMove = e.target === container || !isScrollable(container);
+    preventTouchMove = e.target === container || !isScrollable(container) && e.target.tagName !== 'INPUT' // #1603
+    ;
   };
 
   container.ontouchmove = function (e) {
@@ -1783,28 +1793,22 @@ var privateMethods = {
  * Instance method to close sweetAlert
  */
 
-function removePopupAndResetState(container, isToast, onAfterClose) {
+function removePopupAndResetState(instance, container, isToast, onAfterClose) {
   if (isToast) {
-    triggerOnAfterClose(onAfterClose);
+    triggerOnAfterCloseAndDispose(instance, onAfterClose);
   } else {
     restoreActiveElement().then(function () {
-      return triggerOnAfterClose(onAfterClose);
+      return triggerOnAfterCloseAndDispose(instance, onAfterClose);
     });
     globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
       capture: globalState.keydownListenerCapture
     });
     globalState.keydownHandlerAdded = false;
-  } // Unset globalState props so GC will dispose globalState (#1569)
-
-
-  delete globalState.keydownHandler;
-  delete globalState.keydownTarget;
+  }
 
   if (container.parentNode) {
     container.parentNode.removeChild(container);
   }
-
-  removeBodyClasses();
 
   if (isModal()) {
     undoScrollbar();
@@ -1812,24 +1816,26 @@ function removePopupAndResetState(container, isToast, onAfterClose) {
     undoIEfix();
     unsetAriaHidden();
   }
+
+  removeBodyClasses();
 }
 
 function removeBodyClasses() {
   removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['toast-column']]);
 }
 
-function swalCloseEventFinished(popup, container, isToast, onAfterClose) {
-  if (hasClass(popup, swalClasses.hide)) {
-    removePopupAndResetState(container, isToast, onAfterClose);
-  } // Unset WeakMaps so GC will be able to dispose them (#1569)
+function disposeSwal(instance) {
+  // Unset this.params so GC will dispose it (#1569)
+  delete instance.params; // Unset globalState props so GC will dispose globalState (#1569)
 
+  delete globalState.keydownHandler;
+  delete globalState.keydownTarget; // Unset WeakMaps so GC will be able to dispose them (#1569)
 
   unsetWeakMaps(privateProps);
   unsetWeakMaps(privateMethods);
 }
 
 function close(resolveValue) {
-  var container = getContainer();
   var popup = getPopup();
 
   if (!popup || hasClass(popup, swalClasses.hide)) {
@@ -1837,32 +1843,47 @@ function close(resolveValue) {
   }
 
   var innerParams = privateProps.innerParams.get(this);
-  var swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
-  var onClose = innerParams.onClose;
-  var onAfterClose = innerParams.onAfterClose;
-  removeClass(popup, swalClasses.show);
-  addClass(popup, swalClasses.hide); // If animation is supported, animate
 
-  if (animationEndEvent && hasCssAnimation(popup)) {
-    popup.addEventListener(animationEndEvent, function (e) {
-      if (e.target === popup) {
-        swalCloseEventFinished(popup, container, isToast(), onAfterClose);
-      }
-    });
-  } else {
-    // Otherwise, remove immediately
-    removePopupAndResetState(container, isToast(), onAfterClose);
+  if (!innerParams) {
+    return;
   }
+
+  var swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
+  removeClass(popup, swalClasses.show);
+  addClass(popup, swalClasses.hide);
+  handlePopupAnimation(this, popup, innerParams); // Resolve Swal promise
+
+  swalPromiseResolve(resolveValue || {});
+}
+
+var handlePopupAnimation = function handlePopupAnimation(instance, popup, innerParams) {
+  var container = getContainer(); // If animation is supported, animate
+
+  var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
+  var onClose = innerParams.onClose,
+      onAfterClose = innerParams.onAfterClose;
 
   if (onClose !== null && typeof onClose === 'function') {
     onClose(popup);
-  } // Resolve Swal promise
+  }
 
+  if (animationIsSupported) {
+    animatePopup(instance, popup, container, onAfterClose);
+  } else {
+    // Otherwise, remove immediately
+    removePopupAndResetState(instance, container, isToast(), onAfterClose);
+  }
+};
 
-  swalPromiseResolve(resolveValue || {}); // Unset this.params so GC will dispose it (#1569)
-
-  delete this.params;
-}
+var animatePopup = function animatePopup(instance, popup, container, onAfterClose) {
+  globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, isToast(), onAfterClose);
+  popup.addEventListener(animationEndEvent, function (e) {
+    if (e.target === popup) {
+      globalState.swalCloseEventFinishedCallback();
+      delete globalState.swalCloseEventFinishedCallback;
+    }
+  });
+};
 
 var unsetWeakMaps = function unsetWeakMaps(obj) {
   for (var i in obj) {
@@ -1870,12 +1891,16 @@ var unsetWeakMaps = function unsetWeakMaps(obj) {
   }
 };
 
-var triggerOnAfterClose = function triggerOnAfterClose(onAfterClose) {
-  if (onAfterClose !== null && typeof onAfterClose === 'function') {
-    setTimeout(function () {
+var triggerOnAfterCloseAndDispose = function triggerOnAfterCloseAndDispose(instance, onAfterClose) {
+  setTimeout(function () {
+    if (onAfterClose !== null && typeof onAfterClose === 'function') {
       onAfterClose();
-    });
-  }
+    }
+
+    if (!getPopup()) {
+      disposeSwal(instance);
+    }
+  });
 };
 
 function setButtonsDisabled(instance, buttons, disabled) {
@@ -2056,22 +2081,15 @@ function () {
 
 var defaultInputValidators = {
   email: function email(string, validationMessage) {
-    return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage ? validationMessage : 'Invalid email address');
+    return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
   },
   url: function url(string, validationMessage) {
     // taken from https://stackoverflow.com/a/3809435 with a small change from #1306
-    return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage ? validationMessage : 'Invalid URL');
+    return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
   }
 };
 
-/**
- * Set type, text and actions on popup
- *
- * @param params
- * @returns {boolean}
- */
-
-function setParameters(params) {
+function setDefaultInputValidators(params) {
   // Use default `inputValidator` for supported input types if not provided
   if (!params.inputValidator) {
     Object.keys(defaultInputValidators).forEach(function (key) {
@@ -2079,8 +2097,26 @@ function setParameters(params) {
         params.inputValidator = defaultInputValidators[key];
       }
     });
-  } // showLoaderOnConfirm && preConfirm
+  }
+}
 
+function validateCustomTargetElement(params) {
+  // Determine if the custom target element is valid
+  if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
+    warn('Target parameter is not valid, defaulting to "body"');
+    params.target = 'body';
+  }
+}
+/**
+ * Set type, text and actions on popup
+ *
+ * @param params
+ * @returns {boolean}
+ */
+
+
+function setParameters(params) {
+  setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
 
   if (params.showLoaderOnConfirm && !params.preConfirm) {
     warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
@@ -2090,25 +2126,14 @@ function setParameters(params) {
   // inside the params.animation function
 
 
-  params.animation = callIfFunction(params.animation); // Determine if the custom target element is valid
-
-  if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
-    warn('Target parameter is not valid, defaulting to "body"');
-    params.target = 'body';
-  } // Replace newlines with <br> in title
-
+  params.animation = callIfFunction(params.animation);
+  validateCustomTargetElement(params); // Replace newlines with <br> in title
 
   if (typeof params.title === 'string') {
     params.title = params.title.split('\n').join('<br />');
   }
 
-  var oldPopup = getPopup();
-  var targetElement = typeof params.target === 'string' ? document.querySelector(params.target) : params.target;
-
-  if (!oldPopup || // If the model target has changed, refresh the popup
-  oldPopup && targetElement && oldPopup.parentNode !== targetElement.parentNode) {
-    init(params);
-  }
+  init(params);
 }
 
 function swalOpenAnimationFinished(popup, container) {
@@ -2126,56 +2151,66 @@ var openPopup = function openPopup(params) {
   var container = getContainer();
   var popup = getPopup();
 
-  if (params.onBeforeOpen !== null && typeof params.onBeforeOpen === 'function') {
+  if (typeof params.onBeforeOpen === 'function') {
     params.onBeforeOpen(popup);
   }
 
-  if (params.animation) {
-    addClass(popup, swalClasses.show);
-    addClass(container, swalClasses.fade);
-  }
+  addClasses(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
 
-  show(popup); // scrolling is 'hidden' until animation is done, after that 'auto'
-
-  if (animationEndEvent && hasCssAnimation(popup)) {
-    container.style.overflowY = 'hidden';
-    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished.bind(null, popup, container));
-  } else {
-    container.style.overflowY = 'auto';
-  }
-
-  addClass([document.documentElement, document.body, container], swalClasses.shown);
-
-  if (params.heightAuto && params.backdrop && !params.toast) {
-    addClass([document.documentElement, document.body], swalClasses['height-auto']);
-  }
+  setScrollingVisibility(container, popup);
 
   if (isModal()) {
-    if (params.scrollbarPadding) {
-      fixScrollbar();
-    }
-
-    iOSfix();
-    IEfix();
-    setAriaHidden(); // sweetalert2/issues/1247
-
-    setTimeout(function () {
-      container.scrollTop = 0;
-    });
+    fixScrollContainer(container, params.scrollbarPadding);
   }
 
   if (!isToast() && !globalState.previousActiveElement) {
     globalState.previousActiveElement = document.activeElement;
   }
 
-  if (params.onOpen !== null && typeof params.onOpen === 'function') {
+  if (typeof params.onOpen === 'function') {
     setTimeout(function () {
-      params.onOpen(popup);
+      return params.onOpen(popup);
     });
   }
 };
 
-var _this = undefined;
+var setScrollingVisibility = function setScrollingVisibility(container, popup) {
+  if (animationEndEvent && hasCssAnimation(popup)) {
+    container.style.overflowY = 'hidden';
+    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished.bind(null, popup, container));
+  } else {
+    container.style.overflowY = 'auto';
+  }
+};
+
+var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding) {
+  iOSfix();
+  IEfix();
+  setAriaHidden();
+
+  if (scrollbarPadding) {
+    fixScrollbar();
+  } // sweetalert2/issues/1247
+
+
+  setTimeout(function () {
+    container.scrollTop = 0;
+  });
+};
+
+var addClasses = function addClasses(container, popup, params) {
+  if (params.animation) {
+    addClass(popup, swalClasses.show);
+    addClass(container, swalClasses.fade);
+  }
+
+  show(popup);
+  addClass([document.documentElement, document.body, container], swalClasses.shown);
+
+  if (params.heightAuto && params.backdrop && !params.toast) {
+    addClass([document.documentElement, document.body], swalClasses['height-auto']);
+  }
+};
 
 var handleInputOptions = function handleInputOptions(instance, params) {
   var content = getContent();
@@ -2209,8 +2244,7 @@ var handleInputValue = function handleInputValue(instance, params) {
     input.value = '';
     show(input);
     input.focus();
-
-    _this.hideLoading();
+    instance.hideLoading();
   });
 };
 var populateInputOptions = {
@@ -2285,7 +2319,18 @@ var formatInputOptions = function formatInputOptions(inputOptions) {
 function _main(userParams) {
   var _this = this;
 
-  showWarningsForParams(userParams);
+  showWarningsForParams(userParams); // Check if there is another Swal closing
+
+  if (getPopup() && globalState.swalCloseEventFinishedCallback) {
+    globalState.swalCloseEventFinishedCallback();
+    delete globalState.swalCloseEventFinishedCallback;
+  } // Check if there is a swal disposal defer timer
+
+
+  if (globalState.deferDisposalTimer) {
+    clearTimeout(globalState.deferDisposalTimer);
+    delete globalState.deferDisposalTimer;
+  }
 
   var innerParams = _extends({}, defaultParams, userParams);
 
@@ -2778,7 +2823,7 @@ Object.keys(instanceMethods).forEach(function (key) {
   };
 });
 SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '8.11.6';
+SweetAlert.version = '8.14.0';
 
 var Swal = SweetAlert;
 Swal["default"] = Swal;
@@ -2786,4 +2831,4 @@ Swal["default"] = Swal;
 return Swal;
 
 })));
-if (typeof window !== 'undefined' && window.Sweetalert2){  window.swal = window.sweetAlert = window.Swal = window.SweetAlert = window.Sweetalert2}
+if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}

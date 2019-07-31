@@ -55,6 +55,11 @@ class Version5103 extends Migration
         Setting::saveByKey('purchaseorderFooter', '');
         Setting::saveByKey('resetPurchaseorderDateEmailDraft', '0');
         Setting::saveByKey('enabledModules', '127');
+        Setting::saveByKey('updateProductsDefault', '1');
+        Setting::saveByKey('purchaseorderEmailSubject', 'Purchase Order #{{ $purchaseorder->number }}');
+        Setting::saveByKey('purchaseorderEmailBody', '<p>Please find the attached purchase order from {{ $purchaseorder->user->name }}</p>');
+
+        DB::table('schedule_categories')->where('id', 8)->update(['name' => 'Expense and Purchaseorder']);
 
         deleteTempFiles();
         deleteViewCache();

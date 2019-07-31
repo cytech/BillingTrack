@@ -30,6 +30,15 @@
 
 </div>
 
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>@lang('bt.update_products'): </label>
+            {!! Form::select('setting[updateProductsDefault]', ['0' => trans('bt.no'), '1' => trans('bt.yes')], config('bt.updateProductsDefault'), ['class' => 'form-control']) !!}
+        </div>
+    </div>
+</div>
+
 <div class="form-group">
     <label>@lang('bt.default_terms'): </label>
     {!! Form::textarea('setting[purchaseorderTerms]', config('bt.purchaseorderTerms'), ['class' => 'form-control', 'rows' => 2]) !!}

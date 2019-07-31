@@ -84,6 +84,14 @@ class calendarEventPresenter
                 $data->start = $entity->timers->first()->start_at;
                 $data->category_id =  10;
                 break;
+            case 'purchaseorder':
+                $data->id = ucfirst($type) . ': ' . $entity->number;
+                $data->url = url("/purchaseorders/{$entity->id}/edit");
+                $data->title = trans("bt.{$type}") . ' ' . $entity->number . ' for ' . $entity->vendor->name ;
+                $data->description = mb_strimwidth(addslashes($entity->summary), 0, 30, '...');
+                $data->start = $entity->due_at ?: $entity->purchaseorder_date;
+                $data->category_id =  8;
+                break;
             default:
 
         }
