@@ -62,13 +62,14 @@
     </div>
     <div class="col-md-5">
         <br>
-        <span class="form-text text-muted">Display Defaults:</span><br>
-        <span class="form-text text-muted">Quotes: if expires_at, else quote_date</span><br>
-        <span class="form-text text-muted">Workorders: job_date</span><br>
-        <span class="form-text text-muted">Invoices: If due_at, else invoice_date</span><br>
-        <span class="form-text text-muted">Payments: paid_at</span><br>
-        <span class="form-text text-muted">Expenses: expense_date</span><br>
-        <span class="form-text text-muted">Projects: due_at</span><br>
+        <span class="form-text text-muted">Display Defaults:</span>
+        <span class="form-text text-muted">Quotes: if expires_at, else quote_date</span>
+        <span class="form-text text-muted">Workorders: job_date</span>
+        <span class="form-text text-muted">Invoices: If due_at, else invoice_date</span>
+        <span class="form-text text-muted">Payments: paid_at</span>
+        <span class="form-text text-muted">Expenses: expense_date</span>
+        <span class="form-text text-muted">Projects: due_at</span>
         <span class="form-text text-muted">Tasks: start time of first timer in task</span>
+        <span class="form-text text-muted">Purchaseorders: If due_at, else purchaseorder_date</span>
     </div>
 </div>
