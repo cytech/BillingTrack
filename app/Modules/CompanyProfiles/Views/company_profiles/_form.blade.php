@@ -1,6 +1,5 @@
 {!! Html::style('plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
 {!! Html::script('plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
-
 <script type="text/javascript">
     $(function () {
         $('#name').focus();
@@ -29,7 +28,6 @@
                         {!! Form::text('email', null, ['id' => 'email', 'class' => 'form-control']) !!}
                     </div>
                 </div>
-
                 <div class="row col-md-12 mb-1">
                     <div class="col-md-4 text-right">
                         <label class="col-form-label">@lang('bt.phone_number'): </label>
@@ -163,7 +161,6 @@
                                     {!! Form::text('country_2', null, ['id' => 'country_2', 'class' => 'form-control']) !!}
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <script>
@@ -188,7 +185,6 @@
                             }
                         });
                     </script>
-
                 </div>
             </div>
         </div>
@@ -217,6 +213,8 @@
                             @endif
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>@lang('bt.default_quote_template'):</label>
@@ -235,6 +233,12 @@
                             {!! Form::select('invoice_template', $invoiceTemplates, ((isset($companyProfile)) ? $companyProfile->invoice_template : config('bt.invoiceTemplate')), ['id' => 'invoice_template', 'class' => 'form-control']) !!}
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>@lang('bt.default_purchaseorder_template'):</label>
+                            {!! Form::select('purchaseorder_template', $purchaseorderTemplates, ((isset($companyProfile)) ? $companyProfile->purchaseorder_template : config('bt.purchaseorderTemplate')), ['id' => 'purchaseorder_template', 'class' => 'form-control']) !!}
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -250,12 +254,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
     @if ($customFields->count())
         @include('custom_fields._custom_fields')
     @endif
-
 </div>

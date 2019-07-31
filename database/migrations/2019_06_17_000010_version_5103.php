@@ -45,6 +45,7 @@ class Version5103 extends Migration
             $table->string('language')->nullable()->default(null)->after('currency_code');
             $table->string('id_number')->nullable()->default(null)->after('language');
             $table->string('vat_number')->nullable()->default(null)->after('id_number');
+            $table->string('purchaseorder_template')->default('default.blade.php')->after('invoice_template');
         });
 
         Setting::saveByKey('purchaseorderTemplate', 'default.blade.php');

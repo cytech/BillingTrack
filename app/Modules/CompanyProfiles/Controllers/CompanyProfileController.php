@@ -18,6 +18,7 @@ use BT\Modules\CompanyProfiles\Requests\CompanyProfileUpdateRequest;
 use BT\Modules\Currencies\Models\Currency;
 use BT\Modules\CustomFields\Models\CustomField;
 use BT\Modules\Invoices\Support\InvoiceTemplates;
+use BT\Modules\Purchaseorders\Support\PurchaseorderTemplates;
 use BT\Modules\Quotes\Support\QuoteTemplates;
 use BT\Modules\Workorders\Support\WorkorderTemplates;
 use BT\Support\Languages;
@@ -42,6 +43,7 @@ class CompanyProfileController extends Controller
             ->with('invoiceTemplates', InvoiceTemplates::lists())
             ->with('quoteTemplates', QuoteTemplates::lists())
             ->with('workorderTemplates', WorkorderTemplates::lists())
+            ->with('purchaseorderTemplates', PurchaseorderTemplates::lists())
             ->with('currencies', Currency::getList())
             ->with('languages', Languages::listLanguages())
             ->with('customFields', CustomField::forTable('company_profiles')->get());
@@ -78,6 +80,7 @@ class CompanyProfileController extends Controller
             ->with('invoiceTemplates', InvoiceTemplates::lists())
             ->with('quoteTemplates', QuoteTemplates::lists())
             ->with('workorderTemplates', WorkorderTemplates::lists())
+            ->with('purchaseorderTemplates', PurchaseorderTemplates::lists())
             ->with('currencies', Currency::getList())
             ->with('languages', Languages::listLanguages())
             ->with('customFields', CustomField::forTable('company_profiles')->get());

@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - General categories and vendors for expenses and products
 - App name/namespace/language to BT
 - remove FusionInvoice 2018-8 conversion from setup
+- Added Purchase Order Module which connects to vendors and products
 
 ## 5.0.1
 - Renamed project to BillingTrack
