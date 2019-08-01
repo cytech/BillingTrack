@@ -15,7 +15,7 @@ class SkinComposer
 {
     public function compose($view)
     {
-        $defaultSkin = json_decode('{"headBackground":"purple","headClass":"Light","sidebarBackground":"white","sidebarClass":"Light"}',true);
+        $defaultSkin = json_decode('{"headBackground":"purple","headClass":"Light","sidebarBackground":"white","sidebarClass":"Light","sidebarMode":"Open"}',true);
 
         $skin = (config('bt.skin') ? json_decode(config('bt.skin'),true) : $defaultSkin);
 
@@ -23,6 +23,6 @@ class SkinComposer
         $view->with('headBackground', $skin['headBackground']);
         $view->with('sidebarClass', $skin['sidebarClass']);
         $view->with('sidebarBackground', $skin['sidebarBackground']);
-
+        $view->with('sidebarMode', $skin['sidebarMode']);
     }
 }

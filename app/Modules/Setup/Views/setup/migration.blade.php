@@ -47,11 +47,7 @@
                         <a class="btn btn-primary" id="btn-run-migration">@lang('bt.continue')</a>
 
                         <a class="btn btn-secondary" id="btn-running-migration" style="display: none;" disabled="disabled">@lang('bt.installing_please_wait')</a>
-                        @if($mode == 'setup')
-                        <a href="{{ route('setup.neworxfer') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">@lang('bt.continue')</a>
-                        @else
-                        <a href="{{ route('setup.newaccount') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">@lang('bt.continue')</a>
-                        @endif
+                        <a href="{{ route('setup.account') }}" class="btn btn-success" id="btn-migration-complete" style="display: none;">@lang('bt.step_database_complete')</a>
                     </div>
 
                 </div>

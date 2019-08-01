@@ -8,7 +8,7 @@
 
     <section class="content">
 
-        {!! Form::open(['route' => 'setup.postNewAccount', 'class' => 'form-install']) !!}
+        {!! Form::open(['route' => 'setup.postAccount', 'class' => 'form-install']) !!}
 
         <div class="row">
 
@@ -25,19 +25,19 @@
                         <div class="row">
 
                             <div class="col-md-3 form-group">
-                                {!! Form::text('user[name]', null, ['class' => 'form-control', 'placeholder' => trans('bt.name')]) !!}
+                                {!! Form::text('user[name]', null, ['class' => 'form-control', 'placeholder' => '* '.trans('bt.name'), 'required']) !!}
                             </div>
 
                             <div class="col-md-3 form-group">
-                                {!! Form::text('user[email]', null, ['class' => 'form-control', 'placeholder' => trans('bt.email')]) !!}
+                                {!! Form::text('user[email]', null, ['class' => 'form-control', 'placeholder' => '* '.trans('bt.email'), 'required']) !!}
                             </div>
 
                             <div class="col-md-3 form-group">
-                                {!! Form::password('user[password]', ['class' => 'form-control', 'placeholder' => trans('bt.password')]) !!}
+                                {!! Form::password('user[password]', ['class' => 'form-control', 'placeholder' => '* '.trans('bt.password'), 'required']) !!}
                             </div>
 
                             <div class="col-md-3 form-group">
-                                {!! Form::password('user[password_confirmation]', ['class' => 'form-control', 'placeholder' => trans('bt.password_confirmation')]) !!}
+                                {!! Form::password('user[password_confirmation]', ['class' => 'form-control', 'placeholder' => '* '.trans('bt.password_confirmation'), 'required']) !!}
                             </div>
 
                         </div>
@@ -46,7 +46,7 @@
 
                         <div class="row">
                             <div class="col-md-12 form-group">
-                                {!! Form::text('company_profile[company]', null, ['class' => 'form-control', 'placeholder' => trans('bt.company')]) !!}
+                                {!! Form::text('company_profile[company]', null, ['class' => 'form-control', 'placeholder' => '* '.trans('bt.company'), 'required']) !!}
                             </div>
                         </div>
 
