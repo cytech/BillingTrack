@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - App name/namespace/language to BT
 - remove FusionInvoice 2018-8 conversion from setup
 - Added Purchase Order Module which connects to vendors and products
+- Added config for collapsed side menu
+- corrected invoice update when payment amount is changed.
+- corrected payment emailing
 
 ## 5.0.1
 - Renamed project to BillingTrack

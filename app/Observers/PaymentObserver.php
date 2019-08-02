@@ -5,12 +5,17 @@ namespace BT\Observers;
 
 use BT\Events\InvoiceModified;
 use BT\Modules\CustomFields\Models\PaymentCustom;
+use BT\Modules\MailQueue\Support\MailQueue;
 use BT\Modules\Payments\Models\Payment;
 use BT\Support\Contacts;
 use BT\Support\Parser;
 
 class PaymentObserver
 {
+    public function __construct(MailQueue $mailQueue)
+    {
+        $this->mailQueue = $mailQueue;
+    }
     /**
      * Handle the payment "created" event.
      *
@@ -37,7 +42,7 @@ class PaymentObserver
 
             $contacts = new Contacts($payment->invoice->client);
 
-            $mail = $payment->mailQueue->create($payment, [
+            $mail = $this->mailQueue->create($payment, [
                 'to'         => $contacts->getSelectedContactsTo(),
                 'cc'         => $contacts->getSelectedContactsCc(),
                 'bcc'        => $contacts->getSelectedContactsBcc(),
@@ -46,7 +51,7 @@ class PaymentObserver
                 'attach_pdf' => config('bt.attachPdf'),
             ]);
 
-            $payment->mailQueue->send($mail->id);
+            $this->mailQueue->send($mail->id);
         }
     }
 
@@ -57,6 +62,11 @@ class PaymentObserver
         {
             $payment->paid_at = date('Y-m-d');
         }
+    }
+
+    public function updated(Payment $payment): void
+    {
+        event(new InvoiceModified($payment->invoice));
     }
 
     public function deleting(Payment $payment): void

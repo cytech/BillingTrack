@@ -42,7 +42,9 @@
                 <div class="card card-light">
 
                     <div class="card-body">
-
+                        <div class="form-group">
+                            <label>@lang('bt.email_payment_warning'): </label>
+                        </div>
                         <div class="form-group">
                             <label>@lang('bt.amount'): </label>
                             {!! Form::text('amount', $payment->formatted_numeric_amount, ['id' => 'amount',

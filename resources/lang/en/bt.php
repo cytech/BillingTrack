@@ -294,6 +294,8 @@ return [
     'email_address'                           => 'Email Address',
     'email_invoice'                           => 'Email Invoice',
     'email_payment_receipt'                   => 'Email Payment Receipt',
+    'email_updated_payment_receipt'           => 'Email Updated Payment Receipt',
+    'email_payment_warning'                   => 'Note: Updating a payment does not automatically resend a Payment email (if configured). You can manually resend after updating.',
     'email_purchaseorder'                     => 'Email Purchaseorder',
     'email_quote'                             => 'Email Quote',
     'email_send_method'                       => 'Email Sending Method',
