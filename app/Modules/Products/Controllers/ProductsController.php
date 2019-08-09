@@ -12,6 +12,7 @@ namespace BT\Modules\Products\Controllers;
 
 use BT\Modules\Categories\Models\Category;
 use BT\Modules\ItemLookups\Models\ItemLookup;
+use BT\Modules\Products\Models\InventoryType;
 use BT\Modules\Products\Models\Product;
 use BT\Modules\Products\Requests\ProductRequest;
 use BT\Http\Controllers\Controller;
@@ -31,7 +32,8 @@ class ProductController extends Controller
 
         return view('products.index')
             ->with('products', $products)
-            ->with('categories', Category::pluck('name', 'id'));
+            ->with('categories', Category::pluck('name', 'id'))
+            ->with('inventorytypes', InventoryType::pluck('name', 'id'));
     }
 
     /**
@@ -41,9 +43,18 @@ class ProductController extends Controller
      */
     public function create()
     {
+        //pass tracked types to select box highlighted
+        $invtracked = [];
+        $invs = InventoryType::where('tracked', 1)->get();
+        foreach ($invs as $inv){
+            $invtracked[$inv->id] = ['style' => 'background-color:lightgray'];
+        }
+
         return view('products.create')
             ->with('vendors', Vendor::pluck('name', 'id'))
-            ->with('categories', Category::pluck('name', 'id'));
+            ->with('categories', Category::pluck('name', 'id'))
+            ->with('inventorytypes', InventoryType::pluck('name', 'id'))
+            ->with('optionAttributes', $invtracked);
     }
 
     /**
@@ -67,11 +78,11 @@ class ProductController extends Controller
         $products->name = $request->name;
         $products->description = $request->description;
         $products->serialnum = $request->serialnum;
-        $products->price = $request->price?:0;
+        $products->price = $request->price ?:0;
         $products->active = is_null($request->active) ? 0 : $request->active;
-        $products->cost = $request->cost?:0;
-        $products->type = $request->type;
-        $products->numstock = $request->numstock?:0;
+        $products->cost = $request->cost ?:0;
+        $products->inventorytype_id = $request->type;
+        $products->numstock = $request->numstock ?:0;
         $products->save();
 
         if (config('bt.restolup')==1){
@@ -102,13 +113,22 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        //pass tracked types to select box highlighted
+        $invtracked = [];
+        $invs = InventoryType::where('tracked', 1)->get();
+        foreach ($invs as $inv){
+            $invtracked[$inv->id] = ['style' => 'background-color:lightgray'];
+        }
+
         // get the product
         $products = Product::find($id);
 
         // show the edit form and pass the product
         return view('products.edit', compact('products'))
             ->with('vendors', Vendor::pluck('name', 'id'))
-            ->with('categories', Category::pluck('name', 'id'));
+            ->with('categories', Category::pluck('name', 'id'))
+            ->with('inventorytypes', InventoryType::pluck('name', 'id'))
+            ->with('optionAttributes', $invtracked);
     }
 
     /**
@@ -136,7 +156,7 @@ class ProductController extends Controller
         $products->price = $request->price;
         $products->active = is_null($request->active) ? 0 : $request->active;
         $products->cost = $request->cost;
-        $products->type = $request->type;
+        $products->inventorytype_id = $request->type;
         $products->numstock = $request->numstock;
         $products->save();
 

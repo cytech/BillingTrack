@@ -25,7 +25,7 @@
             <td>{{ (!empty($product->vendor->name)) ? $product->vendor->name :'' }}</td>
             <td>{{ $product->cost }}</td>
             <td>{{ (!empty($product->category->name)) ? $product->category->name : '' }}</td>
-            <td>{{ $product->type }}</td>
+            <td>{{ $product->inventorytype->name }}</td>
             <td>{{ $product->numstock }}</td>
             <td>{{ $product->active }}</td>
             <td> <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary btn-sm "><i

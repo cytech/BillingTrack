@@ -35,6 +35,11 @@ class Product extends Model
         return $this->belongsTo('BT\Modules\Categories\Models\Category');
     }
 
+    public function inventorytype()
+    {
+        return $this->belongsTo('BT\Modules\Products\Models\InventoryType');
+    }
+
     public function quoteitem()
     {
         return $this->belongsTo('BT\Modules\Workorders\Models\QuoteItem','resource_id', 'id')
@@ -72,5 +77,11 @@ class Product extends Model
     public function getFormattedNumericPriceAttribute()
     {
         return NumberFormatter::format($this->attributes['price']);
+    }
+
+    //inventory tracked scope
+    public function scopeTracked($query)
+    {
+        return $query->whereIn('inventorytype_id', InventoryType::where('tracked', 1)->get('id'));
     }
 }

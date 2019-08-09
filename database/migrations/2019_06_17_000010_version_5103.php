@@ -1,5 +1,7 @@
 <?php
 
+use BT\Modules\Products\Models\InventoryType;
+use BT\Modules\Products\Models\Product;
 use BT\Modules\Settings\Models\Setting;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,6 +17,7 @@ class Version5103 extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
 
         DB::table('groups')->insert(
             [
@@ -26,8 +29,48 @@ class Version5103 extends Migration
             ]
         );
 
+        Schema::create('inventory_types' , function (Blueprint $table){
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('name', 85)->nullable()->default(null);
+            $table->tinyInteger('tracked')->default('0');
+        });
+
+        //seed inventory types
+        Artisan::call('db:seed', [
+            '--class' => InventoryTypesSeeder::class
+        ]);
+
         Schema::table('products' , function (Blueprint $table){
-           $table->decimal( 'numstock', 20, 4)->change();
+            $table->decimal( 'numstock', 20, 4)->unsigned(false)->change();
+            $table->unsignedInteger( 'inventorytype_id')->after('category_id')->default(1);
+            $table->index(["inventorytype_id"], 'products_inventorytype_id_index');
+            $table->foreign('inventorytype_id', 'products_inventorytype_id_index')
+                ->references('id')->on('inventory_types')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+        });
+
+        $products = Product::all();
+        $inventorytypes = InventoryType::all();
+
+        foreach ($products as $item){
+            if ($inventorytypes->contains('name', $item->type)){
+                $item->inventorytype_id = $inventorytypes->where('name', $item->type)->first()->id;
+                $item->save();
+            }else{
+                $inventorytype = new InventoryType();
+                $inventorytype->name = $item->type;
+                $inventorytype->tracked = 0;
+                $inventorytype->save();
+                $item->inventorytype_id = $inventorytype->id;
+                $item->save();
+                $inventorytypes = InventoryType::all();
+            }
+        }
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('type');
         });
 
         Schema::table('schedule_resources' , function (Blueprint $table){
@@ -65,6 +108,9 @@ class Version5103 extends Migration
 
         deleteTempFiles();
         deleteViewCache();
+
+        Schema::enableForeignKeyConstraints();
+
     }
 
     /**

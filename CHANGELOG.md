@@ -18,6 +18,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added config for collapsed side menu
 - corrected invoice update when payment amount is changed.
 - corrected payment emailing
+- added product inventory tracking ability.
+  note:previously unused "type" column of products table has been changed to "inventorytype_id"
+  Any existing entries in the type column will be migrated to the inventory_types table and updated
+  in the product. This table is currently not editable within the application.
+  This is a breaking change if you have any custom code that is accessing the type column in the products table.
+-   
 
 ## 5.0.1
 - Renamed project to BillingTrack

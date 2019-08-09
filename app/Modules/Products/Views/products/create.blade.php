@@ -99,7 +99,7 @@
                     <label class="col-md-2 text-right text"
                            for="type">@lang('bt.product_type')</label>
                     <div class="col-md-4">
-                        {!! Form::text('type',old('type'),['id'=>'type', 'class'=>'form-control']) !!}
+                        {!! Form::select('type', $inventorytypes, 1,['id'=>'type', 'class'=>'form-control'], $optionAttributes) !!}
                     </div>
                 </div>
                 <!-- Numstock input-->

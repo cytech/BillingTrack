@@ -589,7 +589,7 @@ return [
     'product_serialnum'                       => 'Serial Number',
     'product_partnum'                         => 'Part Number',
     'product_table'                           => 'Product Table',
-    'product_type'                            => 'Type',
+    'product_type'                            => 'Inventory Type',
     'products'                                => 'Products',
     'profit_and_loss'                         => 'Profit and Loss',
     'project'                                 => 'Project',

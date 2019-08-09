@@ -19,7 +19,7 @@ class ProductRequest extends FormRequest
 	protected $rules = [
         'price' => 'numeric',
         'cost' => 'numeric',
-		'numstock' => 'integer',
+		'numstock' => 'numeric',
 	];
 
     /**
@@ -41,4 +41,10 @@ class ProductRequest extends FormRequest
 			return $this->rules;
 	}
 
+    public function messages()
+    {
+        return [
+            'numstock.numeric' => "The ".trans('bt.product_numstock')." must be a number.",
+        ];
+    }
 }
