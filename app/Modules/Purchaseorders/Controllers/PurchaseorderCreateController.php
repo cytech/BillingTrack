@@ -12,6 +12,7 @@
 namespace BT\Modules\Purchaseorders\Controllers;
 
 use BT\Http\Controllers\Controller;
+use BT\Modules\Products\Models\Product;
 use BT\Modules\Vendors\Models\Vendor;
 use BT\Modules\CompanyProfiles\Models\CompanyProfile;
 use BT\Modules\Groups\Models\Group;
@@ -30,13 +31,25 @@ class PurchaseorderCreateController extends Controller
 
     public function store(PurchaseorderStoreRequest $request)
     {
-        $input = $request->except('vendor_name');
+        $input = $request->except('vendor_name', 'productid');
 
-        $input['vendor_id']    = Vendor::firstOrCreateByName($request->input('vendor_name'))->id;
+        $input['vendor_id'] = Vendor::firstOrCreateByName($request->input('vendor_name'))->id;
         $input['purchaseorder_date'] = DateFormatter::unformat($input['purchaseorder_date']);
 
         $purchaseorder = Purchaseorder::create($input);
-
+        // if request from PO create
+        if ($request->input('productid')) {
+            $poitem = Product::find($request->input('productid'));
+            $poitems = [
+                'resource_table' => 'products',
+                'resource_id'    => $poitem->id,
+                'name'           => $poitem->name,
+                'description'    => $poitem->description,
+                'quantity'       => ($poitem->numstock < 0 ? abs($poitem->numstock) : 1),
+                'cost'           => $poitem->cost
+            ];
+            $purchaseorder->purchaseorderItems()->create($poitems);
+        }
         return response()->json(['id' => $purchaseorder->id], 200);
     }
 }

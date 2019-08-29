@@ -12,6 +12,7 @@
                 source: '{{ route('vendors.ajax.lookup') }}',
                 minLength: 3
             }).autocomplete("widget");
+            $("#productid").val(productid);
         });
 
         $('#create_purchaseorder_date').datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
@@ -20,6 +21,7 @@
 
             $.post('{{ route('purchaseorders.store') }}', {
                 user_id: $('#user_id').val(),
+                productid: $('#productid').val(),
                 company_profile_id: $('#company_profile_id').val(),
                 vendor_name: $('#create_vendor_name').val(),
                 purchaseorder_date: $('#create_purchaseorder_date').val(),

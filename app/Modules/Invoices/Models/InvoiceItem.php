@@ -55,15 +55,16 @@ class InvoiceItem extends Model
         return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
     }
 
-    public function products()
+    public function product()
     {
-        return $this->hasMany('BT\Modules\Products\Models\Product', 'resource_id')
-            ->where('resource_table','=','products');
+        return $this->belongsTo('BT\Modules\Products\Models\Product',
+            'resource_id', 'id');
     }
-
-    public function employees()
+    //todo
+    public function employee()
     {
-        return $this->hasMany('BT\Modules\Employees\Models\Employee', 'resource_id')
+        return $this->belongsTo('BT\Modules\Employees\Models\Employee',
+            'resource_id', 'id')
             ->where('resource_table','=','employees');
     }
 

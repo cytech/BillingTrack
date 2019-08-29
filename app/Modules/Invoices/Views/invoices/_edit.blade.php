@@ -170,7 +170,11 @@
                                             {!! Form::text('name', $item->name, ['class' => 'form-control item-lookup']) !!}
                                         </td>
                                         <td>{!! Form::textarea('description', $item->description, ['class' => 'form-control', 'rows' => 1]) !!}</td>
+                                        @if($item->product->numstock < 0)
+                                        <td>{!! Form::text('quantity', $item->formatted_quantity, ['class' => 'form-control', 'style' => 'background-color:yellow', 'title' => 'Negative stock detected']) !!}</td>
+                                        @else
                                         <td>{!! Form::text('quantity', $item->formatted_quantity, ['class' => 'form-control']) !!}</td>
+                                        @endif
                                         <td>{!! Form::text('price', $item->formatted_numeric_price, ['class' => 'form-control']) !!}</td>
                                         <td>{!! Form::select('tax_rate_id', $taxRates, $item->tax_rate_id, ['class' => 'form-control']) !!}</td>
                                         <td>{!! Form::select('tax_rate_2_id', $taxRates, $item->tax_rate_2_id, ['class' => 'form-control']) !!}</td>

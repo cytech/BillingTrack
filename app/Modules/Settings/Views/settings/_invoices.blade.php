@@ -29,7 +29,14 @@
     </div>
 
 </div>
-
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>@lang('bt.update_inv_products'): </label>
+            {!! Form::select('setting[updateInvProductsDefault]', ['0' => trans('bt.no'), '1' => trans('bt.yes')], config('bt.updateInvProductsDefault'), ['class' => 'form-control']) !!}
+        </div>
+    </div>
+</div>
 <div class="form-group">
     <label>@lang('bt.default_terms'): </label>
     {!! Form::textarea('setting[invoiceTerms]', config('bt.invoiceTerms'), ['class' => 'form-control', 'rows' => 2]) !!}

@@ -157,6 +157,7 @@
 
         $(document).on('click','.create-purchaseorder',function () {
             vendorName = $(this).data('name');
+            productid = $(this).data('productid');
             $('#modal-placeholder').load('{{ route('purchaseorders.create') }}');
         });
 

@@ -1,5 +1,10 @@
 <?php
 
+use BT\Modules\Activity\Models\Activity;
+use BT\Modules\Attachments\Models\Attachment;
+use BT\Modules\Invoices\Models\InvoiceItem;
+use BT\Modules\MailQueue\Models\MailQueue;
+use BT\Modules\Notes\Models\Note;
 use BT\Modules\Products\Models\InventoryType;
 use BT\Modules\Products\Models\Product;
 use BT\Modules\Settings\Models\Setting;
@@ -91,6 +96,16 @@ class Version5103 extends Migration
             $table->string('purchaseorder_template')->default('default.blade.php')->after('invoice_template');
         });
 
+        Schema::table('invoice_items', function (Blueprint $table) {
+            $table->tinyInteger('is_tracked')->default('0')->after('resource_id');
+        });
+        // set existing product table items to tracked
+        $invoiceitems = InvoiceItem::where('resource_table', 'products')->where('resource_id','>', 0)->get();
+        foreach ($invoiceitems as $invoiceitem){
+            $invoiceitem->is_tracked = 1;
+            $invoiceitem->save();
+        }
+
         Setting::saveByKey('purchaseorderTemplate', 'default.blade.php');
         Setting::saveByKey('purchaseorderGroup', '4');
         Setting::saveByKey('purchaseordersDueAfter', '30');
@@ -100,11 +115,37 @@ class Version5103 extends Migration
         Setting::saveByKey('resetPurchaseorderDateEmailDraft', '0');
         Setting::saveByKey('enabledModules', '127');
         Setting::saveByKey('updateProductsDefault', '1');
+        Setting::saveByKey('updateInvProductsDefault', '1');
         Setting::saveByKey('purchaseorderEmailSubject', 'Purchase Order #{{ $purchaseorder->number }}');
         Setting::saveByKey('purchaseorderEmailBody', '<p>Please find the attached purchase order from {{ $purchaseorder->user->name }}</p>');
         Setting::saveByKey('skin','{"headBackground":"purple","headClass":"dark","sidebarBackground":"white","sidebarClass":"light","sidebarMode":"open"}');
 
         DB::table('schedule_categories')->where('id', 8)->update(['name' => 'Expense and Purchaseorder']);
+
+
+        //modify existing polymorphic _types for changed namespace
+        //notable_type, audit_type, mailable_type, attachable_type to BT\....
+        $notes = Note::all();
+        $activities = Activity::all();
+        $mailqueues = MailQueue::all();
+        $attachments = Attachment::all();
+
+        foreach ($notes as $note){
+            $note->notable_type = str_replace('FI\\', 'BT\\', $note->notable_type);
+            $note->save();
+        }
+        foreach ($activities as $activity){
+            $activity->audit_type = str_replace('FI\\', 'BT\\', $activity->audit_type);
+            $activity->save();
+        }
+        foreach ($mailqueues as $mailqueue){
+            $mailqueue->mailable_type = str_replace('FI\\', 'BT\\', $mailqueue->mailable_type);
+            $mailqueue->save();
+        }
+        foreach ($attachments as $attachment){
+            $attachment->attachable_type = str_replace('FI\\', 'BT\\', $attachment->attachable_type);
+            $attachment->save();
+        }
 
         deleteTempFiles();
         deleteViewCache();

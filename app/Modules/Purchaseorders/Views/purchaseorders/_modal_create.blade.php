@@ -15,6 +15,7 @@
                 <div id="modal-status-placeholder"></div>
                 <form>
                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" id="user_id">
+                    <input type="hidden" name="productid" value="productid" id="productid">
                     <div class="form-group d-flex align-items-center">
                         <label class="col-sm-4 text-right text">@lang('bt.vendor')</label>
                         <div class="col-sm-8">
