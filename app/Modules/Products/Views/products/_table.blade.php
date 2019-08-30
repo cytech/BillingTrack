@@ -35,8 +35,10 @@
             <div class="dropdown-menu dropdown-menu-right" role="menu">
                 <a class="dropdown-item" href="{{ route('products.edit', [$product->id]) }}"><i
                             class="fa fa-edit"></i> @lang('bt.edit')</a>
-                <a href ="javascript:void(0)" class="create-purchaseorder dropdown-item" data-name="{{ (($product->vendor->name) ? $product->vendor->name : '') }}"
+                @if($product->vendor->name)
+                <a href ="javascript:void(0)" class="create-purchaseorder dropdown-item" data-name="{{ $product->vendor->name }}"
                    data-productid="{{ $product->id }}"><i class="fa fa-shopping-cart"></i> @lang('bt.order')</a>
+                @endif
             </div>
             </td>
         </tr>
