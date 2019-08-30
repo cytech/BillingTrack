@@ -7,6 +7,8 @@
             @lang('bt.view_vendor')
         </h3>
         <div class="float-right">
+            <a href ="javascript:void(0)" class="create-purchaseorder btn btn-secondary" data-name="{{ $vendor->name }}"><i
+                        class="far fa-file-alt"></i> @lang('bt.create_purchaseorder')</a>
             <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('bt.back')</a>
             <a href="{{ route('vendors.edit', [$vendor->id]) }}" class="btn btn-secondary">@lang('bt.edit')</a>
             <a class="btn btn-secondary" href="#"

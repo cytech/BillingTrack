@@ -16,6 +16,7 @@ use BT\DataTables\ExpensesTrashDataTable;
 use BT\DataTables\InvoicesTrashDataTable;
 use BT\DataTables\PaymentsTrashDataTable;
 use BT\DataTables\ProjectsTrashDataTable;
+use BT\DataTables\PurchaseordersTrashDataTable;
 use BT\DataTables\QuotesTrashDataTable;
 use BT\DataTables\RecurringInvoicesTrashDataTable;
 use BT\DataTables\SchedulerTrashDataTable;
@@ -36,6 +37,7 @@ class UtilityController
         $wtdt = new WorkordersTrashDataTable();
         $itdt = new InvoicesTrashDataTable();
         $ritdt = new RecurringInvoicesTrashDataTable();
+        $podt = new PurchaseordersTrashDataTable();
         $pytdt = new PaymentsTrashDataTable();
         $etdt = new ExpensesTrashDataTable();
         $pjtdt = new ProjectsTrashDataTable();
@@ -53,7 +55,7 @@ class UtilityController
 
         $status = (request('status')) ?: 'all';
 
-        $trash_tables = compact('ctdt', 'qtdt', 'wtdt', 'itdt', 'ritdt', 'pytdt', 'etdt', 'pjtdt', 'stdt', 'status');
+        $trash_tables = compact('ctdt', 'qtdt', 'wtdt', 'itdt', 'ritdt', 'podt', 'pytdt', 'etdt', 'pjtdt', 'stdt', 'status');
 
         if (request()->get('table') == 'clients') {
             return $ctdt->render('utilities.trash', $trash_tables);
@@ -69,6 +71,9 @@ class UtilityController
         }
         if (request()->get('table') == 'recurring_invoices') {
             return $ritdt->render('utilities.trash', $trash_tables);
+        }
+        if (request()->get('table') == 'purchaseorders') {
+            return $podt->render('utilities.trash', $trash_tables);
         }
         if (request()->get('table') == 'payments') {
             return $pytdt->render('utilities.trash', $trash_tables);

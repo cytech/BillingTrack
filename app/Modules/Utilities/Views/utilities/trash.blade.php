@@ -38,6 +38,8 @@
                                                      href="#tab-recurring_invoices">@lang('bt.recurring_invoices')</a>
                             </li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                    href="#tab-purchaseorders">@lang('bt.purchaseorders')</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                                      href="#tab-payments">@lang('bt.payments')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                                      href="#tab-expenses">@lang('bt.expenses')</a></li>
@@ -83,6 +85,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="tab-purchaseorders" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {!! $podt->html()->table(['id' => 'Purchaseorder', 'width' => '100%']) !!}
+                                </div>
+                            </div>
+                        </div>
                         <div id="tab-payments" class="tab-pane">
                             <div class="row">
                                 <div class="col-md-12">
@@ -124,6 +133,7 @@
     {!! $wtdt->html()->scripts() !!}
     {!! $itdt->html()->scripts() !!}
     {!! $ritdt->html()->scripts() !!}
+    {!! $podt->html()->scripts() !!}
     {!! $pytdt->html()->scripts() !!}
     {!! $etdt->html()->scripts() !!}
     {!! $pjtdt->html()->scripts() !!}
