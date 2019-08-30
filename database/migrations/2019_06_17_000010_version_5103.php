@@ -99,12 +99,9 @@ class Version5103 extends Migration
         Schema::table('invoice_items', function (Blueprint $table) {
             $table->tinyInteger('is_tracked')->default('0')->after('resource_id');
         });
+
         // set existing product table items to tracked
-        $invoiceitems = InvoiceItem::where('resource_table', 'products')->where('resource_id','>', 0)->get();
-        foreach ($invoiceitems as $invoiceitem){
-            $invoiceitem->is_tracked = 1;
-            $invoiceitem->save();
-        }
+        DB::update('update invoice_items set is_tracked = 1 where resource_table = "products" and resource_id > 0');
 
         Setting::saveByKey('purchaseorderTemplate', 'default.blade.php');
         Setting::saveByKey('purchaseorderGroup', '4');
