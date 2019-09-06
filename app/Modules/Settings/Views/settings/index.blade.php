@@ -119,8 +119,6 @@
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                                     href="#tab-scheduler">@lang('bt.scheduler')</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab"
-                                                    href="#tab-backup">@lang('bt.backup')</a></li>
-                            <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                                     href="#tab-system">@lang('bt.system')</a></li>
                         </ul>
                     </div>
@@ -157,9 +155,6 @@
                         </div>
                         <div id="tab-scheduler" class="tab-pane">
                             @include('settings._scheduler')
-                        </div>
-                        <div id="tab-backup" class="tab-pane">
-                            @include('settings._backup')
                         </div>
                         <div id="tab-system" class="tab-pane">
                             @include('settings._system')

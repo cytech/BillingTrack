@@ -21,4 +21,12 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\
     //batchprint pdf
     Route::any('batchprint', ['uses' => 'UtilityController@batchPrint', 'as' => 'utilities.batchprint']);
 
+    if (!config('app.demo'))
+    {
+        Route::get('utilities/database', ['uses' => 'BackupController@index', 'as' => 'utilities.database']);
+        Route::get('backup/database', ['uses' => 'BackupController@database', 'as' => 'backup.database']);
+        Route::get('trashprior/database', ['uses' => 'BackupController@trashPrior', 'as' => 'trashprior.database']);
+        Route::get('deleteprior/database', ['uses' => 'BackupController@deletePrior', 'as' => 'deleteprior.database']);
+    }
+
 });

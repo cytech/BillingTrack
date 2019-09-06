@@ -171,7 +171,7 @@
                                         </td>
                                         <td>{!! Form::textarea('description', $item->description, ['class' => 'form-control', 'rows' => 1]) !!}</td>
                                         @if(isset($item->product->numstock) && $item->product->numstock < 0)
-                                        <td>{!! Form::text('quantity', $item->formatted_quantity, ['class' => 'form-control', 'style' => 'background-color:yellow', 'title' => 'Negative stock detected']) !!}</td>
+                                        <td>{!! Form::text('quantity', $item->formatted_quantity, ['class' => 'form-control', 'style' => 'background-color:yellow', 'title' => trans('bt.negative_stock')]) !!}</td>
                                         @else
                                         <td>{!! Form::text('quantity', $item->formatted_quantity, ['class' => 'form-control']) !!}</td>
                                         @endif

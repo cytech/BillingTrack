@@ -18,10 +18,6 @@ class SkinComposer
         $defaultSkin = json_decode('{"headBackground":"purple","headClass":"light","sidebarBackground":"white","sidebarClass":"light","sidebarMode":"open"}',true);
 
         $skin = (config('bt.skin') ? json_decode(config('bt.skin'),true) : $defaultSkin);
-        // for setup, migration with new key not run yet
-         if (!isset($skin['sidebarMode'])){
-             $skin['sidebarMode'] = 'open';
-         }
 
         $view->with('headClass', $skin['headClass']);
         $view->with('headBackground', $skin['headBackground']);

@@ -44,8 +44,8 @@
                             class="fa fa-print"></i> @lang('bt.batchprint')</a>
                 <a class="dropdown-item" href="{{ route('utilities.manage_trash') }}"><i
                             class="fa fa-trash"></i> @lang('bt.manage_trash')</a>
-
-
+                <a class="dropdown-item" href="{{ route('utilities.database') }}"><i
+                            class="fa fa-save"></i> @lang('bt.database')</a>
             </div>
         </li>
 

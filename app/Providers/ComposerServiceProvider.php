@@ -14,7 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('layouts.master', 'BT\Composers\LayoutComposer');
-        view()->composer(['client_center.layouts.master', 'client_center.layouts.public', 'layouts.master', 'setup.master'], 'BT\Composers\SkinComposer');
+        view()->composer(['client_center.layouts.master', 'client_center.layouts.public', 'layouts.master'], 'BT\Composers\SkinComposer');
         view()->composer('clients._form', 'BT\Composers\ClientFormComposer');
         view()->composer('vendors._form', 'BT\Composers\VendorFormComposer');
         view()->composer('invoices._table', 'BT\Composers\InvoiceTableComposer');
