@@ -23,7 +23,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   Any existing entries in the type column will be migrated to the inventory_types table and updated
   in the product. This table is currently not editable within the application.
   This is a breaking change if you have any custom code that is accessing the type column in the products table.
--   
+- Added Database clean/purge tool
+- Revamped Documentation
+- Update to Laravel 6.0   
 
 ## 5.0.1
 - Renamed project to BillingTrack

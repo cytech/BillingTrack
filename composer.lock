@@ -51,37 +51,34 @@
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "16eb4f65ee0d51b1f1182d56ae28ee00a70ce75a"
+                "reference": "8740a9a158d3dd5cfc706a9d4cc1bf7a518f99f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/16eb4f65ee0d51b1f1182d56ae28ee00a70ce75a",
-                "reference": "16eb4f65ee0d51b1f1182d56ae28ee00a70ce75a",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/8740a9a158d3dd5cfc706a9d4cc1bf7a518f99f3",
+                "reference": "8740a9a158d3dd5cfc706a9d4cc1bf7a518f99f3",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/reflection-docblock": "^2.0.6",
                 "composer/composer": "^1.6",
+                "doctrine/dbal": "~2.3",
                 "illuminate/console": "^5.5|^6",
                 "illuminate/filesystem": "^5.5|^6",
                 "illuminate/support": "^5.5|^6",
                 "php": ">=7"
             },
             "require-dev": {
-                "doctrine/dbal": "~2.3",
                 "illuminate/config": "^5.5|^6",
                 "illuminate/view": "^5.5|^6",
                 "phpro/grumphp": "^0.14",
                 "phpunit/phpunit": "4.*",
                 "scrutinizer/ocular": "~1.1",
                 "squizlabs/php_codesniffer": "^3"
-            },
-            "suggest": {
-                "doctrine/dbal": "Load information from the database about models for phpdocs (~2.3)"
             },
             "type": "library",
             "extra": {
@@ -121,7 +118,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2019-09-03T17:51:13+00:00"
+            "time": "2019-09-08T09:56:38+00:00"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -4624,16 +4621,16 @@
         },
         {
             "name": "yajra/laravel-datatables-buttons",
-            "version": "v4.7.0",
+            "version": "v4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-buttons.git",
-                "reference": "732c1cc2885622f6275560819fd41a6e0cfd24ae"
+                "reference": "9d3f4a72c6da9ef35aa775ae1b00f2648bea618c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/732c1cc2885622f6275560819fd41a6e0cfd24ae",
-                "reference": "732c1cc2885622f6275560819fd41a6e0cfd24ae",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/9d3f4a72c6da9ef35aa775ae1b00f2648bea618c",
+                "reference": "9d3f4a72c6da9ef35aa775ae1b00f2648bea618c",
                 "shasum": ""
             },
             "require": {
@@ -4684,20 +4681,20 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2019-09-04T07:53:57+00:00"
+            "time": "2019-09-10T04:46:41+00:00"
         },
         {
             "name": "yajra/laravel-datatables-html",
-            "version": "v4.8.0",
+            "version": "v4.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-html.git",
-                "reference": "3999b1cb7054735be2366809d67abc5894a2a9bb"
+                "reference": "ddd7b02163bc0f34525340757515aeebd260416c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/3999b1cb7054735be2366809d67abc5894a2a9bb",
-                "reference": "3999b1cb7054735be2366809d67abc5894a2a9bb",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/ddd7b02163bc0f34525340757515aeebd260416c",
+                "reference": "ddd7b02163bc0f34525340757515aeebd260416c",
                 "shasum": ""
             },
             "require": {
@@ -4744,7 +4741,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2019-09-04T08:38:30+00:00"
+            "time": "2019-09-10T06:40:26+00:00"
         },
         {
             "name": "yajra/laravel-datatables-oracle",
