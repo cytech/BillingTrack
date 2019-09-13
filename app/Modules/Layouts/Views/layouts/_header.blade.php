@@ -76,7 +76,7 @@
         </li>
         <li class="nav-item">
             {{--<a class="nav-link" href="/documentation" title="@lang('bt.documentation')"--}}
-            <a class="nav-link" href="{{ url('documentation', ['Requirements']) }}"
+            <a class="nav-link" href="{{ url('documentation', ['Overview']) }}"
                title="@lang('bt.documentation')"
                aria-haspopup="true" aria-expanded="false" target="_blank">
                 <i class="fa fa-question-circle"></i>
