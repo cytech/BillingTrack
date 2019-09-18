@@ -48,6 +48,6 @@ class QuoteToInvoiceController extends Controller
             $request->input('group_id')
         );
 
-        return response()->json(['redirectTo' => route('invoices.edit', ['invoice' => $invoice->id])], 200);
+        return response()->json(['redirectTo' => route('invoices.edit', ['id' => $invoice->id])], 200);
     }
 }

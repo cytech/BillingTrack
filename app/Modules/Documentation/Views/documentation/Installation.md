@@ -31,9 +31,7 @@ Installation
 6. save .env file.
 
 -   Run "php artisan key:generate"
--   Copy generated key to
-    (APP\_KEY=base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx)
--   Save .env file and exit.
+-   This copies the app key into the .env file, attached to the APP_KEY= line.
 
 
 7. Set permissions for your site.

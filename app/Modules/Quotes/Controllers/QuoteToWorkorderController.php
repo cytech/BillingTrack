@@ -48,6 +48,6 @@ class QuoteToWorkorderController extends Controller
             $request->input('group_id')
         );
 
-        return response()->json(['redirectTo' => route('workorders.edit', ['workorder' => $workorder->id])], 200);
+        return response()->json(['redirectTo' => route('workorders.edit', ['id' => $workorder->id])], 200);
     }
 }
