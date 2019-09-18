@@ -11,6 +11,7 @@ Recurring Invoices
 
 ---
 
+<a id="how-do-recurring-invoices-work"></a>
 ### How do recurring invoices work?
 
 Recurring invoices act as a template for invoices which need to be
@@ -33,6 +34,7 @@ any recurring invoices will actually generate.
 
 ---
 
+<a id="how-do-i-create-a-recurring-invoice"></a>
 ### How do I create a recurring invoice?
 
 Click the Recurring Invoices menu item and press the New button.
@@ -125,6 +127,7 @@ A number of other options and values are defined in the options area.
 
 ---
 
+<a id="how-do-i-copy-a-recurring-invoice"></a>
 ### How do I copy a recurring invoice?
 
 Press the Other button and choose Copy from the Invoice Edit screen.

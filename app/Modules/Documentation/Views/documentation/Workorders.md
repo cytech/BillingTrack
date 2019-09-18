@@ -15,6 +15,7 @@ Workorders
 
 ---
 
+<a id="how-do-i-create-a-workorder"></a>
 ### How do I create a workorder?
 
 Click the Workorders menu item and press the New button.
@@ -119,6 +120,7 @@ A number of other options and values are defined in the options area.
 
 ---
 
+<a id="how-do-i-email-a-workorder"></a>
 ### How do I email a workorder?
 
 Workorders are not designed to be emailed to customers. They are
@@ -126,6 +128,7 @@ generally an in-house document.
 
 ---
 
+<a id="how-do-i-convert-a-workorder-to-an-invoice"></a>
 ### How do I convert a workorder to an invoice?
 
 Once a workorder has been completed, you can convert it to an invoice on
@@ -142,6 +145,7 @@ the new invoice.
 
 ---
 
+<a id="how-do-i-copy-a-workorder"></a>
 ### How do I copy a workorder?
 
 Press the Other button and choose Copy from the Workorder Edit screen.
@@ -158,6 +162,7 @@ Press the Submit button to complete the copy.
 
 ---
 
+<a id="how-do-i-attach-files-to-a-workorder"></a>
 ### How do I attach files to a workorder?
 
 Files of any type may be uploaded as an attachment to a workorder by

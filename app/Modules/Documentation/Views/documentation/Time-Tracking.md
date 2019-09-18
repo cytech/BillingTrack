@@ -4,8 +4,17 @@ Time Tracking
 Time Trackingin BillingTrack lets you easily build projects, add tasks,
 track your time and most importantly - bill for that time!
 
+[Creating a Project](#creating-a-project)
+
+[Adding Tasks](#adding-tasks)
+
+[Managing Timers](#managing-timers)
+
+[Billing Tasks](#billing-tasks)
+
 ---
 
+<a id="creating-a-project"></a>
 ### Creating a Project
 
 Time tracking starts with creating a project.
@@ -25,6 +34,7 @@ project. Press the Save button when done.
 
 ---
 
+<a id="adding-tasks"></a>
 ### Adding Tasks
 
 Once the project is created, you can start adding tasks. Press the
@@ -40,6 +50,7 @@ you're finished adding tasks.
 
 ---
 
+<a id="managing-timers"></a>
 ### Managing Timers
 
 Now that we have some tasks added, we can start timers on one or more
@@ -68,6 +79,7 @@ button.
 
 ---
 
+<a id="billing-tasks"></a>
 ### Billing Tasks
 
 When you're ready to bill for the time tracked on a task, press the Bill

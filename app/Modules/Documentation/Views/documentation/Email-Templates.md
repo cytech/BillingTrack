@@ -11,10 +11,13 @@ Email Templates
 
 [Invoice Email Template](#invoice-email-template)
 
+[Purchaseorder Email Template](#purchaseorder-email-template)
+
 [Payment Receipt Email Template](#payment-receipt-email-template)
 
 ---
 
+<a id="what-are-email-templates"></a>
 ### What are email templates?
 
 Email templates allow customization of email sent from BillingTrack. The
@@ -24,6 +27,7 @@ with the appropriate values when the email is sent.
 
 ---
 
+<a id="quote-email-template"></a>
 ### Quote Email Template
 
 The variables listed below can be used in the following fields in System
@@ -78,6 +82,7 @@ $quote-&gt;public\_url }}&lt;/a&gt;&lt;/p&gt;
 
 ---
 
+<a id="workorder-email-template"></a>
 ### Workorder Email Template
 
 The variables listed below can be used in the following fields in System
@@ -132,6 +137,7 @@ $workorder-&gt;public\_url }}&lt;/a&gt;&lt;/p&gt;
 
 ---
 
+<a id="invoice-email-template"></a>
 ### Invoice Email Template
 
 The variables listed below can be used in the following fields in System
@@ -192,6 +198,7 @@ $invoice-&gt;public\_url }}&lt;/a&gt;&lt;/p&gt;
 
 ---
 
+<a id="purchaseorder-email-template"></a>
 ### Purchaseorder Email Template
 
 The variables listed below can be used in the following fields in
@@ -242,6 +249,7 @@ $purchaseorder-&gt;amount-&gt;formatted\_total }}
 
 ---
 
+<a id="payment-receipt-email-template"></a>
 ### Payment Receipt Email Template
 
 The variables listed below can be used in the following fields in System

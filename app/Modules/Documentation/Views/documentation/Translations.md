@@ -7,6 +7,7 @@ Translations
 
 ---
 
+<a id="how-do-i-translate-billingtrack-into-my-own-language"></a>
 ### How do I translate BillingTrack into my own language?
 
 The translation files for BillingTrack live in the resources/lang

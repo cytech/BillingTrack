@@ -12,7 +12,7 @@
 Route::group(['middleware' => ['web', 'auth.admin']], function ()
 {
     Route::get('documentation/{page}', [function ( $page) {
-        return view('documentation.linkview')->with('page', 'documentation.'.$page);
+        return view('documentation.linkview')->with('page', 'documentation.'.basename($page,'.md'));
         }]);
 
 });

@@ -8,6 +8,7 @@ Upgrade
 
 ---
 
+<a id="how-to-upgrade-billingtrack"></a>
 ### How to Upgrade BillingTrack
 
 -   Git pull (if originally cloned) or download and overwrite existing
@@ -20,6 +21,7 @@ Upgrade
 
 ---
 
+<a id="how-to-upgrade-an-add-on"></a>
 ### How to Upgrade an Add-on
 
 #### Step 1: Download the add-on package

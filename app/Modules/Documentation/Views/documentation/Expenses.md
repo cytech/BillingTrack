@@ -11,6 +11,7 @@ Expenses
 
 ---
 
+<a id="how-do-i-enter-an-expense"></a>
 ### How do I enter an expense?
 
 Click the Expenses menu item and press the New button.
@@ -42,6 +43,7 @@ Press the Save button.
 
 ---
 
+<a id="how-do-i-bill-an-expense-to-a-client"></a>
 ### How do I bill an expense to a client?
 
 Click the Expenses menu item, press the Options button on the expense to
@@ -64,6 +66,7 @@ Press the Submit button.
 
 ---
 
+<a id="how-can-i-see-my-profit-and-loss"></a>
 ### How can I see my profit and loss?
 
 Click the Reports menu item and choose Profit and Loss.

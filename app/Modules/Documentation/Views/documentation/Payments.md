@@ -13,6 +13,7 @@ Payments
 
 ---
 
+<a id="how-do-i-enter-a-payment"></a>
 ### How do I enter a payment?
 
 See [How do I enter a payment?](Invoices.md#how-do-i-enter-a-payment) in the Invoices
@@ -20,6 +21,7 @@ user guide.
 
 ---
 
+<a id="how-do-i-enable-online-payments"></a>
 ### How do I enable online payments?
 
 Once online payments have been enabled, your clients can pay their
@@ -79,6 +81,7 @@ configured:
 
 ---
 
+<a id="how-do-i-get-my-paypal-rest-api-keys"></a>
 ### How do I get my PayPal REST API keys?
 
 BillingTrack uses PayPal's REST api.
@@ -108,6 +111,7 @@ System Settings.
 
 ---
 
+<a id="how-does-my-client-pay-their-invoice-online"></a>
 ### How does my client pay their invoice online?
 
 Once you have BillingTrack configured to accept online payments, clients

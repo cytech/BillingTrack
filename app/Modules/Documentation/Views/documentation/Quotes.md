@@ -15,6 +15,7 @@ Quotes
 
 ---
 
+<a id="how-do-i-create-a-quote"></a>
 ### How do I create a quote?
 
 Click the Quotes menu item and press the New button.
@@ -114,6 +115,7 @@ A number of other options and values are defined in the options area.
 
 ---
 
+<a id="how-do-i-email-a-quote"></a>
 ### How do I email a quote?
 
 Press the Email button from the Quotes table Options -> Email or the
@@ -133,6 +135,7 @@ Press the Send button to send the email.
 
 ---
 
+<a id="how-do-i-convert-a-quote-to-a-workorder-or-an-invoice"></a>
 ### How do I convert a quote to a workorder or an invoice?
 
 Once a client has accepted your quote, you can convert it to a workorder
@@ -149,6 +152,7 @@ the new invoice.
 
 ---
 
+<a id="how-do-i-copy-a-quote"></a>
 ### How do I copy a quote?
 
 Press the Other button and choose Copy from the Quote Edit screen.
@@ -165,6 +169,7 @@ Press the Submit button to complete the copy.
 
 ---
 
+<a id="how-do-i-attach-files-to-a-quote"></a>
 ### How do I attach files to a quote?
 
 Files of any type may be uploaded as an attachment to a quote by

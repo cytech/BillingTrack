@@ -15,6 +15,7 @@ Invoices
 
 ---
 
+<a id="how-do-i-create-an-invoice"></a>
 ### How do I create an invoice?
 
 Click the Invoices menu item and press the New button.
@@ -117,6 +118,7 @@ A number of other options and values are defined in the options area.
 
 ---
 
+<a id="how-do-i-email-an-invoice"></a>
 ### How do I email an invoice?
 
 Press the Email button from the Invoice Edit screen.
@@ -135,6 +137,7 @@ Press the Send button to send the email.
 
 ---
 
+<a id="how-do-i-enter-a-payment"></a>
 ### How do I enter a payment?
 
 Payments collected manually can be entered against an invoice from the
@@ -165,6 +168,7 @@ invoice.
 
 ---
 
+<a id="how-do-i-copy-an-invoice"></a>
 ### How do I copy an invoice?
 
 Press the Other button and choose Copy from the Invoice Edit screen.
@@ -181,6 +185,7 @@ Press the Submit button to complete the copy.
 
 ---
 
+<a id="how-do-i-attach-files-to-an-invoice"></a>
 ### How do I attach files to an invoice?
 
 Files of any type may be uploaded as an attachment to an invoice by

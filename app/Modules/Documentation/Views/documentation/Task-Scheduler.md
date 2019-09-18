@@ -9,6 +9,7 @@ Task Scheduler
 
 ---
 
+<a id="what-is-the-task-scheduler"></a>
 ### What is the task scheduler?
 
 The task scheduler is a crucial cron job responsible for all of the
@@ -23,6 +24,7 @@ been created.
 
 ---
 
+<a id="how-do-i-set-the-task-scheduler-up"></a>
 ### How do I set the task scheduler up?
 
 The cron job for the task scheduler should be set up to run once per

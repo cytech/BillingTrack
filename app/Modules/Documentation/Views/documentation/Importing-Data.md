@@ -11,6 +11,7 @@ Importing Data
 
 ---
 
+<a id="requirements"></a>
 ### Requirements
 
 -   All files must be saved in text .csv format.
@@ -22,6 +23,7 @@ Importing Data
 
 ---
 
+<a id="file-layouts"></a>
 ### File Layouts
 
 #### Clients
@@ -139,6 +141,7 @@ Notes
 
 ---
 
+<a id="importing-files"></a>
 ### Importing Files
 
 Once you have the files ready to be imported:

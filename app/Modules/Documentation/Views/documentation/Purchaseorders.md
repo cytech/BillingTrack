@@ -15,6 +15,7 @@ Purchaseorders
 
 ---
 
+<a id="how-do-i-create-a-purchaseorder"></a>
 ### How do I create a purchaseorder?
 
 Click the Purchaseorders menu item and press the New button.
@@ -121,6 +122,7 @@ A number of other options and values are defined in the options area.
 
 ---
 
+<a id="how-do-i-email-a-purchaseorder"></a>
 ### How do I email a purchaseorder?
 
 Select email from the options button on the Purchaseorder table view or
@@ -140,6 +142,7 @@ Press the Send button to send the email.
 
 ---
 
+<a id="how-do-i-receive-a-purchaseorder"></a>
 ### How do I receive a purchaseorder?
 
 Purchaseorder items may be recceived either by selecting receive from
@@ -167,6 +170,7 @@ for the purchaseorder.
 
 ---
 
+<a id="how-do-i-copy-a-purchaseorder"></a>
 ### How do I copy a purchaseorder?
 
 Press the Other button and choose Copy from the Purchaseorder Edit screen.
@@ -183,6 +187,7 @@ Press the Submit button to complete the copy.
 
 ---
 
+<a id="how-do-i-attach-files-to-a-purchaseorder"></a>
 ### How do I attach files to a purchaseorder?
 
 Files of any type may be uploaded as an attachment to a purchaseorder by

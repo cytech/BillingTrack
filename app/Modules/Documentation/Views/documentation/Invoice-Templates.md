@@ -11,6 +11,7 @@ Invoice Templates
 
 ---
 
+<a id="how-do-i-customize-my-invoice-or-quote-templates"></a>
 ### How do I customize my invoice or quote templates?
 
 BillingTrack comes with a copy of the default template placed in the
@@ -42,6 +43,7 @@ A few notes about templates:
 
 ---
 
+<a id="how-do-i-make-custom-fields-appear-on-my-invoices-or-quotes"></a>
 ### How do I make custom fields appear on my invoices or quotes?
 
 Custom fields won't display by default on the PDF output. However, they
@@ -73,6 +75,7 @@ Adding a custom client field to a quote:
 
 ---
 
+<a id="how-can-i-change-the-size-of-my-logo-on-invoice-and-quote-templates"></a>
 ### How can I change the size of my logo on invoice and quote templates?
 
 By default, logos are displayed on the invoice and quote PDF's at the

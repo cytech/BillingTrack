@@ -7,6 +7,7 @@ Custom Fields
 
 ---
 
+<a id="how-do-i-create-a-custom-field"></a>
 ### How do I create a custom field?
 
 Click the System menu and select Custom Fields.
@@ -36,6 +37,7 @@ appropriate edit screens.
 
 ---
 
+<a id="how-do-i-make-custom-fields-appear-on-my-invoices-or-quotes"></a>
 ### How do I make custom fields appear on my invoices or quotes?
 
 See [How do I make custom fields appear on my invoices or quotes?](Invoice-Templates.md#how-do-i-make-custom-fields-appear-on-my-invoices-or-quotes) in the

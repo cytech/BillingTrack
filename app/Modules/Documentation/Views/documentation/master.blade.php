@@ -63,6 +63,8 @@
                     <li class="nav-item"><a class="nav-link" href="Expenses">Expenses</a></li>
                     <li class="nav-item"><a class="nav-link" href="Time-Tracking">Time Tracking</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="Purchaseorders">Purchaseorders</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="Scheduler">Scheduler</a></li>
                     <li class="nav-item"><a class="nav-link" href="Reports">Reports</a></li>
                     <li class="nav-item"><a class="nav-link" href="Utilities">Utilities</a></li>

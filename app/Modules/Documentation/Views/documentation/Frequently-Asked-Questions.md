@@ -19,6 +19,7 @@ Frequently Asked Questions
 
 ---
 
+<a id="why-cant-i-change-the-status-to-paid"></a>
 ### Why can't I change the status to paid?
 
 The paid status is the only status you cannot manually change an invoice
@@ -28,6 +29,7 @@ automatically update to Paid.
 
 ---
 
+<a id="why-arent-my-recurring-invoices-working"></a>
 ### Why aren't my recurring invoices working?
 
 First, check the Next Date of the recurring invoice you expect should
@@ -59,6 +61,7 @@ One of two things will happen when you visit this URL in your browser:
     is the case, there will be details logged at the bottom of your
     storage/logs/laravel.log file.
 
+<a id="i-forgot-my-password---how-can-i-reset-it"></a>
 ### I forgot my password - how can I reset it?
 
 1.  Get the ResetPassword-2018.zip utility from the resources/misc
@@ -72,6 +75,7 @@ One of two things will happen when you visit this URL in your browser:
 
 ---
 
+<a id="why-do-the-totals-on-my-dashboard-all-show-zero"></a>
 ### Why do the totals on my dashboard all show zero?
 
 There are settings on the Dashboard tab of System Settings which control
@@ -81,6 +85,7 @@ Range.
 
 ---
 
+<a id="can-billingtrack-work-with-xyz-payment-gateway"></a>
 ### Can BillingTrack work with XYZ payment gateway?
 
 BillingTrack uses the [Omnipay](https://github.com/thephpleague/omnipay)
@@ -92,6 +97,7 @@ only implements support for Mollie, PayPal and Stripe.
 
 ---
 
+<a id="how-can-i-remove-indexphp-from-my-url"></a>
 ### How can I remove index.php from my URL?
 
 #### If you're using Apache, try these things in the order they're listed below:
@@ -136,6 +142,7 @@ web.config file for IIS.
 
 ---
 
+<a id="how-can-i-force-my-billingtrack-installation-to-be-served-over-https"></a>
 ### How can I force my BillingTrack installation to be served over https?
 
 There is an option in the General tab of System Settings which will

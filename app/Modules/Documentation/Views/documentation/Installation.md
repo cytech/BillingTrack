@@ -8,6 +8,7 @@ Installation
 
 ---
 
+<a id="how-to-install-billingtrack"></a>
 ### How to Install BillingTrack
 
 1. Clone or download the repository to a new web directory.
@@ -49,6 +50,7 @@ minutes):
 
 ---
 
+<a id="how-to-install-an-add-on"></a>
 ### How to Install an Add-on
 
 #### Step 1: Download the add-on package
