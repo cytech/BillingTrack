@@ -6,32 +6,34 @@
     "type": "project",
     "require": {
         "php": ">=7.2",
-        "askedio/laravel-soft-cascade": "^5.6",
-        "barryvdh/laravel-ide-helper": "^2.4",
-        "doctrine/dbal": "^2.7",
-        "dompdf/dompdf": "^0.8.2",
+        "askedio/laravel-soft-cascade": "^6.0",
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "doctrine/dbal": "^2.9",
+        "dompdf/dompdf": "^0.8.3",
         "fideloper/proxy": "^4.0",
         "graham-campbell/markdown": "^11.1",
         "ifsnop/mysqldump-php": "2.*",
-        "knplabs/knp-snappy": "^1.0",
-        "laravel/framework": "5.8.*",
-        "laravel/helpers": "^1.0",
-        "laravelcollective/html": "^5.6",
+        "knplabs/knp-snappy": "^1.1",
+        "laravel/framework": "^6.0",
+        "laravel/tinker": "^1.0",
+        "laravel/helpers": "^1.1",
+        "laravelcollective/html": "^6.0",
         "league/commonmark-extras": "^1.1",
         "mollie/mollie-api-php": "^1.9",
-        "paypal/rest-api-sdk-php": "^1.13",
+        "paypal/rest-api-sdk-php": "^1.14",
         "simshaun/recurr": "^4.0",
         "sonata-project/exporter": "^2.0",
         "stripe/stripe-php": "^6.8",
         "yajra/laravel-datatables-buttons": "4.*"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.1",
-        "filp/whoops": "~2.2",
-        "fzaninotto/faker": "~1.7",
-        "mockery/mockery": "~1.1",
-        "phpunit/phpunit": "^7.0",
-        "symfony/thanks": "^1.0"
+        "facade/ignition": "^1.7",
+        "nunomaduro/collision": "^3.0",
+        "barryvdh/laravel-debugbar": "^3.2",
+        "fzaninotto/faker": "~1.8",
+        "mockery/mockery": "~1.2",
+        "phpunit/phpunit": "^6.0",
+        "symfony/thanks": "^1.1"
     },
     "autoload": {
         "classmap": [
@@ -62,11 +64,11 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate"
+            "@php artisan key:generate --ansi"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
+            "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
@@ -78,5 +80,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
