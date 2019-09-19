@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Groups\Controllers'], function ()
-{
-    Route::get('groups', ['uses' => 'GroupController@index', 'as' => 'groups.index']);
-    Route::get('groups/create', ['uses' => 'GroupController@create', 'as' => 'groups.create']);
-    Route::get('groups/{group}/edit', ['uses' => 'GroupController@edit', 'as' => 'groups.edit']);
-    Route::get('groups/{group}/delete', ['uses' => 'GroupController@delete', 'as' => 'groups.delete']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Groups\Controllers')
+    ->prefix('groups')->name('groups.')->group(function () {
+        Route::name('index')->get('/', 'GroupController@index');
+        Route::name('create')->get('create', 'GroupController@create');
+        Route::name('edit')->get('{group}/edit', 'GroupController@edit');
+        Route::name('delete')->get('{group}/delete', 'GroupController@delete');
 
-    Route::post('groups', ['uses' => 'GroupController@store', 'as' => 'groups.store']);
-    Route::post('groups/{group}', ['uses' => 'GroupController@update', 'as' => 'groups.update']);
-});
+        Route::name('store')->post('groups', 'GroupController@store');
+        Route::name('update')->post('{group}', 'GroupController@update');
+    });

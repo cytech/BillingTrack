@@ -9,44 +9,39 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['prefix' => 'api', 'middleware' => 'web', 'namespace' => 'BT\Modules\API\Controllers'], function ()
-{
-    Route::group(['middleware' => 'auth.admin'], function ()
-    {
-        Route::post('generate_keys', ['uses' => 'ApiKeyController@generateKeys', 'as' => 'api.generateKeys']);
+Route::middleware('web')->namespace('BT\Modules\API\Controllers')->prefix('api')->group(function () {
+    Route::middleware('auth.admin')->group(function () {
+        Route::name('api.generateKeys')->post('generate_keys', 'ApiKeyController@generateKeys');
     });
+    Route::middleware('auth.api')->group(function () {
+        Route::post('clients/list', 'ApiClientController@lists');
+        Route::post('clients/show', 'ApiClientController@show');
+        Route::post('clients/store', 'ApiClientController@store');
+        Route::post('clients/update', 'ApiClientController@update');
+        Route::post('clients/delete', 'ApiClientController@delete');
 
-    Route::group(['middleware' => 'auth.api'], function ()
-    {
-        Route::post('clients/list', ['uses' => 'ApiClientController@lists']);
-        Route::post('clients/show', ['uses' => 'ApiClientController@show']);
-        Route::post('clients/store', ['uses' => 'ApiClientController@store']);
-        Route::post('clients/update', ['uses' => 'ApiClientController@update']);
-        Route::post('clients/delete', ['uses' => 'ApiClientController@delete']);
+        Route::post('quotes/list', 'ApiQuoteController@lists');
+        Route::post('quotes/show', 'ApiQuoteController@show');
+        Route::post('quotes/store', 'ApiQuoteController@store');
+        Route::post('quotes/items/add', 'ApiQuoteController@addItem');
+        Route::post('quotes/delete', 'ApiQuoteController@delete');
 
-        Route::post('quotes/list', ['uses' => 'ApiQuoteController@lists']);
-        Route::post('quotes/show', ['uses' => 'ApiQuoteController@show']);
-        Route::post('quotes/store', ['uses' => 'ApiQuoteController@store']);
-        Route::post('quotes/items/add', ['uses' => 'ApiQuoteController@addItem']);
-        Route::post('quotes/delete', ['uses' => 'ApiQuoteController@delete']);
+        Route::post('workorders/list', 'ApiWorkorderController@lists');
+        Route::post('workorders/show', 'ApiWorkorderController@show');
+        Route::post('workorders/store', 'ApiWorkorderController@store');
+        Route::post('workorders/items/add', 'ApiWorkorderController@addItem');
+        Route::post('workorders/delete', 'ApiWorkorderController@delete');
 
-        Route::post('workorders/list', ['uses' => 'ApiWorkorderController@lists']);
-        Route::post('workorders/show', ['uses' => 'ApiWorkorderController@show']);
-        Route::post('workorders/store', ['uses' => 'ApiWorkorderController@store']);
-        Route::post('workorders/items/add', ['uses' => 'ApiWorkorderController@addItem']);
-        Route::post('workorders/delete', ['uses' => 'ApiWorkorderController@delete']);
+        Route::post('invoices/list', 'ApiInvoiceController@lists');
+        Route::post('invoices/show', 'ApiInvoiceController@show');
+        Route::post('invoices/store', 'ApiInvoiceController@store');
+        Route::post('invoices/items/add', 'ApiInvoiceController@addItem');
+        Route::post('invoices/delete', 'ApiInvoiceController@delete');
 
-        Route::post('invoices/list', ['uses' => 'ApiInvoiceController@lists']);
-        Route::post('invoices/show', ['uses' => 'ApiInvoiceController@show']);
-        Route::post('invoices/store', ['uses' => 'ApiInvoiceController@store']);
-        Route::post('invoices/items/add', ['uses' => 'ApiInvoiceController@addItem']);
-        Route::post('invoices/delete', ['uses' => 'ApiInvoiceController@delete']);
-
-        Route::post('payments/list', ['uses' => 'ApiPaymentController@lists']);
-        Route::post('payments/show', ['uses' => 'ApiPaymentController@show']);
-        Route::post('payments/store', ['uses' => 'ApiPaymentController@store']);
-        Route::post('payments/items/add', ['uses' => 'ApiPaymentController@addItem']);
-        Route::post('payments/delete', ['uses' => 'ApiPaymentController@delete']);
+        Route::post('payments/list', 'ApiPaymentController@lists');
+        Route::post('payments/show', 'ApiPaymentController@show');
+        Route::post('payments/store', 'ApiPaymentController@store');
+        Route::post('payments/items/add', 'ApiPaymentController@addItem');
+        Route::post('payments/delete', 'ApiPaymentController@delete');
     });
-
 });

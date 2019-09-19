@@ -36,7 +36,7 @@
         $('.btn-delete-recurring-invoice-item').click(function () {
             const id = $(this).data('item-id');
             deleteConfirm('@lang('bt.trash_record_warning')', '{{ route('recurringInvoiceItem.delete') }}', id,
-                    '{{ route('recurringInvoiceEdit.refreshTotals') }}', '{{ $recurringInvoice->id }}' );
+                    '{{ route('recurringInvoices.recurringInvoiceEdit.refreshTotals') }}', '{{ $recurringInvoice->id }}' );
         });
 
         $('.btn-save-recurring-invoice').click(function () {
@@ -91,7 +91,7 @@
                 recurring_period: $('#recurring_period').val(),
                 group_id: $('#group_id').val()
             }).done(function () {
-                $('#div-recurring-invoice-edit').load('{{ route('recurringInvoiceEdit.refreshEdit', [$recurringInvoice->id]) }}', function () {
+                $('#div-recurring-invoice-edit').load('{{ route('recurringInvoices.recurringInvoiceEdit.refreshEdit', [$recurringInvoice->id]) }}', function () {
                     notify('@lang('bt.record_successfully_updated')', 'success');
                 });
             }).fail(function (response) {

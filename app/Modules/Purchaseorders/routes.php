@@ -9,47 +9,41 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Purchaseorders\Controllers'], function ()
-{
-    Route::group(['prefix' => 'purchaseorders'], function ()
-    {
-        Route::get('/', ['uses' => 'PurchaseorderController@index', 'as' => 'purchaseorders.index']);
-        Route::get('create', ['uses' => 'PurchaseorderCreateController@create', 'as' => 'purchaseorders.create']);
-        Route::post('create', ['uses' => 'PurchaseorderCreateController@store', 'as' => 'purchaseorders.store']);
-        Route::get('{id}/edit', ['uses' => 'PurchaseorderEditController@edit', 'as' => 'purchaseorders.edit']);
-        Route::post('{id}/edit', ['uses' => 'PurchaseorderEditController@update', 'as' => 'purchaseorders.update']);
-        Route::get('{id}/delete', ['uses' => 'PurchaseorderController@delete', 'as' => 'purchaseorders.delete']);
-        Route::get('{id}/pdf', ['uses' => 'PurchaseorderController@pdf', 'as' => 'purchaseorders.pdf']);
-        Route::get('ajaxLookup/{name}', ['uses' => 'PurchaseorderController@ajaxLookup', 'as' => 'purchaseorders.ajaxLookup']);
-        Route::post('receive', ['uses' => 'PurchaseorderController@receive', 'as' => 'purchaseorders.receive']);
-        Route::post('receive_items', ['uses' => 'PurchaseorderController@receiveItems', 'as' => 'purchaseorders.receive_items']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Purchaseorders\Controllers')->group(function () {
+    Route::prefix('purchaseorders')->name('purchaseorders.')->group(function () {
+        Route::name('index')->get('/', 'PurchaseorderController@index');
+        Route::name('create')->get('create', 'PurchaseorderCreateController@create');
+        Route::name('store')->post('create', 'PurchaseorderCreateController@store');
+        Route::name('edit')->get('{id}/edit', 'PurchaseorderEditController@edit');
+        Route::name('update')->post('{id}/edit', 'PurchaseorderEditController@update');
+        Route::name('delete')->get('{id}/delete', 'PurchaseorderController@delete');
+        Route::name('pdf')->get('{id}/pdf', 'PurchaseorderController@pdf');
+        Route::name('ajaxLookup')->get('ajaxLookup/{name}', 'PurchaseorderController@ajaxLookup');
+        Route::name('receive')->post('receive', 'PurchaseorderController@receive');
+        Route::name('receive_items')->post('receive_items', 'PurchaseorderController@receiveItems');
 
-
-        Route::get('{id}/edit/refresh', ['uses' => 'PurchaseorderEditController@refreshEdit', 'as' => 'purchaseorderEdit.refreshEdit']);
-        Route::post('edit/refresh_to', ['uses' => 'PurchaseorderEditController@refreshTo', 'as' => 'purchaseorderEdit.refreshTo']);
-        Route::post('edit/refresh_from', ['uses' => 'PurchaseorderEditController@refreshFrom', 'as' => 'purchaseorderEdit.refreshFrom']);
-        Route::post('edit/refresh_totals', ['uses' => 'PurchaseorderEditController@refreshTotals', 'as' => 'purchaseorderEdit.refreshTotals']);
-        Route::post('edit/update_vendor', ['uses' => 'PurchaseorderEditController@updateVendor', 'as' => 'purchaseorderEdit.updateVendor']);
-        Route::post('edit/update_company_profile', ['uses' => 'PurchaseorderEditController@updateCompanyProfile', 'as' => 'purchaseorderEdit.updateCompanyProfile']);
-        Route::post('recalculate', ['uses' => 'PurchaseorderRecalculateController@recalculate', 'as' => 'purchaseorders.recalculate']);
-        Route::post('bulk/delete', ['uses' => 'PurchaseorderController@bulkDelete', 'as' => 'purchaseorders.bulk.delete']);
-        Route::post('bulk/status', ['uses' => 'PurchaseorderController@bulkStatus', 'as' => 'purchaseorders.bulk.status']);
+        Route::name('purchaseorderEdit.refreshEdit')->get('{id}/edit/refresh', 'PurchaseorderEditController@refreshEdit');
+        Route::name('purchaseorderEdit.refreshTo')->post('edit/refresh_to', 'PurchaseorderEditController@refreshTo');
+        Route::name('purchaseorderEdit.refreshFrom')->post('edit/refresh_from', 'PurchaseorderEditController@refreshFrom');
+        Route::name('purchaseorderEdit.refreshTotals')->post('edit/refresh_totals', 'PurchaseorderEditController@refreshTotals');
+        Route::name('purchaseorderEdit.updateVendor')->post('edit/update_vendor', 'PurchaseorderEditController@updateVendor');
+        Route::name('purchaseorderEdit.updateCompanyProfile')->post('edit/update_company_profile', 'PurchaseorderEditController@updateCompanyProfile');
+        Route::name('recalculate')->post('recalculate', 'PurchaseorderRecalculateController@recalculate');
+        Route::name('bulk.delete')->post('bulk/delete', 'PurchaseorderController@bulkDelete');
+        Route::name('bulk.status')->post('bulk/status', 'PurchaseorderController@bulkStatus');
     });
 
-    Route::group(['prefix' => 'purchaseorder_copy'], function ()
-    {
-        Route::post('create', ['uses' => 'PurchaseorderCopyController@create', 'as' => 'purchaseorderCopy.create']);
-        Route::post('store', ['uses' => 'PurchaseorderCopyController@store', 'as' => 'purchaseorderCopy.store']);
+    Route::prefix('purchaseorder_copy')->name('purchaseorderCopy.')->group(function () {
+        Route::name('create')->post('create', 'PurchaseorderCopyController@create');
+        Route::name('store')->post('store', 'PurchaseorderCopyController@store');
     });
 
-    Route::group(['prefix' => 'purchaseorder_mail'], function ()
-    {
-        Route::post('create', ['uses' => 'PurchaseorderMailController@create', 'as' => 'purchaseorderMail.create']);
-        Route::post('store', ['uses' => 'PurchaseorderMailController@store', 'as' => 'purchaseorderMail.store']);
+    Route::prefix('purchaseorder_mail')->name('purchaseorderMail.')->group(function () {
+        Route::name('create')->post('create', 'PurchaseorderMailController@create');
+        Route::name('store')->post('store', 'PurchaseorderMailController@store');
     });
 
-    Route::group(['prefix' => 'purchaseorder_item'], function ()
-    {
-        Route::post('delete', ['uses' => 'PurchaseorderItemController@delete', 'as' => 'purchaseorderItem.delete']);
+    Route::prefix('purchaseorder_item')->name('purchaseorderItem.')->group(function () {
+        Route::name('delete')->post('delete', 'PurchaseorderItemController@delete');
     });
 });

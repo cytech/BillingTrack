@@ -9,9 +9,8 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['namespace' => 'BT\Modules\Sessions\Controllers', 'middleware' => 'web'], function ()
-{
-    Route::get('login', ['uses' => 'SessionController@login', 'as' => 'session.login']);
-    Route::post('login', ['uses' => 'SessionController@attempt', 'as' => 'session.attempt']);
-    Route::get('logout', ['uses' => 'SessionController@logout', 'as' => 'session.logout']);
+Route::middleware('web')->namespace('BT\Modules\Sessions\Controllers')->group(function () {
+    Route::name('session.login')->get('login', 'SessionController@login');
+    Route::name('session.attempt')->post('login', 'SessionController@attempt');
+    Route::name('session.logout')->get('logout', 'SessionController@logout');
 });

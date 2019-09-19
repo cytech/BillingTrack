@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'export', 'namespace' => 'BT\Modules\Exports\Controllers'], function ()
-{
-    Route::get('/', ['uses' => 'ExportController@index', 'as' => 'export.index']);
-    Route::post('{export}', ['uses' => 'ExportController@export', 'as' => 'export.export']);
-});
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Exports\Controllers')
+    ->prefix('export')->name('export.')->group(function () {
+        Route::name('index')->get('/', 'ExportController@index');
+        Route::name('export')->post('{export}', 'ExportController@export');
+    });

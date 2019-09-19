@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['prefix' => 'notes', 'middleware' => ['web', 'auth'], 'namespace' => 'BT\Modules\Notes\Controllers'], function ()
-{
-    Route::post('create', ['uses' => 'NoteController@create', 'as' => 'notes.create']);
-    Route::post('delete', ['uses' => 'NoteController@delete', 'as' => 'notes.delete']);
-});
+Route::middleware(['web', 'auth'])->namespace('BT\Modules\Notes\Controllers')
+    ->prefix('notes')->name('notes.')->group(function () {
+        Route::name('create')->post('create', 'NoteController@create');
+        Route::name('delete')->post('delete', 'NoteController@delete');
+    });

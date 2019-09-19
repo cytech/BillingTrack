@@ -14,7 +14,7 @@
                 const to_date = $('#to_date').val();
                 const company_profile_id = $('#company_profile_id').val();
 
-                $.post("{{ route('timesheets.validate') }}", {
+                $.post("{{ route('reports.timesheet.validate') }}", {
                     from_date: from_date,
                     to_date: to_date,
                     company_profile_id: company_profile_id
@@ -25,13 +25,13 @@
                     query_string = "?from_date=" + from_date + "&to_date=" + to_date + "&company_profile_id=" + company_profile_id;
                     if (output_type == 'preview') {
                         $('#preview').show();
-                        $('#preview-results').attr('src', "{{ route('timesheets.html') }}" + query_string);
+                        $('#preview-results').attr('src', "{{ route('reports.timesheet.html') }}" + query_string);
                     }
                     else if (output_type == 'pdf') {
-                        window.location.href = "{{ route('timesheets.pdf') }}" + query_string;
+                        window.location.href = "{{ route('reports.timesheet.pdf') }}" + query_string;
                     }
                     else if (output_type == 'iif') {
-                        window.location.href = "{{ route('timesheets.iif') }}" + query_string;
+                        window.location.href = "{{ route('reports.timesheet.iif') }}" + query_string;
                     }
 
                 }).fail(function (response) {

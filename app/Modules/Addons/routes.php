@@ -9,11 +9,10 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'addons', 'namespace' => 'BT\Modules\Addons\Controllers'], function ()
-{
-    Route::get('/', ['uses' => 'AddonController@index', 'as' => 'addons.index']);
-
-    Route::get('install/{id}', ['uses' => 'AddonController@install', 'as' => 'addons.install']);
-    Route::get('uninstall/{id}', ['uses' => 'AddonController@uninstall', 'as' => 'addons.uninstall']);
-    Route::get('upgrade/{id}', ['uses' => 'AddonController@upgrade', 'as' => 'addons.upgrade']);
-});
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Addons\Controllers')
+    ->prefix('addons')->name('addons.')->group(function () {
+        Route::name('index')->get('/', 'AddonController@index');
+        Route::name('install')->get('install/{id}', 'AddonController@install');
+        Route::name('uninstall')->get('uninstall/{id}', 'AddonController@uninstall');
+        Route::name('upgrade')->get('upgrade/{id}', 'AddonController@upgrade');
+    });

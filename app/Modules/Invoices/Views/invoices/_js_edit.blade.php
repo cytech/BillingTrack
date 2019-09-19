@@ -36,7 +36,7 @@
         $('.btn-delete-invoice-item').click(function () {
             const id = $(this).data('item-id');
             deleteConfirm('@lang('bt.trash_record_warning')', '{{ route('invoiceItem.delete') }}', id,
-                '{{ route('invoiceEdit.refreshTotals') }}', '{{ $invoice->id }}' );
+                '{{ route('invoices.invoiceEdit.refreshTotals') }}', '{{ $invoice->id }}' );
         });
 
         $('.btn-save-invoice').click(function () {
@@ -90,7 +90,7 @@
                 summary: $('#summary').val(),
                 discount: $('#discount').val()
             }).done(function () {
-                $('#div-invoice-edit').load('{{ route('invoiceEdit.refreshEdit', [$invoice->id]) }}', function () {
+                $('#div-invoice-edit').load('{{ route('invoices.invoiceEdit.refreshEdit', [$invoice->id]) }}', function () {
                     notify('@lang('bt.record_successfully_updated')', 'success');
                 });
             }).fail(function (response) {

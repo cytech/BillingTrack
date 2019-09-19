@@ -9,10 +9,9 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Dashboard\Controllers'], function ()
-{
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Dashboard\Controllers')->group(function () {
     Route::get('/', 'DashboardController@index');
-    Route::get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard.index']);
+    Route::name('dashboard.index')->get('dashboard', 'DashboardController@index');
     //clear views from storage
     Route::get('/viewclear', [function () {
         Artisan::call('view:clear');

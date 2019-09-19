@@ -176,9 +176,9 @@
                                         class="ml-4"></i> @lang('bt.revenue_by_client')</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('reports.taxSummary') }}"><i
                                         class="ml-4"></i> @lang('bt.tax_summary')</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('timeTracking.reports.timesheet') }}"><i
+                        <li class="nav-item"><a class="nav-link" href="{{ route('reports.timeTracking') }}"><i
                                         class="ml-4"></i> @lang('bt.time_tracking')</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('timesheets.report') }}"><i
+                        <li class="nav-item"><a class="nav-link" href="{{ route('reports.timesheet') }}"><i
                                         class="ml-4"></i>@lang('bt.timesheet')</a></li>
 
                         @foreach (config('bt.menus.reports') as $report)

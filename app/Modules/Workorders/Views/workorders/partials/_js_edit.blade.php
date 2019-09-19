@@ -78,7 +78,7 @@
         $('.btn-delete-workorder-item').click(function () {
             const id = $(this).data('item-id');
             deleteConfirm('@lang('bt.trash_record_warning')', '{{ route('workorderItem.delete') }}', id,
-                '{{ route('workorderEdit.refreshTotals') }}', '{{ $workorder->id }}' );
+                '{{ route('workorders.workorderEdit.refreshTotals') }}', '{{ $workorder->id }}' );
         });
 
         $('.btn-save-workorder').click(function () {
@@ -141,7 +141,7 @@
                 end_time: $('#end_time').val(),
                 will_call: willcall
             }).done(function () {
-                $('#div-workorder-edit').load('{{ route('workorderEdit.refreshEdit', [$workorder->id]) }}', function() {
+                $('#div-workorder-edit').load('{{ route('workorders.workorderEdit.refreshEdit', [$workorder->id]) }}', function() {
                     notify('@lang('bt.workorder_successfully_updated')', 'success');
                 });
             }).fail(function (response) {

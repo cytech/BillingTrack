@@ -36,7 +36,7 @@
         $('.btn-delete-purchaseorder-item').click(function () {
             const id = $(this).data('item-id');
             deleteConfirm('@lang('bt.trash_record_warning')', '{{ route('purchaseorderItem.delete') }}', id,
-                '{{ route('purchaseorderEdit.refreshTotals') }}', '{{ $purchaseorder->id }}' );
+                '{{ route('purchaseorders.purchaseorderEdit.refreshTotals') }}', '{{ $purchaseorder->id }}' );
         });
 
         $('table').on('click', ".btn-delete-new-item", (function () {
@@ -94,7 +94,7 @@
                 summary: $('#summary').val(),
                 discount: $('#discount').val()
             }).done(function () {
-                $('#div-purchaseorder-edit').load('{{ route('purchaseorderEdit.refreshEdit', [$purchaseorder->id]) }}', function () {
+                $('#div-purchaseorder-edit').load('{{ route('purchaseorders.purchaseorderEdit.refreshEdit', [$purchaseorder->id]) }}', function () {
                     notify('@lang('bt.record_successfully_updated')', 'success');
                 });
             }).fail(function (response) {

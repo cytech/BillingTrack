@@ -1,22 +1,21 @@
 <?php
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'expenses', 'namespace' => 'BT\Modules\Expenses\Controllers'], function ()
-{
-    Route::get('/', ['uses' => 'ExpenseController@index', 'as' => 'expenses.index']);
-    Route::get('create', ['uses' => 'ExpenseCreateController@create', 'as' => 'expenses.create']);
-    Route::post('create', ['uses' => 'ExpenseCreateController@store', 'as' => 'expenses.store']);
-    Route::get('{id}/edit', ['uses' => 'ExpenseEditController@edit', 'as' => 'expenses.edit']);
-    Route::post('{id}/edit', ['uses' => 'ExpenseEditController@update', 'as' => 'expenses.update']);
-    Route::get('{id}/delete', ['uses' => 'ExpenseController@delete', 'as' => 'expenses.delete']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Expenses\Controllers')
+    ->prefix('expenses')->name('expenses.')->group(function () {
+        Route::name('index')->get('/', 'ExpenseController@index');
+        Route::name('create')->get('create', 'ExpenseCreateController@create');
+        Route::name('store')->post('create', 'ExpenseCreateController@store');
+        Route::name('edit')->get('{id}/edit', 'ExpenseEditController@edit');
+        Route::name('update')->post('{id}/edit', 'ExpenseEditController@update');
+        Route::name('delete')->get('{id}/delete', 'ExpenseController@delete');
 
-    Route::group(['prefix' => 'bill'], function ()
-    {
-        Route::post('create', ['uses' => 'ExpenseBillController@create', 'as' => 'expenseBill.create']);
-        Route::post('store', ['uses' => 'ExpenseBillController@store', 'as' => 'expenseBill.store']);
+        Route::prefix('bill')->name('expenseBill.')->group(function () {
+            Route::name('create')->post('create', 'ExpenseBillController@create');
+            Route::name('store')->post('store', 'ExpenseBillController@store');
+        });
+
+        Route::name('lookupCategory')->get('lookup/category', 'ExpenseLookupController@lookupCategory');
+        Route::name('lookupVendor')->get('lookup/vendor', 'ExpenseLookupController@lookupVendor');
+
+        Route::name('bulk.delete')->post('bulk/delete', 'ExpenseController@bulkDelete');
     });
-
-    Route::get('lookup/category', ['uses' => 'ExpenseLookupController@lookupCategory', 'as' => 'expenses.lookupCategory']);
-    Route::get('lookup/vendor', ['uses' => 'ExpenseLookupController@lookupVendor', 'as' => 'expenses.lookupVendor']);
-
-    Route::post('bulk/delete', ['uses' => 'ExpenseController@bulkDelete', 'as' => 'expenses.bulk.delete']);
-});

@@ -8,13 +8,21 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Categories\Controllers'], function () {
-		//categories
-	    Route::group(['prefix' => 'categories'], function () {
-		    Route::get('/', ['uses' => 'CategoriesController@index', 'as' => 'categories.index']);
-		    Route::get('{id}/edit', ['uses' => 'CategoriesController@edit', 'as' => 'categories.edit']);
-		    Route::put('{id}/edit', ['uses' => 'CategoriesController@update', 'as' => 'categories.update']);
-		    Route::get('create', ['uses' => 'CategoriesController@create', 'as' => 'categories.create']);
-		    Route::post('create', ['uses' => 'CategoriesController@store', 'as' => 'categories.store']);
-	    });
-});
+/*
+ * Routes note laravel undocumented  https://github.com/laravel/framework/issues/19020
+ * when loading custom routes in AppServiceProvider, the name() method in the loaded routes.php
+ * has to be first or it does not get initialized with the route properly
+ * WORKS
+ *         Route::name('index')->get('/', 'CategoriesController@index');
+ * DOES NOT WORK
+ *         Route::get('/', 'CategoriesController@index')->name('index');
+*/
+
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Categories\Controllers')
+    ->prefix('categories')->name('categories.')->group(function () {
+        Route::name('index')->get('/', 'CategoriesController@index');
+        Route::name('edit')->get('{id}/edit', 'CategoriesController@edit');
+        Route::name('update')->put('{id}/edit', 'CategoriesController@update');
+        Route::name('create')->get('create', 'CategoriesController@create');
+        Route::name('store')->post('create', 'CategoriesController@store');
+    });

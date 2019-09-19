@@ -9,32 +9,31 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'clients', 'namespace' => 'BT\Modules\Clients\Controllers'], function ()
-{
-    Route::get('/', ['uses' => 'ClientController@index', 'as' => 'clients.index']);
-    Route::get('create', ['uses' => 'ClientController@create', 'as' => 'clients.create']);
-    Route::get('{id}/edit', ['uses' => 'ClientController@edit', 'as' => 'clients.edit']);
-    Route::get('{id}', ['uses' => 'ClientController@show', 'as' => 'clients.show']);
-    Route::get('{id}/delete', ['uses' => 'ClientController@delete', 'as' => 'clients.delete']);
-    Route::get('ajax/lookup', ['uses' => 'ClientController@ajaxLookup', 'as' => 'clients.ajax.lookup']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Clients\Controllers')
+    ->prefix('clients')->name('clients.')->group(function () {
+        Route::name('index')->get('/', 'ClientController@index');
+        Route::name('create')->get('create', 'ClientController@create');
+        Route::name('edit')->get('{id}/edit', 'ClientController@edit');
+        Route::name('show')->get('{id}', 'ClientController@show');
+        Route::name('delete')->get('{id}/delete', 'ClientController@delete');
+        Route::name('ajax.lookup')->get('ajax/lookup', 'ClientController@ajaxLookup');
 
-    Route::post('create', ['uses' => 'ClientController@store', 'as' => 'clients.store']);
-    Route::post('ajax/modal_edit', ['uses' => 'ClientController@ajaxModalEdit', 'as' => 'clients.ajax.modalEdit']);
-    Route::post('ajax/modal_lookup', ['uses' => 'ClientController@ajaxModalLookup', 'as' => 'clients.ajax.modalLookup']);
-    Route::post('ajax/modal_update/{id}', ['uses' => 'ClientController@ajaxModalUpdate', 'as' => 'clients.ajax.modalUpdate']);
-    Route::post('ajax/check_name', ['uses' => 'ClientController@ajaxCheckName', 'as' => 'clients.ajax.checkName']);
-    Route::post('ajax/check_duplicate_name', ['uses' => 'ClientController@ajaxCheckDuplicateName', 'as' => 'clients.ajax.checkDuplicateName']);
-    Route::post('{id}/edit', ['uses' => 'ClientController@update', 'as' => 'clients.update']);
+        Route::name('store')->post('create', 'ClientController@store');
+        Route::name('ajax.modalEdit')->post('ajax/modal_edit', 'ClientController@ajaxModalEdit');
+        Route::name('ajax.modalLookup')->post('ajax/modal_lookup', 'ClientController@ajaxModalLookup');
+        Route::name('ajax.modalUpdate')->post('ajax/modal_update/{id}', 'ClientController@ajaxModalUpdate');
+        Route::name('ajax.checkName')->post('ajax/check_name', 'ClientController@ajaxCheckName');
+        Route::name('ajax.checkDuplicateName')->post('ajax/check_duplicate_name', 'ClientController@ajaxCheckDuplicateName');
+        Route::name('update')->post('{id}/edit', 'ClientController@update');
 
-    Route::post('bulk/delete', ['uses' => 'ClientController@bulkDelete', 'as' => 'clients.bulk.delete']);
+        Route::name('bulk.delete')->post('bulk/delete', 'ClientController@bulkDelete');
 
-    Route::group(['prefix' => '{clientId}/contacts'], function()
-    {
-        Route::get('create', ['uses' => 'ContactController@create', 'as' => 'clients.contacts.create']);
-        Route::post('create', ['uses' => 'ContactController@store', 'as' => 'clients.contacts.store']);
-        Route::get('edit/{contactId}', ['uses' => 'ContactController@edit', 'as' => 'clients.contacts.edit']);
-        Route::post('edit/{contactId}', ['uses' => 'ContactController@update', 'as' => 'clients.contacts.update']);
-        Route::post('delete', ['uses' => 'ContactController@delete', 'as' => 'clients.contacts.delete']);
-        Route::post('default', ['uses' => 'ContactController@updateDefault', 'as' => 'clients.contacts.updateDefault']);
+        Route::group(['prefix' => '{clientId}/contacts'], function () {
+            Route::name('contacts.create')->get('create', 'ContactController@create');
+            Route::name('contacts.store')->post('create', 'ContactController@store');
+            Route::name('contacts.edit')->get('edit/{contactId}', 'ContactController@edit');
+            Route::name('contacts.update')->post('edit/{contactId}', 'ContactController@update');
+            Route::name('contacts.delete')->post('delete', 'ContactController@delete');
+            Route::name('contacts.updateDefault')->post('default', 'ContactController@updateDefault');
+        });
     });
-});

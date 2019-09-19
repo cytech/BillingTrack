@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => 'web', 'namespace' => 'BT\Modules\Setup\Controllers'], function ()
-{
-    Route::get('setup', ['uses' => 'SetupController@index', 'as' => 'setup.index']);
-    Route::post('setup', ['uses' => 'SetupController@postIndex', 'as' => 'setup.postIndex']);
+Route::middleware('web')->namespace('BT\Modules\Setup\Controllers')
+    ->prefix('setup')->name('setup.')->group(function () {
+        Route::name('index')->get('/', 'SetupController@index');
+        Route::name('postIndex')->post('/', 'SetupController@postIndex');
 
-    Route::get('setup/prerequisites', ['uses' => 'SetupController@prerequisites', 'as' => 'setup.prerequisites']);
+        Route::name('prerequisites')->get('prerequisites', 'SetupController@prerequisites');
 
-    Route::get('setup/migration', ['uses' => 'SetupController@migration', 'as' => 'setup.migration']);
-    Route::post('setup/migration', ['uses' => 'SetupController@postMigration', 'as' => 'setup.postMigration']);
+        Route::name('migration')->get('migration', 'SetupController@migration');
+        Route::name('postMigration')->post('migration', 'SetupController@postMigration');
 
-    Route::get('setup/account', ['uses' => 'SetupController@account', 'as' => 'setup.account']);
-    Route::post('setup/account', ['uses' => 'SetupController@postAccount', 'as' => 'setup.postAccount']);
+        Route::name('account')->get('account', 'SetupController@account');
+        Route::name('postAccount')->post('account', 'SetupController@postAccount');
 
-    Route::get('setup/complete', ['uses' => 'SetupController@complete', 'as' => 'setup.complete']);
-});
+        Route::name('complete')->get('complete', 'SetupController@complete');
+    });

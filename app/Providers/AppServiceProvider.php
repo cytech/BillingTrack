@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * Routes note laravel undocumented  https://github.com/laravel/framework/issues/19020
+ * when loading custom routes in AppServiceProvider, the name() method in the loaded routes.php
+ * has to be first or it does not get initialized with the route properly
+ * WORKS
+ *         Route::name('index')->get('/', 'CategoriesController@index');
+ * DOES NOT WORK
+ *         Route::get('/', 'CategoriesController@index')->name('index');
+*/
+
+
 namespace BT\Providers;
 
 use BT\Support\Directory;

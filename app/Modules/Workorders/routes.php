@@ -8,52 +8,52 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Workorders\Controllers'], function () {
-    Route::group(['prefix' => 'workorders'], function () {
-    	//workorders
-        Route::get('/', ['uses' => 'WorkorderController@index', 'as' => 'workorders.index']);
-        Route::get('create', ['uses' => 'WorkorderCreateController@create', 'as' => 'workorders.create']);
-        Route::post('create', ['uses' => 'WorkorderCreateController@store', 'as' => 'workorders.store']);
-        Route::get('{id}/edit', ['uses' => 'WorkorderEditController@edit', 'as' => 'workorders.edit']);
-        Route::post('{id}/edit', ['uses' => 'WorkorderEditController@update', 'as' => 'workorders.update']);
-        Route::get('{id}/delete', ['uses' => 'WorkorderController@delete', 'as' => 'workorders.delete']);
-        Route::get('{id}/pdf', ['uses' => 'WorkorderController@pdf', 'as' => 'workorders.pdf']);
-        Route::post('bulk/delete', ['uses' => 'WorkorderController@bulkDelete', 'as' => 'workorders.bulk.delete']);
-        Route::post('bulk/status', ['uses' => 'WorkorderController@bulkStatus', 'as' => 'workorders.bulk.status']);
-		//assorted
-        Route::get('{id}/edit/refresh', ['uses' => 'WorkorderEditController@refreshEdit', 'as' => 'workorderEdit.refreshEdit']);
-        Route::post('edit/refresh_to', ['uses' => 'WorkorderEditController@refreshTo', 'as' => 'workorderEdit.refreshTo']);
-        Route::post('edit/refresh_from', ['uses' => 'WorkorderEditController@refreshFrom', 'as' => 'workorderEdit.refreshFrom']);
-        Route::post('edit/refresh_totals', ['uses' => 'WorkorderEditController@refreshTotals', 'as' => 'workorderEdit.refreshTotals']);
-        Route::post('edit/update_client', ['uses' => 'WorkorderEditController@updateClient', 'as' => 'workorderEdit.updateClient']);
-        Route::post('edit/update_company_profile', ['uses' => 'WorkorderEditController@updateCompanyProfile', 'as' => 'workorderEdit.updateCompanyProfile']);
-        Route::post('recalculate', ['uses' => 'WorkorderRecalculateController@recalculate', 'as' => 'workorders.recalculate']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Workorders\Controllers')->group(function () {
+    Route::prefix('workorders')->name('workorders.')->group(function () {
+        //workorders
+        Route::name('index')->get('/', 'WorkorderController@index');
+        Route::name('create')->get('create', 'WorkorderCreateController@create');
+        Route::name('store')->post('create', 'WorkorderCreateController@store');
+        Route::name('edit')->get('{id}/edit', 'WorkorderEditController@edit');
+        Route::name('update')->post('{id}/edit', 'WorkorderEditController@update');
+        Route::name('delete')->get('{id}/delete', 'WorkorderController@delete');
+        Route::name('pdf')->get('{id}/pdf', 'WorkorderController@pdf');
+        Route::name('bulk.delete')->post('bulk/delete', 'WorkorderController@bulkDelete');
+        Route::name('bulk.status')->post('bulk/status', 'WorkorderController@bulkStatus');
+        //assorted
+        Route::name('workorderEdit.refreshEdit')->get('{id}/edit/refresh', 'WorkorderEditController@refreshEdit');
+        Route::name('workorderEdit.refreshTo')->post('edit/refresh_to', 'WorkorderEditController@refreshTo');
+        Route::name('workorderEdit.refreshFrom')->post('edit/refresh_from', 'WorkorderEditController@refreshFrom');
+        Route::name('workorderEdit.refreshTotals')->post('edit/refresh_totals', 'WorkorderEditController@refreshTotals');
+        Route::name('workorderEdit.updateClient')->post('edit/update_client', 'WorkorderEditController@updateClient');
+        Route::name('workorderEdit.updateCompanyProfile')->post('edit/update_company_profile', 'WorkorderEditController@updateCompanyProfile');
+        Route::name('recalculate')->post('recalculate', 'WorkorderRecalculateController@recalculate');
     });
     //end of group workorders
 
 
-    Route::group(['prefix' => 'workorder_copy'], function () {
-        Route::post('create', ['uses' => 'WorkorderCopyController@create', 'as' => 'workorderCopy.create']);
-        Route::post('store', ['uses' => 'WorkorderCopyController@store', 'as' => 'workorderCopy.store']);
+    Route::prefix('workorder_copy')->name('workorderCopy.')->group(function () {
+        Route::name('create')->post('create', 'WorkorderCopyController@create');
+        Route::name('store')->post('store', 'WorkorderCopyController@store');
     });
 
-    Route::group(['prefix' => 'workorder_to_invoice'], function () {
-        Route::post('create', ['uses' => 'WorkorderToInvoiceController@create', 'as' => 'workorderToInvoice.create']);
-        Route::post('store', ['uses' => 'WorkorderToInvoiceController@store', 'as' => 'workorderToInvoice.store']);
+    Route::prefix('workorder_to_invoice')->name('workorderToInvoice.')->group(function () {
+        Route::name('create')->post('create', 'WorkorderToInvoiceController@create');
+        Route::name('store')->post('store', 'WorkorderToInvoiceController@store');
     });
 
-    Route::group(['prefix' => 'workorder_mail'], function () {
-        Route::post('create', ['uses' => 'WorkorderMailController@create', 'as' => 'workorderMail.create']);
-        Route::post('store', ['uses' => 'WorkorderMailController@store', 'as' => 'workorderMail.store']);
+    Route::prefix('workorder_mail')->name('workorderMail.')->group(function () {
+        Route::name('create')->post('create', 'WorkorderMailController@create');
+        Route::name('store')->post('store', 'WorkorderMailController@store');
     });
 
-    Route::group(['prefix' => 'workorder_item'], function () {
-        Route::post('delete', ['uses' => 'WorkorderItemController@delete', 'as' => 'workorderItem.delete']);
+    Route::prefix('workorder_item')->name('workorderItem.')->group(function () {
+        Route::name('delete')->post('delete', 'WorkorderItemController@delete');
     });
 
 });
-Route::group(['middleware' => ['web', 'auth.admin']], function () {
+Route::middleware(['web', 'auth.admin'])->group(function () {
 //resource and employee force update
-Route::get('/forceProductUpdate/{ret}', 'BT\Modules\Products\Controllers\ProductController@forceLUTupdate');
-Route::get('/forceEmployeeUpdate/{ret}', 'BT\Modules\Employees\Controllers\EmployeeController@forceLUTupdate');
+    Route::get('/forceProductUpdate/{ret}', 'BT\Modules\Products\Controllers\ProductController@forceLUTupdate');
+    Route::get('/forceEmployeeUpdate/{ret}', 'BT\Modules\Employees\Controllers\EmployeeController@forceLUTupdate');
 });

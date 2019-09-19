@@ -50,7 +50,7 @@
         $('.btn-delete-quote-item').click(function () {
             const id = $(this).data('item-id');
             deleteConfirm('@lang('bt.trash_record_warning')', '{{ route('quoteItem.delete') }}', id,
-                '{{ route('quoteEdit.refreshTotals') }}', '{{ $quote->id }}' );
+                '{{ route('quotes.quoteEdit.refreshTotals') }}', '{{ $quote->id }}' );
         });
 
         $('.btn-save-quote').click(function () {
@@ -104,7 +104,7 @@
                 summary: $('#summary').val(),
                 discount: $('#discount').val()
             }).done(function () {
-                $('#div-quote-edit').load('{{ route('quoteEdit.refreshEdit', [$quote->id]) }}', function () {
+                $('#div-quote-edit').load('{{ route('quotes.quoteEdit.refreshEdit', [$quote->id]) }}', function () {
                     notify('@lang('bt.record_successfully_updated')', 'success');
                 });
             }).fail(function (response) {

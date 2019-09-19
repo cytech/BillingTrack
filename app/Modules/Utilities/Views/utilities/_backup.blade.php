@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         <h3>Database Backup</h3>
                         @if (!config('app.demo'))
-                            <a href="{{ route('backup.database') }}" target="_blank"
+                            <a href="{{ route('utilities.backup.database') }}" target="_blank"
                                class="btn btn-green">@lang('bt.download_database_backup')</a>
                         @else
                             <p>Database backup not available in demo.</p>
@@ -27,7 +27,7 @@
                     <div class="col-md-12">
                         <h3>Database entities to trash</h3>
                         @if (!config('app.demo'))
-                            {!! Form::open(['route' => 'trashprior.database','method' => 'get', 'id' => 'tprior', 'class'=>"form-inline"]) !!}
+                            {!! Form::open(['route' => 'utilities.trashprior.database','method' => 'get', 'id' => 'tprior', 'class'=>"form-inline"]) !!}
                             {{--            quotes workorders invoices payments purchaseorders schedule--}}
                             <div class="col-md-6">
                                 This will trash all of the selected module type and its children, prior to the selected date.<br>
@@ -68,7 +68,7 @@
                     <div class="col-md-12">
                         <h3>PERMANENTLY DELETE Database entities from trash</h3>
                     @if (!config('app.demo'))
-                            {!! Form::open(['route' => 'deleteprior.database','method' => 'get', 'id' => 'dprior', 'class'=>"form-inline"]) !!}
+                            {!! Form::open(['route' => 'utilities.deleteprior.database','method' => 'get', 'id' => 'dprior', 'class'=>"form-inline"]) !!}
                             {{--            quotes workorders invoices payments purchaseorders schedule--}}
                             <div class="col-md-6">
                                 This will <b>PERMANENTLY DELETE</b> all of the selected module (only trashed) type and its children, prior to the selected date.<br>

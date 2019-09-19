@@ -4,57 +4,37 @@
  * This file is part of BillingTrack.
  *
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-//Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Vendors\Controllers'], function () {
-//		//vendors
-//	    Route::group(['prefix' => 'vendors'], function () {
-//		    Route::get('/', ['uses' => 'VendorController@index', 'as' => 'vendors.index']);
-//            Route::get('{id}', ['uses' => 'VendorController@show', 'as' => 'vendors.show']);
-//            Route::get('{id}/edit', ['uses' => 'VendorController@edit', 'as' => 'vendors.edit']);
-//		    Route::put('{id}/edit', ['uses' => 'VendorController@update', 'as' => 'vendors.update']);
-//		    Route::get('create', ['uses' => 'VendorController@create', 'as' => 'vendors.create']);
-//		    Route::post('create', ['uses' => 'VendorController@store', 'as' => 'vendors.store']);
-//	    });
-//});
-
-
-/**
- * This file is part of BillingTrack.
- *
- *
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'vendors', 'namespace' => 'BT\Modules\Vendors\Controllers'], function () {
-    Route::get('/', ['uses' => 'VendorController@index', 'as' => 'vendors.index']);
-    Route::get('create', ['uses' => 'VendorController@create', 'as' => 'vendors.create']);
-    Route::get('{id}/edit', ['uses' => 'VendorController@edit', 'as' => 'vendors.edit']);
-    Route::get('{id}', ['uses' => 'VendorController@show', 'as' => 'vendors.show']);
-    Route::get('{id}/delete', ['uses' => 'VendorController@delete', 'as' => 'vendors.delete']);
-    Route::get('ajax/lookup', ['uses' => 'VendorController@ajaxLookup', 'as' => 'vendors.ajax.lookup']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Vendors\Controllers')
+    ->prefix('vendors')->name('vendors.')->group(function () {
+        Route::name('index')->get('/', 'VendorController@index');
+        Route::name('create')->get('create', 'VendorController@create');
+        Route::name('edit')->get('{id}/edit', 'VendorController@edit');
+        Route::name('show')->get('{id}', 'VendorController@show');
+        Route::name('delete')->get('{id}/delete', 'VendorController@delete');
+        Route::name('ajax.lookup')->get('ajax/lookup', 'VendorController@ajaxLookup');
 
-    Route::post('create', ['uses' => 'VendorController@store', 'as' => 'vendors.store']);
-    Route::post('ajax/modal_edit', ['uses' => 'VendorController@ajaxModalEdit', 'as' => 'vendors.ajax.modalEdit']);
-    Route::post('ajax/modal_lookup', ['uses' => 'VendorController@ajaxModalLookup', 'as' => 'vendors.ajax.modalLookup']);
-    Route::post('ajax/modal_update/{id}', ['uses' => 'VendorController@ajaxModalUpdate', 'as' => 'vendors.ajax.modalUpdate']);
-    Route::post('ajax/check_name', ['uses' => 'VendorController@ajaxCheckName', 'as' => 'vendors.ajax.checkName']);
-    Route::post('ajax/check_duplicate_name', ['uses' => 'VendorController@ajaxCheckDuplicateName', 'as' => 'vendors.ajax.checkDuplicateName']);
-    Route::post('{id}/edit', ['uses' => 'VendorController@update', 'as' => 'vendors.update']);
+        Route::name('store')->post('create', 'VendorController@store');
+        Route::name('ajax.modalEdit')->post('ajax/modal_edit', 'VendorController@ajaxModalEdit');
+        Route::name('ajax.modalLookup')->post('ajax/modal_lookup', 'VendorController@ajaxModalLookup');
+        Route::name('ajax.modalUpdate')->post('ajax/modal_update/{id}', 'VendorController@ajaxModalUpdate');
+        Route::name('ajax.checkName')->post('ajax/check_name', 'VendorController@ajaxCheckName');
+        Route::name('ajax.checkDuplicateName')->post('ajax/check_duplicate_name', 'VendorController@ajaxCheckDuplicateName');
+        Route::name('update')->post('{id}/edit', 'VendorController@update');
 
-    Route::post('bulk/delete', ['uses' => 'VendorController@bulkDelete', 'as' => 'vendors.bulk.delete']);
+        Route::name('bulk.delete')->post('bulk/delete', 'VendorController@bulkDelete');
 
-    Route::group(['prefix' => '{vendorId}/contacts'], function () {
-        Route::get('create', ['uses' => 'ContactController@create', 'as' => 'vendors.contacts.create']);
-        Route::post('create', ['uses' => 'ContactController@store', 'as' => 'vendors.contacts.store']);
-        Route::get('edit/{contactId}', ['uses' => 'ContactController@edit', 'as' => 'vendors.contacts.edit']);
-        Route::post('edit/{contactId}', ['uses' => 'ContactController@update', 'as' => 'vendors.contacts.update']);
-        Route::post('delete', ['uses' => 'ContactController@delete', 'as' => 'vendors.contacts.delete']);
-        Route::post('default', ['uses' => 'ContactController@updateDefault', 'as' => 'vendors.contacts.updateDefault']);
+        Route::prefix('{vendorId}/contacts')->group(function () {
+            Route::name('contacts.create')->get('create', 'ContactController@create');
+            Route::name('contacts.store')->post('create', 'ContactController@store');
+            Route::name('contacts.edit')->get('edit/{contactId}', 'ContactController@edit');
+            Route::name('contacts.update')->post('edit/{contactId}', 'ContactController@update');
+            Route::name('contacts.delete')->post('delete', 'ContactController@delete');
+            Route::name('contacts.updateDefault')->post('default', 'ContactController@updateDefault');
+        });
     });
-});
 

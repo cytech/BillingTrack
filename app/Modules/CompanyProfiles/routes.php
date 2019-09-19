@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\CompanyProfiles\Controllers'], function ()
-{
-    Route::get('company_profiles', ['uses' => 'CompanyProfileController@index', 'as' => 'companyProfiles.index']);
-    Route::get('company_profiles/create', ['uses' => 'CompanyProfileController@create', 'as' => 'companyProfiles.create']);
-    Route::get('company_profiles/{id}/edit', ['uses' => 'CompanyProfileController@edit', 'as' => 'companyProfiles.edit']);
-    Route::get('company_profiles/{id}/delete', ['uses' => 'CompanyProfileController@delete', 'as' => 'companyProfiles.delete']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\CompanyProfiles\Controllers')
+    ->prefix('company_profiles')->name('companyProfiles.')->group(function () {
+        Route::name('index')->get('/', 'CompanyProfileController@index');
+        Route::name('create')->get('create', 'CompanyProfileController@create');
+        Route::name('edit')->get('{id}/edit', 'CompanyProfileController@edit');
+        Route::name('delete')->get('{id}/delete', 'CompanyProfileController@delete');
 
-    Route::post('company_profiles', ['uses' => 'CompanyProfileController@store', 'as' => 'companyProfiles.store']);
-    Route::post('company_profiles/{id}', ['uses' => 'CompanyProfileController@update', 'as' => 'companyProfiles.update']);
+        Route::name('store')->post('/', 'CompanyProfileController@store');
+        Route::name('update')->post('{id}', 'CompanyProfileController@update');
 
-    Route::post('company_profiles/{id}/delete_logo', ['uses' => 'CompanyProfileController@deleteLogo', 'as' => 'companyProfiles.deleteLogo']);
-    Route::post('company_profiles/ajax/modal_lookup', ['uses' => 'CompanyProfileController@ajaxModalLookup', 'as' => 'companyProfiles.ajax.modalLookup']);
-});
+        Route::name('deleteLogo')->post('{id}/delete_logo', 'CompanyProfileController@deleteLogo');
+        Route::name('ajax.modalLookup')->post('ajax/modal_lookup', 'CompanyProfileController@ajaxModalLookup');
+    });
 
-Route::get('company_profiles/{id}/logo', ['uses' => 'BT\Modules\CompanyProfiles\Controllers\LogoController@logo', 'as' => 'companyProfiles.logo']);
+Route::name('logo')->get('{id}/logo', 'BT\Modules\CompanyProfiles\Controllers\LogoController@logo');

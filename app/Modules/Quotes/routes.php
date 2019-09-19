@@ -9,55 +9,48 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Quotes\Controllers'], function ()
-{
-    Route::group(['prefix' => 'quotes'], function ()
-    {
-        Route::get('/', ['uses' => 'QuoteController@index', 'as' => 'quotes.index']);
-        Route::get('create', ['uses' => 'QuoteCreateController@create', 'as' => 'quotes.create']);
-        Route::post('create', ['uses' => 'QuoteCreateController@store', 'as' => 'quotes.store']);
-        Route::get('{id}/edit', ['uses' => 'QuoteEditController@edit', 'as' => 'quotes.edit']);
-        Route::post('{id}/edit', ['uses' => 'QuoteEditController@update', 'as' => 'quotes.update']);
-        Route::get('{id}/delete', ['uses' => 'QuoteController@delete', 'as' => 'quotes.delete']);
-        Route::get('{id}/pdf', ['uses' => 'QuoteController@pdf', 'as' => 'quotes.pdf']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Quotes\Controllers')->group(function () {
+    Route::prefix('quotes')->name('quotes.')->group(function () {
+        Route::name('index')->get('/', 'QuoteController@index');
+        Route::name('create')->get('create', 'QuoteCreateController@create');
+        Route::name('store')->post('create', 'QuoteCreateController@store');
+        Route::name('edit')->get('{id}/edit', 'QuoteEditController@edit');
+        Route::name('update')->post('{id}/edit', 'QuoteEditController@update');
+        Route::name('delete')->get('{id}/delete', 'QuoteController@delete');
+        Route::name('pdf')->get('{id}/pdf', 'QuoteController@pdf');
 
-        Route::get('{id}/edit/refresh', ['uses' => 'QuoteEditController@refreshEdit', 'as' => 'quoteEdit.refreshEdit']);
-        Route::post('edit/refresh_to', ['uses' => 'QuoteEditController@refreshTo', 'as' => 'quoteEdit.refreshTo']);
-        Route::post('edit/refresh_from', ['uses' => 'QuoteEditController@refreshFrom', 'as' => 'quoteEdit.refreshFrom']);
-        Route::post('edit/refresh_totals', ['uses' => 'QuoteEditController@refreshTotals', 'as' => 'quoteEdit.refreshTotals']);
-        Route::post('edit/update_client', ['uses' => 'QuoteEditController@updateClient', 'as' => 'quoteEdit.updateClient']);
-        Route::post('edit/update_company_profile', ['uses' => 'QuoteEditController@updateCompanyProfile', 'as' => 'quoteEdit.updateCompanyProfile']);
-        Route::post('recalculate', ['uses' => 'QuoteRecalculateController@recalculate', 'as' => 'quotes.recalculate']);
-        Route::post('bulk/delete', ['uses' => 'QuoteController@bulkDelete', 'as' => 'quotes.bulk.delete']);
-        Route::post('bulk/status', ['uses' => 'QuoteController@bulkStatus', 'as' => 'quotes.bulk.status']);
+        Route::name('quoteEdit.refreshEdit')->get('{id}/edit/refresh', 'QuoteEditController@refreshEdit');
+        Route::name('quoteEdit.refreshTo')->post('edit/refresh_to', 'QuoteEditController@refreshTo');
+        Route::name('quoteEdit.refreshFrom')->post('edit/refresh_from', 'QuoteEditController@refreshFrom');
+        Route::name('quoteEdit.refreshTotals')->post('edit/refresh_totals', 'QuoteEditController@refreshTotals');
+        Route::name('quoteEdit.updateClient')->post('edit/update_client', 'QuoteEditController@updateClient');
+        Route::name('quoteEdit.updateCompanyProfile')->post('edit/update_company_profile', 'QuoteEditController@updateCompanyProfile');
+        Route::name('recalculate')->post('recalculate', 'QuoteRecalculateController@recalculate');
+        Route::name('bulk.delete')->post('bulk/delete', 'QuoteController@bulkDelete');
+        Route::name('bulk.status')->post('bulk/status', 'QuoteController@bulkStatus');
     });
 
-    Route::group(['prefix' => 'quote_copy'], function ()
-    {
-        Route::post('create', ['uses' => 'QuoteCopyController@create', 'as' => 'quoteCopy.create']);
-        Route::post('store', ['uses' => 'QuoteCopyController@store', 'as' => 'quoteCopy.store']);
+    Route::prefix('quote_copy')->name('quoteCopy.')->group(function () {
+        Route::name('create')->post('create', 'QuoteCopyController@create');
+        Route::name('store')->post('store', 'QuoteCopyController@store');
     });
 
-    Route::group(['prefix' => 'quote_to_invoice'], function ()
-    {
-        Route::post('create', ['uses' => 'QuoteToInvoiceController@create', 'as' => 'quoteToInvoice.create']);
-        Route::post('store', ['uses' => 'QuoteToInvoiceController@store', 'as' => 'quoteToInvoice.store']);
+    Route::prefix('quote_to_invoice')->name('quoteToInvoice.')->group(function () {
+        Route::name('create')->post('create', 'QuoteToInvoiceController@create');
+        Route::name('store')->post('store', 'QuoteToInvoiceController@store');
     });
 
-    Route::group(['prefix' => 'quote_to_workorder'], function ()
-    {
-        Route::post('create', ['uses' => 'QuoteToWorkorderController@create', 'as' => 'quoteToWorkorder.create']);
-        Route::post('store', ['uses' => 'QuoteToWorkorderController@store', 'as' => 'quoteToWorkorder.store']);
+    Route::prefix('quote_to_workorder')->name('quoteToWorkorder.')->group(function () {
+        Route::name('create')->post('create', 'QuoteToWorkorderController@create');
+        Route::name('store')->post('store', 'QuoteToWorkorderController@store');
     });
 
-    Route::group(['prefix' => 'quote_mail'], function ()
-    {
-        Route::post('create', ['uses' => 'QuoteMailController@create', 'as' => 'quoteMail.create']);
-        Route::post('store', ['uses' => 'QuoteMailController@store', 'as' => 'quoteMail.store']);
+    Route::prefix('quote_mail')->name('quoteMail.')->group(function () {
+        Route::name('create')->post('create', 'QuoteMailController@create');
+        Route::name('store')->post('store', 'QuoteMailController@store');
     });
 
-    Route::group(['prefix' => 'quote_item'], function ()
-    {
-        Route::post('delete', ['uses' => 'QuoteItemController@delete', 'as' => 'quoteItem.delete']);
+    Route::prefix('quote_item')->name('quoteItem.')->group(function () {
+        Route::name('delete')->post('delete', 'QuoteItemController@delete');
     });
 });

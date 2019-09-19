@@ -9,46 +9,51 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['prefix' => 'report', 'middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Reports\Controllers'], function ()
-{
-    Route::get('client_statement', ['uses' => 'ClientStatementReportController@index', 'as' => 'reports.clientStatement']);
-    Route::post('client_statement/validate', ['uses' => 'ClientStatementReportController@validateOptions', 'as' => 'reports.clientStatement.validate']);
-    Route::get('client_statement/html', ['uses' => 'ClientStatementReportController@html', 'as' => 'reports.clientStatement.html']);
-    Route::get('client_statement/pdf', ['uses' => 'ClientStatementReportController@pdf', 'as' => 'reports.clientStatement.pdf']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Reports\Controllers')
+    ->prefix('report')->name('reports.')->group(function () {
+        Route::name('clientStatement')->get('client_statement', 'ClientStatementReportController@index');
+        Route::name('clientStatement.validate')->post('client_statement/validate', 'ClientStatementReportController@validateOptions');
+        Route::name('clientStatement.html')->get('client_statement/html', 'ClientStatementReportController@html');
+        Route::name('clientStatement.pdf')->get('client_statement/pdf', 'ClientStatementReportController@pdf');
 
-    Route::get('item_sales', ['uses' => 'ItemSalesReportController@index', 'as' => 'reports.itemSales']);
-    Route::post('item_sales/validate', ['uses' => 'ItemSalesReportController@validateOptions', 'as' => 'reports.itemSales.validate']);
-    Route::get('item_sales/html', ['uses' => 'ItemSalesReportController@html', 'as' => 'reports.itemSales.html']);
-    Route::get('item_sales/pdf', ['uses' => 'ItemSalesReportController@pdf', 'as' => 'reports.itemSales.pdf']);
+        Route::name('expenseList')->get('expense_list', 'ExpenseListReportController@index');
+        Route::name('expenseList.validate')->post('expense_list/validate', 'ExpenseListReportController@validateOptions');
+        Route::name('expenseList.html')->get('expense_list/html', 'ExpenseListReportController@html');
+        Route::name('expenseList.pdf')->get('expense_list/pdf', 'ExpenseListReportController@pdf');
 
-    Route::get('payments_collected', ['uses' => 'PaymentsCollectedReportController@index', 'as' => 'reports.paymentsCollected']);
-    Route::post('payments_collected/validate', ['uses' => 'PaymentsCollectedReportController@validateOptions', 'as' => 'reports.paymentsCollected.validate']);
-    Route::get('payments_collected/html', ['uses' => 'PaymentsCollectedReportController@html', 'as' => 'reports.paymentsCollected.html']);
-    Route::get('payments_collected/pdf', ['uses' => 'PaymentsCollectedReportController@pdf', 'as' => 'reports.paymentsCollected.pdf']);
+        Route::name('itemSales')->get('item_sales', 'ItemSalesReportController@index');
+        Route::name('itemSales.validate')->post('item_sales/validate', 'ItemSalesReportController@validateOptions');
+        Route::name('itemSales.html')->get('item_sales/html', 'ItemSalesReportController@html');
+        Route::name('itemSales.pdf')->get('item_sales/pdf', 'ItemSalesReportController@pdf');
 
-    Route::get('revenue_by_client', ['uses' => 'RevenueByClientReportController@index', 'as' => 'reports.revenueByClient']);
-    Route::post('revenue_by_client/validate', ['uses' => 'RevenueByClientReportController@validateOptions', 'as' => 'reports.revenueByClient.validate']);
-    Route::get('revenue_by_client/html', ['uses' => 'RevenueByClientReportController@html', 'as' => 'reports.revenueByClient.html']);
-    Route::get('revenue_by_client/pdf', ['uses' => 'RevenueByClientReportController@pdf', 'as' => 'reports.revenueByClient.pdf']);
+        Route::name('paymentsCollected')->get('payments_collected', 'PaymentsCollectedReportController@index');
+        Route::name('paymentsCollected.validate')->post('payments_collected/validate', 'PaymentsCollectedReportController@validateOptions');
+        Route::name('paymentsCollected.html')->get('payments_collected/html', 'PaymentsCollectedReportController@html');
+        Route::name('paymentsCollected.pdf')->get('payments_collected/pdf', 'PaymentsCollectedReportController@pdf');
 
-    Route::get('tax_summary', ['uses' => 'TaxSummaryReportController@index', 'as' => 'reports.taxSummary']);
-    Route::post('tax_summary/validate', ['uses' => 'TaxSummaryReportController@validateOptions', 'as' => 'reports.taxSummary.validate']);
-    Route::get('tax_summary/html', ['uses' => 'TaxSummaryReportController@html', 'as' => 'reports.taxSummary.html']);
-    Route::get('tax_summary/pdf', ['uses' => 'TaxSummaryReportController@pdf', 'as' => 'reports.taxSummary.pdf']);
+        Route::name('profitLoss')->get('profit_loss', 'ProfitLossReportController@index');
+        Route::name('profitLoss.validate')->post('profit_loss/validate', 'ProfitLossReportController@validateOptions');
+        Route::name('profitLoss.html')->get('profit_loss/html', 'ProfitLossReportController@html');
+        Route::name('profitLoss.pdf')->get('profit_loss/pdf', 'ProfitLossReportController@pdf');
 
-    Route::get('profit_loss', ['uses' => 'ProfitLossReportController@index', 'as' => 'reports.profitLoss']);
-    Route::post('profit_loss/validate', ['uses' => 'ProfitLossReportController@validateOptions', 'as' => 'reports.profitLoss.validate']);
-    Route::get('profit_loss/html', ['uses' => 'ProfitLossReportController@html', 'as' => 'reports.profitLoss.html']);
-    Route::get('profit_loss/pdf', ['uses' => 'ProfitLossReportController@pdf', 'as' => 'reports.profitLoss.pdf']);
+        Route::name('revenueByClient')->get('revenue_by_client', 'RevenueByClientReportController@index');
+        Route::name('revenueByClient.validate')->post('revenue_by_client/validate', 'RevenueByClientReportController@validateOptions');
+        Route::name('revenueByClient.html')->get('revenue_by_client/html', 'RevenueByClientReportController@html');
+        Route::name('revenueByClient.pdf')->get('revenue_by_client/pdf', 'RevenueByClientReportController@pdf');
 
-    Route::get('expense_list', ['uses' => 'ExpenseListReportController@index', 'as' => 'reports.expenseList']);
-    Route::post('expense_list/validate', ['uses' => 'ExpenseListReportController@validateOptions', 'as' => 'reports.expenseList.validate']);
-    Route::get('expense_list/html', ['uses' => 'ExpenseListReportController@html', 'as' => 'reports.expenseList.html']);
-    Route::get('expense_list/pdf', ['uses' => 'ExpenseListReportController@pdf', 'as' => 'reports.expenseList.pdf']);
+        Route::name('taxSummary')->get('tax_summary', 'TaxSummaryReportController@index');
+        Route::name('taxSummary.validate')->post('tax_summary/validate', 'TaxSummaryReportController@validateOptions');
+        Route::name('taxSummary.html')->get('tax_summary/html', 'TaxSummaryReportController@html');
+        Route::name('taxSummary.pdf')->get('tax_summary/pdf', 'TaxSummaryReportController@pdf');
 
-    Route::get('timesheet_report', ['uses' => 'TimeSheetController@report', 'as' => 'timesheets.report']);
-    Route::post('timesheet_report/validate', ['uses' => 'TimeSheetController@ajaxValidate', 'as' => 'timesheets.validate']);
-    Route::get('timesheet_report/html', ['uses' => 'TimeSheetController@html', 'as' => 'timesheets.html']);
-    Route::get('timesheet_report/pdf', ['uses' => 'TimeSheetController@pdf', 'as' => 'timesheets.pdf']);
-    Route::get('timesheet_report/iif', ['uses' => 'TimeSheetController@iif', 'as' => 'timesheets.iif']);
-});
+        Route::name('timeTracking')->get('timetracking', 'TimeTrackingReportController@index');
+        Route::name('timeTracking.validate')->post('timetracking/validate', 'TimeTrackingReportController@ajaxValidate');
+        Route::name('timeTracking.html')->get('timetracking/html', 'TimeTrackingReportController@html');
+        Route::name('timeTracking.pdf')->get('timetracking/pdf', 'TimeTrackingReportController@pdf');
+
+        Route::name('timesheet')->get('timesheet_report', 'TimeSheetReportController@report');
+        Route::name('timesheet.validate')->post('timesheet_report/validate', 'TimeSheetReportController@ajaxValidate');
+        Route::name('timesheet.html')->get('timesheet_report/html', 'TimeSheetReportController@html');
+        Route::name('timesheet.pdf')->get('timesheet_report/pdf', 'TimeSheetReportController@pdf');
+        Route::name('timesheet.iif')->get('timesheet_report/iif', 'TimeSheetReportController@iif');
+    });

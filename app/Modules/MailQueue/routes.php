@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['prefix' => 'mail_log', 'middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\MailQueue\Controllers'], function ()
-{
-    Route::get('/', ['uses' => 'MailLogController@index', 'as' => 'mailLog.index']);
-    Route::post('content', ['uses' => 'MailLogController@content', 'as' => 'mailLog.content']);
-    Route::get('{id}/delete', ['uses' => 'MailLogController@delete', 'as' => 'mailLog.delete']);
-});
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\MailQueue\Controllers')
+    ->prefix('mail_log')->name('mailLog.')->group(function () {
+        Route::name('index')->get('/', 'MailLogController@index');
+        Route::name('content')->post('content', 'MailLogController@content');
+        Route::name('delete')->get('{id}/delete', 'MailLogController@delete');
+    });

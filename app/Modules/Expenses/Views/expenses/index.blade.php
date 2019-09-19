@@ -4,7 +4,7 @@
     <script type="text/javascript">
         $(function () {
             $(document).on('click','.btn-bill-expense', (function () {
-                $('#modal-placeholder').load("{{ route('expenseBill.create') }}", {
+                $('#modal-placeholder').load("{{ route('expenses.expenseBill.create') }}", {
                     id: $(this).data('expense-id'),
                     redirectTo: '{{ request()->fullUrl() }}'
                 });

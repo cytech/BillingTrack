@@ -13,7 +13,7 @@
         });
 
         $('#btn-create-expense-bill-confirm').click(function () {
-            $.post("{{ route('expenseBill.store') }}", {
+            $.post("{{ route('expenses.expenseBill.store') }}", {
                 id: {{ $expense->id }},
                 invoice_id: $('#invoice_id').val(),
                 item_name: $('#item_name').val(),

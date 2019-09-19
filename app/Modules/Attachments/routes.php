@@ -1,15 +1,14 @@
 <?php
 
-Route::group(['prefix' => 'attachments', 'middleware' => 'web', 'namespace' => 'BT\Modules\Attachments\Controllers'], function ()
-{
-    Route::get('{urlKey}/download', ['uses' => 'AttachmentController@download', 'as' => 'attachments.download']);
+Route::middleware('web')->namespace('BT\Modules\Attachments\Controllers')->prefix('attachments')
+    ->name('attachments.')->group(function () {
+        Route::name('download')->get('{urlKey}/download', 'AttachmentController@download');
 
-    Route::group(['middleware' > 'auth.admin'], function()
-    {
-        Route::post('ajax/list', ['uses' => 'AttachmentController@ajaxList', 'as' => 'attachments.ajax.list']);
-        Route::post('ajax/delete', ['uses' => 'AttachmentController@ajaxDelete', 'as' => 'attachments.ajax.delete']);
-        Route::post('ajax/modal', ['uses' => 'AttachmentController@ajaxModal', 'as' => 'attachments.ajax.modal']);
-        Route::post('ajax/upload', ['uses' => 'AttachmentController@ajaxUpload', 'as' => 'attachments.ajax.upload']);
-        Route::post('ajax/access/update', ['uses' => 'AttachmentController@ajaxAccessUpdate', 'as' => 'attachments.ajax.access.update']);
+        Route::middleware('auth.admin')->group(function () {
+            Route::name('ajax.list')->post('ajax/list', 'AttachmentController@ajaxList');
+            Route::name('ajax.delete')->post('ajax/delete', 'AttachmentController@ajaxDelete');
+            Route::name('ajax.modal')->post('ajax/modal', 'AttachmentController@ajaxModal');
+            Route::name('ajax.upload')->post('ajax/upload', 'AttachmentController@ajaxUpload');
+            Route::name('ajax.access.update')->post('ajax/access/update', 'AttachmentController@ajaxAccessUpdate');
+        });
     });
-});

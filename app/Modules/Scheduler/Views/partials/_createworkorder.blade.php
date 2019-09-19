@@ -2,7 +2,7 @@
 {!! Html::script('plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
 
 <div id="create-workorder" style="display: none">
-    {!! Form::open(['route' => 'api.createwo','id' => 'create-workorderform']) !!}
+    {!! Form::open(['route' => 'scheduler.api.createwo','id' => 'create-workorderform']) !!}
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf">
     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" id="user_id">
     <div class="form-group d-flex align-items-center">

@@ -9,44 +9,39 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Invoices\Controllers'], function ()
-{
-    Route::group(['prefix' => 'invoices'], function ()
-    {
-        Route::get('/', ['uses' => 'InvoiceController@index', 'as' => 'invoices.index']);
-        Route::get('create', ['uses' => 'InvoiceCreateController@create', 'as' => 'invoices.create']);
-        Route::post('create', ['uses' => 'InvoiceCreateController@store', 'as' => 'invoices.store']);
-        Route::get('{id}/edit', ['uses' => 'InvoiceEditController@edit', 'as' => 'invoices.edit']);
-        Route::post('{id}/edit', ['uses' => 'InvoiceEditController@update', 'as' => 'invoices.update']);
-        Route::get('{id}/delete', ['uses' => 'InvoiceController@delete', 'as' => 'invoices.delete']);
-        Route::get('{id}/pdf', ['uses' => 'InvoiceController@pdf', 'as' => 'invoices.pdf']);
-        Route::get('ajaxLookup/{name}', ['uses' => 'InvoiceController@ajaxLookup', 'as' => 'invoices.ajaxLookup']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Invoices\Controllers')->group(function () {
+    Route::prefix('invoices')->name('invoices.')->group(function () {
+        Route::name('index')->get('/', 'InvoiceController@index');
+        Route::name('create')->get('create', 'InvoiceCreateController@create');
+        Route::name('store')->post('create', 'InvoiceCreateController@store');
+        Route::name('edit')->get('{id}/edit', 'InvoiceEditController@edit');
+        Route::name('update')->post('{id}/edit', 'InvoiceEditController@update');
+        Route::name('delete')->get('{id}/delete', 'InvoiceController@delete');
+        Route::name('pdf')->get('{id}/pdf', 'InvoiceController@pdf');
+        Route::name('ajaxLookup')->get('ajaxLookup/{name}', 'InvoiceController@ajaxLookup');
 
-        Route::get('{id}/edit/refresh', ['uses' => 'InvoiceEditController@refreshEdit', 'as' => 'invoiceEdit.refreshEdit']);
-        Route::post('edit/refresh_to', ['uses' => 'InvoiceEditController@refreshTo', 'as' => 'invoiceEdit.refreshTo']);
-        Route::post('edit/refresh_from', ['uses' => 'InvoiceEditController@refreshFrom', 'as' => 'invoiceEdit.refreshFrom']);
-        Route::post('edit/refresh_totals', ['uses' => 'InvoiceEditController@refreshTotals', 'as' => 'invoiceEdit.refreshTotals']);
-        Route::post('edit/update_client', ['uses' => 'InvoiceEditController@updateClient', 'as' => 'invoiceEdit.updateClient']);
-        Route::post('edit/update_company_profile', ['uses' => 'InvoiceEditController@updateCompanyProfile', 'as' => 'invoiceEdit.updateCompanyProfile']);
-        Route::post('recalculate', ['uses' => 'InvoiceRecalculateController@recalculate', 'as' => 'invoices.recalculate']);
-        Route::post('bulk/delete', ['uses' => 'InvoiceController@bulkDelete', 'as' => 'invoices.bulk.delete']);
-        Route::post('bulk/status', ['uses' => 'InvoiceController@bulkStatus', 'as' => 'invoices.bulk.status']);
+        Route::name('invoiceEdit.refreshEdit')->get('{id}/edit/refresh', 'InvoiceEditController@refreshEdit');
+        Route::name('invoiceEdit.refreshTo')->post('edit/refresh_to', 'InvoiceEditController@refreshTo');
+        Route::name('invoiceEdit.refreshFrom')->post('edit/refresh_from', 'InvoiceEditController@refreshFrom');
+        Route::name('invoiceEdit.refreshTotals')->post('edit/refresh_totals', 'InvoiceEditController@refreshTotals');
+        Route::name('invoiceEdit.updateClient')->post('edit/update_client', 'InvoiceEditController@updateClient');
+        Route::name('invoiceEdit.updateCompanyProfile')->post('edit/update_company_profile', 'InvoiceEditController@updateCompanyProfile');
+        Route::name('recalculate')->post('recalculate', 'InvoiceRecalculateController@recalculate');
+        Route::name('bulk.delete')->post('bulk/delete', 'InvoiceController@bulkDelete');
+        Route::name('bulk.status')->post('bulk/status', 'InvoiceController@bulkStatus');
     });
 
-    Route::group(['prefix' => 'invoice_copy'], function ()
-    {
-        Route::post('create', ['uses' => 'InvoiceCopyController@create', 'as' => 'invoiceCopy.create']);
-        Route::post('store', ['uses' => 'InvoiceCopyController@store', 'as' => 'invoiceCopy.store']);
+    Route::prefix('invoice_copy')->name('invoiceCopy.')->group(function () {
+        Route::name('create')->post('create', 'InvoiceCopyController@create');
+        Route::name('store')->post('store', 'InvoiceCopyController@store');
     });
 
-    Route::group(['prefix' => 'invoice_mail'], function ()
-    {
-        Route::post('create', ['uses' => 'InvoiceMailController@create', 'as' => 'invoiceMail.create']);
-        Route::post('store', ['uses' => 'InvoiceMailController@store', 'as' => 'invoiceMail.store']);
+    Route::prefix('invoice_mail')->name('invoiceMail.')->group(function () {
+        Route::name('create')->post('create', 'InvoiceMailController@create');
+        Route::name('store')->post('store', 'InvoiceMailController@store');
     });
 
-    Route::group(['prefix' => 'invoice_item'], function ()
-    {
-        Route::post('delete', ['uses' => 'InvoiceItemController@delete', 'as' => 'invoiceItem.delete']);
+    Route::prefix('invoice_item')->name('invoiceItem.')->group(function () {
+        Route::name('delete')->post('delete', 'InvoiceItemController@delete');
     });
 });

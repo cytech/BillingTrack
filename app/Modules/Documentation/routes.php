@@ -9,10 +9,8 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin']], function ()
-{
-    Route::get('documentation/{page}', [function ( $page) {
-        return view('documentation.linkview')->with('page', 'documentation.'.basename($page,'.md'));
-        }]);
-
+Route::middleware(['web', 'auth.admin'])->group(function () {
+    Route::get('documentation/{page}', [function ($page) {
+        return view('documentation.linkview')->with('page', 'documentation.' . basename($page, '.md'));
+    }]);
 });

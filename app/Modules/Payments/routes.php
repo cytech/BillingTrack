@@ -9,23 +9,23 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Payments\Controllers'], function ()
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Payments\Controllers')
+    ->prefix('payments')->name('payments.')->group(function ()
 {
-    Route::get('payments', ['uses' => 'PaymentController@index', 'as' => 'payments.index']);
-    Route::post('payments/create', ['uses' => 'PaymentController@create', 'as' => 'payments.create']);
-    Route::post('payments/store', ['uses' => 'PaymentController@store', 'as' => 'payments.store']);
-    Route::get('payments/{payment}', ['uses' => 'PaymentController@edit', 'as' => 'payments.edit']);
-    Route::post('payments/{payment}', ['uses' => 'PaymentController@update', 'as' => 'payments.update']);
+    Route::name('index')->get('/', 'PaymentController@index');
+    Route::name('create')->post('create', 'PaymentController@create');
+    Route::name('store')->post('store', 'PaymentController@store');
+    Route::name('edit')->get('{payment}', 'PaymentController@edit');
+    Route::name('update')->post('{payment}', 'PaymentController@update');
+    Route::name('delete')->get('{payment}/delete', 'PaymentController@delete');
+    Route::name('bulk.delete')->post('bulk/delete', 'PaymentController@bulkDelete');
 
-    Route::get('test', ['uses' => 'PaymentController@test', 'as' => 'payments.test']);
-
-    Route::get('payments/{payment}/delete', ['uses' => 'PaymentController@delete', 'as' => 'payments.delete']);
-
-    Route::post('bulk/delete', ['uses' => 'PaymentController@bulkDelete', 'as' => 'payments.bulk.delete']);
-
-    Route::group(['prefix' => 'payment_mail'], function ()
+    Route::prefix('payment_mail')->group(function ()
     {
-        Route::post('create', ['uses' => 'PaymentMailController@create', 'as' => 'paymentMail.create']);
-        Route::post('store', ['uses' => 'PaymentMailController@store', 'as' => 'paymentMail.store']);
+        Route::name('paymentMail.create')->post('create', 'PaymentMailController@create');
+        Route::name('paymentMail.store')->post('store', 'PaymentMailController@store');
     });
+
+    Route::name('test')->get('test', 'PaymentController@test');
+
 });

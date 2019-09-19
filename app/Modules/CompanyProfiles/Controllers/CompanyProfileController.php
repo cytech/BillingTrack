@@ -51,7 +51,7 @@ class CompanyProfileController extends Controller
 
     public function store(CompanyProfileStoreRequest $request)
     {
-        $input = $request->except('custom');
+        $input = $request->except('custom', 'fill_shipping');
 
         if ($request->hasFile('logo'))
         {

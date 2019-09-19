@@ -9,24 +9,23 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Utilities\Controllers'], function ()
-{
-    Route::get('utilities/manage_trash', ['uses' => 'UtilityController@manageTrash', 'as' => 'utilities.manage_trash']);
-    Route::get('utilities/{id}/restore_trash/{entity}', ['uses' => 'UtilityController@restoreTrash', 'as' => 'utilities.restore_trash']);
-    Route::get('utilities/{id}/delete_trash/{entity}', ['uses' => 'UtilityController@deleteTrash', 'as' => 'utilities.delete_trash']);
-    Route::post('utilities/bulk/delete_trash', ['uses' => 'UtilityController@bulkDeleteTrash', 'as' => 'utilities.bulk.deletetrash']);
-    Route::post('utilities/bulk/restore_trash', ['uses' => 'UtilityController@bulkRestoreTrash', 'as' => 'utilities.bulk.restoretrash']);
-    Route::post('utilities/save_tab', ['uses' => 'UtilityController@saveTab', 'as' => 'utilities.saveTab']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Utilities\Controllers')
+    ->prefix('utilities')->name('utilities.')->group(function () {
+        Route::name('manage_trash')->get('manage_trash', 'UtilityController@manageTrash');
+        Route::name('restore_trash')->get('{id}/restore_trash/{entity}', 'UtilityController@restoreTrash');
+        Route::name('delete_trash')->get('{id}/delete_trash/{entity}', 'UtilityController@deleteTrash');
+        Route::name('bulk.deletetrash')->post('bulk/delete_trash', 'UtilityController@bulkDeleteTrash');
+        Route::name('bulk.restoretrash')->post('bulk/restore_trash', 'UtilityController@bulkRestoreTrash');
+        Route::name('saveTab')->post('save_tab', 'UtilityController@saveTab');
 
-    //batchprint pdf
-    Route::any('batchprint', ['uses' => 'UtilityController@batchPrint', 'as' => 'utilities.batchprint']);
+        //batchprint pdf
+        Route::name('batchprint')->any('batchprint', 'UtilityController@batchPrint');
 
-    if (!config('app.demo'))
-    {
-        Route::get('utilities/database', ['uses' => 'BackupController@index', 'as' => 'utilities.database']);
-        Route::get('backup/database', ['uses' => 'BackupController@database', 'as' => 'backup.database']);
-        Route::get('trashprior/database', ['uses' => 'BackupController@trashPrior', 'as' => 'trashprior.database']);
-        Route::get('deleteprior/database', ['uses' => 'BackupController@deletePrior', 'as' => 'deleteprior.database']);
-    }
+        if (!config('app.demo')) {
+            Route::name('database')->get('database', 'BackupController@index');
+            Route::name('backup.database')->get('backup/database', 'BackupController@database');
+            Route::name('trashprior.database')->get('trashprior/database', 'BackupController@trashPrior');
+            Route::name('deleteprior.database')->get('deleteprior/database', 'BackupController@deletePrior');
+        }
 
-});
+    });

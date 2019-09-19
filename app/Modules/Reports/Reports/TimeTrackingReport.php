@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace BT\Modules\TimeTracking\Reports;
+namespace BT\Modules\Reports\Reports;
 
 use BT\Modules\TimeTracking\Models\TimeTrackingProject;
 use BT\Support\Statuses\TimeTrackingProjectStatuses;
@@ -18,7 +18,7 @@ use BT\Support\CurrencyFormatter;
 use BT\Support\DateFormatter;
 use BT\Support\NumberFormatter;
 
-class TimesheetReport
+class TimeTrackingReport
 {
     public function getResults($fromDate, $toDate, $companyProfileId = null, $statusId = null)
     {

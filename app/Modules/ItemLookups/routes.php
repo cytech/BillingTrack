@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\ItemLookups\Controllers'], function ()
-{
-    Route::get('item_lookups', ['uses' => 'ItemLookupController@index', 'as' => 'itemLookups.index']);
-    Route::get('item_lookups/create', ['uses' => 'ItemLookupController@create', 'as' => 'itemLookups.create']);
-    Route::get('item_lookups/{itemLookup}/edit', ['uses' => 'ItemLookupController@edit', 'as' => 'itemLookups.edit']);
-    Route::get('item_lookups/{itemLookup}/delete', ['uses' => 'ItemLookupController@delete', 'as' => 'itemLookups.delete']);
-    Route::get('item_lookups/ajax/get_item_lookup', ['uses' => 'ItemLookupController@getItemLookup', 'as' => 'itemLookups.ajax.getItemLookup']);
-    Route::post('item_lookups/ajax/process_item_lookup', ['uses' => 'ItemLookupController@processItemLookup', 'as' => 'itemLookups.ajax.processItemLookup']);
-    Route::get('item_lookups/ajax/item_lookup', ['uses' => 'ItemLookupController@ajaxItemLookup', 'as' => 'itemLookups.ajax.itemLookup']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\ItemLookups\Controllers')
+    ->prefix('item_lookups')->name('itemLookups.')->group(function () {
+        Route::name('index')->get('/', 'ItemLookupController@index');
+        Route::name('create')->get('create', 'ItemLookupController@create');
+        Route::name('edit')->get('{itemLookup}/edit', 'ItemLookupController@edit');
+        Route::name('delete')->get('{itemLookup}/delete', 'ItemLookupController@delete');
+        Route::name('ajax.getItemLookup')->get('ajax/get_item_lookup', 'ItemLookupController@getItemLookup');
+        Route::name('ajax.processItemLookup')->post('ajax/process_item_lookup', 'ItemLookupController@processItemLookup');
+        Route::name('ajax.itemLookup')->get('ajax/item_lookup', 'ItemLookupController@ajaxItemLookup');
 
-    Route::post('item_lookups', ['uses' => 'ItemLookupController@store', 'as' => 'itemLookups.store']);
-    Route::post('item_lookups/{itemLookup}', ['uses' => 'ItemLookupController@update', 'as' => 'itemLookups.update']);
-    Route::post('item_lookups/ajax/process', ['uses' => 'ItemLookupController@process', 'as' => 'itemLookups.ajax.process']);
-});
+        Route::name('store')->post('item_lookups', 'ItemLookupController@store');
+        Route::name('update')->post('{itemLookup}', 'ItemLookupController@update');
+        Route::name('ajax.process')->post('ajax/process', 'ItemLookupController@process');
+    });

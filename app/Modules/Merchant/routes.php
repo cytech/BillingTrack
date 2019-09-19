@@ -1,9 +1,9 @@
 <?php
 
-Route::group(['prefix' => 'merchant', 'middleware' => 'web', 'namespace' => 'BT\Modules\Merchant\Controllers'], function ()
-{
-    Route::post('pay', ['uses' => 'MerchantController@pay', 'as' => 'merchant.pay']);
-    Route::get('{driver}/{urlKey}/cancel', ['uses' => 'MerchantController@cancelUrl', 'as' => 'merchant.cancelUrl']);
-    Route::get('{driver}/{urlKey}/return', ['uses' => 'MerchantController@returnUrl', 'as' => 'merchant.returnUrl']);
-    Route::post('{driver}/{urlKey}/webhook', ['uses' => 'MerchantController@webhookUrl', 'as' => 'merchant.webhookUrl']);
-});
+Route::middleware('web')->namespace('BT\Modules\Merchant\Controllers')
+    ->prefix('merchant')->name('merchant.')->group(function () {
+        Route::name('pay')->post('pay', 'MerchantController@pay');
+        Route::name('cancelUrl')->get('{driver}/{urlKey}/cancel', 'MerchantController@cancelUrl');
+        Route::name('returnUrl')->get('{driver}/{urlKey}/return', 'MerchantController@returnUrl');
+        Route::name('webhookUrl')->post('{driver}/{urlKey}/webhook', 'MerchantController@webhookUrl');
+    });

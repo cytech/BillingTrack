@@ -13,7 +13,7 @@
                 const company_profile_id = $('#company_profile_id').val();
                 const status_id = $('#status_id').val();
 
-                $.post("{{ route('timeTracking.reports.timesheet.validate') }}", {
+                $.post("{{ route('reports.timeTracking.validate') }}", {
                     from_date: from_date,
                     to_date: to_date,
                     company_profile_id: company_profile_id,
@@ -25,10 +25,10 @@
                     query_string = "?from_date=" + from_date + "&to_date=" + to_date + "&company_profile_id=" + company_profile_id + "&status_id=" + status_id;
                     if (output_type == 'preview') {
                         $('#preview').show();
-                        $('#preview-results').attr('src', "{{ route('timeTracking.reports.timesheet.html') }}" + query_string);
+                        $('#preview-results').attr('src', "{{ route('reports.timeTracking.html') }}" + query_string);
                     }
                     else if (output_type == 'pdf') {
-                        window.location = "{{ route('timeTracking.reports.timesheet.pdf') }}" + query_string;
+                        window.location = "{{ route('reports.timeTracking.pdf') }}" + query_string;
                     }
 
                 }).fail(function (response) {

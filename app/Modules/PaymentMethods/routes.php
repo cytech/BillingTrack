@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\PaymentMethods\Controllers'], function ()
-{
-    Route::get('payment_methods', ['uses' => 'PaymentMethodController@index', 'as' => 'paymentMethods.index']);
-    Route::get('payment_methods/create', ['uses' => 'PaymentMethodController@create', 'as' => 'paymentMethods.create']);
-    Route::get('payment_methods/{paymentMethod}/edit', ['uses' => 'PaymentMethodController@edit', 'as' => 'paymentMethods.edit']);
-    Route::get('payment_methods/{paymentMethod}/delete', ['uses' => 'PaymentMethodController@delete', 'as' => 'paymentMethods.delete']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\PaymentMethods\Controllers')
+    ->prefix('payment_methods')->name('paymentMethods.')->group(function () {
+        Route::name('index')->get('/', 'PaymentMethodController@index');
+        Route::name('create')->get('create', 'PaymentMethodController@create');
+        Route::name('edit')->get('{paymentMethod}/edit', 'PaymentMethodController@edit');
+        Route::name('delete')->get('{paymentMethod}/delete', 'PaymentMethodController@delete');
 
-    Route::post('payment_methods', ['uses' => 'PaymentMethodController@store', 'as' => 'paymentMethods.store']);
-    Route::post('payment_methods/{paymentMethod}', ['uses' => 'PaymentMethodController@update', 'as' => 'paymentMethods.update']);
-});
+        Route::name('store')->post('payment_methods', 'PaymentMethodController@store');
+        Route::name('update')->post('{paymentMethod}', 'PaymentMethodController@update');
+    });

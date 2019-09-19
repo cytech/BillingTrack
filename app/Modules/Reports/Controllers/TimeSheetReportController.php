@@ -17,7 +17,7 @@ use BT\Modules\CompanyProfiles\Models\CompanyProfile;
 use BT\Support\PDF\PDFFactory;
 use Carbon\Carbon;
 
-class TimeSheetController extends Controller
+class TimeSheetReportController extends Controller
 {
     private $timeSheetReport;
 

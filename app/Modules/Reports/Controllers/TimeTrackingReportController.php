@@ -9,30 +9,30 @@
  * file that was distributed with this source code.
  */
 
-namespace BT\Modules\TimeTracking\Controllers;
+namespace BT\Modules\Reports\Controllers;
 
 use BT\Support\Statuses\TimeTrackingProjectStatuses;
-use BT\Modules\TimeTracking\Reports\TimesheetReport;
+use BT\Modules\Reports\Reports\TimeTrackingReport;
 use BT\Http\Controllers\Controller;
 use BT\Modules\CompanyProfiles\Models\CompanyProfile;
 use BT\Support\PDF\PDFFactory;
 
-class TimesheetReportController extends Controller
+class TimeTrackingReportController extends Controller
 {
-    private $timesheetReport;
+    private $timeTrackingReport;
 
     public function __construct(
-        TimesheetReport $timesheetReport
+        TimeTrackingReport $timeTrackingReport
 
     )
     {
-        $this->timesheetReport = $timesheetReport;
+        $this->timeTrackingReport = $timeTrackingReport;
     }
 
     public function index()
     {
 
-        return view('time_tracking.reports.options.timesheet')
+        return view('reports.options.timetracking')
             ->with('companyProfiles', ['' => trans('bt.all_company_profiles')] + CompanyProfile::getList())
             ->with('statuses', ['' => trans('bt.all_statuses')] + TimeTrackingProjectStatuses::lists());
     }
@@ -45,14 +45,14 @@ class TimesheetReportController extends Controller
 
     public function html()
     {
-        $results = $this->timesheetReport->getResults(
+        $results = $this->timeTrackingReport->getResults(
             request('from_date'),
             request('to_date'),
             request('company_profile_id'),
             request('status_id')
         );
 
-        return view('time_tracking.reports.output.timesheet')
+        return view('reports.output.timetracking')
             ->with('results', $results);
     }
 
@@ -60,14 +60,14 @@ class TimesheetReportController extends Controller
     {
         $pdf = PDFFactory::create();
 
-        $results = $this->timesheetReport->getResults(
+        $results = $this->timeTrackingReport->getResults(
             request('from_date'),
             request('to_date'),
             request('company_profile_id'),
             request('status_id')
         );
 
-        $html = view('time_tracking.reports.output.timesheet')
+        $html = view('reports.output.timetracking')
             ->with('results', $results)->render();
 
         $pdf->download($html, trans('bt.time_tracking') . '.pdf');

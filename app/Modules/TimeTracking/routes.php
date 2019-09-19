@@ -1,53 +1,42 @@
 <?php
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'prefix' => 'time_tracking', 'namespace' => 'BT\Modules\TimeTracking\Controllers'], function ()
-{
-    Route::group(['prefix' => 'projects'], function ()
-    {
-        Route::get('/', ['uses' => 'ProjectController@index', 'as' => 'timeTracking.projects.index']);
-        Route::get('create', ['uses' => 'ProjectController@create', 'as' => 'timeTracking.projects.create']);
-        Route::post('create', ['uses' => 'ProjectController@store', 'as' => 'timeTracking.projects.store']);
-        Route::get('{id}/edit', ['uses' => 'ProjectController@edit', 'as' => 'timeTracking.projects.edit']);
-        Route::post('{id}/edit', ['uses' => 'ProjectController@update', 'as' => 'timeTracking.projects.update']);
-        Route::get('{id}/delete', ['uses' => 'ProjectController@delete', 'as' => 'timeTracking.projects.delete']);
-        Route::post('refresh_task_list', ['uses' => 'ProjectController@refreshTaskList', 'as' => 'timeTracking.projects.refreshTaskList']);
-        Route::post('refresh_totals', ['uses' => 'ProjectController@refreshTotals', 'as' => 'timeTracking.projects.refreshTotals']);
-        Route::post('bulk/delete', ['uses' => 'ProjectController@bulkDelete', 'as' => 'timeTracking.projects.bulk.delete']);
-        Route::post('bulk/status', ['uses' => 'ProjectController@bulkStatus', 'as' => 'timeTracking.projects.bulk.status']);
-    });
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\TimeTracking\Controllers')
+    ->prefix('time_tracking')->name('timeTracking.')->group(function () {
+        Route::prefix('projects')->group(function () {
+            Route::name('projects.index')->get('/', 'ProjectController@index');
+            Route::name('projects.create')->get('create', 'ProjectController@create');
+            Route::name('projects.store')->post('create', 'ProjectController@store');
+            Route::name('projects.edit')->get('{id}/edit', 'ProjectController@edit');
+            Route::name('projects.update')->post('{id}/edit', 'ProjectController@update');
+            Route::name('projects.delete')->get('{id}/delete', 'ProjectController@delete');
+            Route::name('projects.refreshTaskList')->post('refresh_task_list', 'ProjectController@refreshTaskList');
+            Route::name('projects.refreshTotals')->post('refresh_totals', 'ProjectController@refreshTotals');
+            Route::name('projects.bulk.delete')->post('bulk/delete', 'ProjectController@bulkDelete');
+            Route::name('projects.bulk.status')->post('bulk/status', 'ProjectController@bulkStatus');
+        });
 
-    Route::group(['prefix' => 'tasks'], function ()
-    {
-        Route::post('create', ['uses' => 'TaskController@create', 'as' => 'timeTracking.tasks.create']);
-        Route::post('store', ['uses' => 'TaskController@store', 'as' => 'timeTracking.tasks.store']);
-        Route::post('edit', ['uses' => 'TaskController@edit', 'as' => 'timeTracking.tasks.edit']);
-        Route::post('update', ['uses' => 'TaskController@update', 'as' => 'timeTracking.tasks.update']);
-        Route::post('delete', ['uses' => 'TaskController@delete', 'as' => 'timeTracking.tasks.delete']);
-        Route::post('update_display_order', ['uses' => 'TaskController@updateDisplayOrder', 'as' => 'timeTracking.tasks.updateDisplayOrder']);
-    });
+        Route::prefix('tasks')->group(function () {
+            Route::name('tasks.create')->post('create', 'TaskController@create');
+            Route::name('tasks.store')->post('store', 'TaskController@store');
+            Route::name('tasks.edit')->post('edit', 'TaskController@edit');
+            Route::name('tasks.update')->post('update', 'TaskController@update');
+            Route::name('tasks.delete')->post('delete', 'TaskController@delete');
+            Route::name('tasks.updateDisplayOrder')->post('update_display_order', 'TaskController@updateDisplayOrder');
+        });
 
-    Route::group(['prefix' => 'timers'], function ()
-    {
-        Route::post('start', ['uses' => 'TimerController@start', 'as' => 'timeTracking.timers.start']);
-        Route::post('stop', ['uses' => 'TimerController@stop', 'as' => 'timeTracking.timers.stop']);
-        Route::post('show', ['uses' => 'TimerController@show', 'as' => 'timeTracking.timers.show']);
-        Route::post('seconds', ['uses' => 'TimerController@seconds', 'as' => 'timeTracking.timers.seconds']);
-        Route::post('store', ['uses' => 'TimerController@store', 'as' => 'timeTracking.timers.store']);
-        Route::post('delete', ['uses' => 'TimerController@delete', 'as' => 'timeTracking.timers.delete']);
-        Route::post('refresh_list', ['uses' => 'TimerController@refreshList', 'as' => 'timeTracking.timers.refreshList']);
-    });
+        Route::prefix('timers')->group(function () {
+            Route::name('timers.start')->post('start', 'TimerController@start');
+            Route::name('timers.stop')->post('stop', 'TimerController@stop');
+            Route::name('timers.show')->post('show', 'TimerController@show');
+            Route::name('timers.seconds')->post('seconds', 'TimerController@seconds');
+            Route::name('timers.store')->post('store', 'TimerController@store');
+            Route::name('timers.delete')->post('delete', 'TimerController@delete');
+            Route::name('timers.refreshList')->post('refresh_list', 'TimerController@refreshList');
+        });
 
-    Route::group(['prefix' => 'bill'], function ()
-    {
-        Route::post('create', ['uses' => 'TaskBillController@create', 'as' => 'timeTracking.bill.create']);
-        Route::post('store', ['uses' => 'TaskBillController@store', 'as' => 'timeTracking.bill.store']);
-    });
+        Route::prefix('bill')->group(function () {
+            Route::name('bill.create')->post('create', 'TaskBillController@create');
+            Route::name('bill.store')->post('store', 'TaskBillController@store');
+        });
 
-    Route::group(['prefix' => 'reports'], function ()
-    {
-        Route::get('timesheet', ['uses' => 'TimesheetReportController@index', 'as' => 'timeTracking.reports.timesheet']);
-        Route::post('timesheet/validate', ['uses' => 'TimesheetReportController@ajaxValidate', 'as' => 'timeTracking.reports.timesheet.validate']);
-        Route::get('timesheet/html', ['uses' => 'TimesheetReportController@html', 'as' => 'timeTracking.reports.timesheet.html']);
-        Route::get('timesheet/pdf', ['uses' => 'TimesheetReportController@pdf', 'as' => 'timeTracking.reports.timesheet.pdf']);
     });
-});

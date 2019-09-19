@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\TaxRates\Controllers'], function ()
-{
-    Route::get('tax_rates', ['uses' => 'TaxRateController@index', 'as' => 'taxRates.index']);
-    Route::get('tax_rates/create', ['uses' => 'TaxRateController@create', 'as' => 'taxRates.create']);
-    Route::get('tax_rates/{taxRate}/edit', ['uses' => 'TaxRateController@edit', 'as' => 'taxRates.edit']);
-    Route::get('tax_rates/{taxRate}/delete', ['uses' => 'TaxRateController@delete', 'as' => 'taxRates.delete']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\TaxRates\Controllers')
+    ->prefix('tax_rates')->name('taxRates.')->group(function () {
+        Route::name('index')->get('/', 'TaxRateController@index');
+        Route::name('create')->get('create', 'TaxRateController@create');
+        Route::name('edit')->get('{taxRate}/edit', 'TaxRateController@edit');
+        Route::name('delete')->get('{taxRate}/delete', 'TaxRateController@delete');
 
-    Route::post('tax_rates', ['uses' => 'TaxRateController@store', 'as' => 'taxRates.store']);
-    Route::post('tax_rates/{taxRate}', ['uses' => 'TaxRateController@update', 'as' => 'taxRates.update']);
-});
+        Route::name('store')->post('tax_rates', 'TaxRateController@store');
+        Route::name('update')->post('{taxRate}', 'TaxRateController@update');
+    });

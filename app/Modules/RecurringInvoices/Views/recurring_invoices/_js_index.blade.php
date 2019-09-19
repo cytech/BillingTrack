@@ -12,7 +12,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('recurring_invoices.bulk.delete') }}", ids)
+                bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('recurringInvoices.bulk.delete') }}", ids)
             }
         });
     });

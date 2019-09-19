@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'BT\Modules\Users\Controllers'], function ()
-{
-    Route::get('users', ['uses' => 'UserController@index', 'as' => 'users.index']);
+Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Users\Controllers')
+    ->prefix('users')->name('users.')->group(function () {
+        Route::name('index')->get('/', 'UserController@index');
 
-    Route::get('users/create/{userType}', ['uses' => 'UserController@create', 'as' => 'users.create']);
-    Route::post('users/create/{userType}', ['uses' => 'UserController@store', 'as' => 'users.store']);
+        Route::name('create')->get('create/{userType}', 'UserController@create');
+        Route::name('store')->post('create/{userType}', 'UserController@store');
 
-    Route::get('users/{id}/edit/{userType}', ['uses' => 'UserController@edit', 'as' => 'users.edit']);
-    Route::post('users/{id}/edit/{userType}', ['uses' => 'UserController@update', 'as' => 'users.update']);
+        Route::name('edit')->get('{id}/edit/{userType}', 'UserController@edit');
+        Route::name('update')->post('{id}/edit/{userType}', 'UserController@update');
 
-    Route::get('users/{id}/delete', ['uses' => 'UserController@delete', 'as' => 'users.delete']);
+        Route::name('delete')->get('{id}/delete', 'UserController@delete');
 
-    Route::get('users/{id}/password/edit', ['uses' => 'UserPasswordController@edit', 'as' => 'users.password.edit']);
-    Route::post('users/{id}/password/edit', ['uses' => 'UserPasswordController@update', 'as' => 'users.password.update']);
+        Route::name('password.edit')->get('{id}/password/edit', 'UserPasswordController@edit');
+        Route::name('password.update')->post('{id}/password/edit', 'UserPasswordController@update');
 
-    Route::post('users/client', ['uses' => 'UserController@getClientInfo', 'as' => 'users.clientInfo']);
+        Route::name('clientInfo')->post('client', 'UserController@getClientInfo');
 
-});
+    });
