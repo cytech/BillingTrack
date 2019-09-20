@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Added client industry, size, id, and VAT fields
 - Added client contact firstname, lastname, title, phone, fax, mobile, primary , optin and note fields
 - Added individual Client payment terms and accessed by due_at (if not set defaults to invoice config value)
-- Converted many events/listeners to model observers 
+- Converted many events/listeners to model observers
 - Expand vendor info
 - General categories and vendors for expenses and products
 - App name/namespace/language to BT
@@ -25,13 +25,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   This is a breaking change if you have any custom code that is accessing the type column in the products table.
 - Added Database clean/purge tool
 - Revamped Documentation
-- Update to Laravel 6.0   
+- Update to Laravel 6.0
+- Update deprecated Fixer.io API for currency exchange rates. To use currency exchange rates in BillingTrack,
+  you have to signup for a (free) API key at https://fixer.io. Once you get the key,
+  Enter it in System Settings - General - FixerIO API Key
+
 
 ## 5.0.1
 - Renamed project to BillingTrack
 
 ## 5.0.0
-- PHP requirement >=7.2 
+- PHP requirement >=7.2
 ## 4.1.3 bump to 5.0.0
 - update to Laravel 5.8.*
 - update to sweetalert2 v8
@@ -105,5 +109,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - item lookup modal in quotes and invoices
 - extend skin configuration
 - integrate timetracking (projects/tasks/timers)
-- integrate workorders 
+- integrate workorders
 - integrate Scheduler

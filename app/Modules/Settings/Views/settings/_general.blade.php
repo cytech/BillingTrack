@@ -10,16 +10,6 @@
                     .fail(function (response) {
                         notify("@lang('bt.unknown_error')",'error');
                     });
-
-                {{--axios.get("{{ route('settings.updateCheck') }}")--}}
-                    {{--.then(function (response) {--}}
-                        {{--console.log(response);--}}
-                        {{--notify(response.data.message,'info');--}}
-                    {{--})--}}
-                    {{--.catch(function (error) {--}}
-                        {{--notify("@lang('bt.unknown_error')",'error');--}}
-                    {{--})--}}
-
             });
         });
     </script>
@@ -175,35 +165,39 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>@lang('bt.base_currency'): </label>
                     {!! Form::select('setting[baseCurrency]', $currencies, config('bt.baseCurrency'), ['class' => 'form-control']) !!}
                 </div>
             </div>
-
-            <div class="col-md-6">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>@lang('bt.fixerio_api_key'): </label>
+                    {!! Form::text('setting[currencyConversionKey]', config('bt.currencyConversionKey'), ['class' => 'form-control', 'placeholder' => 'Get a free API key at https://fixer.io', 'title' => 'Get a free API key at https://fixer.io']) !!}
+                </div>
+                    {{--Why is this here?? because the latest version of Chrome 77.0.3865.90 insists on treating the 2nd text field in the form as a password autofill....--}}
+                    {!! Form::text('stupidchrome', 'Get a free API key at https://fixer.io', ['class' => 'form-control', 'readonly']) !!}
+            </div>
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>@lang('bt.exchange_rate_mode'): </label>
                     {!! Form::select('setting[exchangeRateMode]', $exchangeRateModes, config('bt.exchangeRateMode'), ['class' => 'form-control']) !!}
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>@lang('bt.results_per_page'):</label>
                     {!! Form::select('setting[resultsPerPage]', $resultsPerPage, config('bt.resultsPerPage'), ['class' => 'form-control']) !!}
                 </div>
             </div>
-
         </div>
-
     </div>
+
+
+
 </div>
 <div class="row">
     <div class="col-md-4">

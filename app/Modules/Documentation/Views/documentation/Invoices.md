@@ -99,7 +99,7 @@ A number of other options and values are defined in the options area.
     System Settings.
 -   Exchange Rate - If a currency other than your base currency is
     selected, the exchange rate will automatically update itself based
-    on the current rate.
+    on the current rate. For this to function you must have an API Key configured in System Settings.
 -   Status - The current status of the invoice. Once an invoice has been
     emailed, the status will automatically update itself to Sent. Once
     an invoice has been paid in full, the status will automatically

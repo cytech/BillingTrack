@@ -16,17 +16,21 @@ class FixerIOCurrencyConverter
     /**
      * Returns the currency conversion rate.
      *
+     * @param  string $cc_key
      * @param  string $from
      * @param  string $to
-     * @return decimal
+     * @return float|int
      */
-    public function convert($from, $to)
+    public function convert($cc_key,$from, $to)
     {
         try
         {
-            $result = json_decode(file_get_contents('https://api.fixer.io/latest?base=' . $from . '&symbols=' . $to), true);
+            $result = json_decode(file_get_contents('http://data.fixer.io/api/latest?access_key='. $cc_key . '&symbols='. $from . ',' . $to ), true);
 
-            return $result['rates'][strtoupper($to)];
+            //fixer free api only accepts EUR as base so...
+            $convrate = $result['rates'][strtoupper($to)] / $result['rates'][strtoupper($from)];
+
+            return $convrate;
         }
         catch (\Exception $e)
         {

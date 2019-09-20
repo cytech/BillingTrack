@@ -351,6 +351,7 @@ return [
     'field_meta_description'                  => 'Use the Field Meta field only if the Field Type is a dropdown. To specify dropdown values, enter a list of dropdown values separated by commas.',
     'field_type'                              => 'Field Type',
     'first_quarter'                           => 'First Quarter',
+    'fixerio_api_key'                         => 'FixerIO API Key',
     'footer'                                  => 'Footer',
     'force_employee_update'                   => 'Force Employee Update',
     'force_https'                             => 'Force HTTPS',

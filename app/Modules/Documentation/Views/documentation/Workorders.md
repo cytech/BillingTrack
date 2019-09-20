@@ -102,7 +102,7 @@ A number of other options and values are defined in the options area.
     Settings.
 -   Exchange Rate - If a currency other than your base currency is
     selected, the exchange rate will automatically update itself based
-    on the current rate.
+    on the current rate. For this to function you must have an API Key configured in System Settings.
 -   Status - The current status of the workorder. Once a workorder has
     been emailed, the status will automatically update itself to Sent.
     If a client has accepted or rejected a workorder from the public

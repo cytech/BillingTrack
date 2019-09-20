@@ -367,6 +367,7 @@ return [
     'field_type'                              => 'Field Type',
     'first_name'                              => 'First Name',
     'first_quarter'                           => 'First Quarter',
+    'fixerio_api_key'                         => 'FixerIO API Key',
     'footer'                                  => 'Footer',
     'force_employee_update'                   => 'Force Employee Update',
     'force_https'                             => 'Force HTTPS',

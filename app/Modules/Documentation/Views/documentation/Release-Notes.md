@@ -24,6 +24,10 @@ Release Notes
 - Added Database clean/purge tool
 - Revamped Documentation
 - Update to Laravel 6.0
+- Update deprecated Fixer.io API for currency exchange rates. To use currency exchange rates in BillingTrack,
+  you have to signup for a (free) API key at https://fixer.io. Once you get the key,
+  Enter it in System Settings - General - FixerIO API Key
+
 
 ### BillingTrack 5.0.0 (Mar 19, 2019)
 

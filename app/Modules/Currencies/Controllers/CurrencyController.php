@@ -89,6 +89,13 @@ class CurrencyController extends Controller
     {
         $currencyConverter = CurrencyConverterFactory::create();
 
-        return $currencyConverter->convert(config('bt.baseCurrency'), request('currency_code'));
+        if (config('bt.currencyConversionKey')) {
+
+            return $currencyConverter->convert(config('bt.currencyConversionKey'), config('bt.baseCurrency'), request('currency_code'));
+
+        } else {
+
+            return '1.0000000';
+        }
     }
 }
