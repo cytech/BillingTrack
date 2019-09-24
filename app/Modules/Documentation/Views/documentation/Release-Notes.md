@@ -27,6 +27,7 @@ Release Notes
 - Update deprecated Fixer.io API for currency exchange rates. To use currency exchange rates in BillingTrack,
   you have to signup for a (free) API key at https://fixer.io. Once you get the key,
   Enter it in System Settings - General - FixerIO API Key
+- updated compatibility with latest Paypal, Mollie and Stripe API's
 
 
 ### BillingTrack 5.0.0 (Mar 19, 2019)

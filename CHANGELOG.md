@@ -29,7 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Update deprecated Fixer.io API for currency exchange rates. To use currency exchange rates in BillingTrack,
   you have to signup for a (free) API key at https://fixer.io. Once you get the key,
   Enter it in System Settings - General - FixerIO API Key
-
+- updated compatibility with latest Paypal, Mollie and Stripe API's
 
 ## 5.0.1
 - Renamed project to BillingTrack

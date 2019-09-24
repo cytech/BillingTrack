@@ -19,11 +19,11 @@
         "laravel/helpers": "^1.1",
         "laravelcollective/html": "^6.0",
         "league/commonmark-extras": "^1.1",
-        "mollie/mollie-api-php": "^1.9",
+        "mollie/mollie-api-php": "^2.11",
         "paypal/rest-api-sdk-php": "^1.14",
         "simshaun/recurr": "^4.0",
         "sonata-project/exporter": "^2.0",
-        "stripe/stripe-php": "^6.8",
+        "stripe/stripe-php": "^7.2",
         "yajra/laravel-datatables-buttons": "4.*"
     },
     "require-dev": {

@@ -21,11 +21,11 @@
                     $('#form-validation-placeholder').html('');
                     output_type = $("input[name=output_type]:checked").val();
                     query_string = "?from_date=" + from_date + "&to_date=" + to_date + "&company_profile_id=" + company_profile_id;
-                    if (output_type == 'preview') {
+                    if (output_type === 'preview') {
                         $('#preview').show();
                         $('#preview-results').attr('src', "{{ route('reports.paymentsCollected.html') }}" + query_string);
                     }
-                    else if (output_type == 'pdf') {
+                    else if (output_type === 'pdf') {
                         window.location.href = "{{ route('reports.paymentsCollected.pdf') }}" + query_string;
                     }
 
@@ -102,7 +102,7 @@
         <div class="row" id="preview"
              style="height: 100%; background-color: #e6e6e6; padding: 25px; margin: 0; display: none;">
             <div class="col-lg-8 offset-lg-2" style="background-color: white;">
-                <iframe src="about:blank" id="preview-results" frameborder="0" style="width: 100%;" scrolling="no"
+                <iframe src="about:blank" id="preview-results" style="border: 0;width: 100%;overflow:hidden;"
                         onload="resizeIframe(this, 500);"></iframe>
             </div>
         </div>

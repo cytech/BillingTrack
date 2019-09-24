@@ -18,23 +18,29 @@ class Mollie extends MerchantDriverPayable
 
     public function pay(Invoice $invoice)
     {
-        $mollie = new \Mollie_API_Client;
+        $mollie = new \Mollie\Api\MollieApiClient();
 
         $mollie->setApiKey($this->getSetting('apiKey'));
 
         $payment = $mollie->payments->create([
-            'amount'      => $invoice->amount->balance,
+            'amount'      => [
+                'currency' => $invoice->currency_code,
+                'value' => number_format($invoice->amount->balance,2)
+            ],
             'description' => trans('bt.invoice') . ' #' . $invoice->number,
             'redirectUrl' => route('clientCenter.public.invoice.show', [$invoice->url_key]),
+            //for testing on localhost
+            //'webhookUrl' => 'https://webhook.site/'
             'webhookUrl'  => route('merchant.webhookUrl', [$this->getName(), $invoice->url_key]),
+
         ]);
 
-        return $payment->links->paymentUrl;
+        return $payment->getCheckoutUrl();
     }
 
     public function verify(Invoice $invoice)
     {
-        $mollie = new \Mollie_API_Client;
+        $mollie = new \Mollie\Api\MollieApiClient();
 
         $mollie->setApiKey($this->getSetting('apiKey'));
 
