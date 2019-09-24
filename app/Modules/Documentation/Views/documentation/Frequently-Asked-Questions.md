@@ -88,11 +88,7 @@ Range.
 <a id="can-billingtrack-work-with-xyz-payment-gateway"></a>
 ### Can BillingTrack work with XYZ payment gateway?
 
-BillingTrack uses the [Omnipay](https://github.com/thephpleague/omnipay)
-payment processing library which supports a large number of different
-[payment
-gateways](https://github.com/thephpleague/omnipay#payment-gateways).
-Even though Omnipay supports a large number of gateways, BillingTrack
+BillingTrack
 only implements support for Mollie, PayPal and Stripe.
 
 ---
