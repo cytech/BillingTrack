@@ -4128,16 +4128,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.2.1",
+            "version": "v7.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "16d25de06d3ba0aff6db81b7d33dfc160c03874c"
+                "reference": "9a58f033d9d126c3785f0d8ad47f2e1db269864a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/16d25de06d3ba0aff6db81b7d33dfc160c03874c",
-                "reference": "16d25de06d3ba0aff6db81b7d33dfc160c03874c",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/9a58f033d9d126c3785f0d8ad47f2e1db269864a",
+                "reference": "9a58f033d9d126c3785f0d8ad47f2e1db269864a",
                 "shasum": ""
             },
             "require": {
@@ -4181,7 +4181,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2019-09-23T15:17:50+00:00"
+            "time": "2019-09-24T17:11:03+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5775,16 +5775,16 @@
         },
         {
             "name": "yajra/laravel-datatables-html",
-            "version": "v4.18.0",
+            "version": "v4.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-html.git",
-                "reference": "af9c29640c979a60ac71dc2a9571e50589f83a19"
+                "reference": "f9a7bbe664b269211add70ed34ee40ac4bddfb3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/af9c29640c979a60ac71dc2a9571e50589f83a19",
-                "reference": "af9c29640c979a60ac71dc2a9571e50589f83a19",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/f9a7bbe664b269211add70ed34ee40ac4bddfb3e",
+                "reference": "f9a7bbe664b269211add70ed34ee40ac4bddfb3e",
                 "shasum": ""
             },
             "require": {
@@ -5831,7 +5831,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2019-09-23T04:08:35+00:00"
+            "time": "2019-09-25T06:58:55+00:00"
         },
         {
             "name": "yajra/laravel-datatables-oracle",
