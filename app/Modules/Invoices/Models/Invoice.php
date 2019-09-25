@@ -207,8 +207,10 @@ class Invoice extends Model
 
     public function getIsOverdueAttribute()
     {
-        // Only invoices in Sent status qualify to be overdue
-        if ($this->attributes['due_at'] < date('Y-m-d') and $this->attributes['invoice_status_id'] == InvoiceStatuses::getStatusId('sent'))
+        // Only invoices in Sent status, with a balance qualify to be overdue
+        if ($this->attributes['due_at'] < date('Y-m-d')
+            and $this->attributes['invoice_status_id'] == InvoiceStatuses::getStatusId('sent')
+            and $this->amount->balance <> 0)
             return 1;
 
         return 0;
@@ -401,10 +403,13 @@ class Invoice extends Model
 
     public function scopeOverdue($query)
     {
-        // Only invoices in Sent status qualify to be overdue
+        // Only invoices in Sent status, with a balance qualify to be overdue
         return $query
             ->where('invoice_status_id', '=', InvoiceStatuses::getStatusId('sent'))
-            ->where('due_at', '<', date('Y-m-d'));
+            ->where('due_at', '<', date('Y-m-d'))
+            ->whereHas('amount', function ($q){
+                $q->where('balance', '<>', 0);
+            });
     }
 
     public function scopeYearToDate($query)

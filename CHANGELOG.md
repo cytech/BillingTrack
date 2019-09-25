@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   you have to signup for a (free) API key at https://fixer.io. Once you get the key,
   Enter it in System Settings - General - FixerIO API Key
 - updated compatibility with latest Paypal, Mollie and Stripe API's
+- Remove zero balance invoices from Overdue status filter
 
 ## 5.0.1
 - Renamed project to BillingTrack

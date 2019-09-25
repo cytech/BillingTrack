@@ -2,7 +2,7 @@ Release Notes
 ---
 
 ---
-### BillingTrack 5.1.0 (W.I.P)
+### BillingTrack 5.1.0 (2019-10-01)
 - Added client shipping address fields (address_2,city_2,etc) accessible in templates
 - Added client industry, size, id, and VAT fields
 - Added client contact firstname, lastname, title, phone, fax, mobile, primary , optin and note fields
@@ -28,7 +28,7 @@ Release Notes
   you have to signup for a (free) API key at https://fixer.io. Once you get the key,
   Enter it in System Settings - General - FixerIO API Key
 - updated compatibility with latest Paypal, Mollie and Stripe API's
-
+- Remove zero balance invoices from Overdue status filter
 
 ### BillingTrack 5.0.0 (Mar 19, 2019)
 

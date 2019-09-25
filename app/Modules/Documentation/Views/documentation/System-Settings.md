@@ -30,10 +30,10 @@ System Settings
 To use currency exchange rates in BillingTrack, you have to signup for a (free) API key at https://fixer.io.
 ### Dashboard
 
-| Setting               | Description                                                | Default |
-|:----------------------|:-----------------------------------------------------------|:--------|
-| Display Profile Image | Displays profile image and name in upper left of side menu | Yes     |
-| List of available limits                      | Otions for any available widgets in the system                                                           |         |
+| Setting                  | Description                                                | Default |
+|:-------------------------|:-----------------------------------------------------------|:--------|
+| Display Profile Image    | Displays profile image and name in upper left of side menu | Yes     |
+| List of available limits | Options for any available widgets in the system            |         |
 
 
 ### Quotes
