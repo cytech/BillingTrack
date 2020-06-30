@@ -36,7 +36,7 @@
             $(document).on('click', '.btn-delete-task', function () {
                 Swal.fire({
                     title: '@lang('bt.confirm_trash_task')',
-                    type: 'warning',
+                    icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d68500',
                     confirmButtonText: '@lang('bt.yes_sure')'
@@ -57,7 +57,7 @@
                 if (ids.length > 0) {
                     Swal.fire({
                         title: '@lang('bt.confirm_trash_task')',
-                        type: 'warning',
+                        icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#d68500',
                         confirmButtonText: '@lang('bt.yes_sure')'

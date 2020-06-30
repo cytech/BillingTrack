@@ -23,7 +23,7 @@
         $('#task-timer-list').on('click', '.btn-delete-timer', function () {
             Swal.fire({
                 title: '@lang('bt.trash_record_warning')',
-                type: 'warning',
+                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d68500',
                 confirmButtonText: '@lang('bt.yes_sure')'

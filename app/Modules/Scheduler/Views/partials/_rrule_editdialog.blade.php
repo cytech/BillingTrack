@@ -216,7 +216,7 @@
                         Swal.fire({
                             title: 'Proposed Occurrence',
                             text: 'Frequency to text is  ' + data.result,
-                            type: 'info',
+                            icon: 'info',
                             showConfirmButton: false,
                             timer: 5000
                         });

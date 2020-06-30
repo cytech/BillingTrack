@@ -3,7 +3,7 @@
 
 <div id="create-workorder" style="display: none">
     {!! Form::open(['route' => 'scheduler.api.createwo','id' => 'create-workorderform']) !!}
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf2">
     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}" id="user_id">
     <div class="form-group d-flex align-items-center">
         <label for="company_profile_id" class="col-sm-4 text-right text">@lang('bt.company_profile')</label>

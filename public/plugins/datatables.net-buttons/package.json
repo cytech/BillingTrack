@@ -1,27 +1,28 @@
 {
-  "_from": "datatables.net-buttons@^1.5.6",
-  "_id": "datatables.net-buttons@1.5.6",
+  "_from": "datatables.net-buttons@1.6.2",
+  "_id": "datatables.net-buttons@1.6.2",
   "_inBundle": false,
-  "_integrity": "sha512-FlJtjQ8dsr6xeHWETUCtUJEa7ZqKlphFb22+LXZs80LmJqpVbW84BkppwSoKK+F4k8eRr1tYr38dxcCvIIy0rw==",
+  "_integrity": "sha512-0sKWBBwtCCECRc4T+fUDhFCJv9miLPrB90QsVYq4ep0hIMuWiW76+eCdykZq5yd/3m7K1O+ryt9c7PahBDf91g==",
   "_location": "/datatables.net-buttons",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "datatables.net-buttons@^1.5.6",
+    "raw": "datatables.net-buttons@1.6.2",
     "name": "datatables.net-buttons",
     "escapedName": "datatables.net-buttons",
-    "rawSpec": "^1.5.6",
+    "rawSpec": "1.6.2",
     "saveSpec": null,
-    "fetchSpec": "^1.5.6"
+    "fetchSpec": "1.6.2"
   },
   "_requiredBy": [
+    "#USER",
     "/",
     "/datatables.net-buttons-bs4"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-buttons/-/datatables.net-buttons-1.5.6.tgz",
-  "_shasum": "30305a2ebc6c5e2ce5d32a8ef3649e0d5943d73a",
-  "_spec": "datatables.net-buttons@^1.5.6",
+  "_resolved": "https://registry.npmjs.org/datatables.net-buttons/-/datatables.net-buttons-1.6.2.tgz",
+  "_shasum": "491bf5a808898c468d0b3a6547e3be6883aaebcc",
+  "_spec": "datatables.net-buttons@1.6.2",
   "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
   "author": {
     "name": "SpryMedia Ltd",
@@ -61,5 +62,5 @@
     "type": "git",
     "url": "git+https://github.com/DataTables/Dist-DataTables-Buttons.git"
   },
-  "version": "1.5.6"
+  "version": "1.6.2"
 }

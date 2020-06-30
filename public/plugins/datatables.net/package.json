@@ -1,29 +1,40 @@
 {
-  "_from": "datatables.net@^1.10.19",
-  "_id": "datatables.net@1.10.19",
+  "_from": "datatables.net@1.10.21",
+  "_id": "datatables.net@1.10.21",
   "_inBundle": false,
-  "_integrity": "sha512-+ljXcI6Pj3PTGy5pesp3E5Dr3x3AV45EZe0o1r0gKENN2gafBKXodVnk2ypKwl2tTmivjxbkiqoWnipTefyBTA==",
+  "_integrity": "sha512-/bSZtxmf3GTpYcvEmwZ8q26I1yhSx8qklR2B+s1K8+/51UW/zc2zTYwJMqr/Z+iCYixAc00ildj4g2x0Qamolw==",
   "_location": "/datatables.net",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "datatables.net@^1.10.19",
+    "raw": "datatables.net@1.10.21",
     "name": "datatables.net",
     "escapedName": "datatables.net",
-    "rawSpec": "^1.10.19",
+    "rawSpec": "1.10.21",
     "saveSpec": null,
-    "fetchSpec": "^1.10.19"
+    "fetchSpec": "1.10.21"
   },
   "_requiredBy": [
+    "#USER",
     "/",
     "/admin-lte",
+    "/datatables.net-autofill",
     "/datatables.net-bs4",
-    "/datatables.net-buttons"
+    "/datatables.net-buttons",
+    "/datatables.net-colreorder",
+    "/datatables.net-fixedcolumns",
+    "/datatables.net-fixedheader",
+    "/datatables.net-keytable",
+    "/datatables.net-responsive",
+    "/datatables.net-rowgroup",
+    "/datatables.net-rowreorder",
+    "/datatables.net-scroller",
+    "/datatables.net-select"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net/-/datatables.net-1.10.19.tgz",
-  "_shasum": "97a1ed41c85e62d61040603481b59790a172dd1f",
-  "_spec": "datatables.net@^1.10.19",
+  "_resolved": "https://registry.npmjs.org/datatables.net/-/datatables.net-1.10.21.tgz",
+  "_shasum": "f1d35c8e5c3eb7f5caef39e80cd5b836a8c77103",
+  "_spec": "datatables.net@1.10.21",
   "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
   "author": {
     "name": "SpryMedia Ltd",
@@ -57,5 +68,5 @@
     "type": "git",
     "url": "git+https://github.com/DataTables/Dist-DataTables.git"
   },
-  "version": "1.10.19"
+  "version": "1.10.21"
 }

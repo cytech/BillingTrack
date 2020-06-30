@@ -18,7 +18,7 @@
 
         Swal.fire({
             title: message,
-            type: type,
+            icon: type,
             showConfirmButton: sbutton,
             timer: stimer
         });
@@ -27,7 +27,7 @@
     function swalConfirm(message, link) {
         Swal.fire({
             title: message,
-            type: "warning",
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d68500',
             confirmButtonText: '@lang('bt.yes_sure')'
@@ -44,7 +44,7 @@
 
         Swal.fire({
             title: message,
-            type: 'warning',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d68500',
             confirmButtonText: '@lang('bt.yes_sure')'
@@ -92,7 +92,7 @@
 
         Swal.fire({
             title: message,
-            type: 'warning',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d68500',
             confirmButtonText: '@lang('bt.yes_sure')'

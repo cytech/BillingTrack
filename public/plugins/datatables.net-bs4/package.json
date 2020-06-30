@@ -1,28 +1,39 @@
 {
-  "_from": "datatables.net-bs4@^1.10.19",
-  "_id": "datatables.net-bs4@1.10.19",
+  "_from": "datatables.net-bs4@1.10.21",
+  "_id": "datatables.net-bs4@1.10.21",
   "_inBundle": false,
-  "_integrity": "sha512-pgeP17w4aPR7HIxIwuJghfqXULjdg1K6xMUUKDyCERJRSNNK4MRToFfELtIsluLNN555YBK4Kx8nihX5/ZT1Fw==",
+  "_integrity": "sha512-F9zabYw8ZLXfjvj2S+BdnbkEUsL48bJwWxQFrA47cOXrIvsMhW8nmqPZcIMK4ko3k1i74nbpWLO1t+vueQKoXQ==",
   "_location": "/datatables.net-bs4",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "datatables.net-bs4@^1.10.19",
+    "raw": "datatables.net-bs4@1.10.21",
     "name": "datatables.net-bs4",
     "escapedName": "datatables.net-bs4",
-    "rawSpec": "^1.10.19",
+    "rawSpec": "1.10.21",
     "saveSpec": null,
-    "fetchSpec": "^1.10.19"
+    "fetchSpec": "1.10.21"
   },
   "_requiredBy": [
+    "#USER",
     "/",
     "/admin-lte",
-    "/datatables.net-buttons-bs4"
+    "/datatables.net-autofill-bs4",
+    "/datatables.net-buttons-bs4",
+    "/datatables.net-colreorder-bs4",
+    "/datatables.net-fixedcolumns-bs4",
+    "/datatables.net-fixedheader-bs4",
+    "/datatables.net-keytable-bs4",
+    "/datatables.net-responsive-bs4",
+    "/datatables.net-rowgroup-bs4",
+    "/datatables.net-rowreorder-bs4",
+    "/datatables.net-scroller-bs4",
+    "/datatables.net-select-bs4"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-bs4/-/datatables.net-bs4-1.10.19.tgz",
-  "_shasum": "0608dff22008cf3c7b8a68b1bc702ed255b404fb",
-  "_spec": "datatables.net-bs4@^1.10.19",
+  "_resolved": "https://registry.npmjs.org/datatables.net-bs4/-/datatables.net-bs4-1.10.21.tgz",
+  "_shasum": "7a9ae489ebbd815cd869292450d284edd0f44697",
+  "_spec": "datatables.net-bs4@1.10.21",
   "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
   "author": {
     "name": "SpryMedia Ltd",
@@ -33,7 +44,7 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "datatables.net": "1.10.19",
+    "datatables.net": "1.10.21",
     "jquery": ">=1.7"
   },
   "deprecated": false,
@@ -55,5 +66,5 @@
   "main": "./js/dataTables.bootstrap4.js",
   "name": "datatables.net-bs4",
   "style": "./css/dataTables.bootstrap4.css",
-  "version": "1.10.19"
+  "version": "1.10.21"
 }
