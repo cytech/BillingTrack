@@ -226,6 +226,8 @@
  * http://jquery.org/license
  */
 
+/*! bootstrap-switch-button 2020-02-16 */
+
 /**
  * @license
  * Lodash <https://lodash.com/>

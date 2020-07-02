@@ -27,7 +27,7 @@
     "dependencies": {
         "admin-lte": "^3.0.5",
         "bootstrap-colorpicker": "^3.2.0",
-        "bootstrap-switch": "^3.4.0",
+        "bootstrap-switch-button": "^1.1.0",
         "chosen-js": "^1.8.7",
         "datatables.net": "^1.10.21",
         "datatables.net-bs4": "^1.10.21",
@@ -46,7 +46,6 @@
         "morris.js.so": "^0.5.1",
         "raphael": "^2.3.0",
         "sweetalert2": "^9.15.2",
-        "tippy.js": "^6.2.3",
-        "yuicompressor": "^2.4.8"
+        "tippy.js": "^6.2.3"
     }
 }

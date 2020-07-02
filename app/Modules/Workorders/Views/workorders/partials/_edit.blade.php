@@ -129,25 +129,21 @@
                     </div>
                 </div>
                 <div class="form-group d-flex align-items-center">
-                    <label class="col-sm-6 text-right text">@lang('bt.will_call')</label>
-                    <div class="col-sm-6">
-                    {!! Form::checkbox('will_call', 1, $workorder->will_call, ['id' =>
-                    'will_call', 'class' => 'checkbox']) !!}
-
-                    <script>
-                        $.fn.bootstrapSwitch.defaults.size = 'small';
-                        $.fn.bootstrapSwitch.defaults.onText = 'Yes';
-                        $.fn.bootstrapSwitch.defaults.offText = 'No';
-                        $.fn.bootstrapSwitch.defaults.onColor = 'success';
-                        $.fn.bootstrapSwitch.defaults.offColor = 'danger';
-                        $("[name='will_call']").bootstrapSwitch();
-                    </script>
+                    <label class="col-sm-7 text-right text">@lang('bt.will_call')</label>
+                    <div class="col-sm-5">
+                        {!! Form::checkbox('will_call', 1, $workorder->will_call, ['id' => 'will_call']) !!}
+                        <script>
+                            document.getElementById('will_call').switchButton({
+                                onlabel: '@lang('bt.yes')',
+                                offlabel: '@lang('bt.no')',
+                                onstyle: 'success',
+                                offstyle: 'danger',
+                                size: 'sm'
+                            });
+                        </script>
                     </div>
                 </div>
-
             </div>
-            <br>
-
 
             <div class="row">
 

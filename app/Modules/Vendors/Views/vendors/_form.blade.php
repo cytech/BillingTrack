@@ -1,6 +1,3 @@
-{!! Html::style('plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
-{!! Html::script('plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
-
 <script type="text/javascript">
     $(function () {
         $('#name').focus();
@@ -140,7 +137,7 @@
                                 {{ Form::label('fill_shipping', __('bt.copy_billing')) }}
                             </div>
                             <div class="col-md-6">
-                                {{ Form::checkbox('fill_shipping', 1 , null ,['class' => 'checkbox']) }}
+                                {{ Form::checkbox('fill_shipping', 1 , null ) }}
                                 {{-- see script --}}
                             </div>
                         </div>
@@ -177,13 +174,16 @@
                         </div>
                     </div>
                     <script>
-                        //Bootstrap Switch
-                        $.fn.bootstrapSwitch.defaults.size = 'small';
-                        $.fn.bootstrapSwitch.defaults.onText = '@lang('bt.yes')';
-                        $.fn.bootstrapSwitch.defaults.offText = '@lang('bt.no')';
-                        $("#fill_shipping").bootstrapSwitch();
-                        $('#fill_shipping').on('switchChange.bootstrapSwitch', function (event, state) {
-                            if (state == true) {
+                        //Bootstrap Switch-button
+                        document.getElementById('fill_shipping').switchButton({
+                            onlabel: '@lang('bt.yes')',
+                            offlabel: '@lang('bt.no')',
+                            onstyle: 'success',
+                            offstyle: 'danger',
+                            size: 'sm'
+                        });
+                        $('#fill_shipping').change(function() {
+                            if ($(this).prop('checked')) {
                                 $('#address_2').val($('#address').val());
                                 $('#city_2').val($('#city').val());
                                 $('#state_2').val($('#state').val());
@@ -196,7 +196,7 @@
                                 $('#zip_2').val('');
                                 $('#country_2').val('');
                             }
-                        });
+                        })
                     </script>
 
                 </div>

@@ -11,9 +11,10 @@
                     <div class="card-header">
                         <h3 class="card-title"><i
                                     class="fa fa-edit fa-fw"></i> {{ trans('bt.'.$title) }}
+                        </h3>
                                 <a class="btn btn-warning float-right" href={!! url('/scheduler')  !!}><i class="fa fa-ban"></i> @lang('bt.cancel') </a>
                                 <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> {{ trans('bt.'.$title) }} </button>
-                        </h3></div>
+                        </div>
                     <div class="card-body">
                         {!! Form::hidden('id') !!}
                         {!! Form::hidden('oid') !!}

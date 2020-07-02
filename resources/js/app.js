@@ -10,6 +10,7 @@ require('./bootstrap');
 import 'jquery-ui/ui/widgets/autocomplete';
 import 'jquery-ui/ui/widgets/dialog';
 import 'jquery-ui/ui/widgets/sortable';
+import 'bootstrap-switch-button/dist/bootstrap-switch-button.min';
 
 //window.Vue = require('vue');
 

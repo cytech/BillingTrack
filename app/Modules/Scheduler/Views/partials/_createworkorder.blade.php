@@ -1,6 +1,3 @@
-{!! Html::style('plugins/bootstrap-switch/css/bootstrap-switch.min.css') !!}
-{!! Html::script('plugins/bootstrap-switch/js/bootstrap-switch.min.js') !!}
-
 <div id="create-workorder" style="display: none">
     {!! Form::open(['route' => 'scheduler.api.createwo','id' => 'create-workorderform']) !!}
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="csrf2">
@@ -44,16 +41,18 @@
         </div>
         <label for="will_call" class="col-sm-2 text-right text"> @lang('bt.will_call')</label>
         <div class="col-sm-2">
-            {!! Form::checkbox('will_call', 1, null, ['id' => 'will_call', 'class' => 'checkbox']) !!}
+            {!! Form::checkbox('will_call', 1, null, ['id' => 'will_call']) !!}
         </div>
 
         <script>
-            $.fn.bootstrapSwitch.defaults.size = 'small';
-            $.fn.bootstrapSwitch.defaults.onText = 'Yes';
-            $.fn.bootstrapSwitch.defaults.offText = 'No';
-            $.fn.bootstrapSwitch.defaults.onColor = 'success';
-            $.fn.bootstrapSwitch.defaults.offColor = 'danger';
-            $("[name='will_call']").bootstrapSwitch();
+            //Bootstrap Switch-button
+            document.getElementById('will_call').switchButton({
+                onlabel: '@lang('bt.yes')',
+                offlabel: '@lang('bt.no')',
+                onstyle: 'success',
+                offstyle: 'danger',
+                size: 'sm'
+            });
         </script>
     </div>
     <div class="row">

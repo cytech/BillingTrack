@@ -26,8 +26,6 @@ mix.copyDirectory('node_modules/datatables.net', 'public/plugins/datatables.net'
 mix.copyDirectory('node_modules/datatables.net-bs4', 'public/plugins/datatables.net-bs4');
 mix.copyDirectory('node_modules/datatables.net-buttons', 'public/plugins/datatables.net-buttons');
 mix.copyDirectory('node_modules/datatables.net-buttons-bs4', 'public/plugins/datatables.net-buttons-bs4');
-mix.copyDirectory('node_modules/bootstrap-switch/dist/css/bootstrap3', 'public/plugins/bootstrap-switch/css');
-mix.copyDirectory('node_modules/bootstrap-switch/dist/js', 'public/plugins/bootstrap-switch/js');
 mix.copyDirectory('node_modules/bootstrap-colorpicker/dist', 'public/plugins/bootstrap-colorpicker');
 mix.copy('node_modules/fullcalendar/main.min.js', 'public/plugins/fullcalendar/main.min.js')
 mix.copy('node_modules/fullcalendar/main.min.css', 'public/plugins/fullcalendar/main.min.css')
