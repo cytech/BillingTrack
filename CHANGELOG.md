@@ -7,7 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 5.2.0
 - upgrade to Laravel 7
 - upgrade dependencies
-
+- upgrade FullCalendar to v5
+- added tippy.js for tooltips in calendar
 
 ## 5.1.0
 - Added client shipping address fields (address_2,city_2,etc) accessible in templates

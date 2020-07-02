@@ -115,7 +115,7 @@
                     });
                     notify(msg, 'error');
                 } else {
-                    notify('@lang('bt.unknown_error')', 'danger');
+                    notify('@lang('bt.unknown_error')', 'error');
                 }
             });
         });

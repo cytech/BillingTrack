@@ -8,6 +8,8 @@
     "/plugins/datatables.net-bs4": "/plugins/datatables.net-bs4",
     "/plugins/datatables.net-buttons": "/plugins/datatables.net-buttons",
     "/plugins/datatables.net-buttons-bs4": "/plugins/datatables.net-buttons-bs4",
+    "/plugins/fullcalendar/main.min.js": "/plugins/fullcalendar/main.min.js",
+    "/plugins/fullcalendar/main.min.css": "/plugins/fullcalendar/main.min.css",
     "/plugins/morris.js.so/morris.css": "/plugins/morris.js.so/morris.css",
     "/plugins/morris.js.so/morris.js": "/plugins/morris.js.so/morris.js",
     "/plugins/morris.js.so/morris.min.js": "/plugins/morris.js.so/morris.min.js",

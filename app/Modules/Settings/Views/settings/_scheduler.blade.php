@@ -22,7 +22,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>@lang('bt.fc_themesystem')</label>
-            {!! Form::select('setting[schedulerFcThemeSystem]', ['standard' => 'Standard', 'bootstrap4' => 'Bootstrap4', 'jquery-ui' => 'JQuery-ui'], config('bt.schedulerFcThemeSystem'), ['class' => 'form-control']) !!}
+            {!! Form::select('setting[schedulerFcThemeSystem]', ['standard' => 'Standard', 'bootstrap' => 'Bootstrap4'], config('bt.schedulerFcThemeSystem'), ['class' => 'form-control']) !!}
         </div>
     </div>
 </div>

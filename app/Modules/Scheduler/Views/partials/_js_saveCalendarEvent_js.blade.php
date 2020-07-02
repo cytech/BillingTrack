@@ -53,9 +53,10 @@ $("#saveCalendarEvent").on("submit", function (e) {
                 category: category,
                 reminder: createReminder
             };
-            $('#calendar').fullCalendar('removeEvents', [eventData.id]);
-            $('#calendar').fullCalendar('renderEvent', eventData, true);
-            $('#calendar').fullCalendar('unselect');
+            var eventdel = calendar.getEventById(eventData.id);
+            eventdel.remove();
+            calendar.addEvent(eventData);
+            calendar.unselect();
             $('#calEventDialog').dialog('close');
             $('input[name^="reminder_date"]').each(function () {
                 $(this).val('');
@@ -78,7 +79,7 @@ $("#saveCalendarEvent").on("submit", function (e) {
             });
             notify(msg, 'error');
         } else {
-            notify('@lang('bt.unknown_error')', 'danger');
+            notify('@lang('bt.unknown_error')', 'error');
         }
     });
 

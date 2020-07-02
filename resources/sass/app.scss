@@ -29,6 +29,13 @@ $theme-colors: (
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+//tippy.js tooltips
+@import "~tippy.js/dist/tippy.css";
+@import "~tippy.js/themes/light-border.css";
+@import "~tippy.js/themes/light.css";
+@import "~tippy.js/themes/material.css";
+@import "~tippy.js/themes/translucent.css";
+
 
 //jquery-ui
 @import '~jquery-ui/themes/base/all.css';

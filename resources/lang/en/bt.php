@@ -437,7 +437,7 @@ return [
     'job_date'                                => 'Job Date',
     'job_summary'                             => 'Job Summary',
     'jqui_theme'                              => 'JQuery-UI Theme',
-    'jqui_themenote'                          => '(Applies to Calendar and JQuery-UI Dialogs)',
+    'jqui_themenote'                          => '(Applies to JQuery-UI Dialogs)',
     'keep_invoice_date_as_is'                 => 'Keep Invoice Date As Is',
     'keep_purchaseorder_date_as_is'           => 'Keep Purchaseorder Date As Is',
     'keep_quote_date_as_is'                   => 'Keep Quote Date As Is',
