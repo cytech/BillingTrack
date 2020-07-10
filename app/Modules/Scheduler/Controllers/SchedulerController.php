@@ -25,6 +25,7 @@ use BT\Modules\Scheduler\Models\ScheduleResource;
 use BT\Modules\Scheduler\Models\Category;
 use BT\Modules\Settings\Models\Setting;
 use BT\Modules\Workorders\Models\WorkorderItem;
+use Carbon\Traits\Date;
 use Recurr;
 use Recurr\Transformer;
 use Recurr\Exception;
@@ -580,7 +581,7 @@ class SchedulerController extends Controller
         foreach ($scheduled_calresources as $calitem) {
             foreach ($calitem->resources as $resource) {
                 if ($resource->resource_table == 'employees') {
-                    $scheduled_employees[$resource->resource_id] = $resource->value;//client appointments
+                    $scheduled_clients[$resource->resource_id] = $resource->value;//client appointments
                 }
             }
         }
@@ -642,4 +643,84 @@ class SchedulerController extends Controller
         return [$available_employees, $available_resources];
     }
 
+    public function showSchedule()
+    {
+        if (!isset($_POST['back']) && !isset($_POST['forward']) ) {
+            $date = new Carbon();
+        }
+
+        if(isset($_POST['forward'])){
+            $date = Carbon::parse($_POST['sdate']);
+            $date->addDays(4);
+        }
+
+        if(isset($_POST['back'])){
+            $date = Carbon::parse($_POST['sdate']);
+            $date->subDays(4);
+        }
+
+        $mySdate = $date->copy()->format('Y-m-d');
+        $my1date = $date->copy()->addDays(1)->format('Y-m-d');
+        $my2date = $date->copy()->addDays(2)->format('Y-m-d');
+        $myEdate = $date->copy()->addDays(3)->format('Y-m-d');
+
+        $dates = [$mySdate, $my1date, $my2date, $myEdate];
+
+        $companyProfiles = CompanyProfile::getList();
+
+
+        $scheduled_employees = Workorder::with(['client', 'workorderItems.employees', 'workorderItems' => function ($q) {
+            $q->where('resource_table', 'employees');
+        }])->whereBetween('job_date', [$mySdate, $myEdate])->approved()->get();
+
+        $scheduled_products = Workorder::with(['client', 'workorderItems' => function ($q) {
+            $q->where('resource_table', 'products');
+        }])->whereBetween('job_date', [$mySdate, $myEdate])->approved()->get();
+
+        $scheduled_calemployees = Schedule::withOccurrences()->with(['resources' => function ($q) {
+            $q->where('resource_table', 'employees');
+        }])->whereBetween('start_date', [$mySdate, $myEdate])->get();
+
+        $aedata = [];
+        $ardata = [];
+
+        foreach ($dates as $date) {
+            list($available_employees, $available_resources) = $this->getResourceStatus($date);
+
+            if (!empty($available_employees)) {
+                //remove ___D from name and color blue
+                foreach ($available_employees as $key => $value) {
+                    if (strpos($value, '___D') !== false) {
+                        $value = '<span style = "color:blue">' . str_replace('___D', '', $value) . '</span>';
+                        $available_employees[$key] = $value;
+                    }
+                }
+            }
+            $aedata[$date] = $available_employees;
+            $ardata[$date] = $available_resources;
+        }
+        //scheduled employees - color driver name blue
+        foreach ($scheduled_employees as $emp) {
+            foreach ($emp->workorderItems as $woitem) {
+                foreach ($woitem->employees as $woemp) {
+                    if ($woemp->driver) {
+                        $woitem->name = '<span style = "color:blue">' . $woitem->name . '</span>';
+                    }
+
+                }
+            }
+        }
+        app('debugbar')->info($scheduled_calemployees);
+        return view('schedule.showschedule')
+            ->with('dates', $dates)
+            ->with('aedata', $aedata)
+            ->with('ardata', $ardata)
+            ->with('scheduledemp', $scheduled_employees)
+            ->with('scheduledprod', $scheduled_products)
+            ->with('scheduledcalemp', $scheduled_calemployees)
+            ->with('companyProfiles', $companyProfiles);
+
+    }
+
 }
+

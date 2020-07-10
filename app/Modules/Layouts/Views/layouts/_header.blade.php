@@ -5,6 +5,7 @@
                 ></i></a>
         </li>
     </ul>
+    @push('scripts')
     <script>
         //need to connect up scss bs4 themes...
         //style datatable header and btn-primary like the navbar
@@ -21,6 +22,7 @@
         newStyles.innerHTML = ".btn-primary, .table.dataTable thead > tr > th {background-color: "
                                 + bg + " !important; color: " + color + " !important;}";
     </script>
+    @endpush
     <div class="navbar-nav ml-auto">
 
         <li class="nav-item dropdown">

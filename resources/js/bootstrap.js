@@ -1,9 +1,3 @@
-
-window._ = require('lodash');
-window.Popper = require('popper.js').default;
-window.Tippy = require('tippy.js').default;
-
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -12,9 +6,13 @@ window.Tippy = require('tippy.js').default;
 
 try {
     window.$ = window.jQuery = require('jquery');
-
+    window._ = require('lodash');
+    window.Popper = require('popper.js').default;
+    window.Tippy = require('tippy.js').default;
+    window.Swal = require('sweetalert2');
     require('bootstrap');
     require('admin-lte');
+    require('jquery-autosize')
 
 } catch (e) {}
 

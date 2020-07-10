@@ -412,7 +412,7 @@
                         }
                     },
 
-                    dayMaxEventRows: parseInt({!! config('bt.schedulerEventLimit') !!}), // allows "more" link when too many events
+                    dayMaxEventRows: parseInt({!! config('bt.schedulerEventLimit') !!}) ? parseInt({!! config('bt.schedulerEventLimit') !!}): false, // allows "more" link when too many events
 
                     events: [
                             @foreach($events as $event)

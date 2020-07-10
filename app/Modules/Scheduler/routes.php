@@ -13,6 +13,9 @@ Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Scheduler\Contro
     ->prefix('scheduler')->name('scheduler.')->group(function () {
         Route::name('index')->get('/', 'SchedulerController@index');
         Route::name('fullcalendar')->get('/fullcalendar', 'SchedulerController@calendar');
+        Route::name('showschedule')->get('/showschedule', 'SchedulerController@showSchedule');
+        Route::name('showschedule')->post('/showschedule', 'SchedulerController@showSchedule');
+
         Route::name('create')->get('/create_event', 'SchedulerController@editEvent');
         //ajax post
         Route::name('updateevent')->any('/update_event/{id?}', 'SchedulerController@updateEvent');

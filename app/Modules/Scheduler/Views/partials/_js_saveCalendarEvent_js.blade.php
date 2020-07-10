@@ -54,7 +54,9 @@ $("#saveCalendarEvent").on("submit", function (e) {
                 reminder: createReminder
             };
             var eventdel = calendar.getEventById(eventData.id);
-            eventdel.remove();
+            if (eventdel){
+                eventdel.remove();
+                }
             calendar.addEvent(eventData);
             calendar.unselect();
             $('#calEventDialog').dialog('close');

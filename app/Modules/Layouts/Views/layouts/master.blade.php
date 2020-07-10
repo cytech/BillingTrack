@@ -10,14 +10,11 @@
 
     <link rel="stylesheet" href="/css/app.css">
 
-    <script src="/js/app.js"></script>
-
-
     @include('layouts._head')
 
-    @include('layouts._js_global')
+    <script src="/js/app.js"></script>
 
-    @yield('head')
+    @include('layouts._js_global')
 
     @yield('javascript')
 
@@ -43,5 +40,6 @@
 </a>
 
 @stack('scripts')
+
 </body>
 </html>

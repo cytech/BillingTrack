@@ -1,13 +1,5 @@
 @extends('layouts.master')
 
-@section('head')
-
-    {{--@include('layouts._typeahead')--}}
-    {{--@include('clients._js_lookup')--}}
-    @include('expenses._js_vendor_lookup')
-    @include('expenses._js_category_lookup')
-@stop
-
 @section('javascript')
     <script type="text/javascript">
         $(function () {

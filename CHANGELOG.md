@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - upgrade FullCalendar to v5
 - added tippy.js for tooltips in calendar
 - replaced bootstrap-switch with bootstrap-switch-button
+- added Schedule page for scheduled employees and resources
 
 ## 5.1.0
 - Added client shipping address fields (address_2,city_2,etc) accessible in templates

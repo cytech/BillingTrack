@@ -1,4 +1,10 @@
 /*!
+	Autosize 1.18.18
+	license: MIT
+	http://www.jacklmoore.com/autosize
+*/
+
+/*!
   * Bootstrap v4.5.0 (https://getbootstrap.com/)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -22,6 +28,12 @@
  */
 
 /*!
+ * Vue.js v2.6.11
+ * (c) 2014-2019 Evan You
+ * Released under the MIT License.
+ */
+
+/*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
@@ -33,6 +45,14 @@
  * https://jquery.org/license
  *
  * Date: 2020-05-04T22:49Z
+ */
+
+/*!
+ * jQuery Mousewheel 3.1.13
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license
+ * http://jquery.org/license
  */
 
 /*!
@@ -224,6 +244,20 @@
  * Copyright jQuery Foundation and other contributors
  * Released under the MIT license.
  * http://jquery.org/license
+ */
+
+/*!
+ DataTables 1.10.21
+ ©2008-2020 SpryMedia Ltd - datatables.net/license
+*/
+
+/*!
+ DataTables Bootstrap 4 integration
+ ©2011-2017 SpryMedia Ltd - datatables.net/license
+*/
+
+/*! DataTables 1.10.21
+ * ©2008-2020 SpryMedia Ltd - datatables.net/license
  */
 
 /*! bootstrap-switch-button 2020-02-16 */

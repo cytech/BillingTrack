@@ -18,29 +18,37 @@ $theme-colors: (
         "cyan": $cyan,
 );
 
+// AdminLTE
+@import '~admin-lte/dist/css/adminlte.css';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// AdminLTE
-@import '~admin-lte/dist/css/adminlte.css';
+//bootstrap-switch-button
+@import "~bootstrap-switch-button/css/bootstrap-switch-button.min.css";
+
+//datatables.net
+@import '~datatables.net-bs4/css/dataTables.bootstrap4.min.css';
 
 // Font Awesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
+
+//jquery-ui
+@import '~jquery-ui/themes/base/all.css';
+
+//jquery datetimepicker
+//make sure to use from the BUILD directory...
+@import "~jquery-datetimepicker/build/jquery.datetimepicker.min.css";
+
 //tippy.js tooltips
 @import "~tippy.js/dist/tippy.css";
 @import "~tippy.js/themes/light-border.css";
 @import "~tippy.js/themes/light.css";
 @import "~tippy.js/themes/material.css";
 @import "~tippy.js/themes/translucent.css";
-//bootstrap-switch-button
-@import "~bootstrap-switch-button/css/bootstrap-switch-button.min.css";
-
-
-//jquery-ui
-@import '~jquery-ui/themes/base/all.css';
 
 // SweetAlert2
 //@import "~sweetalert2/dist/sweetalert2.css";

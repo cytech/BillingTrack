@@ -125,6 +125,9 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.fullcalendar') }}"><i
                                         class="nav-icon fa fa-th ml-3"></i> @lang('bt.calendar')</a>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.showschedule') }}"><i
+                                        class="nav-icon far fa-clock ml-3"></i> @lang('bt.schedule')</a>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('scheduler.create') }}"><i
                                         class="nav-icon fa fa-plus ml-3"></i> @lang('bt.create_event')</a>
                         </li>

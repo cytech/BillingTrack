@@ -21,7 +21,6 @@ mix.copy('node_modules/jquery-autosize/jquery.autosize.min.js', 'public/plugins/
 mix.copyDirectory('node_modules/chosen-js', 'public/plugins/chosen');
 mix.copy('node_modules/daterangepicker/daterangepicker.css', 'public/plugins/daterangepicker/daterangepicker.css');
 mix.copy('node_modules/daterangepicker/daterangepicker.js', 'public/plugins/daterangepicker/daterangepicker.js');
-mix.copyDirectory('node_modules/sweetalert2/dist', 'public/plugins/sweetalert2');
 mix.copyDirectory('node_modules/datatables.net', 'public/plugins/datatables.net');
 mix.copyDirectory('node_modules/datatables.net-bs4', 'public/plugins/datatables.net-bs4');
 mix.copyDirectory('node_modules/datatables.net-buttons', 'public/plugins/datatables.net-buttons');
