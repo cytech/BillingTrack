@@ -114,9 +114,15 @@
                                                     <tbody>
                                                     @foreach($scheduledemp as $emp)
                                                         @if($emp->job_date->format('Y-m-d') == $date)
-                                                            @foreach($emp->workorderItems as $woitem)
+                                                            @foreach($emp->workorderItems->sortBy('name') as $woitem)
                                                                 <tr>
-                                                                    <td> {!! $woitem->name !!}</td>
+                                                                    @foreach ($woitem->employees as $woemp)
+                                                                    @if($woemp->driver)
+                                                                        <td style="color: blue">{{$woitem->name}}</td>
+                                                                    @else
+                                                                        <td> {{ $woitem->name }} </td>
+                                                                    @endif
+                                                                    @endforeach
                                                                     <td> {{ $emp->formatted_start_time }}</td>
                                                                     <td> {{ $emp->formatted_end_time }}</td>
                                                                     <td> {{ $emp->client->name }}</td>
@@ -227,6 +233,27 @@
 
     <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
+        /*createworkorder dialog*/
+        $(".start_time").datetimepicker({
+            datepicker: false,
+            format: 'H:i',
+            formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+            defaultTime: '08:00',
+            step: {!! config('bt.schedulerTimestep') !!},//15
+            onClose: function (selectedTime) {
+                $(".end_time").datetimepicker({minTime: selectedTime});
+            }
+        });
+
+        $('.end_time').datetimepicker({
+            datepicker: false,
+            format: 'H:i',
+            formatTime: '{{ config('bt.use24HourTimeFormat') ? 'H:i' : 'g:i A' }}',
+            step: {!! config('bt.schedulerTimestep') !!},
+            onClose: function (selectedTime) {
+                $(".start_time").datetimepicker({maxTime: selectedTime});
+            }
+        });
 
         $(document).on('click', '[id^=createWorkorder]', function () {
             let date = $(this).data("date");

@@ -611,6 +611,7 @@ class SchedulerController extends Controller
         } else {
             $available_employees = $active_employees;
         }
+        asort($available_employees);
         //check if drivers in list and color blue
         foreach ($available_employees as $key => $value){
             if (in_array($key,$drivers)){
@@ -639,7 +640,6 @@ class SchedulerController extends Controller
         } else {
             $available_resources = $active_resources;
         }
-
         return [$available_employees, $available_resources];
     }
 
@@ -679,7 +679,7 @@ class SchedulerController extends Controller
 
         $scheduled_calemployees = Schedule::withOccurrences()->with(['resources' => function ($q) {
             $q->where('resource_table', 'employees');
-        }])->whereBetween('start_date', [$mySdate, $myEdate])->get();
+        }])->whereDate('start_date', '>=', $mySdate)->whereDate('start_date', '<=', $myEdate)->get();
 
         $aedata = [];
         $ardata = [];
@@ -699,18 +699,7 @@ class SchedulerController extends Controller
             $aedata[$date] = $available_employees;
             $ardata[$date] = $available_resources;
         }
-        //scheduled employees - color driver name blue
-        foreach ($scheduled_employees as $emp) {
-            foreach ($emp->workorderItems as $woitem) {
-                foreach ($woitem->employees as $woemp) {
-                    if ($woemp->driver) {
-                        $woitem->name = '<span style = "color:blue">' . $woitem->name . '</span>';
-                    }
 
-                }
-            }
-        }
-        app('debugbar')->info($scheduled_calemployees);
         return view('schedule.showschedule')
             ->with('dates', $dates)
             ->with('aedata', $aedata)
