@@ -10,6 +10,7 @@
 
 namespace BT\Modules\Employees\Models;
 
+use BT\Modules\Scheduler\Models\ScheduleResource;
 use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
@@ -25,6 +26,12 @@ class Employee extends Model
     public function workorderitem()
     {
         return $this->belongsTo('BT\Modules\Workorders\Models\WorkorderItem','resource_id', 'id')
+            ->where('resource_table','=','employees');
+    }
+
+    public function scheduleresource()
+    {
+        return $this->belongsTo(ScheduleResource::class,'resource_id', 'id')
             ->where('resource_table','=','employees');
     }
 

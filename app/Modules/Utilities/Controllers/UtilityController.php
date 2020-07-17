@@ -116,7 +116,6 @@ class UtilityController
     public function bulkRestoreTrash()
     {
         $request = request('ids');
-        app('debugbar')->info($request);
         foreach ($request as $arr) {
             foreach ($arr as $entity => $id) {
                 if ($entity == 'Schedule') {

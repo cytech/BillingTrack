@@ -44,9 +44,15 @@
                                                     @foreach($aedata as $emp => $value)
                                                         @if($emp == $date)
                                                             @foreach($value as $emp)
+                                                                @if($emp->driver)
                                                                 <tr>
-                                                                    <td> {!! $emp !!}</td>
+                                                                    <td style="color: blue">{{$emp->short_name}}</td>
                                                                 </tr>
+                                                                @else
+                                                                <tr>
+                                                                    <td> {!! $emp->short_name !!}</td>
+                                                                </tr>
+                                                                @endif
                                                             @endforeach
                                                         @endif
                                                     @endforeach
@@ -233,6 +239,7 @@
 
     <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
+        $.fn.button.noConflict();
         /*createworkorder dialog*/
         $(".start_time").datetimepicker({
             datepicker: false,
@@ -295,18 +302,17 @@
                                 'type': 'checkbox',
                                 'id': 'worker',
                                 'name': 'workers[]',
-                                'value': k
+                                'value': v.id
                             });
-                            if (v.indexOf("___D") >= 0) {//if driver ___D passed from json
-                                v = v.replace("___D", "");
+                            if (v.driver) {//if driver passed from json
                                 $("#wtable").append($('<label/>', {
                                     'style': 'display:block;color:blue',
-                                    'text': v
+                                    'text': v.short_name
                                 }).prepend("  ").prepend(cb))
                             } else {
                                 $("#wtable").append($('<label/>', {
                                     'style': 'display:block',
-                                    'text': v
+                                    'text': v.short_name
                                 }).prepend("  ").prepend(cb))
                             }
                         });

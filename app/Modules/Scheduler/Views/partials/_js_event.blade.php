@@ -106,7 +106,7 @@
                         listDay: 'Day List'
                     },
                     aspectRatio: '{!! config('bt.schedulerFcAspectRatio') !!}',//1.35 default
-                    eventOrder: "category,start",
+                    eventOrder: "-category,start",
                     eventDisplay: 'block',
                     @if(config('bt.schedulerCreateWorkorder'))
                         datesSet: function (info) {
@@ -142,18 +142,17 @@
                                                 'type': 'checkbox',
                                                 'id': 'worker',
                                                 'name': 'workers[]',
-                                                'value': k
+                                                'value': v.id
                                             });
-                                            if (v.indexOf("___D") >= 0) {//if driver ___D passed from json
-                                                v = v.replace("___D", "");
+                                            if (v.driver) {//if driver passed from json
                                                 $("#wtable").append($('<label/>', {
                                                     'style': 'display:block;color:blue',
-                                                    'text': v
+                                                    'text': v.short_name
                                                 }).prepend("  ").prepend(cb))
                                             } else {
                                                 $("#wtable").append($('<label/>', {
                                                     'style': 'display:block',
-                                                    'text': v
+                                                    'text': v.short_name
                                                 }).prepend("  ").prepend(cb))
                                             }
                                         });

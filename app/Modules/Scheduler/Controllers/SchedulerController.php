@@ -109,9 +109,7 @@ class SchedulerController extends Controller
     public function calendar()
     {
         //only fetch back configured amount of days
-
         $data['status'] = (request('status')) ?: 'now';
-
         $data['events'] = Schedule::withOccurrences()->with('resources','reminders')->whereDate('start_date', '>=',
                             Carbon::now()->subDays(config('bt.schedulerPastdays')))->get();
         $data['categories'] = Category::pluck('name','id');
@@ -174,7 +172,6 @@ class SchedulerController extends Controller
     {
         return $dataTable->render('schedule.tableRecurringEvent');
     }
-
 
     //event create or edit
 	public function editEvent( $id = null ) {
@@ -541,19 +538,14 @@ class SchedulerController extends Controller
 
 	    list($available_employees) = $this->getResourceStatus($date);
 
-	    if (!empty($available_employees)) {
-            //remove ___D from name
-            foreach($available_employees as $key => $value){
-                $available_employees[$key] = str_replace('___D','',$value);
-            }
-	    }else{
+	    if (empty($available_employees)) {
 	        $available_employees[0] = trans('bt.no_emp_available');
         }
 
 	    return view('schedule.modal_replace_employee')
             ->with('item_id', $item_id)
             ->with('inactive_employee', $inactive_employee)
-            ->with('available_employees', $available_employees);
+            ->with('available_employees', $available_employees->pluck('short_name','id'));
     }
 
     public function setReplaceEmployee(ReplaceRequest $request){
@@ -567,80 +559,40 @@ class SchedulerController extends Controller
     }
 
     public function getResourceStatus($date){
-        $scheduled_calresources = Schedule::withOccurrences()->with('resources')->whereDate('start_date','=', $date)->get();
-        $scheduled_resources = Workorder::with('workorderItems')->whereDate('job_date','=', $date)->approved()->get();
-        $drivers =  Employee::where('active','=','1')->where('driver','=', 1)->pluck('id','short_name')->toArray();
-        //active, scheduleable employees
-        $active_employees = Employee::where('active','=','1')->where('schedule', '=', '1')->pluck('short_name','id')->toArray();
-        $active_resources = Product::where('active','=','1')->orderBy('category_id')->orderBy('name')->get(['id','name','numstock'])->toArray();
 
-        $scheduled_clients   = [];
-        $scheduled_employees = [];
-        $scheduled_equipment = [];
+	    $employees_appointments = ScheduleResource::whereHas('occurrence', function ($q) use ($date) {
+            $q->whereDate('start_date', '=', $date);
+        })->orderBy('value')->get('resource_id');
 
-        foreach ($scheduled_calresources as $calitem) {
-            foreach ($calitem->resources as $resource) {
-                if ($resource->resource_table == 'employees') {
-                    $scheduled_clients[$resource->resource_id] = $resource->value;//client appointments
-                }
-            }
-        }
+	    $employees_scheduled = WorkorderItem::whereHas('workorder', function ($q) use ($date) {
+            $q->whereDate('job_date', '=', $date)->approved();
+        })->where('resource_table', 'employees')->orderBy('name')->get('resource_id');
 
-        foreach ($scheduled_resources as $item){
-            foreach ($item->workorderItems as $resitem) {
-                if ($resitem->resource_table == 'employees') {
-                    $scheduled_employees[$resitem->resource_id] = $resitem->value;//employees from schedule_resources
-                } else if ($resitem->resource_table == 'products') {
-                    if(!isset($scheduled_equipment[$resitem->resource_id])) {
-                        $scheduled_equipment[$resitem->resource_id]['id'] = $resitem->resource_id;
-                        $scheduled_equipment[$resitem->resource_id]['name'] = $resitem->name;//resources from schedule_resources
-                        $scheduled_equipment[$resitem->resource_id]['numstock'] = $resitem->quantity;
-                    }else{
-                        $scheduled_equipment[$resitem->resource_id]['numstock'] += $resitem->quantity;
+	    $employees_unscheduled = Employee::where('active', '=', '1')->where('schedule', '=', '1')
+            ->whereNotIn('id', $employees_appointments)
+            ->whereNotIn('id', $employees_scheduled)
+            ->orderBy('short_name')->get(['id','short_name','driver']);
+
+        $resources_scheduled = WorkorderItem::whereHas('workorder', function ($q) use ($date) {
+            $q->whereDate('job_date', '=', $date)->approved();
+        })->where('resource_table', 'products')->orderBy('name')->get(['resource_id', 'name', 'quantity']);
+
+        $resources_unscheduled = Product::where('active', '=', '1')
+            ->orderBy('category_id')->orderBy('name')
+            ->get(['id', 'name', 'numstock']);
+
+        //check against numstock and remove if necessary
+        foreach ($resources_scheduled as $key => $equip){
+            foreach ($resources_unscheduled as $key1 => $active){
+                if ($equip->resource_id == $active->id){
+                    if($equip->quantity >= $active->numstock){
+                        $resources_unscheduled->forget($key1);
                     }
                 }
             }
         }
 
-        //merge client appointments and scheduled_employees
-        $scheduled_all = $scheduled_clients + $scheduled_employees;
-
-        // build array of AVAILABLE workers
-        if (isset($scheduled_all)) {
-            $available_employees = array_diff_key($active_employees, $scheduled_all);
-        } else {
-            $available_employees = $active_employees;
-        }
-        asort($available_employees);
-        //check if drivers in list and color blue
-        foreach ($available_employees as $key => $value){
-            if (in_array($key,$drivers)){
-                //prepending __D to indicate driver - parsed in jquery to change color
-                $available_employees[$key] = '___D'.$value;
-            }
-        }
-
-        // build array of AVAILABLE resources
-        if (isset($scheduled_equipment)) {
-            //check if scheduled resource is availalble against resource numstock
-            $scheduled_instock = array();
-            foreach ($scheduled_equipment as $equip){
-                foreach ($active_resources as $active){
-                    if ($equip['id'] == $active['id']){
-                        if($equip['numstock'] < $active['numstock']){
-                            array_push($scheduled_instock,$equip);
-                        }
-                    }
-                }
-            }
-            //remove equipment that is not in stock
-            $scheduled_equipment = array_udiff($scheduled_equipment,$scheduled_instock, function ($a, $b){return $b['id'] - $a['id'] ;});
-            //remove unavailable resource
-            $available_resources = array_udiff($active_resources, $scheduled_equipment, function ($a, $b){return $b['id'] - $a['id'] ;});
-        } else {
-            $available_resources = $active_resources;
-        }
-        return [$available_employees, $available_resources];
+        return [$employees_unscheduled, $resources_unscheduled];
     }
 
     public function showSchedule()
@@ -687,15 +639,6 @@ class SchedulerController extends Controller
         foreach ($dates as $date) {
             list($available_employees, $available_resources) = $this->getResourceStatus($date);
 
-            if (!empty($available_employees)) {
-                //remove ___D from name and color blue
-                foreach ($available_employees as $key => $value) {
-                    if (strpos($value, '___D') !== false) {
-                        $value = '<span style = "color:blue">' . str_replace('___D', '', $value) . '</span>';
-                        $available_employees[$key] = $value;
-                    }
-                }
-            }
             $aedata[$date] = $available_employees;
             $ardata[$date] = $available_resources;
         }

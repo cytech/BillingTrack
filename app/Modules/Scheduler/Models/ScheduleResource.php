@@ -32,5 +32,16 @@ class ScheduleResource extends Model {
         return $this->belongsTo('BT\Modules\Scheduler\Models\Schedule', 'schedule_id', 'id');
     }
 
+    public function employees()
+    {
+        return $this->hasMany('BT\Modules\Employees\Models\Employee', 'id', 'resource_id');
+    }
+
+    public function occurrence()
+    {
+        return$this->hasOneThrough(ScheduleOccurrence::class, Schedule::class, 'id','schedule_id');
+    }
+
+
 
 }

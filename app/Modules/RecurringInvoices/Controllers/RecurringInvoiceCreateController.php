@@ -33,7 +33,6 @@ class RecurringInvoiceCreateController extends Controller
     public function store(RecurringInvoiceStoreRequest $request)
     {
         $input = $request->except('client_name');
-        app('debugbar')->info($input);
         $input['client_id'] = Client::firstOrCreateByUniqueName($request->input('client_name'))->id;
         $input['next_date'] = DateFormatter::unformat($input['next_date']);
         $input['stop_date'] = ($input['stop_date']) ? DateFormatter::unformat($input['stop_date']) : '0000-00-00';
