@@ -4,7 +4,7 @@ namespace BT\Modules\Scheduler\Support;
 
 use stdClass;
 
-class calendarEventPresenter
+class CalendarEventPresenter
 {
     public function calendarEvent($entity,$type)
     {

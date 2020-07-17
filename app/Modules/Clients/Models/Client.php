@@ -150,7 +150,7 @@ class Client extends Model
 
     public function paymentterm()
     {
-        return $this->belongsTo('BT\Modules\PaymentTerms\Models\Paymentterm');
+        return $this->belongsTo('BT\Modules\PaymentTerms\Models\PaymentTerm');
     }
 
 
