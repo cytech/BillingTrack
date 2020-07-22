@@ -11,12 +11,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-use League\CommonMark\Ext\Autolink\AutolinkExtension;
-use League\CommonMark\Ext\SmartPunct\SmartPunctExtension;
-use League\CommonMark\Ext\Strikethrough\Strikethrough;
-use League\CommonMark\Ext\Strikethrough\StrikethroughExtension;
-use League\CommonMark\Ext\Table\TableExtension;
-use League\CommonMark\Ext\TaskList\TaskListExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+//use League\CommonMark\Extension\Autolink\AutolinkExtension;
+//use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
+//use League\CommonMark\Extension\TaskList\TaskListExtension;
+//use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
 
 return [
 

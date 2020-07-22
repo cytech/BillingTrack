@@ -11,14 +11,13 @@
         <div class="card card-light">
             <div class="card-header">
                 <h3 class="card-title"><i
-                            class="fa fa-edit fa-fw"></i>
+                            class="fa fa-edit fa-fw float-left"></i>
                     @lang('bt.edit_product')
+                </h3>
                     <a class="btn btn-warning float-right" href={!! route('products.index')  !!}><i
                                 class="fa fa-ban"></i> @lang('bt.cancel')</a>
                     <button type="submit" class="btn btn-primary float-right"><i
                                 class="fa fa-save"></i> @lang('bt.save') </button>
-                </h3>
-
             </div>
             <div class="card-body">
 
