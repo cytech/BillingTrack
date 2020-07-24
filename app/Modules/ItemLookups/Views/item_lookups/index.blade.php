@@ -23,8 +23,9 @@
                         <th>@lang('bt.price')</th>
                         <th>@lang('bt.tax_1')</th>
                         <th>@lang('bt.tax_2')</th>
+                        <th>@lang('bt.resource_table')</th>
+                        <th>@lang('bt.resource_id')</th>
                         <th>@lang('bt.options')</th>
-                        <th class="d-none">resource_table</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,8 @@
                             <td>{{ $itemLookup->formatted_price }}</td>
                             <td>{{ $itemLookup->taxRate->name ?? '' }}</td>
                             <td>{{ $itemLookup->taxRate2->name ?? '' }}</td>
+                            <td>{{ $itemLookup->resource_table ?? '' }}</td>
+                            <td>{{ $itemLookup->resource_id ?? '' }}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle"
@@ -52,7 +55,6 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="d-none">{{ $itemLookup->resource_table }}</td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -65,9 +67,9 @@
             {{--for itemlookups DT--}}
             $('#dt-itemlookupstable').DataTable({
                 paging: true,
-                order: [[6, "asc"], [0, "asc"]],//order on hidden resource table then name
+                order: [[5, "asc"], [0, "asc"]],//order on hidden resource table then name
                 "columnDefs": [
-                    {"orderable": false, "targets": 5}
+                    {"orderable": false, "targets": 7}
                 ]
             });
         });

@@ -48,6 +48,14 @@
                     <label class="">@lang('bt.tax_2'): </label>
                     {!! Form::select('tax_rate_2_id', $taxRates, null, ['class' => 'form-control']) !!}
                 </div>
+                <div class="form-group">
+                    <label class="">@lang('bt.resource_table'): </label>
+                    {!! Form::text('resource_table', (($editMode) ? $itemLookup->resource_table: null), ['class' => 'form-control', 'readonly' => true]) !!}
+                </div>
+                <div class="form-group">
+                    <label class="">@lang('bt.resource_id'): </label>
+                    {!! Form::text('resource_id', (($editMode) ? $itemLookup->resource_id: null), ['class' => 'form-control', 'readonly' => true]) !!}
+                </div>
             </div>
         </div>
     </section>

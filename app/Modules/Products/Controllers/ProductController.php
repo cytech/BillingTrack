@@ -18,28 +18,28 @@ use BT\Modules\Products\Requests\ProductRequest;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Vendors\Models\Vendor;
 use BT\Support\NumberFormatter;
+use BT\Traits\ReturnUrl;
+use BT\DataTables\ProductsDataTable;
 
 class ProductController extends Controller
 {
+    use ReturnUrl;
     /**
      * Display a listing of the product.
      *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ProductsDataTable $dataTable)
     {
-	    $products = Product::get();
+        $this->setReturnUrl();
 
-        return view('products.index')
-            ->with('products', $products)
-            ->with('categories', Category::pluck('name', 'id'))
-            ->with('inventorytypes', InventoryType::pluck('name', 'id'));
+        $status = (request('status')) ?: 'all';
+
+        return $dataTable->render('products.index',['status' => $status]);
     }
 
     /**
      * Show the form for creating a new product.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -54,14 +54,15 @@ class ProductController extends Controller
             ->with('vendors', Vendor::pluck('name', 'id'))
             ->with('categories', Category::pluck('name', 'id'))
             ->with('inventorytypes', InventoryType::pluck('name', 'id'))
-            ->with('optionAttributes', $invtracked);
+            ->with('optionAttributes', $invtracked)
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     /**
      * Store a newly created product in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(ProductRequest $request)
     {
@@ -91,7 +92,7 @@ class ProductController extends Controller
         }
 
 
-        return redirect()->route('products.index')->with('alertInfo', trans('bt.create_product_success'));
+        return redirect($this->getReturnUrl())->with('alertInfo', trans('bt.create_product_success'));
     }
 
     /**
@@ -109,7 +110,6 @@ class ProductController extends Controller
      * Show the form for editing the specified product.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -128,7 +128,8 @@ class ProductController extends Controller
             ->with('vendors', Vendor::pluck('name', 'id'))
             ->with('categories', Category::pluck('name', 'id'))
             ->with('inventorytypes', InventoryType::pluck('name', 'id'))
-            ->with('optionAttributes', $invtracked);
+            ->with('optionAttributes', $invtracked)
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     /**
@@ -136,7 +137,7 @@ class ProductController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(ProductRequest $request, $id)
     {
@@ -145,9 +146,13 @@ class ProductController extends Controller
 
         if ($request->category) {
             $products->category_id = Category::firstOrCreate(['name' => $request->category])->id;
+        }else{
+            $products->category_id = null;
         }
         if ($request->vendor) {
             $products->vendor_id = Vendor::firstOrCreate(['name' => $request->vendor])->id;
+        }else{
+            $products->vendor_id = null;
         }
 
         $products->name = $request->name;
@@ -166,7 +171,7 @@ class ProductController extends Controller
         }
 
         // redirect
-        return redirect()->route('products.index')->with('alertInfo', trans('bt.edit_product_success'));
+        return redirect($this->getReturnUrl())->with('alertInfo', trans('bt.edit_product_success'));
     }
 
     /**

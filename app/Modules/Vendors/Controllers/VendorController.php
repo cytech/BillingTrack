@@ -41,7 +41,6 @@ class VendorController extends Controller
     /**
      * Show the form for creating a new product.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -57,7 +56,7 @@ class VendorController extends Controller
      * Store a newly created product in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(VendorStoreRequest $request)
     {
@@ -74,7 +73,6 @@ class VendorController extends Controller
      * Display the specified product.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show($vendorId)
     {
@@ -98,7 +96,6 @@ class VendorController extends Controller
      * Show the form for editing the specified product.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($vendorId)
     {
@@ -117,7 +114,7 @@ class VendorController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(VendorUpdateRequest $request, $id)
     {
@@ -136,11 +133,19 @@ class VendorController extends Controller
      * Remove the specified product from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        if (Vendor::inUse($id)) {
+            $alert = trans('bt.cannot_delete_record_in_use');
+        } else {
+            Vendor::destroy($id);
+            $alert = trans('bt.record_successfully_deleted');
+        }
+
+        return redirect()->route('vendors.index')
+            ->with('alert', $alert);
     }
 
     public function ajaxLookup()

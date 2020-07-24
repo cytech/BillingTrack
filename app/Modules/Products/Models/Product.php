@@ -27,12 +27,12 @@ class Product extends Model
 
     public function vendor()
     {
-        return $this->belongsTo('BT\Modules\Vendors\Models\Vendor');
+        return $this->belongsTo('BT\Modules\Vendors\Models\Vendor')->withDefault(['name' => '']);
     }
 
     public function category()
     {
-        return $this->belongsTo('BT\Modules\Categories\Models\Category');
+        return $this->belongsTo('BT\Modules\Categories\Models\Category')->withDefault(['name' => '']);
     }
 
     public function inventorytype()
@@ -83,5 +83,19 @@ class Product extends Model
     public function scopeTracked($query)
     {
         return $query->whereIn('inventorytype_id', InventoryType::where('tracked', 1)->get('id'));
+    }
+
+    public function scopeStatus($query, $status)
+    {
+        if ($status == 'active')
+        {
+            $query->where('active', 1);
+        }
+        elseif ($status == 'inactive')
+        {
+            $query->where('active', 0);
+        }
+
+        return $query;
     }
 }

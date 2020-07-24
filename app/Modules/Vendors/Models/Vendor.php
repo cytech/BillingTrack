@@ -11,11 +11,12 @@
 
 namespace BT\Modules\Vendors\Models;
 
+use BT\Modules\Expenses\Models\Expense;
+use BT\Modules\Purchaseorders\Models\Purchaseorder;
 use BT\Support\CurrencyFormatter;
-use BT\Support\Statuses\InvoiceStatuses;
 use BT\Support\Statuses\PurchaseorderStatuses;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+use DB;
 
 class Vendor extends Model
 {
@@ -45,6 +46,21 @@ class Vendor extends Model
         }
 
         return $vendor;
+    }
+
+    public static function inUse($id)
+    {
+        if (Purchaseorder::where('vendor_id', $id)->count())
+        {
+            return true;
+        }
+
+        if (Expense::where('vendor_id', $id)->count())
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -86,7 +102,7 @@ class Vendor extends Model
 
     public function paymentterm()
     {
-        return $this->belongsTo('BT\Modules\PaymentTerms\Models\Paymentterm');
+        return $this->belongsTo('BT\Modules\PaymentTerms\Models\PaymentTerm');
     }
 
     public function purchaseorders()
@@ -172,14 +188,6 @@ class Vendor extends Model
         elseif ($status == 'inactive')
         {
             $query->where('active', 0);
-        }
-        elseif ($status == 'company')
-        {
-            $query->where('is_company', 1);
-        }
-        elseif ($status == 'individual')
-        {
-            $query->where('is_company', 0);
         }
 
         return $query;

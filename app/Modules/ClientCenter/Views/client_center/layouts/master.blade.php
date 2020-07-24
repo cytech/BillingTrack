@@ -15,8 +15,6 @@
 
     @include('layouts._js_global')
 
-    @yield('head')
-
     @yield('javascript')
 
 </head>

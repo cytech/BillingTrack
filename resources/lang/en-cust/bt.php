@@ -643,6 +643,8 @@ return [
     'reset_number'                            => 'Reset Number',
     'reset_password'                          => 'Reset Password',
     'resource'                                => 'Resource',
+    'resource_table'                          => 'Resource Table',
+    'resource_id'                             => 'Resource ID',
     'resources'                               => 'Resources',
     'resources_scheduled'                     => 'Resources Scheduled',
     'resources_not_scheduled'                 => 'Resources Not Scheduled',

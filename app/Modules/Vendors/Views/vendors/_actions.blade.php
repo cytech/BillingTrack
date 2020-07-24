@@ -11,7 +11,7 @@
                         class="far fa-file-alt"></i> @lang('bt.create_purchaseorder')</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#" id="delete-vendor-{{ $id }}"
-               onclick="swalConfirm('@lang('bt.trash_vendor_warning')', '{{ route('vendors.delete', [$id]) }}');"><i
-                        class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+               onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('vendors.delete', [$id]) }}');"><i
+                        class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
     </div>
 </div>

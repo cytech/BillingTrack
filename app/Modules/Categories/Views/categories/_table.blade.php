@@ -11,8 +11,7 @@
     <tbody>
     @foreach ($categories as $category)
         <tr>
-            <td><a href="{{ route('categories.edit', [$category->id]) }}"
-                   title="@lang('bt.edit')">{{ $category->id }}</a></td>
+            <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td> <a href="{{ route('categories.edit', [$category->id]) }}" class="btn btn-primary btn-sm "><i
                             class="fa fa-edit"></i>

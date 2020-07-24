@@ -2,6 +2,15 @@ Release Notes
 ---
 
 ---
+### BillingTrack 5.2.0 (2020-08-01)
+- upgrade to Laravel 7
+- upgrade dependencies
+- upgrade FullCalendar to v5
+- added tippy.js for tooltips in calendar
+- replaced bootstrap-switch with bootstrap-switch-button
+- added Schedule page for scheduled employees and resources
+- fix Vendor delete
+
 ### BillingTrack 5.1.0 (2019-10-01)
 - Added client shipping address fields (address_2,city_2,etc) accessible in templates
 - Added client industry, size, id, and VAT fields

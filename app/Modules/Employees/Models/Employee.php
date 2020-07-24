@@ -52,5 +52,19 @@ class Employee extends Model
         $this->attributes['short_name'] = $this->attributes['first_name'] . ' ' . substr($this->attributes['last_name'],0,1) . '.';
     }
 
+    public function scopeStatus($query, $status)
+    {
+        if ($status == 'active')
+        {
+            $query->where('active', 1);
+        }
+        elseif ($status == 'inactive')
+        {
+            $query->where('active', 0);
+        }
+
+        return $query;
+    }
+
 
 }

@@ -15,38 +15,43 @@ use BT\Modules\Employees\Requests\EmployeeRequest;
 use BT\Http\Controllers\Controller;
 use BT\Modules\ItemLookups\Models\ItemLookup;
 use BT\Modules\Titles\Models\Title;
+use BT\Traits\ReturnUrl;
+use BT\DataTables\EmployeesDataTable;
 
 class EmployeeController extends Controller
 {
+    use ReturnUrl;
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EmployeesDataTable $dataTable)
     {
-	    $employees = Employee::get();
+        $this->setReturnUrl();
 
-        return view('employees.index')->with('employees', $employees);
+        $status = (request('status')) ?: 'all';
+
+        return $dataTable->render('employees.index',['status' => $status]);
+
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
         $titles = Title::pluck('name', 'id');
 
-        return view('employees.create', compact('titles'));
+        return view('employees.create', compact('titles'))
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(EmployeeRequest $request)
     {
@@ -71,7 +76,7 @@ class EmployeeController extends Controller
             $this->forceLUTupdate($ret);
         }
 
-        return redirect()->route('employees.index' )->with('alertInfo', trans('bt.create_employee_success'));
+        return redirect($this->getReturnUrl())->with('alertInfo', trans('bt.create_employee_success'));
     }
 
     /**
@@ -89,7 +94,6 @@ class EmployeeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -99,7 +103,8 @@ class EmployeeController extends Controller
 
 
         // show the edit form and pass the resource
-        return view('employees.edit', compact('employees','titles'));
+        return view('employees.edit', compact('employees','titles'))
+            ->with('returnUrl', $this->getReturnUrl());
     }
 
     /**
@@ -107,7 +112,7 @@ class EmployeeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(EmployeeRequest $request, $id)
     {
@@ -133,7 +138,7 @@ class EmployeeController extends Controller
         }
 
         // redirect
-        return redirect()->route('employees.index')->with('alertInfo', trans('bt.edit_employee_success'));
+        return redirect($this->getReturnUrl())->with('alertInfo', trans('bt.edit_employee_success'));
     }
 
 
@@ -149,6 +154,10 @@ class EmployeeController extends Controller
         //
     }
 
+    /**
+     * @param $ret
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function  forceLUTupdate($ret)
     {
 

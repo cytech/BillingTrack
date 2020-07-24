@@ -13,7 +13,7 @@
                             class="fa fa-edit fa-fw float-left"></i>
                     @lang('bt.create_product')
                 </h3>
-                    <a class="btn btn-warning float-right" href={!! route('products.index')  !!}><i
+                    <a class="btn btn-warning float-right" href="{{ $returnUrl }}"><i
                                 class="fa fa-ban"></i> @lang('bt.cancel')</a>
                     <button type="submit" class="btn btn-primary float-right"><i
                                 class="fa fa-save"></i> @lang('bt.save') </button>

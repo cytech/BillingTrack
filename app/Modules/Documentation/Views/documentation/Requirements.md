@@ -9,7 +9,7 @@ requirements below to determine whether or not you will be able to
 install and use the software. .
 
 -   A web server of some sort - Apache, nginx, etc.
--   PHP &gt;= 7.2
+-   PHP &gt;= 7.2.5
 -   OpenSSL PHP Extension
 -   PDO PHP Extension
 -   Mbstring PHP Extension

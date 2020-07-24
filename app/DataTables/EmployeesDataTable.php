@@ -2,11 +2,11 @@
 
 namespace BT\DataTables;
 
-use BT\Modules\Vendors\Models\Vendor;
+use BT\Modules\Employees\Models\Employee;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\Html\Column;
 
-class VendorsDataTable extends DataTable
+class EmployeesDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,24 +16,19 @@ class VendorsDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables()->eloquent($query)->addColumn('action', 'vendors._actions')
-            ->editColumn('name', function (Vendor $vendor) {
-                return '<a href="/vendors/' . $vendor->id . '">' . $vendor->name . '</a>';
-            })
-            ->rawColumns(['name', 'action']);
+        return datatables()->eloquent($query)->addColumn('action', 'employees._actions')
+            ->rawColumns(['action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param Vendor $model
+     * @param Employee $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Vendor $model)
+    public function query(Employee $model)
     {
-        $models = $model->newQuery()->getSelect()
-                        ->leftJoin('vendors_custom', 'vendors_custom.vendor_id', '=', 'vendors.id')
-                        ->with(['currency'])
+        $models = $model->newQuery()
                         ->status(request('status'));
 
         return $models;
@@ -48,10 +43,10 @@ class VendorsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('vendors-table')
+            ->setTableId('employees-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(1, 'asc');
+            ->orderBy(2, 'asc');
     }
 
     /**
@@ -63,19 +58,28 @@ class VendorsDataTable extends DataTable
     {
         return [
             Column::make('id')
+                ->title(trans('bt.employee_number'))
                 ->orderable(false)
                 ->searchable(false)
                 ->printable(false)
                 ->exportable(false)
             ,
-            Column::make('name')
-                ->title(trans('bt.vendor_name')),
-            Column::make('email')
-                ->title(trans('bt.email_address')),
-            Column::make('phone')
-                ->title(trans('bt.phone_number')),
+            Column::make('first_name')
+                ->title(trans('bt.first_name')),
+            Column::make('last_name')
+                ->title(trans('bt.last_name')),
+            Column::make('short_name')
+                ->title(trans('bt.employee_short_name')),
+            Column::make('title')
+                ->title(trans('bt.employee_title')),
+            Column::make('billing_rate')
+                ->title(trans('bt.employee_billing_rate')),
+            Column::make('schedule')
+                ->title(trans('bt.employees_scheduled')),
             Column::make('active')
                 ->title(trans('bt.active')),
+            Column::make('driver')
+                ->title(trans('bt.employee_driver')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

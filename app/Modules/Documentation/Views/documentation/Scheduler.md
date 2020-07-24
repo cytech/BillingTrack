@@ -26,6 +26,13 @@ etc.), clicking on the event will take you to the assigned document.
 If the event is a recurring event , you will be taken to the edit page
 of the selected recurring event.
 
+**Schedule**
+
+This page shows all scheduled/unscheduled employees and resources from Workorders.
+You can page forward and backward four days at a time.
+If "Create Workorder" functionality is enabled, you can select the icon to create
+a new workorder for the specific date.
+
 **Create Workorder Icon**
 
 When enabled in Scheduler settings, This will launch a dialog to

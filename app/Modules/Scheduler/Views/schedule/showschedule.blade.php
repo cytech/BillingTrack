@@ -19,7 +19,9 @@
                             @foreach($dates as $date)
                                 <div class="col-sm-3">
                                     <div class="h4 d-flex justify-content-center">{{ Carbon\Carbon::parse($date)->format('l m/d/Y') }}
-                                    <button type='button' id='createWorkorder{{ $loop->index }}' data-date = '{{ $date }}' class='btn btn-link btn-sm '  title='@lang('bt.create_workorder')'><i class='createwobutton far fa-file-alt' ></i></button>
+                                    @if(config('bt.schedulerCreateWorkorder'))
+                                        <button type='button' id='createWorkorder{{ $loop->index }}' data-date = '{{ $date }}' class='btn btn-link btn-sm '  title='@lang('bt.create_workorder')'><i class='createwobutton far fa-file-alt' ></i></button>
+                                    @endif
                                     </div>
                                     <div class="card">
                                         <div class="card-header" id="headingOne">

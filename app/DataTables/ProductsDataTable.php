@@ -2,11 +2,11 @@
 
 namespace BT\DataTables;
 
-use BT\Modules\Vendors\Models\Vendor;
+use BT\Modules\Products\Models\Product;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\Html\Column;
 
-class VendorsDataTable extends DataTable
+class ProductsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,25 +16,21 @@ class VendorsDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables()->eloquent($query)->addColumn('action', 'vendors._actions')
-            ->editColumn('name', function (Vendor $vendor) {
-                return '<a href="/vendors/' . $vendor->id . '">' . $vendor->name . '</a>';
-            })
-            ->rawColumns(['name', 'action']);
+        return datatables()->eloquent($query)->addColumn('action', 'products._actions')
+            ->rawColumns(['action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param Vendor $model
+     * @param Product $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Vendor $model)
+    public function query(Product $model)
     {
-        $models = $model->newQuery()->getSelect()
-                        ->leftJoin('vendors_custom', 'vendors_custom.vendor_id', '=', 'vendors.id')
-                        ->with(['currency'])
-                        ->status(request('status'));
+        $models = $model->newQuery()
+            ->with('category', 'vendor', 'inventorytype')
+            ->status(request('status'));
 
         return $models;
 
@@ -48,10 +44,10 @@ class VendorsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('vendors-table')
+            ->setTableId('products-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(1, 'asc');
+            ->orderBy(0, 'asc');
     }
 
     /**
@@ -63,17 +59,31 @@ class VendorsDataTable extends DataTable
     {
         return [
             Column::make('id')
-                ->orderable(false)
+                ->title(trans('bt.product_id'))
+                ->orderable(true)
                 ->searchable(false)
                 ->printable(false)
                 ->exportable(false)
             ,
             Column::make('name')
-                ->title(trans('bt.vendor_name')),
-            Column::make('email')
-                ->title(trans('bt.email_address')),
-            Column::make('phone')
-                ->title(trans('bt.phone_number')),
+                ->title(trans('bt.product_name')),
+            Column::make('price')
+                ->title(trans('bt.price_sales')),
+            Column::make('vendor')
+                ->title(trans('bt.vendor'))
+                ->data('vendor.name'),
+            Column::make('cost')
+                ->title(trans('bt.product_cost')),
+            Column::make('category')
+                ->title(trans('bt.product_category'))
+                ->data('category.name'),
+            Column::make('inventory_type')
+                ->title(trans('bt.product_type'))
+                ->data('inventorytype.name'),
+            Column::make('numstock')
+                ->title(trans('bt.product_numstock')),
+            Column::make('active')
+                ->title(trans('bt.product_active')),
             Column::make('active')
                 ->title(trans('bt.active')),
             Column::computed('action')

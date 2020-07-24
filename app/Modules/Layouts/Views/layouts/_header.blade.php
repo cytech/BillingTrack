@@ -30,11 +30,11 @@
                 <i class="fa fa-toolbox"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('employees.index') }}"><i
+                <a class="dropdown-item" href="{{ route('employees.index', ['status' => 'active']) }}"><i
                             class="fa fa-users"></i> @lang('bt.employees')</a>
-                <a class="dropdown-item" href="{{ route('vendors.index') }}"><i
+                <a class="dropdown-item" href="{{ route('vendors.index', ['status' => 'active']) }}"><i
                             class="fa fa-warehouse"></i> @lang('bt.vendors')</a>
-                <a class="dropdown-item" href="{{ route('products.index') }}"><i
+                <a class="dropdown-item" href="{{ route('products.index', ['status' => 'active']) }}"><i
                             class="fa fa-shopping-cart"></i> @lang('bt.products')</a>
                 <a class="dropdown-item" href="{{ route('categories.index') }}"><i
                             class="fa fa-list"></i> @lang('bt.categories')</a>
