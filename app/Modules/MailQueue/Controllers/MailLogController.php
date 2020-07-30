@@ -11,20 +11,15 @@
 
 namespace BT\Modules\MailQueue\Controllers;
 
+use BT\DataTables\MailQueueDataTable;
 use BT\Http\Controllers\Controller;
 use BT\Modules\MailQueue\Models\MailQueue;
 
 class MailLogController extends Controller
 {
-    public function index()
+    public function index(MailQueueDataTable $dataTable)
     {
-        $mails = MailQueue::sortable(['created_at' => 'desc'])
-            ->keywords(request('search'))
-            ->paginate(config('bt.resultsPerPage'));
-
-        return view('mail_log.index')
-            ->with('mails', $mails)
-            ->with('displaySearch', false);
+        return $dataTable->render('mail_log.index');
     }
 
     public function content()

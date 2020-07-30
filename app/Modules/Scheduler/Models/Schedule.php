@@ -26,7 +26,7 @@ class Schedule extends Model {
 
     protected $softCascade = ['reminders', 'occurrences', 'resources'];
 
-    protected $appends = ['text_trans', 'rule_start'];
+    protected $appends = ['text_trans', 'rule_start', 'formatted_date_trashed'];
 
     protected $dates = ['deleted_at'];
 
@@ -88,6 +88,10 @@ class Schedule extends Model {
             return $rule->getStartDate()->format('Y-m-d H:i');
         }
         return;
+    }
+
+    public function getFormattedDateTrashedAttribute() {
+        return Carbon::parse( $this->attributes['deleted_at'] )->format( 'Y-m-d H:i' );
     }
 
     //below for form model binding

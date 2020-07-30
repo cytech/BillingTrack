@@ -11,11 +11,11 @@
                 <h3 class="card-title"><i
                             class="fa fa-edit fa-fw"></i>
                     @lang('bt.edit_category')
+                </h3>
                     <a class="btn btn-warning float-right" href={!! URL::previous()  !!}><i
                                 class="fa fa-ban"></i> @lang('bt.cancel') </a>
                     <button type="submit" class="btn btn-primary float-right"><i
                                 class="fa fa-save"></i> @lang('bt.update')</button>
-                </h3>
             </div>
             <div class="card-body">
 

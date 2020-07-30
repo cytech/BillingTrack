@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - replaced bootstrap-switch with bootstrap-switch-button
 - added Schedule page for scheduled employees and resources
 - fix Vendor delete
+- added category, itemlookup and mail queue datatables
+- updated all datatables
 
 ## 5.1.0
 - Added client shipping address fields (address_2,city_2,etc) accessible in templates

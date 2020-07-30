@@ -10,6 +10,7 @@
 
 namespace BT\Modules\Categories\Controllers;
 
+use BT\DataTables\CategoriesDataTable;
 use BT\Modules\Categories\Models\Category;
 use BT\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,11 +22,9 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CategoriesDataTable $dataTable)
     {
-	    $categories = Category::get();
-
-        return view('categories.index')->with('categories', $categories);
+        return $dataTable->render('categories.index');
     }
 
     /**

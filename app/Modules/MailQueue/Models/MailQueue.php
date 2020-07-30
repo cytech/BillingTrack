@@ -28,6 +28,8 @@ class MailQueue extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['formatted_created_at', 'formatted_from', 'formatted_to', 'formatted_cc', 'formatted_bcc', 'formatted_sent'];
+
     /*
     |--------------------------------------------------------------------------
     | Static Methods

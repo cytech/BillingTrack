@@ -5,7 +5,7 @@ namespace BT\DataTables;
 use BT\Modules\Invoices\Models\Invoice;
 use BT\Support\Statuses\InvoiceStatuses;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class InvoicesTrashDataTable extends DataTable
 {
@@ -17,19 +17,16 @@ class InvoicesTrashDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
         $statuses = InvoiceStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
 
-
-        return $dataTable->addColumn('action', 'utilities._actions')
+        return datatables()->eloquent($query)->addColumn('action', 'utilities._actions')
             ->editColumn('id', function (Invoice $invoice) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $invoice->id . '">';
             })
             ->editColumn('invoice_status_id', function (Invoice $invoice) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$invoice->status_text]) . '">
-                    '. trans('bt.' . strtolower($statuses[$invoice->status_text])) . '</span>';
+                    ' . trans('bt.' . strtolower($statuses[$invoice->status_text])) . '</span>';
                 if ($invoice->viewed)
                     $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else
@@ -38,7 +35,7 @@ class InvoicesTrashDataTable extends DataTable
 
                 return $ret;
             })
-            ->editColumn('client.name', function (Invoice $invoice){
+            ->editColumn('client.name', function (Invoice $invoice) {
                 return '<a href="/clients/' . $invoice->client->id . '">' . $invoice->client->name . '</a>';
             })
             ->orderColumn('formatted_invoice_date', 'invoice_date $1')
@@ -50,7 +47,7 @@ class InvoicesTrashDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param Invoice $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Invoice $model)
@@ -68,15 +65,11 @@ class InvoicesTrashDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->ajax(['data' => 'function(d) { d.table = "invoices"; }'])
-            ->addAction(['width' => '80px'])
-            //->parameters($this->getBuilderParameters())
-            ->parameters([
-                'order' => [3, 'desc'],
-                'lengthMenu' => [
-                    [ 10, 25, 50, 100, -1 ],
-                    [ '10', '25', '50', '100', 'All' ]
-                ],
-                ]);
+            ->orderBy(3, 'desc')
+            ->lengthMenu([
+                [10, 25, 50, 100, -1],
+                ['10', '25', '50', '100', 'All']
+            ]);
     }
 
     /**
@@ -87,53 +80,36 @@ class InvoicesTrashDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id' =>
-                [   'name'       => 'id',
-                    'data'       => 'id',
-                    'orderable'  => false,
-                    'searchable' => false,
-                    'printable'  => false,
-                    'exportable' => false,
-                    'class'      => 'bulk-record',
-                ],
-            'invoice_status_id'  => [
-                'title' => trans('bt.status'),
-                'data' => 'invoice_status_id',
-            ],
-            'number' => [
-                'title' => trans('bt.invoice'),
-                'data' => 'number',
-            ],
-            'invoice_date'    => [
-                'title' => trans('bt.date'),
-                'data'       => 'formatted_invoice_date',
-                'searchable' => false,
-            ],
-            'due_at'     => [
-                'title' => trans('bt.due'),
-                'data'       => 'formatted_due_at',
-                'searchable' => false,
-            ],
-            'client_name'  => [
-                'title' => trans('bt.client'),
-                'data' => 'client.name',
-            ],
-            'summary' => [
-                'title' => trans('bt.summary'),
-                'data' => 'summary',
-            ],
-            /*'total'   => [
-                'title' => trans('bt.total'),
-                'data'       => 'amount.formatted_total',
-                'orderable'  => false,
-                'searchable' => false,
-            ],
-            'balance' => [
-                'title' => trans('bt.balance'),
-                'data'       => 'amount.formatted_balance',
-                'orderable'  => false,
-                'searchable' => false,
-            ],*/
+            Column::make('id')
+                ->orderable(false)
+                ->searchable(false)
+                ->printable(false)
+                ->exportable(false)
+                ->className('bulk-record'),
+            Column::make('invoice_status_id')
+                ->title(trans('bt.status')),
+            Column::make('number')
+                ->title(trans('bt.invoice')),
+            Column::make('invoice_date')
+                ->title(trans('bt.date'))
+                ->data('formatted_invoice_date')
+                ->searchable(false),
+            Column::make('due_at')
+                ->title(trans('bt.due'))
+                ->data('formatted_due_at')
+                ->searchable(false),
+            Column::make('client_name')
+                ->name('client.name')
+                ->title(trans('bt.client'))
+                ->data('client.name'),
+            Column::make('summary')
+                ->title(trans('bt.summary'))
+                ->data('formatted_summary'),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
         ];
     }
 

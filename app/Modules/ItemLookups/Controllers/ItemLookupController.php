@@ -11,6 +11,7 @@
 
 namespace BT\Modules\ItemLookups\Controllers;
 
+use BT\DataTables\ItemLookupsDataTable;
 use BT\Http\Controllers\Controller;
 use BT\Modules\ItemLookups\Models\ItemLookup;
 use BT\Modules\ItemLookups\Requests\ItemLookupRequest;
@@ -19,13 +20,9 @@ use BT\Support\NumberFormatter;
 
 class ItemLookupController extends Controller
 {
-    public function index()
+    public function index(ItemLookupsDataTable $dataTable)
     {
-        $itemLookups = ItemLookup::with(['taxRate', 'taxRate2'])->orderBy('resource_table')->get();
-
-        return view('item_lookups.index')
-            ->with('itemLookups', $itemLookups);
-
+        return $dataTable->render('item_lookups.index');
     }
 
     public function create()

@@ -99,11 +99,15 @@ class ProjectController extends Controller
     public function bulkDelete()
     {
         TimeTrackingProject::destroy(request('ids'));
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
+
     }
 
     public function bulkStatus()
     {
         TimeTrackingProject::whereIn('id', request('ids'))->update(['status_id' => request('status')]);
+        return response()->json(['success' => trans('bt.status_successfully_updated')], 200);
+
     }
 
 

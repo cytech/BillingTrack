@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--{!! Form::wobreadcrumbs() !!}--}}
     <section class="content-header">
         <h3 class="float-left">@lang('bt.categories')</h3>
 
@@ -16,8 +15,11 @@
         @include('layouts._alerts')
         <div class="card">
             <div class="card-body">
-                @include('categories._table')
+                {!! $dataTable->table(['class' => 'table table-striped display', 'width' => '100%', 'cellspacing' => '0']) !!}
             </div>
         </div>
     </section>
 @stop
+@push('scripts')
+    {!! $dataTable->scripts() !!}
+@endpush

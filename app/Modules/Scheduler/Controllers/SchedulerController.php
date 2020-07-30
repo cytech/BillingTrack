@@ -11,7 +11,7 @@
 
 namespace BT\Modules\Scheduler\Controllers;
 
-use BT\DataTables\EventsDataTable;
+use BT\DataTables\SchedulerDataTable;
 use BT\DataTables\RecurringEventsDataTable;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Purchaseorders\Models\Purchaseorder;
@@ -163,7 +163,7 @@ class SchedulerController extends Controller
         return view('schedule.calendar', $data);
     }
 
-    public function tableEvent(EventRequest $request,EventsDataTable $dataTable)
+    public function tableEvent(EventRequest $request, SchedulerDataTable $dataTable)
     {
         return $dataTable->render('schedule.tableEvent');
     }

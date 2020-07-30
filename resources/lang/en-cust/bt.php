@@ -217,6 +217,7 @@ return [
     'date'                                    => 'Date',
     'date_format'                             => 'Date Format',
     'date_range'                              => 'Date Range',
+    'date_trashed'                            => 'Date Trashed',
     'datefinished'                            => 'DateFinished',
     'day_short_friday'                        => 'Fr',
     'day_short_monday'                        => 'Mo',

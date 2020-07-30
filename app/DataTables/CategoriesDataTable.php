@@ -2,11 +2,11 @@
 
 namespace BT\DataTables;
 
-use BT\Modules\Scheduler\Models\Category;
+use BT\Modules\Categories\Models\Category;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\Html\Column;
 
-class SchedulerCategoriesDataTable extends DataTable
+class CategoriesDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,16 +16,14 @@ class SchedulerCategoriesDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables()->eloquent($query)->addColumn('action', 'schedulecategories._actions')
-            ->editColumn('text_color', function (Category $category) {
-                return $category->text_color . '   <i class="fa fa-square" style="color:' . $category->text_color . '"></i>';
+        return datatables()->eloquent($query)
+            ->editColumn('action', function (Category $category) {
+                return '<a href="/categories/' . $category->id . '/edit" class="btn btn-primary btn-sm "><i
+                            class="fa fa-edit"></i>
+                    ' . trans('bt.edit') . ' </a>';
             })
-            ->editColumn('bg_color', function (Category $category) {
-                return $category->bg_color . '   <i class="fa fa-square" style="color:' . $category->bg_color . '"></i>';
-            })
-            ->rawColumns(['action', 'text_color', 'bg_color']);
+            ->rawColumns(['action']);
     }
-
 
     /**
      * Get query source of dataTable.
@@ -35,7 +33,10 @@ class SchedulerCategoriesDataTable extends DataTable
      */
     public function query(Category $model)
     {
-        return $model->select('schedule_categories.*');
+        $models = $model->newQuery();
+
+        return $models;
+
     }
 
     /**
@@ -46,6 +47,7 @@ class SchedulerCategoriesDataTable extends DataTable
     public function html()
     {
         return $this->builder()
+            ->setTableId('categories-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->orderBy(0, 'asc');
@@ -63,24 +65,15 @@ class SchedulerCategoriesDataTable extends DataTable
                 ->orderable(true)
                 ->searchable(false)
                 ->printable(false)
-                ->exportable(false),
+                ->exportable(false)
+            ,
             Column::make('name')
-                ->title(trans('bt.name'))
-                ->orderable(true)
-                ->searchable(true),
-            Column::make('text_color')
-                ->title(trans('bt.category_text_color'))
-                ->searchable(false),
-            Column::make('bg_color')
-                ->title(trans('bt.category_bg_color'))
-                ->searchable(false),
+                ->title(trans('bt.name')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(80)
                 ->addClass('text-center'),
-
-
         ];
     }
 

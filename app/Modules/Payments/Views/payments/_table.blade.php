@@ -2,7 +2,7 @@
 
     <thead>
     <tr>
-        <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
+{{--        <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>--}}
         <th>@lang('bt.payment_date')</th>
         <th>@lang('bt.invoice')</th>
         <th>@lang('bt.date')</th>
@@ -18,7 +18,7 @@
     <tbody>
     @foreach ($payments as $payment)
         <tr>
-            <td><input type="checkbox" class="bulk-record" data-id="{{ $payment->id }}"></td>
+{{--            <td><input type="checkbox" class="bulk-record" data-id="{{ $payment->id }}"></td>--}}
             <td>{{ $payment->formatted_paid_at }}</td>
             <td><a href="{{ route('invoices.edit', [$payment->invoice_id]) }}">{{ $payment->invoice->number }}</a></td>
             <td>{{ $payment->invoice->formatted_created_at }}</td>

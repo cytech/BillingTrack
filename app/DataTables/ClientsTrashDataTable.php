@@ -3,11 +3,10 @@
 namespace BT\DataTables;
 
 use BT\Modules\Clients\Models\Client;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
 
-class ClientsTrashDataTable extends DataTable
+class ClientsTrashDataTable extends ClientsDataTable
 {
+    protected $actions_blade = 'utilities';
     /**
      * Build DataTable class.
      *
@@ -16,9 +15,7 @@ class ClientsTrashDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
-        return $dataTable->addColumn('action', 'utilities._actions')
+        return datatables()->eloquent($query)->addColumn('action', $this->actions_blade.'._actions')
             ->editColumn('id', function (Client $client) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $client->id . '">';
             })
@@ -28,7 +25,7 @@ class ClientsTrashDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param Client $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Client $model)
@@ -46,71 +43,10 @@ class ClientsTrashDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->ajax(['data' => 'function(d) { d.table = "clients"; }'])
-            ->addAction(['width' => '80px'])
-            //->parameters($this->getBuilderParameters())
-            ->parameters([
-                'order' => [1, 'asc'],
-                'lengthMenu' => [
-                    [ 10, 25, 50, 100, -1 ],
-                    [ '10', '25', '50', '100', 'All' ]
-                ],
+            ->orderBy(1, 'asc')
+            ->lengthMenu([
+                [10, 25, 50, 100, -1],
+                ['10', '25', '50', '100', 'All']
             ]);
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            'id'         =>
-                ['name'       => 'id',
-                 'data'       => 'id',
-                 'orderable'  => false,
-                 'searchable' => false,
-                 'printable'  => false,
-                 'exportable' => false,
-                 'class'      => 'bulk-record',
-                ],
-            'name'       => [
-                'title' => 'Name / Number',
-                'data'  => 'unique_name',
-            ],
-            'deleted_at' => [
-                'title' => 'Date Trashed',
-                'data'  => 'deleted_at'
-            ],
-            'email'      => [
-                'title' => trans('bt.email_address'),
-                'data'  => 'email',
-            ],
-            'phone'      => [
-                'title' => trans('bt.phone_number'),
-                'data'  => 'phone',
-            ],
-            'balance'    => [
-                'name' => 'balance',
-                'title'      => trans('bt.balance'),
-                'data'       => 'formatted_balance',
-                'orderable'  => true,
-                'searchable' => false,
-            ],
-            'active'     => [
-                'title' => trans('bt.active'),
-                'data'  => 'active',
-            ],
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Clients_' . date('YmdHis');
     }
 }

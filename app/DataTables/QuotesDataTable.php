@@ -5,7 +5,7 @@ namespace BT\DataTables;
 use BT\Modules\Quotes\Models\Quote;
 use BT\Support\Statuses\QuoteStatuses;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class QuotesDataTable extends DataTable
 {
@@ -17,12 +17,9 @@ class QuotesDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
         $statuses = QuoteStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
 
-
-        return $dataTable->addColumn('action', 'quotes._actions')
+        return datatables()->eloquent($query)->addColumn('action', 'quotes._actions')
             ->editColumn('id', function (Quote $quote) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $quote->id . '">';
             })
@@ -32,7 +29,7 @@ class QuotesDataTable extends DataTable
             ->editColumn('quote_status_id', function (Quote $quote) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$quote->status_text]) . '">
-                    '. trans('bt.' . strtolower($statuses[$quote->status_text])) . '</span>';
+                    ' . trans('bt.' . strtolower($statuses[$quote->status_text])) . '</span>';
                 if ($quote->viewed)
                     $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else
@@ -44,28 +41,28 @@ class QuotesDataTable extends DataTable
             ->editColumn('invoice_id', function (Quote $quote) {
                 $ret = '<td class="hidden-xs">';
                 if ($quote->invoice_id)
-                    $ret .=  '<a href="'. route('invoices.edit', [$quote->invoice_id]) .'">'. trans('bt.invoice') .'</a>';
+                    $ret .= '<a href="' . route('invoices.edit', [$quote->invoice_id]) . '">' . trans('bt.invoice') . '</a>';
                 elseif ($quote->workorder_id)
-                    $ret .=  '<a href="'. route('workorders.edit', [$quote->workorder_id]) .'">'. trans('bt.workorder') .'</a>';
+                    $ret .= '<a href="' . route('workorders.edit', [$quote->workorder_id]) . '">' . trans('bt.workorder') . '</a>';
                 else
                     $ret .= trans('bt.no');
                 $ret .= '</td>';
 
                 return $ret;
             })
-            ->editColumn('client.name', function (Quote $quote){
+            ->editColumn('client.name', function (Quote $quote) {
                 return '<a href="/clients/' . $quote->client->id . '">' . $quote->client->name . '</a>';
             })
             ->orderColumn('formatted_quote_date', 'quote_date $1')
             ->orderColumn('formatted_expires_at', 'expires_at $1')
-            ->rawColumns([ 'client.name', 'invoice_id', 'quote_status_id', 'number', 'action', 'id']);
+            ->rawColumns(['client.name', 'invoice_id', 'quote_status_id', 'number', 'action', 'id']);
     }
 
 
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param Quote $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Quote $model)
@@ -89,9 +86,7 @@ class QuotesDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
-            //->parameters($this->getBuilderParameters());
-            ->parameters(['order' => [3, 'desc']]);
+            ->orderBy(3, 'desc');
     }
 
     /**
@@ -102,55 +97,50 @@ class QuotesDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id' =>
-                [   'name'       => 'id',
-                    'data'       => 'id',
-                    'orderable'  => false,
-                    'searchable' => false,
-                    'printable'  => false,
-                    'exportable' => false,
-                    'class'      => 'bulk-record',
-                ],
-            'quote_status_id'  => [
-                'title' => trans('bt.status'),
-                'data' => 'quote_status_id',
-            ],
-            'number' => [
-                'title' => trans('bt.quote'),
-                'data' => 'number',
-            ],
-            'quote_date'    => [
-                'title' => trans('bt.date'),
-                'data'       => 'formatted_quote_date',
-                'searchable' => false,
-            ],
-            'expires_at'     => [
-                'title' => trans('bt.due'),
-                'data'       => 'formatted_expires_at',
-                'searchable' => false,
-            ],
-            'client_name'  => [
-                'title' => trans('bt.client'),
-                'data' => 'client.name',
-            ],
-            'summary' => [
-                'name' => 'summary',
-                'title' => trans('bt.summary'),
-                'data' => 'formatted_summary',
-            ],
-            'amount'   => [
-                'name' => 'amount.total',
-                'title' => trans('bt.total'),
-                'data'       => 'amount.formatted_total',
-                'orderable'  => true,
-                'searchable' => false,
-            ],
-            'invoice_id' => [
-                'title' => trans('bt.converted'),
-                'data'       => 'invoice_id',
-                'orderable'  => false,
-                'searchable' => false,
-            ],
+            Column::make('id')
+                ->orderable(false)
+                ->searchable(false)
+                ->printable(false)
+                ->exportable(false)
+                ->className('bulk-record')
+            ,
+            Column::make('quote_status_id')
+                ->title(trans('bt.status')),
+            Column::make('number')
+                ->title(trans('bt.quote'))
+                ->data('number'),
+            Column::make('quote_date')
+                ->title(trans('bt.date'))
+                ->data('formatted_quote_date')
+                ->searchable(false),
+            Column::make('expires_at')
+                ->title(trans('bt.due'))
+                ->data('formatted_expires_at')
+                ->searchable(false),
+            Column::make('client_name')
+                ->name('client.name')
+                ->title(trans('bt.client'))
+                ->data('client.name'),
+            Column::make('summary')
+                ->title(trans('bt.summary'))
+                ->data('formatted_summary'),
+            Column::make('amount')
+                ->name('amount.total')
+                ->title(trans('bt.total'))
+                ->data('amount.formatted_total')
+                ->orderable(true)
+                ->searchable(false),
+            Column::make('invoice_id')
+                ->title(trans('bt.converted'))
+                ->data('invoice_id')
+                ->orderable(false)
+                ->searchable(false),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
+
         ];
     }
 

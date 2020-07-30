@@ -4,10 +4,12 @@ namespace BT\DataTables;
 
 use BT\Modules\Payments\Models\Payment;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class PaymentsDataTable extends DataTable
 {
+    protected $actions_blade = 'payments';
+
     /**
      * Build DataTable class.
      *
@@ -16,35 +18,31 @@ class PaymentsDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
-        return $dataTable->addColumn('action', 'payments._actions')
-           ->editColumn('invoice.number', function (Payment $payment) {
+        return datatables()->eloquent($query)->addColumn('action', $this->actions_blade.'._actions')
+            ->editColumn('invoice.number', function (Payment $payment) {
                 return '<a href="/invoices/' . $payment->invoice_id . '/edit">' . $payment->invoice->number . '</a>';
             })
             ->editColumn('id', function (Payment $payment) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $payment->id . '">';
             })
-            ->editColumn('invoice.client.name', function (Payment $payment) {
-                return '<a href="clients/'.$payment->invoice->client->id .'/edit">'. $payment->invoice->client->name .'</a></td>';
+            ->editColumn('client.name', function (Payment $payment) {
+                return '<a href="clients/' . $payment->client->id . '/edit">' . $payment->client->name . '</a>';
             })
             ->orderColumn('formatted_paid_at', 'paid_at $1')
             ->orderColumn('formatted_amount', 'amount $1')
-            ->rawColumns([ 'invoice.number','invoice.client.name', 'action', 'id']);
+            ->rawColumns(['invoice.number', 'client.name', 'action', 'id']);
     }
 
 
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param Payment $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Payment $model)
     {
-        return $model->with(['invoice' => function ($q){$q->withTrashed();},
-                             'invoice.client'=> function ($q){$q->withTrashed();}, 'invoice.currency', 'paymentMethod'])
-            ->select('payments.*');
+        return $model->has('client')->has('invoice')->with('client', 'invoice','paymentMethod')->withTrashed();
     }
 
     /**
@@ -57,69 +55,62 @@ class PaymentsDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
-            //->parameters($this->getBuilderParameters());
-            ->parameters(['order' => [1, 'desc']]);
+            ->orderBy(1, 'desc');
     }
 
     /**
      * Get columns.
      *
      * @return array
-     * TODO problems with eloquent using getter on nested relation for ordering/search
      */
     protected function getColumns()
     {
         return [
-            'id' =>
-                [   'name'       => 'id',
-                    'data'       => 'id',
-                    'orderable'  => false,
-                    'searchable' => false,
-                    'printable'  => false,
-                    'exportable' => false,
-                    'class'      => 'bulk-record',
-                ],
-            'paid_at' => [
-                'title' => trans('bt.payment_date'),
-                'data' => 'formatted_paid_at',
-                'searchable' => false,
-            ],
-            'invoice_number' => [
-                    'title' => trans('bt.invoice'),
-                    'data'       => 'invoice.number',
-                ],
-            'invoice_date' => [
-                'name' => 'invoice.invoice_date',
-                'title' => trans('bt.invoice_date'),
-                'data'       => 'invoice.formatted_invoice_date',
-                'orderable'  => true,
-                'searchable' => false,
-            ],
-            'client_name'   => [
-                'title' => trans('bt.client'),
-                'data'       => 'invoice.client.name',
-            ],
-            'invoice_summary'   => [
-                'name' => 'invoice.summary',
-                'title' => trans('bt.summary'),
-                'data'       => 'invoice.formatted_summary',
-            ],
-            'amount'   => [
-                'title' => trans('bt.amount'),
-                'data'       => 'formatted_amount',
-                'searchable' => false,
-            ],
-            'payment_method'  => [
-                'title' => trans('bt.payment_method'),
-                'name' => 'paymentMethod.name',
-                'data' => 'payment_method.name',
-                'searchable' => false,
-            ],
-            'note'    => [
-                'title' => trans('bt.note'),
-                'data'       => 'note',
-            ],
+            Column::make('id')
+                ->orderable(false)
+                ->searchable(false)
+                ->printable(false)
+                ->exportable(false)
+                ->className('bulk-record')
+            ,
+            Column::make('paid_at')
+                ->title(trans('bt.payment_date'))
+                ->data('formatted_paid_at')
+                ->searchable(false),
+            Column::make('invoice_number')
+                ->name('invoice.number')
+                ->title(trans('bt.invoice'))
+                ->data('invoice.number'),
+            Column::make('invoice_date')
+                ->name('invoice.invoice_date')
+                ->title(trans('bt.invoice_date'))
+                ->data('invoice.formatted_invoice_date')
+                ->orderable(true)
+                ->searchable(false),
+            Column::make('client_name')
+                ->name('client.name')
+                ->title(trans('bt.client'))
+                ->data('client.name'),
+            Column::make('invoice_summary')
+                ->name('invoice.summary')
+                ->title(trans('bt.summary'))
+                ->data('invoice.formatted_summary'),
+            Column::make('amount')
+                ->title(trans('bt.amount'))
+                ->data('formatted_amount')
+                ->searchable(false),
+            Column::make('payment_method')
+                ->title(trans('bt.payment_method'))
+                ->name('paymentMethod.name')
+                ->data('payment_method.name')
+                ->searchable(false),
+            Column::make('note')
+                ->title(trans('bt.note')),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
 
         ];
     }

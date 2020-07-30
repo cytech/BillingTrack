@@ -4,10 +4,11 @@ namespace BT\DataTables;
 
 use BT\Modules\Clients\Models\Client;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class ClientsDataTable extends DataTable
 {
+    protected $actions_blade = 'clients';
     /**
      * Build DataTable class.
      *
@@ -16,11 +17,9 @@ class ClientsDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
-        return $dataTable->addColumn('action', 'clients._actions')
+        return datatables()->eloquent($query)->addColumn('action', $this->actions_blade.'._actions')
             ->editColumn('id', function (Client $client) {
-                return '<input type="checkbox" class="bulk-record" data-id="'. $client->id .'">';
+                return '<input type="checkbox" class="bulk-record" data-id="' . $client->id . '">';
             })
             ->editColumn('unique_name', function (Client $client) {
                 return '<a href="/clients/' . $client->id . '">' . $client->unique_name . '</a>';
@@ -31,15 +30,15 @@ class ClientsDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param Client $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Client $model)
     {
         $models = $model->newQuery()->getSelect()
-                        ->leftJoin('clients_custom', 'clients_custom.client_id', '=', 'clients.id')
-                        ->with(['currency'])
-                        ->status(request('status'));
+            ->leftJoin('clients_custom', 'clients_custom.client_id', '=', 'clients.id')
+            ->with(['currency'])
+            ->status(request('status'));
 
         return $models;
 
@@ -53,11 +52,9 @@ class ClientsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->addAction(['width' => '80px'])
-                    //->parameters($this->getBuilderParameters());
-                    ->parameters(['order' => [1, 'asc']]);
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->orderBy(1, 'asc');
     }
 
     /**
@@ -68,38 +65,32 @@ class ClientsDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id' =>
-                ['name' => 'id',
-                 'data' => 'id',
-                 'orderable' => false,
-                 'searchable' => false,
-                 'printable' => false,
-                 'exportable' => false,
-                 'class'=>'bulk-record',
-            ],
-            'name' => [
-                'title' => trans('bt.client_name'),
-                'data' => 'unique_name',
-            ],
-            'email' => [
-                'title' => trans('bt.email_address'),
-                'data' => 'email',
-            ],
-            'phone' => [
-                'title' => trans('bt.phone_number'),
-                'data' => 'phone',
-            ],
-            'balance' => [
-                'name' => 'balance',
-                'title' => trans('bt.balance'),
-                'data' => 'formatted_balance',
-                'orderable' => true,
-                'searchable' => false,
-            ],
-            'active' => [
-                'title' => trans('bt.active'),
-                'data' => 'active',
-            ],
+            Column::make('id')
+                ->orderable(false)
+                ->searchable(false)
+                ->printable(false)
+                ->exportable(false)
+                ->className('bulk-record')
+            ,
+            Column::make('name')
+                ->title(trans('bt.client_name'))
+                ->data('unique_name'),
+            Column::make('email')
+                ->title(trans('bt.email_address')),
+            Column::make('phone')
+                ->title(trans('bt.phone_number')),
+            Column::make('balance')
+                ->title(trans('bt.balance'))
+                ->data('formatted_balance')
+                ->orderable(true)
+                ->searchable(false),
+            Column::make('active')
+                ->title(trans('bt.active')),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
         ];
     }
 

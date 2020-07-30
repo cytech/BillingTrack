@@ -4,10 +4,12 @@ namespace BT\DataTables;
 
 use BT\Modules\TimeTracking\Models\TimeTrackingProject;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class ProjectsDataTable extends DataTable
 {
+    protected $actions_blade = 'time_tracking';
+
     /**
      * Build DataTable class.
      *
@@ -16,34 +18,30 @@ class ProjectsDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
-        return $dataTable->addColumn('action', 'time_tracking._actions')
+        return datatables()->eloquent($query)->addColumn('action', $this->actions_blade.'._actions')
             ->editColumn('id', function (TimeTrackingProject $project) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $project->id . '">';
             })
-            ->editColumn('name', function (TimeTrackingProject $project){
-                return '<a href="'. route('timeTracking.projects.edit', [$project->id]) .'">'. $project->name .'</a>';
-            })
-            ->editColumn('client_name', function (TimeTrackingProject $project){
-                return '<a href="'. route('clients.show', [$project->client->id]) .'">'. $project->client->name .'</a>';
+            ->editColumn('client.name', function (TimeTrackingProject $project) {
+                return '<a href="' . route('clients.show', [$project->client->id]) . '">' . $project->client->name . '</a>';
             })
             ->orderColumn('formatted_created_at', 'created_at $1')
             ->orderColumn('formatted_due_at', 'due_at $1')
             ->orderColumn('status_text', 'status_id $1')
-            ->rawColumns([  'client_name', 'name', 'action', 'id']);
+            ->rawColumns(['client.name', 'name', 'action', 'id']);
     }
 
 
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param TimeTrackingProject $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(TimeTrackingProject $model)
     {
         return $model->getSelect()
+            ->with('client')
             ->companyProfileId(request('company_profile'))
             ->statusId(request('status'));
     }
@@ -58,68 +56,59 @@ class ProjectsDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
-            //->parameters($this->getBuilderParameters());
-            ->parameters(['order' => [5, 'desc']]);
+            ->orderBy(5, 'desc');
     }
 
     /**
      * Get columns.
      *
      * @return array
-     * TODO problems with eloquent using getter on nested relation for ordering/search
      */
     protected function getColumns()
     {
         return [
-            'id' =>
-                [   'name'       => 'id',
-                    'data'       => 'id',
-                    'orderable'  => false,
-                    'searchable' => false,
-                    'printable'  => false,
-                    'exportable' => false,
-                    'class'      => 'bulk-record',
-                ],
-            'project'   => [
-                'title' => trans('bt.project'),
-                'data'       => 'name',
-            ],
-            'client'   => [
-                'title' => trans('bt.client'),
-                'data'       => 'client_name',
-                'searchable' => false,
-            ],
-            'status' => [
-                'title' => trans('bt.status'),
-                'data' => 'status_text',
-                'searchable' => false,
-            ],
-            'created' => [
-                    'title' => trans('bt.created'),
-                    'data'       => 'formatted_created_at',
-                    'searchable' => false,
-                ],
-            'due_date' => [
-                'title' => trans('bt.due_date'),
-                'data'       => 'formatted_due_at',
-                'searchable' => false,
-            ],
-            'unbilled_hours'   => [
-                'title' => trans('bt.unbilled_hours'),
-                'data'       => 'unbilled_hours',
-                'searchable' => false,
-            ],
-            'billed_hours'   => [
-                'title' => trans('bt.billed_hours'),
-                'data'       => 'billed_hours',
-                'searchable' => false,
-            ],
-            'total_hours'   => [
-                'title' => trans('bt.total_hours'),
-                'data'       => 'hours',
-                'searchable' => false,
-            ],
+            Column::make('id')
+                ->orderable(false)
+                ->searchable(false)
+                ->printable(false)
+                ->exportable(false)
+                ->className('bulk-record')
+            ,
+            Column::make('name')
+                ->title(trans('bt.project')),
+            Column::make('client_id')
+                ->name('client.name')
+                ->title(trans('bt.client'))
+                ->data('client.name')
+                ->searchable(false),
+            Column::make('status_id')
+                ->title(trans('bt.status'))
+                ->data('status_text')
+                ->searchable(false),
+            Column::make('created_at')
+                ->title(trans('bt.created'))
+                ->data('formatted_created_at')
+                ->searchable(false),
+            Column::make('due_at')
+                ->title(trans('bt.due_date'))
+                ->data('formatted_due_at')
+                ->searchable(false),
+            Column::make('unbilled_hours')
+                ->title(trans('bt.unbilled_hours'))
+                ->searchable(false),
+            Column::make('billed_hours')
+                ->title(trans('bt.billed_hours'))
+                ->searchable(false),
+            Column::make('total_hours')
+                ->name('hours')
+                ->title(trans('bt.total_hours'))
+                ->data('hours')
+                ->searchable(false),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
 
         ];
     }

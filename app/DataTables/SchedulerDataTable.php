@@ -6,7 +6,7 @@ use BT\Modules\Scheduler\Models\Schedule;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\Html\Column;
 
-class RecurringEventsDataTable extends DataTable
+class SchedulerDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,11 +16,10 @@ class RecurringEventsDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables()->eloquent($query)->addColumn('action', 'partials._actions_recurr')
+        return datatables()->eloquent($query)->addColumn('action', 'partials._actions')
             ->editColumn('id', function (Schedule $schedule) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $schedule->id . '">';
             })
-            //->orderColumn('rule_start', 'schedule_occurrences.start_date $1')
             ->rawColumns(['action', 'id']);
     }
 
@@ -33,7 +32,7 @@ class RecurringEventsDataTable extends DataTable
      */
     public function query(Schedule $model)
     {
-        $models = $model->with(['category'])->where('isRecurring', '=', '1')
+        $models = $model->with(['latestOccurrence', 'category'])->where('isRecurring', '<>', '1')
             ->select('schedule.*');
 
         return $models;
@@ -77,23 +76,26 @@ class RecurringEventsDataTable extends DataTable
                 ->title(trans('bt.description')),
             Column::make('start_date')
                 ->title(trans('bt.start_date'))
-                ->data('rule_start')
-                ->orderable(false)
-                ->searchable(false),
-            Column::make('frequency')
-                ->title(trans('bt.frequency'))
-                ->data('text_trans')
-                ->orderable(false)
+                ->name('latestOccurrence.start_date')
+                ->data('latest_occurrence.formatted_start_date')
+                ->orderable(true)
+                ->searchable(true),
+            Column::make('end_date')
+                ->title(trans('bt.end_date'))
+                ->name('latestOccurrence.end_date')
+                ->data('latest_occurrence.formatted_end_date')
+                ->orderable(true)
                 ->searchable(false),
             Column::make('category')
-                ->name('category.name')
                 ->title(trans('bt.category'))
+                ->name('category.name')
                 ->data('category.name'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(80)
                 ->addClass('text-center'),
+
         ];
     }
 

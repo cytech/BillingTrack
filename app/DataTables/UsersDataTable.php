@@ -4,7 +4,7 @@ namespace BT\DataTables;
 
 use BT\Modules\Users\Models\User;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class UsersDataTable extends DataTable
 {
@@ -16,26 +16,24 @@ class UsersDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
-        return $dataTable->addColumn('action','users._actions')
-                         ->editColumn('user_type', '{{ trans(\'bt.\' . $user_type)}}')
-                         ->editColumn('name', function(User $user){
-                             return '<a href="/users/'. $user->id .'/edit/'. $user->user_type .'">'.$user->name . '</a>';
-                         })
-                         ->rawColumns(['name', 'action']);
+        return datatables()->eloquent($query)->addColumn('action', 'users._actions')
+            ->editColumn('user_type', '{{ trans(\'bt.\' . $user_type)}}')
+            ->editColumn('name', function (User $user) {
+                return '<a href="/users/' . $user->id . '/edit/' . $user->user_type . '">' . $user->name . '</a>';
+            })
+            ->rawColumns(['name', 'action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(User $model)
     {
         $models = $model->newQuery()->select('id', 'name', 'email', 'client_id')
-                        ->userType(request('userType'));
+            ->userType(request('userType'));
 
         return $models;
 
@@ -49,10 +47,9 @@ class UsersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->addAction(['width' => '80px'])
-                    ->parameters(['order' => [0, 'asc']]);
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->orderBy(0, 'asc');
     }
 
     /**
@@ -63,18 +60,19 @@ class UsersDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            trans('bt.name')=> [
-                'data' => 'name',
-            ],
-            trans('bt.email')=> [
-                'data' => 'email',
-            ],
-            trans('bt.type')=> [
-                'data' => 'user_type',
-                'orderable' => false,
-                'searchable' => false,
-            ],
-
+            Column::make(trans('bt.name'))
+                ->data('name'),
+            Column::make(trans('bt.email'))
+                ->data('email'),
+            Column::make(trans('bt.type'))
+                ->data('user_type')
+                ->orderable(false)
+                ->searchable(false),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
         ];
     }
 

@@ -2,7 +2,7 @@
 
     <thead>
     <tr>
-        <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>
+{{--        <th><div class="btn-group"><input type="checkbox" id="bulk-select-all"></div></th>--}}
         <th>@lang('bt.status')</th>
         <th>@lang('bt.workorder')</th>
         <th>@lang('bt.date')</th>
@@ -18,7 +18,7 @@
     <tbody>
     @foreach ($workorders as $workorder)
         <tr id="{!! $workorder->id !!}">
-            <td><input type="checkbox" class="bulk-record" data-id="{{ $workorder->id }}"></td>
+{{--            <td><input type="checkbox" class="bulk-record" data-id="{{ $workorder->id }}"></td>--}}
             <td>
                 <span class="badge badge-{{ $statuses[$workorder->workorder_status_id] }}">{{ trans('bt.' . $statuses[$workorder->workorder_status_id]) }}</span>
                 @if ($workorder->viewed)

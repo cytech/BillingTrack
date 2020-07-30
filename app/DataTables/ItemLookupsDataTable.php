@@ -2,11 +2,11 @@
 
 namespace BT\DataTables;
 
-use BT\Modules\Scheduler\Models\Schedule;
+use BT\Modules\ItemLookups\Models\ItemLookup;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\Html\Column;
 
-class RecurringEventsDataTable extends DataTable
+class ItemLookupsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,27 +16,24 @@ class RecurringEventsDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables()->eloquent($query)->addColumn('action', 'partials._actions_recurr')
-            ->editColumn('id', function (Schedule $schedule) {
-                return '<input type="checkbox" class="bulk-record" data-id="' . $schedule->id . '">';
-            })
-            //->orderColumn('rule_start', 'schedule_occurrences.start_date $1')
-            ->rawColumns(['action', 'id']);
+        return datatables()->eloquent($query)
+            ->addColumn('action', 'item_lookups._actions')
+            ->rawColumns(['action', 'formatted_name']);
     }
-
 
     /**
      * Get query source of dataTable.
      *
-     * @param Schedule $model
+     * @param ItemLookup $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Schedule $model)
+    public function query(ItemLookup $model)
     {
-        $models = $model->with(['category'])->where('isRecurring', '=', '1')
-            ->select('schedule.*');
+        $models = $model->newQuery()
+            ->with('taxRate', 'taxRate2');
 
         return $models;
+
     }
 
     /**
@@ -47,13 +44,11 @@ class RecurringEventsDataTable extends DataTable
     public function html()
     {
         return $this->builder()
+            ->setTableId('itemlookups-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(3, 'desc')
-            ->lengthMenu([
-                [10, 25, 50, 100, -1],
-                ['10', '25', '50', '100', 'All']
-            ]);
+            ->orderBy(6, 'asc')
+            ->orderBy(1, 'asc');
     }
 
     /**
@@ -69,26 +64,29 @@ class RecurringEventsDataTable extends DataTable
                 ->searchable(false)
                 ->printable(false)
                 ->exportable(false)
-                ->className('bulk-record')
+                ->hidden()
             ,
-            Column::make('title')
-                ->title(trans('bt.title')),
+            Column::make('name')
+                ->title(trans('bt.name'))
+                ->data('formatted_name'),
             Column::make('description')
                 ->title(trans('bt.description')),
-            Column::make('start_date')
-                ->title(trans('bt.start_date'))
-                ->data('rule_start')
+            Column::make('price')
+                ->title(trans('bt.price')),
+            Column::make('tax_rate')
+                ->title(trans('bt.tax_1'))
+                ->data('tax_rate.name')
                 ->orderable(false)
                 ->searchable(false),
-            Column::make('frequency')
-                ->title(trans('bt.frequency'))
-                ->data('text_trans')
+            Column::make('tax_rate2')
+                ->title(trans('bt.tax_2'))
+                ->data('tax_rate2.name')
                 ->orderable(false)
                 ->searchable(false),
-            Column::make('category')
-                ->name('category.name')
-                ->title(trans('bt.category'))
-                ->data('category.name'),
+            Column::make('resource_table')
+                ->title(trans('bt.resource_table')),
+            Column::make('resource_id')
+                ->title(trans('bt.resource_id')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -104,6 +102,6 @@ class RecurringEventsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Schedule_' . date('YmdHis');
+        return 'ItemLookups_' . date('YmdHis');
     }
 }

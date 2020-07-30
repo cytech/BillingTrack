@@ -5,7 +5,7 @@ namespace BT\DataTables;
 use BT\Modules\Invoices\Models\Invoice;
 use BT\Support\Statuses\InvoiceStatuses;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class InvoicesDataTable extends DataTable
 {
@@ -17,12 +17,9 @@ class InvoicesDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
         $statuses = InvoiceStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
 
-
-        return $dataTable->addColumn('action', 'invoices._actions')
+        return datatables()->eloquent($query)->addColumn('action', 'invoices._actions')
             ->editColumn('id', function (Invoice $invoice) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $invoice->id . '">';
             })
@@ -32,7 +29,7 @@ class InvoicesDataTable extends DataTable
             ->editColumn('invoice_status_id', function (Invoice $invoice) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$invoice->status_text]) . '">
-                    '. trans('bt.' . strtolower($statuses[$invoice->status_text])) . '</span>';
+                    ' . trans('bt.' . strtolower($statuses[$invoice->status_text])) . '</span>';
                 if ($invoice->viewed)
                     $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else
@@ -41,13 +38,13 @@ class InvoicesDataTable extends DataTable
 
                 return $ret;
             })
-            ->editColumn('formatted_due_at', function (Invoice $invoice){
-                if ($invoice->isOverdue){
+            ->editColumn('formatted_due_at', function (Invoice $invoice) {
+                if ($invoice->isOverdue) {
                     return '<span class="hidden-md hidden-sm hidden-xs" style="color: red; font-weight: bold;">' . $invoice->formatted_due_at . '</span>';
                 }
-                    return $invoice->formatted_due_at ;
+                return $invoice->formatted_due_at;
             })
-            ->editColumn('client.name', function (Invoice $invoice){
+            ->editColumn('client.name', function (Invoice $invoice) {
                 return '<a href="/clients/' . $invoice->client->id . '">' . $invoice->client->name . '</a>';
             })
             ->orderColumn('formatted_invoice_date', 'invoice_date $1')
@@ -59,7 +56,7 @@ class InvoicesDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param Invoice $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Invoice $model)
@@ -83,9 +80,7 @@ class InvoicesDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
-            //->parameters($this->getBuilderParameters());
-            ->parameters(['order' => [3, 'desc']]);
+            ->orderBy(3, 'desc');
     }
 
     /**
@@ -96,56 +91,48 @@ class InvoicesDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id' =>
-                [   'name'       => 'id',
-                    'data'       => 'id',
-                    'orderable'  => false,
-                    'searchable' => false,
-                    'printable'  => false,
-                    'exportable' => false,
-                    'class'      => 'bulk-record',
-                ],
-            'invoice_status_id'  => [
-                'title' => trans('bt.status'),
-                'data' => 'invoice_status_id',
-            ],
-            'number' => [
-                'title' => trans('bt.invoice'),
-                'data' => 'number',
-            ],
-            'invoice_date'    => [
-                'title' => trans('bt.date'),
-                'data'       => 'formatted_invoice_date',
-                'searchable' => false,
-            ],
-            'due_at'     => [
-                'title' => trans('bt.due'),
-                'data'       => 'formatted_due_at',
-                'searchable' => false,
-            ],
-            'client_name'  => [
-                'title' => trans('bt.client'),
-                'data' => 'client.name',
-            ],
-            'summary' => [
-                'name' => 'summary',
-                'title' => trans('bt.summary'),
-                'data' => 'formatted_summary',
-            ],
-            'total'   => [
-                'name' => 'amount.total',
-                'title' => trans('bt.total'),
-                'data'       => 'amount.formatted_total',
-                'orderable'  => true,
-                'searchable' => false,
-            ],
-            'balance' => [
-                'name' => 'amount.balance',
-                'title' => trans('bt.balance'),
-                'data'       => 'amount.formatted_balance',
-                'orderable'  => true,
-                'searchable' => false,
-            ],
+            Column::make('id')
+                ->orderable(false)
+                ->searchable(false)
+                ->printable(false)
+                ->exportable(false)
+                ->className('bulk-record'),
+            Column::make('invoice_status_id')
+                ->title(trans('bt.status')),
+            Column::make('number')
+                ->title(trans('bt.invoice')),
+            Column::make('invoice_date')
+                ->title(trans('bt.date'))
+                ->data('formatted_invoice_date')
+                ->searchable(false),
+            Column::make('due_at')
+                ->title(trans('bt.due'))
+                ->data('formatted_due_at')
+                ->searchable(false),
+            Column::make('client_name')
+                ->name('client.name')
+                ->title(trans('bt.client'))
+                ->data('client.name'),
+            Column::make('summary')
+                ->title(trans('bt.summary'))
+                ->data('formatted_summary'),
+            Column::make('total')
+                ->title(trans('bt.total'))
+                ->name('amount.total')
+                ->data('amount.formatted_total')
+                ->orderable(true)
+                ->searchable(false),
+            Column::make('balance')
+                ->title(trans('bt.balance'))
+                ->name('amount.balance')
+                ->data('amount.formatted_balance')
+                ->orderable(true)
+                ->searchable(false),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
         ];
     }
 

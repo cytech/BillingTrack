@@ -5,7 +5,7 @@ namespace BT\DataTables;
 use BT\Modules\Purchaseorders\Models\Purchaseorder;
 use BT\Support\Statuses\PurchaseorderStatuses;
 use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Column;
 
 class PurchaseordersTrashDataTable extends DataTable
 {
@@ -17,12 +17,9 @@ class PurchaseordersTrashDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $dataTable = new EloquentDataTable($query);
-
         $statuses = PurchaseorderStatuses::listsAllFlat();// + ['overdue' => trans('bt.overdue')];
 
-
-        return $dataTable->addColumn('action', 'utilities._actions')
+        return datatables()->eloquent($query)->addColumn('action', 'utilities._actions')
             ->editColumn('id', function (Purchaseorder $purchaseorder) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $purchaseorder->id . '">';
             })
@@ -30,11 +27,11 @@ class PurchaseordersTrashDataTable extends DataTable
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$purchaseorder->status_text]) . '">
                     '. trans('bt.' . strtolower($statuses[$purchaseorder->status_text])) . '</span>';
-                if ($purchaseorder->viewed)
-                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
-                else
-                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
-                $ret .= '</td>';
+//                if ($purchaseorder->viewed)
+//                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
+//                else
+//                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
+//                $ret .= '</td>';
 
                 return $ret;
             })
@@ -50,7 +47,7 @@ class PurchaseordersTrashDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \BT\User $model
+     * @param Purchaseorder $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Purchaseorder $model)
@@ -68,15 +65,11 @@ class PurchaseordersTrashDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->ajax(['data' => 'function(d) { d.table = "purchaseorders"; }'])
-            ->addAction(['width' => '80px'])
-            //->parameters($this->getBuilderParameters())
-            ->parameters([
-                'order' => [3, 'desc'],
-                'lengthMenu' => [
-                    [ 10, 25, 50, 100, -1 ],
-                    [ '10', '25', '50', '100', 'All' ]
-                ],
-                ]);
+            ->orderBy(3, 'desc')
+            ->lengthMenu([
+                [10, 25, 50, 100, -1],
+                ['10', '25', '50', '100', 'All']
+            ]);
     }
 
     /**
@@ -87,53 +80,37 @@ class PurchaseordersTrashDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id' =>
-                [   'name'       => 'id',
-                    'data'       => 'id',
-                    'orderable'  => false,
-                    'searchable' => false,
-                    'printable'  => false,
-                    'exportable' => false,
-                    'class'      => 'bulk-record',
-                ],
-            'purchaseorder_status_id'  => [
-                'title' => trans('bt.status'),
-                'data' => 'purchaseorder_status_id',
-            ],
-            'number' => [
-                'title' => trans('bt.purchaseorder'),
-                'data' => 'number',
-            ],
-            'purchaseorder_date'    => [
-                'title' => trans('bt.date'),
-                'data'       => 'formatted_purchaseorder_date',
-                'searchable' => false,
-            ],
-            'due_at'     => [
-                'title' => trans('bt.due'),
-                'data'       => 'formatted_due_at',
-                'searchable' => false,
-            ],
-            'vendor_name'  => [
-                'title' => trans('bt.vendor'),
-                'data' => 'vendor.name',
-            ],
-            'summary' => [
-                'title' => trans('bt.summary'),
-                'data' => 'summary',
-            ],
-            /*'total'   => [
-                'title' => trans('bt.total'),
-                'data'       => 'amount.formatted_total',
-                'orderable'  => false,
-                'searchable' => false,
-            ],
-            'balance' => [
-                'title' => trans('bt.balance'),
-                'data'       => 'amount.formatted_balance',
-                'orderable'  => false,
-                'searchable' => false,
-            ],*/
+            Column::make('id')
+                ->orderable(false)
+                ->searchable(false)
+                ->printable(false)
+                ->exportable(false)
+                ->className('bulk-record')
+            ,
+            Column::make('purchaseorder_status_id')
+                ->title(trans('bt.status')),
+            Column::make('number')
+                ->title(trans('bt.purchaseorder'))
+                ->data('number'),
+            Column::make('purchaseorder_date')
+                ->title(trans('bt.date'))
+                ->data('formatted_purchaseorder_date')
+                ->searchable(false),
+            Column::make('due_at')
+                ->title(trans('bt.due'))
+                ->data('formatted_due_at')
+                ->searchable(false),
+            Column::make('vendor_id')
+                ->title(trans('bt.vendor'))
+                ->data('vendor.name'),
+            Column::make('summary')
+                ->title(trans('bt.summary'))
+                ->data('formatted_summary'),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(80)
+                ->addClass('text-center'),
         ];
     }
 

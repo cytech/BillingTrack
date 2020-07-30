@@ -26,6 +26,7 @@ class ItemLookup extends Model
      */
     protected $guarded = ['id'];
 
+    protected $appends = ['formatted_name', 'formatted_price'];
 
     /*
     |--------------------------------------------------------------------------
@@ -35,12 +36,12 @@ class ItemLookup extends Model
 
     public function taxRate()
     {
-        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate')->withDefault(['name' => '']);
     }
 
     public function taxRate2()
     {
-        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id')->withDefault(['name' => '']);
     }
 
     public function products()

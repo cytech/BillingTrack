@@ -47,5 +47,7 @@ class ExpenseController extends Controller
     public function bulkDelete()
     {
         Expense::destroy(request('ids'));
+        return response()->json(['success' => trans('bt.record_successfully_trashed')], 200);
+
     }
 }
