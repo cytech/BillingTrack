@@ -16,7 +16,7 @@ class SettingsTableSeeder extends Seeder
             return;
         }
 
-        Setting::saveByKey('addressFormat','{{ address }}\r\n{{ city }}, {{ state }} {{ postal_code }}');
+        Setting::saveByKey('addressFormat','{{ address }}\\r\\n{{ city }}, {{ state }} {{ postal_code }}');
         Setting::saveByKey('allowPaymentsWithoutBalance','0');
         Setting::saveByKey('amountDecimals','2');
         Setting::saveByKey('attachPdf','1');
@@ -32,7 +32,7 @@ class SettingsTableSeeder extends Seeder
         Setting::saveByKey('displayProfileImage','1');
         Setting::saveByKey('exchangeRateMode','automatic');
         Setting::saveByKey('headerTitleText','BillingTrack');
-        Setting::saveByKey('invoiceEmailBody','<p>To view your invoice from {{ $invoice->user->name }} for {{ $invoice->amount->formatted_total }}, click the link below:</p>\r\n\r\n<p><a href="{{ $invoice->public_url }}">{{ $invoice->public_url }}</a></p>');
+        Setting::saveByKey('invoiceEmailBody','<p>To view your invoice from {{ $invoice->user->name }} for {{ $invoice->amount->formatted_total }}, click the link below:</p><br><br><p><a href="{{ $invoice->public_url }}">{{ $invoice->public_url }}</a></p>');
         Setting::saveByKey('invoiceEmailSubject','Invoice #{{ $invoice->number }}');
         Setting::saveByKey('invoiceGroup','1');
         Setting::saveByKey('invoicesDueAfter','30');
@@ -51,7 +51,7 @@ class SettingsTableSeeder extends Seeder
         Setting::saveByKey('merchant_Stripe_paymentButtonText','Pay with Stripe');
         Setting::saveByKey('merchant_Stripe_publishableKey','');
         Setting::saveByKey('merchant_Stripe_secretKey','');
-        Setting::saveByKey('overdueInvoiceEmailBody','<p>This is a reminder to let you know your invoice from {{ $invoice->user->name }} for {{ $invoice->amount->formatted_total }} is overdue. Click the link below to view the invoice:</p>\r\n\r\n<p><a href="{{ $invoice->public_url }}">{{ $invoice->public_url }}</a></p>');
+        Setting::saveByKey('overdueInvoiceEmailBody','<p>This is a reminder to let you know your invoice from {{ $invoice->user->name }} for {{ $invoice->amount->formatted_total }} is overdue. Click the link below to view the invoice:</p><br><br><p><a href="{{ $invoice->public_url }}">{{ $invoice->public_url }}</a></p>');
         Setting::saveByKey('overdueInvoiceEmailSubject','Overdue Invoice Reminder: Invoice #{{ $invoice->number }}');
         Setting::saveByKey('paperOrientation','portrait');
         Setting::saveByKey('paperSize','letter');
@@ -60,7 +60,7 @@ class SettingsTableSeeder extends Seeder
         Setting::saveByKey('pdfDriver','domPDF');
         Setting::saveByKey('profileImageDriver','Gravatar');
         Setting::saveByKey('quoteApprovedEmailBody','<p><a href="{{ $quote->public_url }}">Quote #{{ $quote->number }}</a> has been APPROVED.</p>');
-        Setting::saveByKey('quoteEmailBody','<p>To view your quote from {{ $quote->user->name }} for {{ $quote->amount->formatted_total }}, click the link below:</p>\r\n\r\n<p><a href="{{ $quote->public_url }}">{{ $quote->public_url }}</a></p>');
+        Setting::saveByKey('quoteEmailBody','<p>To view your quote from {{ $quote->user->name }} for {{ $quote->amount->formatted_total }}, click the link below:</p><br><br><p><a href="{{ $quote->public_url }}">{{ $quote->public_url }}</a></p>');
         Setting::saveByKey('quoteEmailSubject','Quote #{{ $quote->number }}');
         Setting::saveByKey('quoteGroup','2');
         Setting::saveByKey('quoteRejectedEmailBody','<p><a href="{{ $quote->public_url }}">Quote #{{ $quote->number }}</a> has been REJECTED.</p>');
@@ -71,7 +71,7 @@ class SettingsTableSeeder extends Seeder
         Setting::saveByKey('roundTaxDecimals','3');
         Setting::saveByKey('skin','skin-purple.min.css');
         Setting::saveByKey('timezone','America/Phoenix');
-        Setting::saveByKey('upcomingPaymentNoticeEmailBody','<p>This is a notice to let you know your invoice from {{ $invoice->user->name }} for {{ $invoice->amount->formatted_total }} is due on {{ $invoice->formatted_due_at }}. Click the link below to view the invoice:</p>\r\n\r\n<p><a href="{{ $invoice->public_url }}">{{ $invoice->public_url }}</a></p>');
+        Setting::saveByKey('upcomingPaymentNoticeEmailBody','<p>This is a notice to let you know your invoice from {{ $invoice->user->name }} for {{ $invoice->amount->formatted_total }} is due on {{ $invoice->formatted_due_at }}. Click the link below to view the invoice:</p><br><br><p><a href="{{ $invoice->public_url }}">{{ $invoice->public_url }}</a></p>');
         Setting::saveByKey('upcomingPaymentNoticeEmailSubject','Upcoming Payment Due Notice: Invoice #{{ $invoice->number }}');
         Setting::saveByKey('version','4.0.0');
         Setting::saveByKey('widgetColumnWidthClientActivity','4');
