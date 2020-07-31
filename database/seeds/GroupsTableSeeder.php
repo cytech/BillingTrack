@@ -15,7 +15,7 @@ class GroupsTableSeeder extends Seeder
     {
         if (count(Group::all())){ return; }
 
-        DB::statement('INSERT INTO groups VALUES (1,\'Invoice Default\',1,0,\'INV{NUMBER}\',0,0,0,0,0,\'\',NULL,NULL,NULL)
+        DB::statement('INSERT INTO "groups" VALUES (1,\'Invoice Default\',1,0,\'INV{NUMBER}\',0,0,0,0,0,\'\',NULL,NULL,NULL)
             ,(2,\'Quote Default\',1,0,\'QUO{NUMBER}\',0,0,0,0,0,\'\',NULL,NULL,NULL),(3,\'Workorder Default\',1,0,\'WO{NUMBER}\',0,0,0,0,0,\'\',NULL,NULL,NULL)');
     }
 }

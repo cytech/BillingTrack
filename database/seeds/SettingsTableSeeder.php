@@ -17,7 +17,7 @@ class SettingsTableSeeder extends Seeder
         }
 
 
-        DB::statement('INSERT INTO settings VALUES (1,\'addressFormat\',\'{{ address }}\r\n{{ city }}, {{ state }} {{ postal_code }}\',NULL,NULL,NULL)
+        DB::statement('INSERT INTO "settings" VALUES (1,\'addressFormat\',\'{{ address }}\r\n{{ city }}, {{ state }} {{ postal_code }}\',NULL,NULL,NULL)
             ,(2,\'allowPaymentsWithoutBalance\',\'0\',NULL,NULL,NULL)
             ,(3,\'amountDecimals\',\'2\',NULL,NULL,NULL)
             ,(4,\'attachPdf\',\'1\',NULL,NULL,NULL)
