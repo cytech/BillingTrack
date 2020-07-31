@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use BT\Modules\PaymentTerms\Models\Paymentterm;
+use BT\Modules\PaymentTerms\Models\PaymentTerm;
 
 class PaymentTermsSeeder extends Seeder
 {
@@ -22,9 +22,9 @@ class PaymentTermsSeeder extends Seeder
         ];
 
         foreach ($paymentterms as $paymentterm) {
-            $record = Paymentterm::whereName($paymentterm['name'])->first();
+            $record = PaymentTerm::whereName($paymentterm['name'])->first();
             if (! $record) {
-                Paymentterm::create($paymentterm);
+                PaymentTerm::create($paymentterm);
             }
         }
 
