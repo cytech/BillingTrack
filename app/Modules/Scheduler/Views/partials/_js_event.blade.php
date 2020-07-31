@@ -108,6 +108,16 @@
                     aspectRatio: '{!! config('bt.schedulerFcAspectRatio') !!}',//1.35 default
                     eventOrder: "-category,start",
                     eventDisplay: 'block',
+                    initialDate: "{!! date('Y-m-d') !!}",
+                    @if($status == 'last')
+                    initialDate: "{!! date('Y-m-d', strtotime("first day of previous month")) !!}",
+                    @elseif($status == 'next')
+                    initialDate: "{!! date('Y-m-d', strtotime("first day of next month")) !!}",
+                    @else
+                    initialDate: "{!! date('Y-m-d') !!}",
+                    @endif
+                    selectable: false,
+                    selectMirror: false,
                     @if(config('bt.schedulerCreateWorkorder'))
                         datesSet: function (info) {
                             // Add the "button" to the day headers
@@ -115,16 +125,6 @@
                             $headers.css('position', 'relative');
                             $headers.prepend("<div id='cwo'><button type='button' id='createWorkorder' class='btn btn-link btn-sm ' style='position: absolute; left: 0' title='@lang('bt.create_workorder')'><i class='createwobutton far fa-file-alt' ></i></button> </div>");
                         },
-                        initialDate: "{!! date('Y-m-d') !!}",
-                        @if($status == 'last')
-                        initialDate: "{!! date('Y-m-d', strtotime("first day of previous month")) !!}",
-                        @elseif($status == 'next')
-                        initialDate: "{!! date('Y-m-d', strtotime("first day of next month")) !!}",
-                        @else
-                        initialDate: "{!! date('Y-m-d') !!}",
-                        @endif
-                        selectable: false,
-                        selectMirror: false,
                     @endif
 
                     dateClick: function (info) {

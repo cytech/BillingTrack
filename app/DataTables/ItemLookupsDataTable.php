@@ -73,15 +73,15 @@ class ItemLookupsDataTable extends DataTable
                 ->title(trans('bt.description')),
             Column::make('price')
                 ->title(trans('bt.price')),
-            Column::make('tax_rate')
+            Column::make('tax_rate_id')
                 ->title(trans('bt.tax_1'))
                 ->data('tax_rate.name')
-                ->orderable(false)
+                ->orderable(true)
                 ->searchable(false),
-            Column::make('tax_rate2')
+            Column::make('tax_rate_2_id')
                 ->title(trans('bt.tax_2'))
                 ->data('tax_rate2.name')
-                ->orderable(false)
+                ->orderable(true)
                 ->searchable(false),
             Column::make('resource_table')
                 ->title(trans('bt.resource_table')),

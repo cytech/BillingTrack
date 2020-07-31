@@ -47,7 +47,8 @@ class ProductsDataTable extends DataTable
             ->setTableId('products-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc');
+            ->orderBy(5, 'asc')
+            ->orderBy(1, 'asc');
     }
 
     /**
@@ -64,28 +65,27 @@ class ProductsDataTable extends DataTable
                 ->searchable(false)
                 ->printable(false)
                 ->exportable(false)
+                ->hidden()
             ,
             Column::make('name')
                 ->title(trans('bt.product_name')),
             Column::make('price')
                 ->title(trans('bt.price_sales')),
-            Column::make('vendor')
+            Column::make('vendor_id')
                 ->title(trans('bt.vendor'))
                 ->data('vendor.name'),
             Column::make('cost')
                 ->title(trans('bt.product_cost')),
-            Column::make('category')
+            Column::make('category_id')
                 ->title(trans('bt.product_category'))
                 ->data('category.name'),
-            Column::make('inventory_type')
+            Column::make('inventorytype_id')
                 ->title(trans('bt.product_type'))
                 ->data('inventorytype.name'),
             Column::make('numstock')
                 ->title(trans('bt.product_numstock')),
             Column::make('active')
                 ->title(trans('bt.product_active')),
-            Column::make('active')
-                ->title(trans('bt.active')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

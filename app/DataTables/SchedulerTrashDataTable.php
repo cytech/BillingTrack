@@ -3,10 +3,8 @@
 namespace BT\DataTables;
 
 use BT\Modules\Scheduler\Models\Schedule;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Column;
 
-class SchedulerTrashDataTable extends DataTable
+class SchedulerTrashDataTable extends SchedulerDataTable
 {
     /**
      * Build DataTable class.
@@ -60,62 +58,5 @@ class SchedulerTrashDataTable extends DataTable
                 [10, 25, 50, 100, -1],
                 ['10', '25', '50', '100', 'All']
             ]);
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            Column::make('id')
-                ->orderable(false)
-                ->searchable(false)
-                ->printable(false)
-                ->exportable(false)
-                ->className('bulk-record')
-            ,
-            Column::make('title')
-                ->title(trans('bt.title')),
-            Column::make('deleted_at')
-                ->title(trans('bt.date_trashed'))
-                ->data('formatted_date_trashed'),
-            Column::make('description')
-                ->title(trans('bt.description')),
-            Column::make('start_date')
-                ->title(trans('bt.start_date'))
-                ->name('latestOccurrence.start_date')
-                ->data('latest_occurrence.formatted_start_date')
-                ->orderable(true)
-                ->searchable(true),
-            Column::make('end_date')
-                ->title(trans('bt.end_date'))
-                ->name('latestOccurrence.end_date')
-                ->data('latest_occurrence.formatted_end_date')
-                ->orderable(true)
-                ->searchable(false),
-            Column::make('category')
-                ->title(trans('bt.category'))
-                ->name('category.name')
-                ->data('category.name'),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(80)
-                ->addClass('text-center'),
-
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Schedule_' . date('YmdHis');
     }
 }

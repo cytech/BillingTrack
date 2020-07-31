@@ -50,7 +50,7 @@ class CategoriesDataTable extends DataTable
             ->setTableId('categories-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc');
+            ->orderBy(1, 'asc');
     }
 
     /**
@@ -66,6 +66,7 @@ class CategoriesDataTable extends DataTable
                 ->searchable(false)
                 ->printable(false)
                 ->exportable(false)
+                ->hidden()
             ,
             Column::make('name')
                 ->title(trans('bt.name')),

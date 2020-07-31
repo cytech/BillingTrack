@@ -35,7 +35,7 @@ class RecurringEventsDataTable extends DataTable
     {
         $models = $model->with(['category'])->where('isRecurring', '=', '1')
             ->select('schedule.*');
-
+        app('debugbar')->info($models->get());
         return $models;
     }
 
@@ -75,10 +75,10 @@ class RecurringEventsDataTable extends DataTable
                 ->title(trans('bt.title')),
             Column::make('description')
                 ->title(trans('bt.description')),
-            Column::make('start_date')
+            Column::make('rrule')
                 ->title(trans('bt.start_date'))
                 ->data('rule_start')
-                ->orderable(false)
+                ->orderable(true)
                 ->searchable(false),
             Column::make('frequency')
                 ->title(trans('bt.frequency'))

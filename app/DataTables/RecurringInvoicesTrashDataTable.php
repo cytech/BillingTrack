@@ -4,10 +4,8 @@ namespace BT\DataTables;
 
 use BT\Modules\RecurringInvoices\Models\RecurringInvoice;
 use BT\Support\Frequency;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Column;
 
-class RecurringInvoicesTrashDataTable extends DataTable
+class RecurringInvoicesTrashDataTable extends RecurringInvoicesDataTable
 {
     /**
      * Build DataTable class.
@@ -59,66 +57,12 @@ class RecurringInvoicesTrashDataTable extends DataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
+            ->removeColumn('amount.total')
             ->ajax(['data' => 'function(d) { d.table = "recurring_invoices"; }'])
             ->orderBy(2, 'asc')
             ->lengthMenu([
                 [10, 25, 50, 100, -1],
                 ['10', '25', '50', '100', 'All']
             ]);
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            Column::make('id')
-                ->orderable(false)
-                ->searchable(false)
-                ->printable(false)
-                ->exportable(false)
-                ->className('bulk-record')
-            ,
-            Column::make('number')
-                ->width('5%'),
-            Column::make('client')
-                ->name('client_id')
-                ->title(trans('bt.client'))
-                ->data('client.id'),
-            Column::make('summary')
-                ->title(trans('bt.summary'))
-                ->data('formatted_summary'),
-            Column::make('next_date')
-                ->title(trans('bt.next_date'))
-                ->data('formatted_next_date')
-                ->searchable(false),
-            Column::make('stop_date')
-                ->title(trans('bt.stop_date'))
-                ->data('formatted_stop_date')
-                ->searchable(false),
-            Column::make('every')
-                ->title(trans('bt.every'))
-                ->data('recurring_frequency')
-                ->orderable(false)
-                ->searchable(false),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(80)
-                ->addClass('text-center'),
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'RecurringInvoices_' . date('YmdHis');
     }
 }

@@ -13,9 +13,9 @@
             <div class="card-header">
                 <h3 class="card-title">
                     @lang('bt.criteria_batchprint')
+                </h3>
                     <button type="submit" class="btn btn-primary float-right"><i
                                 class="fa fa-save"></i> @lang('bt.process') </button>
-                </h3>
             </div>
             <div class="card-body">
                 <div class="modal-body">

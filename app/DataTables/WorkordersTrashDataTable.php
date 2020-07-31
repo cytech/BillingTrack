@@ -4,10 +4,8 @@ namespace BT\DataTables;
 
 use BT\Modules\Workorders\Models\Workorder;
 use BT\Support\Statuses\WorkorderStatuses;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Column;
 
-class WorkordersTrashDataTable extends DataTable
+class WorkordersTrashDataTable extends WorkordersDataTable
 {
     /**
      * Build DataTable class.
@@ -74,71 +72,12 @@ class WorkordersTrashDataTable extends DataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
+            ->removeColumn('amount.total')
             ->ajax(['data' => 'function(d) { d.table = "workorders"; }'])
             ->orderBy(3, 'desc')
             ->lengthMenu([
                 [10, 25, 50, 100, -1],
                 ['10', '25', '50', '100', 'All']
             ]);
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            Column::make('id')
-                ->orderable(false)
-                ->searchable(false)
-                ->printable(false)
-                ->exportable(false)
-                ->className('bulk-record')
-            ,
-            Column::make('workorder_status_id')
-                ->title(trans('bt.status'))
-                ->data('workorder_status_id'),
-            Column::make('number')
-                ->title(trans('bt.workorder'))
-                ->data('number'),
-            Column::make('workorder_date')
-                ->title(trans('bt.date'))
-                ->data('formatted_workorder_date')
-                ->searchable(false),
-            Column::make('job_date')
-                ->title(trans('bt.job_date'))
-                ->data('formatted_job_date')
-                ->searchable(false),
-            Column::make('client_name')
-                ->name('client.name')
-                ->title(trans('bt.client'))
-                ->data('client.name'),
-            Column::make('summary')
-                ->title(trans('bt.summary'))
-                ->data('formatted_summary'),
-            Column::make('invoice_id')
-                ->title(trans('bt.invoiced'))
-                ->data('invoice_id')
-                ->orderable(false)
-                ->searchable(false),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(80)
-                ->addClass('text-center'),
-
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Workorders_' . date('YmdHis');
     }
 }

@@ -79,8 +79,8 @@
             <div class="public-doc-wrapper">
 
                 <div id="view-doc">
-                    <iframe src="{{ route('clientCenter.public.invoice.html', [$urlKey]) }}" frameborder="0"
-                            style="width: 100%;" scrolling="no" onload="resizeIframe(this, 800);"></iframe>
+                    <iframe src="{{ route('clientCenter.public.invoice.html', [$urlKey]) }}"
+                            style="width: 100%;" onload="resizeIframe(this, 800);"></iframe>
                 </div>
 
                 @if (auth()->check())

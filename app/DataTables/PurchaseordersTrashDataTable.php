@@ -4,10 +4,8 @@ namespace BT\DataTables;
 
 use BT\Modules\Purchaseorders\Models\Purchaseorder;
 use BT\Support\Statuses\PurchaseorderStatuses;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Column;
 
-class PurchaseordersTrashDataTable extends DataTable
+class PurchaseordersTrashDataTable extends PurchaseordersDataTable
 {
     /**
      * Build DataTable class.
@@ -17,7 +15,7 @@ class PurchaseordersTrashDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $statuses = PurchaseorderStatuses::listsAllFlat();// + ['overdue' => trans('bt.overdue')];
+        $statuses = PurchaseorderStatuses::listsAllFlat();
 
         return datatables()->eloquent($query)->addColumn('action', 'utilities._actions')
             ->editColumn('id', function (Purchaseorder $purchaseorder) {
@@ -27,12 +25,6 @@ class PurchaseordersTrashDataTable extends DataTable
                 $ret = '<td class="hidden-sm hidden-xs">
                 <span class="badge badge-' . strtolower($statuses[$purchaseorder->status_text]) . '">
                     '. trans('bt.' . strtolower($statuses[$purchaseorder->status_text])) . '</span>';
-//                if ($purchaseorder->viewed)
-//                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
-//                else
-//                    $ret .= '<span class="badge badge-secondary">' . trans('bt.not_viewed') . '</span>';
-//                $ret .= '</td>';
-
                 return $ret;
             })
             ->editColumn('vendor.name', function (Purchaseorder $purchaseorder){
@@ -64,63 +56,13 @@ class PurchaseordersTrashDataTable extends DataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
+            ->removeColumn('amount.balance')
+            ->removeColumn('amount.total')
             ->ajax(['data' => 'function(d) { d.table = "purchaseorders"; }'])
             ->orderBy(3, 'desc')
             ->lengthMenu([
                 [10, 25, 50, 100, -1],
                 ['10', '25', '50', '100', 'All']
             ]);
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            Column::make('id')
-                ->orderable(false)
-                ->searchable(false)
-                ->printable(false)
-                ->exportable(false)
-                ->className('bulk-record')
-            ,
-            Column::make('purchaseorder_status_id')
-                ->title(trans('bt.status')),
-            Column::make('number')
-                ->title(trans('bt.purchaseorder'))
-                ->data('number'),
-            Column::make('purchaseorder_date')
-                ->title(trans('bt.date'))
-                ->data('formatted_purchaseorder_date')
-                ->searchable(false),
-            Column::make('due_at')
-                ->title(trans('bt.due'))
-                ->data('formatted_due_at')
-                ->searchable(false),
-            Column::make('vendor_id')
-                ->title(trans('bt.vendor'))
-                ->data('vendor.name'),
-            Column::make('summary')
-                ->title(trans('bt.summary'))
-                ->data('formatted_summary'),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(80)
-                ->addClass('text-center'),
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Purchaseorders_' . date('YmdHis');
     }
 }

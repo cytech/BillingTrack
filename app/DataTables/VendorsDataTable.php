@@ -67,6 +67,7 @@ class VendorsDataTable extends DataTable
                 ->searchable(false)
                 ->printable(false)
                 ->exportable(false)
+                ->hidden()
             ,
             Column::make('name')
                 ->title(trans('bt.vendor_name')),

@@ -48,11 +48,11 @@
                 @endif
                 @if (in_array($workorder->status_text, ['draft', 'sent']))
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('@lang('bt.confirm_approve_workorder')', '{{ route('clientCenter.public.workorder.approve', [$workorder->url_key]) }}');">
+                       onclick="swalConfirm('@lang('bt.confirm_approve_workorder')', '{{ route('clientCenter.public.workorder.approve', [$workorder->url_key]) }}','view-doc');">
                         <i class="fa fa-thumbs-up"></i> @lang('bt.approve')
                     </a>
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('@lang('bt.confirm_reject_workorder')', '{{ route('clientCenter.public.workorder.reject', [$workorder->url_key]) }}');">
+                       onclick="swalConfirm('@lang('bt.confirm_reject_workorder')', '{{ route('clientCenter.public.workorder.reject', [$workorder->url_key]) }}','view-doc');">
                         <i class="fa fa-thumbs-down"></i> @lang('bt.reject')
                     </a>
                 @endif
@@ -61,8 +61,8 @@
             <div class="public-doc-wrapper">
 
                 <div id="view-doc">
-                    <iframe src="{{ route('clientCenter.public.workorder.html', [$urlKey]) }}" frameborder="0"
-                            style="width: 100%;" scrolling="no" onload="resizeIframe(this, 800);"></iframe>
+                    <iframe src="{{ route('clientCenter.public.workorder.html', [$urlKey]) }}"
+                            style="width: 100%;" onload="resizeIframe(this, 800);"></iframe>
                 </div>
 
                 @if (auth()->check())

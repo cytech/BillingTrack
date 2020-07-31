@@ -12,7 +12,6 @@
 namespace BT\Modules\Users\Models;
 
 use Askedio\SoftCascade\Traits\SoftCascadeTrait;
-use BT\Traits\Sortable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -23,7 +22,7 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, Sortable, SoftDeletes, SoftCascadeTrait;
+    use Authenticatable, CanResetPassword, SoftDeletes, SoftCascadeTrait;
 
     protected $softCascade = ['custom'];
 
@@ -34,8 +33,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $guarded = ['id', 'password', 'password_confirmation'];
 
     protected $hidden = ['password', 'remember_token', 'api_public_key', 'api_secret_key'];
-
-    protected $sortable = ['name', 'email'];
 
     protected $appends = ['user_type'];
 

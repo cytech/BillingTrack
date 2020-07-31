@@ -42,6 +42,7 @@ class ClientsTrashDataTable extends ClientsDataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
+            ->removeColumn('balance')
             ->ajax(['data' => 'function(d) { d.table = "clients"; }'])
             ->orderBy(1, 'asc')
             ->lengthMenu([

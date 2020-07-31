@@ -17,8 +17,9 @@
         });
     }
 
-    function swalConfirm(message, link) {
+    function swalConfirm(message, link, target = 'body') {
         Swal.fire({
+            target: document.getElementById(target),
             title: message,
             icon: 'warning',
             showCancelButton: true,

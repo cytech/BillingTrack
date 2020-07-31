@@ -12,7 +12,6 @@
 namespace BT\Modules\MailQueue\Models;
 
 use BT\Support\DateFormatter;
-use BT\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -20,11 +19,7 @@ class MailQueue extends Model
 {
     use SoftDeletes;
 
-    use Sortable;
-
     protected $table = 'mail_queue';
-
-    protected $sortable = ['created_at', 'from', 'to', 'cc', 'bcc', 'subject', 'sent'];
 
     protected $guarded = [];
 

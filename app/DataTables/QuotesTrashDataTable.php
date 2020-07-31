@@ -4,10 +4,8 @@ namespace BT\DataTables;
 
 use BT\Modules\Quotes\Models\Quote;
 use BT\Support\Statuses\QuoteStatuses;
-use Yajra\DataTables\Services\DataTable;
-use Yajra\DataTables\Html\Column;
 
-class QuotesTrashDataTable extends DataTable
+class QuotesTrashDataTable extends QuotesDataTable
 {
     /**
      * Build DataTable class.
@@ -76,70 +74,12 @@ class QuotesTrashDataTable extends DataTable
     {
         return $this->builder()
             ->columns($this->getColumns())
+            ->removeColumn('amount.total')
             ->ajax(['data' => 'function(d) { d.table = "quotes"; }'])
             ->orderBy(3, 'desc')
             ->lengthMenu([
                 [10, 25, 50, 100, -1],
                 ['10', '25', '50', '100', 'All']
             ]);
-    }
-
-    /**
-     * Get columns.
-     *
-     * @return array
-     */
-    protected function getColumns()
-    {
-        return [
-            Column::make('id')
-                ->orderable(false)
-                ->searchable(false)
-                ->printable(false)
-                ->exportable(false)
-                ->className('bulk-record')
-            ,
-            Column::make('quote_status_id')
-                ->title(trans('bt.status')),
-            Column::make('number')
-                ->title(trans('bt.quote'))
-                ->data('number'),
-            Column::make('quote_date')
-                ->title(trans('bt.date'))
-                ->data('formatted_quote_date')
-                ->searchable(false),
-            Column::make('expires_at')
-                ->title(trans('bt.due'))
-                ->data('formatted_expires_at')
-                ->searchable(false),
-            Column::make('client_name')
-                ->name('client.name')
-                ->title(trans('bt.client'))
-                ->data('client.name'),
-            Column::make('summary')
-                ->title(trans('bt.summary'))
-                ->data('formatted_summary'),
-            Column::make('invoice_id')
-                ->title(trans('bt.converted'))
-                ->data('invoice_id')
-                ->orderable(false)
-                ->searchable(false),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(80)
-                ->addClass('text-center'),
-
-        ];
-    }
-
-    /**
-     * Get filename for export.
-     *
-     * @return string
-     */
-    protected function filename()
-    {
-        return 'Quotes_' . date('YmdHis');
     }
 }

@@ -35,7 +35,7 @@
         "datatables.net-buttons-bs4": "^1.6.2",
         "daterangepicker": "^3.1.0",
         "font-awesome": "4.7.0",
-        "fullcalendar": "^5.1.0",
+        "fullcalendar": "^5.2.0",
         "jquery-autosize": "^1.18.18",
         "jquery-datetimepicker": "^2.5.21",
         "jquery-ui": "^1.12.1",
@@ -45,7 +45,7 @@
         "morris-data": "^0.5.1",
         "morris.js.so": "^0.5.1",
         "raphael": "^2.3.0",
-        "sweetalert2": "^9.17.0",
-        "tippy.js": "^6.2.5"
+        "sweetalert2": "^9.17.1",
+        "tippy.js": "^6.2.6"
     }
 }

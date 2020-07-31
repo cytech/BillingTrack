@@ -46,7 +46,7 @@ class EmployeesDataTable extends DataTable
             ->setTableId('employees-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(2, 'asc');
+            ->orderBy(3, 'asc');
     }
 
     /**
@@ -58,12 +58,16 @@ class EmployeesDataTable extends DataTable
     {
         return [
             Column::make('id')
-                ->title(trans('bt.employee_number'))
+                ->title(trans('bt.id'))
                 ->orderable(false)
                 ->searchable(false)
                 ->printable(false)
                 ->exportable(false)
+                ->hidden()
             ,
+            Column::make('number')
+                ->title(trans('bt.employee_number'))
+                ->searchable(false),
             Column::make('first_name')
                 ->title(trans('bt.first_name')),
             Column::make('last_name')
