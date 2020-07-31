@@ -16,10 +16,12 @@ class CurrenciesTableSeeder extends Seeder
     {
         if (count(Currency::all())){ return; }
 
-        DB::statement('INSERT INTO "currencies" VALUES (1,\'AUD\',\'Australian Dollar\',\'$\',\'before\',\'.\',\',\',NULL,NULL,NULL)
-            ,(2,\'CAD\',\'Canadian Dollar\',\'$\',\'before\',\'.\',\',\',NULL,NULL,NULL)
-            ,(3,\'EUR\',\'Euro\',\'€\',\'before\',\'.\',\',\',NULL,NULL,NULL)
-            ,(4,\'GBP\',\'Pound Sterling\',\'£\',\'before\',\'.\',\',\',NULL,NULL,NULL)
-            ,(5,\'USD\',\'US Dollar\',\'$\',\'before\',\'.\',\',\',NULL,NULL,NULL)');
+        DB::table('currencies')->insert(['id' => 1,'code' => 'AUD', 'name' => 'Australian Dollar', 'symbol' => '$', 'placement' => 'before', 'decimal' => '.', 'thousands' => ',' ]);
+        DB::table('currencies')->insert(['id' => 2,'code' => 'CAD', 'name' => 'Canadian Dollar', 'symbol' => '$', 'placement' => 'before', 'decimal' => '.', 'thousands' => ',' ]);
+        DB::table('currencies')->insert(['id' => 3,'code' => 'EUR', 'name' => 'Euro', 'symbol' => '€', 'placement' => 'before', 'decimal' => '.', 'thousands' => ',' ]);
+        DB::table('currencies')->insert(['id' => 4,'code' => 'GBP', 'name' => 'Pound Sterling', 'symbol' => '£', 'placement' => 'before', 'decimal' => '.', 'thousands' => ',' ]);
+        DB::table('currencies')->insert(['id' => 5,'code' => 'USD', 'name' => 'US Dollar', 'symbol' => '$', 'placement' => 'before', 'decimal' => '.', 'thousands' => ',' ]);
+
+
     }
 }

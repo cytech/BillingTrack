@@ -15,9 +15,10 @@ class PaymentMethodsTableSeeder extends Seeder
     {
         if (count(PaymentMethod::all())){ return; }
 
-        DB::statement('INSERT INTO "payment_methods" VALUES (1,\'Cash\',NULL,NULL,NULL)
-            ,(2,\'Check\',NULL,NULL,NULL)
-            ,(3,\'Credit Card\',NULL,NULL,NULL)
-            ,(4,\'Online Payment\',NULL,NULL,NULL)');
+        DB::table('payment_methods')->insert(['id' => 1,'name' => 'Cash']);
+        DB::table('payment_methods')->insert(['id' => 2,'name' => 'Check']);
+        DB::table('payment_methods')->insert(['id' => 3,'name' => 'Credit Card']);
+        DB::table('payment_methods')->insert(['id' => 4,'name' => 'Online Payment']);
+
     }
 }
