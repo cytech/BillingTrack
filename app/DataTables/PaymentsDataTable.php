@@ -26,7 +26,7 @@ class PaymentsDataTable extends DataTable
                 return '<input type="checkbox" class="bulk-record" data-id="' . $payment->id . '">';
             })
             ->editColumn('client.name', function (Payment $payment) {
-                return '<a href="clients/' . $payment->client->id . '/edit">' . $payment->client->name . '</a>';
+                return '<a href="clients/' . $payment->client->id . '">' . $payment->client->name . '</a>';
             })
             ->orderColumn('formatted_paid_at', 'paid_at $1')
             ->orderColumn('formatted_amount', 'amount $1')

@@ -11,6 +11,7 @@
                         </label>
                     </div>
                 @endforeach
+                @endforeach
             </div>
         </div>
     </div>

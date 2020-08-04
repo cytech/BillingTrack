@@ -16,7 +16,7 @@ class SettingsTableSeeder extends Seeder
             return;
         }
 
-        Setting::saveByKey('addressFormat','{{ address }}\\r\\n{{ city }}, {{ state }} {{ postal_code }}');
+        Setting::saveByKey('addressFormat',"{{ address }}\r\n{{ city }}, {{ state }} {{ postal_code }}");
         Setting::saveByKey('allowPaymentsWithoutBalance','0');
         Setting::saveByKey('amountDecimals','2');
         Setting::saveByKey('attachPdf','1');
