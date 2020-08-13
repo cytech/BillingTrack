@@ -1,28 +1,28 @@
 {
-  "_from": "datatables.net-buttons-bs4@1.6.2",
-  "_id": "datatables.net-buttons-bs4@1.6.2",
+  "_from": "datatables.net-buttons-bs4@1.6.3",
+  "_id": "datatables.net-buttons-bs4@1.6.3",
   "_inBundle": false,
-  "_integrity": "sha512-v3K2rK4FZAKTUL/M0B3Mm+FlDPszR4sZGqoOdwP3/dinFUQ63oQE/e4O5Mpxf9yuV0gxKUlTHmUBk/QB8k43FQ==",
+  "_integrity": "sha512-PV8Ghm/qO+YDOF++r9Ky8IZLJCy0rvq+3Nft8sG3Lsoyx8NPeOzERASaYbasTTyGbw4PajD9uimZXJuCcmaSkg==",
   "_location": "/datatables.net-buttons-bs4",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "datatables.net-buttons-bs4@1.6.2",
+    "raw": "datatables.net-buttons-bs4@1.6.3",
     "name": "datatables.net-buttons-bs4",
     "escapedName": "datatables.net-buttons-bs4",
-    "rawSpec": "1.6.2",
+    "rawSpec": "1.6.3",
     "saveSpec": null,
-    "fetchSpec": "1.6.2"
+    "fetchSpec": "1.6.3"
   },
   "_requiredBy": [
     "#USER",
     "/",
     "/admin-lte"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-buttons-bs4/-/datatables.net-buttons-bs4-1.6.2.tgz",
-  "_shasum": "234882e3ad345f358bce100768c2351a6dcee097",
-  "_spec": "datatables.net-buttons-bs4@1.6.2",
+  "_resolved": "https://registry.npmjs.org/datatables.net-buttons-bs4/-/datatables.net-buttons-bs4-1.6.3.tgz",
+  "_shasum": "83462e324e3ea6110d9212a53cdaedd1a580cd73",
+  "_spec": "datatables.net-buttons-bs4@1.6.3",
   "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
   "author": {
     "name": "SpryMedia Ltd",
@@ -34,7 +34,7 @@
   "bundleDependencies": false,
   "dependencies": {
     "datatables.net-bs4": "^1.10.15",
-    "datatables.net-buttons": "1.6.2",
+    "datatables.net-buttons": "1.6.3",
     "jquery": ">=1.7"
   },
   "deprecated": false,
@@ -60,5 +60,5 @@
   "main": "js/buttons.bootstrap4.js",
   "name": "datatables.net-buttons-bs4",
   "style": "css/buttons.bootstrap4.css",
-  "version": "1.6.2"
+  "version": "1.6.3"
 }

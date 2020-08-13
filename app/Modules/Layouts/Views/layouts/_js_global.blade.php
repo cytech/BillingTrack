@@ -17,7 +17,7 @@
         });
     }
 
-    function swalConfirm(message, link, target = 'body') {
+    function swalConfirm(message, link, target = "body") {
         Swal.fire({
             target: document.getElementById(target),
             title: message,

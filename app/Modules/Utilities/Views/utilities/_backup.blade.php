@@ -25,6 +25,34 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
+                        <h3>Set Clients Inactive</h3>
+                        @if (!config('app.demo'))
+                            {!! Form::open(['route' => 'utilities.clientprior.database','method' => 'get', 'id' => 'clientprior', 'class'=>"form-inline"]) !!}
+                            <div class="col-md-6">
+                                This will set clients, who have <b><i><u>no activity after</u></i></b> the selected date, to "Inactive" status.<br>
+                                This applies to client activity in quotes, workorders, invoices, recurring_invoices, payments, expenses and timetracking.<br>
+                                <b>IT IS HIGHLY RECOMMENDED YOU BACKUP YOUR DATABASE PRIOR TO RUNNING CLEANUP!!</b><br>
+                                Depending on the number of records/children in the time range, this may take awhile to complete.<br>
+                            </div>
+
+                            <div class="col-md-2 form-group">
+                                <label>Set Inactive Date</label>
+                                {!! Form::text('clientprior_date', Carbon\Carbon::parse('first day of january')->subYears(2)->format('m/d/Y'),
+                                 ['id' => 'clientprior_date', 'class' => 'form-control ']) !!}
+                            </div>
+
+                            <button type="button" id="btnSubmitClient" class="btn btn-danger float-right"><i
+                                        class="fa fa-exclamation"></i> Execute Now </button>
+
+                            {!! Form::close() !!}
+                        @else
+                            <p>Database clientinactive not available in demo.</p>
+                        @endif
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
                         <h3>Database entities to trash</h3>
                         @if (!config('app.demo'))
                             {!! Form::open(['route' => 'utilities.trashprior.database','method' => 'get', 'id' => 'tprior', 'class'=>"form-inline"]) !!}
@@ -46,8 +74,9 @@
                                      'Invoice'=>'Invoices', 'Purchaseorder'=>'Purchaseorders',
                                       'Schedule'=>'Schedule'], null, ['class' => 'form-control']) !!}
                                 </div>
-                            <button type="submit" class="btn btn-danger float-right"><i
-                                        class="fa fa-trash"></i> @lang('bt.trash') </button>
+                            <button type="button" id="btnSubmitTrash" class="btn btn-danger float-right"><i
+                                        class="fa fa-trash"></i> Trash Now </button>
+
                             {!! Form::close() !!}
                         @else
                             <p>Database trashprior not available in demo.</p>
@@ -87,9 +116,8 @@
                                      'Invoice'=>'Invoices', 'Purchaseorder'=>'Purchaseorders',
                                       'Schedule'=>'Schedule'], null, ['class' => 'form-control']) !!}
                                 </div>
-                            <button type="submit" class="btn btn-danger float-right"><i
-                                        class="fa fa-ban"></i> @lang('bt.delete') </button>
-                            {!! Form::close() !!}
+                            <button type="button" id="btnSubmitDelete" class="btn btn-danger float-right"><i
+                                        class="fa fa-ban"></i> Delete Now </button>
                         @else
                             <p>Database deleteprior not available in demo.</p>
                         @endif
@@ -102,17 +130,37 @@
 
 @section('javascript')
 <script>
-    $(function () {
-
-        $("#trashprior_date").datetimepicker({
+    $(document).ready(function() {
+        $("#clientprior_date,#trashprior_date,#deleteprior_date").datetimepicker({
             format: '{{ config('bt.dateFormat') }}',
             defaultDate: new Date(new Date().getFullYear() - 2, 0, 1), timepicker: false, scrollInput: false
         });
 
-        $("#deleteprior_date").datetimepicker({
-            format: '{{ config('bt.dateFormat') }}',
-            defaultDate: new Date(new Date().getFullYear() - 2, 0, 1), timepicker: false, scrollInput: false
+        $("#btnSubmitClient,#btnSubmitTrash,#btnSubmitDelete").click(function() {
+            Swal.fire({
+                title: 'Are You Sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d68500',
+                confirmButtonText: '@lang('bt.yes_sure')'
+            }).then((result) => {
+                if (result.value) {
+                    // disable button
+                    $(this).prop("disabled", true);
+                    // add spinner to button
+                    $(this).html(
+                        `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Working...`
+                    );
+                    $(this).form().submit()
+
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                }
+            });
+
         });
+
     });
+
 </script>
 @stop

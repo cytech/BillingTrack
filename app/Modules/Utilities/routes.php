@@ -26,6 +26,7 @@ Route::middleware(['web', 'auth.admin'])->namespace('BT\Modules\Utilities\Contro
             Route::name('backup.database')->get('backup/database', 'BackupController@database');
             Route::name('trashprior.database')->get('trashprior/database', 'BackupController@trashPrior');
             Route::name('deleteprior.database')->get('deleteprior/database', 'BackupController@deletePrior');
+            Route::name('clientprior.database')->get('clientprior/database', 'BackupController@clientInactivePrior');
         }
 
     });

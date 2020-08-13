@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - added category, itemlookup and mail queue datatables
 - updated all datatables
 - add swalConfirm target (for sweetalert over iframe)
+- added bulk client inactive to database management
 
 ## 5.1.0
 - Added client shipping address fields (address_2,city_2,etc) accessible in templates

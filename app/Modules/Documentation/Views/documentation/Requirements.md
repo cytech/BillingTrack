@@ -10,18 +10,43 @@ install and use the software. .
 
 -   A web server of some sort - Apache, nginx, etc.
 -   PHP &gt;= 7.2.5
--   OpenSSL PHP Extension
--   PDO PHP Extension
--   Mbstring PHP Extension
--   Tokenizer PHP Extension
--   XML PHP Extension
--   DOM PHP Extension
--   Ctype PHP Extension
--   JSON PHP Extension
--   iconv PHP Extension
--   Fileinfo PHP Extension (only if using the data import module)
 -   MySQL or MariaDB
 -   A modern and updated web browser
+-   BCMath PHP Extension
+-   Ctype PHP Extension
+-   Fileinfo PHP extension
+-   JSON PHP Extension
+-   Mbstring PHP Extension
+-   OpenSSL PHP Extension
+-   PDO PHP Extension
+-   Tokenizer PHP Extension
+-   XML PHP Extension
+------------
+PHP Extension list from "composer check-platform-reqs"
+ 
+-   ext-ctype       
+-   ext-curl        
+-   ext-dom         
+-   ext-fileinfo    
+-   ext-filter      
+-   ext-gd          
+-   ext-iconv       
+-   ext-json        
+-   ext-libxml      
+-   ext-mbstring    
+-   ext-openssl     
+-   ext-pcre        
+-   ext-PDO         
+-   ext-Phar        
+-   ext-SimpleXML   
+-   ext-tokenizer   
+-   ext-xml         
+-   ext-xmlreader   
+-   ext-xmlwriter   
+-   ext-zip         
+-   ext-zlib        
+-   lib-pcre        
+
 
 **Composer installed**
 
