@@ -40,7 +40,7 @@
         "jquery-datetimepicker": "^2.5.21",
         "jquery-ui": "^1.12.1",
         "jquery-ui-built-themes": "^1.12.1",
-        "jquery-validation": "^1.19.2",
+        "jquery-validation": "^1.19.3",
         "moment": "^2.27.0",
         "morris-data": "^0.5.1",
         "morris.js.so": "^0.5.1",
