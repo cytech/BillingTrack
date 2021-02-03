@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 5.3.0
 - upgrade to Laravel 8 (php 8 support)
 - upgrade dependencies
+- fixed an issue with Expense Creation
 
 ## 5.2.0
 - upgrade to Laravel 7

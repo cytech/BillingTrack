@@ -38,20 +38,6 @@ class ExpenseObserver
             $expense->user_id = auth()->user()->id;
         }
 
-        if ($expense->category_name)
-        {
-            $expense->category_id = Category::firstOrCreate(['name' => $expense->category_name])->id;
-        }
-
-        if (isset($expense->vendor_name) and $expense->vendor_name)
-        {
-            $expense->vendor_id = Vendor::firstOrCreate(['name' => $expense->vendor_name])->id;
-        }
-        elseif (isset($expense->vendor_name))
-        {
-            $expense->vendor_id = 0;
-        }
-
         if ($expense->company_profile)
         {
             if (!CompanyProfile::where('company', $expense->company_profile)->count())
@@ -60,15 +46,6 @@ class ExpenseObserver
             }
         }
 
-        if (isset($expense->client_name) and $expense->client_name)
-        {
-            $expense->client_id = Client::firstOrCreateByUniqueName($expense->client_name)->id;
-        }
-        elseif (isset($expense->client_name))
-        {
-            $expense->client_id = 0;
-        }
-
-        unset($expense->company_profile, $expense->client_name, $expense->vendor_name, $expense->category_name);
+        unset($expense->company_profile);
     }
 }
