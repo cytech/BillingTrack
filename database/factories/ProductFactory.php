@@ -23,8 +23,7 @@ $factory->define(\BT\Modules\Products\Models\Product::class, function (Faker $fa
         'serialnum' => $faker->randomNumber(9),
         'active' => 1,
         'cost' => $faker->randomFloat(2, 19, 150),
-        'category' => 'Product',
-        'type' => 'Product Type',
+        'inventorytype_id' => 7,
         'numstock' => $faker->numberBetween(1,10),
     ];
 });

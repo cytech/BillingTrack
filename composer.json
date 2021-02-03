@@ -5,43 +5,44 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.2.5",
-        "askedio/laravel-soft-cascade": "^7.0",
-        "barryvdh/laravel-ide-helper": "^2.7",
-        "doctrine/dbal": "^2.10",
-        "dompdf/dompdf": "^0.8.5",
+        "php": ">=7.3|^8.0",
+        "askedio/laravel-soft-cascade": "^8.1",
+        "barryvdh/laravel-ide-helper": "^2.9",
+        "doctrine/dbal": "^3.0",
+        "dompdf/dompdf": "^1.0.2",
         "fideloper/proxy": "^4.4",
-        "graham-campbell/markdown": "^13.0",
+        "graham-campbell/markdown": "^13.1",
         "ifsnop/mysqldump-php": "2.*",
         "knplabs/knp-snappy": "^1.2",
-        "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0",
-        "laravel/helpers": "^1.2",
-        "laravelcollective/html": "^6.1",
-        "mollie/mollie-api-php": "^2.18",
+        "laravel/framework": "^8.0",
+        "laravel/tinker": "^2.6",
+        "laravel/helpers": "^1.4",
+        "laravel/legacy-factories": "^1.1",
+        "laravelcollective/html": "^6.2",
+        "mollie/mollie-api-php": "^2.29",
         "paypal/rest-api-sdk-php": "^1.14",
         "simshaun/recurr": "^4.0",
-        "sonata-project/exporter": "^2.2",
-        "stripe/stripe-php": "^7.39",
+        "sonata-project/exporter": "^2.5",
+        "stripe/stripe-php": "^7.69",
         "yajra/laravel-datatables-buttons": "4.*"
     },
     "require-dev": {
-        "facade/ignition": "^2.0",
-        "nunomaduro/collision": "^4.1",
-        "barryvdh/laravel-debugbar": "^3.3",
-        "fzaninotto/faker": "~1.9",
-        "mockery/mockery": "~1.4",
-        "phpunit/phpunit": "^8.5",
-        "symfony/thanks": "^1.1"
+        "facade/ignition": "^2.3.6",
+        "nunomaduro/collision": "^5.0",
+        "barryvdh/laravel-debugbar": "^3.5",
+        "fakerphp/faker": "^1.13",
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit": "^9.3",
+        "symfony/thanks": "^1.2"
     },
     "autoload": {
         "classmap": [
-            "database/seeds",
             "database/factories"
         ],
         "psr-4": {
             "BT\\": "app/",
-            "Addons\\": "custom/addons/"
+            "Addons\\": "custom/addons/",
+            "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
             "app/Constants.php"

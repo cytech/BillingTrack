@@ -2,6 +2,10 @@ Release Notes
 ---
 
 ---
+### BillingTrack 5.3.0 (2021-02-08)
+- upgrade to Laravel 8 (PHP 8 compatability)
+- upgrade dependencies
+
 ### BillingTrack 5.2.0 (2020-08-01)
 - upgrade to Laravel 7
 - upgrade dependencies

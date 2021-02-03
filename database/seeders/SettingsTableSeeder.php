@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use BT\Modules\Settings\Models\Setting;
 use Illuminate\Database\Seeder;
+use DB;
 
 class SettingsTableSeeder extends Seeder
 {

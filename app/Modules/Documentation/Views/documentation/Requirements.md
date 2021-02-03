@@ -9,7 +9,7 @@ requirements below to determine whether or not you will be able to
 install and use the software. .
 
 -   A web server of some sort - Apache, nginx, etc.
--   PHP &gt;= 7.2.5
+-   PHP &gt;= 7.3 or &gt;= 8.0
 -   MySQL or MariaDB
 -   A modern and updated web browser
 -   BCMath PHP Extension

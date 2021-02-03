@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use BT\Modules\Titles\Models\Title;
+use Eloquent;
 
 class TitleSeeder extends Seeder
 {

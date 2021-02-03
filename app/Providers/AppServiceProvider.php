@@ -17,6 +17,7 @@ use BT\Support\Directory;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -73,6 +74,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register('BT\Providers\ObserverServiceProvider');
 
         // $this->app->register('Collective\Html\HtmlServiceProvider');
+
+        Paginator::useBootstrap();
     }
 
     /**

@@ -5,14 +5,14 @@
 */
 
 /*!
-  * Bootstrap v4.5.2 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Bootstrap v4.6.0 (https://getbootstrap.com/)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 
 /*!
- * AdminLTE v3.0.5 (https://adminlte.io)
- * Copyright 2014-2020 Colorlib <http://colorlib.com>
+ * AdminLTE v3.1.0-rc (https://adminlte.io)
+ * Copyright 2014-2020 Colorlib <https://colorlib.com>
  * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
  */
 
@@ -28,8 +28,8 @@
  */
 
 /*!
- * Vue.js v2.6.11
- * (c) 2014-2019 Evan You
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
  * Released under the MIT License.
  */
 
@@ -247,7 +247,7 @@
  */
 
 /*!
- DataTables 1.10.21
+ DataTables 1.10.23
  ©2008-2020 SpryMedia Ltd - datatables.net/license
 */
 
@@ -256,7 +256,7 @@
  ©2011-2017 SpryMedia Ltd - datatables.net/license
 */
 
-/*! DataTables 1.10.21
+/*! DataTables 1.10.23
  * ©2008-2020 SpryMedia Ltd - datatables.net/license
  */
 

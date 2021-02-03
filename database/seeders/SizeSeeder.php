@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use BT\Modules\Sizes\Models\Size;
+use Eloquent;
 
 class SizeSeeder extends Seeder
 {

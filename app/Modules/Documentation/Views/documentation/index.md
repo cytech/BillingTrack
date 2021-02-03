@@ -2,7 +2,7 @@
 
 #### Versions
 
-BillingTrack v5.2.x
+BillingTrack v5.3.x
 
 #### About BillingTrack
 

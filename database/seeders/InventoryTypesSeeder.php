@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use BT\Modules\Products\Models\InventoryType;
 use Illuminate\Database\Seeder;
+use Eloquent;
 
 class InventoryTypesSeeder extends Seeder
 {

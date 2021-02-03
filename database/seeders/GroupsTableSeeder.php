@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use BT\Modules\Groups\Models\Group;
+use DB;
 
 class GroupsTableSeeder extends Seeder
 {

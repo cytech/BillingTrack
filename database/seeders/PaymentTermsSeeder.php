@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use BT\Modules\PaymentTerms\Models\PaymentTerm;
+use Eloquent;
 
 class PaymentTermsSeeder extends Seeder
 {

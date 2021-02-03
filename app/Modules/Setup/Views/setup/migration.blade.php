@@ -14,9 +14,14 @@
                     $('#btn-running-migration').hide();
                     $('#btn-migration-complete').show();
                 }).fail(function (response) {
-                    $('#div-exception').show().html($.parseJSON(response.responseText).exception);
-                    $('#btn-running-migration').hide();
-                    $('#btn-run-migration').show();
+                    if (response.status == 400) {
+                        $('#div-exception').show().html($.parseJSON(response.responseText).exception);
+                    } else {
+                        alert('@lang('bt.unknown_error')');
+                        $('#div-exception').hide();
+                        $('#btn-running-migration').hide();
+                        $('#btn-migration-complete').show();
+                    }
                 });
             });
 

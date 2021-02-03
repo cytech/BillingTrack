@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use BT\Modules\Industries\Models\Industry;
+use Eloquent;
 
 class IndustrySeeder extends Seeder
 {

@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use BT\Modules\Currencies\Models\Currency;
+use DB;
 
 
 class CurrenciesTableSeeder extends Seeder

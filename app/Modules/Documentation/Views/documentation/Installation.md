@@ -38,8 +38,9 @@ Installation
 
 8. Start YOUR\_BILLINGTRACK\_WEBSITE/setup
 
-9. After database configuration finishes (this may take a couple of
-minutes):
+9. After database configuration finishes (this may take awhile. 10 minutes is not unusual):
+
+Note: In some instances a fresh install will throw an "unknown error" alert box. If this happens, dismiss the alert box and continue. In all reported cases the migration completed properly but some timeout was thrown that causes the error.
 
 - Create new account -&gt; creates fresh installation with account
 

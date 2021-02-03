@@ -18,6 +18,15 @@ use BT\Modules\Clients\Models\Contact;
 use BT\Modules\Employees\Models\Employee;
 use BT\Modules\Products\Models\Product;
 
+/*
+ * or run in tinker
+ *  factory(\BT\Modules\Clients\Models\Client::class, 25)->create();
+ * factory(\BT\Modules\Products\Models\Product::class, 20)->create();
+ *  factory(\BT\Modules\Employees\Models\Employee::class, 10)->create();
+ *
+ * */
+
+
 class TestController extends Controller
 {
     public function test()

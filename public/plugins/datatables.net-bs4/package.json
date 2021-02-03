@@ -1,22 +1,21 @@
 {
-  "_from": "datatables.net-bs4@1.10.21",
-  "_id": "datatables.net-bs4@1.10.21",
+  "_from": "datatables.net-bs4@^1.10.23",
+  "_id": "datatables.net-bs4@1.10.23",
   "_inBundle": false,
-  "_integrity": "sha512-F9zabYw8ZLXfjvj2S+BdnbkEUsL48bJwWxQFrA47cOXrIvsMhW8nmqPZcIMK4ko3k1i74nbpWLO1t+vueQKoXQ==",
+  "_integrity": "sha512-ChUB8t5t5uzPnJYTPXx2DOvnlm2shz8OadXrKoFavOadB308OuwHVxSldYq9+KGedCeiVxEjNqcaV4nFSXkRsw==",
   "_location": "/datatables.net-bs4",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "datatables.net-bs4@1.10.21",
+    "raw": "datatables.net-bs4@^1.10.23",
     "name": "datatables.net-bs4",
     "escapedName": "datatables.net-bs4",
-    "rawSpec": "1.10.21",
+    "rawSpec": "^1.10.23",
     "saveSpec": null,
-    "fetchSpec": "1.10.21"
+    "fetchSpec": "^1.10.23"
   },
   "_requiredBy": [
-    "#USER",
     "/",
     "/admin-lte",
     "/datatables.net-autofill-bs4",
@@ -29,11 +28,12 @@
     "/datatables.net-rowgroup-bs4",
     "/datatables.net-rowreorder-bs4",
     "/datatables.net-scroller-bs4",
+    "/datatables.net-searchpanes-bs4",
     "/datatables.net-select-bs4"
   ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-bs4/-/datatables.net-bs4-1.10.21.tgz",
-  "_shasum": "7a9ae489ebbd815cd869292450d284edd0f44697",
-  "_spec": "datatables.net-bs4@1.10.21",
+  "_resolved": "https://registry.npmjs.org/datatables.net-bs4/-/datatables.net-bs4-1.10.23.tgz",
+  "_shasum": "bdd5d0dcb1bd68a7afe649a4424ba20647523b52",
+  "_spec": "datatables.net-bs4@^1.10.23",
   "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
   "author": {
     "name": "SpryMedia Ltd",
@@ -44,7 +44,7 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "datatables.net": "1.10.21",
+    "datatables.net": "1.10.23",
     "jquery": ">=1.7"
   },
   "deprecated": false,
@@ -66,5 +66,5 @@
   "main": "./js/dataTables.bootstrap4.js",
   "name": "datatables.net-bs4",
   "style": "./css/dataTables.bootstrap4.css",
-  "version": "1.10.21"
+  "version": "1.10.23"
 }
