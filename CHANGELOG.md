@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.3.1
+- added scheduler setting for today background color
+- remove background from login page logo
+
 ## 5.3.0
 - upgrade to Laravel 8 (php 8 support)
 - upgrade dependencies

@@ -2,6 +2,10 @@ Release Notes
 ---
 
 ---
+### BillingTrack 5.3.1 (2021-02-10)
+- added scheduler setting for today background color
+- remove background from login page logo
+
 ### BillingTrack 5.3.0 (2021-02-08)
 - upgrade to Laravel 8 (PHP 8 compatability)
 - upgrade dependencies

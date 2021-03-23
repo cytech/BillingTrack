@@ -18,7 +18,7 @@
 </head>
 <body class="login-page">
         @if(!config('app.demo'))
-            <div class="brand-link bg-purple ">
+            <div class="brand-link">
                 <img src="/img/billingtrack_logo.svg" alt="BillingTrack Logo" class="brand-image img-circle elevation-3 img-sm"
                      style="opacity: .8">
                 <span class="brand-text font-weight-light h2"> {{ config('bt.headerTitleText', config('app.name','BillingTrack')) }}</span>

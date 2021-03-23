@@ -1,63 +1,35 @@
 {
-  "_from": "datatables.net-buttons-bs4@^1.6.5",
-  "_id": "datatables.net-buttons-bs4@1.6.5",
-  "_inBundle": false,
-  "_integrity": "sha512-GDCRZehr9t1PIAJsBdZA1cFJXeaInNLgNLG2IcN7EQLkb33kem1J+PdtIDv7/fPFqVKOAye2FqpSlcMOHXSiSw==",
-  "_location": "/datatables.net-buttons-bs4",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "datatables.net-buttons-bs4@^1.6.5",
     "name": "datatables.net-buttons-bs4",
-    "escapedName": "datatables.net-buttons-bs4",
-    "rawSpec": "^1.6.5",
-    "saveSpec": null,
-    "fetchSpec": "^1.6.5"
-  },
-  "_requiredBy": [
-    "/",
-    "/admin-lte"
-  ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-buttons-bs4/-/datatables.net-buttons-bs4-1.6.5.tgz",
-  "_shasum": "e7802391d28e2c3786dfc0a4c278e0434e0528b1",
-  "_spec": "datatables.net-buttons-bs4@^1.6.5",
-  "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
-  "author": {
-    "name": "SpryMedia Ltd",
-    "url": "http://datatables.net"
-  },
-  "bugs": {
-    "url": "https://datatables.net/forums"
-  },
-  "bundleDependencies": false,
-  "dependencies": {
-    "datatables.net-bs4": "^1.10.15",
-    "datatables.net-buttons": "1.6.5",
-    "jquery": ">=1.7"
-  },
-  "deprecated": false,
-  "description": "Buttons for DataTables with styling for [Bootstrap 4](http://getbootstrap.com/)",
-  "files": [
-    "css/**/*.css",
-    "js/**/*.js"
-  ],
-  "homepage": "https://datatables.net",
-  "keywords": [
-    "buttons",
-    "excel",
-    "pdf",
-    "csv",
-    "column visibility",
-    "print",
-    "DataTables",
-    "jQuery",
-    "table",
-    "Bootstrap 4"
-  ],
-  "license": "MIT",
-  "main": "js/buttons.bootstrap4.js",
-  "name": "datatables.net-buttons-bs4",
-  "style": "css/buttons.bootstrap4.css",
-  "version": "1.6.5"
+    "version": "1.7.0",
+    "description": "Buttons for DataTables with styling for [Bootstrap 4](http://getbootstrap.com/)",
+    "files": [
+        "css/**/*.css",
+        "js/**/*.js"
+    ],
+    "main": "js/buttons.bootstrap4.js",
+    "keywords": [
+        "buttons",
+        "excel",
+        "pdf",
+        "csv",
+        "column visibility",
+        "print",
+        "DataTables",
+        "jQuery",
+        "table",
+        "Bootstrap 4"
+    ],
+    "homepage": "https://datatables.net",
+    "bugs": "https://datatables.net/forums",
+    "license": "MIT",
+    "author": {
+        "name": "SpryMedia Ltd",
+        "url": "http://datatables.net"
+    },
+    "dependencies": {
+        "jquery": ">=1.7",
+        "datatables.net-bs4": "^1.10.15",
+        "datatables.net-buttons": "1.7.0"
+    },
+    "style": "css/buttons.bootstrap4.css"
 }

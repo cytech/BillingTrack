@@ -1,7 +1,7 @@
 # BillingTrack
 
 **NOTE**
-**Minimum PHP requirement for v5.X.X is >=7.2.5**
+**Minimum PHP requirement for v5.3.X is PHP >= 7.3 or >= 8.0**
 
 BillingTrack is a self hosted billing system for freelancers and small businesses.
 

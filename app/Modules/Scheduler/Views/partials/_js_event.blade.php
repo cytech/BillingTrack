@@ -12,6 +12,11 @@
             margin-left: 8px;
             margin-top: 0;
         }
+        {{--fc default is rgba(255,220,40,.15) or #fff9de  --}}
+        {{-- temp set #b3ecff --}}
+        .fc-day-today {
+            background: {{config('bt.schedulerFcTodaybgColor')}} !important;
+        }
     </style>
 
     <script>

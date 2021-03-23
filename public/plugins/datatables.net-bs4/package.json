@@ -1,70 +1,30 @@
 {
-  "_from": "datatables.net-bs4@^1.10.23",
-  "_id": "datatables.net-bs4@1.10.23",
-  "_inBundle": false,
-  "_integrity": "sha512-ChUB8t5t5uzPnJYTPXx2DOvnlm2shz8OadXrKoFavOadB308OuwHVxSldYq9+KGedCeiVxEjNqcaV4nFSXkRsw==",
-  "_location": "/datatables.net-bs4",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "datatables.net-bs4@^1.10.23",
     "name": "datatables.net-bs4",
-    "escapedName": "datatables.net-bs4",
-    "rawSpec": "^1.10.23",
-    "saveSpec": null,
-    "fetchSpec": "^1.10.23"
-  },
-  "_requiredBy": [
-    "/",
-    "/admin-lte",
-    "/datatables.net-autofill-bs4",
-    "/datatables.net-buttons-bs4",
-    "/datatables.net-colreorder-bs4",
-    "/datatables.net-fixedcolumns-bs4",
-    "/datatables.net-fixedheader-bs4",
-    "/datatables.net-keytable-bs4",
-    "/datatables.net-responsive-bs4",
-    "/datatables.net-rowgroup-bs4",
-    "/datatables.net-rowreorder-bs4",
-    "/datatables.net-scroller-bs4",
-    "/datatables.net-searchpanes-bs4",
-    "/datatables.net-select-bs4"
-  ],
-  "_resolved": "https://registry.npmjs.org/datatables.net-bs4/-/datatables.net-bs4-1.10.23.tgz",
-  "_shasum": "bdd5d0dcb1bd68a7afe649a4424ba20647523b52",
-  "_spec": "datatables.net-bs4@^1.10.23",
-  "_where": "/mnt/Program_Data_Local/Development/git/BillingTrack.git",
-  "author": {
-    "name": "SpryMedia Ltd",
-    "url": "http://datatables.net"
-  },
-  "bugs": {
-    "url": "https://datatables.net/forums"
-  },
-  "bundleDependencies": false,
-  "dependencies": {
-    "datatables.net": "1.10.23",
-    "jquery": ">=1.7"
-  },
-  "deprecated": false,
-  "description": "DataTables for jQuery with styling for [Bootstrap 4](http://getbootstrap.com/)",
-  "files": [
-    "css/**/*.css",
-    "js/**/*.js"
-  ],
-  "homepage": "https://datatables.net",
-  "keywords": [
-    "filter",
-    "sort",
-    "DataTables",
-    "jQuery",
-    "table",
-    "Bootstrap 4"
-  ],
-  "license": "MIT",
-  "main": "./js/dataTables.bootstrap4.js",
-  "name": "datatables.net-bs4",
-  "style": "./css/dataTables.bootstrap4.css",
-  "version": "1.10.23"
+    "version": "1.10.24",
+    "description": "DataTables for jQuery with styling for [Bootstrap 4](http://getbootstrap.com/)",
+    "files": [
+        "css/**/*.css",
+        "js/**/*.js"
+    ],
+    "main": "./js/dataTables.bootstrap4.js",
+    "style": "./css/dataTables.bootstrap4.css",
+    "keywords": [
+        "filter",
+        "sort",
+        "DataTables",
+        "jQuery",
+        "table",
+        "Bootstrap 4"
+    ],
+    "homepage": "https://datatables.net",
+    "bugs": "https://datatables.net/forums",
+    "license": "MIT",
+    "author": {
+        "name": "SpryMedia Ltd",
+        "url": "http://datatables.net"
+    },
+    "dependencies": {
+        "jquery": ">=1.7",
+        "datatables.net": "1.10.24"
+    }
 }

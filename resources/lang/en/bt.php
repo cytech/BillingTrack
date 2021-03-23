@@ -367,6 +367,7 @@ return [
     'fax_number'                              => 'Fax Number',
     'fc_aspectratio'                          => 'FullCalendar Aspect Ratio',
     'fc_themesystem'                          => 'FullCalendar ThemeSystem',
+    'fc_todaybgcolor'                         => 'FullCalendar Today Background Color',
     'field_label'                             => 'Field Label',
     'field_meta'                              => 'Field Meta',
     'field_meta_description'                  => 'Use the Field Meta field only if the Field Type is a dropdown. To specify dropdown values, enter a list of dropdown values separated by commas.',

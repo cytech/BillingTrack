@@ -19,10 +19,20 @@
             {!! Form::select('setting[schedulerCreateWorkorder]', ['0' => 'No', '1' => 'Yes'], config('bt.schedulerCreateWorkorder'), ['class' => 'form-control']) !!}
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div class="form-group">
             <label>@lang('bt.fc_themesystem')</label>
             {!! Form::select('setting[schedulerFcThemeSystem]', ['standard' => 'Standard', 'bootstrap' => 'Bootstrap4'], config('bt.schedulerFcThemeSystem'), ['class' => 'form-control']) !!}
+        </div>
+    </div>
+    <div id='cp3' class="form-group col-md-3 colorpicker-component">
+        <label>@lang('bt.fc_todaybgcolor')</label>
+        <div class="input-group">
+            {!! Form::text('setting[schedulerFcTodaybgColor]', config('bt.schedulerFcTodaybgColor'), ['class' => 'form-control']) !!}
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fa fa-square cp3icon"
+                     style="color:{!!  config('bt.schedulerFcTodaybgColor') !!}"></i></span>
+            </div>
         </div>
     </div>
 </div>
@@ -73,3 +83,17 @@
         <span class="form-text text-muted">Purchaseorders: If due_at, else purchaseorder_date</span>
     </div>
 </div>
+
+<script>
+    $('#cp3').colorpicker({format: 'hex'});
+    $('#cp3').on('colorpickerChange', function (event) {
+        $('.cp3icon').css('color', event.color.toString());
+    });
+</script>
+
+@section('javascript')
+    {{--<link href="{{ asset('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css"/>--}}
+    {{--<script src="{{ asset('plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}" type="text/javascript"></script>--}}
+    {!! Html::style('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') !!}
+    {!! Html::script('plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') !!}
+@stop
