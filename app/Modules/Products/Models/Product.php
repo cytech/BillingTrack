@@ -64,6 +64,17 @@ class Product extends Model
             ->where('resource_table','=','products');
     }
 
+    public function taxRate()
+    {
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate')->withDefault(['name' => '']);
+    }
+
+    public function taxRate2()
+    {
+        return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id')->withDefault(['name' => '']);
+    }
+
+
     public function getFormattedPriceAttribute()
     {
         return CurrencyFormatter::format($this->attributes['price']);

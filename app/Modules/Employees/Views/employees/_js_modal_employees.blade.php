@@ -42,36 +42,19 @@
     {
         // Display the create invoice modal
         $('#modal-choose-items').modal('show');
-        //show only preferred vendor checkbox
-        if ($("#pref_vendor").is(":checked")) {
-            $("#product-table tr").filter(function () {
-                $(this).toggle($(this).data('vendor_id') === $(this).data('purch_vendor_id'))
-            });
-        }
-        $("#pref_vendor").on("change", function() {
-            if ($(this).is(":checked")) {
-                $("#product-table tr").filter(function () {
-                    $(this).toggle($(this).data('vendor_id') === $(this).data('purch_vendor_id'))
-                });
-            }else {
-                $("#product-table tr").filter(function () {
-                    $(this).show($(this).data('vendor_id') > -1)
-                });
-            }
-        });
 
         // Creates the invoice
         $('#select-items-confirm').click(function()
         {
-            const product_ids = [];
+            const employee_ids = [];
 
-            $("input[name='product_ids[]']:checked").each(function ()
+            $("input[name='employee_ids[]']:checked").each(function ()
             {
-                product_ids.push(parseInt($(this).val()));
+                employee_ids.push(parseInt($(this).val()));
             });
 
-            $.post("{{ route('products.ajax.processProduct')}}", {
-                product_ids: product_ids
+            $.post("{{ route('employees.ajax.processEmployee')}}", {
+                employee_ids: employee_ids
             }, function(data) {
                 items = JSON.parse(data);
 
@@ -82,15 +65,14 @@
                     //added for resource info
                     $('#item-table tr:last input[name=resource_table]').val(items[key].resource_table);
                     $('#item-table tr:last input[name=resource_id]').val(items[key].resource_id);
-                    $('#item-table tr:last input[name=name]').val(items[key].name);
-                    $('#item-table tr:last textarea[name=description]').val(items[key].description);
-                    $('#item-table tr:last input[name=cost]').val(items[key].cost);
-                    $('#item-table tr:last input[name=price]').val(items[key].price);
+                    $('#item-table tr:last input[name=name]').val(items[key].short_name);
+                    $('#item-table tr:last textarea[name=description]').val(items[key].title + '-' + items[key].number);
+                    $('#item-table tr:last input[name=price]').val(items[key].billing_rate);
                     $('#item-table tr:last select[name=tax_rate_id]').val(items[key].tax_rate_id);
                     $('#item-table tr:last select[name=tax_rate_2_id]').val(items[key].tax_rate_2_id);
                     $('#item-table tr:last input[name=quantity]').val('0');
-                    //hide save_item_as_product checkbox in purchase orders
-                    $('#item-table tr:last label[for=save_item_as_product]').hide();
+                    //hide save_item_as_employee checkbox in purchase orders
+                    $('#item-table tr:last label[for=save_item_as_employee]').hide();
                     //hide save_item_as_lookup checkbox in invoices, quotes, workorders
                     $('#item-table tr:last label[for=save_item_as_lookup]').hide();
 

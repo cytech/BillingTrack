@@ -123,6 +123,10 @@
                             <div class="card-tools float-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
                                         class="fa fa-plus"></i> @lang('bt.add_item')</button>
+                                <button class="btn btn-primary btn-sm" id="btn-add-product"><i
+                                            class="fa fa-plus"></i> @lang('bt.add_product')</button>
+                                <button class="btn btn-primary btn-sm" id="btn-add-employee"><i
+                                            class="fa fa-plus"></i> @lang('bt.add_employee')</button>
                                 <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
                                             class="fa fa-plus"></i> @lang('bt.add_lookup')</button>
                             </div>
@@ -132,7 +136,7 @@
                             <table id="item-table" class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th style="width: 20%;">@lang('bt.product')</th>
+                                    <th style="width: 20%;">@lang('bt.item')</th>
                                     <th style="width: 25%;">@lang('bt.description')</th>
                                     <th style="width: 10%;">@lang('bt.qty')</th>
                                     <th style="width: 10%;">@lang('bt.price')</th>
@@ -149,8 +153,9 @@
                                         {!! Form::hidden('id', '') !!}
                                         {!! Form::hidden('resource_table', '') !!}
                                         {!! Form::hidden('resource_id', '') !!}
-                                        {!! Form::text('name', null, ['class' => 'form-control']) !!}<br>
-                                        <label><input type="checkbox" name="save_item_as_lookup" tabindex="999"> @lang('bt.save_item_as_lookup')</label>
+                                        {{--change below from type text to search and add autocomplete = off to stop chrome from autofill suggestion--}}
+                                        {!! Form::search('name', null, ['class' => 'form-control', 'title' => 'Autocomplete from Item Lookups', 'autocomplete' => "off"]) !!}<br>
+                                        <label for="save_item_as_lookup"><input type="checkbox" name="save_item_as_lookup" tabindex="999"> @lang('bt.save_item_as_lookup')</label>
                                     </td>
                                     <td>{!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 1]) !!}</td>
                                     <td>{!! Form::text('quantity', null, ['class' => 'form-control']) !!}</td>

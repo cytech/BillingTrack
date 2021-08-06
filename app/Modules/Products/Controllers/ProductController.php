@@ -16,6 +16,7 @@ use BT\Modules\Products\Models\InventoryType;
 use BT\Modules\Products\Models\Product;
 use BT\Modules\Products\Requests\ProductRequest;
 use BT\Http\Controllers\Controller;
+use BT\Modules\TaxRates\Models\TaxRate;
 use BT\Modules\Vendors\Models\Vendor;
 use BT\Support\NumberFormatter;
 use BT\Traits\ReturnUrl;
@@ -55,7 +56,8 @@ class ProductController extends Controller
             ->with('categories', Category::pluck('name', 'id'))
             ->with('inventorytypes', InventoryType::pluck('name', 'id'))
             ->with('optionAttributes', $invtracked)
-            ->with('returnUrl', $this->getReturnUrl());
+            ->with('returnUrl', $this->getReturnUrl())
+            ->with('taxRates', TaxRate::getList());
     }
 
     /**
@@ -84,6 +86,8 @@ class ProductController extends Controller
         $products->cost = $request->cost ?:0;
         $products->inventorytype_id = $request->type;
         $products->numstock = $request->numstock ?:0;
+        $products->tax_rate_id = $request->tax_rate_id;
+        $products->tax_rate_2_id = $request->tax_rate_2_id;
         $products->save();
 
         if (config('bt.restolup')==1){
@@ -128,6 +132,7 @@ class ProductController extends Controller
             ->with('vendors', Vendor::pluck('name', 'id'))
             ->with('categories', Category::pluck('name', 'id'))
             ->with('inventorytypes', InventoryType::pluck('name', 'id'))
+            ->with('taxRates', TaxRate::getList())
             ->with('optionAttributes', $invtracked)
             ->with('returnUrl', $this->getReturnUrl());
     }
@@ -163,6 +168,8 @@ class ProductController extends Controller
         $products->cost = $request->cost;
         $products->inventorytype_id = $request->type;
         $products->numstock = $request->numstock;
+        $products->tax_rate_id = $request->tax_rate_id;
+        $products->tax_rate_2_id = $request->tax_rate_2_id;
         $products->save();
 
         if (config('bt.restolup')==1){
@@ -189,12 +196,14 @@ class ProductController extends Controller
     public function  forceLUTupdate($ret)
     {
         ItemLookup::where('resource_table', 'products')->delete();
-        $products = Product::where('active', 1)->get(['name', 'description', 'price', 'id']);
+        $products = Product::where('active', 1)->get(['name', 'description', 'price', 'tax_rate_id', 'tax_rate_2_id','id']);
         foreach ($products as $product){
             $itemlookup = new ItemLookup();
             $itemlookup->name = $product->name;
             $itemlookup->description = $product->description;
             $itemlookup->price = $product->price;
+            $itemlookup->tax_rate_id = $product->tax_rate_id ?:0;
+            $itemlookup->tax_rate_2_id = $product->tax_rate_2_id ?:0;
             $itemlookup->resource_table = 'products';
             $itemlookup->resource_id = $product->id;
 
@@ -207,13 +216,14 @@ class ProductController extends Controller
 
     public function getProduct($vendorId)
     {
-        $products = Product::orderby('name','ASC')->get();
+        $products = Product::where('active', 1)->orderby('name','ASC')->get();
         $vendor =  Vendor::where('id', $vendorId)->first();
+        $vname = $vendor ? $vendor->name : 0; //ignore vendor if not initiated from purchase order
 
         return view('products.modal_products')
             ->with('products',$products)
             ->with('vendorId', $vendorId)
-            ->with('vname', $vendor->name);
+            ->with('vname', $vname);
 
     }
 
@@ -232,7 +242,7 @@ class ProductController extends Controller
     public function ajaxProduct()
     {
 
-        $items = Product::orderBy('name')->where('name', 'like', '%' . request('term') . '%')->get();
+        $items = Product::orderBy('name')->where('active', 1)->where('name', 'like', '%' . request('term') . '%')->get();
 
         $list = [];
 
@@ -243,6 +253,7 @@ class ProductController extends Controller
                 'name'          => $item->name,
                 'description'   => $item->description,
                 'price'         => NumberFormatter::format($item->price),
+                'cost'         => NumberFormatter::format($item->cost),
                 'tax_rate_id'   => $item->tax_rate_id,
                 'tax_rate_2_id' => $item->tax_rate_2_id,
             ];

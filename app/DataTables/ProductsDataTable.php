@@ -30,6 +30,7 @@ class ProductsDataTable extends DataTable
     {
         $models = $model->newQuery()
             ->with('category', 'vendor', 'inventorytype')
+            ->with('taxRate', 'taxRate2')
             ->status(request('status'));
 
         return $models;
@@ -84,6 +85,16 @@ class ProductsDataTable extends DataTable
                 ->data('inventorytype.name'),
             Column::make('numstock')
                 ->title(trans('bt.product_numstock')),
+            Column::make('tax_rate_id')
+                ->title(trans('bt.tax_1'))
+                ->data('tax_rate.name')
+                ->orderable(true)
+                ->searchable(false),
+            Column::make('tax_rate_2_id')
+                ->title(trans('bt.tax_2'))
+                ->data('tax_rate2.name')
+                ->orderable(true)
+                ->searchable(false),
             Column::make('active')
                 ->title(trans('bt.product_active')),
             Column::computed('action')

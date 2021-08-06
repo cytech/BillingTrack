@@ -177,4 +177,26 @@ class EmployeeController extends Controller
         if ($ret == 0){return redirect()->route('settings.index')
             ->with('alertSuccess', trans('bt.lut_updated'));}
     }
+
+    public function getEmployee()
+    {
+        $employees = Employee::where('active', 1)->orderby('short_name','ASC')->get();
+
+        return view('employees.modal_employees')
+            ->with('employees',$employees);
+
+    }
+
+    public function processEmployee(){
+
+        $items = Employee::whereIn('id', request('employee_ids'))->get();
+
+        foreach ($items as $item){
+            $item->resource_table = 'employees';
+            $item->resource_id = $item->id;
+        }
+
+        echo json_encode($items);
+    }
+
 }

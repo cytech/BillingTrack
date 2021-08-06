@@ -71,6 +71,8 @@
                     $('#item-table tr:last select[name=tax_rate_id]').val(items[key].tax_rate_id);
                     $('#item-table tr:last select[name=tax_rate_2_id]').val(items[key].tax_rate_2_id);
                     $('#item-table tr:last input[name=quantity]').val('0');
+                    //hide save_item_as_lookup checkbox
+                    $('#item-table tr:last label[for=save_item_as_lookup]').hide();
 
                     $('#modal-choose-items').modal('hide');
                 }

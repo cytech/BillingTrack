@@ -127,9 +127,10 @@
                                         {!! Form::hidden('id', '') !!}
                                         {!! Form::hidden('resource_table', '') !!}
                                         {!! Form::hidden('resource_id', '') !!}
-                                        {!! Form::text('name', null, ['class' => 'form-control']) !!}<br>
-                                        <label><input type="checkbox" name="save_item_as_product"
-                                                      tabindex="999"> @lang('bt.save_item_as_product')</label>
+                                        {{--change below from type text to search and add autocomplete = off to stop chrome from autofill suggestion--}}
+                                        {!! Form::search('name', null, ['class' => 'form-control', 'title' => 'Autocomplete from Products', 'autocomplete' => 'off']) !!}<br>
+                                        <label for="save_item_as_product"><input type="checkbox" name="save_item_as_product" tabindex="999"> @lang('bt.save_item_as_product')</label>
+
                                     </td>
                                     <td>{!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 1]) !!}</td>
                                     <td>{!! Form::text('quantity', null, ['class' => 'form-control']) !!}</td>

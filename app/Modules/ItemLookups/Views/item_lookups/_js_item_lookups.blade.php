@@ -31,6 +31,10 @@
                 row.find('input[name="price"]').val(ui.item.price);
                 row.find('select[name="tax_rate_id"]').val(ui.item.tax_rate_id);
                 row.find('select[name="tax_rate_2_id"]').val(ui.item.tax_rate_2_id);
+                row.find('input[name="resource_table"]').val(ui.item.resource_table);
+                row.find('input[name="resource_id"]').val(ui.item.resource_id);
+                // remove save_item_as_lookup checkbox
+                row.find('label[for="save_item_as_lookup"]').hide();
             });
         }
 

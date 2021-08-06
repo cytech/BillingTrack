@@ -113,6 +113,19 @@
                         {!! Form::text('numstock',$products->numstock,['id'=>'numstock', 'class'=>'form-control']) !!}
                     </div>
                 </div>
+                <!-- taxrate inputs-->
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-md-2 text-right text">@lang('bt.tax_1'): </label>
+                    <div class="col-md-4">
+                        {!! Form::select('tax_rate_id', $taxRates, null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group d-flex align-items-center">
+                    <label class="col-md-2 text-right text">@lang('bt.tax_2'): </label>
+                    <div class="col-md-4">
+                        {!! Form::select('tax_rate_2_id', $taxRates, null, ['class' => 'form-control']) !!}
+                    </div>
+                </div>
             </div>
         </div>
         {!! Form::close() !!}

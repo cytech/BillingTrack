@@ -122,6 +122,10 @@
                             <div class="card-tools float-right">
                                 <button class="btn btn-primary btn-sm" id="btn-add-item"><i
                                             class="fa fa-plus"></i> @lang('bt.add_item')</button>
+                                <button class="btn btn-primary btn-sm" id="btn-add-product"><i
+                                            class="fa fa-plus"></i> @lang('bt.add_product')</button>
+                                <button class="btn btn-primary btn-sm" id="btn-add-employee"><i
+                                            class="fa fa-plus"></i> @lang('bt.add_employee')</button>
                                 <button class="btn btn-primary btn-sm" id="btn-add-lookup"><i
                                             class="fa fa-plus"></i> @lang('bt.add_lookup')</button>
                             </div>
@@ -148,8 +152,8 @@
                                         {!! Form::hidden('id', '') !!}
                                         {!! Form::hidden('resource_table', '') !!}
                                         {!! Form::hidden('resource_id', '') !!}
-                                        {!! Form::text('name', null, ['class' => 'form-control']) !!}<br>
-                                        <label><input type="checkbox" name="save_item_as_lookup"
+                                        {!! Form::search('name', null, ['class' => 'form-control', 'title' => 'Autocomplete from Item Lookups', 'autocomplete' => "off"]) !!}<br>
+                                        <label for="save_item_as_lookup"><input type="checkbox" name="save_item_as_lookup"
                                                       tabindex="999"> @lang('bt.save_item_as_lookup')</label>
                                     </td>
                                     <td>{!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => 1]) !!}</td>

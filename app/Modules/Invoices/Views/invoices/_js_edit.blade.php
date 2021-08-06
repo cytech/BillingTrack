@@ -5,6 +5,14 @@
         $("#invoice_date").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
         $("#due_at").datetimepicker({format: '{{ config('bt.dateFormat') }}', timepicker: false, scrollInput: false});
 
+        $('#btn-add-product').click(function() {
+            $('#modal-placeholder').load('{{ route( 'products.ajax.getProduct', 0) }}');// vendorid 0 for all except purchase order
+        });
+
+        $('#btn-add-employee').click(function() {
+            $('#modal-placeholder').load('{{ route( 'employees.ajax.getEmployee') }}');
+        });
+
         $('#btn-add-lookup').click(function() {
             $('#modal-placeholder').load('{{ route( 'itemLookups.ajax.getItemLookup') }}');
         });

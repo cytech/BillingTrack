@@ -28,9 +28,11 @@
                 const row = $(this).closest('tr');
                 row.find('textarea[name="description"]').val(ui.item.description);
                 row.find('input[name="quantity"]').val('1');
-                row.find('input[name="price"]').val(ui.item.cost);
+                row.find('input[name="cost"]').val(ui.item.cost);
                 row.find('select[name="tax_rate_id"]').val(ui.item.tax_rate_id);
                 row.find('select[name="tax_rate_2_id"]').val(ui.item.tax_rate_2_id);
+                //hide save_item_as_product checkbox
+                $('#item-table tr:last label[for=save_item_as_product]').hide();
             });
         }
 

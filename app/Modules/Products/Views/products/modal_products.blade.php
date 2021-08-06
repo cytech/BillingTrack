@@ -7,11 +7,13 @@
                 <h4 class="modal-title">@lang('bt.add_product')</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
+            @if($vname)
             <div class="modal-header">
                 <label>
                     <input type="checkbox" checked name="pref_vendor" id="pref_vendor"> @lang('bt.vendor_preferred_only', ['vname' => $vname])
                 </label>
             </div>
+            @endif
             <div class="modal-body">
 
                 <div id="modal-status-placeholder"></div>
