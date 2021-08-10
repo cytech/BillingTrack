@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.3.2
+- fix autocomplete lookup and stock counting
+- add product and employee selection modals to quotes, invoice, recurring and workorders
+- above fix issues #24 and #28
+- update dependencies
+- correct "deleteing" typo in model observers
+- add restoring to model observers
+- track workorder_id and invoice_id as deleted/restored in quotes and workorders
+- update various badges to show delete status
+- removed group renumbering from deleting observers
+- migration remove unsigned from workorder_id and invoice_id in quotes table
+
 ## 5.3.1
 - added scheduler setting for today background color
 - remove background from login page logo

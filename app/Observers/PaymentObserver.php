@@ -90,5 +90,15 @@ class PaymentObserver
         }
     }
 
+    public function restoring(Payment $payment): void
+    {
+       foreach ($payment->mailQueue as $mailQueue) {
+            $mailQueue->onlyTrashed()->restore();
+        }
+
+        foreach ($payment->notes as $note) {
+            $note->onlyTrashed()->restore();
+        }
+    }
 
 }

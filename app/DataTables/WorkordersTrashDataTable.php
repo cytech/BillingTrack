@@ -60,7 +60,7 @@ class WorkordersTrashDataTable extends WorkordersDataTable
      */
     public function query(Workorder $model)
     {
-        return $model->has('client')->with('client')->where('invoice_id', 0)->onlyTrashed();
+        return $model->has('client')->with('client')->onlyTrashed();
     }
 
     /**

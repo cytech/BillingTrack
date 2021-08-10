@@ -87,16 +87,30 @@ class RecurringInvoiceObserver
     }
 
     /**
-     * Handle the recurring invoice "deleted" event.
+     * Handle the recurring invoice "deleting" event.
      *
      * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
      * @return void
      */
-    public function deleteing(RecurringInvoice $recurringInvoice): void
+    public function deleting(RecurringInvoice $recurringInvoice): void
     {
         foreach ($recurringInvoice->activities as $activity)
         {
             ($recurringInvoice->isForceDeleting()) ? $activity->onlyTrashed()->forceDelete() : $activity->delete();
+        }
+    }
+
+    /**
+     * Handle the recurring invoice "restoring" event.
+     *
+     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoice  $recurringInvoice
+     * @return void
+     */
+    public function restoring(RecurringInvoice $recurringInvoice): void
+    {
+        foreach ($recurringInvoice->activities as $activity)
+        {
+            $activity->onlyTrashed()->restore();
         }
     }
 }

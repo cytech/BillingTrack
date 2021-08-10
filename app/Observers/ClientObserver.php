@@ -33,9 +33,9 @@ class ClientObserver
         }
     }
     /**
-     * Listen to the Client deleted event.
+     * Listen to the Client deleting event.
      */
-    public function deleteing(Client $client): void
+    public function deleting(Client $client): void
     {
         foreach ($client->notes as $note)
         {

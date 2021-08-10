@@ -138,6 +138,11 @@ class Invoice extends Model
         return $this->hasOne('BT\Modules\Workorders\Models\Workorder');
     }
 
+    public function expense()
+    {
+        return $this->hasOne('BT\Modules\Expenses\Models\Expense');
+    }
+
     public function transactions()
     {
         return $this->hasMany('BT\Modules\Merchant\Models\InvoiceTransaction');

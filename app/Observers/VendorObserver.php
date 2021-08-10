@@ -30,10 +30,21 @@ class VendorObserver
             $vendor->language = config('bt.language');
         }
     }
+
     /**
-     * Listen to the Vendor deleted event.
+     * Listen to the Vendor saving event.
      */
-    public function deleteing(Vendor $vendor): void
+    public function saving(Vendor $vendor): void
+    {
+        $vendor->name    = strip_tags($vendor->name);
+        $vendor->address = strip_tags($vendor->address);
+
+
+    }
+    /**
+     * Listen to the Vendor deleting event.
+     */
+    public function deleting(Vendor $vendor): void
     {
         foreach ($vendor->notes as $note)
         {
@@ -46,14 +57,20 @@ class VendorObserver
         }
 
     }
-    /**
-     * Listen to the Vendor saving event.
-     */
-    public function saving(Vendor $vendor): void
-    {
-        $vendor->name    = strip_tags($vendor->name);
-        $vendor->address = strip_tags($vendor->address);
 
+    /**
+     * Listen to the Vendor restoring event.
+     */
+    public function restoring(Vendor $vendor): void
+    {
+        foreach ($vendor->attachments as $attachment) {
+            $attachment->onlyTrashed()->restore();
+        }
+
+        foreach ($vendor->notes as $note) {
+            $note->onlyTrashed()->restore();
+        }
 
     }
+
 }

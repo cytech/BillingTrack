@@ -40,12 +40,14 @@ class QuotesDataTable extends DataTable
             })
             ->editColumn('invoice_id', function (Quote $quote) {
                 $ret = '<td class="hidden-xs">';
-                if ($quote->invoice_id)
-                    $ret .= '<a href="' . route('invoices.edit', [$quote->invoice_id]) . '">' . trans('bt.invoice') . '</a>';
-                elseif ($quote->workorder_id)
-                    $ret .= '<a href="' . route('workorders.edit', [$quote->workorder_id]) . '">' . trans('bt.workorder') . '</a>';
-                else
-                    $ret .= trans('bt.no');
+                if ($quote->workorder_id > 0)
+                    $ret .= '<span class="badge badge-info"><a href="' . route('workorders.edit', [$quote->workorder_id]) . '"style="color: inherit;">' . trans('bt.workorder') . '</a></span>';
+                elseif ($quote->workorder_id < 0)
+                    $ret .= '<span class="badge badge-danger" title="Trashed"> <del>' . trans('bt.workorder') . '</del> </span>';
+                if ($quote->invoice_id > 0)
+                    $ret .= '<span class="badge badge-info"><a href="' . route('invoices.edit', [$quote->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
+                elseif ($quote->invoice_id < 0)
+                    $ret .= '<span class="badge badge-danger" title="Trashed"> <del>' . trans('bt.invoice') . '</del> </span>';
                 $ret .= '</td>';
 
                 return $ret;

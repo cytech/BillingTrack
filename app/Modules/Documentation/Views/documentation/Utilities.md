@@ -94,7 +94,7 @@ Most entities in BillingTrack can be trashed. Trash (as opposed to
 delete) removes the entity but keeps a reference so that it may be
 recovered or permanently deleted .
 Here you can manage any trashed entities by recovering or permanently
-deleteing.
+deleting.
 Depending on the entity, trashing will cascade any children to the
 selected entity.  
 Example - When a client is trashed, all contacts, custom fields,

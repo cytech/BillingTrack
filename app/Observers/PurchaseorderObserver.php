@@ -120,12 +120,12 @@ class PurchaseorderObserver
     }
 
     /**
-     * Handle the purchaseorder "deleted" event.
+     * Handle the purchaseorder "deleting" event.
      *
      * @param  \BT\Modules\Purchaseorders\Models\Purchaseorder  $purchaseorder
      * @return void
      */
-    public function deleteing(Purchaseorder $purchaseorder): void
+    public function deleting(Purchaseorder $purchaseorder): void
     {
         foreach ($purchaseorder->activities as $activity)
         {
@@ -151,14 +151,40 @@ class PurchaseorderObserver
 
         Expense::where('purchaseorder_id', $purchaseorder->id)->update(['purchaseorder_id' => 0]);
 
-        $group = Group::where('id', $purchaseorder->group_id)
-            ->where('last_number', $purchaseorder->number)
-            ->first();
+        // todo this gets messy with soft deletes...
+//        $group = Group::where('id', $purchaseorder->group_id)
+//            ->where('last_number', $purchaseorder->number)
+//            ->first();
+//
+//        if ($group)
+//        {
+//            $group->next_id = $group->next_id - 1;
+//            $group->save();
+//        }
+    }
 
-        if ($group)
-        {
-            $group->next_id = $group->next_id - 1;
-            $group->save();
+    /**
+     * Handle the purchaseorder "restoring" event.
+     *
+     * @param \BT\Modules\Purchaseorders\Models\Purchaseorder $purchaseorder
+     * @return void
+     */
+    public function restoring(Purchaseorder $purchaseorder): void
+    {
+        foreach ($purchaseorder->activities as $activity) {
+            $activity->onlyTrashed()->restore();
+        }
+
+        foreach ($purchaseorder->attachments as $attachment) {
+            $attachment->onlyTrashed()->restore();
+        }
+
+        foreach ($purchaseorder->mailQueue as $mailQueue) {
+            $mailQueue->onlyTrashed()->restore();
+        }
+
+        foreach ($purchaseorder->notes as $note) {
+            $note->onlyTrashed()->restore();
         }
     }
 

@@ -9,14 +9,18 @@
         <span style="margin-left: 10px;" class="badge badge-secondary">@lang('bt.not_viewed')</span>
     @endif
 
-    @if ($quote->invoice)
+    @if ($quote->invoice_id > 0)
         <span class="badge badge-info"><a href="{{ route('invoices.edit', [$quote->invoice_id]) }}"
                                           style="color: inherit;">@lang('bt.converted_to_invoice') {{ $quote->invoice->number }}</a></span>
+    @elseif ($quote->invoice_id < 0)
+        <span class="badge badge-danger" title="Trashed"><del>@lang('bt.converted_to_invoice') {{ -$quote->invoice_id }}</del></span>
     @endif
 
-    @if ($quote->workorder)
+    @if ($quote->workorder_id > 0)
         <span class="badge badge-info"><a href="{{ route('workorders.edit', [$quote->workorder_id]) }}"
                                           style="color: inherit;">@lang('bt.converted_to_workorder') {{ $quote->workorder->number }}</a></span>
+    @elseif ($quote->workorder_id < 0)
+        <span class="badge badge-danger" title="Trashed"><del>@lang('bt.converted_to_workorder') {{ -$quote->workorder_id }}</del></span>
     @endif
 
     <div class="float-right">

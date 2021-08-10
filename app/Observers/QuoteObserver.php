@@ -118,12 +118,12 @@ class QuoteObserver
     }
 
     /**
-     * Handle the quote "deleted" event.
+     * Handle the quote "deleting" event.
      *
      * @param  \BT\Modules\Quotes\Models\Quote  $quote
      * @return void
      */
-    public function deleteing(Quote $quote): void
+    public function deleting(Quote $quote): void
     {
         foreach ($quote->activities as $activity) {
             ($quote->isForceDeleting()) ? $activity->onlyTrashed()->forceDelete() : $activity->delete();
@@ -141,14 +141,40 @@ class QuoteObserver
             ($quote->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
         }
 
-        $group = Group::where('id', $quote->group_id)
-            ->where('last_number', $quote->number)
-            ->first();
+        // todo this gets messy with soft deletes...
+//        $group = Group::where('id', $quote->group_id)
+//            ->where('last_number', $quote->number)
+//            ->first();
+//
+//        if ($group)
+//        {
+//            $group->next_id = $group->next_id - 1;
+//            $group->save();
+//        }
+    }
 
-        if ($group)
-        {
-            $group->next_id = $group->next_id - 1;
-            $group->save();
+    /**
+     * Handle the quote "restoring" event.
+     *
+     * @param \BT\Modules\Quotes\Models\Quote $quote
+     * @return void
+     */
+    public function restoring(Quote $quote): void
+    {
+        foreach ($quote->activities as $activity) {
+            $activity->onlyTrashed()->restore();
+        }
+
+        foreach ($quote->attachments as $attachment) {
+            $attachment->onlyTrashed()->restore();
+        }
+
+        foreach ($quote->mailQueue as $mailQueue) {
+            $mailQueue->onlyTrashed()->restore();
+        }
+
+        foreach ($quote->notes as $note) {
+            $note->onlyTrashed()->restore();
         }
     }
 

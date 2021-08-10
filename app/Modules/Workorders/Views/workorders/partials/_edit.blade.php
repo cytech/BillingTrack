@@ -9,8 +9,11 @@
         <span style="margin-left: 10px;" class="badge badge-secondary">@lang('bt.not_viewed')</span>
     @endif
 
-    @if (($workorder->invoice))
-        <span class="badge badge-info"><a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}" style="color: inherit;">@lang('bt.converted_to_invoice') {{ $workorder->invoice->number }}</a></span>
+    @if ($workorder->invoice_id > 0)
+        <span class="badge badge-info"><a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}"
+                                          style="color: inherit;">@lang('bt.converted_to_invoice') {{ $workorder->invoice->number }}</a></span>
+    @elseif ($workorder->invoice_id < 0)
+        <span class="badge badge-danger" title="Trashed"><del>@lang('bt.converted_to_invoice') {{ -$workorder->invoice_id }}</del></span>
     @endif
 
     @if ($workorder->quote()->count())

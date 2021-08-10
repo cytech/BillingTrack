@@ -40,8 +40,10 @@ class WorkordersDataTable extends DataTable
             })
             ->editColumn('invoice_id', function (Workorder $workorder) {
                 $ret = '<td class="hidden-xs">';
-                if ($workorder->invoice_id)
-                    $ret .= '<a href="' . route('invoices.edit', [$workorder->invoice_id]) . '">' . trans('bt.yes') . '</a>';
+                if ($workorder->invoice_id > 0)
+                    $ret .= '<span class="badge badge-info"><a href="' . route('invoices.edit', [$workorder->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
+                elseif ($workorder->invoice_id < 0)
+                    $ret .= '<span class="badge badge-danger" title="Trashed"> <del>' . trans('bt.invoice') . '</del> </span>';
                 else
                     $ret .= trans('bt.no');
                 $ret .= '</td>';
@@ -130,7 +132,7 @@ class WorkordersDataTable extends DataTable
                 ->orderable(true)
                 ->searchable(false),
             Column::make('invoice_id')
-                ->title(trans('bt.invoiced'))
+                ->title(trans('bt.converted'))
                 ->data('invoice_id')
                 ->orderable(false)
                 ->searchable(false),

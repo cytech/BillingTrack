@@ -18,7 +18,7 @@ class ExpenseObserver
         $expense->custom()->save(new ExpenseCustom());
     }
 
-    public function deleteing(Expense $expense): void
+    public function deleting(Expense $expense): void
     {
         foreach ($expense->attachments as $attachment)
         {
