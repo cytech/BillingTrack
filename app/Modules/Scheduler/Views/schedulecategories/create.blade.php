@@ -63,7 +63,7 @@
         });
     </script>
 @stop
-@section('javascript')
+@section('javaScript')
     <link href="{{ asset('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet"
           type="text/css"/>
     <script src="{{ asset('plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"

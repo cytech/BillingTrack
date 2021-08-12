@@ -15,7 +15,7 @@
                         class="far fa-file-alt"></i> @lang('bt.create_invoice')</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#" id="delete-client-{{ $id }}"
-               onclick="swalConfirm('@lang('bt.trash_client_warning')', '{{ route('clients.delete', [$id]) }}');"><i
+               onclick="swalConfirm('@lang('bt.trash_client_warning')', '@lang('bt.trash_client_warning_msg')', '{{ route('clients.delete', [$id]) }}');"><i
                         class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
     </div>
 </div>

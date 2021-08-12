@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
 
 
     @include('payments._js_form')

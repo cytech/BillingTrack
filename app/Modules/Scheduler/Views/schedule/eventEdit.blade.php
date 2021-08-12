@@ -110,7 +110,7 @@
         @include('partials._reminderdiv')
     </div>
 @stop
-@section('javascript')
+@section('javaScript')
     @include('partials._js_datetimepicker')
     <script>
         $(document).ready(function () {

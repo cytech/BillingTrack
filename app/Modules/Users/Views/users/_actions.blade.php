@@ -7,6 +7,6 @@
         <a class="dropdown-item" href ="{{ route('users.password.edit', [$id]) }}"><i class="fa fa-lock"></i> @lang('bt.reset_password')</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href ="#"
-               onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('users.delete', [$id]) }}');"><i class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
+               onclick="swalConfirm('@lang('bt.delete_record_warning')', '', '{{ route('users.delete', [$id]) }}');"><i class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
     </div>
 </div>

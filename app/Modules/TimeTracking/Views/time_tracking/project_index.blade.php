@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     <script type="text/javascript">
         $(function () {
             $('.filter_options').change(function () {
@@ -15,7 +15,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('timeTracking.projects.bulk.delete') }}", ids)
+                bulkConfirm('@lang('bt.bulk_trash_record_warning')', '', "{{ route('timeTracking.projects.bulk.delete') }}", ids)
             }
         });
 
@@ -27,7 +27,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('bt.bulk_project_change_status_warning')', "{{ route('timeTracking.projects.bulk.status') }}",
+                bulkConfirm('@lang('bt.bulk_project_change_status_warning')', '', "{{ route('timeTracking.projects.bulk.status') }}",
                     ids, $(this).data('status'))
             }
         });

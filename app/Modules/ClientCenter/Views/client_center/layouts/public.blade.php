@@ -17,7 +17,7 @@
 
     @yield('head')
 
-    @yield('javascript')
+    @yield('javaScript')
 
 </head>
 <body class="layout-boxed sidebar-mini ">

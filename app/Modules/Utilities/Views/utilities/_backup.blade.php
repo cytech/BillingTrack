@@ -128,7 +128,7 @@
     </section>
 @stop
 
-@section('javascript')
+@section('javaScript')
 <script>
     $(document).ready(function() {
         $("#clientprior_date,#trashprior_date,#deleteprior_date").datetimepicker({

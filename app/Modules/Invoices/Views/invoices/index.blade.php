@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     @include('invoices._js_index')
 @stop
 
@@ -12,10 +12,17 @@
         <div class="float-right">
 
             <div class="btn-group bulk-actions">
+                @if (config('bt.updateInvProductsDefault'))
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                        aria-expanded="false">
+                        aria-expanded="false" disabled title="Disabled as Update Product Table Quantity is enabled">
                     @lang('bt.change_status')
                 </button>
+                @else
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false" >
+                    @lang('bt.change_status')
+                </button>
+                @endif
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     @foreach ($keyedStatuses as $key => $status)
                         <a href="javascript:void(0)" class="bulk-change-status dropdown-item"

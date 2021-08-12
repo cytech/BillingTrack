@@ -29,6 +29,6 @@
         </div>
     </section>
 @stop
-@section('javascript')
+@section('javaScript')
     @include('partials._js_bulk_ajax')
 @stop

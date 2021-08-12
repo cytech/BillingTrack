@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     @include('workorders.partials._js_index')
     {{--@include('partials._alerts')--}}
 @stop

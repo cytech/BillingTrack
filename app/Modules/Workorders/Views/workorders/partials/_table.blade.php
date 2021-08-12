@@ -53,7 +53,7 @@
                         <a class="dropdown-item" href="{{ route('workorders.pdf', [$workorder->id]) }}" target="_blank" id="btn-pdf-workorder"><i
                                         class="fa fa-print"></i> @lang('bt.pdf')</a>
                         <a class="dropdown-item" href="#"
-                               onclick="swalConfirm('@lang('bt.trash_record_warning')','{{ route('workorders.delete', [$workorder->id]) }}');"><i
+                               onclick="swalConfirm('@lang('bt.trash_record_warning')', '','{{ route('workorders.delete', [$workorder->id]) }}');"><i
                                         class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
                     </div>
                 </div>

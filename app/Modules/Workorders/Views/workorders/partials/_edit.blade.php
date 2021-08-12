@@ -42,7 +42,7 @@
                             class="fa fa-check"></i> @lang('bt.workorder_to_invoice')</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#"
-                       onclick="swalConfirm('@lang('bt.trash_record_warning')', '{{ route('workorders.delete', [$workorder->id]) }}');"><i
+                       onclick="swalConfirm('@lang('bt.trash_record_warning')', '', '{{ route('workorders.delete', [$workorder->id]) }}');"><i
                                 class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
             </div>
         </div>

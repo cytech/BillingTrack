@@ -1,6 +1,6 @@
 @extends('client_center.layouts.public')
 
-@section('javascript')
+@section('javaScript')
     <script type="text/javascript">
         $(function () {
             $('#view-notes').hide();
@@ -48,11 +48,11 @@
                 @endif
                 @if (in_array($workorder->status_text, ['draft', 'sent']))
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('@lang('bt.confirm_approve_workorder')', '{{ route('clientCenter.public.workorder.approve', [$workorder->url_key]) }}','view-doc');">
+                       onclick="swalConfirm('@lang('bt.confirm_approve_workorder')', '', '{{ route('clientCenter.public.workorder.approve', [$workorder->url_key]) }}','view-doc');">
                         <i class="fa fa-thumbs-up"></i> @lang('bt.approve')
                     </a>
                     <a href="#" class="btn btn-primary"
-                       onclick="swalConfirm('@lang('bt.confirm_reject_workorder')', '{{ route('clientCenter.public.workorder.reject', [$workorder->url_key]) }}','view-doc');">
+                       onclick="swalConfirm('@lang('bt.confirm_reject_workorder')', '', '{{ route('clientCenter.public.workorder.reject', [$workorder->url_key]) }}','view-doc');">
                         <i class="fa fa-thumbs-down"></i> @lang('bt.reject')
                     </a>
                 @endif

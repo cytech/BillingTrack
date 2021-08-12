@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
 
     {{--@include('reports.options._mod_daterangepicker')--}}
     @include('layouts._daterangepicker')

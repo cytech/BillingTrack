@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
 
 
     {{--@include('layouts._typeahead')--}}
@@ -210,7 +210,7 @@
         </h3>
         <div class="float-right">
             <a href="#" class="btn btn-secondary"
-                   onclick="swalConfirm('@lang('bt.confirm_trash_project')', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
+                   onclick="swalConfirm('@lang('bt.confirm_trash_project')', '', '{{ route('timeTracking.projects.delete', [$project->id]) }}');"><i
                             class="fa fa-trash-alt"></i> @lang('bt.trash_project')</a>
             <a href="{{ route('timeTracking.projects.index') }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('bt.back')</a>
             <button class="btn btn-primary" id="btn-save-settings"><i class="fa fa-save"></i> @lang('bt.save')</button>

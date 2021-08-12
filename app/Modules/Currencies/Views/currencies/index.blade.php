@@ -52,7 +52,7 @@
                                                 <a class="dropdown-item" href="{{ route('currencies.edit', [$currency->id]) }}"><i class="fa fa-edit"></i> @lang('bt.edit')</a>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="#"
-                                                       onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
+                                                       onclick="swalConfirm('@lang('bt.delete_record_warning')', '', '{{ route('currencies.delete', [$currency->id]) }}');"><i class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
                                             </div>
                                         </div>
                                     </td>

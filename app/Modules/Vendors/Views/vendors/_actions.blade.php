@@ -9,9 +9,9 @@
                         class="fa fa-edit"></i> @lang('bt.edit')</a>
         <a href ="javascript:void(0)" class="create-purchaseorder dropdown-item" data-name="{{ $name }}"><i
                         class="far fa-file-alt"></i> @lang('bt.create_purchaseorder')</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" id="delete-vendor-{{ $id }}"
-               onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('vendors.delete', [$id]) }}');"><i
-                        class="fa fa-trash-alt"></i> @lang('bt.delete')</a>
+{{--        <div class="dropdown-divider"></div>--}}
+{{--        <a class="dropdown-item" href="#" id="delete-vendor-{{ $id }}"--}}
+{{--               onclick="swalConfirm('@lang('bt.delete_record_warning')', '', '{{ route('vendors.delete', [$id]) }}');"><i--}}
+{{--                        class="fa fa-trash-alt"></i> @lang('bt.delete')</a>--}}
     </div>
 </div>

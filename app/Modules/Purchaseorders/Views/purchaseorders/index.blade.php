@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     @include('purchaseorders._js_index')
 @stop
 

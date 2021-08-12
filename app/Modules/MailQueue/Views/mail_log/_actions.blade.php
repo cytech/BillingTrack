@@ -5,7 +5,7 @@
     </button>
     <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item" href="#"
-           onclick="swalConfirm('@lang('bt.delete_record_warning')', '{{ route('mailLog.delete', [$id]) }}');"><i
+           onclick="swalConfirm('@lang('bt.delete_record_warning')', '', '{{ route('mailLog.delete', [$id]) }}');"><i
                     class="fa fa-trash-alt btn-danger"></i> @lang('bt.delete')</a>
     </div>
 </div>

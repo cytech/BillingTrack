@@ -156,7 +156,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('bt.trash_restoreselected_warning')', "{{ route('utilities.bulk.restoretrash') }}", ids);
+                    bulkConfirm('@lang('bt.trash_restoreselected_warning')', '', "{{ route('utilities.bulk.restoretrash') }}", ids);
                 }
             });
             $('#btn-bulk-delete').click(function () {
@@ -169,7 +169,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('bt.bulk_delete_record_warning')', "{{ route('utilities.bulk.deletetrash') }}", ids);
+                    bulkConfirm('@lang('bt.bulk_delete_record_warning')', '', "{{ route('utilities.bulk.deletetrash') }}", ids);
                 }
             });
 

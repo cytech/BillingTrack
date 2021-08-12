@@ -64,7 +64,7 @@
         </div>
     </section>
 @stop
-@section('javascript')
+@section('javaScript')
     <script>
         $(document).on('click','.replace-employee',function () {
             $('#modal-placeholder').load($(this).attr('data-route'));

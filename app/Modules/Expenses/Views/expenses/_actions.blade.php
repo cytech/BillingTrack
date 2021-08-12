@@ -9,6 +9,6 @@
         <a class="dropdown-item" href ="{{ route('expenses.edit', [$id]) }}"><i class="fa fa-edit"></i> @lang('bt.edit')</a>
             <div class="dropdown-divider"></div>
         <a class="dropdown-item" href ="#"
-               onclick="swalConfirm('@lang('bt.trash_record_warning')', '{{ route('expenses.delete', [$id]) }}');"><i class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+               onclick="swalConfirm('@lang('bt.trash_record_warning')', '', '{{ route('expenses.delete', [$id]) }}');"><i class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
     </div>
 </div>

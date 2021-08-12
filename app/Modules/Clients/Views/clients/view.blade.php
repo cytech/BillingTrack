@@ -16,7 +16,7 @@
             <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('bt.back')</a>
             <a href="{{ route('clients.edit', [$client->id]) }}" class="btn btn-secondary">@lang('bt.edit')</a>
             <a class="btn btn-secondary" href="#"
-               onclick="swalConfirm('@lang('bt.trash_client_warning')', '{{ route('clients.delete', [$client->id]) }}');"><i
+               onclick="swalConfirm('@lang('bt.trash_client_warning')', '@lang('bt.trash_client_warning_msg')', '{{ route('clients.delete', [$client->id]) }}');"><i
                         class="fa fa-trash"></i> @lang('bt.trash')</a>
         </div>
         <div class="clearfix"></div>

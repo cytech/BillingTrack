@@ -1,6 +1,6 @@
 @extends('client_center.layouts.public')
 
-@section('javascript')
+@section('javaScript')
 
     <script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
 

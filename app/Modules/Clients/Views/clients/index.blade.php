@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     <script type="text/javascript">
         $(function () {
             $('#btn-bulk-delete').click(function () {
@@ -12,7 +12,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('bt.trash_clients_warning')', "{{ route('clients.bulk.delete') }}", ids)
+                    bulkConfirm('@lang('bt.trash_clients_warning')', '', "{{ route('clients.bulk.delete') }}", ids)
                 }
             });
         });

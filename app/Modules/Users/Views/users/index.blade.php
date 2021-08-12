@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     <script type="text/javascript">
         $(function () {
             $('.user_filter_options').change(function () {

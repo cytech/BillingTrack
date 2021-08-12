@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
 
 
     @include('item_lookups._js_item_lookups')

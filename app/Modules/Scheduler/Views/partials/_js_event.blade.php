@@ -1,4 +1,4 @@
-@section('javascript')
+@section('javaScript')
 
     {!! Html::style('plugins/fullcalendar/main.min.css') !!}
     {!! Html::script('plugins/moment/moment.min.js') !!}

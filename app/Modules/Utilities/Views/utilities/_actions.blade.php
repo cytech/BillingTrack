@@ -9,7 +9,7 @@
                         class="fa fa-edit"></i> @lang('bt.restore')</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href ="#" id="delete-client-{{ $id }}"
-               onclick="swalConfirm('@lang('bt.trash_deletesingle_warning')', '{{ route('utilities.delete_trash',
+               onclick="swalConfirm('@lang('bt.trash_deletesingle_warning')', '', '{{ route('utilities.delete_trash',
                                     [$model->id, 'entity' => get_class($model)]) }}');"><i
                         class="btn-danger fa fa-trash-alt"></i> @lang('bt.delete')</a>
     </div>

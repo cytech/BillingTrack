@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     <script type="text/javascript">
         $(function () {
             $(document).on('click','.btn-bill-expense', (function () {
@@ -23,7 +23,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('expenses.bulk.delete') }}", ids)
+                    bulkConfirm('@lang('bt.bulk_trash_record_warning')', '', "{{ route('expenses.bulk.delete') }}", ids)
                 }
             });
         });

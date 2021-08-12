@@ -235,7 +235,7 @@
         </div>
     </div>
 @endsection
-@section('javascript')
+@section('javaScript')
     {!! Html::script('plugins/moment/moment.min.js') !!}
     {!! Html::script('plugins/jquery-validation/jquery.validate.min.js') !!}
 

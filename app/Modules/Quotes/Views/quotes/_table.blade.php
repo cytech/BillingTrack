@@ -60,7 +60,7 @@
                         <a class="dropdown-item" href="{{ route('clientCenter.public.quote.show', [$quote->url_key]) }}" target="_blank"
                                id="btn-public-quote"><i class="fa fa-globe"></i> @lang('bt.public')</a>
                         <a class="dropdown-item" href="#"
-                               onclick="swalConfirm('@lang('bt.trash_record_warning')','{{ route('quotes.delete', [$quote->id]) }}');"><i
+                               onclick="swalConfirm('@lang('bt.trash_record_warning')', '','{{ route('quotes.delete', [$quote->id]) }}');"><i
                                     class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
                     </div>
                 </div>

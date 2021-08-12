@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     {{--@include('layouts._typeahead')--}}
     {{--@include('clients._js_lookup')--}}
 

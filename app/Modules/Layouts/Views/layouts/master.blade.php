@@ -16,7 +16,7 @@
 
     @include('layouts._js_global')
 
-    @yield('javascript')
+    @yield('javaScript')
 
 </head>
 <body class=" hold-transition sidebar-mini sidebar-{{$sidebarMode}}">

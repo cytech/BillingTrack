@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     <script type="text/javascript">
 
         $(function () {
@@ -21,7 +21,7 @@
                 });
 
                 if (ids.length > 0) {
-                    bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('payments.bulk.delete') }}", ids)
+                    bulkConfirm('@lang('bt.bulk_trash_record_warning')', '', "{{ route('payments.bulk.delete') }}", ids)
                 }
             });
 

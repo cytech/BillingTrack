@@ -26,8 +26,14 @@
         @endif
         <div class="dropdown-divider"></div>
 
-        <a class="dropdown-item" href ="#"
-               onclick="swalConfirm('@lang('bt.trash_record_warning')', '{{ route('invoices.delete', [$id]) }}');"><i
+        @if($model->quote || $model->workorder)
+            <a class="dropdown-item" href="#"
+               onclick="swalConfirm('@lang('bt.trash_record_warning')','@lang('bt.trash_invoice_warning_assoc_msg')', '{{ route('invoices.delete', [$id]) }}');"><i
                         class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+        @else
+            <a class="dropdown-item" href="#"
+               onclick="swalConfirm('@lang('bt.trash_record_warning')', '@lang('bt.trash_invoice_warning_msg')', '{{ route('invoices.delete', [$id]) }}');"><i
+                        class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+        @endif
     </div>
 </div>

@@ -17,10 +17,11 @@
         });
     }
 
-    function swalConfirm(message, link, target = "body") {
+    function swalConfirm(title, message, link, target = "body") {
         Swal.fire({
             target: document.getElementById(target),
-            title: message,
+            title: title,
+            html: message,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d68500',
@@ -82,10 +83,11 @@
         });
     }
 
-    function bulkConfirm(message, route, ids, status) {
+    function bulkConfirm(title, message, route, ids, status) {
 
         Swal.fire({
-            title: message,
+            title: title,
+            html: message,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d68500',

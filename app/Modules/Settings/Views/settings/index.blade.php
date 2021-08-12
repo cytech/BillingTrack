@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('javascript')
+@section('javaScript')
     @parent
     <script type="text/javascript">
         $(function () {

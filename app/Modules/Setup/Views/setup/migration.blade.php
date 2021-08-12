@@ -1,6 +1,6 @@
 @extends('setup.master')
 
-@section('javascript')
+@section('javaScript')
     <script type="text/javascript">
         $(function () {
 

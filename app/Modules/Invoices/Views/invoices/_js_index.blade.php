@@ -13,7 +13,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('bt.bulk_trash_record_warning')', "{{ route('invoices.bulk.delete') }}", ids)
+                bulkConfirm('@lang('bt.bulk_trash_invoice_warning')', '@lang('bt.bulk_trash_invoice_warning_msg')', "{{ route('invoices.bulk.delete') }}", ids)
             }
         });
 
@@ -25,7 +25,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('bt.bulk_invoice_change_status_warning')', "{{ route('invoices.bulk.status') }}",
+                bulkConfirm('@lang('bt.bulk_invoice_change_status_warning')', '', "{{ route('invoices.bulk.status') }}",
                             ids, $(this).data('status'))
             }
         });

@@ -37,7 +37,7 @@
                             <td>
                                 @if ($addon->enabled)
                                     <a href="#" class="btn btn-sm btn-secondary"
-                                       onclick="swalConfirm('@lang('bt.uninstall_addon_warning')', '{{ route('addons.uninstall', [$addon->id]) }}');">@lang('bt.disable')</a>
+                                       onclick="swalConfirm('@lang('bt.uninstall_addon_warning')', '', '{{ route('addons.uninstall', [$addon->id]) }}');">@lang('bt.disable')</a>
                                     @if ($addon->has_pending_migrations)
                                         <a href="{{ route('addons.upgrade', [$addon->id]) }}"
                                            class="btn btn-sm btn-info">@lang('bt.complete_upgrade')</a>

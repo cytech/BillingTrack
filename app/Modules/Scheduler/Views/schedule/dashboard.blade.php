@@ -143,7 +143,7 @@
                                                 @lang('bt.link_to_workorder')</a></td>
                                     @else
                                         <a href="#" class="btn btn-danger btn-sm" id="delete-reminder-{{ $reminder->id }}"
-                                           onclick="swalConfirm('@lang('bt.reminder_trash_warning')', '{{ route('scheduler.trashreminder', $reminder->id) }}');"><i
+                                           onclick="swalConfirm('@lang('bt.reminder_trash_warning')', '', '{{ route('scheduler.trashreminder', $reminder->id) }}');"><i
                                                     class="fa fa-trash-alt"></i> @lang('bt.trash')
                                         </a></td>
                                     @endif
@@ -179,7 +179,7 @@
         </div>
     </section>
 @stop
-@section('javascript')
+@section('javaScript')
     {{--@include('partials._js_datatables')--}}
     {!! Html::style('plugins/morris.js.so/morris.css') !!}
     {!! Html::script('plugins/raphael/raphael.min.js') !!}

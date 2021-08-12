@@ -11,9 +11,9 @@
                         class="far fa-file-alt"></i> @lang('bt.create_purchaseorder')</a>
             <a href="{{ $returnUrl }}" class="btn btn-secondary"><i class="fa fa-backward"></i> @lang('bt.back')</a>
             <a href="{{ route('vendors.edit', [$vendor->id]) }}" class="btn btn-secondary">@lang('bt.edit')</a>
-            <a class="btn btn-secondary" href="#"
-               onclick="swalConfirm('@lang('bt.trash_vendor_warning')', '{{ route('vendors.delete', [$vendor->id]) }}');"><i
-                        class="fa fa-trash"></i> @lang('bt.trash')</a>
+{{--            <a class="btn btn-secondary" href="#"--}}
+{{--               onclick="swalConfirm('@lang('bt.trash_vendor_warning')', '@lang('bt.trash_vendor_warning_msg')', '{{ route('vendors.delete', [$vendor->id]) }}');"><i--}}
+{{--                        class="fa fa-trash"></i> @lang('bt.trash')</a>--}}
         </div>
         <div class="clearfix"></div>
     </section>
