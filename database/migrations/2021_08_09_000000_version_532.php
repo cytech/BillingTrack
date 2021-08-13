@@ -15,12 +15,8 @@ class Version532 extends Migration
      */
     public function up()
     {
-        Schema::table('quotes', function (Blueprint $table) {
-            $table->integer('workorder_id')->default('0')->change();
-        });
-
-        Schema::table('quotes', function (Blueprint $table) {
-            $table->integer('invoice_id')->default('0')->change();
+        Schema::table('workorders', function (Blueprint $table) {
+            $table->integer('invoice_id')->unsigned()->default('0')->change();
         });
 
         Setting::saveByKey('version', '5.3.2');
@@ -34,11 +30,7 @@ class Version532 extends Migration
      public function down()
      {
          Schema::table('quotes', function (Blueprint $table) {
-             $table->integer('workorder_id')->unsigned()->default('0')->change();
-         });
-
-         Schema::table('quotes', function (Blueprint $table) {
-             $table->integer('invoice_id')->unsigned()->default('0')->change();
+             $table->integer('invoice_id')->default('0')->change();
          });
 
          Setting::saveByKey('version', '5.3.1');

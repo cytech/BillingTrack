@@ -9,18 +9,28 @@
         <span style="margin-left: 10px;" class="badge badge-secondary">@lang('bt.not_viewed')</span>
     @endif
 
-    @if ($quote->invoice_id > 0)
-        <span class="badge badge-info"><a href="{{ route('invoices.edit', [$quote->invoice_id]) }}"
-                                          style="color: inherit;">@lang('bt.converted_to_invoice') {{ $quote->invoice->number }}</a></span>
-    @elseif ($quote->invoice_id < 0)
-        <span class="badge badge-danger" title="Trashed"><del>@lang('bt.converted_to_invoice') {{ -$quote->invoice_id }}</del></span>
+    @if ($quote->invoice()->count())
+        @if($quote->invoice->status_text == 'canceled')
+            <span class="badge badge-canceled" title="@lang('bt.canceled')"><a href="{{ route('invoices.edit', [$quote->invoice_id]) }}"
+                                                                               style="color: inherit;">@lang('bt.converted_to_invoice') {{ $quote->invoice->number }}</a></span>
+        @else
+            <span class="badge badge-info"><a href="{{ route('invoices.edit', [$quote->invoice_id]) }}"
+                                              style="color: inherit;">@lang('bt.converted_to_invoice') {{ $quote->invoice->number }}</a></span>
+        @endif
+    @elseif ($quote->invoice()->withTrashed()->count())
+        <span class="badge badge-danger" title="Trashed">@lang('bt.converted_to_invoice') {{ $quote->invoice_id }}</span>
     @endif
 
-    @if ($quote->workorder_id > 0)
-        <span class="badge badge-info"><a href="{{ route('workorders.edit', [$quote->workorder_id]) }}"
-                                          style="color: inherit;">@lang('bt.converted_to_workorder') {{ $quote->workorder->number }}</a></span>
-    @elseif ($quote->workorder_id < 0)
-        <span class="badge badge-danger" title="Trashed"><del>@lang('bt.converted_to_workorder') {{ -$quote->workorder_id }}</del></span>
+    @if ($quote->workorder()->count())
+        @if($quote->workorder->status_text == 'canceled')
+            <span class="badge badge-canceled" title="@lang('bt.canceled')"><a href="{{ route('workorders.edit', [$quote->workorder_id]) }}"
+                                                                               style="color: inherit;">@lang('bt.converted_to_workorder') {{ $quote->workorder->number }}</a></span>
+        @else
+            <span class="badge badge-info"><a href="{{ route('workorders.edit', [$quote->workorder_id]) }}"
+                                              style="color: inherit;">@lang('bt.converted_to_workorder') {{ $quote->workorder->number }}</a></span>
+        @endif
+    @elseif ($quote->workorder()->withTrashed()->count())
+        <span class="badge badge-danger" title="Trashed">@lang('bt.converted_to_workorder') {{ $quote->workorder_id }}</span>
     @endif
 
     <div class="float-right">

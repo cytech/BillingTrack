@@ -94,6 +94,11 @@ class Workorder extends Model
         return $this->belongsTo('BT\Modules\Invoices\Models\Invoice');
     }
 
+    public function invoicetrashed()
+    {
+        return $this->belongsTo('BT\Modules\Invoices\Models\Invoice', 'invoice_id', 'id')->onlyTrashed();
+    }
+
     public function quote()
     {
         return $this->hasOne('BT\Modules\Quotes\Models\Quote');
@@ -298,6 +303,18 @@ class Workorder extends Model
     | Scopes
     |--------------------------------------------------------------------------
     */
+
+    // not invoiced is where workorder->invoice_id = 0,
+    // or where invoice()->invoice_status_id = 1 or 4 ('draft' or 'canceled')
+    // or invoice is trashed
+    public function scopeNotinvoiced($query)
+    {
+        $query->where('invoice_id', 0)
+            ->orWhereHas('invoice', function ($query) {
+                $query->whereIn('invoice_status_id', [1, 4]);
+            })
+            ->orWhereHas('invoicetrashed');
+    }
 
     public function scopeClientId($query, $clientId = null)
     {

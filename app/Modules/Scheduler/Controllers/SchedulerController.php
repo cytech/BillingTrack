@@ -126,14 +126,14 @@ class SchedulerController extends Controller
             'quote' => (config('bt.schedulerDisplayInvoiced') == 1) ?
                 Quote::where(function ($query) {$query->sentorapproved();})
                  ->with('client'):
-                Quote::where('invoice_id', '0')
+                Quote::where(function ($query) {$query->notinvoiced();})
                     ->where(function ($query) {$query->sentorapproved();})
                     ->with('client'),
             //workorder sent or approved, based on displayinvoiced setting, with client
             'workorder' => (config('bt.schedulerDisplayInvoiced') == 1) ?
                 Workorder::where(function ($query) {$query->sentorapproved();})
                  ->with('client', 'workorderItems.employees') :
-                Workorder::where('invoice_id', '0')
+                Workorder::where(function ($query) {$query->notinvoiced();})
                     ->where(function ($query) {$query->sentorapproved();})
                     ->with('client', 'workorderItems.employees'),
             'invoice' => Invoice::sent()->with('client'),

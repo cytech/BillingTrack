@@ -40,12 +40,14 @@ class WorkordersDataTable extends DataTable
             })
             ->editColumn('invoice_id', function (Workorder $workorder) {
                 $ret = '<td class="hidden-xs">';
-                if ($workorder->invoice_id > 0)
-                    $ret .= '<span class="badge badge-info"><a href="' . route('invoices.edit', [$workorder->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
-                elseif ($workorder->invoice_id < 0)
+                if ($workorder->invoice()->count())
+                    if ($workorder->invoice->status_text == 'canceled')
+                        $ret .= '<span class="badge badge-canceled" title="' . trans('bt.canceled') . '" ><a href="' . route('invoices.edit', [$workorder->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
+                    else
+                        $ret .= '<span class="badge badge-info"><a href="' . route('invoices.edit', [$workorder->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
+                elseif ($workorder->invoice()->withTrashed()->count())
                     $ret .= '<span class="badge badge-danger" title="Trashed"> <del>' . trans('bt.invoice') . '</del> </span>';
-                else
-                    $ret .= trans('bt.no');
+
                 $ret .= '</td>';
 
                 return $ret;

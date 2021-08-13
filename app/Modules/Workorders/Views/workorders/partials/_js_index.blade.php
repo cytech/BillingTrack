@@ -12,7 +12,7 @@
             });
 
             if (ids.length > 0) {
-                bulkConfirm('@lang('bt.bulk_trash_record_warning')', '', "{{ route('workorders.bulk.delete') }}", ids)
+                bulkConfirm('@lang('bt.bulk_trash_record_warning')', '@lang('bt.bulk_trash_workorder_warning_msg')', "{{ route('workorders.bulk.delete') }}", ids)
             }
         });
 

@@ -9,11 +9,16 @@
         <span style="margin-left: 10px;" class="badge badge-secondary">@lang('bt.not_viewed')</span>
     @endif
 
-    @if ($workorder->invoice_id > 0)
+    @if ($workorder->invoice()->count())
+        @if($workorder->invoice->status_text == 'canceled')
+            <span class="badge badge-canceled" title="@lang('bt.canceled')"><a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}"
+                                              style="color: inherit;">@lang('bt.converted_to_invoice') {{ $workorder->invoice->number }}</a></span>
+        @else
         <span class="badge badge-info"><a href="{{ route('invoices.edit', [$workorder->invoice_id]) }}"
                                           style="color: inherit;">@lang('bt.converted_to_invoice') {{ $workorder->invoice->number }}</a></span>
-    @elseif ($workorder->invoice_id < 0)
-        <span class="badge badge-danger" title="Trashed"><del>@lang('bt.converted_to_invoice') {{ -$workorder->invoice_id }}</del></span>
+        @endif
+    @elseif ($workorder->invoice()->withTrashed()->count())
+        <span class="badge badge-danger" title="Trashed">@lang('bt.converted_to_invoice') {{ $workorder->invoice_id }}</span>
     @endif
 
     @if ($workorder->quote()->count())
@@ -41,9 +46,16 @@
                 <a class="dropdown-item" href="javascript:void(0)" id="btn-workorder-to-invoice"><i
                             class="fa fa-check"></i> @lang('bt.workorder_to_invoice')</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"
+
+                @if($workorder->quote)
+                    <a class="dropdown-item" href="#"
+                       onclick="swalConfirm('@lang('bt.trash_record_warning')','@lang('bt.trash_workorder_warning_assoc_msg')', '{{ route('workorders.delete', [$workorder->id]) }}');"><i
+                                class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+                @else
+                    <a class="dropdown-item" href="#"
                        onclick="swalConfirm('@lang('bt.trash_record_warning')', '', '{{ route('workorders.delete', [$workorder->id]) }}');"><i
                                 class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+                @endif
             </div>
         </div>
 

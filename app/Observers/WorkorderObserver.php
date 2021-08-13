@@ -141,8 +141,8 @@ class WorkorderObserver
             ($workorder->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
         }
 
-        //set workorder_id ref in quote to negative, denoting trashed
-        if ($workorder->quote() && !$workorder->isForceDeleting()) $workorder->quote()->update(['workorder_id' => -($workorder->id)]);
+        // set invoice_id ref in quote, workorder and expense to 0, denoting deleted
+        if ($workorder->quote() && $workorder->isForceDeleting()) $workorder->quote()->update(['workorder_id' => 0]);
 
         // todo this gets messy with soft deletes...
 //        $group = Group::where('id', $workorder->group_id)
@@ -179,9 +179,5 @@ class WorkorderObserver
         foreach ($workorder->notes as $note) {
             $note->onlyTrashed()->restore();
         }
-
-        // if exists, remove negative to denote restored
-        $quote = Quote::where('workorder_id', -($workorder->id))->first();
-        if ($quote) $quote->update(['workorder_id' => $workorder->id]);
     }
 }

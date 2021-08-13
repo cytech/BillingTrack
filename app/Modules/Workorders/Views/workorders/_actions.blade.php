@@ -14,8 +14,14 @@
                target="_blank" id="btn-public-workorder"><i
                         class="fa fa-globe"></i> @lang('bt.public')</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href ="#"
-               onclick="swalConfirm('@lang('bt.trash_record_warning')', '', '{{ route('workorders.delete', [$id]) }}');"><i
+        @if($model->quote)
+            <a class="dropdown-item" href="#"
+               onclick="swalConfirm('@lang('bt.trash_record_warning')','@lang('bt.trash_workorder_warning_assoc_msg')', '{{ route('workorders.delete', [$model->id]) }}');"><i
                         class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+        @else
+            <a class="dropdown-item" href="#"
+               onclick="swalConfirm('@lang('bt.trash_record_warning')', '', '{{ route('workorders.delete', [$model->id]) }}');"><i
+                        class="fa fa-trash-alt"></i> @lang('bt.trash')</a>
+        @endif
     </div>
 </div>

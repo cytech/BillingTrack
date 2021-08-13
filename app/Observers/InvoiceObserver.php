@@ -130,12 +130,12 @@ class InvoiceObserver
             ($invoice->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
         }
 
-        // set invoice_id ref in quote, workorder and expense to negative, denoting trashed
-        if ($invoice->quote() && !$invoice->isForceDeleting()) $invoice->quote()->update(['invoice_id' => -($invoice->id)]);
+        // set invoice_id ref in quote, workorder and expense to 0, denoting deleted
+        if ($invoice->quote() && $invoice->isForceDeleting()) $invoice->quote()->update(['invoice_id' => 0]);
 
-        if ($invoice->workorder() && !$invoice->isForceDeleting()) $invoice->workorder()->update(['invoice_id' => -($invoice->id)]);
+        if ($invoice->workorder() && $invoice->isForceDeleting()) $invoice->workorder()->update(['invoice_id' => 0]);
 
-        if ($invoice->expense() && !$invoice->isForceDeleting()) $invoice->expense()->update(['invoice_id' => -($invoice->id)]);
+        if ($invoice->expense() && $invoice->isForceDeleting()) $invoice->expense()->update(['invoice_id' => 0]);
 
         // todo this gets messy with soft deletes...
 //        $group = Group::where('id', $invoice->group_id)
@@ -171,17 +171,6 @@ class InvoiceObserver
         foreach ($invoice->notes as $note) {
             $note->onlyTrashed()->restore();
         }
-
-        // if exists, remove negative to denote restored
-        $quote = Quote::where('invoice_id', -($invoice->id))->first();
-        if ($quote) $quote->update(['invoice_id' => $invoice->id]);
-
-        $workorder = Workorder::where('invoice_id', -($invoice->id))->first();
-        if ($workorder) $workorder->update(['invoice_id' => $invoice->id]);
-
-        $expense = Expense::where('invoice_id', -($invoice->id))->first();
-        if ($expense) $expense->update(['invoice_id' => $invoice->id]);
-
     }
 
 

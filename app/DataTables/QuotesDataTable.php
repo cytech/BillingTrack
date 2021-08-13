@@ -40,14 +40,22 @@ class QuotesDataTable extends DataTable
             })
             ->editColumn('invoice_id', function (Quote $quote) {
                 $ret = '<td class="hidden-xs">';
-                if ($quote->workorder_id > 0)
-                    $ret .= '<span class="badge badge-info"><a href="' . route('workorders.edit', [$quote->workorder_id]) . '"style="color: inherit;">' . trans('bt.workorder') . '</a></span>';
-                elseif ($quote->workorder_id < 0)
+                if ($quote->workorder()->count())
+                    if ($quote->workorder->status_text == 'canceled')
+                        $ret .= '<span class="badge badge-canceled" title="' . trans('bt.canceled') . '" ><a href="' . route('workorders.edit', [$quote->workorder_id]) . '"style="color: inherit;">' . trans('bt.workorder') . '</a></span>';
+                    else
+                        $ret .= '<span class="badge badge-info"><a href="' . route('workorders.edit', [$quote->workorder_id]) . '"style="color: inherit;">' . trans('bt.workorder') . '</a></span>';
+                elseif ($quote->workorder()->withTrashed()->count())
                     $ret .= '<span class="badge badge-danger" title="Trashed"> <del>' . trans('bt.workorder') . '</del> </span>';
-                if ($quote->invoice_id > 0)
-                    $ret .= '<span class="badge badge-info"><a href="' . route('invoices.edit', [$quote->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
-                elseif ($quote->invoice_id < 0)
+
+                if ($quote->invoice()->count())
+                    if ($quote->invoice->status_text == 'canceled')
+                        $ret .= '<span class="badge badge-canceled" title="' . trans('bt.canceled') . '" ><a href="' . route('invoices.edit', [$quote->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
+                    else
+                        $ret .= '<span class="badge badge-info"><a href="' . route('invoices.edit', [$quote->invoice_id]) . '"style="color: inherit;">' . trans('bt.invoice') . '</a></span>';
+                elseif ($quote->invoice()->withTrashed()->count())
                     $ret .= '<span class="badge badge-danger" title="Trashed"> <del>' . trans('bt.invoice') . '</del> </span>';
+
                 $ret .= '</td>';
 
                 return $ret;
