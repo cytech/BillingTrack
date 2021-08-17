@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 corresponding observers and place in edit controllers. Was causing unnecessary parent model recalc on every item which
 led to long save times on records with many items. )
 - added "saving" alert on record save.
+- fix purchaseorder receive product numstock updating
 
 ## 5.3.1
 - added scheduler setting for today background color
