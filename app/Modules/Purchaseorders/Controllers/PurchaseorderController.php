@@ -108,6 +108,7 @@ class PurchaseorderController extends Controller
         $items = PurchaseorderItem::whereIn('id', $request->itemrec_ids)->get();
 
         $rec_cnt = 0;
+        $rec_qty = 0;
 
         // update received info
         foreach ($items as $item) {
@@ -115,6 +116,7 @@ class PurchaseorderController extends Controller
                 if ($att['id'] == $item->id) {
                     $qty = $item->rec_qty + $att['rec_qty'];
                     $cost = $att['rec_cost'];
+                    $rec_qty = $att['rec_qty'];
 
                     if ($qty == $item->quantity) {
                         $status_id = PurchaseorderItemStatuses::getStatusId('received');
@@ -140,7 +142,7 @@ class PurchaseorderController extends Controller
             if ($request->itemrec) {
                 //update product table quantities and cost for items
                 if ($item->resource_table == 'products' && $item->resource_id) {
-                    $item->product->increment('numstock', $item->rec_qty, ['cost' => $item->cost]);
+                    $item->product->increment('numstock', $rec_qty, ['cost' => $item->cost]);
                 }
             }
         }

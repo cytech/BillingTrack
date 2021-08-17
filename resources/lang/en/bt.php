@@ -445,6 +445,7 @@ return [
     'itemname'                                => 'ItemName',
     'itemqty'                                 => 'ItemQty',
     'items'                                   => 'Items',
+    'items_successfully_received'             => 'Item(s) successfully received',
     'job_date'                                => 'Job Date',
     'job_summary'                             => 'Job Summary',
     'jqui_theme'                              => 'JQuery-UI Theme',

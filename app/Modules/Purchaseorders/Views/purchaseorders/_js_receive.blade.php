@@ -50,9 +50,20 @@
                 itemrec_att: itemrec_att,
 
             }).done(function (response) {
-                window.location = '{{ url('purchaseorders') }}';// + '/' + response.id + '/edit';
+                setTimeout(function () { //give notify a chance to display before redirect
+                    window.location = '{!! url('purchaseorders') !!}';
+                }, 2000);
+                notify('@lang('bt.items_successfully_received')', 'success');
             }).fail(function (response) {
-                showErrors($.parseJSON(response.responseText).errors, '#modal-status-placeholder');
+                if (response.status == 422) {
+                    let msg = '';
+                    $.each($.parseJSON(response.responseText).errors, function (id, message) {
+                        msg += message + '\n';
+                    });
+                    notify(msg, 'error');
+                } else {
+                    notify('@lang('bt.unknown_error')', 'error');
+                }
             });
         });
 
