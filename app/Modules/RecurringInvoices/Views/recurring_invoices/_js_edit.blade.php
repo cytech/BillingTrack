@@ -82,6 +82,8 @@
                 }
             });
 
+            swalSaving();
+
             $.post('{{ route('recurringInvoices.update', [$recurringInvoice->id]) }}', {
                 items: items,
                 terms: $('#terms').val(),

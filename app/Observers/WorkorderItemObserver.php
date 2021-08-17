@@ -50,18 +50,6 @@ class WorkorderItemObserver
     }
 
     /**
-     * Handle the workorder item "saved" event.
-     *
-     * @param  \BT\Modules\Workorders\Models\WorkorderItem  $workorderItem
-     * @return void
-     */
-    public function saved(WorkorderItem $workorderItem): void
-    {
-        event(new WorkorderModified($workorderItem->workorder));
-
-    }
-
-    /**
      * Handle the workorder item "deleted" event.
      *
      * @param  \BT\Modules\Workorders\Models\WorkorderItem  $workorderItem

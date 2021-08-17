@@ -22,9 +22,7 @@ class InvoiceItemController extends Controller
         $invoiceitem = InvoiceItem::find(request('id'));
 
         if (config('bt.updateInvProductsDefault') && $invoiceitem->is_tracked){
-            $product = Product::find($invoiceitem->resource_id);
-            $product->numstock += $invoiceitem->quantity;
-            $product->save();
+            $invoiceitem->product->increment('numstock', $invoiceitem->quantity);
         }
         InvoiceItem::destroy(request('id'));
     }

@@ -135,6 +135,14 @@ class PurchaseorderController extends Controller
             $item->rec_qty = $qty;
             $item->cost = $cost;
             $item->save();
+
+            //if update products is checked
+            if ($request->itemrec) {
+                //update product table quantities and cost for items
+                if ($item->resource_table == 'products' && $item->resource_id) {
+                    $item->product->increment('numstock', $item->rec_qty, ['cost' => $item->cost]);
+                }
+            }
         }
 
         // change PO status to received/partial
@@ -145,21 +153,5 @@ class PurchaseorderController extends Controller
             $purchaseorder->purchaseorder_status_id = PurchaseorderStatuses::getStatusId('partial');
         }
         $purchaseorder->save();
-
-        //if update prducts is checked
-        if ($request->itemrec) {
-            //update product table quantities and cost for items
-            foreach ($items as $item) {
-                //if in product table
-                if ($item->resource_table == 'products' && $item->resource_id) {
-                    $product = Product::where('id', $item->resource_id)->first();
-                    $product->numstock += $item->rec_qty;
-                    $product->cost = $item->cost;
-
-                    $product->save();
-                }
-            }
-        }
-
     }
 }

@@ -11,6 +11,7 @@
 
 namespace BT\Modules\Quotes\Controllers;
 
+use BT\Events\QuoteModified;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Currencies\Models\Currency;
 use BT\Modules\CustomFields\Models\CustomField;
@@ -88,6 +89,8 @@ class QuoteEditController extends Controller
                 $quoteItem->save();
             }
         }
+
+        event(new QuoteModified($quote));
 
         return response()->json(['success' => true], 200);
     }

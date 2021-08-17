@@ -40,18 +40,6 @@ class RecurringInvoiceItemObserver
     }
 
     /**
-     * Handle the recurring invoice item "saved" event.
-     *
-     * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem
-     * @return void
-     */
-    public function saved(RecurringInvoiceItem $recurringInvoiceItem): void
-    {
-        event(new RecurringInvoiceModified($recurringInvoiceItem->recurringInvoice));
-
-    }
-
-    /**
      * Handle the recurring invoice item "deleted" event.
      *
      * @param  \BT\Modules\RecurringInvoices\Models\RecurringInvoiceItem  $recurringInvoiceItem

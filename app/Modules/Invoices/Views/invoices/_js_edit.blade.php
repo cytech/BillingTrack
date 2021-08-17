@@ -82,6 +82,8 @@
                 }
             });
 
+            swalSaving();
+
             $.post('{{ route('invoices.update', [$invoice->id]) }}', {
                 number: $('#number').val(),
                 invoice_date: $('#invoice_date').val(),

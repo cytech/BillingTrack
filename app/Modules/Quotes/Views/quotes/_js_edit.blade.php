@@ -96,6 +96,8 @@
                 }
             });
 
+           swalSaving();
+
             $.post('{{ route('quotes.update', [$quote->id]) }}', {
                 number: $('#number').val(),
                 quote_date: $('#quote_date').val(),

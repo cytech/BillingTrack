@@ -11,6 +11,7 @@
 
 namespace BT\Modules\RecurringInvoices\Controllers;
 
+use BT\Events\RecurringInvoiceModified;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Currencies\Models\Currency;
 use BT\Modules\CustomFields\Models\CustomField;
@@ -89,6 +90,8 @@ class RecurringInvoiceEditController extends Controller
                 $recurringInvoiceItem->save();
             }
         }
+
+        event(new RecurringInvoiceModified($recurringInvoice));
     }
 
     public function refreshEdit($id)

@@ -51,18 +51,6 @@ class PurchaseorderItemObserver
     }
 
     /**
-     * Handle the purchaseorder item "saved" event.
-     *
-     * @param  \BT\Modules\Purchaseorders\Models\PurchaseorderItem  $purchaseorderItem
-     * @return void
-     */
-    public function saved(PurchaseorderItem $purchaseorderItem): void
-    {
-        event(new PurchaseorderModified($purchaseorderItem->purchaseorder));
-
-    }
-
-    /**
      * Handle the purchaseorder item "deleted" event.
      *
      * @param  \BT\Modules\Purchaseorders\Models\PurchaseorderItem  $purchaseorderItem

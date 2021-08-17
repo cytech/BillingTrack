@@ -11,6 +11,7 @@
 
 namespace BT\Modules\Purchaseorders\Controllers;
 
+use BT\Events\PurchaseorderModified;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Currencies\Models\Currency;
 use BT\Modules\CustomFields\Models\CustomField;
@@ -88,6 +89,8 @@ class PurchaseorderEditController extends Controller
                 $purchaseorderItem->save();
             }
         }
+
+        event(new PurchaseorderModified($purchaseorder));
     }
 
     public function refreshEdit($id)

@@ -40,18 +40,6 @@ class QuoteItemObserver
     }
 
     /**
-     * Handle the quote item "saved" event.
-     *
-     * @param  \BT\Modules\Quotes\Models\QuoteItem  $quoteItem
-     * @return void
-     */
-    public function saved(QuoteItem $quoteItem): void
-    {
-        event(new QuoteModified($quoteItem->quote));
-
-    }
-
-    /**
      * Handle the quote item "deleted" event.
      *
      * @param  \BT\Modules\Quotes\Models\QuoteItem  $quoteItem

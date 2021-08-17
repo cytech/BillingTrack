@@ -10,6 +10,7 @@
 
 namespace BT\Modules\Workorders\Controllers;
 
+use BT\Events\WorkorderModified;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Currencies\Models\Currency;
 use BT\Modules\CustomFields\Models\CustomField;
@@ -88,6 +89,8 @@ class WorkorderEditController extends Controller
                 $workorderItem->save();
             }
         }
+
+        event(new WorkorderModified($workorder));
 
         return response()->json(['success' => true], 200);
     }

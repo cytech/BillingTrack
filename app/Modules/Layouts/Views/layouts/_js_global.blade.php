@@ -17,6 +17,18 @@
         });
     }
 
+    function swalSaving() {
+        Swal.fire({
+            toast: true,
+            title: '@lang('bt.saving')',
+            icon: 'info',
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            allowEscapeKey: false
+
+        });
+    }
+
     function swalConfirm(title, message, link, target = "body") {
         Swal.fire({
             target: document.getElementById(target),

@@ -78,6 +78,8 @@
                 }
             });
 
+            swalSaving();
+
             $.post('{{ route('purchaseorders.update', [$purchaseorder->id]) }}', {
                 number: $('#number').val(),
                 purchaseorder_date: $('#purchaseorder_date').val(),

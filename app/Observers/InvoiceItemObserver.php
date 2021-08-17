@@ -51,15 +51,22 @@ class InvoiceItemObserver
     }
 
     /**
-     * Handle the invoice item "saved" event.
+     * Handle the invoice item "created" event.
      *
      * @param  \BT\Modules\Invoices\Models\InvoiceItem  $invoiceItem
      * @return void
      */
-    public function saved(InvoiceItem $invoiceItem): void
+    public function created(InvoiceItem $invoiceItem): void
     {
-        event(new InvoiceModified($invoiceItem->invoice));
-
+        // product numstock update
+        // if inv tracking is on and invoice is sent and inventorytype is tracked , decrement onhand
+        if (config('bt.updateInvProductsDefault') && $invoiceItem->invoice->status_text == 'sent') {
+            if ($invoiceItem->resource_id && $invoiceItem->resource_table == 'products'
+                && $invoiceItem->product()->tracked()->get()->isNotEmpty()) {
+                $invoiceItem->product->decrement('numstock', $invoiceItem->quantity);
+                $invoiceItem->update(['is_tracked' => 1]);
+            }
+        }
     }
 
     /**

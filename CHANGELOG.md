@@ -14,7 +14,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - track workorder_id and invoice_id as deleted/restored in quotes and workorders
 - update various badges to show delete status
 - removed group renumbering from deleting observers
-- migration remove unsigned from workorder_id and invoice_id in quotes table
+- migration add unsigned to invoice_id in workorders table
+- fix saving items  in quotes, workorders, invoices, recurring invoices and purchase orders. (remove 'saved' in 
+corresponding observers and place in edit controllers. Was causing unnecessary parent model recalc on every item which
+led to long save times on records with many items. )
+- added "saving" alert on record save.
 
 ## 5.3.1
 - added scheduler setting for today background color

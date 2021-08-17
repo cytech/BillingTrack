@@ -128,6 +128,8 @@
                 willcall = 1;
             }
 
+            swalSaving();
+
             $.post('{{ route('workorders.update', [$workorder->id]) }}', {
                 number: $('#number').val(),
                 workorder_date: $('#workorder_date').val(),

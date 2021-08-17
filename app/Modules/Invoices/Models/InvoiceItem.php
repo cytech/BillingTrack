@@ -60,12 +60,11 @@ class InvoiceItem extends Model
         return $this->belongsTo('BT\Modules\Products\Models\Product',
             'resource_id', 'id');
     }
-    //todo
+
     public function employee()
     {
         return $this->belongsTo('BT\Modules\Employees\Models\Employee',
-            'resource_id', 'id')
-            ->where('resource_table','=','employees');
+            'resource_id', 'id');
     }
 
     /*

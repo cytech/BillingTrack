@@ -699,6 +699,7 @@ return [
     'sales'                                   => 'Sales',
     'sandbox'                                 => 'Sandbox',
     'save'                                    => 'Save',
+    'saving'                                  => 'Saving Record ....',
     'save_and_apply_exchange_rate'            => 'Save and Apply Exchange Rate',
     'save_item_as_lookup'                     => 'Save item as lookup',
     'save_item_as_product'                    => 'Save item as product',

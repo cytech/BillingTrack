@@ -56,16 +56,10 @@ class PurchaseorderItem extends Model
         return $this->belongsTo('BT\Modules\TaxRates\Models\TaxRate', 'tax_rate_2_id');
     }
 
-    public function products()
+    public function product()
     {
-        return $this->hasMany('BT\Modules\Products\Models\Product', 'resource_id')
-            ->where('resource_table','=','products');
-    }
-
-    public function employees()
-    {
-        return $this->hasMany('BT\Modules\Employees\Models\Employee', 'resource_id')
-            ->where('resource_table','=','employees');
+        return $this->belongsTo('BT\Modules\Products\Models\Product',
+            'resource_id', 'id');
     }
 
     /*

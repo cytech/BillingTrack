@@ -11,6 +11,7 @@
 
 namespace BT\Modules\Invoices\Controllers;
 
+use BT\Events\InvoiceModified;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Currencies\Models\Currency;
 use BT\Modules\CustomFields\Models\CustomField;
@@ -19,7 +20,6 @@ use BT\Modules\Invoices\Models\InvoiceItem;
 use BT\Modules\Invoices\Support\InvoiceTemplates;
 use BT\Modules\Invoices\Requests\InvoiceUpdateRequest;
 use BT\Modules\ItemLookups\Models\ItemLookup;
-use BT\Modules\Products\Models\Product;
 use BT\Modules\TaxRates\Models\TaxRate;
 use BT\Support\DateFormatter;
 use BT\Support\Statuses\InvoiceStatuses;
@@ -69,19 +69,8 @@ class InvoiceEditController extends Controller
                 $saveItemAsLookup = $item['save_item_as_lookup'];
                 unset($item['save_item_as_lookup']);
 
-                $newitem = InvoiceItem::create($item);
-                // product numstock update
-                // if inv tracking is on and invoice is sent
-                // and item is tracked inventory, decrement onhand
-                if (config('bt.updateInvProductsDefault') && $newitem->invoice->status_text == 'sent') {
-                    if ($newitem->resource_id && $newitem->resource_table == 'products'
-                        && $newitem->product()->tracked()->get()->isNotEmpty()) {
-                        $newitem->product->numstock -= $newitem->quantity;
-                        $newitem->product->save();
-                        $newitem->is_tracked = 1;
-                        $newitem->save();
-                    }
-                }
+                InvoiceItem::create($item);
+                // product numstock update - moved to InvoiceItemObserver:created()
 
                 if ($saveItemAsLookup) {
                     ItemLookup::create([
@@ -103,39 +92,29 @@ class InvoiceEditController extends Controller
                             case 0:
                                 break;
                             case -1:
-                                // decrement numstock
-                                $product = Product::find($invoiceItem->resource_id);
-                                $product->numstock -= $qtydiff;
-                                $product->save();
+                                $invoiceItem->product->decrement('numstock', $qtydiff);
                                 break;
                             case 1:
-                                // increment numstock
-                                $product = Product::find($invoiceItem->resource_id);
-                                $product->numstock += $qtydiff;
-                                $product->save();
+                                $invoiceItem->product->increment('numstock', $qtydiff);
                                 break;
                         }
                     }
 
                     // if status changed to sent from draft or canceled
                     if (($oldstatus == 1 || $oldstatus == 4) && $newstatus == 2) {
-                        // if item has NOT already been tracked
-                        // and item is tracked inventory, decrement onhand
+                        // if item has NOT already been tracked and item is tracked inventory, decrement onhand
                         if ($invoiceItem->resource_id && !$invoiceItem->is_tracked && $invoiceItem->resource_table == 'products'
                             && $invoiceItem->product()->tracked()->get()->isNotEmpty()) {
-                            $invoiceItem->product->numstock -= $item['quantity'];
-                            $invoiceItem->product->save();
+                            $invoiceItem->product->decrement('numstock', $item['quantity']);
                             $invoiceItem->is_tracked = 1;
                         }
                     }
                     //if status changed from sent to draft or canceled
                     if ($oldstatus == 2 && ($newstatus == 1 || $newstatus == 4)) {
-                        // if item has already been tracked
-                        // and item is tracked inventory, increment onhand
+                        // if item has already been tracked and item is tracked inventory, increment onhand
                         if ($invoiceItem->resource_id && $invoiceItem->is_tracked && $invoiceItem->resource_table == 'products'
                             && $invoiceItem->product()->tracked()->get()->isNotEmpty()) {
-                            $invoiceItem->product->numstock += $invoiceItem->quantity;
-                            $invoiceItem->product->save();
+                            $invoiceItem->product->increment('numstock', $item['quantity']);
                             $invoiceItem->is_tracked = 0;
                         }
                     }
@@ -144,6 +123,8 @@ class InvoiceEditController extends Controller
                 $invoiceItem->save();
             }
         }
+
+        event(new InvoiceModified($invoice));
     }
 
     public function refreshEdit($id)
