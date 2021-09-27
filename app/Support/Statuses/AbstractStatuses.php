@@ -43,7 +43,7 @@ abstract class AbstractStatuses
 
         foreach (static::$statuses as $status)
         {
-            $statuses[$status] = trans('bt.' . $status);
+            $statuses[$status] = $status;
         }
 
         return $statuses;
