@@ -23,8 +23,8 @@ class PurchaseordersTrashDataTable extends PurchaseordersDataTable
             })
             ->editColumn('purchaseorder_status_id', function (Purchaseorder $purchaseorder) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
-                <span class="badge badge-' . strtolower($statuses[$purchaseorder->status_text]) . '">
-                    '. trans('bt.' . strtolower($statuses[$purchaseorder->status_text])) . '</span>';
+                <span class="badge badge-' . strtolower($purchaseorder->status_text) . '">
+                    '. $statuses[$purchaseorder->status_text] . '</span>';
                 return $ret;
             })
             ->editColumn('vendor.name', function (Purchaseorder $purchaseorder){

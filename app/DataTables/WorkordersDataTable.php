@@ -28,8 +28,8 @@ class WorkordersDataTable extends DataTable
             })
             ->editColumn('workorder_status_id', function (Workorder $workorder) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
-                <span class="badge badge-' . strtolower($statuses[$workorder->status_text]) . '">
-                    ' . trans('bt.' . strtolower($statuses[$workorder->status_text])) . '</span>';
+                <span class="badge badge-' . strtolower($workorder->status_text) . '">
+                    ' . $statuses[$workorder->status_text] . '</span>';
                 if ($workorder->viewed)
                     $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else

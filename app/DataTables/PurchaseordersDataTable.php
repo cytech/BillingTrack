@@ -28,8 +28,8 @@ class PurchaseordersDataTable extends DataTable
             })
             ->editColumn('purchaseorder_status_id', function (Purchaseorder $purchaseorder) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
-                <span class="badge badge-' . strtolower($statuses[$purchaseorder->status_text]) . '">
-                    ' . trans('bt.' . strtolower($statuses[$purchaseorder->status_text])) . '</span>';
+                <span class="badge badge-' . strtolower($purchaseorder->status_text) . '">
+                    ' . $statuses[$purchaseorder->status_text] . '</span>';
 //                if ($purchaseorder->viewed)
 //                    $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
 //                else

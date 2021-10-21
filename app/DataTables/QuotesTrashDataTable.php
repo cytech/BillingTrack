@@ -23,8 +23,8 @@ class QuotesTrashDataTable extends QuotesDataTable
             })
             ->editColumn('quote_status_id', function (Quote $quote) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
-                <span class="badge badge-' . strtolower($statuses[$quote->status_text]) . '">
-                    '. trans('bt.' . strtolower($statuses[$quote->status_text])) . '</span>';
+                <span class="badge badge-' . strtolower($quote->status_text) . '">
+                    '. $statuses[$quote->status_text] . '</span>';
                 if ($quote->viewed)
                     $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else

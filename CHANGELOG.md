@@ -7,7 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 5.3.2
 - fix autocomplete lookup and stock counting
 - add product and employee selection modals to quotes, invoice, recurring and workorders
-- above fix issues #24 and #28
+- fix badge name and translation in datatables
+- (above fix issues #24, #28 and #36)
 - update dependencies
 - correct "deleteing" typo in model observers
 - add restoring to model observers

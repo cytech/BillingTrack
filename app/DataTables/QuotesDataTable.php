@@ -18,7 +18,6 @@ class QuotesDataTable extends DataTable
     public function dataTable($query)
     {
         $statuses = QuoteStatuses::listsAllFlat() + ['overdue' => trans('bt.overdue')];
-
         return datatables()->eloquent($query)->addColumn('action', 'quotes._actions')
             ->editColumn('id', function (Quote $quote) {
                 return '<input type="checkbox" class="bulk-record" data-id="' . $quote->id . '">';
@@ -28,8 +27,8 @@ class QuotesDataTable extends DataTable
             })
             ->editColumn('quote_status_id', function (Quote $quote) use ($statuses) {
                 $ret = '<td class="hidden-sm hidden-xs">
-                <span class="badge badge-' . strtolower($statuses[$quote->status_text]) . '">
-                    ' . trans('bt.' . strtolower($statuses[$quote->status_text])) . '</span>';
+                <span class="badge badge-' . strtolower($quote->status_text) . '">
+                    ' . $statuses[$quote->status_text] . '</span>';
                 if ($quote->viewed)
                     $ret .= '<span class="badge badge-success">' . trans('bt.viewed') . '</span>';
                 else

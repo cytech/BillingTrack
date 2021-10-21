@@ -1,7 +1,23 @@
 Release Notes
 ---
+###  BillingTrack 5.3.2 (2021-10-22)
+- fix autocomplete lookup and stock counting
+- add product and employee selection modals to quotes, invoice, recurring and workorders
+- fix badge name and translation in datatables
+- (above fix issues #24, #28 and #36)
+- update dependencies
+- correct "deleteing" typo in model observers
+- add restoring to model observers
+- track workorder_id and invoice_id as deleted/restored in quotes and workorders
+- update various badges to show delete status
+- removed group renumbering from deleting observers
+- migration add unsigned to invoice_id in workorders table
+- fix saving items  in quotes, workorders, invoices, recurring invoices and purchase orders. (remove 'saved' in
+  corresponding observers and place in edit controllers. Was causing unnecessary parent model recalc on every item which
+  led to long save times on records with many items. )
+- added "saving" alert on record save.
+- fix purchaseorder receive product numstock updating
 
----
 ### BillingTrack 5.3.1 (2021-02-10)
 - added scheduler setting for today background color
 - remove background from login page logo

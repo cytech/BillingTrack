@@ -1,5 +1,4 @@
-
-            # DataTables for jQuery with styling for [Bootstrap4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+# DataTables for jQuery with styling for [Bootstrap4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 
 This package contains distribution files required to style [DataTables library](https://datatables.net) for [jQuery](http://jquery.com/) with styling for [Bootstrap4](https://getbootstrap.com/docs/4.6/getting-started/introduction/).
 
