@@ -11,6 +11,7 @@
 
 namespace BT\Modules\Purchaseorders\Controllers;
 
+use BT\Events\PurchaseorderModified;
 use BT\Http\Controllers\Controller;
 use BT\Modules\Products\Models\Product;
 use BT\Modules\Vendors\Models\Vendor;
@@ -49,6 +50,7 @@ class PurchaseorderCreateController extends Controller
                 'cost'           => $poitem->cost
             ];
             $purchaseorder->purchaseorderItems()->create($poitems);
+            event(new PurchaseorderModified($purchaseorder));
         }
         return response()->json(['id' => $purchaseorder->id], 200);
     }

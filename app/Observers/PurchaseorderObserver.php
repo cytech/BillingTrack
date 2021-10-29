@@ -147,10 +147,6 @@ class PurchaseorderObserver
             ($purchaseorder->isForceDeleting()) ? $note->onlyTrashed()->forceDelete() : $note->delete();
         }
 
-        Quote::where('purchaseorder_id', $purchaseorder->id)->update(['purchaseorder_id' => 0]);
-
-        Expense::where('purchaseorder_id', $purchaseorder->id)->update(['purchaseorder_id' => 0]);
-
         // todo this gets messy with soft deletes...
 //        $group = Group::where('id', $purchaseorder->group_id)
 //            ->where('last_number', $purchaseorder->number)
