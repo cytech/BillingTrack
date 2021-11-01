@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
-        "axios": "^0.23",
+        "axios": "^0.24",
         "bootstrap": "^4.6.0",
         "cross-env": "^7.0.3",
         "jquery": "^3.5.1",
@@ -39,7 +39,7 @@
         "fullcalendar": "^5.5.1",
         "jquery-autosize": "^1.18.18",
         "jquery-datetimepicker": "^2.5.21",
-        "jquery-ui": "^1.12.1",
+        "jquery-ui": "^1.13.0",
         "jquery-ui-built-themes": "^1.12.1",
         "jquery-validation": "^1.19.3",
         "moment": "^2.29.1",

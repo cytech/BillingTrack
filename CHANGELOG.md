@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 5.3.3
+- fix error in purchaseorder observer
+- add modified event to invoice, quote, workorder apicontrollers
+
 ## 5.3.2
 - fix autocomplete lookup and stock counting
 - add product and employee selection modals to quotes, invoice, recurring and workorders

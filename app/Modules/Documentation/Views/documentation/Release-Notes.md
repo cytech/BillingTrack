@@ -1,5 +1,9 @@
 Release Notes
 ---
+### BillingTrack 5.3.3 (2021-11-05)
+- fix error in purchaseorder observer
+- add modified event to invoice, quote, workorder apicontrollers
+
 ###  BillingTrack 5.3.2 (2021-10-22)
 - fix autocomplete lookup and stock counting
 - add product and employee selection modals to quotes, invoice, recurring and workorders
