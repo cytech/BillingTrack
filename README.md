@@ -1,3 +1,6 @@
+# This repository is archived  
+# [It is superceded by BillingTrack-wired](https://github.com/cytech/BillingTrack-Wired)  
+
 # BillingTrack
 
 **NOTE**
